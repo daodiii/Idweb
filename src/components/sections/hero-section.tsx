@@ -226,7 +226,7 @@ export function HeroSection() {
                   &nbsp;
                   {titles.map((title, index) => (
                     <motion.span
-                      key={index}
+                      key={title}
                       className="absolute font-extrabold text-[var(--color-accent)]"
                       initial={{ opacity: 0, y: "-100" }}
                       transition={{ type: "spring", stiffness: 50 }}
@@ -278,7 +278,7 @@ export function HeroSection() {
         {/* Trust signals bar */}
         <div
           ref={trustRef}
-          className="relative z-[5] flex justify-center gap-12 border-t border-[var(--color-border)] py-6 sm:gap-16"
+          className="relative z-[5] grid grid-cols-2 gap-4 border-t border-[var(--color-border)] px-4 py-6 sm:flex sm:justify-center sm:gap-12 sm:px-0 lg:gap-16"
         >
           {TRUST_SIGNALS.map((signal) => (
             <TrustSignalItem
