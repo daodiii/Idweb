@@ -58,3 +58,28 @@ export interface TrustSignal {
   label: string;
   decimals?: number;
 }
+
+// -- Portfolio device showcase types --
+
+export type DeviceViewport = "desktop" | "tablet" | "mobile";
+
+export type PortfolioSiteId =
+  | "brobekk"
+  | "centerrahma"
+  | "vocura"
+  | "herbs"
+  | "iqra"
+  | "ringebu";
+
+export interface PortfolioSite {
+  id: PortfolioSiteId;
+  name: string;
+  domain: string;
+  images: Record<DeviceViewport, string>;
+}
+
+export interface RotationSet {
+  laptop: PortfolioSiteId;
+  tablet: PortfolioSiteId;
+  phone: PortfolioSiteId;
+}
