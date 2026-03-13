@@ -3,9 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { MoveRight, PhoneCall } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { LaptopFrame, TabletFrame, PhoneFrame } from "@/components/ui/device-frame";
 import { HERO, TRUST_SIGNALS } from "@/lib/content/homepage";
+import { ROTATION_SETS, getSiteById } from "@/lib/content/portfolio-sites";
 import type { TrustSignal } from "@/types";
 
 // -- Counter hook for trust signal animation --
@@ -34,112 +37,6 @@ function useCounter(target: number, decimals: number, inView: boolean) {
   }, [inView, target, decimals]);
 
   return decimals > 0 ? count.toFixed(decimals) : Math.round(count).toString();
-}
-
-// -- Laptop mockup (abstract/stylized website) --
-function LaptopMockup() {
-  return (
-    <div className="w-[300px] flex-shrink-0" style={{ perspective: "1200px" }}>
-      <div style={{ transform: "rotateY(18deg)" }}>
-        {/* Laptop frame */}
-        <div
-          className="rounded-t-xl bg-[#1a1a1a] p-1"
-          style={{
-            boxShadow:
-              "0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(37,99,235,0.08)",
-          }}
-        >
-          {/* Browser chrome */}
-          <div className="flex items-center gap-1.5 rounded-t-lg bg-[#111] px-3 py-1.5">
-            <div className="h-2 w-2 rounded-full bg-[#ff5f56]" />
-            <div className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
-            <div className="h-2 w-2 rounded-full bg-[#27c93f]" />
-            <div className="ml-3 h-2 flex-1 rounded bg-white/5" />
-          </div>
-          {/* Screen content */}
-          <div className="flex h-[180px] flex-col gap-1.5 bg-gradient-to-b from-[#0f172a] to-[#1e293b] p-4">
-            {/* Mini nav */}
-            <div className="mb-1 flex items-center justify-between">
-              <div className="h-1.5 w-12 rounded bg-white/25" />
-              <div className="flex gap-2.5">
-                <div className="h-1 w-6 rounded bg-white/10" />
-                <div className="h-1 w-6 rounded bg-white/10" />
-                <div className="h-1 w-6 rounded bg-white/10" />
-              </div>
-            </div>
-            {/* Hero text blocks */}
-            <div className="mt-3 flex flex-col items-center gap-1.5">
-              <div className="h-2 w-[70%] rounded bg-white/30" />
-              <div className="h-1.5 w-[45%] rounded bg-[var(--color-accent)]/50" />
-              <div className="mt-0.5 h-1 w-[55%] rounded bg-white/10" />
-            </div>
-            {/* Cards row */}
-            <div className="mt-auto flex gap-2">
-              <div className="flex-1 rounded border border-white/5 bg-white/[0.03] p-2">
-                <div className="mb-1 h-1 w-[60%] rounded bg-white/15" />
-                <div className="h-0.5 w-[80%] rounded bg-white/5" />
-              </div>
-              <div className="flex-1 rounded border border-white/5 bg-white/[0.03] p-2">
-                <div className="mb-1 h-1 w-[50%] rounded bg-white/15" />
-                <div className="h-0.5 w-[70%] rounded bg-white/5" />
-              </div>
-              <div className="flex-1 rounded border border-white/5 bg-white/[0.03] p-2">
-                <div className="mb-1 h-1 w-[55%] rounded bg-white/15" />
-                <div className="h-0.5 w-[65%] rounded bg-white/5" />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Laptop base */}
-        <div className="mx-auto h-2.5 w-[320px] rounded-b bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a]" />
-        <div className="mx-auto h-1.5 w-24 rounded-b-lg bg-[#222]" />
-      </div>
-    </div>
-  );
-}
-
-// -- Phone mockup (abstract/stylized mobile site) --
-function PhoneMockup() {
-  return (
-    <div className="w-[100px] flex-shrink-0" style={{ perspective: "1200px" }}>
-      <div style={{ transform: "rotateY(-15deg)" }}>
-        <div
-          className="rounded-[18px] bg-[#1a1a1a] p-1"
-          style={{
-            boxShadow:
-              "0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(37,99,235,0.06)",
-          }}
-        >
-          {/* Notch */}
-          <div className="mx-auto mb-1 h-1.5 w-10 rounded-b-md bg-[#111]" />
-          {/* Screen content */}
-          <div className="flex h-[200px] flex-col gap-1.5 rounded-xl bg-gradient-to-b from-[#0f172a] to-[#1e293b] p-3">
-            {/* Mobile nav */}
-            <div className="flex items-center justify-between">
-              <div className="h-1 w-7 rounded bg-white/20" />
-              <div className="flex flex-col gap-0.5">
-                <div className="h-[1.5px] w-3 bg-white/30" />
-                <div className="h-[1.5px] w-2 bg-white/30" />
-              </div>
-            </div>
-            {/* Hero text */}
-            <div className="mt-3 flex flex-col items-center gap-1">
-              <div className="h-1.5 w-16 rounded bg-white/25" />
-              <div className="h-1 w-10 rounded bg-[var(--color-accent)]/40" />
-              <div className="mt-1 h-0.5 w-14 rounded bg-white/8" />
-            </div>
-            {/* CTA button */}
-            <div className="mx-auto mt-2 h-3 w-12 rounded bg-[var(--color-accent)]/50" />
-            {/* Card */}
-            <div className="mt-auto rounded-md border border-white/5 bg-white/[0.03] p-2">
-              <div className="mb-1 h-1 w-[70%] rounded bg-white/10" />
-              <div className="h-0.5 w-[90%] rounded bg-white/5" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 }
 
 // -- Single trust signal with counter --
@@ -183,6 +80,40 @@ export function HeroSection() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
+  // -- Rotation state for portfolio device sets --
+  const [activeSet, setActiveSet] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  // Cycle through rotation sets: 6s visible + 0.6s fade = 6.6s total cycle
+  useEffect(() => {
+    let fadeTimeout: ReturnType<typeof setTimeout>;
+    const interval = setInterval(() => {
+      setIsFading(true);
+      // After fade-out completes, switch set and fade back in
+      fadeTimeout = setTimeout(() => {
+        setActiveSet((prev) => (prev + 1) % ROTATION_SETS.length);
+        setIsFading(false);
+      }, 600);
+    }, 6600);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(fadeTimeout);
+    };
+  }, []);
+
+  // Resolve current set's image paths
+  const currentSet = ROTATION_SETS[activeSet];
+  const laptopSite = getSiteById(currentSet.laptop);
+  const tabletSite = getSiteById(currentSet.tablet);
+  const phoneSite = getSiteById(currentSet.phone);
+
+  // Resolve next set for preloading
+  const nextSetIndex = (activeSet + 1) % ROTATION_SETS.length;
+  const nextSet = ROTATION_SETS[nextSetIndex];
+  const nextLaptop = getSiteById(nextSet.laptop);
+  const nextTablet = getSiteById(nextSet.tablet);
+  const nextPhone = getSiteById(nextSet.phone);
+
   return (
     <section className="relative w-full bg-[var(--color-bg)]">
       {/* Dot grid background */}
@@ -197,21 +128,35 @@ export function HeroSection() {
 
       <div className="relative z-[2] mx-auto max-w-7xl px-6">
         {/* Main content row */}
-        <div className="flex items-center justify-center gap-10 py-24 lg:py-40">
-          {/* Laptop mockup — left */}
+        <div className="flex items-center justify-center py-24 lg:py-40">
+          {/* Laptop — left */}
           <motion.div
-            className="hidden lg:block"
+            className="hidden w-[300px] flex-shrink-0 lg:block"
             initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
             aria-hidden="true"
             role="presentation"
           >
-            <LaptopMockup />
+            <div
+              className="transition-opacity duration-[600ms]"
+              style={{ opacity: isFading ? 0 : 1 }}
+            >
+              {laptopSite && (
+                <LaptopFrame
+                  key={`laptop-${currentSet.laptop}`}
+                  imageSrc={laptopSite.images.desktop}
+                  imageAlt={`${laptopSite.name} nettside — desktop`}
+                  paused={isFading}
+                  priority={activeSet === 0}
+                  className="w-[300px] flex-shrink-0"
+                />
+              )}
+            </div>
           </motion.div>
 
           {/* Center text content */}
-          <div className="flex max-w-lg flex-1 flex-col items-center justify-center gap-8">
+          <div className="flex max-w-lg flex-1 flex-col items-center justify-center gap-8 px-8">
             <div>
               <Link href="/referanser">
                 <Button variant="secondary" size="sm" className="gap-3">
@@ -262,16 +207,40 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Phone mockup — right */}
+          {/* Tablet + Phone — right */}
           <motion.div
-            className="hidden lg:block"
+            className="hidden w-[300px] flex-shrink-0 items-end gap-4 lg:flex"
             initial={{ x: 40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
             aria-hidden="true"
             role="presentation"
           >
-            <PhoneMockup />
+            <div
+              className="flex items-end gap-4 transition-opacity duration-[600ms]"
+              style={{ opacity: isFading ? 0 : 1 }}
+            >
+              {tabletSite && (
+                <TabletFrame
+                  key={`tablet-${currentSet.tablet}`}
+                  imageSrc={tabletSite.images.tablet}
+                  imageAlt={`${tabletSite.name} nettside — nettbrett`}
+                  paused={isFading}
+                  priority={activeSet === 0}
+                  className="w-[180px] flex-shrink-0"
+                />
+              )}
+              {phoneSite && (
+                <PhoneFrame
+                  key={`phone-${currentSet.phone}`}
+                  imageSrc={phoneSite.images.mobile}
+                  imageAlt={`${phoneSite.name} nettside — mobil`}
+                  paused={isFading}
+                  priority={activeSet === 0}
+                  className="w-[100px] flex-shrink-0"
+                />
+              )}
+            </div>
           </motion.div>
         </div>
 
@@ -288,6 +257,37 @@ export function HeroSection() {
             />
           ))}
         </div>
+      </div>
+
+      {/* Preload next rotation set (hidden) */}
+      <div className="hidden" aria-hidden="true">
+        {nextLaptop && (
+          <Image
+            src={nextLaptop.images.desktop}
+            alt=""
+            width={1440}
+            height={3600}
+            priority={false}
+          />
+        )}
+        {nextTablet && (
+          <Image
+            src={nextTablet.images.tablet}
+            alt=""
+            width={768}
+            height={3200}
+            priority={false}
+          />
+        )}
+        {nextPhone && (
+          <Image
+            src={nextPhone.images.mobile}
+            alt=""
+            width={375}
+            height={3400}
+            priority={false}
+          />
+        )}
       </div>
     </section>
   );
