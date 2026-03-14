@@ -26,12 +26,33 @@ export interface BlogSection {
   listItems?: string[];
 }
 
+export interface ServiceFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ServiceExtraItem {
+  label: string;
+  detail?: string;
+  icon?: string;
+  value?: string;
+}
+
+export interface ServiceExtraSection {
+  type: 'checklist' | 'integrations' | 'process' | 'platforms' | 'stats' | 'deliverables';
+  headline: string;
+  items: ServiceExtraItem[];
+}
+
 export interface Service {
   id: string;
   title: string;
   shortDescription: string;
   longDescription: string;
   features: string[];
+  detailedFeatures: ServiceFeature[];
+  extraSection?: ServiceExtraSection;
 }
 
 export interface FAQ {
@@ -39,11 +60,16 @@ export interface FAQ {
   answer: string;
 }
 
-export interface Testimonial {
+export interface TestimonialAuthor {
   name: string;
-  company: string;
-  role: string;
-  quote: string;
+  handle: string;
+  avatar: string;
+}
+
+export interface Testimonial {
+  author: TestimonialAuthor;
+  text: string;
+  href?: string;
 }
 
 export interface ProcessStep {
