@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     // Validate required fields
     if (!body.name?.trim() || !body.email?.trim()) {
       return NextResponse.json(
-        { error: "Navn og e-post er p\u00E5krevd." },
+        { error: "Navn og e-post er påkrevd." },
         { status: 400 },
       );
     }
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json(
-      { error: "Noe gikk galt. Pr\u00F8v igjen senere." },
+      { error: "Noe gikk galt. Prøv igjen senere." },
       { status: 500 },
     );
   }

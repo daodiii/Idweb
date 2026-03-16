@@ -16,10 +16,10 @@ export function PricingPreview() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-center text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
-            \u00C6rlige priser, ingen overraskelser
+            Ærlige priser, ingen overraskelser
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-muted)]">
-            Alle prosjekter skreddersys \u2014 her er utgangspunktene.
+            Alle prosjekter skreddersys — her er utgangspunktene.
           </p>
         </motion.div>
 
@@ -45,7 +45,7 @@ export function PricingPreview() {
             >
               {pkg.highlight && (
                 <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-xs font-bold text-[var(--color-dark-bg)]">
-                  Mest popul\u00E6r
+                  Mest populær
                 </span>
               )}
               <h3 className="text-lg font-bold text-[var(--color-text)]">
@@ -63,7 +63,7 @@ export function PricingPreview() {
                     key={feat}
                     className="text-xs text-[var(--color-text-muted)]"
                   >
-                    \u2713 {feat}
+                    ✓ {feat}
                   </li>
                 ))}
               </ul>

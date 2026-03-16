@@ -44,7 +44,7 @@ export function ContactForm({
       setErrorMessage(
         err instanceof Error
           ? err.message
-          : "Noe gikk galt. Pr\u00F8v igjen eller send e-post direkte.",
+          : "Noe gikk galt. Prøv igjen eller send e-post direkte.",
       );
     }
   }
@@ -120,7 +120,7 @@ export function ContactForm({
         {status === "loading" ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
-          "Send foresp\u00F8rsel"
+          "Send forespørsel"
         )}
       </button>
     </form>

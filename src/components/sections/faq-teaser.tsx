@@ -19,7 +19,7 @@ export function FaqTeaser() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-center text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
-            Vanlige sp\u00F8rsm\u00E5l
+            Vanlige spørsmål
           </h2>
         </motion.div>
 
@@ -74,7 +74,7 @@ export function FaqTeaser() {
             href="/faq"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline"
           >
-            Se alle sp\u00F8rsm\u00E5l <MoveRight className="h-4 w-4" />
+            Se alle spørsmål <MoveRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
