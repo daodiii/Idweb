@@ -11,6 +11,7 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 - **Target audience:** Small local service businesses (plumbers, dentists, restaurants) initially, growing into established SMBs (5-50 employees) as the portfolio expands.
 - **Key differentiator:** Direct contact with the person who builds. Modern tech (Next.js, React) vs template agencies. Measurable results.
 - **Voice:** First-person singular ("jeg", "meg", "min") throughout all copy. Replace all existing "vi" / "oss" with "jeg" / "meg" to match solo-expert positioning. Exception: legal pages can remain formal/neutral.
+- **Voice migration scope:** All content data files need "vi" → "jeg" rewrites: `homepage.ts`, `services.ts`, `pricing.ts`, `faq.ts`, `about.ts`, and any hardcoded text in section components (e.g., `bento-services.tsx`). This is a content pass done alongside the homepage redesign — not a separate phase.
 
 ## Hero Section — "Proof First" Split Layout
 
@@ -26,7 +27,7 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 
 ### Right Column
 - **Project showcase:** Auto-rotating carousel (5s interval) of best 3 projects using existing `LaptopFrame` component. Uses Motion `AnimatePresence` for crossfade transitions.
-- **Featured projects:** Configurable via `FEATURED_PORTFOLIO_IDS` array in `homepage.ts`. Default: Solberg Interiør, Haugen Elektro, Nordfjord Bakeri (pick 3 strongest visually).
+- **Featured projects:** Configurable via `FEATURED_PORTFOLIO_IDS` array in `homepage.ts`. Must reference IDs from `portfolio-sites.ts` (which has actual screenshot assets). Default: `["vocura", "brobekk", "centerrahma"]` — these have desktop/tablet/mobile screenshots available.
 - **Pagination dots:** 3 dots below the frame. Active dot = yellow, inactive = muted. Clickable to jump to specific project.
 - **Floating badge:** "⚡ 98/100 PageSpeed" — glassmorphic yellow-tinted badge (`bg-[rgba(244,206,20,0.12)] border border-[rgba(244,206,20,0.25)]`), positioned absolute bottom-right of the showcase container.
 - **Removes:** Current rotating word animation (`rotatingWords`) — replaced by the project carousel. The static three-device-frame layout is replaced by the single LaptopFrame carousel.
@@ -172,7 +173,7 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 | "10+ års erfaring" | "5 prosjekter levert" |
 | "200+ prosjekter" | "100% kundetilfredshet" |
 | "98% tilfredshet" | "5.0 ★ vurdering" |
-| "5.0 vurdering" | "Basert i [city]" |
+| "5.0 vurdering" | "Basert i Drammen" |
 
 ### About Page Rewrite
 - Frame self-taught journey as a strength
