@@ -10,7 +10,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     domain: "brobekklegekontor.no",
     images: {
       desktop: "/images/portfolio/brobekk-desktop.webp",
-      tablet: "/images/portfolio/brobekk-tablet.webp",
+      tablet: "/images/portfolio/brobekk-tablet.png",
       mobile: "/images/portfolio/brobekk-mobile.webp",
     },
   },
@@ -21,7 +21,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     images: {
       desktop: "/images/portfolio/centerrahma-desktop.webp",
       tablet: "/images/portfolio/centerrahma-tablet.webp",
-      mobile: "/images/portfolio/centerrahma-mobile.webp",
+      mobile: "/images/portfolio/centerrahma-mobile.png",
     },
   },
   {
@@ -29,7 +29,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     name: "Vocura",
     domain: "vocura-7orm.vercel.app",
     images: {
-      desktop: "/images/portfolio/vocura-desktop.webp",
+      desktop: "/images/portfolio/vocura-desktop.png",
       tablet: "/images/portfolio/vocura-tablet.webp",
       mobile: "/images/portfolio/vocura-mobile.webp",
     },
@@ -67,20 +67,14 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
 ];
 
 /** Helper: look up a site by ID */
-export function getSiteById(id: PortfolioSiteId): PortfolioSite | undefined {
-  return PORTFOLIO_SITES.find((s) => s.id === id);
+export function getSiteById(id: PortfolioSiteId) {
+  return PORTFOLIO_SITES.find((site) => site.id === id) ?? null;
 }
 
 /**
- * Three curated rotation sets — each set shows a different combination
- * of sites across laptop/tablet/phone to maximize visual variety.
- *
- * Set 1 (High Contrast): dark medical + photo-heavy + moody e-commerce
- * Set 2 (Clean Professional): white SaaS + dark medical + light community
- * Set 3 (Bold Variety): moody e-commerce + minimal dental + photo-heavy
+ * Static hero device showcase — hand-picked sites for each device.
+ * Vocura (laptop), Brobekk (tablet), Center Rahma (phone).
  */
 export const ROTATION_SETS: RotationSet[] = [
-  { laptop: "brobekk", tablet: "iqra", phone: "herbs" },
   { laptop: "vocura", tablet: "brobekk", phone: "centerrahma" },
-  { laptop: "herbs", tablet: "ringebu", phone: "iqra" },
 ];

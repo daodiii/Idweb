@@ -1,26 +1,29 @@
 import type { Testimonial, ProcessStep, TrustSignal } from "@/types";
+import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
-  headline: "Din neste nettside blir",
-  rotatingWords: [
-    "profesjonell",
-    "moderne",
-    "unik",
-    "rask",
-    "imponerende",
-  ],
+  eyebrow: "5 PROSJEKTER \u00b7 5 FORN\u00d8YDE KUNDER \u00b7 100% TILFREDSHET",
+  headline: "Din nettside skal",
+  headlineHighlight: "jobbe for deg",
+  headlineEnd: "\u2014 ikke mot deg",
   subheadline:
-    "Vi designer og utvikler skreddersydde nettsider som hjelper norske bedrifter å vokse. Fra idé til lansering — vi tar oss av alt det digitale.",
-  badge: "Se hva vi har levert",
-  primaryCta: "Få et uforpliktende tilbud",
-  secondaryCta: "Book en samtale",
+    "Bygget med moderne teknologi. Optimalisert for Google. Designet for \u00e5 konvertere bes\u00f8kende til kunder.",
+  primaryCta: "Se mine prosjekter",
+  secondaryCta: "F\u00e5 et tilbud",
 } as const;
 
 export const TRUST_SIGNALS: TrustSignal[] = [
-  { value: 10, suffix: "+", label: "Års erfaring" },
-  { value: 200, suffix: "+", label: "Leverte prosjekter" },
-  { value: 98, suffix: "%", label: "Kundetilfredshet" },
-  { value: 5.0, suffix: "", label: "Google-vurdering", decimals: 1 },
+  { value: 5, suffix: "", label: "Prosjekter levert" },
+  { value: 100, suffix: "%", label: "Kundetilfredshet" },
+  { value: 5, suffix: "/5", label: "Google-vurdering" },
+];
+
+export const TRUST_LOCATION = "Basert i Drammen" as const;
+
+export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
+  "vocura",
+  "brobekk",
+  "centerrahma",
 ];
 
 export const SERVICES_OVERVIEW = [
@@ -28,31 +31,31 @@ export const SERVICES_OVERVIEW = [
     id: "nettside",
     title: "Nettsider",
     description:
-      "Profesjonelle, raske nettsider som representerer merkevaren din og tiltrekker nye kunder gjennom søkemotorer.",
+      "Profesjonelle, raske nettsider som representerer merkevaren din og tiltrekker nye kunder gjennom s\u00f8kemotorer.",
   },
   {
     id: "nettbutikk",
     title: "Nettbutikk",
     description:
-      "Brukervennlige nettbutikker med sikker betaling, enkel administrasjon og høy konverteringsrate.",
+      "Brukervennlige nettbutikker med sikker betaling, enkel administrasjon og h\u00f8y konverteringsrate.",
   },
   {
     id: "seo",
     title: "SEO-optimalisering",
     description:
-      "Bli funnet av kundene dine. Vi sørger for at bedriften din rangerer høyt i Google-søk.",
+      "Bli funnet av kundene dine. Jeg s\u00f8rger for at bedriften din rangerer h\u00f8yt i Google-s\u00f8k.",
   },
   {
     id: "markedsforing",
-    title: "Digital markedsføring",
+    title: "Digital markedsf\u00f8ring",
     description:
-      "Målrettet annonsering på Google og sosiale medier som gir målbar avkastning på investeringen.",
+      "M\u00e5lrettet annonsering p\u00e5 Google og sosiale medier som gir m\u00e5lbar avkastning p\u00e5 investeringen.",
   },
   {
     id: "vedlikehold",
     title: "Drift og vedlikehold",
     description:
-      "Løpende oppdateringer, sikkerhetskopier og support slik at nettsiden alltid er trygg og oppdatert.",
+      "L\u00f8pende oppdateringer, sikkerhetskopier og support slik at nettsiden alltid er trygg og oppdatert.",
   },
   {
     id: "design",
@@ -62,68 +65,147 @@ export const SERVICES_OVERVIEW = [
   },
 ] as const;
 
+export const PROBLEM_CARDS = [
+  {
+    icon: "Gauge",
+    title: "Treg lasting = tapte kunder",
+    stat: "53%",
+    statLabel: "forlater en side som bruker mer enn 3 sekunder p\u00e5 \u00e5 laste",
+  },
+  {
+    icon: "SearchX",
+    title: "Usynlig p\u00e5 Google",
+    stat: "75%",
+    statLabel: "klikker aldri forbi f\u00f8rste side i s\u00f8keresultatene",
+  },
+  {
+    icon: "CalendarX",
+    title: "Ser ut som 2015",
+    stat: "94%",
+    statLabel: "av f\u00f8rsteinntrykket handler om design og troverdighet",
+  },
+] as const;
+
+export const PROBLEM_TRANSITION = "Det trenger ikke v\u00e6re slik." as const;
+
+export const TECH_COMPARISON = {
+  headline: "Hvorfor moderne teknologi gir deg en fordel",
+  template: {
+    title: "Mal-nettside",
+    metrics: [
+      { label: "Lastetid", value: "4.2s", pass: false },
+      { label: "PageSpeed", value: "45/100", pass: false },
+      { label: "Mobilvennlig", value: "Begrenset", pass: false },
+      { label: "Design", value: "Generisk", pass: false },
+    ],
+  },
+  custom: {
+    title: "Skreddersydd nettside",
+    metrics: [
+      { label: "Lastetid", value: "0.8s", pass: true },
+      { label: "PageSpeed", value: "98/100", pass: true },
+      { label: "Mobilvennlig", value: "Fullt tilpasset", pass: true },
+      { label: "Design", value: "Unikt for deg", pass: true },
+    ],
+  },
+} as const;
+
+export const FAQ_TEASER_ITEMS = [
+  {
+    question: "Hvor lang tid tar det \u00e5 lage en nettside?",
+    answer:
+      "En standard bedriftsnettside tar vanligvis 3\u20136 uker fra oppstart til lansering. Enklere prosjekter kan leveres raskere, mens st\u00f8rre skreddersydde l\u00f8sninger kan ta 6\u201310 uker.",
+  },
+  {
+    question: "Hva om jeg allerede har en nettside?",
+    answer:
+      "Jeg tilbyr b\u00e5de redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Jeg gir deg en \u00e6rlig vurdering av hva som gir best resultat.",
+  },
+  {
+    question: "Hva koster vedlikehold?",
+    answer:
+      "Driftsavtaler starter fra 490 kr/mnd og dekker hosting, sikkerhetskopier, oppdateringer og support. Ingen bindingstid \u2014 du kan si opp n\u00e5r som helst.",
+  },
+  {
+    question: "Trenger jeg virkelig en skreddersydd nettside?",
+    answer:
+      "Maler kan fungere som et utgangspunkt, men en skreddersydd nettside gir deg bedre ytelse, unikt design og full kontroll. Det er en investering som betaler seg gjennom flere kunder.",
+  },
+] as const;
+
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: 1,
-    title: "Vi blir kjent",
+    title: "Gratis samtale",
     description:
-      "Vi starter med en uforpliktende samtale der vi kartlegger behovene dine, målgruppen din og hva du ønsker å oppnå. Du forteller — vi lytter.",
+      "Jeg starter med en uforpliktende samtale der jeg kartlegger behovene dine, m\u00e5lgruppen din og hva du \u00f8nsker \u00e5 oppn\u00e5. Du forteller \u2014 jeg lytter.",
   },
   {
     step: 2,
-    title: "Vi designer og utvikler",
+    title: "Design og utvikling",
     description:
-      "Basert på det vi har lært, lager vi et skreddersydd design og utvikler nettsiden med fokus på hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
+      "Basert p\u00e5 det jeg har l\u00e6rt, lager jeg et skreddersydd design og utvikler nettsiden med fokus p\u00e5 hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
   },
   {
     step: 3,
-    title: "Vi lanserer og følger opp",
+    title: "Lansering og oppf\u00f8lging",
     description:
-      "Når du er fornøyd, lanserer vi nettsiden. Men vi stopper ikke der — vi tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
+      "N\u00e5r du er forn\u00f8yd, lanserer jeg nettsiden. Men jeg stopper ikke der \u2014 jeg tilbyr l\u00f8pende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
   },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Marte Solberg",
-    company: "Solberg Interiør AS",
-    role: "Daglig leder",
-    quote:
-      "Selgenettside forstod umiddelbart hva vi trengte. Nettsiden ble levert raskere enn forventet, og vi merket økning i henvendelser allerede den første måneden. Profesjonelle fra start til slutt.",
+    author: {
+      name: "Marte Solberg",
+      handle: "Daglig leder",
+      company: "Solberg Interi\u00f8r AS",
+      avatar: "",
+      rating: 5,
+    },
+    text: "IDweb forstod umiddelbart hva jeg trengte. Nettsiden ble levert raskere enn forventet, og jeg merket \u00f8kning i henvendelser allerede den f\u00f8rste m\u00e5neden. Profesjonelt fra start til slutt.",
   },
   {
-    name: "Erik Haugen",
-    company: "Haugen Elektro",
-    role: "Eier",
-    quote:
-      "Vi hadde en gammel nettside som knapt fungerte på mobil. Etter at Selgenettside bygde den nye siden vår, har vi doblet antall forespørsler via nettet. Best av alt — de tar seg av alt det tekniske etterpå også.",
+    author: {
+      name: "Erik Haugen",
+      handle: "Eier",
+      company: "Haugen Elektro",
+      avatar: "",
+      rating: 5,
+    },
+    text: "Jeg hadde en gammel nettside som knapt fungerte p\u00e5 mobil. Etter at IDweb bygde den nye siden min, har jeg doblet antall foresp\u00f8rsler via nettet. Best av alt \u2014 han tar seg av alt det tekniske etterp\u00e5 ogs\u00e5.",
   },
   {
-    name: "Linda Kristiansen",
-    company: "Kristiansen Regnskap",
-    role: "Partner",
-    quote:
-      "Endelig en nettside som speiler kvaliteten vi leverer til kundene våre. Selgenettside var tålmodige, kreative og leverte et resultat som overgikk forventningene. Anbefales på det sterkeste.",
-  },
-  {
-    name: "Jonas Berge",
-    company: "Berge Tannklinikk",
-    role: "Klinikkleder",
-    quote:
-      "Vi trengte en nettside som bygget tillit hos nye pasienter. Selgenettside leverte akkurat det — en moderne, rask og profesjonell side med enkel timebestilling. Antall nye pasienter har økt merkbart.",
+    author: {
+      name: "Linda Kristiansen",
+      handle: "Partner",
+      company: "Kristiansen Regnskap",
+      avatar: "",
+      rating: 5,
+    },
+    text: "Endelig en nettside som speiler kvaliteten jeg leverer til kundene mine. IDweb var t\u00e5lmodig, kreativ og leverte et resultat som overgikk forventningene. Anbefales p\u00e5 det sterkeste.",
   },
 ];
 
 export const FINAL_CTA = {
-  headline: "Klar for en nettside som faktisk leverer resultater?",
+  headline: "Klar for en nettside som faktisk leverer?",
   description:
-    "Fortell oss om prosjektet ditt, så sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
-  buttonText: "Start prosjektet ditt i dag",
-  secondaryText: "Eller ring oss direkte: 123 45 678",
+    "Fortell meg om prosjektet ditt, s\u00e5 sender jeg et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
+  buttonText: "Send foresp\u00f8rsel",
+  secondaryText: "Eller ring meg direkte: 123 45 678",
 } as const;
 
 export const SOCIAL_PROOF = {
   heading: "Stolt samarbeidspartner for norske bedrifter",
   description:
-    "Fra lokale håndverkere til nasjonale merkevarer — vi har hjulpet over 200 bedrifter med å lykkes på nett.",
+    "Fra lokale h\u00e5ndverkere til etablerte bedrifter \u2014 jeg har hjulpet bedrifter med \u00e5 lykkes p\u00e5 nett.",
 } as const;
+
+export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
+  nettside: 0,
+  nettbutikk: 2,
+  seo: 1,
+  markedsforing: 1,
+  vedlikehold: 0,
+  design: 2,
+};
