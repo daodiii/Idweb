@@ -10,6 +10,7 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 - **Tone:** Direct, honest, no-fluff Norwegian. Like a skilled tradesperson who knows their craft and explains clearly.
 - **Target audience:** Small local service businesses (plumbers, dentists, restaurants) initially, growing into established SMBs (5-50 employees) as the portfolio expands.
 - **Key differentiator:** Direct contact with the person who builds. Modern tech (Next.js, React) vs template agencies. Measurable results.
+- **Voice:** First-person singular ("jeg", "meg", "min") throughout all copy. Replace all existing "vi" / "oss" with "jeg" / "meg" to match solo-expert positioning. Exception: legal pages can remain formal/neutral.
 
 ## Hero Section — "Proof First" Split Layout
 
@@ -24,12 +25,16 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 - **CTAs:** Primary yellow button "Se mine prosjekter →" + secondary ghost button "Få et tilbud".
 
 ### Right Column
-- **Project showcase:** Rotating display of best projects using existing device frame components (LaptopFrame).
-- **Pagination dots:** 3 dots indicating multiple projects.
-- **Floating badge:** "⚡ 98/100 PageSpeed" — glassmorphic yellow-tinted badge, positioned bottom-right.
+- **Project showcase:** Auto-rotating carousel (5s interval) of best 3 projects using existing `LaptopFrame` component. Uses Motion `AnimatePresence` for crossfade transitions.
+- **Featured projects:** Configurable via `FEATURED_PORTFOLIO_IDS` array in `homepage.ts`. Default: Solberg Interiør, Haugen Elektro, Nordfjord Bakeri (pick 3 strongest visually).
+- **Pagination dots:** 3 dots below the frame. Active dot = yellow, inactive = muted. Clickable to jump to specific project.
+- **Floating badge:** "⚡ 98/100 PageSpeed" — glassmorphic yellow-tinted badge (`bg-[rgba(244,206,20,0.12)] border border-[rgba(244,206,20,0.25)]`), positioned absolute bottom-right of the showcase container.
+- **Removes:** Current rotating word animation (`rotatingWords`) — replaced by the project carousel. The static three-device-frame layout is replaced by the single LaptopFrame carousel.
 
 ### Responsive
-- Stacks to single column on mobile. Text first, project showcase below.
+- Stacks to single column on mobile (< 768px). Text first, project showcase below.
+- Carousel dots and floating badge remain visible on mobile.
+- Hero padding reduces from `py-24` to `py-16` on mobile.
 
 ## Homepage Section Flow (11 Sections)
 
@@ -37,17 +42,19 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 
 ### Section 2: Social Proof Bar
 - **Purpose:** Build instant credibility with real stats.
-- **Layout:** Compact horizontal bar, light background.
-- **Content:** 3-4 real metrics separated by dividers:
+- **Background:** Light (#F5F7F8).
+- **Layout:** Compact horizontal bar, centered, items separated by `·` or thin dividers.
+- **Content:** 4 real metrics:
   - "5 prosjekter levert"
   - "100% kundetilfredshet"
   - "5.0 ★ vurdering"
-  - "Basert i [city]"
+  - "Basert i Drammen" *(update to actual city)*
 - **Change from current:** Replaces inflated "10+ years, 200+ projects" with honest numbers.
 
 ### Section 3: Problem Agitation (NEW)
 - **Purpose:** Make visitors feel the pain of a bad website.
-- **Layout:** 3 cards in a row, dark background.
+- **Background:** Dark (#0F172A).
+- **Layout:** 3 cards in a row.
 - **Cards:**
   1. "Treg lasting = tapte kunder" — with speed icon + stat about bounce rates
   2. "Usynlig på Google" — with search icon + stat about local search
@@ -57,27 +64,35 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 
 ### Section 4: Portfolio Showcase
 - **Purpose:** Prove quality through real work.
-- **Layout:** 2-3 featured case studies (not all 6).
-- **Each card:** Device mockups (laptop + mobile), client name, industry tag, 1-line result metric.
-- **Interaction:** Click to navigate to /referanser for full case study.
-- **Change from current:** Curated to strongest 2-3 projects instead of showing all.
+- **Background:** Light (#F5F7F8).
+- **Layout:** 2-3 featured case studies (uses same `FEATURED_PORTFOLIO_IDS` from hero config).
+- **Each card:** LaptopFrame + PhoneFrame mockups side by side, client name, industry tag, first result from `results` array in `portfolio.ts`.
+- **Interaction:** Click navigates to `/referanser` page.
+- **Change from current:** Curated to strongest 2-3 projects instead of showing all 6.
 
 ### Section 5: Tech Advantage (NEW)
 - **Purpose:** Differentiate from template/WordPress agencies.
-- **Layout:** Side-by-side comparison table/visual.
-- **Left column:** "Mal-nettside" — Load time 4.2s, PageSpeed 45/100, Ikke mobilvennlig, Generisk design.
-- **Right column:** "Skreddersydd nettside" — Load time 0.8s, PageSpeed 98/100, Mobiltilpasset, Unikt design.
-- **Visual treatment:** Left side muted/grayed, right side highlighted with yellow accents.
+- **Background:** Light (#F5F7F8).
+- **Layout:** Two styled cards side by side (not a `<table>`). Each card is a glassmorphic panel.
+- **Left card — "Mal-nettside":**
+  - Muted/grayed styling: `opacity-60`, gray border, red ✗ icons.
+  - Metrics: Lastetid 4.2s, PageSpeed 45/100, Ikke mobilvennlig ✗, Generisk design ✗.
+- **Right card — "Skreddersydd nettside":**
+  - Highlighted: yellow border, yellow ✓ checkmarks, subtle glow.
+  - Metrics: Lastetid 0.8s, PageSpeed 98/100, Mobiltilpasset ✓, Unikt design ✓.
+- **Responsive:** Stacks vertically on mobile, left card on top.
 
 ### Section 6: Services Overview
 - **Purpose:** Show range of services without overwhelming.
-- **Layout:** Bento grid, 4-6 service cards.
+- **Background:** Dark (#0F172A).
+- **Layout:** Bento grid, 6 service cards. Uses existing `bento-services.tsx` component (currently exists but is not on the homepage — add it).
 - **Each card:** Icon + title + 1-line description + link to /tjenester/[slug].
-- **Keep:** Existing bento-services component with refinements.
+- **Note:** This replaces `ServiceFeatureSteps` on the homepage. `BentoServices` already exists as a standalone component.
 
 ### Section 7: Process — "Slik jobber jeg"
 - **Purpose:** Remove uncertainty about what happens after contact.
-- **Layout:** 3-step vertical timeline or horizontal steps.
+- **Background:** Light (#F5F7F8).
+- **Layout:** 3-step vertical timeline (desktop) / stacked cards (mobile).
 - **Steps:**
   1. "Gratis samtale" — We discuss your needs and goals
   2. "Design & utvikling" — I build your site with your input along the way
@@ -87,20 +102,25 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 
 ### Section 8: Testimonials
 - **Purpose:** Social proof through client words.
-- **Layout:** 2-3 testimonial cards, clean layout (not marquee).
-- **Content:** Placeholder testimonials with realistic Norwegian names and businesses. Will be swapped for real testimonials later.
-- **Each card:** Quote, client name, business name, role, star rating.
-- **Change from current:** Remove Unsplash stock avatars. Use initials or simple avatar placeholders until real photos are available.
+- **Background:** Dark (#0F172A).
+- **Layout:** 3 testimonial cards in a horizontal row (not marquee). Build new `TestimonialGrid` component — do NOT modify existing `testimonials-with-marquee.tsx` (may be used on other pages later).
+- **Content:** 3 placeholder testimonials with realistic Norwegian names and businesses. Will be swapped for real testimonials later. Keep existing testimonial data in `homepage.ts` but trim to 3.
+- **Each card:** Glassmorphic card with quote, client name, business name, role, 5-star rating.
+- **Avatars:** Colored circle with initials (e.g., "EL" for Erik Larsen). Use deterministic color from name hash. No stock photos.
+- **Responsive:** Stacks to single column on mobile.
 
 ### Section 9: Pricing Preview (NEW)
 - **Purpose:** Pre-qualify leads, remove price anxiety.
-- **Layout:** Compact section with 3 tier previews.
-- **Content:** Brief summary of each tier with starting price ("Fra kr X"). Link to full /priser page.
+- **Background:** Light (#F5F7F8).
+- **Layout:** Compact section with 3 cards (matching existing `PACKAGES` from `pricing.ts`).
+- **Each card:** Tier name + starting price ("Fra kr X") + 2-3 key features. Pulls from existing `pricing.ts` data — no duplicate content.
+- **Footer:** "Se alle detaljer →" link to `/priser`.
 - **Tone:** Transparent, no "kontakt oss for pris" — Norwegians appreciate knowing upfront.
 
 ### Section 10: FAQ Teaser (NEW)
 - **Purpose:** Handle top objections before they prevent contact.
-- **Layout:** 3-4 questions in accordion style.
+- **Background:** Dark (#0F172A).
+- **Layout:** 4 questions in accordion style (click to expand/collapse).
 - **Questions:**
   - "Hvor lang tid tar det å lage en nettside?"
   - "Hva om jeg allerede har en nettside?"
@@ -112,7 +132,16 @@ Redesign the IDweb homepage to convert local Norwegian business owners into lead
 - **Purpose:** Convert.
 - **Layout:** Full-width section with yellow gradient background.
 - **Headline:** "Klar for en nettside som faktisk leverer?"
-- **CTA:** Inline contact form (name, email, brief message) + submit button. Reduces friction vs navigating to /kontakt.
+- **CTA:** Inline contact form with 3 fields:
+  - Name (text input, required)
+  - Email (email input, required, validated client-side)
+  - Message (textarea, optional, placeholder: "Fortell kort om prosjektet ditt")
+  - Submit button: "Send forespørsel"
+- **Form backend:** Next.js API route at `/api/contact`. Sends email via Resend (or similar email API). Returns JSON `{ success: true }` or `{ error: string }`.
+- **Success state:** Form replaced by green checkmark + "Takk! Jeg tar kontakt innen 24 timer."
+- **Error state:** Red inline error message below form: "Noe gikk galt. Prøv igjen eller send e-post til [email]."
+- **Client-side validation:** Required fields highlighted with red border + "Vennligst fyll ut dette feltet" on blur.
+- **Shared component:** Same `ContactForm` component used on both homepage CTA and `/kontakt` page. `/kontakt` version adds optional phone and company fields.
 - **Keep:** Existing CTA section structure, add inline form.
 
 ## Pages — Full Site Map
@@ -174,9 +203,38 @@ The existing design system is strong and distinctive. Keep:
 - **Dark mode:** CSS variable swap via prefers-color-scheme
 - **Layout:** max-w-6xl (1152px), px-6 padding
 
+## Section Background Pattern
+
+Alternating dark/light for visual rhythm:
+
+| Section | Background |
+|---------|-----------|
+| 1. Hero | Dark (#0F172A) + interactive grid |
+| 2. Social Proof Bar | Light (#F5F7F8) |
+| 3. Problem Agitation | Dark (#0F172A) |
+| 4. Portfolio Showcase | Light (#F5F7F8) |
+| 5. Tech Advantage | Light (#F5F7F8) *(same as above, visually grouped)* |
+| 6. Services Overview | Dark (#0F172A) |
+| 7. Process | Light (#F5F7F8) |
+| 8. Testimonials | Dark (#0F172A) |
+| 9. Pricing Preview | Light (#F5F7F8) |
+| 10. FAQ Teaser | Dark (#0F172A) |
+| 11. Final CTA | Yellow gradient |
+
+## Animation Specifications
+
+All new sections use the same entrance animation pattern as existing sections:
+- **Default entrance:** `motion.div` with `initial={{ opacity: 0, y: 30 }}`, `whileInView={{ opacity: 1, y: 0 }}`, `viewport={{ once: true, margin: "-100px" }}`, `transition={{ duration: 0.6 }}`.
+- **Staggered children:** Cards within a section use `staggerChildren: 0.1` on the parent.
+- **Problem Agitation cards:** Use `staggerChildren: 0.15` for a slightly more dramatic reveal, since the purpose is to create urgency.
+- **Tech Advantage comparison:** Left card animates in from left, right card from right (`x: -30` and `x: 30`).
+- **No new animation libraries.** Use existing Motion (framer-motion) setup.
+
 ## Technical Notes
 
 - All new sections are React components in `src/components/sections/`
 - Content data stays in `src/lib/content/homepage.ts` — add new entries for new sections
 - Existing components to reuse: device frames, bento grid, section wrapper, button
-- New components needed: ProblemAgitation, TechAdvantage, PricingPreview, FaqTeaser, SocialProofBar, inline ContactForm
+- New components needed: `SocialProofBar`, `ProblemAgitation`, `TechAdvantage`, `PricingPreview`, `FaqTeaser`, `TestimonialGrid`, `ContactForm`
+- `ContactForm` is shared between homepage CTA and `/kontakt` page (with optional extra fields)
+- API route needed: `/api/contact` — accepts POST `{ name, email, message, phone?, company? }`, sends email via Resend or similar
