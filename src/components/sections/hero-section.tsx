@@ -1,293 +1,137 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useInView } from "motion/react";
-import { MoveRight, PhoneCall } from "lucide-react";
-import Image from "next/image";
+import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { MoveRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { LaptopFrame, TabletFrame, PhoneFrame } from "@/components/ui/device-frame";
-import { HERO, TRUST_SIGNALS } from "@/lib/content/homepage";
-import { ROTATION_SETS, getSiteById } from "@/lib/content/portfolio-sites";
-import type { TrustSignal } from "@/types";
+import { LaptopFrame } from "@/components/ui/device-frame";
+import { InteractiveGrid } from "@/components/ui/interactive-grid";
+import { HERO, FEATURED_PORTFOLIO_IDS } from "@/lib/content/homepage";
+import { getSiteById } from "@/lib/content/portfolio-sites";
+import type { PortfolioSite } from "@/types";
 
-// -- Counter hook for trust signal animation --
-function useCounter(target: number, decimals: number, inView: boolean) {
-  const [count, setCount] = useState(0);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!inView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    let current = 0;
-    const step = decimals > 0 ? 0.1 : Math.ceil(target / 60);
-
-    function tick() {
-      current += step;
-      if (current >= target) {
-        setCount(target);
-        return;
-      }
-      setCount(current);
-      requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-  }, [inView, target, decimals]);
-
-  return decimals > 0 ? count.toFixed(decimals) : Math.round(count).toString();
-}
-
-// -- Single trust signal with counter --
-function TrustSignalItem({
-  signal,
-  inView,
-}: {
-  signal: TrustSignal;
-  inView: boolean;
-}) {
-  const display = useCounter(signal.value, signal.decimals ?? 0, inView);
-
-  return (
-    <div className="text-center">
-      <div className="text-xl font-extrabold text-[var(--color-text)] sm:text-2xl">
-        {display}
-        {signal.suffix}
-      </div>
-      <div className="mt-1 text-xs text-[var(--color-text-muted)]">
-        {signal.label}
-      </div>
-    </div>
-  );
-}
-
-// -- Main hero section --
 export function HeroSection() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(() => HERO.rotatingWords, []);
-  const trustRef = useRef<HTMLDivElement>(null);
-  const trustInView = useInView(trustRef, { once: true });
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sites = FEATURED_PORTFOLIO_IDS.map(getSiteById).filter(
+    (s): s is PortfolioSite => s !== null
+  );
+
+  const advance = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % sites.length);
+  }, [sites.length]);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (titleNumber === titles.length - 1) {
-        setTitleNumber(0);
-      } else {
-        setTitleNumber(titleNumber + 1);
-      }
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
+    const timer = setInterval(advance, 5000);
+    return () => clearInterval(timer);
+  }, [advance]);
 
-  // -- Rotation state for portfolio device sets --
-  const [activeSet, setActiveSet] = useState(0);
-  const [isFading, setIsFading] = useState(false);
-
-  // Cycle through rotation sets: 6s visible + 0.6s fade = 6.6s total cycle
-  useEffect(() => {
-    let fadeTimeout: ReturnType<typeof setTimeout>;
-    const interval = setInterval(() => {
-      setIsFading(true);
-      // After fade-out completes, switch set and fade back in
-      fadeTimeout = setTimeout(() => {
-        setActiveSet((prev) => (prev + 1) % ROTATION_SETS.length);
-        setIsFading(false);
-      }, 600);
-    }, 6600);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(fadeTimeout);
-    };
-  }, []);
-
-  // Resolve current set's image paths
-  const currentSet = ROTATION_SETS[activeSet];
-  const laptopSite = getSiteById(currentSet.laptop);
-  const tabletSite = getSiteById(currentSet.tablet);
-  const phoneSite = getSiteById(currentSet.phone);
-
-  // Resolve next set for preloading
-  const nextSetIndex = (activeSet + 1) % ROTATION_SETS.length;
-  const nextSet = ROTATION_SETS[nextSetIndex];
-  const nextLaptop = getSiteById(nextSet.laptop);
-  const nextTablet = getSiteById(nextSet.tablet);
-  const nextPhone = getSiteById(nextSet.phone);
+  const activeSite = sites[activeIndex];
 
   return (
-    <section className="relative w-full bg-[var(--color-bg)]">
-      {/* Dot grid background */}
+    <section className="relative w-full overflow-hidden bg-[var(--color-dark-bg)]">
+      <InteractiveGrid id="hero-grid" />
+
+      {/* Radial glow */}
       <div
-        className="pointer-events-none absolute inset-0 z-0"
+        className="pointer-events-none absolute left-1/2 top-1/3 z-0 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2"
+        aria-hidden="true"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0)",
-          backgroundSize: "28px 28px",
+          background:
+            "radial-gradient(ellipse, rgba(244,206,20,0.06) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative z-[2] mx-auto max-w-7xl px-6">
-        {/* Main content row */}
-        <div className="flex items-center justify-center py-24 lg:py-40">
-          {/* Laptop — left */}
+        <div className="grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2 lg:py-40">
+          {/* Left — Text */}
           <motion.div
-            className="hidden w-[300px] flex-shrink-0 lg:block"
-            initial={{ x: -40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            aria-hidden="true"
-            role="presentation"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            <div
-              className="transition-opacity duration-[600ms]"
-              style={{ opacity: isFading ? 0 : 1 }}
-            >
-              {laptopSite && (
-                <LaptopFrame
-                  key={`laptop-${currentSet.laptop}`}
-                  imageSrc={laptopSite.images.desktop}
-                  imageAlt={`${laptopSite.name} nettside — desktop`}
-                  paused={isFading}
-                  priority={activeSet === 0}
-                  className="w-[300px] flex-shrink-0"
-                />
-              )}
+            <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-[var(--color-accent)]">
+              {HERO.eyebrow}
+            </p>
+
+            <h1 className="text-3xl font-black leading-tight tracking-tight text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
+              {HERO.headline}{" "}
+              <span className="bg-gradient-to-r from-[var(--color-accent)] to-[#FBBF24] bg-clip-text text-transparent">
+                {HERO.headlineHighlight}
+              </span>{" "}
+              {HERO.headlineEnd}
+            </h1>
+
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-[var(--color-dark-muted)] md:text-base">
+              {HERO.subheadline}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/referanser"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-[var(--color-dark-bg)] transition-colors hover:bg-[var(--color-accent-hover)]"
+              >
+                {HERO.primaryCta}{" "}
+                <MoveRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-medium text-[var(--color-dark-text)] transition-colors hover:border-white/30 hover:bg-white/5"
+              >
+                {HERO.secondaryCta}
+              </Link>
             </div>
           </motion.div>
 
-          {/* Center text content */}
-          <div className="flex max-w-lg flex-1 flex-col items-center justify-center gap-8 px-8">
-            <div>
-              <Link href="/referanser">
-                <Button variant="secondary" size="sm" className="gap-3">
-                  {HERO.badge} <MoveRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h1 className="text-center text-5xl font-bold tracking-tight lg:text-6xl">
-                <span>{HERO.headline}</span>
-                <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-                  &nbsp;
-                  {titles.map((title, index) => (
-                    <motion.span
-                      key={title}
-                      className="absolute font-extrabold text-[var(--color-accent)]"
-                      initial={{ opacity: 0, y: "-100" }}
-                      transition={{ type: "spring", stiffness: 50 }}
-                      animate={
-                        titleNumber === index
-                          ? { y: 0, opacity: 1 }
-                          : {
-                              y: titleNumber > index ? -150 : 150,
-                              opacity: 0,
-                            }
-                      }
-                    >
-                      {title}
-                    </motion.span>
-                  ))}
-                </span>
-              </h1>
-              <p className="mx-auto text-center text-lg leading-relaxed tracking-tight text-[var(--color-text-muted)] md:text-xl">
-                {HERO.subheadline}
-              </p>
-            </div>
-            <div className="flex flex-row gap-3">
-              <Link href="/kontakt">
-                <Button size="lg" variant="secondary" className="gap-3">
-                  {HERO.secondaryCta} <PhoneCall className="h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/kontakt">
-                <Button size="lg" className="gap-3">
-                  {HERO.primaryCta} <MoveRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Tablet + Phone — right */}
+          {/* Right — Project carousel */}
           <motion.div
-            className="hidden w-[300px] flex-shrink-0 items-end gap-4 lg:flex"
-            initial={{ x: 40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-            aria-hidden="true"
-            role="presentation"
+            className="relative"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div
-              className="flex items-end gap-4 transition-opacity duration-[600ms]"
-              style={{ opacity: isFading ? 0 : 1 }}
-            >
-              {tabletSite && (
-                <TabletFrame
-                  key={`tablet-${currentSet.tablet}`}
-                  imageSrc={tabletSite.images.tablet}
-                  imageAlt={`${tabletSite.name} nettside — nettbrett`}
-                  paused={isFading}
-                  priority={activeSet === 0}
-                  className="w-[180px] flex-shrink-0"
-                />
-              )}
-              {phoneSite && (
-                <PhoneFrame
-                  key={`phone-${currentSet.phone}`}
-                  imageSrc={phoneSite.images.mobile}
-                  imageAlt={`${phoneSite.name} nettside — mobil`}
-                  paused={isFading}
-                  priority={activeSet === 0}
-                  className="w-[100px] flex-shrink-0"
-                />
-              )}
+            <div className="relative rounded-xl border border-white/5 bg-[var(--color-dark-bg-alt)] p-4 sm:p-6">
+              <AnimatePresence mode="popLayout">
+                {activeSite && (
+                  <motion.div
+                    key={activeSite.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <LaptopFrame
+                      imageSrc={activeSite.images.desktop}
+                      imageAlt={`${activeSite.name} nettside`}
+                      priority={activeIndex === 0}
+                      className="w-full"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Pagination dots */}
+              <div className="mt-4 flex justify-center gap-2">
+                {sites.map((site, i) => (
+                  <button
+                    key={site.id}
+                    onClick={() => setActiveIndex(i)}
+                    className={`h-2 w-2 rounded-full transition-colors ${
+                      i === activeIndex
+                        ? "bg-[var(--color-accent)]"
+                        : "bg-white/20 hover:bg-white/40"
+                    }`}
+                    aria-label={`Vis prosjekt ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Floating PageSpeed badge */}
+            <div className="absolute -bottom-3 -right-3 rounded-lg border border-[rgba(244,206,20,0.25)] bg-[rgba(244,206,20,0.12)] px-3 py-1.5 text-xs font-bold text-[var(--color-accent)] backdrop-blur-sm sm:bottom-4 sm:right-4">
+              98/100 PageSpeed
             </div>
           </motion.div>
         </div>
-
-        {/* Trust signals bar */}
-        <div
-          ref={trustRef}
-          className="relative z-[5] grid grid-cols-2 gap-4 border-t border-[var(--color-border)] px-4 py-6 sm:flex sm:justify-center sm:gap-12 sm:px-0 lg:gap-16"
-        >
-          {TRUST_SIGNALS.map((signal) => (
-            <TrustSignalItem
-              key={signal.label}
-              signal={signal}
-              inView={trustInView}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Preload next rotation set (hidden) */}
-      <div className="hidden" aria-hidden="true">
-        {nextLaptop && (
-          <Image
-            src={nextLaptop.images.desktop}
-            alt=""
-            width={1440}
-            height={3600}
-            priority={false}
-          />
-        )}
-        {nextTablet && (
-          <Image
-            src={nextTablet.images.tablet}
-            alt=""
-            width={768}
-            height={3200}
-            priority={false}
-          />
-        )}
-        {nextPhone && (
-          <Image
-            src={nextPhone.images.mobile}
-            alt=""
-            width={375}
-            height={3400}
-            priority={false}
-          />
-        )}
       </div>
     </section>
   );
