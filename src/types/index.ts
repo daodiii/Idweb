@@ -26,23 +26,15 @@ export interface BlogSection {
   listItems?: string[];
 }
 
-export interface ServiceFeature {
-  icon: string;
+export interface PainPoint {
   title: string;
   description: string;
 }
 
-export interface ServiceExtraItem {
-  label: string;
-  detail?: string;
-  icon?: string;
-  value?: string;
-}
-
-export interface ServiceExtraSection {
-  type: 'checklist' | 'integrations' | 'process' | 'platforms' | 'stats' | 'deliverables';
-  headline: string;
-  items: ServiceExtraItem[];
+export interface ServiceFeature {
+  iconName: string;
+  title: string;
+  description: string;
 }
 
 export interface Service {
@@ -50,9 +42,13 @@ export interface Service {
   title: string;
   shortDescription: string;
   longDescription: string;
+  categoryTag: string;
   features: string[];
   detailedFeatures: ServiceFeature[];
-  extraSection?: ServiceExtraSection;
+  painPoints: PainPoint[];
+  processSteps: ProcessStep[];
+  faq: FAQ[];
+  trustStats: TrustSignal[];
 }
 
 export interface FAQ {
@@ -63,7 +59,9 @@ export interface FAQ {
 export interface TestimonialAuthor {
   name: string;
   handle: string;
+  company?: string;
   avatar: string;
+  rating?: number;
 }
 
 export interface Testimonial {
@@ -108,4 +106,14 @@ export interface RotationSet {
   laptop: PortfolioSiteId;
   tablet: PortfolioSiteId;
   phone: PortfolioSiteId;
+}
+
+export interface ComparisonCard {
+  type: 'byrå' | 'idweb';
+  icon?: string;
+  stat?: string;
+  unit?: string;
+  title: string;
+  description: string;
+  accent: string;
 }
