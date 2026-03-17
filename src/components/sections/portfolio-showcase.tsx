@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PhoneFrame, LaptopFrame, TabletFrame } from "@/components/ui/device-frame";
@@ -15,6 +15,8 @@ export function PortfolioShowcase() {
   );
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const prefersReducedMotion = useReducedMotion();
 
   const activeSite = sites[activeIndex];
   const stats = activeSite ? PORTFOLIO_STATS[activeSite.id] : undefined;
@@ -28,19 +30,29 @@ export function PortfolioShowcase() {
     setActiveIndex((prev) => (prev - 1 + sites.length) % sites.length);
   }, [sites.length]);
 
-  // --- Auto-rotation (5s, pauses on hover) ---
+  // Pause auto-rotation temporarily (resumes after 8s)
+  const pauseTemporarily = useCallback(() => {
+    pauseTemporarily();
+    clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => setIsPaused(false), 8000);
+  }, []);
+
+  // Cleanup resume timer
   useEffect(() => {
-    if (isPaused) return;
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) return;
+    return () => clearTimeout(resumeTimerRef.current);
+  }, []);
+
+  // --- Auto-rotation (5s, pauses on hover or manual interaction) ---
+  useEffect(() => {
+    if (isPaused || prefersReducedMotion) return;
     const timer = setInterval(goNext, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, goNext]);
+  }, [isPaused, goNext, prefersReducedMotion]);
 
   // --- Keyboard navigation ---
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "ArrowLeft") { goPrev(); setIsPaused(true); }
-    if (e.key === "ArrowRight") { goNext(); setIsPaused(true); }
+    if (e.key === "ArrowLeft") { goPrev(); pauseTemporarily(); }
+    if (e.key === "ArrowRight") { goNext(); pauseTemporarily(); }
   }
 
   return (
@@ -76,7 +88,7 @@ export function PortfolioShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          onMouseEnter={() => setIsPaused(true)}
+          onMouseEnter={() => pauseTemporarily()}
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Radial gold glow */}
@@ -97,10 +109,10 @@ export function PortfolioShowcase() {
                 <motion.div
                   key={activeSite.id}
                   className="flex items-end justify-center gap-5"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
+                  transition={{ duration: prefersReducedMotion ? 0.2 : 0.5, ease: "easeOut" }}
                 >
                   {/* Phone (left) — flat to avoid competing perspective with laptop */}
                   <PhoneFrame
@@ -130,9 +142,9 @@ export function PortfolioShowcase() {
               <>
                 <motion.div
                   className="absolute bottom-4 right-4 rounded-lg border border-[rgba(244,206,20,0.25)] bg-[rgba(244,206,20,0.12)] px-3 py-1.5 text-xs font-bold text-[var(--color-accent)] backdrop-blur-sm"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0, y: [0, -3, 0] }}
-                  transition={{
+                  initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 20 }}
+                  animate={{ opacity: 1, x: 0, ...(prefersReducedMotion ? {} : { y: [0, -3, 0] }) }}
+                  transition={prefersReducedMotion ? { duration: 0.2 } : {
                     opacity: { duration: 0.4, delay: 0.3 },
                     x: { duration: 0.4, delay: 0.3 },
                     y: { duration: 3, ease: "easeInOut", repeat: Infinity, delay: 0.7 },
@@ -142,9 +154,9 @@ export function PortfolioShowcase() {
                 </motion.div>
                 <motion.div
                   className="absolute bottom-4 left-4 rounded-lg border border-[rgba(34,197,94,0.25)] bg-[rgba(34,197,94,0.12)] px-3 py-1.5 text-xs font-bold text-[#22c55e] backdrop-blur-sm"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0, y: [0, -3, 0] }}
-                  transition={{
+                  initial={{ opacity: 0, x: prefersReducedMotion ? 0 : -20 }}
+                  animate={{ opacity: 1, x: 0, ...(prefersReducedMotion ? {} : { y: [0, -3, 0] }) }}
+                  transition={prefersReducedMotion ? { duration: 0.2 } : {
                     opacity: { duration: 0.4, delay: 0.45 },
                     x: { duration: 0.4, delay: 0.45 },
                     y: { duration: 3, ease: "easeInOut", repeat: Infinity, delay: 0.85 },
@@ -182,7 +194,7 @@ export function PortfolioShowcase() {
             {sites.map((site, i) => (
               <button
                 key={site.id}
-                onClick={() => { setActiveIndex(i); setIsPaused(true); }}
+                onClick={() => { setActiveIndex(i); pauseTemporarily(); }}
                 className={`h-1.5 cursor-pointer rounded-full transition-all duration-300 ${
                   i === activeIndex
                     ? "w-6 bg-[var(--color-accent)]"
@@ -197,7 +209,7 @@ export function PortfolioShowcase() {
         {/* ── Mobile: Phone carousel ── */}
         <div
           className="mt-16 md:hidden"
-          onTouchStart={() => setIsPaused(true)}
+          onTouchStart={() => pauseTemporarily()}
           onTouchEnd={() => setIsPaused(false)}
         >
           <div className="relative flex flex-col items-center">
@@ -206,20 +218,20 @@ export function PortfolioShowcase() {
               {activeSite && (
                 <motion.div
                   key={activeSite.id}
-                  initial={{ opacity: 0, scale: 0.92 }}
+                  initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.92 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.92 }}
+                  transition={{ duration: prefersReducedMotion ? 0.2 : 0.4, ease: "easeOut" }}
                   className="w-[280px]"
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   onDragEnd={(_e, info) => {
                     if (info.offset.x > 50 || info.velocity.x > 200) {
                       goPrev();
-                      setIsPaused(true);
+                      pauseTemporarily();
                     } else if (info.offset.x < -50 || info.velocity.x < -200) {
                       goNext();
-                      setIsPaused(true);
+                      pauseTemporarily();
                     }
                   }}
                 >
@@ -269,7 +281,7 @@ export function PortfolioShowcase() {
             {/* Navigation: arrows + dots */}
             <div className="mt-6 flex items-center gap-6">
               <button
-                onClick={() => { goPrev(); setIsPaused(true); }}
+                onClick={() => { goPrev(); pauseTemporarily(); }}
                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-[var(--color-dark-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-dark-text)]"
                 aria-label="Forrige prosjekt"
               >
@@ -280,7 +292,7 @@ export function PortfolioShowcase() {
                 {sites.map((site, i) => (
                   <button
                     key={site.id}
-                    onClick={() => { setActiveIndex(i); setIsPaused(true); }}
+                    onClick={() => { setActiveIndex(i); pauseTemporarily(); }}
                     className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                       i === activeIndex
                         ? "w-6 bg-[var(--color-accent)]"
@@ -292,7 +304,7 @@ export function PortfolioShowcase() {
               </div>
 
               <button
-                onClick={() => { goNext(); setIsPaused(true); }}
+                onClick={() => { goNext(); pauseTemporarily(); }}
                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-[var(--color-dark-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-dark-text)]"
                 aria-label="Neste prosjekt"
               >
