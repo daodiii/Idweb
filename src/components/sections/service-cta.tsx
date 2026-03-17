@@ -3,9 +3,9 @@ import { Section } from "@/components/ui/section";
 
 export function ServiceCta() {
   return (
-    <Section className="bg-[var(--color-bg-alt)]">
+    <Section className="bg-[var(--color-bg)]">
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-bold sm:text-4xl">
+        <h2 className="text-3xl font-bold text-pretty sm:text-4xl">
           Klar for å komme i gang?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-text-muted)]">
@@ -14,13 +14,13 @@ export function ServiceCta() {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/kontakt"
-            className="rounded-lg bg-[var(--color-accent)] px-8 py-3.5 text-lg font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-hover)]"
+            className="rounded-lg bg-[var(--color-accent)] px-8 py-3.5 text-lg font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
           >
             Book en gratis samtale
           </Link>
           <Link
             href="/tjenester"
-            className="rounded-lg border border-[var(--color-border)] px-8 py-3.5 text-lg font-semibold transition-colors hover:bg-[var(--color-bg)]"
+            className="rounded-lg border border-[var(--color-border)] px-8 py-3.5 text-lg font-semibold transition-colors hover:bg-[var(--color-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
           >
             Se alle tjenester
           </Link>
