@@ -13,6 +13,7 @@ export function CountUpStat({ value, suffix = "", prefix = "", decimals }: Count
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(0);
   const hasAnimated = useRef(false);
+  const decimalsRef = useRef(decimals);
 
   useEffect(() => {
     const el = ref.current;
@@ -39,7 +40,8 @@ export function CountUpStat({ value, suffix = "", prefix = "", decimals }: Count
           const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
           const num = eased * value;
-          setDisplay(decimals ? parseFloat(num.toFixed(decimals)) : Math.round(num));
+          const d = decimalsRef.current;
+          setDisplay(d ? parseFloat(num.toFixed(d)) : Math.round(num));
           if (progress < 1) requestAnimationFrame(tick);
         }
 
@@ -50,7 +52,7 @@ export function CountUpStat({ value, suffix = "", prefix = "", decimals }: Count
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [value, decimals]);
+  }, [value]);
 
   return (
     <span ref={ref} aria-label={`${prefix}${value}${suffix}`}>
