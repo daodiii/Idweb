@@ -213,7 +213,7 @@ export interface ServiceFeature {
 | nettbutikk | Produktsøk | 🔎 | `search` |
 | nettbutikk | Fraktkalkulator | 🚚 | `truck` |
 | nettbutikk | Mobilhandel | 📱 | `smartphone` |
-| nettbutikk | Salgsrapporter | 📊 | `bar-chart-3` |
+| nettbutikk | Salgsrapporter | 📊 | `chart-bar` |
 | seo | Søkeordanalyse | 🔑 | `key` |
 | seo | Teknisk SEO | ⚙️ | `cog` |
 | seo | Innholdsoptimalisering | 📝 | `file-text` |
@@ -224,12 +224,12 @@ export interface ServiceFeature {
 | markedsforing | Facebook-annonsering | 📘 | `megaphone` |
 | markedsforing | Instagram-annonsering | 📸 | `camera` |
 | markedsforing | A/B-testing | 🧪 | `flask-conical` |
-| markedsforing | Konverteringssporing | 📊 | `bar-chart-3` |
+| markedsforing | Konverteringssporing | 📊 | `chart-bar` |
 | markedsforing | Løpende optimalisering | 🔄 | `refresh-cw` |
 | vedlikehold | Daglige sikkerhetskopier | 💾 | `hard-drive` |
 | vedlikehold | Sikkerhetsovervåking | 🛡️ | `shield` |
 | vedlikehold | Programvareoppdateringer | 🔄 | `refresh-cw` |
-| vedlikehold | 99,9 % oppetid | ✅ | `check-circle` |
+| vedlikehold | 99,9 % oppetid | ✅ | `circle-check` |
 | vedlikehold | Innholdsendringer | 📝 | `file-text` |
 | vedlikehold | Prioritert support | 🚀 | `headphones` |
 | design | Logodesign | 🎨 | `palette` |
