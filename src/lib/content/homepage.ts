@@ -1,4 +1,4 @@
-import type { Testimonial, ProcessStep, TrustSignal } from "@/types";
+import type { Testimonial, ProcessStep, TrustSignal, ComparisonCard } from "@/types";
 import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
@@ -26,6 +26,12 @@ export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
   "centerrahma",
 ];
 
+export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
+  vocura: { pagespeed: "98/100", result: "+60% bookinger" },
+  brobekk: { pagespeed: "96/100", result: "+45% henvendelser" },
+  centerrahma: { pagespeed: "97/100", result: "+80% besøkende" },
+};
+
 export const SERVICES_OVERVIEW = [
   {
     id: "nettside",
@@ -43,7 +49,7 @@ export const SERVICES_OVERVIEW = [
     id: "seo",
     title: "SEO-optimalisering",
     description:
-      "Bli funnet av kundene dine. Jeg s\u00f8rger for at bedriften din rangerer h\u00f8yt i Google-s\u00f8k.",
+      "Bli funnet av kundene dine. Vi s\u00f8rger for at bedriften din rangerer h\u00f8yt i Google-s\u00f8k.",
   },
   {
     id: "markedsforing",
@@ -86,29 +92,20 @@ export const PROBLEM_CARDS = [
   },
 ] as const;
 
-export const PROBLEM_TRANSITION = "Det trenger ikke v\u00e6re slik." as const;
-
-export const TECH_COMPARISON = {
-  headline: "Hvorfor moderne teknologi gir deg en fordel",
-  template: {
-    title: "Mal-nettside",
-    metrics: [
-      { label: "Lastetid", value: "4.2s", pass: false },
-      { label: "PageSpeed", value: "45/100", pass: false },
-      { label: "Mobilvennlig", value: "Begrenset", pass: false },
-      { label: "Design", value: "Generisk", pass: false },
-    ],
-  },
-  custom: {
-    title: "Skreddersydd nettside",
-    metrics: [
-      { label: "Lastetid", value: "0.8s", pass: true },
-      { label: "PageSpeed", value: "98/100", pass: true },
-      { label: "Mobilvennlig", value: "Fullt tilpasset", pass: true },
-      { label: "Design", value: "Unikt for deg", pass: true },
-    ],
-  },
-} as const;
+export const COMPARISON_GRID: ComparisonCard[] = [
+  // Row 1
+  { type: "byrå", icon: "🧱", title: "WordPress + plugins", description: "Tunge ferdigløsninger som bremser ytelse og sikkerhet", accent: "#ef4444" },
+  { type: "idweb", icon: "⚡", title: "Next.js — fra bunnen av", description: "Moderne rammeverk, lynrask og skalerbar", accent: "#22c55e" },
+  { type: "byrå", stat: "3-5", unit: "s", title: "Treg lastetid", description: "Besøkende forlater siden før den laster", accent: "#ef4444" },
+  // Row 2
+  { type: "idweb", icon: "💬", title: "Direkte til utvikleren", description: "Ingen mellomledd — du snakker med den som bygger", accent: "#fbbf24" },
+  { type: "idweb", stat: "<1", unit: "s", title: "Lastetid", description: "Mens typiske sider bruker 3–5 sekunder", accent: "#38bdf8" },
+  { type: "idweb", stat: "98", unit: "/100", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#a855f7" },
+  // Row 3
+  { type: "byrå", icon: "🤵", title: "Snakker med en selger", description: "Mellomledd som ikke kjenner koden", accent: "#ef4444" },
+  { type: "idweb", icon: "🎨", title: "100 % skreddersydd", description: "Designet kun for din bedrift — ingen maler", accent: "#f97316" },
+  { type: "byrå", icon: "📋", title: "Ferdigmaler", description: "Tilpasset «litt» — ser ut som alle andre", accent: "#ef4444" },
+];
 
 export const FAQ_TEASER_ITEMS = [
   {
@@ -119,7 +116,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hva om jeg allerede har en nettside?",
     answer:
-      "Jeg tilbyr b\u00e5de redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Jeg gir deg en \u00e6rlig vurdering av hva som gir best resultat.",
+      "Vi tilbyr b\u00e5de redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Vi gir deg en \u00e6rlig vurdering av hva som gir best resultat.",
   },
   {
     question: "Hva koster vedlikehold?",
@@ -138,19 +135,19 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: 1,
     title: "Gratis samtale",
     description:
-      "Jeg starter med en uforpliktende samtale der jeg kartlegger behovene dine, m\u00e5lgruppen din og hva du \u00f8nsker \u00e5 oppn\u00e5. Du forteller \u2014 jeg lytter.",
+      "Vi starter med en uforpliktende samtale der vi kartlegger behovene dine, m\u00e5lgruppen din og hva du \u00f8nsker \u00e5 oppn\u00e5. Du forteller \u2014 vi lytter.",
   },
   {
     step: 2,
     title: "Design og utvikling",
     description:
-      "Basert p\u00e5 det jeg har l\u00e6rt, lager jeg et skreddersydd design og utvikler nettsiden med fokus p\u00e5 hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
+      "Basert p\u00e5 det vi har l\u00e6rt, lager vi et skreddersydd design og utvikler nettsiden med fokus p\u00e5 hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
   },
   {
     step: 3,
     title: "Lansering og oppf\u00f8lging",
     description:
-      "N\u00e5r du er forn\u00f8yd, lanserer jeg nettsiden. Men jeg stopper ikke der \u2014 jeg tilbyr l\u00f8pende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
+      "N\u00e5r du er forn\u00f8yd, lanserer vi nettsiden. Men vi stopper ikke der \u2014 vi tilbyr l\u00f8pende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
   },
 ];
 
@@ -190,7 +187,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FINAL_CTA = {
   headline: "Klar for en nettside som faktisk leverer?",
   description:
-    "Fortell meg om prosjektet ditt, s\u00e5 sender jeg et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
+    "Fortell meg om prosjektet ditt, s\u00e5 sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
   buttonText: "Send foresp\u00f8rsel",
   secondaryText: "Eller ring meg direkte: 123 45 678",
 } as const;
@@ -198,7 +195,7 @@ export const FINAL_CTA = {
 export const SOCIAL_PROOF = {
   heading: "Stolt samarbeidspartner for norske bedrifter",
   description:
-    "Fra lokale h\u00e5ndverkere til etablerte bedrifter \u2014 jeg har hjulpet bedrifter med \u00e5 lykkes p\u00e5 nett.",
+    "Fra lokale h\u00e5ndverkere til etablerte bedrifter \u2014 vi har hjulpet bedrifter med \u00e5 lykkes p\u00e5 nett.",
 } as const;
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
