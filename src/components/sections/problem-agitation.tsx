@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Gauge, SearchX, CalendarX } from "lucide-react";
-import { PROBLEM_CARDS, PROBLEM_TRANSITION } from "@/lib/content/homepage";
+import { PROBLEM_CARDS } from "@/lib/content/homepage";
 
 const ICONS = { Gauge, SearchX, CalendarX } as const;
 
@@ -43,15 +43,6 @@ export function ProblemAgitation() {
           })}
         </motion.div>
 
-        <motion.p
-          className="mt-12 text-center text-xl font-semibold text-[var(--color-dark-text)]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-        >
-          {PROBLEM_TRANSITION}
-        </motion.p>
       </div>
     </section>
   );

@@ -7,9 +7,9 @@ import { MessageCircle, Code2, Rocket } from "lucide-react";
 
 const content = [
   {
-    title: "1. Jeg blir kjent med deg",
+    title: "1. Vi blir kjent med deg",
     description:
-      "Alt starter med en uforpliktende samtale. Jeg lytter til dine behov, kartlegger målgruppen din og forstår hva du ønsker å oppnå. Sammen legger jeg grunnlaget for en nettside som virkelig representerer bedriften din.",
+      "Alt starter med en uforpliktende samtale. Vi lytter til dine behov, kartlegger målgruppen din og forstår hva du ønsker å oppnå. Sammen legger vi grunnlaget for en nettside som virkelig representerer bedriften din.",
     content: (
       <div className="flex h-full w-full items-center justify-center overflow-hidden">
         <Image
@@ -23,9 +23,9 @@ const content = [
     ),
   },
   {
-    title: "2. Jeg designer og utvikler",
+    title: "2. Vi designer og utvikler",
     description:
-      "Basert på det jeg har lært, skaper jeg et skreddersydd design og bygger nettsiden med fokus på hastighet, SEO og brukervennlighet. Du er involvert i hele prosessen og godkjenner hvert steg underveis.",
+      "Basert på det vi har lært, skaper vi et skreddersydd design og bygger nettsiden med fokus på hastighet, SEO og brukervennlighet. Du er involvert i hele prosessen og godkjenner hvert steg underveis.",
     content: (
       <div className="flex h-full w-full items-center justify-center overflow-hidden">
         <Image
@@ -39,9 +39,9 @@ const content = [
     ),
   },
   {
-    title: "3. Jeg lanserer og følger opp",
+    title: "3. Vi lanserer og følger opp",
     description:
-      "Når du er fornøyd, lanserer jeg nettsiden din. Men jeg stopper ikke der — jeg tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt og holder seg oppdatert.",
+      "Når du er fornøyd, lanserer vi nettsiden din. Men vi stopper ikke der — vi tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt og holder seg oppdatert.",
     content: (
       <div className="flex h-full w-full items-center justify-center overflow-hidden">
         <Image
@@ -71,7 +71,7 @@ export function ProcessSection() {
       />
       <div className="relative z-[1] mx-auto max-w-6xl">
         <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
-          Slik jobber jeg
+          Slik jobber vi
         </p>
         <h2 className="mb-4 text-center text-3xl font-bold text-pretty text-[var(--color-text)] sm:text-4xl">
           Fra idé til lansering på 1-2-3

@@ -45,7 +45,7 @@ const features = [
 
     name: "SEO-optimalisering",
     description:
-      "Bli funnet av kundene dine. Jeg sørger for at bedriften din rangerer høyt i Google-søk.",
+      "Bli funnet av kundene dine. Vi sørger for at bedriften din rangerer høyt i Google-søk.",
     href: "/tjenester/seo",
     cta: "Les mer",
     background: (
@@ -127,7 +127,7 @@ export function BentoServices() {
           Alt du trenger for å lykkes på nett
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-dark-muted)]">
-          Jeg tilbyr helhetlige digitale tjenester — fra design og utvikling til
+          Vi tilbyr helhetlige digitale tjenester — fra design og utvikling til
           SEO og løpende vedlikehold.
         </p>
         <div className="mt-16">
