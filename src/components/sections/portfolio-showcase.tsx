@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PhoneFrame, LaptopFrame, TabletFrame } from "@/components/ui/device-frame";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { FEATURED_PORTFOLIO_IDS, PORTFOLIO_STATS } from "@/lib/content/homepage";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import type { PortfolioSite } from "@/types";
@@ -56,11 +57,8 @@ export function PortfolioShowcase() {
   }
 
   return (
-    <section
-      className="bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28"
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-    >
+    <AuroraBackground variant="top-right" className="px-6 py-20 sm:py-28">
+    <div onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="mx-auto max-w-6xl">
         {/* Section header */}
         <motion.div
@@ -91,17 +89,6 @@ export function PortfolioShowcase() {
           onMouseEnter={() => pauseTemporarily()}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Radial gold glow */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
-            style={{
-              width: "600px",
-              height: "400px",
-              background: "radial-gradient(ellipse, rgba(244,206,20,0.07) 0%, transparent 65%)",
-            }}
-            aria-hidden="true"
-          />
-
           {/* Device trio container */}
           <div className="relative">
             <AnimatePresence mode="wait">
@@ -324,6 +311,7 @@ export function PortfolioShowcase() {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
+    </AuroraBackground>
   );
 }
