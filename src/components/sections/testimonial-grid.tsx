@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import type { Testimonial } from "@/types";
 
 const AVATAR_COLORS = [
@@ -42,7 +43,7 @@ export function TestimonialGrid({
   description,
 }: TestimonialGridProps) {
   return (
-    <section className="bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28">
+    <AuroraBackground variant="top-left" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -113,6 +114,6 @@ export function TestimonialGrid({
           ))}
         </motion.div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
