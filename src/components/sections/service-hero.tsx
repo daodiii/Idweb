@@ -3,6 +3,8 @@
 import Link from "next/link";
 import type { Service } from "@/types";
 import { CountUpStat } from "@/components/ui/count-up-stat";
+import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface ServiceHeroProps {
   service: Service;
@@ -10,20 +12,9 @@ interface ServiceHeroProps {
 
 export function ServiceHero({ service }: ServiceHeroProps) {
   return (
-    <section
-      className="relative overflow-hidden px-6 py-24 text-center sm:py-32"
-      style={{ background: "linear-gradient(180deg, var(--color-dark-bg), var(--color-dark-bg-alt))" }}
-    >
-      {/* Radial gold glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(244, 206, 20, 0.1) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
+    <AuroraBackground variant="top-center" className="px-6 py-24 text-center sm:py-32">
 
-      <div className="relative mx-auto max-w-4xl">
+      <div className="mx-auto max-w-4xl">
         {/* Category tag */}
         <span className="inline-block rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)]">
           {service.categoryTag}
@@ -39,7 +30,7 @@ export function ServiceHero({ service }: ServiceHeroProps) {
 
         <Link
           href="/kontakt"
-          className="mt-10 inline-block cursor-pointer rounded-lg bg-[var(--color-accent)] px-8 py-3.5 text-lg font-semibold text-[var(--color-dark-bg)] transition-colors hover:bg-[var(--color-accent-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+          className={`${RAINBOW_BUTTON_CLASSES} mt-10 px-8 py-3.5 text-lg font-semibold`}
         >
           Få et uforpliktende tilbud
         </Link>
@@ -60,6 +51,6 @@ export function ServiceHero({ service }: ServiceHeroProps) {
           ))}
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
