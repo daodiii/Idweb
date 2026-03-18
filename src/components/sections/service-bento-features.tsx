@@ -1,7 +1,7 @@
 import { icons } from "lucide-react";
 import type { ServiceFeature } from "@/types";
 import { cn } from "@/lib/utils";
-import { Section } from "@/components/ui/section";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface ServiceBentoFeaturesProps {
   features: ServiceFeature[];
@@ -37,15 +37,10 @@ function LucideIcon({ name, className }: { name: string; className?: string }) {
 
 export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
   return (
-    <Section>
-      <h2 className="mb-12 text-center text-3xl font-bold text-pretty sm:text-4xl">
+    <AuroraBackground variant="center" className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
+      <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
         Dette inkluderer
       </h2>
-
-      <div
-        className="rounded-3xl p-6 sm:p-10"
-        style={{ background: "linear-gradient(135deg, var(--color-dark-bg), var(--color-dark-bg-alt))" }}
-      >
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
             <li
@@ -65,7 +60,6 @@ export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
             </li>
           ))}
         </ul>
-      </div>
-    </Section>
+    </AuroraBackground>
   );
 }
