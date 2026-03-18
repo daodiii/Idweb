@@ -89,15 +89,3 @@ h1, h2, h3, h4, h5, h6 {
     var(--color-bg);
 }
 
-/* ── Dark-to-light transition fade ── */
-.section-fade-to-light::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--color-bg));
-  pointer-events: none;
-  z-index: 1;
-}

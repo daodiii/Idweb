@@ -13,7 +13,7 @@ export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
 
   return (
-    <section className="section-fade-to-light relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
+    <section className="relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
       {/* Layer 0: Gradient fallback (always renders, fades when Spline ready) */}
       <HeroFallback isSplineLoaded={isSplineLoaded} />
 

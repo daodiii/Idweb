@@ -12,6 +12,8 @@ const FEATURED_SLUGS = [
   "tegn-paa-ny-nettside",
   "hva-koster-en-nettside",
   "vanlige-feil-med-nettsiden",
+  "seo-for-nybegynnere",
+  "wordpress-vs-skreddersydd",
 ] as const;
 
 /** Cover images mapped by slug — workspace/office photos without people. */
@@ -22,6 +24,10 @@ const COVER_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   "vanlige-feil-med-nettsiden":
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+  "seo-for-nybegynnere":
+    "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
+  "wordpress-vs-skreddersydd":
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
 };
 
 const FEATURED_POSTS = FEATURED_SLUGS.map(
