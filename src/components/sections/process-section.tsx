@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
-import { MessageCircle, Code2, Rocket } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const content = [
   {
@@ -58,30 +58,25 @@ const content = [
 
 export function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-bg)] px-6 py-24">
-      {/* Grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-      <div className="relative z-[1] mx-auto max-w-6xl">
+    <AuroraBackground variant="bottom-left" className="px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
           Slik jobber vi
         </p>
-        <h2 className="mb-4 text-center text-3xl font-bold text-pretty text-[var(--color-text)] sm:text-4xl">
+        <h2 className="mb-4 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
           Fra idé til lansering på 1-2-3
         </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-[var(--color-text-muted)]">
+        <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-[var(--color-dark-muted)]">
           Min velprøvde prosess sørger for at du får en nettside du er stolt av
           — uten stress.
         </p>
-        <StickyScroll content={content} contentClassName="rounded-xl" />
+        <StickyScroll
+          content={content}
+          contentClassName="rounded-xl"
+          titleClassName="text-[var(--color-dark-text)]"
+          descriptionClassName="text-[var(--color-dark-muted)]"
+        />
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
