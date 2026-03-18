@@ -4,13 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { ChevronDown, MoveRight } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { FAQ_TEASER_ITEMS } from "@/lib/content/homepage";
 
 export function FaqTeaser() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28">
+    <AuroraBackground variant="bottom-right" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,6 +79,6 @@ export function FaqTeaser() {
           </Link>
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
