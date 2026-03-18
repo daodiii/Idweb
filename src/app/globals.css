@@ -24,16 +24,20 @@
   /* Aurora glow palette */
   --color-aurora-teal: 6, 182, 212;
   --color-aurora-gold: 244, 206, 20;
-  --aurora-noise-opacity: 0.03;
+  --aurora-noise-opacity: 0.08;
   --color-dark-text: #F1F5F9;
   --color-dark-muted: #CBD5E1;
   --color-dark-border: rgba(255, 255, 255, 0.08);
   --color-dark-glass: rgba(255, 255, 255, 0.04);
+
+  /* Glowing effect */
+  --black: #000000;
 }
 
 @theme inline {
   --color-background: var(--color-bg);
   --color-foreground: var(--color-text);
+  --color-border: var(--color-border);
   --color-muted: var(--color-bg-alt);
   --color-muted-foreground: var(--color-text-muted);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
@@ -70,4 +74,30 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+/* ── Light section warm gradient backgrounds ── */
+.light-section-warm {
+  background:
+    radial-gradient(ellipse at 70% 15%, rgba(244, 206, 20, 0.025), transparent 55%),
+    var(--color-bg);
+}
+
+.light-section-warm-alt {
+  background:
+    radial-gradient(ellipse at 30% 80%, rgba(244, 206, 20, 0.02), transparent 50%),
+    var(--color-bg);
+}
+
+/* ── Dark-to-light transition fade ── */
+.section-fade-to-light::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+  z-index: 1;
 }

@@ -7,12 +7,13 @@ import Link from "next/link";
 import { HERO } from "@/lib/content/homepage";
 import { SplineScene } from "@/components/ui/spline-scene";
 import { HeroFallback } from "@/components/ui/hero-fallback";
+import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
 export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
 
   return (
-    <section className="relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
+    <section className="section-fade-to-light relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
       {/* Layer 0: Gradient fallback (always renders, fades when Spline ready) */}
       <HeroFallback isSplineLoaded={isSplineLoaded} />
 
@@ -34,35 +35,19 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.35 }}
         >
-          <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-[var(--color-accent)]">
-            {HERO.eyebrow}
-          </p>
-
-          <h1 className="text-3xl font-black leading-tight tracking-tight text-[var(--color-dark-text)] sm:text-4xl md:text-5xl lg:text-6xl">
-            {HERO.headline}{" "}
-            <span className="bg-gradient-to-r from-[var(--color-accent)] to-[#FBBF24] bg-clip-text text-transparent">
-              {HERO.headlineHighlight}
-            </span>{" "}
-            {HERO.headlineEnd}
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--color-dark-muted)] md:text-base lg:text-lg">
-            {HERO.subheadline}
-          </p>
-
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-24 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/referanser"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-[var(--color-dark-bg)] transition-colors hover:bg-[var(--color-accent-hover)]"
+              className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}
             >
               {HERO.primaryCta}{" "}
               <MoveRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-medium text-[var(--color-dark-text)] transition-colors hover:border-white/30 hover:bg-white/5"
+              className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-medium`}
             >
               {HERO.secondaryCta}
             </Link>

@@ -7,7 +7,7 @@ import { PACKAGES } from "@/lib/content/pricing";
 
 export function PricingPreview() {
   return (
-    <section className="bg-[var(--color-bg)] px-6 py-20 sm:py-28">
+    <section className="light-section-warm px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -15,16 +15,16 @@ export function PricingPreview() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-center text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
+          <h2 className="text-center text-4xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
             Ærlige priser, ingen overraskelser
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-muted)]">
+          <p className="mx-auto mt-5 max-w-2xl text-center text-lg font-light text-[var(--color-text-muted)]">
             Alle prosjekter skreddersys — her er utgangspunktene.
           </p>
         </motion.div>
 
         <motion.div
-          className="mt-16 grid gap-6 md:grid-cols-3"
+          className="mt-16 grid gap-8 md:grid-cols-3 md:gap-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -33,10 +33,10 @@ export function PricingPreview() {
           {PACKAGES.map((pkg) => (
             <motion.div
               key={pkg.id}
-              className={`rounded-xl border p-6 ${
+              className={`rounded-2xl p-7 transition-shadow duration-300 ${
                 pkg.highlight
-                  ? "border-[var(--color-accent)] bg-[var(--color-bg-alt)] shadow-[0_0_20px_rgba(244,206,20,0.06)]"
-                  : "border-[var(--color-border)] bg-[var(--color-bg-alt)]"
+                  ? "bg-[var(--color-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
+                  : "bg-white shadow-lg shadow-black/[0.04]"
               }`}
               variants={{
                 hidden: { opacity: 0, y: 30 },
@@ -57,13 +57,16 @@ export function PricingPreview() {
               <p className="mt-1 text-xs text-[var(--color-text-muted)]">
                 + {pkg.monthly} vedlikehold
               </p>
-              <ul className="mt-4 space-y-1.5">
+              <ul className="mt-5 space-y-2">
                 {pkg.features.slice(0, 3).map((feat) => (
                   <li
                     key={feat}
-                    className="text-xs text-[var(--color-text-muted)]"
+                    className="flex items-start gap-2 text-xs text-[var(--color-text-muted)]"
                   >
-                    ✓ {feat}
+                    <span className="mt-0.5 text-[var(--color-accent)]">
+                      &#10003;
+                    </span>
+                    {feat}
                   </li>
                 ))}
               </ul>
@@ -71,7 +74,7 @@ export function PricingPreview() {
           ))}
         </motion.div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/priser"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-hover)] hover:underline"

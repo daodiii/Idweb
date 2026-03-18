@@ -6,7 +6,7 @@ import { CountUpStat } from "@/components/ui/count-up-stat";
 
 export function SocialProofBar() {
   return (
-    <section className="bg-[var(--color-bg)] px-6 py-8">
+    <section className="bg-[var(--color-bg)] px-6 py-10 sm:py-12">
       <motion.div
         className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-4"
         initial={{ opacity: 0, y: 20 }}

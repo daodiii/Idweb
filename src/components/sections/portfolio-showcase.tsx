@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PhoneFrame, LaptopFrame, TabletFrame } from "@/components/ui/device-frame";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { FEATURED_PORTFOLIO_IDS, PORTFOLIO_STATS } from "@/lib/content/homepage";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import type { PortfolioSite } from "@/types";
@@ -57,7 +56,7 @@ export function PortfolioShowcase() {
   }
 
   return (
-    <AuroraBackground variant="top-right" className="px-6 py-20 sm:py-28">
+    <section className="light-section-warm px-6 py-24 sm:py-32">
     <div onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="mx-auto max-w-6xl">
         {/* Section header */}
@@ -71,10 +70,10 @@ export function PortfolioShowcase() {
           <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-[var(--color-accent)]">
             Våre prosjekter
           </p>
-          <h2 className="text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
+          <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
             Prosjekter vi har levert
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[var(--color-dark-muted)]">
+          <p className="mx-auto mt-5 max-w-2xl text-lg font-light text-[var(--color-text-muted)]">
             Hver nettside er skreddersydd for kundens behov og bransje.
           </p>
         </motion.div>
@@ -91,6 +90,14 @@ export function PortfolioShowcase() {
         >
           {/* Device trio container */}
           <div className="relative">
+            {/* Subtle spotlight behind devices */}
+            <div
+              className="pointer-events-none absolute inset-0 -inset-x-12"
+              aria-hidden="true"
+              style={{
+                background: "radial-gradient(ellipse at 50% 60%, rgba(244,206,20,0.045), transparent 65%)",
+              }}
+            />
             <AnimatePresence mode="wait">
               {activeSite && (
                 <motion.div
@@ -128,7 +135,7 @@ export function PortfolioShowcase() {
             {stats && (
               <>
                 <motion.div
-                  className="absolute bottom-4 right-4 rounded-lg border border-[rgba(244,206,20,0.25)] bg-[rgba(244,206,20,0.12)] px-3 py-1.5 text-xs font-bold text-[var(--color-accent)] backdrop-blur-sm"
+                  className="absolute bottom-4 right-4 rounded-xl border border-[rgba(244,206,20,0.3)] bg-[rgba(244,206,20,0.14)] px-4 py-2 text-sm font-bold text-[var(--color-accent)] shadow-lg shadow-[rgba(244,206,20,0.08)] backdrop-blur-md"
                   initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 20 }}
                   animate={{ opacity: 1, x: 0, ...(prefersReducedMotion ? {} : { y: [0, -3, 0] }) }}
                   transition={prefersReducedMotion ? { duration: 0.2 } : {
@@ -140,7 +147,7 @@ export function PortfolioShowcase() {
                   {stats.pagespeed} PageSpeed
                 </motion.div>
                 <motion.div
-                  className="absolute bottom-4 left-4 rounded-lg border border-[rgba(34,197,94,0.25)] bg-[rgba(34,197,94,0.12)] px-3 py-1.5 text-xs font-bold text-[#22c55e] backdrop-blur-sm"
+                  className="absolute bottom-4 left-4 rounded-xl border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.14)] px-4 py-2 text-sm font-bold text-[#22c55e] shadow-lg shadow-[rgba(34,197,94,0.08)] backdrop-blur-md"
                   initial={{ opacity: 0, x: prefersReducedMotion ? 0 : -20 }}
                   animate={{ opacity: 1, x: 0, ...(prefersReducedMotion ? {} : { y: [0, -3, 0] }) }}
                   transition={prefersReducedMotion ? { duration: 0.2 } : {
@@ -166,10 +173,10 @@ export function PortfolioShowcase() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-xl font-bold text-[var(--color-dark-text)]">
+                <h3 className="text-xl font-bold text-[var(--color-text)]">
                   {activeSite.name}
                 </h3>
-                <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   {activeSite.domain}
                 </p>
               </motion.div>
@@ -185,7 +192,7 @@ export function PortfolioShowcase() {
                 className={`h-1.5 cursor-pointer rounded-full transition-all duration-300 ${
                   i === activeIndex
                     ? "w-6 bg-[var(--color-accent)]"
-                    : "w-1.5 bg-white/15 hover:bg-white/30"
+                    : "w-1.5 bg-black/10 hover:bg-black/20"
                 }`}
                 aria-label={`Vis ${site.name}`}
               />
@@ -243,10 +250,10 @@ export function PortfolioShowcase() {
                   transition={{ duration: 0.3 }}
                   className="mt-6 text-center"
                 >
-                  <h3 className="text-xl font-bold text-[var(--color-dark-text)]">
+                  <h3 className="text-xl font-bold text-[var(--color-text)]">
                     {activeSite.name}
                   </h3>
-                  <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
+                  <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                     {activeSite.domain}
                   </p>
                 </motion.div>
@@ -269,7 +276,7 @@ export function PortfolioShowcase() {
             <div className="mt-6 flex items-center gap-6">
               <button
                 onClick={() => { goPrev(); pauseTemporarily(); }}
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-[var(--color-dark-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-dark-text)]"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-text)]"
                 aria-label="Forrige prosjekt"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -283,7 +290,7 @@ export function PortfolioShowcase() {
                     className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                       i === activeIndex
                         ? "w-6 bg-[var(--color-accent)]"
-                        : "w-2 bg-white/15"
+                        : "w-2 bg-black/10"
                     }`}
                     aria-label={`Vis ${site.name}`}
                   />
@@ -292,7 +299,7 @@ export function PortfolioShowcase() {
 
               <button
                 onClick={() => { goNext(); pauseTemporarily(); }}
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-[var(--color-dark-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-dark-text)]"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-text)]"
                 aria-label="Neste prosjekt"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -312,6 +319,6 @@ export function PortfolioShowcase() {
         </div>
       </div>
     </div>
-    </AuroraBackground>
+    </section>
   );
 }
