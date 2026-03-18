@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { COMPARISON_GRID } from "@/lib/content/homepage";
 import type { ComparisonCard } from "@/types";
 
@@ -57,16 +58,7 @@ function hexToRgb(hex: string): string {
 
 export function ComparisonBento() {
   return (
-    <section className="relative bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28">
-      {/* Decorative gradient for glassmorphism blur */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 20% 30%, rgba(244,206,20,0.06) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 80% 70%, rgba(56,189,248,0.05) 0%, transparent 70%)",
-        }}
-      />
-
+    <AuroraBackground variant="center" className="px-6 py-20 sm:py-28">
       <div className="relative mx-auto max-w-6xl">
         <motion.div
           className="mb-12 text-center"
@@ -92,6 +84,6 @@ export function ComparisonBento() {
           ))}
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
