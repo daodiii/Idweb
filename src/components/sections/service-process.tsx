@@ -1,4 +1,5 @@
 import type { ProcessStep } from "@/types";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface ServiceProcessProps {
   steps: ProcessStep[];
@@ -8,10 +9,7 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
   const lastIndex = steps.length - 1;
 
   return (
-    <section
-      className="px-6 py-20 sm:py-28"
-      style={{ background: "linear-gradient(135deg, var(--color-dark-bg), var(--color-dark-bg-alt))" }}
-    >
+    <AuroraBackground variant="bottom-left" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
           Slik jobber vi
@@ -77,6 +75,6 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
           ))}
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
