@@ -1,51 +1,48 @@
 export const PRICING_PAGE = {
   headline: "Ærlige priser, ingen overraskelser",
   subheadline:
-    "Jeg tror på transparens. Her er en oversikt over hva mine tjenester koster. Alle priser er veiledende — ta kontakt for et skreddersydd tilbud.",
+    "Vi tror på transparens. Her er en oversikt over hva mine tjenester koster. Alle priser er veiledende — ta kontakt for et skreddersydd tilbud.",
 } as const;
 
 export const PACKAGES = [
   {
-    id: "starter",
-    name: "Starter",
+    id: "enkel",
+    name: "Enkel",
     subtitle: "For deg som trenger en enkel, profesjonell nettside",
-    price: "fra 15 000 kr",
-    monthly: "fra 490 kr/mnd",
-    monthlyNote: "for hosting og vedlikehold",
+    price: "12 990 kr",
+    monthly: "490 kr/mnd",
+    monthlyNote: "for hosting",
     description:
-      "En solid bedriftsnettside med alt du trenger for å bli funnet og tiltrekke kunder. Perfekt for håndverkere, konsulenter og små tjenesteytere.",
+      "En solid bedriftsnettside med alt du trenger for å bli funnet på nett. Perfekt for nyoppstartede bedrifter, håndverkere og konsulenter.",
     features: [
-      "Inntil 5 sider (forside, om oss, tjenester, kontakt, personvern)",
-      "Responsivt design — fungerer på mobil, nettbrett og desktop",
-      "Grunnleggende SEO-optimalisering",
+      "Inntil 3 sider (forside, tjenester, kontakt)",
+      "Responsivt design — mobil, nettbrett og desktop",
+      "Grunnleggende SEO-oppsett (meta, sitemap, robots.txt)",
       "Kontaktskjema med e-postvarsling",
-      "SSL-sertifikat og sikkerhet",
-      "Opplæring i administrasjon",
+      "SSL-sertifikat og GDPR-tilpasning",
       "Google Analytics-oppsett",
-      "Levert innen 2–4 uker",
+      "Levert innen 1–2 uker",
     ],
     highlight: false,
   },
   {
-    id: "profesjonell",
-    name: "Profesjonell",
+    id: "standard",
+    name: "Standard",
     subtitle: "Mest populær — for bedrifter som vil vokse",
-    price: "fra 35 000 kr",
-    monthly: "fra 990 kr/mnd",
-    monthlyNote: "for hosting, vedlikehold og SEO",
+    price: "19 990 kr",
+    monthly: "790 kr/mnd",
+    monthlyNote: "for hosting og vedlikehold",
     description:
-      "En komplett nettside med avansert design, utvidet funksjonalitet og løpende SEO-optimalisering. For bedrifter der nettsiden er en viktig kilde til nye kunder.",
+      "En komplett nettside med skreddersydd design, blogg og avansert SEO. For bedrifter der nettsiden er en viktig kilde til nye kunder.",
     features: [
-      "Alt i Starter, pluss:",
-      "Inntil 15 sider med skreddersydd design",
+      "Alt i Enkel, pluss:",
+      "Inntil 5 sider med skreddersydd design",
       "Blogg for innholdspublisering",
-      "Avansert SEO med søkeordanalyse",
-      "Integrasjon med Google Business Profile",
+      "Avansert SEO med søkeordanalyse og schema markup",
+      "Google Business Profile-oppsett",
       "Animasjoner og interaktive elementer",
-      "Bildegalleri eller prosjektportefølje",
-      "Månedlig SEO-rapport",
-      "Prioritert support",
-      "Levert innen 4–6 uker",
+      "Ytelsesoptimalisering (Core Web Vitals)",
+      "Levert innen 2–4 uker",
     ],
     highlight: true,
   },
@@ -53,78 +50,106 @@ export const PACKAGES = [
     id: "premium",
     name: "Premium",
     subtitle: "For bedrifter med høye ambisjoner",
-    price: "fra 65 000 kr",
-    monthly: "fra 1 990 kr/mnd",
-    monthlyNote: "for hosting, vedlikehold, SEO og support",
+    price: "29 990 kr",
+    monthly: "990 kr/mnd",
+    monthlyNote: "for hosting, vedlikehold og support",
     description:
       "En skreddersydd løsning med avansert funksjonalitet, integrasjoner og dedikert oppfølging. For bedrifter som vil ha det beste.",
     features: [
-      "Alt i Profesjonell, pluss:",
-      "Ubegrenset antall sider",
-      "Avanserte integrasjoner (CRM, booking, betaling)",
-      "Flerspråklig støtte",
+      "Alt i Standard, pluss:",
+      "Inntil 10 sider",
+      "Avansert funksjonalitet (booking, CRM-integrasjon)",
       "A/B-testing og konverteringsoptimalisering",
-      "Dedikert kontaktperson",
-      "Kvartalsvis strategimøte",
-      "Ytelsesovervåking og optimalisering",
-      "Prioritert support med responstid under 4 timer",
-      "Levert innen 6–10 uker",
+      "Tilgjengelighetstilpasning (WCAG)",
+      "Prioritert support med rask responstid",
+      "Kvartalsvis ytelsesrapport",
+      "Levert innen 4–6 uker",
     ],
     highlight: false,
   },
 ] as const;
 
-export const NETTBUTIKK_PACKAGE = {
-  name: "Nettbutikk",
-  subtitle: "Start salget på nett",
-  price: "fra 30 000 kr",
-  monthly: "fra 990 kr/mnd",
-  monthlyNote: "for hosting, vedlikehold og support",
-  description:
-    "En komplett nettbutikk med betalingsintegrasjon, frakt og lagerstyring. Alt du trenger for å selge produkter eller tjenester på nett.",
-  features: [
-    "Skreddersydd nettbutikkdesign",
-    "Integrasjon med Vipps, Klarna og kortbetaling",
-    "Fraktintegrasjon med Posten/Bring",
-    "Produktadministrasjon og lagerstyring",
-    "Automatiske ordrebekreftelser",
-    "Responsivt design optimalisert for mobilhandel",
-    "Grunnleggende SEO for produktsider",
-    "Opplæring i produktadministrasjon",
-    "SSL-sertifikat og sikkerhetstiltak",
-  ],
-} as const;
+export const MAINTENANCE_PACKAGES = [
+  {
+    id: "vedlikehold-basis",
+    name: "Basis",
+    price: "790 kr/mnd",
+    description:
+      "Grunnleggende drift for nettsider som trenger trygg hosting og jevnlige oppdateringer.",
+    features: [
+      "Hosting på norske servere",
+      "SSL-sertifikat inkludert",
+      "Daglige sikkerhetskopier",
+      "Sikkerhets- og programvareoppdateringer",
+      "1 innholdsendring per måned",
+      "E-postsupport",
+    ],
+    highlight: false,
+  },
+  {
+    id: "vedlikehold-standard",
+    name: "Standard",
+    price: "1 490 kr/mnd",
+    description:
+      "For bedrifter som vil holde nettsiden oppdatert og overvåket uten bekymringer.",
+    features: [
+      "Alt i Basis, pluss:",
+      "Inntil 3 innholdsendringer per måned",
+      "Ytelsesovervåking og optimalisering",
+      "Oppetidskontroll med varsling",
+      "Månedlig sikkerhetsrapport",
+      "Prioritert e-postsupport",
+    ],
+    highlight: true,
+  },
+  {
+    id: "vedlikehold-profesjonell",
+    name: "Profesjonell",
+    price: "2 490 kr/mnd",
+    description:
+      "Komplett vedlikehold med ubegrensede endringer og dedikert oppfølging.",
+    features: [
+      "Alt i Standard, pluss:",
+      "Ubegrensede små endringer (tekst, bilder, layout)",
+      "Prioritert support med rask responstid",
+      "Månedlig ytelsesrapport med forbedringsforslag",
+      "Kvartalsvis SEO-helsesjekk",
+    ],
+    highlight: false,
+  },
+] as const;
 
 export const ADDON_SERVICES = [
   {
     name: "SEO-pakke",
-    price: "fra 5 000 kr/mnd",
+    price: "fra 4 990 kr",
+    monthlyPrice: "fra 2 990 kr/mnd",
     description:
-      "Løpende søkemotoroptimalisering med søkeordanalyse, innholdsoptimalisering, lenkebygging og månedlig rapportering.",
+      "Teknisk SEO-audit med meta-tagger, schema markup, søkeordanalyse og handlingsplan. Velg månedlig pakke for løpende optimalisering og rapportering.",
   },
   {
-    name: "Google Ads-administrasjon",
-    price: "fra 3 000 kr/mnd + annonsebudsjett",
+    name: "Ytelsesoptimalisering",
+    price: "fra 3 990 kr",
     description:
-      "Oppsett og løpende optimalisering av Google Ads-kampanjer for å drive målrettet trafikk til nettsiden din.",
+      "Forbedring av Core Web Vitals, bildeoptimalisering, lazy loading og hastighetsoptimalisering for bedre brukeropplevelse og Google-rangering.",
+  },
+  {
+    name: "Google Analytics og sporing",
+    price: "fra 2 990 kr",
+    description:
+      "Komplett GA4-oppsett med konverteringssporing, hendelsesmåling og dashboard — så du ser nøyaktig hva som fungerer.",
   },
   {
     name: "Innholdsproduksjon",
-    price: "fra 2 500 kr per artikkel",
+    price: "fra 1 500 kr per side",
     description:
-      "SEO-optimaliserte bloggartikler og nettsideinnhold skrevet for din bransje og målgruppe.",
+      "Nye sider, bloggartikler, tekstoppdateringer og bildebytte. SEO-optimalisert innhold tilpasset din bransje.",
   },
   {
-    name: "Grafisk design",
-    price: "fra 8 000 kr",
+    name: "Tilgjengelighet (WCAG)",
+    price: "fra 3 990 kr",
     description:
-      "Logodesign, visuell identitet og grafisk materiell. Inkluderer flere konseptforslag og revideringsrunder.",
-  },
-  {
-    name: "Sosiale medier-oppsett",
-    price: "fra 5 000 kr",
-    description:
-      "Oppsett og optimalisering av bedriftsprofiler på Facebook, Instagram og LinkedIn med visuelt innhold og strategi.",
+      "Tilgjengelighetsaudit og utbedring — tastaturnavigasjon, skjermleser-støtte og kontrastforbedringer for å nå alle brukere.",
   },
 ] as const;
 
@@ -137,12 +162,12 @@ export const PRICING_FAQ = [
   {
     question: "Hva er inkludert i de månedlige kostnadene?",
     answer:
-      "Månedlige kostnader dekker hosting på norske servere, daglige sikkerhetskopier, programvareoppdateringer, sikkerhetsovervåking og support. Avhengig av pakken kan det også inkludere SEO-rapportering og innholdsendringer.",
+      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 790 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se våre vedlikeholdspakker lenger opp på siden for detaljer.",
   },
   {
     question: "Er det bindingstid?",
     answer:
-      "Nei, jeg har ingen bindingstid på noen av tjenestene mine. Driftsavtaler kan sies opp med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
+      "Nei, vi har ingen bindingstid. Vedlikeholdsavtaler kan sies opp med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
   },
   {
     question: "Hva om prosjektet mitt ikke passer inn i en pakke?",
@@ -152,13 +177,13 @@ export const PRICING_FAQ = [
   {
     question: "Hvordan er betalingsmodellen?",
     answer:
-      "Prosjektbeløpet deles vanligvis i tre: 30 % ved oppstart, 40 % ved godkjent design, og 30 % ved lansering. Driftsavtaler faktureres månedlig.",
+      "Nettsider faktureres i to deler: 50 % ved oppstart og 50 % ved lansering. Vedlikeholdsavtaler og tilleggstjenester faktureres månedlig.",
   },
 ] as const;
 
 export const PRICING_CTA = {
   headline: "Usikker på hvilken pakke som passer?",
   description:
-    "Ta kontakt for en uforpliktende samtale. Jeg hjelper deg med å finne riktig løsning basert på dine behov og budsjett — helt gratis.",
+    "Ta kontakt for en uforpliktende samtale. Vi hjelper deg med å finne riktig løsning basert på dine behov og budsjett — helt gratis.",
   buttonText: "Få et skreddersydd tilbud",
 } as const;
