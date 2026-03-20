@@ -12,7 +12,7 @@ const BUSINESS_SCHEMA = {
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold.",
   url: "https://idweb.no",
-  telephone: "+4712345678",
+  telephone: "+4798406164",
   email: "hei@idweb.no",
   address: {
     "@type": "PostalAddress",

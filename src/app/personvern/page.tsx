@@ -24,7 +24,7 @@ export default function PersonvernPage() {
                 1. Hvem er behandlingsansvarlig?
               </h2>
               <p className="mt-3">
-                IDweb (org.nr: [fyll inn]) er behandlingsansvarlig for
+                IDweb v/ Daod Ilyas (org.nr: 837 228 972) er behandlingsansvarlig for
                 personopplysninger som samles inn via denne nettsiden. Kontakt
                 oss på hei@idweb.no dersom du har spørsmål om vår
                 behandling av personopplysninger.
@@ -174,11 +174,13 @@ export default function PersonvernPage() {
                 For spørsmål om personvern, ta kontakt med oss:
               </p>
               <p className="mt-2">
-                IDweb
+                IDweb v/ Daod Ilyas
+                <br />
+                Org.nr: 837 228 972
                 <br />
                 E-post: hei@idweb.no
                 <br />
-                Telefon: +47 123 45 678
+                Telefon: +47 984 06 164
               </p>
             </section>
           </div>

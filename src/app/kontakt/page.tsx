@@ -148,8 +148,8 @@ export default function KontaktPage() {
               <div>
                 <h3 className="font-semibold">Telefon</h3>
                 <p className="mt-1 text-[var(--color-text-muted)]">
-                  <a href="tel:+4712345678" className="hover:underline">
-                    +47 123 45 678
+                  <a href="tel:+4798406164" className="hover:underline">
+                    +47 984 06 164
                   </a>
                 </p>
               </div>

@@ -25,7 +25,7 @@ export default function VilkarPage() {
               </h2>
               <p className="mt-3">
                 Disse vilkårene gjelder for alle tjenester levert av
-                IDweb (heretter «vi», «oss» eller «selskapet»). Ved å
+                IDweb v/ Daod Ilyas, org.nr: 837 228 972 (heretter «vi», «oss» eller «selskapet»). Ved å
                 bestille tjenester fra oss aksepterer du disse vilkårene. Vi
                 forbeholder oss retten til å oppdatere vilkårene. Gjeldende
                 versjon er alltid tilgjengelig på denne siden.
@@ -51,10 +51,11 @@ export default function VilkarPage() {
                 3. Priser og betaling
               </h2>
               <p className="mt-3">
-                Alle priser oppgis ekskludert merverdiavgift (25 %) med mindre
-                annet er spesifisert. Betalingsmodellen er som følger: 30 % ved
-                oppstart, 40 % ved godkjent design, og 30 % ved lansering. For
-                driftsavtaler faktureres månedlig eller årlig etter avtale.
+                Priser er oppgitt uten MVA. IDweb er per i dag ikke
+                MVA-registrert. Dersom MVA-registrering gjennomføres i
+                avtaleperioden, vil MVA tilkomme i henhold til gjeldende satser.
+                Betalingsmodellen er som følger: 50 % ved oppstart og 50 % ved
+                lansering. For driftsavtaler faktureres månedlig etter avtale.
                 Betalingsfrist er 14 dager fra fakturadato. Ved forsinket
                 betaling påløper forsinkelsesrente i henhold til
                 forsinkelsesrenteloven.
@@ -179,11 +180,13 @@ export default function VilkarPage() {
                 For spørsmål om vilkårene, ta kontakt med oss:
               </p>
               <p className="mt-2">
-                IDweb
+                IDweb v/ Daod Ilyas
+                <br />
+                Org.nr: 837 228 972
                 <br />
                 E-post: hei@idweb.no
                 <br />
-                Telefon: +47 123 45 678
+                Telefon: +47 984 06 164
               </p>
             </section>
           </div>

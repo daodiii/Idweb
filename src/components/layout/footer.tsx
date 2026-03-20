@@ -109,7 +109,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 border-t border-[var(--color-dark-border)] pt-8 text-center text-sm text-[var(--color-dark-muted)]">
           <p>
-            &copy; {new Date().getFullYear()} {SITE_NAME}. Alle rettigheter
+            &copy; {new Date().getFullYear()} {SITE_NAME} v/ Daod Ilyas. Org.nr: {CONTACT_INFO.orgNr}. Alle rettigheter
             reservert.
           </p>
         </div>

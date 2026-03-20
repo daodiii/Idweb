@@ -31,9 +31,10 @@ export const FOOTER_LINKS = {
 } as const;
 
 export const CONTACT_INFO = {
-  phone: "+47 123 45 678",
-  phoneHref: "tel:+4712345678",
+  phone: "+47 984 06 164",
+  phoneHref: "tel:+4798406164",
   email: "hei@idweb.no",
   emailHref: "mailto:hei@idweb.no",
   hours: "Man – fre: 08:00 – 17:00",
+  orgNr: "837 228 972",
 } as const;

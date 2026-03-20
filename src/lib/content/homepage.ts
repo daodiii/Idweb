@@ -181,7 +181,7 @@ export const FINAL_CTA = {
   description:
     "Fortell meg om prosjektet ditt, s\u00e5 sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
   buttonText: "Send foresp\u00f8rsel",
-  secondaryText: "Eller ring meg direkte: 123 45 678",
+  secondaryText: "Eller ring meg direkte: 984 06 164",
 } as const;
 
 export const SOCIAL_PROOF = {

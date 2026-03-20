@@ -21,7 +21,7 @@ export const PACKAGES = [
       "Kontaktskjema med e-postvarsling",
       "SSL-sertifikat og GDPR-tilpasning",
       "Google Analytics-oppsett",
-      "Levert innen 1–2 uker",
+      "Levert innen 2 uker",
     ],
     highlight: false,
   },
@@ -42,7 +42,7 @@ export const PACKAGES = [
       "Google Business Profile-oppsett",
       "Animasjoner og interaktive elementer",
       "Ytelsesoptimalisering (Core Web Vitals)",
-      "Levert innen 2–4 uker",
+      "Levert innen 3 uker",
     ],
     highlight: true,
   },
@@ -157,7 +157,7 @@ export const PRICING_FAQ = [
   {
     question: "Er prisene inkludert mva.?",
     answer:
-      "Nei, alle oppgitte priser er ekskludert mva. (25 %). Totalprisen inkludert mva. oppgis alltid i tilbudet.",
+      "Priser er oppgitt uten MVA. IDweb er per i dag ikke MVA-registrert. Dersom MVA-registrering gjennomføres, vil MVA tilkomme i henhold til gjeldende satser.",
   },
   {
     question: "Hva er inkludert i de månedlige kostnadene?",
