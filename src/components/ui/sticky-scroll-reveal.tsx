@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll, motion } from "motion/react";
+import React, { useRef } from "react";
+import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export function StickyScroll({
   content,
   contentClassName,
+  titleClassName,
+  descriptionClassName,
 }: {
   content: {
     title: string;
@@ -14,13 +16,17 @@ export function StickyScroll({
     content?: React.ReactNode;
   }[];
   contentClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }) {
   const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
-    container: ref,
-    offset: ["start start", "end start"],
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
+
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -33,16 +39,10 @@ export function StickyScroll({
         }
         return acc;
       },
-      0
+      0,
     );
     setActiveCard(closestBreakpointIndex);
   });
-
-  const backgroundColors = [
-    "transparent",
-    "transparent",
-    "transparent",
-  ];
 
   const linearGradients = [
     "linear-gradient(to bottom right, rgb(6 182 212), rgb(16 185 129))",
@@ -50,59 +50,69 @@ export function StickyScroll({
     "linear-gradient(to bottom right, rgb(249 115 22), rgb(234 179 8))",
   ];
 
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
-
-  useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  // linearGradients is stable (defined in render but same values)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeCard]);
-
   return (
-    <motion.div
-      animate={{
-        backgroundColor:
-          backgroundColors[activeCard % backgroundColors.length],
-      }}
-      className="relative flex h-[40rem] justify-center space-x-10 overflow-y-auto p-10"
-      ref={ref}
-    >
-      <div className="relative flex items-start px-4">
-        <div className="max-w-2xl">
-          {content.map((item, index) => (
-            <div key={item.title + index} className={index === 0 ? "mb-36 mt-4" : "my-36"}>
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                transition={{ duration: 0.3 }}
-                className="text-3xl font-bold text-pretty text-[var(--color-text)] motion-reduce:[transition:none]"
-              >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                transition={{ duration: 0.3 }}
-                className="mt-10 max-w-md text-xl leading-relaxed text-[var(--color-text-muted)] motion-reduce:[transition:none]"
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          ))}
-          <div className="h-80" />
+    <div ref={containerRef} className="relative flex gap-10">
+      {/* Left: step list — each step gets tall spacing so page scroll advances them */}
+      <div className="w-full lg:w-1/2">
+        {content.map((item, index) => (
+          <div
+            key={item.title + index}
+            className={cn(
+              "flex min-h-[50vh] flex-col justify-center",
+              index === content.length - 1 && "min-h-[40vh]",
+            )}
+          >
+            <motion.h2
+              animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+              transition={{ duration: 0.4 }}
+              className={cn(
+                "text-2xl font-bold text-pretty sm:text-3xl motion-reduce:[transition:none]",
+                titleClassName ?? "text-[var(--color-text)]",
+              )}
+            >
+              {item.title}
+            </motion.h2>
+            <motion.p
+              animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+              transition={{ duration: 0.4 }}
+              className={cn(
+                "mt-6 max-w-md text-lg leading-relaxed motion-reduce:[transition:none]",
+                descriptionClassName ?? "text-[var(--color-text-muted)]",
+              )}
+            >
+              {item.description}
+            </motion.p>
+          </div>
+        ))}
+      </div>
+
+      {/* Right: sticky image panel — stays in view while scrolling through steps */}
+      <div className="hidden lg:block lg:w-1/2">
+        <div
+          className={cn(
+            "sticky top-[calc(50vh-14rem)] h-[28rem] w-full overflow-hidden rounded-xl",
+            contentClassName,
+          )}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCard}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.35 }}
+              className="h-full w-full"
+              style={{
+                background: content[activeCard].content
+                  ? undefined
+                  : linearGradients[activeCard % linearGradients.length],
+              }}
+            >
+              {content[activeCard].content ?? null}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-      <div
-        style={{ background: backgroundGradient }}
-        className={cn(
-          "sticky top-10 hidden h-[28rem] w-[28rem] overflow-hidden rounded-md bg-white lg:block",
-          contentClassName
-        )}
-      >
-        {content[activeCard].content ?? null}
-      </div>
-    </motion.div>
+    </div>
   );
 }

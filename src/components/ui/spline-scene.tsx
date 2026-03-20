@@ -6,12 +6,15 @@ import dynamic from "next/dynamic";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import type { Application as SplineApplication } from "@splinetool/runtime";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
+// Start downloading the Spline runtime immediately at module evaluation time,
+// not when the component first mounts after media-query detection.
+const splineModulePromise = import("@splinetool/react-spline");
+const Spline = dynamic(() => splineModulePromise, {
   ssr: false,
 });
 
 const SPLINE_SCENE_URL =
-  "https://my.spline.design/claritystream-r57sGCeLIqTWMePyprTC76lE/";
+  "https://prod.spline.design/g1PWeaAMVUIzEOGV/scene.splinecode";
 
 type SplineSceneProps = {
   onLoaded: (loaded: boolean) => void;
@@ -84,13 +87,15 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
   return (
     <motion.div
       ref={containerRef}
-      className="absolute inset-0 z-[1]"
+      className="pointer-events-none absolute inset-0 z-[1]"
       initial={{ opacity: 0 }}
       animate={{ opacity: loaded ? 1 : 0 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
       aria-hidden="true"
     >
       <Spline scene={SPLINE_SCENE_URL} onLoad={handleLoad} />
+      {/* Cover the Spline watermark in the bottom-right corner */}
+      <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-12 w-40 bg-[var(--color-dark-bg)]" />
     </motion.div>
   );
 }

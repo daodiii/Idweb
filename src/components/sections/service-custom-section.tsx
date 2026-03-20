@@ -15,12 +15,8 @@ export function ServiceCustomSection({ service }: ServiceCustomSectionProps) {
         switch (service.id) {
           case "nettside":
             return <NettsideShowcase />;
-          case "nettbutikk":
-            return <NettbutikkPayments />;
           case "seo":
             return <SeoRanking />;
-          case "markedsforing":
-            return <MarkedsforingPlatforms />;
           case "vedlikehold":
             return <VedlikeholdStats service={service} />;
           case "design":
@@ -96,69 +92,7 @@ function NettsideShowcase() {
 }
 
 /* ────────────────────────────────────────────────
-   2. Nettbutikk — Payment provider logos
-   ──────────────────────────────────────────────── */
-
-function NettbutikkPayments() {
-  const providers = [
-    { name: "Vipps", color: "#FF5B24" },
-    { name: "Klarna", color: "#FFB3C7" },
-    { name: "Visa", color: "#1A1F71" },
-    { name: "Mastercard", color: "#EB001B" },
-    { name: "Apple Pay", color: "#000000" },
-    { name: "Google Pay", color: "#4285F4" },
-  ];
-
-  return (
-    <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
-        Sømløs betaling med kjente løsninger
-      </h3>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {providers.map((p) => (
-          <div
-            key={p.name}
-            className="flex items-center justify-center gap-3 rounded-xl border border-[var(--color-border)] bg-white p-5 transition-shadow hover:shadow-md"
-          >
-            <div
-              className="h-8 w-8 rounded-lg"
-              style={{ backgroundColor: p.color }}
-              aria-hidden="true"
-            />
-            <span className="font-semibold text-[var(--color-text)]">{p.name}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Mini checkout mockup */}
-      <div className="mx-auto mt-8 max-w-sm rounded-xl border border-[var(--color-border)] bg-white p-5">
-        <div className="mb-3 h-2 w-24 rounded bg-[var(--color-text-muted)]/20" />
-        <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-[var(--color-text-muted)]">Produkt</span>
-            <span className="font-medium text-[var(--color-text)]">kr 499</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-[var(--color-text-muted)]">Frakt</span>
-            <span className="font-medium text-[var(--color-text)]">kr 49</span>
-          </div>
-          <div className="border-t border-[var(--color-border)] pt-2">
-            <div className="flex justify-between text-sm font-bold">
-              <span>Totalt</span>
-              <span>kr 548</span>
-            </div>
-          </div>
-        </div>
-        <div className="mt-4 rounded-lg bg-[var(--color-accent)] py-2.5 text-center text-sm font-semibold text-[var(--color-dark-bg)]">
-          Betal med Vipps
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ────────────────────────────────────────────────
-   3. SEO — Ranking bar chart
+   2. SEO — Ranking bar chart
    ──────────────────────────────────────────────── */
 
 function SeoRanking() {
@@ -183,7 +117,7 @@ function SeoRanking() {
           {months.map((m) => (
             <div key={m.label} className="flex flex-1 flex-col items-center gap-1">
               <div
-                className={`w-full rounded-t-md ${m.color} transition-all duration-700`}
+                className={`w-full rounded-t-md ${m.color} transition-[height] duration-700`}
                 style={{ height: `${m.height}%` }}
               />
               <span className="text-[10px] text-[var(--color-text-muted)]">{m.label}</span>
@@ -207,47 +141,7 @@ function SeoRanking() {
 }
 
 /* ────────────────────────────────────────────────
-   4. Markedsføring — Platform cards with ROI
-   ──────────────────────────────────────────────── */
-
-function MarkedsforingPlatforms() {
-  const platforms = [
-    { name: "Google Ads", color: "#4285F4", roi: "320%", desc: "Søkeannonser og remarketing" },
-    { name: "Meta / Facebook", color: "#0668E1", roi: "280%", desc: "Målrettet annonsering" },
-    { name: "Instagram", color: "#E4405F", roi: "250%", desc: "Visuell merkevarebygging" },
-  ];
-
-  return (
-    <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
-        Vi annonserer der kundene dine er
-      </h3>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        {platforms.map((p) => (
-          <div
-            key={p.name}
-            className="rounded-xl border border-[var(--color-border)] bg-white p-6 text-center transition-shadow hover:shadow-md"
-          >
-            <div
-              className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-white text-lg font-bold"
-              style={{ backgroundColor: p.color }}
-              aria-hidden="true"
-            >
-              {p.name.charAt(0)}
-            </div>
-            <h4 className="font-semibold text-[var(--color-text)]">{p.name}</h4>
-            <p className="mt-1 text-sm text-[var(--color-text-muted)]">{p.desc}</p>
-            <p className="mt-3 text-2xl font-extrabold text-[var(--color-accent)]">{p.roi}</p>
-            <p className="text-xs text-[var(--color-text-muted)]">gj.snittlig ROI</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ────────────────────────────────────────────────
-   5. Vedlikehold — Count-up stat counters
+   3. Vedlikehold — Count-up stat counters
    ──────────────────────────────────────────────── */
 
 function VedlikeholdStats({ service }: { service: Service }) {
@@ -278,7 +172,7 @@ function VedlikeholdStats({ service }: { service: Service }) {
 }
 
 /* ────────────────────────────────────────────────
-   6. Design — Color swatches + typography specimen
+   4. Design — Color swatches + typography specimen
    ──────────────────────────────────────────────── */
 
 function DesignSpecimen() {

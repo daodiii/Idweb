@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TjenesterPage() {
   return (
-    <main>
+    <div>
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
@@ -84,6 +84,6 @@ export default function TjenesterPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

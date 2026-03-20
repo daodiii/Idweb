@@ -99,7 +99,7 @@ export interface PortfolioSite {
   id: PortfolioSiteId;
   name: string;
   domain: string;
-  images: Record<DeviceViewport, string>;
+  images: Record<DeviceViewport, string> & { full?: string; showcase?: string[] };
 }
 
 export interface RotationSet {

@@ -52,7 +52,7 @@ export function WhyUsSection() {
         {/* Bento Grid — 5-column for 60/40 split */}
         <div className="grid gap-2 sm:grid-cols-5">
           {/* Card 1: Direkte kontakt — wide (3/5), warm amber */}
-          <div className="group rounded-xl border border-orange-400/10 bg-orange-400/[0.03] p-4 transition-all duration-300 hover:border-orange-400/20 sm:col-span-3">
+          <div className="group rounded-xl border border-orange-400/10 bg-orange-400/[0.03] p-4 transition-[border-color] duration-300 hover:border-orange-400/20 sm:col-span-3">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-400/10">
                 <MessageCircle className="h-4 w-4 text-orange-400" />
@@ -71,7 +71,7 @@ export function WhyUsSection() {
           </div>
 
           {/* Card 2: Moderne teknologi — narrow (2/5), accent yellow */}
-          <div className="group rounded-xl border border-[var(--color-accent)]/15 bg-[var(--color-accent)]/[0.04] p-4 transition-all duration-300 hover:border-[var(--color-accent)]/25 sm:col-span-2">
+          <div className="group rounded-xl border border-[var(--color-accent)]/15 bg-[var(--color-accent)]/[0.04] p-4 transition-[border-color] duration-300 hover:border-[var(--color-accent)]/25 sm:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)]/10">
                 <Zap className="h-4 w-4 text-[var(--color-accent)]" />
@@ -90,7 +90,7 @@ export function WhyUsSection() {
           </div>
 
           {/* Card 3: Målbare resultater — narrow (2/5), cool sky/teal */}
-          <div className="group rounded-xl border border-sky-400/10 bg-sky-400/[0.03] p-4 transition-all duration-300 hover:border-sky-400/20 sm:col-span-2">
+          <div className="group rounded-xl border border-sky-400/10 bg-sky-400/[0.03] p-4 transition-[border-color] duration-300 hover:border-sky-400/20 sm:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-400/10">
                 <TrendingUp className="h-4 w-4 text-sky-400" />

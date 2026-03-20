@@ -1,4 +1,4 @@
-// NOTE: This file holds real site metadata for hero device frames.
+// NOTE: This file holds real site metadata for hero device frames and portfolio showcase.
 // Separate from src/lib/content/portfolio.ts which has case study content.
 
 import type { PortfolioSite, PortfolioSiteId, RotationSet } from "@/types";
@@ -12,6 +12,12 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       desktop: "/images/portfolio/brobekk-desktop.webp",
       tablet: "/images/portfolio/brobekk-tablet.png",
       mobile: "/images/portfolio/brobekk-mobile.webp",
+      full: "/images/portfolio/brobekk-full.png",
+      showcase: [
+        "/images/portfolio/brobekk-s1.png",
+        "/images/portfolio/brobekk-s2.png",
+        "/images/portfolio/brobekk-s3.png",
+      ],
     },
   },
   {
@@ -22,6 +28,12 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       desktop: "/images/portfolio/centerrahma-desktop.webp",
       tablet: "/images/portfolio/centerrahma-tablet.webp",
       mobile: "/images/portfolio/centerrahma-mobile.png",
+      full: "/images/portfolio/centerrahma-full.png",
+      showcase: [
+        "/images/portfolio/centerrahma-s1.png",
+        "/images/portfolio/centerrahma-s2.png",
+        "/images/portfolio/centerrahma-s3.png",
+      ],
     },
   },
   {
@@ -32,6 +44,12 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       desktop: "/images/portfolio/vocura-desktop.png",
       tablet: "/images/portfolio/vocura-tablet.webp",
       mobile: "/images/portfolio/vocura-mobile.webp",
+      full: "/images/portfolio/vocura-full.png",
+      showcase: [
+        "/images/portfolio/vocura-s1.png",
+        "/images/portfolio/vocura-s2.png",
+        "/images/portfolio/vocura-s3.png",
+      ],
     },
   },
   {
@@ -52,16 +70,28 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       desktop: "/images/portfolio/iqra-desktop.webp",
       tablet: "/images/portfolio/iqra-tablet.webp",
       mobile: "/images/portfolio/iqra-mobile.webp",
+      full: "/images/portfolio/iqra-full.png",
+      showcase: [
+        "/images/portfolio/iqra-s1.png",
+        "/images/portfolio/iqra-s2.png",
+        "/images/portfolio/iqra-s3.png",
+      ],
     },
   },
   {
     id: "ringebu",
-    name: "Ringebu",
+    name: "Ringebu Tannlegeklinikk",
     domain: "ringebu.vercel.app",
     images: {
       desktop: "/images/portfolio/ringebu-desktop.webp",
       tablet: "/images/portfolio/ringebu-tablet.webp",
       mobile: "/images/portfolio/ringebu-mobile.webp",
+      full: "/images/portfolio/ringebu-full.png",
+      showcase: [
+        "/images/portfolio/ringebu-s1.png",
+        "/images/portfolio/ringebu-s2.png",
+        "/images/portfolio/ringebu-s3.png",
+      ],
     },
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -29,8 +29,10 @@ export function FeatureSteps({
 }: FeatureStepsProps) {
   const [currentFeature, setCurrentFeature] = useState(0);
   const [progress, setProgress] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const timer = setInterval(() => {
       if (progress < 100) {
         setProgress((prev) => prev + 100 / (autoPlayInterval / 100));
@@ -41,7 +43,7 @@ export function FeatureSteps({
     }, 100);
 
     return () => clearInterval(timer);
-  }, [progress, features.length, autoPlayInterval]);
+  }, [progress, features.length, autoPlayInterval, prefersReducedMotion]);
 
   return (
     <div className={cn("p-8 md:p-12", className)}>
@@ -56,13 +58,22 @@ export function FeatureSteps({
             {features.map((feature, index) => (
               <motion.div
                 key={index}
+                role="button"
+                tabIndex={0}
                 className="flex items-center gap-6 md:gap-8 cursor-pointer"
                 initial={{ opacity: 0.3 }}
                 animate={{ opacity: index === currentFeature ? 1 : 0.3 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
                 onClick={() => {
                   setCurrentFeature(index);
                   setProgress(0);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setCurrentFeature(index);
+                    setProgress(0);
+                  }
                 }}
               >
                 <motion.div

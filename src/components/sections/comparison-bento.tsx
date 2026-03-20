@@ -1,50 +1,69 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { COMPARISON_GRID } from "@/lib/content/homepage";
 import type { ComparisonCard } from "@/types";
 
 function Card({ card, index }: { card: ComparisonCard; index: number }) {
   const isByrå = card.type === "byrå";
   const label = isByrå ? "Typisk byrå" : "IDweb";
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-[14px] p-5"
-      style={{
-        background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-        border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
-        backdropFilter: "blur(12px)",
-      }}
-      initial={{ opacity: 0, y: 24 }}
+      className="relative rounded-[1.25rem]"
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -2, borderColor: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.35 : 0.45})` }}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : index * 0.1 }}
+      whileHover={prefersReducedMotion ? undefined : { y: -2 }}
     >
-      <span
-        className="mb-2 block text-[11px] uppercase tracking-[1.5px]"
-        style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
-      >
-        {label}
-      </span>
+      {/* Glow wrapper */}
+      <div className="relative h-full rounded-[inherit] border-[0.75px] border-white/10 p-1.5">
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+          borderWidth={3}
+        />
 
-      {card.stat ? (
-        <p className="mb-0.5 text-[2rem] font-extrabold leading-tight" style={{ color: card.accent }}>
-          {card.stat}
-          <span className="text-lg font-bold">{card.unit}</span>
-        </p>
-      ) : (
-        <span className="mb-1 block text-2xl">{card.icon}</span>
-      )}
+        {/* Inner card — preserves existing colors */}
+        <div
+          className="relative h-full overflow-hidden rounded-[14px] p-5"
+          style={{
+            background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
+            border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <span
+            className="mb-2 block text-[11px] uppercase tracking-[1.5px]"
+            style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
+          >
+            {label}
+          </span>
 
-      <p className="text-base font-bold" style={{ color: card.accent }}>
-        {card.title}
-      </p>
-      <p className="mt-1 text-xs leading-relaxed text-slate-400">
-        {card.description}
-      </p>
+          {card.stat ? (
+            <p className="mb-0.5 text-[2rem] font-extrabold leading-tight" style={{ color: card.accent }}>
+              {card.stat}
+              <span className="text-lg font-bold">{card.unit}</span>
+            </p>
+          ) : (
+            <span className="mb-1 block text-2xl">{card.icon}</span>
+          )}
+
+          <p className="text-base font-bold" style={{ color: card.accent }}>
+            {card.title}
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-slate-400">
+            {card.description}
+          </p>
+        </div>
+      </div>
     </motion.div>
   );
 }

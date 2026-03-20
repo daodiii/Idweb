@@ -3,7 +3,7 @@ import type { Service } from "@/types";
 export const SERVICES_PAGE = {
   headline: "Tjenester som gir bedriften din vekst",
   subheadline:
-    "Vi tilbyr alt du trenger for å lykkes digitalt — fra skreddersydde nettsider til synlighet i søkemotorer og løpende vedlikehold.",
+    "Vi tilbyr alt du trenger for å lykkes digitalt — fra skreddersydde nettsider og SEO til grafisk design og løpende vedlikehold.",
 } as const;
 
 export const SERVICES: Service[] = [
@@ -55,52 +55,6 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    id: "nettbutikk",
-    title: "Nettbutikk",
-    shortDescription:
-      "Start salget på nett med en brukervennlig nettbutikk som kundene dine elsker å handle i.",
-    longDescription:
-      "Netthandel vokser hvert eneste år i Norge, og en profesjonell nettbutikk er nøkkelen til å ta del i den veksten. Vi bygger nettbutikker med sømløs brukeropplevelse — fra produktvisning til utsjekk og betaling.",
-    categoryTag: "Nettbutikk",
-    features: [
-      "Sømløs integrasjon med Vipps, Klarna og kortbetaling",
-      "Automatisert lagerstyring og ordrehåndtering",
-      "Produktfiltrering, søk og kategorier",
-      "Fraktkalkulator med integrasjon mot Posten og Bring",
-      "Responsivt design optimalisert for mobilhandel",
-      "Statistikk og rapporter over salg og kundeadferd",
-    ],
-    detailedFeatures: [
-      { iconName: "credit-card", title: "Sømløs betaling", description: "Vipps, Klarna og kortbetaling integrert" },
-      { iconName: "package", title: "Lagerstyring", description: "Automatisert lagerstyring og ordrehåndtering" },
-      { iconName: "search", title: "Produktsøk", description: "Filtrering, søk og kategorier for enkel navigering" },
-      { iconName: "truck", title: "Fraktkalkulator", description: "Integrasjon med Posten og Bring" },
-      { iconName: "smartphone", title: "Mobilhandel", description: "Responsivt design optimalisert for mobilkjøp" },
-      { iconName: "chart-bar", title: "Salgsrapporter", description: "Statistikk over salg og kundeadferd" },
-    ],
-    painPoints: [
-      { title: "Tapt salg", description: "Kunder handler hos konkurrentene fordi du ikke er tilgjengelig på nett" },
-      { title: "Komplisert utsjekk", description: "Mange nettbutikker mister kunder i utsjekkprosessen — vår er optimalisert" },
-      { title: "Vanskelig administrasjon", description: "Produktoppdateringer, lager og ordrer bør være enkelt — ikke frustrerende" },
-    ],
-    processSteps: [
-      { step: 1, title: "Kartlegging", description: "Produkter, betalingsløsninger og fraktbehov" },
-      { step: 2, title: "Design", description: "Brukervennlig butikkdesign med fokus på konvertering" },
-      { step: 3, title: "Integrasjon", description: "Betaling, frakt og lagerstyring kobles sammen" },
-      { step: 4, title: "Lansering", description: "Testing, opplæring og go live" },
-    ],
-    faq: [
-      { question: "Hvilke betalingsløsninger støttes?", answer: "Vi integrerer Vipps, Klarna, kortbetaling (Visa/Mastercard), Apple Pay og Google Pay — alt som trengs for norske kunder." },
-      { question: "Kan jeg administrere produkter selv?", answer: "Ja, du får et enkelt administrasjonspanel der du kan legge til, endre og fjerne produkter, priser og bilder." },
-      { question: "Hva med frakt og logistikk?", answer: "Vi integrerer med Posten og Bring slik at fraktkostnader beregnes automatisk basert på vekt og destinasjon." },
-    ],
-    trustStats: [
-      { value: 20, suffix: "+", label: "nettbutikker lansert" },
-      { value: 98, suffix: "%", label: "oppetid garantert" },
-      { value: 35, suffix: "%", label: "økt konvertering snitt" },
-    ],
-  },
-  {
     id: "seo",
     title: "SEO-optimalisering",
     shortDescription:
@@ -144,52 +98,6 @@ export const SERVICES: Service[] = [
       { value: 150, suffix: "%", label: "økt organisk trafikk snitt" },
       { value: 40, suffix: "+", label: "bedrifter rangert på side 1" },
       { value: 12, suffix: "+", label: "måneders erfaring" },
-    ],
-  },
-  {
-    id: "markedsforing",
-    title: "Digital markedsføring",
-    shortDescription:
-      "Målrettet annonsering på Google og sosiale medier som gir deg flere kunder og målbar avkastning.",
-    longDescription:
-      "Digital markedsføring handler om å nå de riktige menneskene med den riktige beskjeden til riktig tid. Vi hjelper deg med å sette opp og optimalisere kampanjer på Google Ads, Facebook, Instagram og andre relevante plattformer.",
-    categoryTag: "Markedsføring",
-    features: [
-      "Google Ads — søkeannonser, displayannonser og remarketing",
-      "Annonsering på Facebook og Instagram",
-      "Målgruppesegmentering og retargeting",
-      "A/B-testing av annonser for best mulig resultat",
-      "Konverteringssporing og ROI-rapportering",
-      "Løpende optimalisering av kampanjer",
-    ],
-    detailedFeatures: [
-      { iconName: "target", title: "Google Ads", description: "Søkeannonser, display og remarketing" },
-      { iconName: "megaphone", title: "Facebook-annonsering", description: "Målrettet annonsering på Facebook" },
-      { iconName: "camera", title: "Instagram-annonsering", description: "Visuell annonsering til riktig målgruppe" },
-      { iconName: "flask-conical", title: "A/B-testing", description: "Test annonser for best mulig resultat" },
-      { iconName: "chart-bar", title: "Konverteringssporing", description: "ROI-rapportering og måling" },
-      { iconName: "refresh-cw", title: "Løpende optimalisering", description: "Kampanjer justeres kontinuerlig" },
-    ],
-    painPoints: [
-      { title: "Lav avkastning på annonser", description: "Du bruker penger på annonsering uten å se konkrete resultater" },
-      { title: "Feil målgruppe", description: "Annonsene dine vises til folk som aldri vil bli kunder" },
-      { title: "Ingen oppfølging", description: "Kampanjer settes opp og glemmes — uten løpende optimalisering" },
-    ],
-    processSteps: [
-      { step: 1, title: "Strategi", description: "Målgruppe, budsjett og kanalvalg" },
-      { step: 2, title: "Oppsett", description: "Annonser, sporing og landingssider" },
-      { step: 3, title: "Optimalisering", description: "A/B-testing og løpende justering" },
-      { step: 4, title: "Rapportering", description: "Månedlig ROI-rapport med innsikt" },
-    ],
-    faq: [
-      { question: "Hvor mye bør jeg bruke på annonsering?", answer: "Det avhenger av bransje og mål. Vi anbefaler å starte med minimum kr 5 000–10 000 per måned i annonsebudsjett, pluss honorar for styring." },
-      { question: "Hvilke plattformer anbefaler dere?", answer: "Det avhenger av målgruppen din. Google Ads fungerer best for kjøpsklare kunder, mens Facebook/Instagram er sterke for merkevarebygging og retargeting." },
-      { question: "Hvor raskt ser jeg resultater?", answer: "Med betalte annonser kan du se trafikk og henvendelser allerede fra dag én. Optimaliseringen gir bedre resultater over tid." },
-    ],
-    trustStats: [
-      { value: 300, suffix: "%", label: "gjennomsnittlig ROI" },
-      { value: 25, suffix: "+", label: "aktive kampanjer" },
-      { value: 2, suffix: "M+", label: "kroner forvaltet" },
     ],
   },
   {

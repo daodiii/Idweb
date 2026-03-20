@@ -26,7 +26,7 @@ interface AuroraBackgroundProps {
 
 export function AuroraBackground({
   variant = "center",
-  intensity = 0.08,
+  intensity = 0.13,
   as: Tag = "section",
   children,
   className = "",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/ui/section";
+import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
 export function ServiceCta() {
   return (
@@ -14,13 +15,13 @@ export function ServiceCta() {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/kontakt"
-            className="rounded-lg bg-[var(--color-accent)] px-8 py-3.5 text-lg font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+            className={`${RAINBOW_BUTTON_CLASSES} px-8 py-3.5 text-lg font-semibold`}
           >
             Book en gratis samtale
           </Link>
           <Link
             href="/tjenester"
-            className="rounded-lg border border-[var(--color-border)] px-8 py-3.5 text-lg font-semibold transition-colors hover:bg-[var(--color-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+            className={`${RAINBOW_BUTTON_CLASSES} px-8 py-3.5 text-lg font-semibold`}
           >
             Se alle tjenester
           </Link>

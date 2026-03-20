@@ -15,7 +15,7 @@ import { useEffect, useRef, type RefObject } from "react";
 export function useScrollAnimation(
   imageRef: RefObject<HTMLImageElement | null>,
   containerRef: RefObject<HTMLDivElement | null>,
-  options?: { cycleDuration?: number; paused?: boolean }
+  options?: { cycleDuration?: number; paused?: boolean; maxScrollPercent?: number }
 ) {
   const rafId = useRef<number>(0);
   const startTime = useRef<number>(0);
@@ -57,7 +57,8 @@ export function useScrollAnimation(
         const containerH = container.offsetHeight;
         const scale = container.offsetWidth / (image.naturalWidth || 1);
         const imgH = (image.naturalHeight || 1) * scale;
-        const scrollDist = Math.max(0, imgH - containerH);
+        const maxScroll = options?.maxScrollPercent ?? 1;
+        const scrollDist = Math.max(0, (imgH - containerH) * maxScroll);
 
         const elapsed = (now - startTime.current) % cycleDuration;
         const progress = elapsed / cycleDuration;

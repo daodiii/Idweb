@@ -21,15 +21,19 @@ export const TRUST_SIGNALS: TrustSignal[] = [
 export const TRUST_LOCATION = "Basert i Drammen" as const;
 
 export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
+  "centerrahma",
   "vocura",
   "brobekk",
-  "centerrahma",
+  "iqra",
+  "ringebu",
 ];
 
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
   vocura: { pagespeed: "98/100", result: "+60% bookinger" },
   brobekk: { pagespeed: "96/100", result: "+45% henvendelser" },
   centerrahma: { pagespeed: "97/100", result: "+80% besøkende" },
+  iqra: { pagespeed: "95/100", result: "+120 medlemmer" },
+  ringebu: { pagespeed: "97/100", result: "+35% nye pasienter" },
 };
 
 export const SERVICES_OVERVIEW = [
@@ -40,22 +44,10 @@ export const SERVICES_OVERVIEW = [
       "Profesjonelle, raske nettsider som representerer merkevaren din og tiltrekker nye kunder gjennom s\u00f8kemotorer.",
   },
   {
-    id: "nettbutikk",
-    title: "Nettbutikk",
-    description:
-      "Brukervennlige nettbutikker med sikker betaling, enkel administrasjon og h\u00f8y konverteringsrate.",
-  },
-  {
     id: "seo",
     title: "SEO-optimalisering",
     description:
       "Bli funnet av kundene dine. Vi s\u00f8rger for at bedriften din rangerer h\u00f8yt i Google-s\u00f8k.",
-  },
-  {
-    id: "markedsforing",
-    title: "Digital markedsf\u00f8ring",
-    description:
-      "M\u00e5lrettet annonsering p\u00e5 Google og sosiale medier som gir m\u00e5lbar avkastning p\u00e5 investeringen.",
   },
   {
     id: "vedlikehold",
@@ -200,9 +192,7 @@ export const SOCIAL_PROOF = {
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
   nettside: 0,
-  nettbutikk: 2,
   seo: 1,
-  markedsforing: 1,
   vedlikehold: 0,
   design: 2,
 };

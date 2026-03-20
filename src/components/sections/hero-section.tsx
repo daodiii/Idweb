@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { HERO } from "@/lib/content/homepage";
@@ -11,6 +11,7 @@ import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
 export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section className="relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
@@ -33,9 +34,9 @@ export function HeroSection() {
       {/* Layer 10: Text content */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
         >
           <div className="mt-24 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link

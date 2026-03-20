@@ -47,7 +47,7 @@ export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
               key={feature.title}
               className={cn(
                 "rounded-2xl border p-6 backdrop-blur-xl shadow-lg shadow-black/10",
-                "cursor-pointer transition-transform duration-200 motion-reduce:transition-none hover:scale-[1.02]",
+                "transition-transform duration-200 motion-reduce:transition-none hover:scale-[1.02]",
                 cardVariants[i % cardVariants.length],
                 gridPlacements[i % gridPlacements.length],
               )}

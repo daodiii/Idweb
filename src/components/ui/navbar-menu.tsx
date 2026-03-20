@@ -27,25 +27,34 @@ export function MenuItem({
   children?: React.ReactNode;
 }) {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative">
-      <motion.p
-        transition={{ duration: 0.3 }}
-        className="cursor-pointer text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+    <div
+      onMouseEnter={() => setActive(item)}
+      className="relative"
+    >
+      <button
+        type="button"
+        onClick={() => setActive(active === item ? "" : item)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setActive("");
+        }}
+        aria-expanded={active === item}
+        className="cursor-pointer text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
         {item}
-      </motion.p>
+      </button>
       {active !== null && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
+          className="motion-reduce:!transition-none"
         >
           {active === item && (
             <div className="absolute left-1/2 top-full -translate-x-1/2 pt-6">
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-alt)] shadow-xl backdrop-blur-md"
+                className="overflow-hidden rounded-2xl border border-[var(--color-dark-border)] bg-[var(--color-dark-bg)]/95 shadow-xl backdrop-blur-md"
               >
                 <motion.div layout className="h-full w-max p-4">
                   {children}
@@ -102,10 +111,10 @@ export function ProductItem({
         className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h4 className="mb-1 text-xl font-bold text-black dark:text-white">
+        <h4 className="mb-1 text-xl font-bold text-[var(--color-dark-text)]">
           {title}
         </h4>
-        <p className="max-w-[10rem] text-sm text-neutral-700 dark:text-neutral-300">
+        <p className="max-w-[10rem] text-sm text-[var(--color-dark-muted)] line-clamp-3">
           {description}
         </p>
       </div>
@@ -120,7 +129,7 @@ export function HoveredLink({
   return (
     <Link
       {...rest}
-      className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+      className="text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
     >
       {children}
     </Link>

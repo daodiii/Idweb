@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
 interface ContactFormProps {
   showExtendedFields?: boolean;
@@ -59,7 +60,7 @@ export function ContactForm({
         <CheckCircle2 className="h-12 w-12 text-green-500" />
         <p className="text-lg font-semibold">Takk for henvendelsen!</p>
         <p className="text-sm opacity-70">
-          Jeg tar kontakt innen 24 timer.
+          Vi tar kontakt innen 24 timer.
         </p>
       </motion.div>
     );
@@ -72,15 +73,19 @@ export function ContactForm({
           type="text"
           name="name"
           required
+          autoComplete="name"
+          aria-label="Ditt navn"
           placeholder="Ditt navn"
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
         />
         <input
           type="email"
           name="email"
           required
+          autoComplete="email"
+          aria-label="Din e-post"
           placeholder="Din e-post"
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
         />
       </div>
 
@@ -89,14 +94,18 @@ export function ContactForm({
           <input
             type="tel"
             name="phone"
+            autoComplete="tel"
+            aria-label="Telefon"
             placeholder="Telefon (valgfritt)"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
           />
           <input
             type="text"
             name="company"
+            autoComplete="organization"
+            aria-label="Bedriftsnavn"
             placeholder="Bedriftsnavn (valgfritt)"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
           />
         </div>
       )}
@@ -104,8 +113,9 @@ export function ContactForm({
       <textarea
         name="message"
         rows={3}
+        aria-label="Melding"
         placeholder="Fortell kort om prosjektet ditt"
-        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none"
+        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
       />
 
       {status === "error" && (
@@ -115,7 +125,7 @@ export function ContactForm({
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-accent)] px-8 py-3 text-sm font-bold text-[var(--color-dark-bg)] transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50 sm:w-auto"
+        className={`${RAINBOW_BUTTON_CLASSES} w-full gap-2 px-8 py-3 text-sm font-bold sm:w-auto`}
       >
         {status === "loading" ? (
           <Loader2 className="h-4 w-4 animate-spin" />
