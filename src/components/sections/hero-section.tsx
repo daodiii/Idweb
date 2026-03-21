@@ -66,9 +66,9 @@ export function HeroSection() {
       {/* Layer 1: Spline 3D scene (desktop only, lazy loaded) */}
       <SplineScene onLoaded={setIsSplineLoaded} />
 
-      {/* Layer 5: Readability overlay */}
+      {/* Layer 5: Readability overlay (desktop only — aids contrast over Spline 3D) */}
       <div
-        className="pointer-events-none absolute inset-0 z-[5]"
+        className="pointer-events-none absolute inset-0 z-[5] hidden lg:block"
         aria-hidden="true"
         style={{
           background:
@@ -106,7 +106,7 @@ export function HeroSection() {
               variants={headlineContainer}
               initial="hidden"
               animate="visible"
-              className="hero-shimmer bg-clip-text text-4xl font-black leading-[1.1] tracking-tight text-transparent sm:text-5xl"
+              className="hero-shimmer bg-clip-text text-[1.85rem] font-black leading-[1.1] tracking-tight text-transparent min-[375px]:text-4xl sm:text-5xl"
             >
               {["IDWEB", "BYGGER", "DIN", "NYE", "NETTSIDE"].map(
                 (word, i) => (
@@ -137,18 +137,17 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={1.1}
-              className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+              className="mt-8 flex flex-row items-center justify-center gap-3"
             >
               <Link
                 href="/referanser"
-                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}
+                className={`${RAINBOW_BUTTON_CLASSES} px-5 py-3 text-sm font-bold`}
               >
-                {HERO.primaryCta}{" "}
-                <MoveRight className="h-4 w-4" aria-hidden="true" />
+                {HERO.primaryCta}
               </Link>
               <Link
                 href="/kontakt"
-                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-medium`}
+                className={`${RAINBOW_BUTTON_CLASSES} px-5 py-3 text-sm font-medium`}
               >
                 {HERO.secondaryCta}
               </Link>
