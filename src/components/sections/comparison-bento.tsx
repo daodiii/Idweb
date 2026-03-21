@@ -70,49 +70,32 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
   );
 }
 
-/** Compact mobile card — no icon/emoji, tighter padding */
+/** Compact mobile card — no icon/emoji, minimal padding, fixed height */
 function MobileCard({ card }: { card: ComparisonCard }) {
   const isByrå = card.type === "byrå";
-  const label = isByrå ? "Typisk byrå" : "IDweb";
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.25 }}
-      className="relative rounded-xl"
+    <div
+      className="flex h-[72px] flex-col justify-center overflow-hidden rounded-lg px-2.5 py-2"
+      style={{
+        background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
+        border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
+      }}
     >
-      <div
-        className="overflow-hidden rounded-xl px-3 py-2.5"
-        style={{
-          background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-          border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
-        }}
-      >
-        <span
-          className="mb-0.5 block text-[10px] uppercase tracking-[1.5px]"
-          style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
-        >
-          {label}
-        </span>
-
-        {card.stat && (
-          <p className="text-xl font-extrabold leading-tight" style={{ color: card.accent }}>
-            {card.stat}
-            <span className="text-sm font-bold">{card.unit}</span>
-          </p>
-        )}
-
-        <p className="text-sm font-bold" style={{ color: card.accent }}>
-          {card.title}
+      {card.stat && (
+        <p className="text-base font-extrabold leading-none" style={{ color: card.accent }}>
+          {card.stat}
+          <span className="text-xs font-bold">{card.unit}</span>
         </p>
-        <p className="mt-0.5 text-[11px] leading-snug text-slate-400">
-          {card.description}
-        </p>
-      </div>
-    </motion.div>
+      )}
+
+      <p className="text-[13px] font-bold leading-tight" style={{ color: card.accent }}>
+        {card.title}
+      </p>
+      <p className="mt-0.5 text-[10px] leading-snug text-slate-400">
+        {card.description}
+      </p>
+    </div>
   );
 }
 
@@ -131,6 +114,9 @@ export function ComparisonBento() {
   const byråCards = COMPARISON_GRID.filter((c) => c.type === "byrå");
   const idwebCards = COMPARISON_GRID.filter((c) => c.type === "idweb");
   const mobileCards = activeFilter === 0 ? idwebCards : byråCards;
+  // Pad to 6 cells (3 full rows of 2) so both views occupy the same height
+  const paddedCount = 6;
+  const spacersNeeded = paddedCount - mobileCards.length;
 
   return (
     <AuroraBackground variant="center" className="px-6 py-14 sm:py-20 md:py-28">
@@ -167,7 +153,7 @@ export function ComparisonBento() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeFilter}
-              className="grid grid-cols-2 gap-2"
+              className="grid grid-cols-2 gap-1.5"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -175,6 +161,10 @@ export function ComparisonBento() {
             >
               {mobileCards.map((card) => (
                 <MobileCard key={card.title} card={card} />
+              ))}
+              {/* Invisible spacers keep both views the same height (3 rows) */}
+              {Array.from({ length: spacersNeeded }, (_, i) => (
+                <div key={`spacer-${i}`} className="h-[72px]" aria-hidden="true" />
               ))}
             </motion.div>
           </AnimatePresence>
