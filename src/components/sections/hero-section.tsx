@@ -85,7 +85,7 @@ export function HeroSection() {
         >
           {/* Mobile hero — staggered reveal with parallax */}
           <motion.div
-            className="mb-8 lg:hidden"
+            className="mb-8 -mt-16 lg:hidden"
             style={
               prefersReducedMotion
                 ? undefined
@@ -97,7 +97,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0}
-              className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]"
+              className="mb-8 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]"
             >
               {HERO.eyebrow}
             </motion.p>
@@ -137,7 +137,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={1.1}
-              className="mt-8 flex flex-row items-center justify-center gap-3"
+              className="mt-14 flex flex-row items-center justify-center gap-3"
             >
               <Link
                 href="/referanser"
@@ -155,7 +155,7 @@ export function HeroSection() {
           </motion.div>
 
           {/* Desktop CTAs (no parallax, no stagger) */}
-          <div className="hidden flex-col items-center justify-center gap-3 sm:flex-row lg:flex">
+          <div className="hidden flex-col items-center justify-center gap-3 pt-48 sm:flex-row lg:flex">
             <Link
               href="/referanser"
               className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}
