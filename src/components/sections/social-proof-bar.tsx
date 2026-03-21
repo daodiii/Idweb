@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { TRUST_SIGNALS, TRUST_LOCATION } from "@/lib/content/homepage";
+import { TRUST_SIGNALS } from "@/lib/content/homepage";
 import { CountUpStat } from "@/components/ui/count-up-stat";
 
 export function SocialProofBar() {
@@ -32,14 +32,6 @@ export function SocialProofBar() {
             </span>
           </div>
         ))}
-        <div className="flex items-center gap-2">
-          <span className="mr-6 hidden text-[var(--color-border)] sm:inline">
-            ·
-          </span>
-          <span className="text-sm text-[var(--color-text-muted)]">
-            {TRUST_LOCATION}
-          </span>
-        </div>
       </motion.div>
     </section>
   );

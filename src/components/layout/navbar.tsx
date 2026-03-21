@@ -116,13 +116,15 @@ export function Navbar() {
             )}
           </button>
 
-          {/* CTA button */}
-          <Link
-            href="/kontakt"
-            className={`${RAINBOW_BUTTON_CLASSES} hidden gap-2 px-5 py-2 text-sm md:flex`}
-          >
-            Kom i gang <MoveRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+          {/* CTA button — desktop only */}
+          <div className="hidden md:block">
+            <Link
+              href="/kontakt"
+              className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-5 py-2 text-sm`}
+            >
+              Kom i gang <MoveRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
 
         {/* Mobile menu panel */}
@@ -139,13 +141,6 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/kontakt"
-                onClick={() => setMobileOpen(false)}
-                className={`${RAINBOW_BUTTON_CLASSES} mt-2 gap-2 px-5 py-2.5 text-sm`}
-              >
-                Kom i gang <MoveRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
             </nav>
           </div>
         )}

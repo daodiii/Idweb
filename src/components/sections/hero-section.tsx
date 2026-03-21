@@ -18,6 +18,19 @@ export function HeroSection() {
       {/* Layer 0: Gradient fallback (always renders, fades when Spline ready) */}
       <HeroFallback isSplineLoaded={isSplineLoaded} />
 
+      {/* Layer 0.5: Aurora gradient for mobile */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] lg:hidden"
+        aria-hidden="true"
+        style={{
+          background: [
+            "radial-gradient(ellipse 80% 60% at 30% 20%, rgba(6,182,212,0.25), transparent 60%)",
+            "radial-gradient(ellipse 70% 50% at 70% 70%, rgba(244,206,20,0.18), transparent 55%)",
+            "radial-gradient(ellipse 90% 80% at 50% 50%, rgba(6,182,212,0.08), transparent 70%)",
+          ].join(", "),
+        }}
+      />
+
       {/* Layer 1: Spline 3D scene (desktop only, lazy loaded) */}
       <SplineScene onLoaded={setIsSplineLoaded} />
 
@@ -38,7 +51,26 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
         >
-          <div className="mt-24 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          {/* Mobile hero text — hidden on desktop where Spline handles visuals */}
+          <div className="mb-8 lg:hidden">
+            <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]">
+              {HERO.eyebrow}
+            </p>
+            <h1
+              className="bg-clip-text text-4xl font-black leading-[1.1] tracking-tight text-transparent sm:text-5xl"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, #D4A017, #8B6914)",
+              }}
+            >
+              IDWEB BYGGER DIN NYE NETTSIDE
+            </h1>
+            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]">
+              {HERO.subheadline}
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/referanser"
               className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}

@@ -52,8 +52,10 @@ export default function Home() {
       {/* 1. Hero — Dark */}
       <HeroSection />
 
-      {/* 2. Social Proof Bar — Light */}
-      <SocialProofBar />
+      {/* 2. Social Proof Bar — Light (desktop only) */}
+      <div className="hidden lg:block">
+        <SocialProofBar />
+      </div>
 
       {/* 4. Portfolio Showcase — Light */}
       <PortfolioShowcase />
