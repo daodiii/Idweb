@@ -52,7 +52,7 @@ export function HeroSection() {
 
       {/* Layer 0.5: Aurora gradient for mobile */}
       <div
-        className="pointer-events-none absolute inset-0 z-[1] lg:hidden"
+        className="aurora-glow-layer pointer-events-none absolute inset-0 z-[1] lg:hidden"
         aria-hidden="true"
         style={{
           background: [
