@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 const SPLINE_SCENE_URL =
-  "https://prod.spline.design/g1PWeaAMVUIzEOGV/scene.splinecode";
+  "https://prod.spline.design/g1PWeaAMVUIzEOGV/scene.splinecode?v=2";
 
 type SplineSceneProps = {
   onLoaded: (loaded: boolean) => void;
