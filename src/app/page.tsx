@@ -75,10 +75,10 @@ export default function Home() {
       {/* 9. Testimonials — Dark (shown when real testimonials are collected) */}
       {TESTIMONIALS.length > 0 && <TestimonialGrid testimonials={TESTIMONIALS} />}
 
-      {/* 9. Pricing Preview — Light */}
+      {/* 9. Pricing Preview — Dark */}
       <PricingPreview />
 
-      {/* 10. FAQ Teaser — Dark */}
+      {/* 10. FAQ Teaser — Light */}
       <FaqTeaser />
 
       {/* 11. Final CTA — Yellow gradient */}
