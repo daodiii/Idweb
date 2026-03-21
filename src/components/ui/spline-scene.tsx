@@ -2,14 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import dynamic from "next/dynamic";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import type { Application as SplineApplication } from "@splinetool/runtime";
-
-// Lazy-load the Spline runtime only when the component actually renders (desktop only).
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-});
 
 const SPLINE_SCENE_URL =
   "https://prod.spline.design/g1PWeaAMVUIzEOGV/scene.splinecode";
@@ -20,17 +13,47 @@ type SplineSceneProps = {
 
 export function SplineScene({ onLoaded }: SplineSceneProps) {
   const [loaded, setLoaded] = useState(false);
+  const [SplineComponent, setSplineComponent] = useState<React.ComponentType<{
+    scene: string;
+    onLoad?: (app: unknown) => void;
+  }> | null>(null);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const prefersReducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const splineAppRef = useRef<SplineApplication | null>(null);
+  const splineAppRef = useRef<unknown>(null);
+
+  // Preconnect to Spline CDN as soon as we know we're on desktop
+  useEffect(() => {
+    if (!isDesktop) return;
+    const existing = document.querySelector('link[href="https://prod.spline.design"]');
+    if (!existing) {
+      const link = document.createElement("link");
+      link.rel = "preconnect";
+      link.href = "https://prod.spline.design";
+      document.head.appendChild(link);
+    }
+  }, [isDesktop]);
+
+  // Only import Spline when we're on desktop — mobile never downloads the 562 KiB runtime
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    let cancelled = false;
+    import("@splinetool/react-spline").then((mod) => {
+      if (!cancelled) {
+        setSplineComponent(() => mod.default);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [isDesktop]);
 
   const handleLoad = useCallback(
-    (splineApp: SplineApplication) => {
+    (splineApp: unknown) => {
       splineAppRef.current = splineApp;
+      const app = splineApp as { stop: () => void; play: () => void };
 
       if (prefersReducedMotion) {
-        splineApp.stop();
+        app.stop();
       }
 
       setLoaded(true);
@@ -49,8 +72,6 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
       onLoaded(false);
     };
 
-    // The Spline runtime creates a <canvas> inside our container.
-    // We use a MutationObserver to find it and attach the listener.
     const observer = new MutationObserver(() => {
       const canvas = container.querySelector("canvas");
       if (canvas) {
@@ -70,7 +91,7 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
 
   // Pause/resume based on reduced motion preference changes
   useEffect(() => {
-    const app = splineAppRef.current;
+    const app = splineAppRef.current as { stop: () => void; play: () => void } | null;
     if (!app) return;
 
     if (prefersReducedMotion) {
@@ -80,7 +101,7 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
     }
   }, [prefersReducedMotion]);
 
-  if (!isDesktop) return null;
+  if (!isDesktop || !SplineComponent) return null;
 
   return (
     <motion.div
@@ -91,7 +112,7 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
       transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
       aria-hidden="true"
     >
-      <Spline scene={SPLINE_SCENE_URL} onLoad={handleLoad} />
+      <SplineComponent scene={SPLINE_SCENE_URL} onLoad={handleLoad} />
       {/* Cover the Spline watermark in the bottom-right corner */}
       <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-12 w-40 bg-[var(--color-dark-bg)]" />
     </motion.div>

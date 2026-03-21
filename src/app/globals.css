@@ -57,6 +57,12 @@
   }
 }
 
+/* Promote rainbow-animated elements to own layer to avoid main-thread paint */
+.animate-rainbow {
+  will-change: background-position;
+  contain: layout style paint;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

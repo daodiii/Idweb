@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const content = [
   {
@@ -58,25 +57,25 @@ const content = [
 
 export function ProcessSection() {
   return (
-    <AuroraBackground variant="bottom-left" className="px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl">
-        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
-          Slik jobber vi
-        </p>
-        <h2 className="mb-4 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
-          Fra idé til lansering på 1-2-3
-        </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-[var(--color-dark-muted)]">
-          Min velprøvde prosess sørger for at du får en nettside du er stolt av
-          — uten stress.
-        </p>
-        <StickyScroll
-          content={content}
-          contentClassName="rounded-xl"
-          titleClassName="text-[var(--color-dark-text)]"
-          descriptionClassName="text-[var(--color-dark-muted)]"
-        />
-      </div>
-    </AuroraBackground>
+    <StickyScroll
+      content={content}
+      contentClassName="rounded-xl"
+      titleClassName="text-[var(--color-dark-text)]"
+      descriptionClassName="text-[var(--color-dark-muted)]"
+      header={
+        <div className="mb-8 text-center">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            Slik jobber vi
+          </p>
+          <h2 className="mb-4 text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
+            Fra idé til lansering på 1-2-3
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-[var(--color-dark-muted)]">
+            Min velprøvde prosess sørger for at du får en nettside du er stolt av
+            — uten stress.
+          </p>
+        </div>
+      }
+    />
   );
 }

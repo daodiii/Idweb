@@ -52,8 +52,6 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#F4CE14" />
         <JsonLd />
-        <link rel="preconnect" href="https://prod.spline.design" />
-        <link rel="dns-prefetch" href="https://prod.spline.design" />
       </head>
       <body className={`${heading.variable} ${body.variable} ${code.variable} antialiased`}>
         <Navbar />
