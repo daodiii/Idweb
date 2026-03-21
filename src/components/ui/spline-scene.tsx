@@ -34,17 +34,31 @@ export function SplineScene({ onLoaded }: SplineSceneProps) {
     }
   }, [isDesktop]);
 
-  // Only import Spline when we're on desktop — mobile never downloads the 562 KiB runtime
+  // Defer Spline import until browser is idle — prevents 562 KiB runtime from
+  // blocking main thread during the FCP→TTI window that Lighthouse measures
   useEffect(() => {
     if (!isDesktop) return;
 
     let cancelled = false;
-    import("@splinetool/react-spline").then((mod) => {
-      if (!cancelled) {
-        setSplineComponent(() => mod.default);
-      }
-    });
-    return () => { cancelled = true; };
+    const loadSpline = () => {
+      import("@splinetool/react-spline").then((mod) => {
+        if (!cancelled) {
+          setSplineComponent(() => mod.default);
+        }
+      });
+    };
+
+    // Use requestIdleCallback to load after critical work, with setTimeout fallback
+    const idle = typeof requestIdleCallback !== "undefined"
+      ? requestIdleCallback(loadSpline, { timeout: 4000 })
+      : null;
+    const timer = idle === null ? setTimeout(loadSpline, 3000) : undefined;
+
+    return () => {
+      cancelled = true;
+      if (idle !== null) cancelIdleCallback(idle);
+      if (timer !== undefined) clearTimeout(timer);
+    };
   }, [isDesktop]);
 
   const handleLoad = useCallback(

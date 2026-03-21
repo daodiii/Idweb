@@ -57,10 +57,21 @@
   }
 }
 
-/* Promote rainbow-animated elements to own layer to avoid main-thread paint */
+/* Pause rainbow animation by default, only animate on hover/focus to avoid
+   continuous non-composited background-position repaints (10 elements flagged) */
 .animate-rainbow {
-  will-change: background-position;
-  contain: layout style paint;
+  animation-play-state: paused;
+}
+.animate-rainbow:hover,
+.animate-rainbow:focus-visible {
+  animation-play-state: running;
+}
+.animate-rainbow::before {
+  animation-play-state: paused;
+}
+.animate-rainbow:hover::before,
+.animate-rainbow:focus-visible::before {
+  animation-play-state: running;
 }
 
 @keyframes marquee {
