@@ -16,7 +16,7 @@ export function HeroFallback({ isSplineLoaded }: HeroFallbackProps) {
       transition={{ duration: 0.5 }}
       style={{
         background:
-          "radial-gradient(ellipse at 50% 40%, rgba(244,206,20,0.08), #0F172A 70%)",
+          "radial-gradient(ellipse at 50% 50%, rgba(244,206,20,0.06), #0F172A 80%)",
       }}
     />
   );
