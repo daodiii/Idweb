@@ -21,21 +21,20 @@ export const SEO = {
     ],
   },
   services: {
-    title: "Tjenester — Nettside, SEO, design og vedlikehold | IDweb",
+    title: "Tjenester — Nettside, SEO og vedlikehold | IDweb",
     description:
-      "Vi tilbyr skreddersydde nettsider, SEO-optimalisering, grafisk design og løpende vedlikehold for norske bedrifter.",
+      "Jeg tilbyr skreddersydde nettsider, SEO-optimalisering og løpende vedlikehold for norske bedrifter.",
     keywords: [
       "nettside tjenester",
       "seo tjenester",
       "webdesign tjenester",
       "vedlikehold nettside",
-      "grafisk design bedrift",
     ],
   },
   about: {
-    title: "Om oss — Norsk webbyrå med 10+ års erfaring | IDweb",
+    title: "Om meg — Norsk webutvikler | IDweb",
     description:
-      "IDweb er et norsk webbyrå som hjelper bedrifter med å lykkes på nett. Skreddersydde nettsider, ærlige priser og et dedikert team.",
+      "IDweb er en norsk webutvikler som hjelper bedrifter med å lykkes på nett. Skreddersydde nettsider, ærlige priser og personlig oppfølging.",
     keywords: [
       "webbyrå norge",
       "om oss webdesign",
@@ -114,25 +113,13 @@ export const SERVICE_SEO: Record<string, { title: string; description: string; k
   vedlikehold: {
     title: "Drift og vedlikehold — Trygg og oppdatert nettside | IDweb",
     description:
-      "Løpende vedlikehold, sikkerhetskopier, oppdateringer og 99.9% oppetidsgaranti. Vi holder nettsiden din trygg og rask hver eneste dag.",
+      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Jeg holder nettsiden din trygg og rask med pålitelig norsk hosting.",
     keywords: [
       "vedlikehold nettside",
       "drift nettside",
       "nettside support",
       "sikkerskopiering",
       "nettside oppdatering",
-    ],
-  },
-  design: {
-    title: "Grafisk design og merkevarebygging — Visuell identitet | IDweb",
-    description:
-      "Profesjonell logodesign, fargepalett, typografi og merkevaremanual. Vi bygger en gjenkjennelig visuell identitet for bedriften din.",
-    keywords: [
-      "grafisk design",
-      "logodesign",
-      "merkevarebygging",
-      "visuell identitet",
-      "grafisk profil",
     ],
   },
 };

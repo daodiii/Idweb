@@ -37,8 +37,8 @@ export default function VilkarPage() {
                 2. Tjenester og leveranse
               </h2>
               <p className="mt-3">
-                Vi leverer webdesign, webutvikling, SEO, digital markedsføring,
-                grafisk design og relaterte tjenester som beskrevet i det
+                Vi leverer webdesign, webutvikling, SEO, vedlikehold
+                og relaterte tjenester som beskrevet i det
                 individuelle tilbudet. Alle tilbud er gyldige i 30 dager fra
                 utsendelse med mindre annet er spesifisert. Endringer i
                 prosjektomfanget etter godkjent tilbud kan medføre
@@ -85,9 +85,9 @@ export default function VilkarPage() {
                 Driftsavtaler har ingen bindingstid og kan sies opp med én
                 måneds skriftlig varsel. Driftsavtalen dekker hosting,
                 sikkerhetskopier, programvareoppdateringer og support som
-                spesifisert i den individuelle avtalen. Vi garanterer 99,9 %
-                oppetid for hosting, med unntak av planlagt vedlikehold som
-                varsles minst 48 timer i forveien.
+                spesifisert i den individuelle avtalen. Vi tilstreber høy
+                oppetid for hosting via pålitelige norske servere, med unntak
+                av planlagt vedlikehold som varsles minst 48 timer i forveien.
               </p>
             </section>
 

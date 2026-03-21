@@ -29,11 +29,11 @@ export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
 ];
 
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
-  vocura: { pagespeed: "98/100", result: "+60% bookinger" },
-  brobekk: { pagespeed: "96/100", result: "+45% henvendelser" },
-  centerrahma: { pagespeed: "97/100", result: "+80% besøkende" },
-  iqra: { pagespeed: "95/100", result: "+120 medlemmer" },
-  ringebu: { pagespeed: "97/100", result: "+35% nye pasienter" },
+  vocura: { pagespeed: "95/100", result: "Moderne helsenettside" },
+  brobekk: { pagespeed: "92/100", result: "Lokal SEO-optimalisert" },
+  centerrahma: { pagespeed: "93/100", result: "Profesjonell hudpleie-side" },
+  iqra: { pagespeed: "90/100", result: "Oversiktlig informasjonsside" },
+  ringebu: { pagespeed: "91/100", result: "Tillitvekkende tannlegeside" },
 };
 
 export const SERVICES_OVERVIEW = [
@@ -54,12 +54,6 @@ export const SERVICES_OVERVIEW = [
     title: "Drift og vedlikehold",
     description:
       "L\u00f8pende oppdateringer, sikkerhetskopier og support slik at nettsiden alltid er trygg og oppdatert.",
-  },
-  {
-    id: "design",
-    title: "Grafisk design",
-    description:
-      "Visuell identitet, logodesign og grafisk materiell som skiller deg fra konkurrentene.",
   },
 ] as const;
 
@@ -92,7 +86,7 @@ export const COMPARISON_GRID: ComparisonCard[] = [
   // Row 2
   { type: "idweb", icon: "💬", title: "Direkte til utvikleren", description: "Ingen mellomledd — du snakker med den som bygger", accent: "#fbbf24" },
   { type: "idweb", stat: "<1", unit: "s", title: "Lastetid", description: "Mens typiske sider bruker 3–5 sekunder", accent: "#38bdf8" },
-  { type: "idweb", stat: "98", unit: "/100", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#a855f7" },
+  { type: "idweb", stat: "90", unit: "+", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#a855f7" },
   // Row 3
   { type: "byrå", icon: "🤵", title: "Snakker med en selger", description: "Mellomledd som ikke kjenner koden", accent: "#ef4444" },
   { type: "idweb", icon: "🎨", title: "100 % skreddersydd", description: "Designet kun for din bedrift — ingen maler", accent: "#f97316" },
@@ -143,38 +137,10 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    author: {
-      name: "Marte Solberg",
-      handle: "Daglig leder",
-      company: "Solberg Interi\u00f8r AS",
-      avatar: "",
-      rating: 5,
-    },
-    text: "IDweb forstod umiddelbart hva jeg trengte. Nettsiden ble levert raskere enn forventet, og jeg merket \u00f8kning i henvendelser allerede den f\u00f8rste m\u00e5neden. Profesjonelt fra start til slutt.",
-  },
-  {
-    author: {
-      name: "Erik Haugen",
-      handle: "Eier",
-      company: "Haugen Elektro",
-      avatar: "",
-      rating: 5,
-    },
-    text: "Jeg hadde en gammel nettside som knapt fungerte p\u00e5 mobil. Etter at IDweb bygde den nye siden min, har jeg doblet antall foresp\u00f8rsler via nettet. Best av alt \u2014 han tar seg av alt det tekniske etterp\u00e5 ogs\u00e5.",
-  },
-  {
-    author: {
-      name: "Linda Kristiansen",
-      handle: "Partner",
-      company: "Kristiansen Regnskap",
-      avatar: "",
-      rating: 5,
-    },
-    text: "Endelig en nettside som speiler kvaliteten jeg leverer til kundene mine. IDweb var t\u00e5lmodig, kreativ og leverte et resultat som overgikk forventningene. Anbefales p\u00e5 det sterkeste.",
-  },
-];
+// TODO: Replace with real client testimonials as you collect them.
+// For now, this array is empty — the testimonial sections will need
+// a conditional check or fallback in the components that consume this.
+export const TESTIMONIALS: Testimonial[] = [];
 
 export const FINAL_CTA = {
   headline: "Klar for en nettside som faktisk leverer?",
@@ -192,7 +158,6 @@ export const SOCIAL_PROOF = {
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
   nettside: 0,
-  seo: 1,
+  seo: 0,
   vedlikehold: 0,
-  design: 2,
 };

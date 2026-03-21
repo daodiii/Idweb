@@ -70,8 +70,8 @@ export default function Home() {
       {/* 8. Blog Articles — Light */}
       <BlogArticles />
 
-      {/* 9. Testimonials — Dark */}
-      <TestimonialGrid testimonials={TESTIMONIALS} />
+      {/* 9. Testimonials — Dark (shown when real testimonials are collected) */}
+      {TESTIMONIALS.length > 0 && <TestimonialGrid testimonials={TESTIMONIALS} />}
 
       {/* 9. Pricing Preview — Light */}
       <PricingPreview />

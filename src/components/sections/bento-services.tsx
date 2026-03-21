@@ -62,27 +62,7 @@ const features = [
       />
     ),
     className:
-      "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
-  },
-  {
-
-    name: "Grafisk design",
-    description:
-      "Visuell identitet, logodesign og grafisk materiell som skiller deg fra konkurrentene.",
-    href: "/tjenester/design",
-    cta: "Les mer",
-    background: (
-      <Image
-        width={800}
-        height={450}
-        src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format"
-        alt=""
-        sizes="(max-width: 1024px) 80vw, 40vw"
-        className="absolute -top-20 -right-20 w-[80%] opacity-20 transition-opacity duration-300 group-hover:opacity-30"
-      />
-    ),
-    className:
-      "lg:col-start-2 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+      "lg:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3",
   },
 ];
 
@@ -94,7 +74,7 @@ export function BentoServices() {
           Alt du trenger for å lykkes på nett
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-muted)]">
-          Vi tilbyr helhetlige digitale tjenester — fra design og utvikling til
+          Jeg tilbyr helhetlige digitale tjenester — fra design og utvikling til
           SEO og løpende vedlikehold.
         </p>
         <div className="mt-16">

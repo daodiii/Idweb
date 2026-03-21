@@ -14,7 +14,6 @@ export const FOOTER_LINKS = {
     { href: "/tjenester#nettside", label: "Nettsider" },
     { href: "/tjenester#seo", label: "SEO-optimalisering" },
     { href: "/tjenester#vedlikehold", label: "Drift og vedlikehold" },
-    { href: "/tjenester#design", label: "Grafisk design" },
   ],
   selskap: [
     { href: "/om-oss", label: "Om oss" },

@@ -16,7 +16,6 @@ const MOBILE_LINKS = [
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   { href: "/tjenester/seo", label: "SEO-optimalisering" },
   { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
-  { href: "/tjenester/design", label: "Grafisk design" },
   { href: "/priser", label: "Priser" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/referanser", label: "Referanser" },
@@ -77,9 +76,6 @@ export function Navbar() {
                   </HoveredLink>
                   <HoveredLink href="/tjenester#vedlikehold">
                     Drift og vedlikehold
-                  </HoveredLink>
-                  <HoveredLink href="/tjenester#design">
-                    Grafisk design
                   </HoveredLink>
                 </div>
               </MenuItem>

@@ -54,12 +54,12 @@ export const PACKAGES = [
     monthly: "990 kr/mnd",
     monthlyNote: "for hosting, vedlikehold og support",
     description:
-      "En skreddersydd løsning med avansert funksjonalitet, integrasjoner og dedikert oppfølging. For bedrifter som vil ha det beste.",
+      "En skreddersydd løsning med utvidet funksjonalitet og dedikert oppfølging. For bedrifter som trenger mer enn en standard nettside.",
     features: [
       "Alt i Standard, pluss:",
       "Inntil 10 sider",
-      "Avansert funksjonalitet (booking, CRM-integrasjon)",
-      "A/B-testing og konverteringsoptimalisering",
+      "Flerspråklig støtte (norsk/engelsk)",
+      "Avanserte kontaktskjemaer med betinget logikk",
       "Tilgjengelighetstilpasning (WCAG)",
       "Prioritert support med rask responstid",
       "Kvartalsvis ytelsesrapport",

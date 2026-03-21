@@ -1,15 +1,15 @@
 export const ABOUT_PAGE = {
-  headline: "Vi hjelper norske bedrifter med \u00e5 lykkes p\u00e5 nett",
+  headline: "Jeg hjelper norske bedrifter med å lykkes på nett",
   subheadline:
-    "IDweb er et norsk webbyr\u00e5 som brenner for \u00e5 lage nettsider som faktisk fungerer \u2014 ikke bare ser bra ut, men leverer resultater.",
+    "IDweb er en norsk webutvikler som brenner for å lage nettsider som faktisk fungerer — ikke bare ser bra ut, men leverer resultater.",
 } as const;
 
 export const STORY = {
   heading: "Historien min",
   paragraphs: [
-    "IDweb ble startet med \u00e9n klar overbevisning: for mange norske bedrifter betaler for nettsider som aldri gir noe tilbake. Flotte design som ingen finner. Dyre l\u00f8sninger som ingen forst\u00e5r. Vi ville gj\u00f8re det annerledes.",
-    "Vi har bygget opp kompetansen min gjennom en rekke prosjekter for norske bedrifter i alle st\u00f8rrelser \u2014 fra nystartede enkeltmannsforetak til etablerte selskaper. Felles for alle er at de trengte en nettside som jobbet for dem, ikke mot dem.",
-    "I dag driver vi IDweb med den samme drivkraften: \u00e5 levere nettsider som gir kundene mine m\u00e5lbar vekst. Ikke tomme l\u00f8fter \u2014 men konkrete resultater i form av flere henvendelser, mer salg og bedre synlighet.",
+    "IDweb ble startet med én klar overbevisning: for mange norske bedrifter betaler for nettsider som aldri gir noe tilbake. Flotte design som ingen finner. Dyre løsninger som ingen forstår. Jeg ville gjøre det annerledes.",
+    "Jeg har bygget opp kompetansen gjennom prosjekter for norske bedrifter — fra helseklinikker og restauranter til kultursentre og tannlegekontorer. Felles for alle er at de trengte en nettside som jobbet for dem, ikke mot dem.",
+    "I dag driver jeg IDweb med den samme drivkraften: å levere nettsider som gir kundene mine en profesjonell tilstedeværelse på nett. Ikke tomme løfter — men ærlig arbeid med moderne teknologi og målbare resultater.",
   ],
 } as const;
 
@@ -46,23 +46,23 @@ export const VALUES = {
 export const TEAM_SECTION = {
   heading: "Mennesket bak IDweb",
   description:
-    "Vi kombinerer teknisk ekspertise med kreativ tenkning. Vi jobber tett med kundene mine for \u00e5 sikre at resultatet blir akkurat som du \u00f8nsker \u2014 eller bedre.",
+    "Jeg kombinerer teknisk ekspertise med kreativ tenkning og jobber tett med kundene mine for å sikre at resultatet blir akkurat som du ønsker — eller bedre.",
   cta: "Vil du bli kjent med meg? Ta kontakt for en uforpliktende prat.",
 } as const;
 
 export const APPROACH = {
-  heading: "Slik jobber vi",
+  heading: "Slik jobber jeg",
   paragraphs: [
-    "Vi tror p\u00e5 tett samarbeid. Du kjenner bedriften din best, og vi kjenner nett best. Sammen finner vi den l\u00f8sningen som passer akkurat din virksomhet. Ingen standardmaler \u2014 bare skreddersøm.",
-    "Hvert prosjekt starter med en grundig kartlegging der vi forst\u00e5r m\u00e5lgruppen din, konkurrentene dine og hva du faktisk \u00f8nsker \u00e5 oppn\u00e5. Deretter designer vi en l\u00f8sning som er skreddersydd for nettopp dine behov.",
-    "Gjennom hele prosessen har du full innsikt. Vi viser deg fremdriften underveis, tar imot tilbakemeldinger og justerer kursen ved behov. Du er alltid involvert \u2014 det er tross alt din bedrift og din nettside.",
+    "Jeg tror på tett samarbeid. Du kjenner bedriften din best, og jeg kjenner nett best. Sammen finner vi den løsningen som passer akkurat din virksomhet. Ingen standardmaler — bare skreddersøm.",
+    "Hvert prosjekt starter med en grundig kartlegging der jeg forstår målgruppen din, konkurrentene dine og hva du faktisk ønsker å oppnå. Deretter designer jeg en løsning som er skreddersydd for nettopp dine behov.",
+    "Gjennom hele prosessen har du full innsikt. Jeg viser deg fremdriften underveis, tar imot tilbakemeldinger og justerer kursen ved behov. Du er alltid involvert — det er tross alt din bedrift og din nettside.",
   ],
 } as const;
 
 export const ABOUT_CTA = {
   headline: "La oss ta en prat",
   description:
-    "Vi er alltid \u00e5pen for en uforpliktende samtale om hvordan vi kan hjelpe bedriften din med \u00e5 lykkes p\u00e5 nett.",
+    "Jeg er alltid åpen for en uforpliktende samtale om hvordan jeg kan hjelpe bedriften din med å lykkes på nett.",
   buttonText: "Ta kontakt i dag",
 } as const;
 

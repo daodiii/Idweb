@@ -35,7 +35,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hva er SEO, og trenger jeg det?",
     answer:
-      "SEO står for søkemotoroptimalisering og handler om å gjøre nettsiden din synlig i Google når folk søker etter det du tilbyr. Kort sagt: uten SEO finner ikke kundene deg. Alle nettsidene vi lager har grunnleggende SEO innebygd (rask lastetid, riktig struktur, metatagger). For de som ønsker å rangere enda høyere, tilbyr vi også løpende SEO-tjenester med søkeordanalyse, innholdsproduksjon og lenkebygging.",
+      "SEO står for søkemotoroptimalisering og handler om å gjøre nettsiden din synlig i Google når folk søker etter det du tilbyr. Kort sagt: uten SEO finner ikke kundene deg. Alle nettsidene jeg lager har grunnleggende SEO innebygd (rask lastetid, riktig struktur, metatagger). For de som ønsker å rangere enda høyere, tilbyr jeg også løpende SEO-tjenester med søkeordanalyse og innholdsoptimalisering.",
   },
   {
     question: "Hvilken teknologi bruker du?",
@@ -50,7 +50,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Tilbyr du hosting?",
     answer:
-      "Ja. Vi tilbyr rask og sikker hosting på norske servere med daglige sikkerhetskopier og 99,9 % oppetidsgaranti. Hosting kan bestilles som en del av driftsavtalen eller som en separat tjeneste. Vi håndterer alt det tekniske slik at du slipper å forholde deg til serveradministrasjon.",
+      "Ja. Jeg tilbyr rask og sikker hosting på pålitelige norske servere med daglige sikkerhetskopier. Hosting kan bestilles som en del av driftsavtalen eller som en separat tjeneste. Jeg håndterer alt det tekniske slik at du slipper å forholde deg til serveradministrasjon.",
   },
   {
     question: "Er det bindingstid på avtalene?",

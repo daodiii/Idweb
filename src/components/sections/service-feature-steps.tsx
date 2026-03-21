@@ -27,21 +27,13 @@ const serviceFeatures = [
     image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=1200&q=80&fit=crop",
     href: "/tjenester/vedlikehold",
   },
-  {
-    step: "Design",
-    title: "Grafisk design og merkevarebygging",
-    content:
-      "Visuell identitet, logodesign og grafisk materiell som skiller deg fra konkurrentene.",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&q=80&fit=crop",
-    href: "/tjenester/design",
-  },
 ];
 
 export function ServiceFeatureSteps() {
   return (
     <section className="light-section-warm-alt px-6 py-24 sm:py-32">
       <p className="text-center text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
-        Våre tjenester
+        Mine tjenester
       </p>
       <FeatureSteps
         features={serviceFeatures}

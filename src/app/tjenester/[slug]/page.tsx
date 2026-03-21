@@ -43,7 +43,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <ServiceBentoFeatures features={service.detailedFeatures} />
       <ServiceCustomSection service={service} />
       <ServiceProcess steps={service.processSteps} />
-      <ServiceTestimonial testimonial={TESTIMONIALS[SERVICE_TESTIMONIAL_MAP[slug] ?? 0]} />
+      {TESTIMONIALS.length > 0 && TESTIMONIALS[SERVICE_TESTIMONIAL_MAP[slug] ?? 0] && (
+        <ServiceTestimonial testimonial={TESTIMONIALS[SERVICE_TESTIMONIAL_MAP[slug] ?? 0]} />
+      )}
       <ServiceFaq faq={service.faq} />
       <ServiceCta />
     </main>
