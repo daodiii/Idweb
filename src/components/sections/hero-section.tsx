@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { HERO } from "@/lib/content/homepage";
@@ -12,9 +12,16 @@ import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
+  const parallaxOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
-    <section className="relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
+    <section ref={sectionRef} className="relative flex h-svh w-full items-center justify-center overflow-hidden bg-[var(--color-dark-bg)]">
       {/* Layer 0: Gradient fallback (always renders, fades when Spline ready) */}
       <HeroFallback isSplineLoaded={isSplineLoaded} />
 
