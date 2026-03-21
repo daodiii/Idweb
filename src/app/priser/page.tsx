@@ -40,7 +40,7 @@ export default function PriserPage() {
               className={`flex flex-col overflow-hidden rounded-3xl ${
                 pkg.highlight
                   ? "border-2 border-[var(--color-accent)] bg-[var(--color-dark-bg)] shadow-2xl shadow-[var(--color-accent)]/20 lg:-my-6"
-                  : "bg-white shadow-lg shadow-black/[0.05]"
+                  : "border border-[var(--color-border)] bg-white shadow-lg shadow-black/[0.06]"
               }`}
             >
               {pkg.highlight && (
@@ -110,7 +110,7 @@ export default function PriserPage() {
                 className={`flex flex-col overflow-hidden rounded-3xl ${
                   pkg.highlight
                     ? "border-2 border-[var(--color-accent)] bg-[var(--color-dark-bg)] shadow-2xl shadow-[var(--color-accent)]/20 lg:-my-6"
-                    : "bg-white shadow-lg shadow-black/[0.05]"
+                    : "border border-[var(--color-border)] bg-white shadow-lg shadow-black/[0.06]"
                 }`}
               >
                 {pkg.highlight && (

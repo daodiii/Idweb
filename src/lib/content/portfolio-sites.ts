@@ -10,7 +10,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     domain: "brobekklegekontor.no",
     images: {
       desktop: "/images/portfolio/brobekk-desktop.webp",
-      tablet: "/images/portfolio/brobekk-tablet.png",
+      tablet: "/images/portfolio/brobekk-tablet.webp",
       mobile: "/images/portfolio/brobekk-mobile.webp",
       full: "/images/portfolio/brobekk-full.png",
       showcase: [
@@ -27,7 +27,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     images: {
       desktop: "/images/portfolio/centerrahma-desktop.webp",
       tablet: "/images/portfolio/centerrahma-tablet.webp",
-      mobile: "/images/portfolio/centerrahma-mobile.png",
+      mobile: "/images/portfolio/centerrahma-mobile.webp",
       full: "/images/portfolio/centerrahma-full.png",
       showcase: [
         "/images/portfolio/centerrahma-s1.png",
@@ -41,7 +41,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     name: "Vocura",
     domain: "vocura-7orm.vercel.app",
     images: {
-      desktop: "/images/portfolio/vocura-desktop.png",
+      desktop: "/images/portfolio/vocura-desktop.webp",
       tablet: "/images/portfolio/vocura-tablet.webp",
       mobile: "/images/portfolio/vocura-mobile.webp",
       full: "/images/portfolio/vocura-full.png",

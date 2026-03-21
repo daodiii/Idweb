@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, type ReactNode } from "react";
+import { Starfield } from "@/components/ui/starfield";
 
 const VARIANTS = {
   "top-left":    { teal: "15% 20%", gold: "60% 70%" },
@@ -22,14 +23,16 @@ interface AuroraBackgroundProps {
   as?: AuroraElement;
   children: ReactNode;
   className?: string;
+  showStarfield?: boolean;
 }
 
 export function AuroraBackground({
   variant = "center",
-  intensity = 0.13,
+  intensity = 0.20,
   as: Tag = "section",
   children,
   className = "",
+  showStarfield = true,
 }: AuroraBackgroundProps) {
   const filterId = useId();
   const positions = VARIANTS[variant];
@@ -39,7 +42,7 @@ export function AuroraBackground({
     <Tag className={`relative overflow-hidden bg-[var(--color-dark-bg)] ${className}`}>
       {/* Aurora glow layer */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="aurora-glow-layer pointer-events-none absolute inset-0"
         aria-hidden="true"
         style={{
           background: [
@@ -60,6 +63,9 @@ export function AuroraBackground({
         </filter>
         <rect width="100%" height="100%" filter={`url(#${filterId})`} />
       </svg>
+
+      {/* Starfield layer */}
+      {showStarfield && <Starfield />}
 
       {/* Content */}
       <div className="relative z-[1]">{children}</div>

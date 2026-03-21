@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const features = [
@@ -11,11 +12,12 @@ const features = [
     href: "/tjenester/nettside",
     cta: "Les mer",
     background: (
-      <img
+      <Image
         width={800}
         height={450}
         src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format"
         alt=""
+        sizes="(max-width: 1024px) 80vw, 40vw"
         className="absolute -top-20 -right-20 w-[80%] opacity-20 transition-opacity duration-300 group-hover:opacity-30"
       />
     ),
@@ -30,11 +32,12 @@ const features = [
     href: "/tjenester/seo",
     cta: "Les mer",
     background: (
-      <img
+      <Image
         width={800}
         height={450}
         src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&auto=format"
         alt=""
+        sizes="(max-width: 1024px) 70vw, 30vw"
         className="absolute -top-20 -right-20 w-[70%] opacity-20 transition-opacity duration-300 group-hover:opacity-30"
       />
     ),
@@ -49,11 +52,12 @@ const features = [
     href: "/tjenester/vedlikehold",
     cta: "Les mer",
     background: (
-      <img
+      <Image
         width={800}
         height={450}
         src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format"
         alt=""
+        sizes="(max-width: 1024px) 70vw, 30vw"
         className="absolute -top-20 -right-20 w-[70%] opacity-20 transition-opacity duration-300 group-hover:opacity-30"
       />
     ),
@@ -68,11 +72,12 @@ const features = [
     href: "/tjenester/design",
     cta: "Les mer",
     background: (
-      <img
+      <Image
         width={800}
         height={450}
         src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format"
         alt=""
+        sizes="(max-width: 1024px) 80vw, 40vw"
         className="absolute -top-20 -right-20 w-[80%] opacity-20 transition-opacity duration-300 group-hover:opacity-30"
       />
     ),

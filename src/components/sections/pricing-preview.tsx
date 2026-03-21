@@ -36,7 +36,7 @@ export function PricingPreview() {
               className={`rounded-2xl p-7 transition-shadow duration-300 ${
                 pkg.highlight
                   ? "bg-[var(--color-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
-                  : "bg-white shadow-lg shadow-black/[0.04]"
+                  : "border border-[var(--color-border)] bg-white shadow-lg shadow-black/[0.06]"
               }`}
               variants={{
                 hidden: { opacity: 0, y: 30 },

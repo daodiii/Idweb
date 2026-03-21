@@ -19,7 +19,6 @@ export function Footer() {
                 width={300}
                 height={100}
                 className="h-20 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
-                unoptimized
               />
             </Link>
             <p className="mt-3 text-sm text-[var(--color-dark-muted)]">

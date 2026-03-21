@@ -10,7 +10,7 @@
 
   --color-bg: #F5F7F8;
   --color-bg-alt: #E8EBEC;
-  --color-text: #45474B;
+  --color-text: #1E293B;
   --color-text-muted: #495E57;
   --color-accent: #F4CE14;
   --color-accent-hover: #D4B200;
@@ -87,5 +87,32 @@ h1, h2, h3, h4, h5, h6 {
   background:
     radial-gradient(ellipse at 30% 80%, rgba(244, 206, 20, 0.02), transparent 50%),
     var(--color-bg);
+}
+
+/* ── Aurora drift animation ── */
+@keyframes aurora-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(2%, -1.5%) scale(1.02);
+  }
+  66% {
+    transform: translate(-1.5%, 2%) scale(0.98);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.aurora-glow-layer {
+  animation: aurora-drift 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-glow-layer {
+    animation: none;
+  }
 }
 

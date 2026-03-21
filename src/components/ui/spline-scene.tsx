@@ -6,10 +6,8 @@ import dynamic from "next/dynamic";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import type { Application as SplineApplication } from "@splinetool/runtime";
 
-// Start downloading the Spline runtime immediately at module evaluation time,
-// not when the component first mounts after media-query detection.
-const splineModulePromise = import("@splinetool/react-spline");
-const Spline = dynamic(() => splineModulePromise, {
+// Lazy-load the Spline runtime only when the component actually renders (desktop only).
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
 });
 

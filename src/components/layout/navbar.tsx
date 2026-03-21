@@ -57,7 +57,6 @@ export function Navbar() {
               height={120}
               className="-my-10 h-28 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               priority
-              unoptimized
             />
           </Link>
 
