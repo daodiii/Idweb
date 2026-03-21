@@ -9,7 +9,7 @@ type HeroFallbackProps = {
 export function HeroFallback({ isSplineLoaded }: HeroFallbackProps) {
   return (
     <motion.div
-      className="pointer-events-none absolute inset-0 z-0"
+      className="pointer-events-none absolute inset-0 z-0 hidden lg:block"
       aria-hidden="true"
       initial={{ opacity: 1 }}
       animate={{ opacity: isSplineLoaded ? 0 : 1 }}
