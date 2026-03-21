@@ -21,7 +21,7 @@ const headlineWord = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.35, ease: "easeOut" },
+    transition: { duration: 0.35, ease: "easeOut" as const },
   },
 };
 
@@ -30,7 +30,7 @@ const fadeSlideUp = {
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut", delay },
+    transition: { duration: 0.4, ease: "easeOut" as const, delay },
   }),
 };
 
@@ -83,26 +83,81 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
         >
-          {/* Mobile hero text — hidden on desktop where Spline handles visuals */}
-          <div className="mb-8 lg:hidden">
-            <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]">
-              {HERO.eyebrow}
-            </p>
-            <h1
-              className="bg-clip-text text-4xl font-black leading-[1.1] tracking-tight text-transparent sm:text-5xl"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #D4A017, #8B6914)",
-              }}
+          {/* Mobile hero — staggered reveal with parallax */}
+          <motion.div
+            className="mb-8 lg:hidden"
+            style={
+              prefersReducedMotion
+                ? undefined
+                : { y: parallaxY, opacity: parallaxOpacity }
+            }
+          >
+            <motion.p
+              variants={fadeSlideUp}
+              initial="hidden"
+              animate="visible"
+              custom={0}
+              className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]"
             >
-              IDWEB BYGGER DIN NYE NETTSIDE
-            </h1>
-            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]">
-              {HERO.subheadline}
-            </p>
-          </div>
+              {HERO.eyebrow}
+            </motion.p>
 
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <motion.h1
+              variants={headlineContainer}
+              initial="hidden"
+              animate="visible"
+              className="hero-shimmer bg-clip-text text-4xl font-black leading-[1.1] tracking-tight text-transparent sm:text-5xl"
+            >
+              {["IDWEB", "BYGGER", "DIN", "NYE", "NETTSIDE"].map(
+                (word, i) => (
+                  <motion.span
+                    key={word}
+                    variants={headlineWord}
+                    className="inline-block"
+                  >
+                    {word}
+                    {i < 4 && " "}
+                  </motion.span>
+                ),
+              )}
+            </motion.h1>
+
+            <motion.p
+              variants={fadeSlideUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.9}
+              className="mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]"
+            >
+              {HERO.subheadline}
+            </motion.p>
+
+            {/* Mobile CTAs */}
+            <motion.div
+              variants={fadeSlideUp}
+              initial="hidden"
+              animate="visible"
+              custom={1.1}
+              className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+              <Link
+                href="/referanser"
+                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}
+              >
+                {HERO.primaryCta}{" "}
+                <MoveRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/kontakt"
+                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-medium`}
+              >
+                {HERO.secondaryCta}
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Desktop CTAs (no parallax, no stagger) */}
+          <div className="hidden flex-col items-center justify-center gap-3 sm:flex-row lg:flex">
             <Link
               href="/referanser"
               className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}
