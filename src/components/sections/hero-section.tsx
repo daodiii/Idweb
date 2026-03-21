@@ -9,6 +9,31 @@ import { SplineScene } from "@/components/ui/spline-scene";
 import { HeroFallback } from "@/components/ui/hero-fallback";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
+const headlineContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+  },
+};
+
+const headlineWord = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+};
+
+const fadeSlideUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut", delay },
+  }),
+};
+
 export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
