@@ -7,7 +7,7 @@ import { PACKAGES } from "@/lib/content/pricing";
 
 export function PricingPreview() {
   return (
-    <section className="light-section-warm px-6 py-24 sm:py-32">
+    <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

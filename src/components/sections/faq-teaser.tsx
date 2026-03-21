@@ -11,7 +11,7 @@ export function FaqTeaser() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <AuroraBackground variant="bottom-right" className="px-6 py-20 sm:py-28">
+    <AuroraBackground variant="bottom-right" className="px-6 py-14 sm:py-20 md:py-28">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

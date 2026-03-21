@@ -14,7 +14,7 @@ export function PortfolioShowcase() {
   );
 
   return (
-    <section className="light-section-warm px-6 py-24 sm:py-32">
+    <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         {/* Section header */}
         <motion.div
@@ -55,12 +55,12 @@ export function PortfolioShowcase() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group"
               >
-                {/* Vertical stack of all showcase images */}
+                {/* Vertical stack of showcase images — mobile shows only first */}
                 <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
                   {imgs.map((src, imgIdx) => (
                     <div
                       key={imgIdx}
-                      className={`relative overflow-hidden ${imgIdx > 0 ? "border-t border-[var(--color-border)]" : ""}`}
+                      className={`relative overflow-hidden ${imgIdx > 0 ? "hidden border-t border-[var(--color-border)] md:block" : ""}`}
                     >
                       <Image
                         src={src}

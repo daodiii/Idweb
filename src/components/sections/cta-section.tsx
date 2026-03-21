@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/ui/contact-form";
 
 export function CtaSection() {
   return (
-    <section className="bg-gradient-to-r from-[var(--color-accent)] to-[#FBBF24] px-6 py-24">
+    <section className="bg-gradient-to-r from-[var(--color-accent)] to-[#FBBF24] px-6 py-14 sm:py-24">
       <motion.div
         className="mx-auto max-w-2xl text-center"
         initial={{ opacity: 0, y: 30 }}

@@ -1,16 +1,64 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { SITE_NAME, FOOTER_LINKS, CONTACT_INFO } from "@/lib/constants";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
+function FooterAccordion({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b border-[var(--color-dark-border)] md:border-none">
+      {/* Mobile: collapsible button */}
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-3 text-left md:hidden"
+        aria-expanded={open}
+      >
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+          {title}
+        </h3>
+        <ChevronDown
+          className={`h-4 w-4 text-[var(--color-dark-muted)] transition-transform ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+
+      {/* Desktop: static heading */}
+      <h3 className="hidden text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)] md:block">
+        {title}
+      </h3>
+
+      {/* Content — collapses on mobile, always visible on desktop */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96 pb-4" : "max-h-0"
+        } md:max-h-none md:mt-4 md:pb-0`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
     <AuroraBackground as="footer" variant="bottom-center" intensity={0.05} className="border-t border-[var(--color-dark-border)]">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        {/* Top section: 4 columns */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand + Contact */}
+      <div className="mx-auto max-w-6xl px-6 pb-24 pt-10 md:py-16">
+        {/* Top section */}
+        <div className="grid gap-6 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
+          {/* Brand + Contact — always visible */}
           <div>
             <Link href="/" className="inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]">
               <Image
@@ -18,13 +66,13 @@ export function Footer() {
                 alt="IDweb — Nettsideutvikling i Norge"
                 width={300}
                 height={100}
-                className="h-20 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
+                className="h-16 w-auto md:h-20 [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               />
             </Link>
             <p className="mt-3 text-sm text-[var(--color-dark-muted)]">
               Vi bygger nettsider som gir norske bedrifter flere kunder.
             </p>
-            <div className="mt-6 space-y-2 text-sm text-[var(--color-dark-muted)]">
+            <div className="mt-4 space-y-1.5 text-sm text-[var(--color-dark-muted)] md:mt-6 md:space-y-2">
               <p>
                 <a href={CONTACT_INFO.phoneHref} className="hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]">
                   {CONTACT_INFO.phone}
@@ -40,11 +88,8 @@ export function Footer() {
           </div>
 
           {/* Tjenester */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)]">
-              Tjenester
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <FooterAccordion title="Tjenester">
+            <ul className="space-y-2.5 md:space-y-3">
               {FOOTER_LINKS.tjenester.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -56,14 +101,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterAccordion>
 
           {/* Selskap */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)]">
-              Selskap
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <FooterAccordion title="Selskap">
+            <ul className="space-y-2.5 md:space-y-3">
               {FOOTER_LINKS.selskap.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -75,14 +117,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterAccordion>
 
           {/* Juridisk + CTA */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)]">
-              Juridisk
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <FooterAccordion title="Juridisk">
+            <ul className="space-y-2.5 md:space-y-3">
               {FOOTER_LINKS.juridisk.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -94,7 +133,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8">
+            <div className="mt-6 md:mt-8">
               <Link
                 href="/kontakt"
                 className={`${RAINBOW_BUTTON_CLASSES} px-5 py-2 text-sm`}
@@ -102,11 +141,11 @@ export function Footer() {
                 Få et tilbud
               </Link>
             </div>
-          </div>
+          </FooterAccordion>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-[var(--color-dark-border)] pt-8 text-center text-sm text-[var(--color-dark-muted)]">
+        <div className="mt-8 border-t border-[var(--color-dark-border)] pt-6 text-center text-xs text-[var(--color-dark-muted)] md:mt-12 md:pt-8 md:text-sm">
           <p>
             &copy; {new Date().getFullYear()} {SITE_NAME} v/ Daod Ilyas. Org.nr: {CONTACT_INFO.orgNr}. Alle rettigheter
             reservert.

@@ -111,20 +111,49 @@ function BlogCard({
 
 export function BlogArticles() {
   return (
-    <section className="light-section-warm-alt px-6 py-24 sm:py-32">
+    <section className="light-section-warm-alt px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-14 text-center">
+        <div className="mb-8 text-center sm:mb-14">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
             Fra bloggen vår
           </p>
-          <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-text)] text-pretty sm:text-5xl lg:text-6xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-pretty sm:text-5xl lg:text-6xl">
             Nyttige artikler for din bedrift
           </h2>
         </div>
 
-        {/* 2×2 asymmetric grid — no gaps, cards flush against each other */}
-        <div className="grid sm:grid-cols-5 sm:grid-rows-2 overflow-hidden rounded-3xl shadow-xl shadow-black/12">
+        {/* Mobile: compact list — 2 posts, no cover images */}
+        <div className="space-y-4 sm:hidden">
+          {FEATURED_POSTS.slice(0, 2).map((post) => {
+            const catColor = CATEGORY_COLORS[post.category] ?? DEFAULT_CATEGORY_COLOR;
+            return (
+              <Link
+                key={post.slug}
+                href={`/blogg/${post.slug}`}
+                className="group flex items-start gap-4 rounded-xl border border-[var(--color-border)] bg-white p-4 transition-shadow hover:shadow-md"
+              >
+                <div className="flex-1">
+                  <span
+                    className={`inline-block rounded-full border ${catColor.border} ${catColor.bg} px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider ${catColor.text}`}
+                  >
+                    {post.category}
+                  </span>
+                  <h3 className="mt-2 text-sm font-semibold text-[var(--color-text)] text-pretty group-hover:text-[var(--color-accent-hover)]">
+                    {post.title}
+                  </h3>
+                  <span className="mt-1 block text-[10px] text-[var(--color-text-muted)]">
+                    {post.readingTime} lesetid
+                  </span>
+                </div>
+                <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Desktop: 2×2 asymmetric grid */}
+        <div className="hidden overflow-hidden rounded-3xl shadow-xl shadow-black/12 sm:grid sm:grid-cols-5 sm:grid-rows-2">
           <div className="sm:col-span-3 sm:row-start-1">
             <BlogCard post={FEATURED_POSTS[0]} size="large" />
           </div>
@@ -140,7 +169,7 @@ export function BlogArticles() {
         </div>
 
         {/* Link to full blog */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center sm:mt-12">
           <Link
             href="/blogg"
             className="text-sm font-medium text-[var(--color-accent-hover)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"

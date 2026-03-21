@@ -77,7 +77,7 @@ function hexToRgb(hex: string): string {
 
 export function ComparisonBento() {
   return (
-    <AuroraBackground variant="center" className="px-6 py-20 sm:py-28">
+    <AuroraBackground variant="center" className="px-6 py-14 sm:py-20 md:py-28">
       <div className="relative mx-auto max-w-6xl">
         <motion.div
           className="mb-12 text-center"
@@ -97,7 +97,17 @@ export function ComparisonBento() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+        {/* Mobile: horizontal swipe carousel */}
+        <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide sm:hidden">
+          {COMPARISON_GRID.map((card, i) => (
+            <div key={card.title} className="w-[75vw] flex-shrink-0 snap-center">
+              <Card card={card} index={i} />
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet+: grid layout */}
+        <div className="hidden gap-3 sm:grid sm:grid-cols-2 md:grid-cols-3">
           {COMPARISON_GRID.map((card, i) => (
             <Card key={card.title} card={card} index={i} />
           ))}
