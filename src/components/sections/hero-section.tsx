@@ -79,8 +79,8 @@ export function HeroSection() {
       {/* Layer 10: Text content */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={prefersReducedMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
         >
           {/* Mobile hero — staggered reveal with parallax */}
