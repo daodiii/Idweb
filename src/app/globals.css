@@ -8,18 +8,18 @@
   --color-4: 195 100% 63%;
   --color-5: 90 100% 63%;
 
-  --color-bg: #F5F7F8;
-  --color-bg-alt: #E8EBEC;
-  --color-text: #1E293B;
-  --color-text-muted: #495E57;
+  --color-bg: #fafaf9;
+  --color-bg-alt: #f0f0ef;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
   --color-accent: #F4CE14;
   --color-accent-hover: #D4B200;
-  --color-border: #C8CCCE;
-  --dot-color: rgba(73, 94, 87, 0.06);
+  --color-border: #e0e0de;
+  --dot-color: rgba(0, 0, 0, 0.04);
 
   /* Dark section palette */
-  --color-dark-bg: #0C1220;
-  --color-dark-bg-alt: #151D2E;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-bg-alt: #111111;
 
   /* Aurora glow palette */
   --color-aurora-teal: 6, 182, 212;

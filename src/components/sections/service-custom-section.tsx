@@ -178,10 +178,10 @@ function VedlikeholdStats({ service }: { service: Service }) {
 function DesignSpecimen() {
   const swatches = [
     { color: "#F4CE14", name: "Gull" },
-    { color: "#0F172A", name: "Mørkeblå" },
-    { color: "#F5F7F8", name: "Lys grå" },
-    { color: "#45474B", name: "Tekst" },
-    { color: "#E8EBEC", name: "Bakgrunn" },
+    { color: "#0a0a0a", name: "Sort" },
+    { color: "#fafaf9", name: "Hvit" },
+    { color: "#1a1a1a", name: "Tekst" },
+    { color: "#f0f0ef", name: "Bakgrunn" },
   ];
 
   return (
