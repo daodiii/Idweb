@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Crimson_Pro, Outfit, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { MobileStickyCta } from "@/components/layout/mobile-sticky-cta";
+
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -60,7 +60,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <MobileStickyCta />
+
       </body>
     </html>
   );

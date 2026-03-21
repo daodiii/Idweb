@@ -31,7 +31,7 @@ const serviceFeatures = [
 
 export function ServiceFeatureSteps() {
   return (
-    <section className="light-section-warm-alt px-6 py-14 sm:py-24 md:py-32">
+    <section className="light-section-warm-alt px-4 py-8 sm:py-24 md:py-32">
       <p className="text-center text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
         Mine tjenester
       </p>

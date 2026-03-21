@@ -46,21 +46,21 @@ export function FeatureSteps({
   }, [progress, features.length, autoPlayInterval, prefersReducedMotion]);
 
   return (
-    <div className={cn("p-8 md:p-12", className)}>
+    <div className={cn("p-4 md:p-12", className)}>
       <div className="mx-auto w-full max-w-7xl">
-        <h2 className="mb-12 text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+        <h2 className="mb-6 text-center text-4xl font-extrabold tracking-tight md:mb-12 sm:text-5xl lg:text-6xl">
           {title}
         </h2>
 
-        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-10">
-          {/* Steps list */}
-          <div className="order-2 space-y-8 md:order-1">
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-10">
+          {/* Steps list — no checkmarks on mobile, compact spacing */}
+          <div className="order-2 space-y-3 md:order-1 md:space-y-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 role="button"
                 tabIndex={0}
-                className="flex items-center gap-6 md:gap-8 cursor-pointer"
+                className="flex items-start gap-3 cursor-pointer md:items-center md:gap-8"
                 initial={{ opacity: 0.3 }}
                 animate={{ opacity: index === currentFeature ? 1 : 0.3 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
@@ -76,9 +76,10 @@ export function FeatureSteps({
                   }
                 }}
               >
+                {/* Checkmark circles — hidden on mobile */}
                 <motion.div
                   className={cn(
-                    "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 md:h-10 md:w-10",
+                    "hidden shrink-0 items-center justify-center rounded-full border-2 md:flex md:h-10 md:w-10",
                     index === currentFeature
                       ? "scale-110 border-[var(--color-accent)] bg-[var(--color-accent)] text-[var(--color-text)]"
                       : "border-[var(--color-border)] bg-muted"
@@ -92,7 +93,7 @@ export function FeatureSteps({
                 </motion.div>
 
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold md:text-2xl">
+                  <h3 className="text-base font-semibold md:text-2xl">
                     {feature.href ? (
                       <Link
                         href={feature.href}
@@ -104,7 +105,7 @@ export function FeatureSteps({
                       feature.title || feature.step
                     )}
                   </h3>
-                  <p className="text-sm text-muted-foreground md:text-lg">
+                  <p className="text-xs text-muted-foreground md:text-lg">
                     {feature.content}
                   </p>
                 </div>
@@ -113,7 +114,7 @@ export function FeatureSteps({
           </div>
 
           {/* Image panel */}
-          <div className="relative order-1 h-[200px] overflow-hidden rounded-lg md:order-2 md:h-[300px] lg:h-[400px]">
+          <div className="relative order-1 h-[180px] overflow-hidden rounded-lg md:order-2 md:h-[300px] lg:h-[400px]">
             <AnimatePresence mode="wait">
               {features.map(
                 (feature, index) =>
