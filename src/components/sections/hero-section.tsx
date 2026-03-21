@@ -56,9 +56,9 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           background: [
-            "radial-gradient(ellipse 100% 60% at 50% 30%, rgba(6,182,212,0.15), transparent 60%)",
-            "radial-gradient(ellipse 100% 50% at 50% 65%, rgba(244,206,20,0.10), transparent 55%)",
-            "radial-gradient(ellipse 100% 80% at 50% 50%, rgba(6,182,212,0.05), transparent 70%)",
+            "radial-gradient(ellipse 140% 60% at 50% 30%, rgba(6,182,212,0.18), transparent 65%)",
+            "radial-gradient(ellipse 140% 50% at 50% 65%, rgba(244,206,20,0.12), transparent 60%)",
+            "radial-gradient(ellipse 160% 80% at 50% 50%, rgba(6,182,212,0.08), transparent 75%)",
           ].join(", "),
         }}
       />
