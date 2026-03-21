@@ -1,11 +1,17 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import { PACKAGES } from "@/lib/content/pricing";
+import { SegmentedControl } from "@/components/ui/segmented-control";
+
+const SEGMENT_LABELS = ["Enkel", "Standard", "Premium"] as const;
 
 export function PricingPreview() {
+  const [activeTier, setActiveTier] = useState(1); // default to Standard
+
   return (
     <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
@@ -23,8 +29,64 @@ export function PricingPreview() {
           </p>
         </motion.div>
 
+        {/* ── Mobile: segmented toggle + single card ── */}
+        <div className="mt-10 md:hidden">
+          <div className="mb-6 flex justify-center">
+            <SegmentedControl
+              segments={[...SEGMENT_LABELS]}
+              defaultIndex={1}
+              onChange={setActiveTier}
+              variant="light"
+            />
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={PACKAGES[activeTier].id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className={`rounded-2xl p-7 ${
+                PACKAGES[activeTier].highlight
+                  ? "bg-[var(--color-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
+                  : "border border-[var(--color-border)] bg-white shadow-lg shadow-black/[0.06]"
+              }`}
+            >
+              {PACKAGES[activeTier].highlight && (
+                <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-xs font-bold text-[var(--color-dark-bg)]">
+                  Mest populær
+                </span>
+              )}
+              <h3 className="text-lg font-bold text-[var(--color-text)]">
+                {PACKAGES[activeTier].name}
+              </h3>
+              <p className="mt-2 text-2xl font-black text-[var(--color-text)]">
+                {PACKAGES[activeTier].price}
+              </p>
+              <p className="mt-1 text-xs text-[var(--color-text-muted)]">
+                + {PACKAGES[activeTier].monthly} vedlikehold
+              </p>
+              <ul className="mt-5 space-y-2">
+                {PACKAGES[activeTier].features.slice(0, 3).map((feat) => (
+                  <li
+                    key={feat}
+                    className="flex items-start gap-2 text-xs text-[var(--color-text-muted)]"
+                  >
+                    <span className="mt-0.5 text-[var(--color-accent)]">
+                      &#10003;
+                    </span>
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ── Desktop: original 3-column grid ── */}
         <motion.div
-          className="mt-16 grid gap-8 md:grid-cols-3 md:gap-10"
+          className="mt-16 hidden gap-8 md:grid md:grid-cols-3 md:gap-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

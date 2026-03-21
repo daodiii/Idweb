@@ -1,8 +1,10 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+import { motion, useReducedMotion, AnimatePresence } from "motion/react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { SegmentedControl } from "@/components/ui/segmented-control";
 import { COMPARISON_GRID } from "@/lib/content/homepage";
 import type { ComparisonCard } from "@/types";
 
@@ -68,6 +70,52 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
   );
 }
 
+/** Compact mobile card — no icon/emoji, tighter padding */
+function MobileCard({ card }: { card: ComparisonCard }) {
+  const isByrå = card.type === "byrå";
+  const label = isByrå ? "Typisk byrå" : "IDweb";
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.25 }}
+      className="relative rounded-xl"
+    >
+      <div
+        className="overflow-hidden rounded-xl px-3 py-2.5"
+        style={{
+          background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
+          border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
+        }}
+      >
+        <span
+          className="mb-0.5 block text-[10px] uppercase tracking-[1.5px]"
+          style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
+        >
+          {label}
+        </span>
+
+        {card.stat && (
+          <p className="text-xl font-extrabold leading-tight" style={{ color: card.accent }}>
+            {card.stat}
+            <span className="text-sm font-bold">{card.unit}</span>
+          </p>
+        )}
+
+        <p className="text-sm font-bold" style={{ color: card.accent }}>
+          {card.title}
+        </p>
+        <p className="mt-0.5 text-[11px] leading-snug text-slate-400">
+          {card.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
 function hexToRgb(hex: string): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -75,7 +123,15 @@ function hexToRgb(hex: string): string {
   return `${r}, ${g}, ${b}`;
 }
 
+const SEGMENTS = ["IDweb", "Typisk byrå"] as const;
+
 export function ComparisonBento() {
+  const [activeFilter, setActiveFilter] = useState(0);
+
+  const byråCards = COMPARISON_GRID.filter((c) => c.type === "byrå");
+  const idwebCards = COMPARISON_GRID.filter((c) => c.type === "idweb");
+  const mobileCards = activeFilter === 0 ? idwebCards : byråCards;
+
   return (
     <AuroraBackground variant="center" className="px-6 py-14 sm:py-20 md:py-28">
       <div className="relative mx-auto max-w-6xl">
@@ -97,16 +153,34 @@ export function ComparisonBento() {
           </p>
         </motion.div>
 
-        {/* Mobile: horizontal swipe carousel */}
-        <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide sm:hidden">
-          {COMPARISON_GRID.map((card, i) => (
-            <div key={card.title} className="w-[75vw] flex-shrink-0 snap-center">
-              <Card card={card} index={i} />
-            </div>
-          ))}
+        {/* ── Mobile: segmented toggle + filtered compact grid ── */}
+        <div className="sm:hidden">
+          <div className="mb-4 flex justify-center">
+            <SegmentedControl
+              segments={[...SEGMENTS]}
+              defaultIndex={0}
+              onChange={setActiveFilter}
+              variant="dark"
+            />
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeFilter}
+              className="grid grid-cols-2 gap-2"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+            >
+              {mobileCards.map((card) => (
+                <MobileCard key={card.title} card={card} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Tablet+: grid layout */}
+        {/* ── Tablet+: grid layout (unchanged) ── */}
         <div className="hidden gap-3 sm:grid sm:grid-cols-2 md:grid-cols-3">
           {COMPARISON_GRID.map((card, i) => (
             <Card key={card.title} card={card} index={i} />
