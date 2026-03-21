@@ -13,7 +13,6 @@ const FEATURED_SLUGS = [
   "hva-koster-en-nettside",
   "vanlige-feil-med-nettsiden",
   "seo-for-nybegynnere",
-  "wordpress-vs-skreddersydd",
 ] as const;
 
 /** Cover images mapped by slug — workspace/office photos without people. */
@@ -26,8 +25,6 @@ const COVER_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
   "seo-for-nybegynnere":
     "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
-  "wordpress-vs-skreddersydd":
-    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
 };
 
 const FEATURED_POSTS = FEATURED_SLUGS.map(
@@ -36,28 +33,31 @@ const FEATURED_POSTS = FEATURED_SLUGS.map(
 
 function BlogCard({
   post,
-  isHero = false,
+  size = "small",
 }: {
   post: (typeof FEATURED_POSTS)[number];
-  isHero?: boolean;
+  size?: "large" | "small";
 }) {
   const catColor = CATEGORY_COLORS[post.category] ?? DEFAULT_CATEGORY_COLOR;
+  const isLarge = size === "large";
 
   return (
     <article
-      className={`group flex flex-col overflow-hidden rounded-3xl bg-white shadow-md shadow-black/[0.04] transition-[transform,box-shadow] duration-300 motion-reduce:transition-none hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[var(--color-accent)]/8 ${
-        isHero ? "sm:col-span-2 sm:flex-row" : ""
+      className={`group flex flex-col overflow-hidden rounded-3xl bg-white transition-[transform,box-shadow] duration-300 motion-reduce:transition-none hover:-translate-y-2 ${
+        isLarge
+          ? "shadow-lg shadow-black/10 hover:shadow-2xl hover:shadow-black/16"
+          : "shadow-md shadow-black/8 hover:shadow-xl hover:shadow-black/14"
       }`}
     >
       {/* Cover image */}
-      <div className={`relative overflow-hidden ${isHero ? "sm:w-3/5" : ""}`}>
+      <div className="relative overflow-hidden">
         <Image
           src={COVER_IMAGES[post.slug]}
           alt={post.title}
           width={800}
           height={450}
           className={`w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${
-            isHero ? "aspect-[16/10] sm:aspect-auto sm:h-full" : "aspect-[16/10]"
+            isLarge ? "aspect-[16/9]" : "aspect-[16/11]"
           }`}
         />
         <span
@@ -68,16 +68,10 @@ function BlogCard({
       </div>
 
       {/* Content */}
-      <div
-        className={`flex flex-1 flex-col px-5 pb-5 pt-6 ${
-          isHero ? "sm:justify-center sm:px-8 sm:py-8" : ""
-        }`}
-      >
+      <div className={`flex flex-1 flex-col ${isLarge ? "px-7 pb-7 pt-7" : "px-5 pb-5 pt-5"}`}>
         <h3
           className={`font-semibold tracking-tight text-[var(--color-text)] text-pretty ${
-            isHero
-              ? "text-lg sm:text-xl md:text-2xl"
-              : "text-base sm:text-lg md:text-xl"
+            isLarge ? "text-lg sm:text-xl md:text-2xl" : "text-base sm:text-lg"
           }`}
         >
           <Link
@@ -89,14 +83,14 @@ function BlogCard({
         </h3>
         <p
           className={`mt-3 flex-1 leading-relaxed text-[var(--color-text-muted)] ${
-            isHero ? "text-sm sm:text-base line-clamp-4" : "text-sm line-clamp-3"
+            isLarge ? "text-sm sm:text-base line-clamp-4" : "text-sm line-clamp-2"
           }`}
         >
           {post.excerpt}
         </p>
 
         {/* Footer: read more + meta */}
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <Link
             href={`/blogg/${post.slug}`}
             className="group/link flex items-center gap-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
@@ -133,11 +127,24 @@ export function BlogArticles() {
           </h2>
         </div>
 
-        {/* Articles grid — first card is hero spanning 2 cols */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_POSTS.map((post, i) => (
-            <BlogCard key={post.slug} post={post} isHero={i === 0} />
-          ))}
+        {/* Row 1: large left, small right */}
+        <div className="grid gap-6 sm:grid-cols-5">
+          <div className="sm:col-span-3">
+            <BlogCard post={FEATURED_POSTS[0]} size="large" />
+          </div>
+          <div className="sm:col-span-2">
+            <BlogCard post={FEATURED_POSTS[1]} size="small" />
+          </div>
+        </div>
+
+        {/* Row 2: small left, large right */}
+        <div className="mt-6 grid gap-6 sm:grid-cols-5">
+          <div className="sm:col-span-2">
+            <BlogCard post={FEATURED_POSTS[2]} size="small" />
+          </div>
+          <div className="sm:col-span-3">
+            <BlogCard post={FEATURED_POSTS[3]} size="large" />
+          </div>
         </div>
 
         {/* Link to full blog */}

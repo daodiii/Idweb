@@ -37,11 +37,11 @@ export function Navbar() {
         Hopp til innhold
       </a>
 
-      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-center px-6 pt-4">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[var(--color-dark-bg)]/80 backdrop-blur-md">
         <div
           className={cn(
-            "flex w-full max-w-5xl items-center justify-between",
-            "rounded-full border border-white/10 bg-[var(--color-dark-bg)]/80 px-6 py-3 shadow-lg backdrop-blur-md"
+            "mx-auto flex w-full max-w-6xl items-center justify-between",
+            "px-6 py-3"
           )}
         >
           {/* Logo */}
