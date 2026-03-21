@@ -113,10 +113,9 @@ export function HeroSection() {
                   <motion.span
                     key={word}
                     variants={headlineWord}
-                    className="inline-block"
+                    className={`inline-block${i < 4 ? " mr-[0.3em]" : ""}`}
                   >
                     {word}
-                    {i < 4 && " "}
                   </motion.span>
                 ),
               )}

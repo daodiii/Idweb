@@ -114,33 +114,6 @@ h1, h2, h3, h4, h5, h6 {
     var(--color-bg);
 }
 
-/* ── Aurora drift animation ── */
-@keyframes aurora-drift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(2%, -1.5%) scale(1.02);
-  }
-  66% {
-    transform: translate(-1.5%, 2%) scale(0.98);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-.aurora-glow-layer {
-  animation: aurora-drift 12s ease-in-out infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora-glow-layer {
-    animation: none;
-  }
-}
-
 /* ── Hero headline shimmer (single sweep) ── */
 @keyframes hero-shimmer {
   0% {
@@ -172,6 +145,33 @@ h1, h2, h3, h4, h5, h6 {
   .hero-shimmer {
     background-image: linear-gradient(135deg, #D4A017, #8B6914);
     background-size: 100% 100%;
+    animation: none;
+  }
+}
+
+/* ── Aurora drift animation ── */
+@keyframes aurora-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(2%, -1.5%) scale(1.02);
+  }
+  66% {
+    transform: translate(-1.5%, 2%) scale(0.98);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.aurora-glow-layer {
+  animation: aurora-drift 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-glow-layer {
     animation: none;
   }
 }
