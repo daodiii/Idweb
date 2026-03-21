@@ -43,11 +43,7 @@ function BlogCard({
 
   return (
     <article
-      className={`group flex flex-col overflow-hidden rounded-3xl bg-white transition-[transform,box-shadow] duration-300 motion-reduce:transition-none hover:-translate-y-2 ${
-        isLarge
-          ? "shadow-lg shadow-black/10 hover:shadow-2xl hover:shadow-black/16"
-          : "shadow-md shadow-black/8 hover:shadow-xl hover:shadow-black/14"
-      }`}
+      className="group flex h-full flex-col overflow-hidden bg-white"
     >
       {/* Cover image */}
       <div className="relative overflow-hidden">
@@ -57,7 +53,7 @@ function BlogCard({
           width={800}
           height={450}
           className={`w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${
-            isLarge ? "aspect-[16/9]" : "aspect-[16/11]"
+            isLarge ? "aspect-[16/11]" : "aspect-[16/11]"
           }`}
         />
         <span
@@ -127,22 +123,18 @@ export function BlogArticles() {
           </h2>
         </div>
 
-        {/* Row 1: large left, small right */}
-        <div className="grid gap-6 sm:grid-cols-5">
-          <div className="sm:col-span-3">
+        {/* 2×2 asymmetric grid — no gaps, cards flush against each other */}
+        <div className="grid sm:grid-cols-5 sm:grid-rows-2 overflow-hidden rounded-3xl shadow-xl shadow-black/12">
+          <div className="sm:col-span-3 sm:row-start-1">
             <BlogCard post={FEATURED_POSTS[0]} size="large" />
           </div>
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 sm:row-start-1">
             <BlogCard post={FEATURED_POSTS[1]} size="small" />
           </div>
-        </div>
-
-        {/* Row 2: small left, large right */}
-        <div className="mt-6 grid gap-6 sm:grid-cols-5">
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 sm:row-start-2">
             <BlogCard post={FEATURED_POSTS[2]} size="small" />
           </div>
-          <div className="sm:col-span-3">
+          <div className="sm:col-span-3 sm:row-start-2">
             <BlogCard post={FEATURED_POSTS[3]} size="large" />
           </div>
         </div>
