@@ -42,7 +42,7 @@ export function PortfolioShowcase() {
           </Link>
         </motion.div>
 
-        {/* Project grid — two columns */}
+        {/* Project grid — two columns, tall showcase */}
         <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
           {sites.map((site, i) => {
             const imgs = site.images.showcase!;
@@ -55,44 +55,23 @@ export function PortfolioShowcase() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group"
               >
-                {/* Collage: 1 large top + 2 smaller bottom */}
+                {/* Vertical stack of all showcase images */}
                 <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                  {/* Main hero screenshot */}
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={imgs[0]}
-                      alt={`${site.name} — forside`}
-                      width={1440}
-                      height={900}
-                      className="block w-full transition-transform duration-500 group-hover:scale-[1.02]"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  {/* Two sub-sections side by side */}
-                  {imgs.length >= 3 && (
-                    <div className="grid grid-cols-2 gap-px bg-[var(--color-border)]">
-                      <div className="relative overflow-hidden bg-[var(--color-surface)]">
-                        <Image
-                          src={imgs[1]}
-                          alt={`${site.name} — seksjon 2`}
-                          width={720}
-                          height={450}
-                          className="block w-full"
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                        />
-                      </div>
-                      <div className="relative overflow-hidden bg-[var(--color-surface)]">
-                        <Image
-                          src={imgs[2]}
-                          alt={`${site.name} — seksjon 3`}
-                          width={720}
-                          height={450}
-                          className="block w-full"
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                        />
-                      </div>
+                  {imgs.map((src, imgIdx) => (
+                    <div
+                      key={imgIdx}
+                      className={`relative overflow-hidden ${imgIdx > 0 ? "border-t border-[var(--color-border)]" : ""}`}
+                    >
+                      <Image
+                        src={src}
+                        alt={`${site.name} — seksjon ${imgIdx + 1}`}
+                        width={1440}
+                        height={900}
+                        className={`block w-full ${imgIdx === 0 ? "transition-transform duration-500 group-hover:scale-[1.02]" : ""}`}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
                     </div>
-                  )}
+                  ))}
                 </div>
 
                 {/* Project info */}
