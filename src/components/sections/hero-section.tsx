@@ -103,7 +103,7 @@ export function HeroSection() {
                 : { y: parallaxY, opacity: parallaxOpacity }
             }
           >
-            <p className="hero-entrance-eyebrow mb-8 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]">
+            <p className="hero-entrance-eyebrow mb-8 text-xs font-semibold tracking-[0.2em] text-white">
               {HERO.eyebrow}
             </p>
 
@@ -120,22 +120,21 @@ export function HeroSection() {
               )}
             </h1>
 
-            <p className="hero-entrance-sub mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]">
+            <p className="hero-entrance-sub mx-auto mt-5 max-w-md text-base leading-relaxed text-white">
               {HERO.subheadline}
             </p>
 
-            {/* Mobile CTAs — glowing primary, ghost secondary */}
+            {/* Mobile CTAs — rainbow buttons */}
             <div className="hero-entrance-cta mt-14 flex flex-row items-center justify-center gap-3">
               <Link
                 href="/referanser"
-                className="rounded-xl bg-gradient-to-r from-[#06b6d4] to-[#D4A414] px-5 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.3),0_0_40px_rgba(244,206,20,0.1)]"
-                style={{ animation: "ctaGlow 3s ease-in-out infinite" }}
+                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-5 py-3 text-sm font-bold`}
               >
                 {HERO.primaryCta}
               </Link>
               <Link
                 href="/kontakt"
-                className="rounded-xl border border-white/12 px-5 py-3 text-sm font-medium text-[rgba(241,245,249,0.8)]"
+                className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-5 py-3 text-sm font-medium`}
               >
                 {HERO.secondaryCta}
               </Link>
