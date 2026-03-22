@@ -42,7 +42,7 @@ function BlogCard({
   const isLarge = size === "large";
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden bg-white">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg shadow-black/8 transition-shadow duration-300 hover:shadow-xl hover:shadow-black/12">
       {/* Cover image */}
       <div className="relative overflow-hidden">
         <Image
@@ -51,21 +51,21 @@ function BlogCard({
           width={600}
           height={340}
           className={`w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${
-            isLarge ? "aspect-[2/1]" : "aspect-[16/8]"
+            isLarge ? "aspect-[2/1]" : "aspect-[16/9]"
           }`}
         />
         <span
-          className={`absolute top-2 left-2 rounded-full border ${catColor.border} ${catColor.bg} px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider ${catColor.text} backdrop-blur-md`}
+          className={`absolute top-3 left-3 rounded-full border ${catColor.border} ${catColor.bg} px-3 py-1 text-xs font-medium uppercase tracking-wider ${catColor.text} backdrop-blur-md`}
         >
           {post.category}
         </span>
       </div>
 
       {/* Content */}
-      <div className={`flex flex-1 flex-col ${isLarge ? "px-4 py-3" : "px-3 py-2.5"}`}>
+      <div className={`flex flex-1 flex-col ${isLarge ? "px-6 py-5" : "px-5 py-4"}`}>
         <h3
           className={`font-semibold tracking-tight text-[var(--color-text)] text-pretty ${
-            isLarge ? "text-sm" : "text-xs"
+            isLarge ? "text-lg" : "text-base"
           }`}
         >
           <Link
@@ -76,26 +76,26 @@ function BlogCard({
           </Link>
         </h3>
         {isLarge && (
-          <p className="mt-1 flex-1 text-xs leading-relaxed text-[var(--color-text-muted)] line-clamp-1">
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
             {post.excerpt}
           </p>
         )}
 
         {/* Footer */}
-        <div className="mt-2.5 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-between">
           <Link
             href={`/blogg/${post.slug}`}
-            className="group/link flex items-center gap-1.5 text-xs font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-hover)]"
+            className="group/link flex items-center gap-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-hover)]"
           >
-            <span className="grid place-items-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-1.5 transition-all duration-300 group-hover/link:border-[var(--color-accent)] group-hover/link:bg-[var(--color-accent)] group-hover/link:text-[var(--color-text)]">
+            <span className="grid place-items-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-2 transition-all duration-300 group-hover/link:border-[var(--color-accent)] group-hover/link:bg-[var(--color-accent)] group-hover/link:text-[var(--color-text)]">
               <ArrowRight
-                className="h-3 w-3 transition-transform duration-300 group-hover/link:translate-x-0.5"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5"
                 aria-hidden="true"
               />
             </span>
             Les mer
           </Link>
-          <span className="text-[9px] text-[var(--color-text-muted)]">
+          <span className="text-xs text-[var(--color-text-muted)]">
             {post.readingTime}
           </span>
         </div>
@@ -110,10 +110,10 @@ export function BlogArticles() {
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <div className="mb-6 text-center sm:mb-8">
-          <p className="mb-2 text-[10px] font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
             Fra bloggen vår
           </p>
-          <h2 className="text-xl font-extrabold tracking-tight text-[var(--color-text)] text-pretty sm:text-2xl lg:text-3xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-pretty sm:text-3xl lg:text-4xl">
             Nyttige artikler for din bedrift
           </h2>
         </div>
@@ -130,14 +130,14 @@ export function BlogArticles() {
               >
                 <div className="flex-1">
                   <span
-                    className={`inline-block rounded-full border ${catColor.border} ${catColor.bg} px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider ${catColor.text}`}
+                    className={`inline-block rounded-full border ${catColor.border} ${catColor.bg} px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider ${catColor.text}`}
                   >
                     {post.category}
                   </span>
-                  <h3 className="mt-1.5 text-xs font-semibold text-[var(--color-text)] text-pretty group-hover:text-[var(--color-accent-hover)]">
+                  <h3 className="mt-1.5 text-sm font-semibold text-[var(--color-text)] text-pretty group-hover:text-[var(--color-accent-hover)]">
                     {post.title}
                   </h3>
-                  <span className="mt-1 block text-[9px] text-[var(--color-text-muted)]">
+                  <span className="mt-1 block text-[10px] text-[var(--color-text-muted)]">
                     {post.readingTime}
                   </span>
                 </div>
@@ -147,8 +147,8 @@ export function BlogArticles() {
           })}
         </div>
 
-        {/* Desktop: 2×2 asymmetric grid — compact */}
-        <div className="hidden gap-1 overflow-hidden rounded-2xl shadow-lg shadow-black/8 sm:grid sm:grid-cols-5 sm:grid-rows-2">
+        {/* Desktop: 2×2 asymmetric grid — separate cards with individual shadows */}
+        <div className="hidden gap-5 sm:grid sm:grid-cols-5 sm:grid-rows-2">
           <div className="sm:col-span-3 sm:row-start-1">
             <BlogCard post={FEATURED_POSTS[0]} size="large" />
           </div>
@@ -167,7 +167,7 @@ export function BlogArticles() {
         <div className="mt-5 text-center sm:mt-8">
           <Link
             href="/blogg"
-            className="text-xs font-medium text-[var(--color-accent-hover)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+            className="text-sm font-medium text-[var(--color-accent-hover)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
           >
             Se alle artikler &#8594;
           </Link>
