@@ -8,31 +8,7 @@ import { HERO } from "@/lib/content/homepage";
 import { SplineScene } from "@/components/ui/spline-scene";
 import { HeroFallback } from "@/components/ui/hero-fallback";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
-
-const headlineContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-  },
-};
-
-const headlineWord = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: "easeOut" as const },
-  },
-};
-
-const fadeSlideUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" as const, delay },
-  }),
-};
+import { MeshGradient } from "@/components/ui/mesh-gradient";
 
 export function HeroSection() {
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
@@ -50,18 +26,53 @@ export function HeroSection() {
       {/* Layer 0: Gradient fallback (always renders, fades when Spline ready) */}
       <HeroFallback isSplineLoaded={isSplineLoaded} />
 
-      {/* Layer 0.5: Aurora gradient for mobile */}
-      <div
-        className="aurora-glow-layer pointer-events-none absolute inset-0 z-[1] lg:hidden"
-        aria-hidden="true"
-        style={{
-          background: [
-            "radial-gradient(ellipse 140% 60% at 50% 30%, rgba(6,182,212,0.18), transparent 65%)",
-            "radial-gradient(ellipse 140% 50% at 50% 65%, rgba(244,206,20,0.12), transparent 60%)",
-            "radial-gradient(ellipse 160% 80% at 50% 50%, rgba(6,182,212,0.08), transparent 75%)",
-          ].join(", "),
-        }}
-      />
+      {/* Layer 0.5: WebGL mesh gradient + noise + SVG lines (mobile only) */}
+      <div className="hero-entrance-canvas pointer-events-none absolute inset-0 z-[1] lg:hidden" aria-hidden="true">
+        <MeshGradient />
+
+        {/* Noise texture overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundSize: "128px 128px",
+            opacity: 0.03,
+          }}
+        />
+
+        {/* Flowing SVG lines */}
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 400 800"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M-20,200 Q100,120 200,250 T420,180"
+            stroke="url(#heroLineGrad)"
+            strokeWidth="0.8"
+            style={{ animation: "svgLineDrift1 8s ease-in-out infinite" }}
+          />
+          <path
+            d="M-20,400 Q150,340 250,450 T420,380"
+            stroke="url(#heroLineGrad)"
+            strokeWidth="0.6"
+            style={{ animation: "svgLineDrift2 10s ease-in-out 2s infinite" }}
+          />
+          <path
+            d="M-20,600 Q80,550 200,620 T420,570"
+            stroke="url(#heroLineGrad)"
+            strokeWidth="0.5"
+            style={{ animation: "svgLineDrift3 9s ease-in-out 4s infinite" }}
+          />
+        </svg>
+      </div>
 
       {/* Layer 1: Spline 3D scene (desktop only, lazy loaded) */}
       <SplineScene onLoaded={setIsSplineLoaded} />
@@ -83,7 +94,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
         >
-          {/* Mobile hero — staggered reveal with parallax */}
+          {/* Mobile hero — CSS entrance + parallax */}
           <motion.div
             className="mb-8 -mt-16 lg:hidden"
             style={
@@ -92,66 +103,43 @@ export function HeroSection() {
                 : { y: parallaxY, opacity: parallaxOpacity }
             }
           >
-            <motion.p
-              variants={fadeSlideUp}
-              initial="hidden"
-              animate="visible"
-              custom={0}
-              className="mb-8 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]"
-            >
+            <p className="hero-entrance-eyebrow mb-8 text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-muted)]">
               {HERO.eyebrow}
-            </motion.p>
+            </p>
 
-            <motion.h1
-              variants={headlineContainer}
-              initial="hidden"
-              animate="visible"
-              className="hero-shimmer bg-clip-text text-[1.85rem] font-black leading-[1.1] tracking-tight text-transparent min-[375px]:text-4xl sm:text-5xl"
-            >
+            <h1 className="hero-shimmer bg-clip-text text-[1.85rem] font-black leading-[1.1] tracking-tight text-transparent min-[375px]:text-4xl sm:text-5xl">
               {["IDWEB", "BYGGER", "DIN", "NYE", "NETTSIDE"].map(
                 (word, i) => (
-                  <motion.span
+                  <span
                     key={word}
-                    variants={headlineWord}
-                    className={`inline-block${i < 4 ? " mr-[0.3em]" : ""}`}
+                    className={`hero-entrance-word-${i + 1} inline-block${i < 4 ? " mr-[0.3em]" : ""}`}
                   >
                     {word}
-                  </motion.span>
+                  </span>
                 ),
               )}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeSlideUp}
-              initial="hidden"
-              animate="visible"
-              custom={0.9}
-              className="mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]"
-            >
+            <p className="hero-entrance-sub mx-auto mt-5 max-w-md text-base leading-relaxed text-[var(--color-dark-muted)]">
               {HERO.subheadline}
-            </motion.p>
+            </p>
 
-            {/* Mobile CTAs */}
-            <motion.div
-              variants={fadeSlideUp}
-              initial="hidden"
-              animate="visible"
-              custom={1.1}
-              className="mt-14 flex flex-row items-center justify-center gap-3"
-            >
+            {/* Mobile CTAs — glowing primary, ghost secondary */}
+            <div className="hero-entrance-cta mt-14 flex flex-row items-center justify-center gap-3">
               <Link
                 href="/referanser"
-                className={`${RAINBOW_BUTTON_CLASSES} px-5 py-3 text-sm font-bold`}
+                className="rounded-xl bg-gradient-to-r from-[#06b6d4] to-[#3a3aff] px-5 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.3),0_0_40px_rgba(6,182,212,0.1)]"
+                style={{ animation: "ctaGlow 3s ease-in-out infinite" }}
               >
                 {HERO.primaryCta}
               </Link>
               <Link
                 href="/kontakt"
-                className={`${RAINBOW_BUTTON_CLASSES} px-5 py-3 text-sm font-medium`}
+                className="rounded-xl border border-white/12 px-5 py-3 text-sm font-medium text-[rgba(241,245,249,0.8)]"
               >
                 {HERO.secondaryCta}
               </Link>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Desktop CTAs (no parallax, no stagger) */}
