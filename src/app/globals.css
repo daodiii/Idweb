@@ -143,9 +143,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1023px) {
   .hero-shimmer {
-    background-image: linear-gradient(135deg, #D4A017, #8B6914);
-    background-size: 100% 100%;
-    animation: none;
+    background-image: linear-gradient(135deg, #f1f5f9, #06b6d4 40%, #3a3aff 60%, #8b5cf6);
+    background-size: 200% 200%;
+    animation: gradientTextShift 4s ease-in-out infinite alternate;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -181,3 +182,123 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── Mobile Hero Animations ── */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--hero-translate, 12px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientTextShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), 0 0 50px rgba(6, 182, 212, 0.15);
+  }
+}
+
+@keyframes svgLineDrift1 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translateX(15px) translateY(-10px) rotate(1.5deg);
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes svgLineDrift2 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.06;
+  }
+  50% {
+    transform: translateX(-10px) translateY(8px) rotate(-1deg);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes svgLineDrift3 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translateX(8px) translateY(12px) rotate(0.8deg);
+    opacity: 0.09;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0.05;
+  }
+}
+
+@keyframes meshFallbackDrift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-entrance-canvas {
+    animation: heroFadeUp 400ms ease-out both;
+    --hero-translate: 0px;
+  }
+  .hero-entrance-eyebrow {
+    animation: heroFadeUp 350ms ease-out 150ms both;
+    --hero-translate: 12px;
+  }
+  .hero-entrance-word-1 { animation: heroFadeUp 350ms ease-out 300ms both; --hero-translate: 16px; }
+  .hero-entrance-word-2 { animation: heroFadeUp 350ms ease-out 380ms both; --hero-translate: 16px; }
+  .hero-entrance-word-3 { animation: heroFadeUp 350ms ease-out 460ms both; --hero-translate: 16px; }
+  .hero-entrance-word-4 { animation: heroFadeUp 350ms ease-out 540ms both; --hero-translate: 16px; }
+  .hero-entrance-word-5 { animation: heroFadeUp 350ms ease-out 620ms both; --hero-translate: 16px; }
+  .hero-entrance-sub { animation: heroFadeUp 300ms ease-out 750ms both; --hero-translate: 12px; }
+  .hero-entrance-cta { animation: heroFadeUp 300ms ease-out 950ms both; --hero-translate: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-entrance-canvas,
+  .hero-entrance-eyebrow,
+  .hero-entrance-word-1,
+  .hero-entrance-word-2,
+  .hero-entrance-word-3,
+  .hero-entrance-word-4,
+  .hero-entrance-word-5,
+  .hero-entrance-sub,
+  .hero-entrance-cta {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .hero-shimmer {
+    animation: none !important;
+  }
+}
