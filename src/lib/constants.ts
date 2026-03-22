@@ -11,15 +11,15 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   tjenester: [
-    { href: "/tjenester#nettside", label: "Nettsider" },
-    { href: "/tjenester#seo", label: "SEO-optimalisering" },
-    { href: "/tjenester#vedlikehold", label: "Drift og vedlikehold" },
+    { href: "/tjenester/nettside", label: "Nettsider" },
+    { href: "/tjenester/seo", label: "SEO-optimalisering" },
+    { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   ],
   selskap: [
     { href: "/om-oss", label: "Om oss" },
     { href: "/referanser", label: "Referanser" },
     { href: "/priser", label: "Priser" },
-    { href: "/blogg", label: "Blogg" },
+    { href: "/blogg", label: "Nyttige artikler" },
     { href: "/faq", label: "FAQ" },
     { href: "/kontakt", label: "Kontakt" },
   ],

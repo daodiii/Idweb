@@ -19,7 +19,7 @@ const MOBILE_LINKS = [
   { href: "/priser", label: "Priser" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/referanser", label: "Referanser" },
-  { href: "/blogg", label: "Blogg" },
+  { href: "/blogg", label: "Nyttige artikler" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -68,36 +68,45 @@ export function Navbar() {
             >
               <MenuItem setActive={setActive} active={active} item="Tjenester">
                 <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/tjenester#nettside">
+                  <HoveredLink href="/tjenester/nettside">
                     Skreddersydd nettside
                   </HoveredLink>
-                  <HoveredLink href="/tjenester#seo">
+                  <HoveredLink href="/tjenester/seo">
                     SEO-optimalisering
                   </HoveredLink>
-                  <HoveredLink href="/tjenester#vedlikehold">
+                  <HoveredLink href="/tjenester/vedlikehold">
                     Drift og vedlikehold
                   </HoveredLink>
                 </div>
               </MenuItem>
 
-              <MenuItem setActive={setActive} active={active} item="Priser">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/priser#starter">Starter</HoveredLink>
-                  <HoveredLink href="/priser#profesjonell">
-                    Profesjonell
-                  </HoveredLink>
-                  <HoveredLink href="/priser#bedrift">Bedrift</HoveredLink>
-                </div>
-              </MenuItem>
+              <Link
+                href="/priser"
+                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+              >
+                Priser
+              </Link>
 
               <MenuItem setActive={setActive} active={active} item="Om oss">
                 <div className="flex flex-col space-y-4 text-sm">
                   <HoveredLink href="/om-oss">Om selskapet</HoveredLink>
-                  <HoveredLink href="/referanser">Referanser</HoveredLink>
-                  <HoveredLink href="/blogg">Blogg</HoveredLink>
                   <HoveredLink href="/faq">FAQ</HoveredLink>
                 </div>
               </MenuItem>
+
+              <Link
+                href="/referanser"
+                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+              >
+                Referanser
+              </Link>
+
+              <Link
+                href="/blogg"
+                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+              >
+                Nyttige artikler
+              </Link>
             </Menu>
           </div>
 
