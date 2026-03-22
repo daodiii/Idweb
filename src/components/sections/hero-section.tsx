@@ -50,7 +50,7 @@ export function HeroSection() {
           <defs>
             <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#F4CE14" />
             </linearGradient>
           </defs>
           <path
@@ -128,7 +128,7 @@ export function HeroSection() {
             <div className="hero-entrance-cta mt-14 flex flex-row items-center justify-center gap-3">
               <Link
                 href="/referanser"
-                className="rounded-xl bg-gradient-to-r from-[#06b6d4] to-[#3a3aff] px-5 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.3),0_0_40px_rgba(6,182,212,0.1)]"
+                className="rounded-xl bg-gradient-to-r from-[#06b6d4] to-[#D4A414] px-5 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.3),0_0_40px_rgba(244,206,20,0.1)]"
                 style={{ animation: "ctaGlow 3s ease-in-out infinite" }}
               >
                 {HERO.primaryCta}

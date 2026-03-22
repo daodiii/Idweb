@@ -87,13 +87,13 @@ void main() {
 }`;
 
 const COLORS = {
-  color0: [0.024, 0.714, 0.831], // #06b6d4 cyan
-  color1: [0.227, 0.227, 1.0],   // #3a3aff electric blue
-  color2: [0.545, 0.361, 0.965], // #8b5cf6 purple
-  color3: [0.431, 0.765, 0.957], // #6ec3f4 light blue
+  color0: [0.047, 0.055, 0.137], // #0C0E23 near-black navy
+  color1: [0.957, 0.808, 0.078], // #F4CE14 gold
+  color2: [0.027, 0.082, 0.180], // #07152E deep navy
+  color3: [0.831, 0.643, 0.078], // #D4A414 dark gold
 } as const;
 
-const CANVAS_SIZE = 64;
+const CANVAS_SIZE = 256;
 
 function CssFallback() {
   return (
@@ -102,10 +102,10 @@ function CssFallback() {
       aria-hidden="true"
       style={{
         background: [
-          `radial-gradient(ellipse 80% 60% at 30% 40%, rgba(6,182,212,0.35) 0%, transparent 70%)`,
-          `radial-gradient(ellipse 70% 50% at 70% 60%, rgba(58,58,255,0.25) 0%, transparent 70%)`,
-          `radial-gradient(ellipse 60% 70% at 50% 30%, rgba(139,92,246,0.25) 0%, transparent 70%)`,
-          `radial-gradient(ellipse 80% 50% at 40% 70%, rgba(110,195,244,0.2) 0%, transparent 70%)`,
+          `radial-gradient(ellipse 80% 60% at 30% 40%, rgba(12,14,35,0.9) 0%, transparent 70%)`,
+          `radial-gradient(ellipse 70% 50% at 70% 60%, rgba(244,206,20,0.3) 0%, transparent 70%)`,
+          `radial-gradient(ellipse 60% 70% at 50% 30%, rgba(7,21,46,0.8) 0%, transparent 70%)`,
+          `radial-gradient(ellipse 80% 50% at 40% 70%, rgba(212,164,20,0.25) 0%, transparent 70%)`,
         ].join(", "),
         backgroundSize: "200% 200%",
         animation: "meshFallbackDrift 20s ease-in-out infinite alternate",
