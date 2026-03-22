@@ -51,7 +51,7 @@ export function StickyScroll({
   return (
     // Outer container: tall enough to create scroll space (100vh per step)
     // No overflow-hidden here so sticky works
-    <div ref={containerRef} style={{ height: `${(cardLength + 1) * 100}vh` }} className="relative">
+    <div ref={containerRef} style={{ height: `${cardLength * 200}vh` }} className="relative">
       {/* Pinned viewport — stays fixed while scrolling through the tall container */}
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Aurora background layers — inside sticky so they stay visible */}
