@@ -63,9 +63,9 @@ export function Footer() {
             <Link href="/" className="inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]">
               <Image
                 src="/images/idweb-logo.png"
-                alt="IDweb — Nettsideutvikling i Norge"
-                width={300}
-                height={100}
+                alt="IDweb — Webutvikling og SEO-optimalisering"
+                width={974}
+                height={394}
                 className="h-16 w-auto md:h-20 [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               />
             </Link>

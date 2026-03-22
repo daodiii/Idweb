@@ -51,10 +51,10 @@ export function Navbar() {
           >
             <Image
               src="/images/idweb-logo.png"
-              alt="IDweb — Nettsideutvikling i Norge"
-              width={360}
-              height={120}
-              className="-my-10 h-28 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
+              alt="IDweb — Webutvikling og SEO-optimalisering"
+              width={974}
+              height={394}
+              className="-my-4 h-20 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               priority
               fetchPriority="high"
             />
