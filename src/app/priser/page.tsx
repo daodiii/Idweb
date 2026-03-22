@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: "Priser — Nettsider, vedlikehold og SEO | IDweb",
   description:
     "Se våre priser for nettsider, vedlikehold, SEO og tilleggstjenester. Faste priser, ingen bindingstid. Få et skreddersydd tilbud.",
+  keywords: [
+    "nettside pris",
+    "hva koster nettside",
+    "webdesign pris",
+    "seo pris",
+    "nettside pris oslo",
+    "vedlikehold pris",
+  ],
+  alternates: {
+    canonical: "/priser",
+  },
 };
 
 export default function PriserPage() {

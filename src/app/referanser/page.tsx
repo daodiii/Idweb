@@ -12,6 +12,15 @@ export const metadata: Metadata = {
   title: "Referanser — Se nettsidene vi har levert | IDweb",
   description:
     "Se utvalgte prosjekter vi har levert til norske bedrifter. Skreddersydde nettsider, nettbutikker og digitale løsninger med målbare resultater.",
+  keywords: [
+    "webdesign referanser",
+    "nettside portefølje",
+    "webdesign eksempler",
+    "nettside prosjekter oslo",
+  ],
+  alternates: {
+    canonical: "/referanser",
+  },
 };
 
 export default function ReferanserPage() {

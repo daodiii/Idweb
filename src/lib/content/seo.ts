@@ -18,6 +18,11 @@ export const SEO = {
       "webdesignbyrå norge",
       "seo optimalisering",
       "responsivt design",
+      "webdesign oslo",
+      "nettside oslo",
+      "webutvikler oslo",
+      "webdesignbyrå oslo",
+      "lage nettside oslo",
     ],
   },
   services: {
@@ -40,6 +45,8 @@ export const SEO = {
       "om oss webdesign",
       "norsk webdesigner",
       "webdesignbyrå",
+      "webbyrå oslo",
+      "webdesigner oslo",
     ],
   },
   faq: {
@@ -63,6 +70,8 @@ export const SEO = {
       "tilbud nettside",
       "bestill nettside",
       "nettside konsultasjon",
+      "kontakt webbyrå oslo",
+      "tilbud nettside oslo",
     ],
   },
   blog: {
@@ -96,6 +105,8 @@ export const SERVICE_SEO: Record<string, { title: string; description: string; k
       "responsivt design",
       "nettside bedrift",
       "profesjonell nettside",
+      "webdesign oslo",
+      "nettside bedrift oslo",
     ],
   },
   seo: {
@@ -108,6 +119,9 @@ export const SERVICE_SEO: Record<string, { title: string; description: string; k
       "google rangering",
       "lokal seo",
       "seo norge",
+      "seo oslo",
+      "søkemotoroptimalisering oslo",
+      "seo byrå oslo",
     ],
   },
   vedlikehold: {

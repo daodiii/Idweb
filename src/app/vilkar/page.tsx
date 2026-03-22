@@ -4,6 +4,13 @@ export const metadata: Metadata = {
   title: "Vilkår og betingelser | IDweb",
   description:
     "Les våre vilkår og betingelser for bruk av nettsiden og tjenestene til IDweb.",
+  alternates: {
+    canonical: "/vilkar",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function VilkarPage() {

@@ -32,14 +32,38 @@ export const metadata: Metadata = {
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold. Få et uforpliktende tilbud i dag.",
   metadataBase: new URL("https://idweb.no"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "nb_NO",
     siteName: "IDweb",
+    title: "IDweb — Nettsideutvikling i Norge",
+    description:
+      "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter. Få et uforpliktende tilbud i dag.",
+    url: "https://idweb.no",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IDweb — Nettsideutvikling i Norge",
+    description:
+      "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Add your Google Search Console verification code here:
+    // google: "your-verification-code",
   },
 };
 

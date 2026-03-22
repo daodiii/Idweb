@@ -3,16 +3,27 @@ import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
 import { FAQ_PAGE, FAQS } from "@/lib/content/faq";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: SEO.faq.title,
   description: SEO.faq.description,
   keywords: SEO.faq.keywords,
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FaqPage() {
   return (
     <div>
+      <FaqJsonLd faqs={FAQS} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Vanlige spørsmål", href: "/faq" },
+        ]}
+      />
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">

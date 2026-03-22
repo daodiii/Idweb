@@ -4,6 +4,13 @@ import { SEO } from "@/lib/content/seo";
 export const metadata: Metadata = {
   title: SEO.privacy.title,
   description: SEO.privacy.description,
+  alternates: {
+    canonical: "/personvern",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PersonvernPage() {

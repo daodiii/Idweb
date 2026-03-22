@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogPost, getAllSlugs } from "@/lib/content/blog";
+import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -21,6 +22,23 @@ export async function generateMetadata({
   return {
     title: `${post.title} | IDweb`,
     description: post.metaDescription,
+    alternates: {
+      canonical: `/blogg/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.metaDescription,
+      type: "article",
+      publishedTime: post.publishedDate,
+      authors: ["IDweb"],
+      locale: "nb_NO",
+      siteName: "IDweb",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.metaDescription,
+    },
   };
 }
 
@@ -34,6 +52,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div>
+      <BlogPostJsonLd
+        title={post.title}
+        description={post.metaDescription}
+        slug={post.slug}
+        publishedDate={post.publishedDate}
+        category={post.category}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Blogg", href: "/blogg" },
+          { name: post.title, href: `/blogg/${post.slug}` },
+        ]}
+      />
       {/* Header */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-3xl">
