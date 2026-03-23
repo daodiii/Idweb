@@ -87,6 +87,15 @@ export interface TrustSignal {
 
 export type DeviceViewport = "desktop" | "tablet" | "mobile";
 
+export type CollagePosition = "center" | "top-left" | "top-right" | "bottom-left" | "bottom-right";
+
+export interface CollageImage {
+  src: string;
+  alt: string;
+  position: CollagePosition;
+  aspectRatio: "desktop" | "mobile";
+}
+
 export type PortfolioSiteId =
   | "brobekk"
   | "centerrahma"
@@ -99,7 +108,7 @@ export interface PortfolioSite {
   id: PortfolioSiteId;
   name: string;
   domain: string;
-  images: Record<DeviceViewport, string> & { full?: string; showcase?: string[] };
+  images: Record<DeviceViewport, string> & { full?: string; showcase?: string[]; collage?: CollageImage[] };
 }
 
 export interface RotationSet {
