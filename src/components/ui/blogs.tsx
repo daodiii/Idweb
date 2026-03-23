@@ -12,7 +12,6 @@ const FEATURED_SLUGS = [
   "tegn-paa-ny-nettside",
   "hva-koster-en-nettside",
   "vanlige-feil-med-nettsiden",
-  "seo-for-nybegynnere",
 ] as const;
 
 /** Cover images mapped by slug — workspace/office photos without people. */
@@ -23,8 +22,6 @@ const COVER_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   "vanlige-feil-med-nettsiden":
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
-  "seo-for-nybegynnere":
-    "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
 };
 
 const FEATURED_POSTS = FEATURED_SLUGS.map(
@@ -51,7 +48,7 @@ function BlogCard({
           width={600}
           height={340}
           className={`w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${
-            isLarge ? "aspect-[2/1]" : "aspect-[16/9]"
+            isLarge ? "aspect-[3/2]" : "aspect-[4/3]"
           }`}
         />
         <span
@@ -106,8 +103,8 @@ function BlogCard({
 
 export function BlogArticles() {
   return (
-    <section className="light-section-warm-alt px-6 py-10 sm:py-14 md:py-20">
-      <div className="mx-auto max-w-4xl">
+    <section className="light-section-warm-alt px-6 py-8 sm:py-10 md:py-14">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-6 text-center sm:mb-8">
           <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
@@ -147,19 +144,16 @@ export function BlogArticles() {
           })}
         </div>
 
-        {/* Desktop: 2×2 asymmetric grid — separate cards with individual shadows */}
-        <div className="hidden gap-5 sm:grid sm:grid-cols-5 sm:grid-rows-2">
-          <div className="sm:col-span-3 sm:row-start-1">
-            <BlogCard post={FEATURED_POSTS[0]} size="large" />
+        {/* Desktop: single row — small · large · small */}
+        <div className="hidden items-stretch gap-5 sm:grid sm:grid-cols-4">
+          <div className="sm:col-span-1">
+            <BlogCard post={FEATURED_POSTS[0]} size="small" />
           </div>
-          <div className="sm:col-span-2 sm:row-start-1">
-            <BlogCard post={FEATURED_POSTS[1]} size="small" />
+          <div className="sm:col-span-2">
+            <BlogCard post={FEATURED_POSTS[1]} size="large" />
           </div>
-          <div className="sm:col-span-2 sm:row-start-2">
+          <div className="sm:col-span-1">
             <BlogCard post={FEATURED_POSTS[2]} size="small" />
-          </div>
-          <div className="sm:col-span-3 sm:row-start-2">
-            <BlogCard post={FEATURED_POSTS[3]} size="large" />
           </div>
         </div>
 
