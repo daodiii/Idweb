@@ -7,6 +7,9 @@ import {
   CLIENT_LOGOS_SECTION,
 } from "@/lib/content/portfolio";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import { getSiteById } from "@/lib/content/portfolio-sites";
+import { ProjectCollage } from "@/components/ui/project-collage";
+import type { PortfolioSiteId } from "@/types";
 
 export const metadata: Metadata = {
   title: "Referanser — Se nettsidene vi har levert | IDweb",
@@ -48,14 +51,29 @@ export default function ReferanserPage() {
                 index % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              {/* Placeholder for project image */}
-              <div className="flex flex-1 items-center justify-center rounded-lg bg-[var(--color-bg-alt)] p-12">
-                <div className="text-center">
-                  <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
-                    {project.industry}
-                  </p>
-                  <p className="mt-2 text-2xl font-bold">{project.client}</p>
-                </div>
+              {/* Project image — collage or placeholder */}
+              <div className="flex-1">
+                {(() => {
+                  const site = getSiteById(project.id as PortfolioSiteId);
+                  if (site?.images.collage?.length) {
+                    return (
+                      <ProjectCollage
+                        images={site.images.collage}
+                        projectName={site.name}
+                      />
+                    );
+                  }
+                  return (
+                    <div className="flex items-center justify-center rounded-lg bg-[var(--color-bg-alt)] p-12 min-h-[300px]">
+                      <div className="text-center">
+                        <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+                          {project.industry}
+                        </p>
+                        <p className="mt-2 text-2xl font-bold">{project.client}</p>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Project Details */}
