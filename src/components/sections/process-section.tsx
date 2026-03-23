@@ -10,21 +10,21 @@ const STEPS = [
     title: "Vi blir kjent med deg",
     description:
       "Alt starter med en uforpliktende samtale. Vi lytter til dine behov, kartlegger målgruppen din og forstår hva du ønsker å oppnå.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=85&fit=crop",
+    image: "/images/process/step-1.png",
     imageAlt: "Planlegging og kartlegging",
   },
   {
     title: "Vi designer og utvikler",
     description:
       "Vi skaper et skreddersydd design og bygger nettsiden med fokus på hastighet, SEO og brukervennlighet.",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&q=85&fit=crop",
+    image: "/images/process/step-2.png",
     imageAlt: "Design og utvikling",
   },
   {
     title: "Vi lanserer og følger opp",
     description:
       "Vi lanserer nettsiden din og tilbyr løpende vedlikehold, oppdateringer og support.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85&fit=crop",
+    image: "/images/process/step-3.png",
     imageAlt: "Lansering og oppfølging",
   },
 ];
