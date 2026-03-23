@@ -48,7 +48,7 @@ export default function KontaktPage() {
                 Fortell oss litt om bedriften din og hva du ønsker å oppnå. Jo mer
                 du deler, desto bedre tilbud kan vi gi deg.
               </p>
-              <form className="mt-8 space-y-5">
+              <form action="https://formspree.io/f/mreywnwb" method="POST" className="mt-8 space-y-5">
                 <div>
                   <label
                     htmlFor="name"
