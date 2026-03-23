@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useId, useRef, useCallback, useEffect } from "react";
+import React, { useId, useRef } from "react";
 import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Starfield } from "@/components/ui/starfield";
@@ -25,8 +25,6 @@ export function StickyScroll({
   const [activeCard, setActiveCard] = React.useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const filterId = useId();
-  const isSnapping = useRef(false);
-  const snapCooldown = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,69 +42,6 @@ export function StickyScroll({
     setActiveCard(index);
   });
 
-  /**
-   * Scroll-snap behavior: intercept wheel events while the sticky section
-   * is in view and jump exactly one step per scroll gesture.
-   */
-  const scrollToStep = useCallback(
-    (stepIndex: number) => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      // Each step occupies an equal share of the container's scrollable height.
-      // The scrollable range is containerHeight - viewportHeight.
-      const containerTop = container.offsetTop;
-      const containerHeight = container.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      const scrollableRange = containerHeight - viewportHeight;
-      const segmentSize = scrollableRange / cardLength;
-
-      // Scroll to the start of the target step segment
-      const targetScroll = containerTop + segmentSize * stepIndex;
-
-      isSnapping.current = true;
-      window.scrollTo({ top: targetScroll, behavior: "smooth" });
-
-      // Release the snap lock after the smooth scroll finishes
-      if (snapCooldown.current) clearTimeout(snapCooldown.current);
-      snapCooldown.current = setTimeout(() => {
-        isSnapping.current = false;
-      }, 600);
-    },
-    [cardLength],
-  );
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Only snap when the sticky section is actively pinned (container in view)
-      const rect = container.getBoundingClientRect();
-      const isInView = rect.top <= 0 && rect.bottom >= window.innerHeight;
-      if (!isInView) return;
-
-      // Don't handle if we're already mid-snap
-      if (isSnapping.current) {
-        e.preventDefault();
-        return;
-      }
-
-      const direction = e.deltaY > 0 ? 1 : -1;
-      const nextStep = activeCard + direction;
-
-      // If scrolling would go beyond the section bounds, let the page scroll naturally
-      if (nextStep < 0 || nextStep >= cardLength) return;
-
-      e.preventDefault();
-      scrollToStep(nextStep);
-    };
-
-    // Must use non-passive to allow preventDefault
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [activeCard, cardLength, scrollToStep]);
-
   const linearGradients = [
     "linear-gradient(to bottom right, rgb(6 182 212), rgb(16 185 129))",
     "linear-gradient(to bottom right, rgb(236 72 153), rgb(99 102 241))",
@@ -116,7 +51,7 @@ export function StickyScroll({
   return (
     // Outer container: tall enough to create scroll space (100vh per step)
     // No overflow-hidden here so sticky works
-    <div ref={containerRef} style={{ height: `${cardLength * 200}vh` }} className="relative">
+    <div ref={containerRef} style={{ height: `${cardLength * 100}vh` }} className="relative">
       {/* Pinned viewport — stays fixed while scrolling through the tall container */}
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Aurora background layers — inside sticky so they stay visible */}
