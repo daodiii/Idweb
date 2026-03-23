@@ -17,7 +17,7 @@ export const PACKAGES = [
     features: [
       "Inntil 3 sider (forside, tjenester, kontakt)",
       "Responsivt design — mobil, nettbrett og desktop",
-      "Grunnleggende SEO-oppsett (meta, sitemap, robots.txt)",
+      "Grunnleggende SEO-oppsett",
       "Kontaktskjema med e-postvarsling",
       "SSL-sertifikat og GDPR-tilpasning",
       "Google Analytics-oppsett",
@@ -37,7 +37,6 @@ export const PACKAGES = [
     features: [
       "Alt i Enkel, pluss:",
       "Inntil 5 sider med skreddersydd design",
-      "Blogg for innholdspublisering",
       "Avansert SEO med søkeordanalyse og schema markup",
       "Google Business Profile-oppsett",
       "Animasjoner og interaktive elementer",
@@ -73,7 +72,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-basis",
     name: "Basis",
-    price: "790 kr/mnd",
+    price: "690 kr/mnd",
     description:
       "Grunnleggende drift for nettsider som trenger trygg hosting og jevnlige oppdateringer.",
     features: [
@@ -89,7 +88,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-standard",
     name: "Standard",
-    price: "1 490 kr/mnd",
+    price: "990 kr/mnd",
     description:
       "For bedrifter som vil holde nettsiden oppdatert og overvåket uten bekymringer.",
     features: [
@@ -105,7 +104,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-profesjonell",
     name: "Profesjonell",
-    price: "2 490 kr/mnd",
+    price: "1 500 kr/mnd",
     description:
       "Komplett vedlikehold med ubegrensede endringer og dedikert oppfølging.",
     features: [
@@ -162,7 +161,7 @@ export const PRICING_FAQ = [
   {
     question: "Hva er inkludert i de månedlige kostnadene?",
     answer:
-      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 790 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se våre vedlikeholdspakker lenger opp på siden for detaljer.",
+      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 690 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se våre vedlikeholdspakker lenger opp på siden for detaljer.",
   },
   {
     question: "Er det bindingstid?",

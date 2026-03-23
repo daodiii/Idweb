@@ -15,7 +15,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hvor lang tid tar det å lage en nettside?",
     answer:
-      "En standard bedriftsnettside tar vanligvis 3–6 uker fra oppstart til lansering, avhengig av omfanget og hvor raskt vi får tilbakemeldinger og innhold fra deg. Enklere prosjekter kan leveres raskere, mens større nettbutikker eller skreddersydde løsninger kan ta 6–10 uker. Vi setter alltid opp en tydelig tidsplan i starten av prosjektet.",
+      "Leveringstiden avhenger av hvilken pakke du velger. Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker. Vi setter alltid opp en tydelig tidsplan i starten av prosjektet, slik at du vet nøyaktig når nettsiden din er klar.",
   },
   {
     question: "Trenger jeg en driftsavtale etter lansering?",

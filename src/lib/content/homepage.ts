@@ -94,7 +94,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hvor lang tid tar det \u00e5 lage en nettside?",
     answer:
-      "En standard bedriftsnettside tar vanligvis 3\u20136 uker fra oppstart til lansering. Enklere prosjekter kan leveres raskere, mens st\u00f8rre skreddersydde l\u00f8sninger kan ta 6\u201310 uker.",
+      "Leveringstiden avhenger av hvilken pakke du velger. Starter-pakken leveres p\u00e5 ca. 2 uker, Standard-pakken tar ca. 3 uker, og st\u00f8rre eller premium-l\u00f8sninger leveres p\u00e5 ca. 6 uker.",
   },
   {
     question: "Hva om jeg allerede har en nettside?",
@@ -104,7 +104,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hva koster vedlikehold?",
     answer:
-      "Driftsavtaler starter fra 490 kr/mnd og dekker hosting, sikkerhetskopier, oppdateringer og support. Ingen bindingstid \u2014 du kan si opp n\u00e5r som helst.",
+      "Driftsavtaler starter fra 690 kr/mnd og dekker hosting, sikkerhetskopier, oppdateringer og support. Ingen bindingstid \u2014 du kan si opp n\u00e5r som helst.",
   },
   {
     question: "Trenger jeg virkelig en skreddersydd nettside?",

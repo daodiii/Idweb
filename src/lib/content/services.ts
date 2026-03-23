@@ -43,7 +43,7 @@ export const SERVICES: Service[] = [
       { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
     ],
     faq: [
-      { question: "Hvor lang tid tar det å lage en nettside?", answer: "En typisk bedriftsnettside tar 3–5 uker fra oppstart til lansering, avhengig av omfang og tilbakemeldingstid." },
+      { question: "Hvor lang tid tar det å lage en nettside?", answer: "Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker." },
       { question: "Hva koster en skreddersydd nettside?", answer: "Prisen avhenger av omfang og funksjonalitet. En enkel bedriftsnettside starter fra kr 15 000. Jeg gir alltid et uforpliktende tilbud først." },
       { question: "Kan jeg oppdatere innholdet selv?", answer: "Ja, jeg bygger nettsiden slik at du enkelt kan endre tekst, bilder og sider selv — uten teknisk kunnskap." },
       { question: "Hva med hosting og domene?", answer: "Jeg hjelper deg med å sette opp hosting og koble til domenet ditt. Alt er inkludert i leveransen." },

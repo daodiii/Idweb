@@ -22,7 +22,7 @@ New IDs: `enkel`, `standard`, `premium` (replacing `starter`, `profesjonell`, `p
 - **features:**
   - Inntil 3 sider (forside, tjenester, kontakt)
   - Responsivt design — mobil, nettbrett og desktop
-  - Grunnleggende SEO-oppsett (meta, sitemap, robots.txt)
+  - Grunnleggende SEO-oppsett
   - Kontaktskjema med e-postvarsling
   - SSL-sertifikat og GDPR-tilpasning
   - Google Analytics-oppsett
@@ -40,7 +40,6 @@ New IDs: `enkel`, `standard`, `premium` (replacing `starter`, `profesjonell`, `p
 - **features:**
   - Alt i Enkel, pluss:
   - Inntil 5 sider med skreddersydd design
-  - Blogg for innholdspublisering
   - Avansert SEO med søkeordanalyse og schema markup
   - Google Business Profile-oppsett
   - Animasjoner og interaktive elementer

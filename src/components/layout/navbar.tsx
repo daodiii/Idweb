@@ -54,7 +54,7 @@ export function Navbar() {
               alt="IDweb — Webutvikling og SEO-optimalisering"
               width={974}
               height={394}
-              className="-my-4 h-20 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
+              className="-my-2 h-16 w-auto [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               priority
               fetchPriority="high"
             />
