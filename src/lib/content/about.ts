@@ -8,7 +8,7 @@ export const STORY = {
   heading: "Historien min",
   paragraphs: [
     "IDweb ble startet med én klar overbevisning: for mange norske bedrifter betaler for nettsider som aldri gir noe tilbake. Flotte design som ingen finner. Dyre løsninger som ingen forstår. Jeg ville gjøre det annerledes.",
-    "Jeg har bygget opp kompetansen gjennom prosjekter for norske bedrifter — fra helseklinikker og restauranter til kultursentre og tannlegekontorer. Felles for alle er at de trengte en nettside som jobbet for dem, ikke mot dem.",
+    "Jeg har bygget opp kompetansen gjennom prosjekter for norske bedrifter — fra helseklinikker til kultursentre og tannlegekontorer. Felles for alle er at de trengte en nettside som jobbet for dem, ikke mot dem.",
     "I dag driver jeg IDweb med den samme drivkraften: å levere nettsider som gir kundene mine en profesjonell tilstedeværelse på nett. Ikke tomme løfter — men ærlig arbeid med moderne teknologi og målbare resultater.",
   ],
 } as const;
@@ -26,7 +26,7 @@ export const VALUES = {
       icon: "MessageSquare",
       title: "\u00c6rlighet og tydelighet",
       description:
-        "Ingen skjulte kostnader, ingen fagsjargong du ikke forst\u00e5r, ingen bindingstid. Vi kommuniserer \u00e5pent gjennom hele prosessen og gir deg \u00e6rlige r\u00e5d \u2014 selv n\u00e5r svaret er at du ikke trenger det dyreste alternativet.",
+        "Ingen skjulte kostnader og ingen bindingstid. Vi kommuniserer \u00e5pent gjennom hele prosessen og gir deg \u00e6rlige r\u00e5d \u2014 selv n\u00e5r svaret er at du ikke trenger det dyreste alternativet.",
     },
     {
       icon: "Handshake",
@@ -44,7 +44,7 @@ export const VALUES = {
 } as const;
 
 export const TEAM_SECTION = {
-  heading: "Mennesket bak IDweb",
+  heading: "Teamet",
   description:
     "Jeg kombinerer teknisk ekspertise med kreativ tenkning og jobber tett med kundene mine for å sikre at resultatet blir akkurat som du ønsker — eller bedre.",
   cta: "Vil du bli kjent med meg? Ta kontakt for en uforpliktende prat.",
@@ -53,7 +53,7 @@ export const TEAM_SECTION = {
 export const APPROACH = {
   heading: "Slik jobber jeg",
   paragraphs: [
-    "Jeg tror på tett samarbeid. Du kjenner bedriften din best, og jeg kjenner nett best. Sammen finner vi den løsningen som passer akkurat din virksomhet. Ingen standardmaler — bare skreddersøm.",
+    "Jeg tror på tett samarbeid. Du kjenner bedriften din best, og jeg kjenner nett best. Sammen finner vi den løsningen som passer akkurat din virksomhet. Ingen standardmaler!",
     "Hvert prosjekt starter med en grundig kartlegging der jeg forstår målgruppen din, konkurrentene dine og hva du faktisk ønsker å oppnå. Deretter designer jeg en løsning som er skreddersydd for nettopp dine behov.",
     "Gjennom hele prosessen har du full innsikt. Jeg viser deg fremdriften underveis, tar imot tilbakemeldinger og justerer kursen ved behov. Du er alltid involvert — det er tross alt din bedrift og din nettside.",
   ],

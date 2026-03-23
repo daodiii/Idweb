@@ -19,12 +19,6 @@ export function ServiceCta() {
           >
             Book en gratis samtale
           </Link>
-          <Link
-            href="/tjenester"
-            className={`${RAINBOW_BUTTON_CLASSES} px-8 py-3.5 text-lg font-semibold`}
-          >
-            Se alle tjenester
-          </Link>
         </div>
       </div>
     </Section>

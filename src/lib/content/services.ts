@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
       "Optimalisert for hastighet — lastetider under 2 sekunder",
       "SEO-vennlig struktur fra dag én",
       "Innebygd kontaktskjema og handlingsknapper",
-      "Enkel administrasjon — du kan oppdatere innhold selv",
+      "Moderne teknologi med rask og pålitelig ytelse",
       "SSL-sertifikat og sikkerhetstiltak inkludert",
     ],
     detailedFeatures: [
@@ -28,7 +28,6 @@ export const SERVICES: Service[] = [
       { iconName: "zap", title: "Lynrask hastighet", description: "Optimalisert for lastetider under 2 sekunder" },
       { iconName: "search", title: "SEO-vennlig", description: "Søkemotoroptimalisert struktur fra dag én" },
       { iconName: "mail", title: "Kontaktskjema", description: "Innebygde handlingsknapper som konverterer" },
-      { iconName: "settings", title: "Enkel administrasjon", description: "Oppdater innhold selv uten teknisk kunnskap" },
       { iconName: "lock", title: "SSL og sikkerhet", description: "Sertifikat og sikkerhetstiltak inkludert" },
     ],
     painPoints: [
@@ -45,7 +44,7 @@ export const SERVICES: Service[] = [
     faq: [
       { question: "Hvor lang tid tar det å lage en nettside?", answer: "Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker." },
       { question: "Hva koster en skreddersydd nettside?", answer: "Prisen avhenger av omfang og funksjonalitet. En enkel bedriftsnettside starter fra kr 15 000. Jeg gir alltid et uforpliktende tilbud først." },
-      { question: "Kan jeg oppdatere innholdet selv?", answer: "Ja, jeg bygger nettsiden slik at du enkelt kan endre tekst, bilder og sider selv — uten teknisk kunnskap." },
+      { question: "Kan jeg oppdatere innholdet selv?", answer: "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Per i dag har jeg ingen enklere løsning for selvbetjent redigering." },
       { question: "Hva med hosting og domene?", answer: "Jeg hjelper deg med å sette opp hosting og koble til domenet ditt. Alt er inkludert i leveransen." },
     ],
     trustStats: [
@@ -107,7 +106,6 @@ export const SERVICES: Service[] = [
       "En nettside er ikke et engangsprosjekt — den trenger løpende vedlikehold for å fungere optimalt. Jeg tilbyr driftsavtaler som dekker alt fra sikkerhetsoppdateringer og backup til ytelsesovervåking og innholdsendringer.",
     categoryTag: "Vedlikehold",
     features: [
-      "Daglige sikkerhetskopier med enkel gjenoppretting",
       "Sikkerhetsovervåking og brannmur",
       "Programvareoppdateringer og kompatibilitetstesting",
       "Høy oppetid via pålitelig hosting",
@@ -115,7 +113,6 @@ export const SERVICES: Service[] = [
       "Prioritert support med rask responstid",
     ],
     detailedFeatures: [
-      { iconName: "hard-drive", title: "Daglige sikkerhetskopier", description: "Automatisk backup med enkel gjenoppretting" },
       { iconName: "shield", title: "Sikkerhetsovervåking", description: "Automatisert brannmur og trusselovervåking" },
       { iconName: "refresh-cw", title: "Programvareoppdateringer", description: "Kompatibilitetstesting og oppdateringer" },
       { iconName: "circle-check", title: "Pålitelig hosting", description: "Høy tilgjengelighet via pålitelige norske servere" },
@@ -138,11 +135,7 @@ export const SERVICES: Service[] = [
       { question: "Hva koster vedlikehold?", answer: "Driftsavtaler starter fra kr 790 per måned, avhengig av nettsidens størrelse og kompleksitet." },
       { question: "Kan jeg si opp avtalen?", answer: "Ja, avtalen kan sies opp med én måneds varsel. Ingen bindingstid." },
     ],
-    trustStats: [
-      { value: 365, suffix: "", label: "daglige sikkerhetskopier" },
-      { value: 2, suffix: "t", label: "maks responstid" },
-      { value: 0, suffix: "", label: "bindingstid" },
-    ],
+    trustStats: [],
   },
 ];
 

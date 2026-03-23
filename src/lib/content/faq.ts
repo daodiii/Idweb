@@ -10,7 +10,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hva koster en nettside?",
     answer:
-      "Prisen avhenger av omfanget og kompleksiteten til prosjektet. En enkel bedriftsnettside starter typisk fra 15 000 kr, mens mer avanserte løsninger med nettbutikk eller spesialfunksjonalitet kan koste fra 30 000 kr og oppover. Vi gir alltid et fast prisestimat før vi starter, slik at du vet nøyaktig hva du betaler for. Ta kontakt for et uforpliktende tilbud tilpasset ditt behov.",
+      "Prisen avhenger av omfanget og kompleksiteten til prosjektet. En enkel bedriftsnettside starter typisk fra 13 000 kr, mens mer avanserte løsninger med nettbutikk eller spesialfunksjonalitet kan koste fra 30 000 kr og oppover. Vi gir alltid et fast prisestimat før vi starter, slik at du vet nøyaktig hva du betaler for. Ta kontakt for et uforpliktende tilbud tilpasset ditt behov.",
   },
   {
     question: "Hvor lang tid tar det å lage en nettside?",
@@ -25,7 +25,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Kan jeg oppdatere innholdet selv etter lansering?",
     answer:
-      "Ja, absolutt. Vi bygger alle nettsider med et brukervennlig administrasjonspanel som lar deg oppdatere tekst, bilder og annet innhold uten teknisk kunnskap. Vi gir deg også opplæring etter lansering slik at du er trygg på å gjøre endringer selv. Hvis du heller vil at vi gjør det, er det inkludert i driftsavtalen.",
+      "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Foreløpig har jeg ingen enklere løsning for selvbetjent redigering. Hvis du heller vil at vi gjør det, er innholdsendringer inkludert i driftsavtalen.",
   },
   {
     question: "Er nettsidene mobiloptimaliserte?",
@@ -45,7 +45,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hva inkluderes i prisen?",
     answer:
-      "Alle mine priser inkluderer design, utvikling, mobiloptimalisering, grunnleggende SEO, kontaktskjema, SSL-sertifikat og opplæring i administrasjonspanelet. Hosting og domenenavn kan inkluderes i driftsavtalen eller håndteres separat. Vi er alltid tydelig på hva som er inkludert og hva som eventuelt kommer i tillegg — ingen overraskelser.",
+      "Alle mine priser inkluderer design, utvikling, mobiloptimalisering, grunnleggende SEO, kontaktskjema og SSL-sertifikat. Hosting og domenenavn kan inkluderes i driftsavtalen eller håndteres separat. Vi er alltid tydelig på hva som er inkludert og hva som eventuelt kommer i tillegg — ingen overraskelser.",
   },
   {
     question: "Tilbyr du hosting?",
@@ -80,6 +80,6 @@ export const FAQS: FAQ[] = [
   {
     question: "Hvordan er betalingsmodellen?",
     answer:
-      "Vi opererer vanligvis med en tredeling: 30 % ved oppstart, 40 % ved godkjent design, og 30 % ved lansering. For større prosjekter kan vi tilpasse betalingsplanen. Driftsavtaler faktureres månedlig eller årlig etter ønske. Vi sender alltid en detaljert faktura med oversikt over hva du betaler for.",
+      "Vi opererer med en todeling: 50 % ved oppstart og 50 % ved lansering. For større prosjekter kan vi tilpasse betalingsplanen. Driftsavtaler faktureres månedlig eller årlig etter ønske. Vi sender alltid en detaljert faktura med oversikt over hva du betaler for.",
   },
 ];

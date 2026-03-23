@@ -16,9 +16,9 @@ export function ServiceCustomSection({ service }: ServiceCustomSectionProps) {
           case "nettside":
             return <NettsideShowcase />;
           case "seo":
-            return <SeoRanking />;
+            return null;
           case "vedlikehold":
-            return <VedlikeholdStats service={service} />;
+            return null;
           case "design":
             return <DesignSpecimen />;
           default:

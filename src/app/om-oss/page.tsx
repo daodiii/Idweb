@@ -11,11 +11,8 @@ import {
   ABOUT_PAGE,
   STORY,
   VALUES,
-  TEAM_SECTION,
   APPROACH,
   ABOUT_CTA,
-  TEAM_MEMBERS,
-  MILESTONES,
 } from "@/lib/content/about";
 import { TRUST_SIGNALS } from "@/lib/content/homepage";
 
@@ -80,29 +77,6 @@ export default function OmOssPage() {
             </p>
           ))}
 
-          {/* Milestones timeline */}
-          <div className="mt-12 flex flex-wrap items-center gap-4 sm:gap-6">
-            {MILESTONES.map((m, i) => (
-              <div key={m.year} className="flex items-center gap-2 sm:gap-3">
-                <div className="text-center">
-                  <span className="block font-serif text-2xl font-black text-[var(--color-accent)]">
-                    {m.year}
-                  </span>
-                  <span className="text-xs text-[var(--color-text-muted)]">
-                    {m.label}
-                  </span>
-                </div>
-                {i < MILESTONES.length - 1 && (
-                  <span
-                    className="hidden text-lg text-[var(--color-border)] sm:block"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -144,36 +118,6 @@ export default function OmOssPage() {
               {paragraph}
             </p>
           ))}
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="bg-[var(--color-bg-alt)] px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold">{TEAM_SECTION.heading}</h2>
-          <p className="mt-4 text-lg text-[var(--color-text-muted)]">
-            {TEAM_SECTION.description}
-          </p>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TEAM_MEMBERS.map((member) => (
-              <div
-                key={member.name}
-                className="flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-8 text-center"
-              >
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-accent)] text-2xl font-bold text-[var(--color-dark-bg)]">
-                  {member.initials}
-                </div>
-                <h3 className="mt-4 text-lg font-bold">{member.name}</h3>
-                <p className="mt-1 text-sm font-medium text-[var(--color-accent)]">
-                  {member.role}
-                </p>
-                <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

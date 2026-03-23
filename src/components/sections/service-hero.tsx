@@ -36,20 +36,22 @@ export function ServiceHero({ service }: ServiceHeroProps) {
         </Link>
 
         {/* Trust stats */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-white/10 pt-8">
-          {service.trustStats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-2xl font-extrabold tabular-nums text-[var(--color-accent)] sm:text-3xl">
-                <CountUpStat
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                />
-              </p>
-              <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+        {service.trustStats.length > 0 && (
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-white/10 pt-8">
+            {service.trustStats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-2xl font-extrabold tabular-nums text-[var(--color-accent)] sm:text-3xl">
+                  <CountUpStat
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    decimals={stat.decimals}
+                  />
+                </p>
+                <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </AuroraBackground>
   );

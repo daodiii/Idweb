@@ -1,7 +1,7 @@
 export const PRICING_PAGE = {
   headline: "Ærlige priser, ingen overraskelser",
   subheadline:
-    "Vi tror på transparens. Her er en oversikt over hva mine tjenester koster. Alle priser er veiledende — ta kontakt for et skreddersydd tilbud.",
+    "Her er en oversikt over hva mine tjenester koster. Alle priser er veiledende — ta kontakt for et skreddersydd tilbud.",
 } as const;
 
 export const PACKAGES = [
@@ -10,8 +10,8 @@ export const PACKAGES = [
     name: "Enkel",
     subtitle: "For deg som trenger en enkel, profesjonell nettside",
     price: "12 990 kr",
-    monthly: "490 kr/mnd",
-    monthlyNote: "for hosting",
+    monthly: "690 kr/mnd",
+    monthlyNote: "for hosting og vedlikehold",
     description:
       "En solid bedriftsnettside med alt du trenger for å bli funnet på nett. Perfekt for nyoppstartede bedrifter, håndverkere og konsulenter.",
     features: [
@@ -30,7 +30,7 @@ export const PACKAGES = [
     name: "Standard",
     subtitle: "Mest populær — for bedrifter som vil vokse",
     price: "19 990 kr",
-    monthly: "790 kr/mnd",
+    monthly: "990 kr/mnd",
     monthlyNote: "for hosting og vedlikehold",
     description:
       "En komplett nettside med skreddersydd design, blogg og avansert SEO. For bedrifter der nettsiden er en viktig kilde til nye kunder.",
@@ -50,7 +50,7 @@ export const PACKAGES = [
     name: "Premium",
     subtitle: "For bedrifter med høye ambisjoner",
     price: "29 990 kr",
-    monthly: "990 kr/mnd",
+    monthly: "1 500 kr/mnd",
     monthlyNote: "for hosting, vedlikehold og support",
     description:
       "En skreddersydd løsning med utvidet funksjonalitet og dedikert oppfølging. For bedrifter som trenger mer enn en standard nettside.",
