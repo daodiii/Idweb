@@ -72,11 +72,9 @@ function BlogCard({
             {post.title}
           </Link>
         </h3>
-        {isLarge && (
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
-            {post.excerpt}
-          </p>
-        )}
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
+          {post.excerpt}
+        </p>
 
         {/* Footer */}
         <div className="mt-4 flex items-center justify-between">
