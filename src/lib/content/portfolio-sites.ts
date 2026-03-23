@@ -34,6 +34,13 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/centerrahma-s2.png",
         "/images/portfolio/centerrahma-s3.png",
       ],
+      collage: [
+        { src: "/images/portfolio/centerrahma-collage-1.png", alt: "Center Rahma — Ny Moské dark mode fullside", position: "center", aspectRatio: "desktop" },
+        { src: "/images/portfolio/centerrahma-collage-2.png", alt: "Center Rahma — Ny Moské light mode fullside", position: "top-left", aspectRatio: "desktop" },
+        { src: "/images/portfolio/centerrahma-collage-3.png", alt: "Center Rahma — Hjem light desktop", position: "top-right", aspectRatio: "desktop" },
+        { src: "/images/portfolio/centerrahma-collage-4.png", alt: "Center Rahma — Hjem dark mobile", position: "bottom-left", aspectRatio: "mobile" },
+        { src: "/images/portfolio/centerrahma-collage-5.png", alt: "Center Rahma — Hjem dark desktop", position: "bottom-right", aspectRatio: "desktop" },
+      ],
     },
   },
   {
