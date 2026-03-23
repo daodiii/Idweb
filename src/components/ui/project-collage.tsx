@@ -16,7 +16,7 @@ const POSITION_CONFIG: Record<CollagePosition, {
 }> = {
   center: {
     className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-    width: "w-[45%]",
+    width: "w-[18%]",
     rotation: "rotate-0",
     zIndex: 5,
     animDelay: 0,
@@ -40,7 +40,7 @@ const POSITION_CONFIG: Record<CollagePosition, {
   },
   "bottom-left": {
     className: "absolute bottom-[8%] left-[6%]",
-    width: "w-[13%]",
+    width: "w-[30%]",
     rotation: "-rotate-[2deg]",
     zIndex: 3,
     animDelay: 0.3,
@@ -89,7 +89,7 @@ export function ProjectCollage({
       <div
         className="absolute inset-0 z-[1]"
         style={{
-          background: "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 100%)",
         }}
       />
       {images.map((img) => {
@@ -106,7 +106,8 @@ export function ProjectCollage({
             style={{ zIndex: config.zIndex }}
           >
             <div
-              className={`relative overflow-hidden rounded-xl border border-white/10 shadow-2xl ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
+              className={`relative overflow-hidden rounded-xl border border-white/10 ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
+              style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.5)" }}
             >
               <Image
                 src={img.src}
