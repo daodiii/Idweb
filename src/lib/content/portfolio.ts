@@ -11,10 +11,10 @@ export const PROJECTS = [
     industry: "Hudpleie og skjønnhet",
     title: "Profesjonell nettside for hudpleieklinikk",
     description:
-      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, online booking-informasjon og kontaktskjema. Nettsiden er optimalisert for hastighet og scorer over 90 på PageSpeed.",
-    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Kontaktskjema"],
+      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Nettsiden er optimalisert for hastighet og ytelse.",
+    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Betalingsløsning"],
     results: [
-      "PageSpeed-score over 90/100",
+      "Integrert betalingssystem for donasjoner",
       "Mobilvennlig og responsivt design",
       "SEO-optimalisert struktur",
     ],
@@ -25,10 +25,10 @@ export const PROJECTS = [
     industry: "Helse og velvære",
     title: "Moderne nettside for helseklinikk",
     description:
-      "Vocura ønsket en ren og profesjonell nettside som bygget tillit hos potensielle pasienter. Jeg utviklet en rask og brukervennlig side med fokus på tjenestebeskrivelser, teamprofilering og enkel kontaktflyt.",
+      "Vocura er en ren og profesjonell nettside som bygger tillit hos potensielle kunder. Siden er utviklet med fokus på moderne design, rask ytelse og en brukervennlig opplevelse som gjør det enkelt å finne riktig informasjon.",
     services: ["Skreddersydd design", "Mobiloptimalisering", "SEO-oppsett", "Ytelsesoptimalisering"],
     results: [
-      "PageSpeed-score over 95/100",
+      "Moderne og tillitvekkende design",
       "Lastetid under 1,5 sekunder",
       "Tydelig konverteringsflyt",
     ],
@@ -42,8 +42,8 @@ export const PROJECTS = [
       "Brobekk Legekontor trengte en nettside som formidlet trygghet og profesjonalitet. Jeg designet en oversiktlig side med informasjon om tjenester, åpningstider og kontaktmuligheter — optimalisert for pasienter som søker etter legekontor i nærområdet.",
     services: ["Helsedesign", "Responsivt design", "Lokal SEO", "Kontaktskjema"],
     results: [
-      "PageSpeed-score over 90/100",
       "Optimalisert for lokale Google-søk",
+      "Rask lastetid og god ytelse",
       "Responsivt på alle enheter",
     ],
   },
@@ -53,12 +53,12 @@ export const PROJECTS = [
     industry: "Utdanning og kultur",
     title: "Informasjonsrik nettside for kultursenter",
     description:
-      "Iqra Senter trengte en nettside som viste frem aktiviteter, kurs og arrangementer på en engasjerende måte. Jeg bygget en oversiktlig og moderne side med tydelig navigasjon og enkel oppdatering av innhold.",
+      "Iqra Senter trengte en nettside som viste frem aktiviteter, kurs og arrangementer på en engasjerende måte. Jeg bygget en oversiktlig og moderne side med tydelig navigasjon. Et sentralt mål var å formidle verdiene som familie, tro og tradisjon — slik at besøkende umiddelbart kjenner fellesskapet og tilhørigheten senteret står for.",
     services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Innholdsstruktur"],
     results: [
-      "PageSpeed-score over 90/100",
+      "Formidler kjerneverdier som familie og tradisjon",
       "Tydelig informasjonsarkitektur",
-      "Enkel innholdsoppdatering",
+      "Engasjerende fremstilling av aktiviteter og kurs",
     ],
   },
 ] as const;

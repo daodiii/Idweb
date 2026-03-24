@@ -29,7 +29,7 @@ export function MenuItem({
   return (
     <div
       onMouseEnter={() => setActive(item)}
-      className="relative"
+      className="relative flex items-center"
     >
       <button
         type="button"
@@ -81,7 +81,7 @@ export function Menu({
     <nav
       onMouseLeave={() => setActive(null)}
       className={cn(
-        "relative flex justify-center space-x-4 rounded-full border border-transparent bg-white px-8 py-6 shadow-input dark:border-white/[0.2] dark:bg-black",
+        "relative flex items-center justify-center space-x-4 rounded-full border border-transparent bg-white px-8 py-6 shadow-input dark:border-white/[0.2] dark:bg-black",
         className
       )}
     >
