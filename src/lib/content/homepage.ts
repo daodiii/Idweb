@@ -30,7 +30,6 @@ export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: strin
   brobekk: { pagespeed: "92/100", result: "Lokal SEO-optimalisert" },
   centerrahma: { pagespeed: "93/100", result: "Profesjonell hudpleie-side" },
   iqra: { pagespeed: "90/100", result: "Oversiktlig informasjonsside" },
-  ringebu: { pagespeed: "91/100", result: "Tillitvekkende tannlegeside" },
 };
 
 export const SERVICES_OVERVIEW = [
