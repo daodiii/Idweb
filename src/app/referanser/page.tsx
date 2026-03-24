@@ -9,6 +9,7 @@ import {
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import { ProjectCollage } from "@/components/ui/project-collage";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import type { PortfolioSiteId } from "@/types";
 
 export const metadata: Metadata = {
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
 
 export default function ReferanserPage() {
   return (
-    <div className="bg-[var(--color-dark-bg)] text-[var(--color-dark-text)]">
-      {/* Hero */}
-      <section className="px-6 py-24 text-center">
+    <div className="text-[var(--color-dark-text)]">
+      {/* Hero — aurora top-center with starfield */}
+      <AuroraBackground variant="top-center" intensity={0.12} className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             {PORTFOLIO_PAGE.headline}
@@ -39,10 +40,10 @@ export default function ReferanserPage() {
             {PORTFOLIO_PAGE.subheadline}
           </p>
         </div>
-      </section>
+      </AuroraBackground>
 
-      {/* Projects */}
-      <section className="px-6 pb-24">
+      {/* Projects — aurora center with starfield */}
+      <AuroraBackground variant="center" intensity={0.10} className="px-6 pb-24 pt-8">
         <div className="mx-auto max-w-6xl space-y-20">
           {PROJECTS.map((project, index) => (
             <div
@@ -65,7 +66,7 @@ export default function ReferanserPage() {
                     );
                   }
                   return (
-                    <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-12 backdrop-blur-sm">
+                    <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] p-12 shadow-lg shadow-black/20 backdrop-blur-md">
                       <div className="text-center">
                         <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-dark-muted)]">
                           {project.industry}
@@ -77,8 +78,8 @@ export default function ReferanserPage() {
                 })()}
               </div>
 
-              {/* Project Details — glassmorphism card */}
-              <div className="flex-1 rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:shadow-lg hover:shadow-[var(--color-accent)]/5">
+              {/* Project Details — enhanced glassmorphism card */}
+              <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.06] p-8 shadow-xl shadow-black/25 backdrop-blur-md transition-all duration-300 hover:border-[var(--color-accent)]/20 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-[var(--color-accent)]/10">
                 <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
                   {project.industry}
                 </p>
@@ -99,7 +100,7 @@ export default function ReferanserPage() {
                     {project.services.map((service) => (
                       <span
                         key={service}
-                        className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-sm text-[var(--color-dark-muted)]"
+                        className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-sm text-[var(--color-dark-muted)] backdrop-blur-sm"
                       >
                         {service}
                       </span>
@@ -130,20 +131,20 @@ export default function ReferanserPage() {
             </div>
           ))}
         </div>
-      </section>
+      </AuroraBackground>
 
-      {/* Social Proof */}
-      <section className="border-y border-white/[0.06] bg-[var(--color-dark-bg-alt)] px-6 py-16">
+      {/* Social Proof — aurora bottom-left */}
+      <AuroraBackground variant="bottom-left" intensity={0.08} className="border-y border-white/[0.06] px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold">{CLIENT_LOGOS_SECTION.heading}</h2>
           <p className="mt-4 text-[var(--color-dark-muted)]">
             {CLIENT_LOGOS_SECTION.description}
           </p>
         </div>
-      </section>
+      </AuroraBackground>
 
-      {/* CTA */}
-      <section className="px-6 py-24">
+      {/* CTA — aurora bottom-center */}
+      <AuroraBackground variant="bottom-center" intensity={0.12} className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>
           <p className="mt-4 text-lg text-[var(--color-dark-muted)]">
@@ -156,7 +157,7 @@ export default function ReferanserPage() {
             {PORTFOLIO_CTA.buttonText}
           </Link>
         </div>
-      </section>
+      </AuroraBackground>
     </div>
   );
 }
