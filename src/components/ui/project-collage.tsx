@@ -89,7 +89,7 @@ const WIDTH_MAP: Record<CollagePosition, Record<string, string>> = {
     wide: "w-[34%]",
   },
   "bottom-left": {
-    mobile: "w-[14%]",
+    mobile: "w-[11%]",
     tablet: "w-[18%]",
     "square-portrait": "w-[18%]",
     landscape: "w-[28%]",

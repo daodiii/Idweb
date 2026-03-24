@@ -44,10 +44,10 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       ],
       collageBackground: "/images/portfolio/Centerrahma-background.webp",
       collage: [
-        { src: "/images/portfolio/centerrahma-collage-1.webp", alt: "Center Rahma — Ny Moské dark mode fullside", position: "center", aspectRatio: "desktop" },
+        { src: "/images/portfolio/centerrahma-collage-4.webp", alt: "Center Rahma — Hjem dark mobile", position: "center", aspectRatio: "mobile" },
         { src: "/images/portfolio/centerrahma-collage-2.webp", alt: "Center Rahma — Ny Moské light mode fullside", position: "top-left", aspectRatio: "desktop" },
         { src: "/images/portfolio/centerrahma-collage-3.webp", alt: "Center Rahma — Hjem light desktop", position: "top-right", aspectRatio: "desktop" },
-        { src: "/images/portfolio/centerrahma-collage-4.webp", alt: "Center Rahma — Hjem dark mobile", position: "bottom-left", aspectRatio: "mobile" },
+        { src: "/images/portfolio/centerrahma-collage-1.webp", alt: "Center Rahma — Ny Moské dark mode fullside", position: "bottom-left", aspectRatio: "desktop" },
         { src: "/images/portfolio/centerrahma-collage-5.webp", alt: "Center Rahma — Hjem dark desktop", position: "bottom-right", aspectRatio: "desktop" },
       ],
     },
