@@ -60,6 +60,7 @@ export default function ReferanserPage() {
                       <ProjectCollage
                         images={site.images.collage}
                         projectName={site.name}
+                        backgroundImage={site.images.collageBackground}
                       />
                     );
                   }

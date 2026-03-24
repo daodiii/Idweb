@@ -108,7 +108,7 @@ export interface PortfolioSite {
   id: PortfolioSiteId;
   name: string;
   domain: string;
-  images: Record<DeviceViewport, string> & { full?: string; showcase?: string[]; collage?: CollageImage[] };
+  images: Record<DeviceViewport, string> & { full?: string; showcase?: string[]; collage?: CollageImage[]; collageBackground?: string };
 }
 
 export interface RotationSet {

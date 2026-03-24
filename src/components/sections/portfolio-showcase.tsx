@@ -57,6 +57,7 @@ export function PortfolioShowcase() {
             <ProjectCollage
               images={site.images.collage!}
               projectName={site.name}
+              backgroundImage={site.images.collageBackground}
             />
             <div className="mt-4 flex items-baseline justify-between gap-4">
               <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
