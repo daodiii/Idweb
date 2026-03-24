@@ -4,7 +4,6 @@ import {
   PORTFOLIO_PAGE,
   PROJECTS,
   PORTFOLIO_CTA,
-  CLIENT_LOGOS_SECTION,
 } from "@/lib/content/portfolio";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import Image from "next/image";
@@ -158,16 +157,6 @@ export default function ReferanserPage() {
         );
       })}
 
-      {/* Social Proof — aurora bottom-left */}
-      <AuroraBackground variant="bottom-left" intensity={0.08} className="border-y border-white/[0.06] px-6 py-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold">{CLIENT_LOGOS_SECTION.heading}</h2>
-          <p className="mt-4 text-[var(--color-dark-muted)]">
-            {CLIENT_LOGOS_SECTION.description}
-          </p>
-        </div>
-      </AuroraBackground>
-
       {/* CTA — aurora bottom-center */}
       <AuroraBackground variant="bottom-center" intensity={0.12} className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
@@ -177,7 +166,7 @@ export default function ReferanserPage() {
           </p>
           <Link
             href="/kontakt"
-            className={`${RAINBOW_BUTTON_CLASSES} mt-8 px-8 py-3 text-lg font-semibold`}
+            className={`${RAINBOW_BUTTON_CLASSES} mt-8 px-8 py-3 text-lg font-semibold text-black`}
           >
             {PORTFOLIO_CTA.buttonText}
           </Link>

@@ -64,7 +64,7 @@ export const PROJECTS = [
 ] as const;
 
 export const PORTFOLIO_CTA = {
-  headline: "Vil du se prosjektet ditt her?",
+  headline: "Vil du ha en nettside du er fornøyd med?",
   description:
     "Hvert prosjekt starter med en samtale. Fortell meg om bedriften din og hva du ønsker å oppnå, så viser jeg deg hva jeg kan gjøre.",
   buttonText: "Start ditt prosjekt",
