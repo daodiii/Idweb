@@ -18,7 +18,14 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/brobekk-s2.webp",
         "/images/portfolio/brobekk-s3.webp",
       ],
-      heroImage: "/images/portfolio/brobekk-portefolje.webp",
+      collageBackground: "/images/portfolio/Brobekk-background.webp",
+      collage: [
+        { src: "/images/portfolio/brobekk-collage-5.webp", alt: "Brobekk Legekontor — Kontaktside med kart og åpningstider", position: "center", aspectRatio: "landscape" },
+        { src: "/images/portfolio/brobekk-collage-1.webp", alt: "Brobekk Legekontor — Tjenester oversikt", position: "top-left", aspectRatio: "tablet" },
+        { src: "/images/portfolio/brobekk-collage-3.webp", alt: "Brobekk Legekontor — Nyttig informasjon", position: "top-right", aspectRatio: "tablet" },
+        { src: "/images/portfolio/brobekk-collage-2.webp", alt: "Brobekk Legekontor — Helsenorge mobil", position: "bottom-left", aspectRatio: "mobile" },
+        { src: "/images/portfolio/brobekk-collage-4.webp", alt: "Brobekk Legekontor — Forside hero", position: "bottom-right", aspectRatio: "tablet" },
+      ],
     },
   },
   {
@@ -76,7 +83,14 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/iqra-s2.webp",
         "/images/portfolio/iqra-s3.webp",
       ],
-      heroImage: "/images/portfolio/iqra-portefolje.webp",
+      collageBackground: "/images/portfolio/Iqra-background.webp",
+      collage: [
+        { src: "/images/portfolio/iqra-collage-1.webp", alt: "Iqra Senter — Om oss med statistikk og anmeldelser", position: "center", aspectRatio: "wide" },
+        { src: "/images/portfolio/iqra-collage-2.webp", alt: "Iqra Senter — Om oss side", position: "top-left", aspectRatio: "square-portrait" },
+        { src: "/images/portfolio/iqra-collage-3.webp", alt: "Iqra Senter — Nettbutikk med barnebøker", position: "top-right", aspectRatio: "square-portrait" },
+        { src: "/images/portfolio/iqra-collage-5.webp", alt: "Iqra Senter — Tilbud og familiemedlemskap", position: "bottom-left", aspectRatio: "square-portrait" },
+        { src: "/images/portfolio/iqra-collage-4.webp", alt: "Iqra Senter — Forside hero", position: "bottom-right", aspectRatio: "wide" },
+      ],
     },
   },
 ];
