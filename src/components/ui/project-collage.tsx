@@ -152,14 +152,14 @@ export function ProjectCollage({
             style={{ zIndex: config.zIndex }}
           >
             <div
-              className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/30 ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
+              className={`relative overflow-hidden rounded-xl border border-white/10 ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
               style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.5)" }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-contain"
+                className="object-cover object-top"
                 sizes={img.position === "center" ? "30vw" : "22vw"}
               />
             </div>

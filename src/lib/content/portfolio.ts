@@ -61,34 +61,6 @@ export const PROJECTS = [
       "Enkel innholdsoppdatering",
     ],
   },
-  {
-    id: "ringebu",
-    client: "Ringebu Tannlegeklinikk",
-    industry: "Helse og tannlege",
-    title: "Profesjonell nettside for tannklinikk",
-    description:
-      "Ringebu Tannlegeklinikk ønsket en nettside som bygget tillit og gjorde det enkelt for pasienter å finne informasjon og ta kontakt. Jeg laget en rolig, profesjonell side med fokus på behandlinger, teamet og enkel kontakt.",
-    services: ["Helsedesign", "Responsivt design", "Lokal SEO", "Kontaktskjema"],
-    results: [
-      "PageSpeed-score over 90/100",
-      "Optimalisert for lokale søk",
-      "Mobilvennlig pasientopplevelse",
-    ],
-  },
-  {
-    id: "herbs",
-    client: "Herbs Oslo",
-    industry: "Mat og drikke",
-    title: "Visuell nettside for restaurant",
-    description:
-      "Herbs Oslo trengte en nettside som formidlet stemningen og menyen på en visuell måte. Jeg utviklet en stilfull og rask side med fokus på menyvisning, åpningstider og beliggenhet.",
-    services: ["Skreddersydd design", "Responsiv utvikling", "Ytelsesoptimalisering", "SEO-oppsett"],
-    results: [
-      "PageSpeed-score over 85/100",
-      "Visuelt tiltalende design",
-      "Rask lastetid på mobil",
-    ],
-  },
 ] as const;
 
 export const PORTFOLIO_CTA = {

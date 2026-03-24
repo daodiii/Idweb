@@ -100,9 +100,7 @@ export type PortfolioSiteId =
   | "brobekk"
   | "centerrahma"
   | "vocura"
-  | "herbs"
-  | "iqra"
-  | "ringebu";
+  | "iqra";
 
 export interface PortfolioSite {
   id: PortfolioSiteId;

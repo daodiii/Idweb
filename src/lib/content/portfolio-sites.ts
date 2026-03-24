@@ -44,10 +44,10 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       ],
       collageBackground: "/images/portfolio/Centerrahma-background.webp",
       collage: [
-        { src: "/images/portfolio/centerrahma-collage-4.webp", alt: "Center Rahma — Hjem dark mobile", position: "center", aspectRatio: "mobile" },
+        { src: "/images/portfolio/centerrahma-collage-1.webp", alt: "Center Rahma — Ny Moské dark mode fullside", position: "center", aspectRatio: "desktop" },
         { src: "/images/portfolio/centerrahma-collage-2.webp", alt: "Center Rahma — Ny Moské light mode fullside", position: "top-left", aspectRatio: "desktop" },
         { src: "/images/portfolio/centerrahma-collage-3.webp", alt: "Center Rahma — Hjem light desktop", position: "top-right", aspectRatio: "desktop" },
-        { src: "/images/portfolio/centerrahma-collage-1.webp", alt: "Center Rahma — Ny Moské dark mode fullside", position: "bottom-left", aspectRatio: "desktop" },
+        { src: "/images/portfolio/centerrahma-collage-4.webp", alt: "Center Rahma — Hjem dark mobile", position: "bottom-left", aspectRatio: "mobile" },
         { src: "/images/portfolio/centerrahma-collage-5.webp", alt: "Center Rahma — Hjem dark desktop", position: "bottom-right", aspectRatio: "desktop" },
       ],
     },
@@ -77,16 +77,6 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
     },
   },
   {
-    id: "herbs",
-    name: "Herbs Oslo",
-    domain: "herbsoslo.vercel.app",
-    images: {
-      desktop: "/images/portfolio/herbs-desktop.webp",
-      tablet: "/images/portfolio/herbs-tablet.webp",
-      mobile: "/images/portfolio/herbs-mobile.webp",
-    },
-  },
-  {
     id: "iqra",
     name: "Iqra Senter",
     domain: "iqra-senter.vercel.app",
@@ -107,22 +97,6 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         { src: "/images/portfolio/iqra-collage-3.webp", alt: "Iqra Senter — tablet visning alternativ", position: "top-right", aspectRatio: "square-portrait" },
         { src: "/images/portfolio/iqra-collage-1.webp", alt: "Iqra Senter — desktop bred visning", position: "bottom-left", aspectRatio: "wide" },
         { src: "/images/portfolio/iqra-collage-5.webp", alt: "Iqra Senter — tablet oversikt", position: "bottom-right", aspectRatio: "square-portrait" },
-      ],
-    },
-  },
-  {
-    id: "ringebu",
-    name: "Ringebu Tannlegeklinikk",
-    domain: "ringebu.vercel.app",
-    images: {
-      desktop: "/images/portfolio/ringebu-desktop.webp",
-      tablet: "/images/portfolio/ringebu-tablet.webp",
-      mobile: "/images/portfolio/ringebu-mobile.webp",
-      full: "/images/portfolio/ringebu-full.webp",
-      showcase: [
-        "/images/portfolio/ringebu-s1.webp",
-        "/images/portfolio/ringebu-s2.webp",
-        "/images/portfolio/ringebu-s3.webp",
       ],
     },
   },
