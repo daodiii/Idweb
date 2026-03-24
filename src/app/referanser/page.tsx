@@ -28,14 +28,14 @@ export const metadata: Metadata = {
 
 export default function ReferanserPage() {
   return (
-    <div>
+    <div className="bg-[var(--color-dark-bg)] text-[var(--color-dark-text)]">
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             {PORTFOLIO_PAGE.headline}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-text-muted)]">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-dark-muted)]">
             {PORTFOLIO_PAGE.subheadline}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function ReferanserPage() {
           {PROJECTS.map((project, index) => (
             <div
               key={project.id}
-              className={`flex flex-col gap-10 lg:flex-row ${
+              className={`flex flex-col gap-10 lg:flex-row lg:items-center ${
                 index % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
@@ -65,9 +65,9 @@ export default function ReferanserPage() {
                     );
                   }
                   return (
-                    <div className="flex items-center justify-center rounded-lg bg-[var(--color-bg-alt)] p-12 min-h-[300px]">
+                    <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-12 backdrop-blur-sm">
                       <div className="text-center">
-                        <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+                        <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-dark-muted)]">
                           {project.industry}
                         </p>
                         <p className="mt-2 text-2xl font-bold">{project.client}</p>
@@ -77,29 +77,29 @@ export default function ReferanserPage() {
                 })()}
               </div>
 
-              {/* Project Details */}
-              <div className="flex-1">
+              {/* Project Details — glassmorphism card */}
+              <div className="flex-1 rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.12] hover:shadow-lg hover:shadow-[var(--color-accent)]/5">
                 <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
                   {project.industry}
                 </p>
                 <h2 className="mt-2 text-2xl font-bold">{project.title}</h2>
-                <p className="mt-1 text-[var(--color-text-muted)]">
+                <p className="mt-1 text-[var(--color-dark-muted)]">
                   {project.client}
                 </p>
-                <p className="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+                <p className="mt-4 leading-relaxed text-[var(--color-dark-muted)]">
                   {project.description}
                 </p>
 
                 {/* Services Used */}
                 <div className="mt-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
                     Tjenester
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {project.services.map((service) => (
                       <span
                         key={service}
-                        className="rounded-full border border-[var(--color-border)] px-3 py-1 text-sm text-[var(--color-text-muted)]"
+                        className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-sm text-[var(--color-dark-muted)]"
                       >
                         {service}
                       </span>
@@ -109,14 +109,14 @@ export default function ReferanserPage() {
 
                 {/* Results */}
                 <div className="mt-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
                     Resultater
                   </h3>
                   <ul className="mt-2 space-y-2">
                     {project.results.map((result) => (
                       <li
                         key={result}
-                        className="flex items-center gap-2 text-[var(--color-text-muted)]"
+                        className="flex items-center gap-2 text-[var(--color-dark-muted)]"
                       >
                         <span className="text-[var(--color-accent)]">
                           &#10003;
@@ -133,10 +133,10 @@ export default function ReferanserPage() {
       </section>
 
       {/* Social Proof */}
-      <section className="bg-[var(--color-bg-alt)] px-6 py-16">
+      <section className="border-y border-white/[0.06] bg-[var(--color-dark-bg-alt)] px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold">{CLIENT_LOGOS_SECTION.heading}</h2>
-          <p className="mt-4 text-[var(--color-text-muted)]">
+          <p className="mt-4 text-[var(--color-dark-muted)]">
             {CLIENT_LOGOS_SECTION.description}
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function ReferanserPage() {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>
-          <p className="mt-4 text-lg text-[var(--color-text-muted)]">
+          <p className="mt-4 text-lg text-[var(--color-dark-muted)]">
             {PORTFOLIO_CTA.description}
           </p>
           <Link
