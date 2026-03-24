@@ -7,6 +7,7 @@ import {
   CLIENT_LOGOS_SECTION,
 } from "@/lib/content/portfolio";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import Image from "next/image";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import { ProjectCollage } from "@/components/ui/project-collage";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -52,10 +53,24 @@ export default function ReferanserPage() {
                 index % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              {/* Project image — collage or placeholder */}
+              {/* Project image — hero image, collage, or placeholder */}
               <div className="flex-1">
                 {(() => {
                   const site = getSiteById(project.id as PortfolioSiteId);
+                  if (site?.images.heroImage) {
+                    return (
+                      <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/30">
+                        <Image
+                          src={site.images.heroImage}
+                          alt={`Skjermbilder fra ${site.name}`}
+                          width={1440}
+                          height={810}
+                          className="h-auto w-full object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    );
+                  }
                   if (site?.images.collage?.length) {
                     return (
                       <ProjectCollage

@@ -18,14 +18,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/brobekk-s2.webp",
         "/images/portfolio/brobekk-s3.webp",
       ],
-      collageBackground: "/images/portfolio/Brobekk-background.webp",
-      collage: [
-        { src: "/images/portfolio/brobekk-collage-4.webp", alt: "Brobekk Legekontor — tablet visning", position: "center", aspectRatio: "tablet" },
-        { src: "/images/portfolio/brobekk-collage-2.webp", alt: "Brobekk Legekontor — mobil visning", position: "top-left", aspectRatio: "mobile" },
-        { src: "/images/portfolio/brobekk-collage-3.webp", alt: "Brobekk Legekontor — tablet visning alternativ", position: "top-right", aspectRatio: "tablet" },
-        { src: "/images/portfolio/brobekk-collage-1.webp", alt: "Brobekk Legekontor — tablet oversikt", position: "bottom-left", aspectRatio: "tablet" },
-        { src: "/images/portfolio/brobekk-collage-5.webp", alt: "Brobekk Legekontor — desktop visning", position: "bottom-right", aspectRatio: "landscape" },
-      ],
+      heroImage: "/images/portfolio/brobekk-portefolje.webp",
     },
   },
   {
@@ -66,14 +59,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/vocura-s2.webp",
         "/images/portfolio/vocura-s3.webp",
       ],
-      collageBackground: "/images/portfolio/vocura-background.webp",
-      collage: [
-        { src: "/images/portfolio/vocura-collage-4.webp", alt: "Vocura — mobil visning", position: "center", aspectRatio: "mobile" },
-        { src: "/images/portfolio/vocura-collage-2.webp", alt: "Vocura — desktop fullside", position: "top-left", aspectRatio: "desktop" },
-        { src: "/images/portfolio/vocura-collage-6.webp", alt: "Vocura — desktop visning", position: "top-right", aspectRatio: "desktop" },
-        { src: "/images/portfolio/vocura-collage-1.webp", alt: "Vocura — desktop alternativ", position: "bottom-left", aspectRatio: "desktop" },
-        { src: "/images/portfolio/vocura-collage-5.webp", alt: "Vocura — desktop bred visning", position: "bottom-right", aspectRatio: "desktop" },
-      ],
+      heroImage: "/images/portfolio/vocura-portefolje.webp",
     },
   },
   {
@@ -90,14 +76,7 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
         "/images/portfolio/iqra-s2.webp",
         "/images/portfolio/iqra-s3.webp",
       ],
-      collageBackground: "/images/portfolio/Iqra-background.webp",
-      collage: [
-        { src: "/images/portfolio/iqra-collage-4.webp", alt: "Iqra Senter — desktop fullside", position: "center", aspectRatio: "wide" },
-        { src: "/images/portfolio/iqra-collage-2.webp", alt: "Iqra Senter — tablet visning", position: "top-left", aspectRatio: "square-portrait" },
-        { src: "/images/portfolio/iqra-collage-3.webp", alt: "Iqra Senter — tablet visning alternativ", position: "top-right", aspectRatio: "square-portrait" },
-        { src: "/images/portfolio/iqra-collage-1.webp", alt: "Iqra Senter — desktop bred visning", position: "bottom-left", aspectRatio: "wide" },
-        { src: "/images/portfolio/iqra-collage-5.webp", alt: "Iqra Senter — tablet oversikt", position: "bottom-right", aspectRatio: "square-portrait" },
-      ],
+      heroImage: "/images/portfolio/iqra-portefolje.webp",
     },
   },
 ];
