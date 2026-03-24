@@ -23,28 +23,28 @@ const POSITION_CONFIG: Record<CollagePosition, PositionConfig> = {
     hideOnMobile: false,
   },
   "top-left": {
-    className: "absolute top-[6%] left-[4%]",
+    className: "absolute top-[4%] left-[3%]",
     rotation: "-rotate-[4deg]",
     zIndex: 2,
     animDelay: 0.1,
     hideOnMobile: false,
   },
   "top-right": {
-    className: "absolute top-[8%] right-[4%]",
+    className: "absolute top-[4%] right-[3%]",
     rotation: "rotate-[3deg]",
     zIndex: 2,
     animDelay: 0.2,
     hideOnMobile: true,
   },
   "bottom-left": {
-    className: "absolute bottom-[8%] left-[6%]",
+    className: "absolute bottom-[4%] left-[3%]",
     rotation: "-rotate-[2deg]",
     zIndex: 3,
     animDelay: 0.3,
     hideOnMobile: false,
   },
   "bottom-right": {
-    className: "absolute bottom-[6%] right-[5%]",
+    className: "absolute bottom-[4%] right-[3%]",
     rotation: "rotate-[2deg]",
     zIndex: 3,
     animDelay: 0.4,
@@ -52,38 +52,57 @@ const POSITION_CONFIG: Record<CollagePosition, PositionConfig> = {
   },
 };
 
+/** Aspect ratios matched to actual image dimensions */
 const ASPECT_CLASSES: Record<string, string> = {
   desktop: "aspect-[16/10]",
+  wide: "aspect-[2/1]",
+  landscape: "aspect-[3/2]",
   tablet: "aspect-[3/4]",
+  "square-portrait": "aspect-[5/6]",
   mobile: "aspect-[9/19]",
 };
 
-/** Width per position, adapted by aspect ratio so images fit well inside the collage */
+/** Width per position, adapted by aspect ratio to prevent overlap */
 const WIDTH_MAP: Record<CollagePosition, Record<string, string>> = {
   center: {
     mobile: "w-[18%]",
-    tablet: "w-[22%]",
+    tablet: "w-[20%]",
+    "square-portrait": "w-[22%]",
+    landscape: "w-[32%]",
     desktop: "w-[30%]",
+    wide: "w-[36%]",
   },
   "top-left": {
     mobile: "w-[15%]",
-    tablet: "w-[22%]",
+    tablet: "w-[18%]",
+    "square-portrait": "w-[18%]",
+    landscape: "w-[28%]",
     desktop: "w-[32%]",
+    wide: "w-[34%]",
   },
   "top-right": {
     mobile: "w-[14%]",
-    tablet: "w-[22%]",
+    tablet: "w-[18%]",
+    "square-portrait": "w-[18%]",
+    landscape: "w-[28%]",
     desktop: "w-[30%]",
+    wide: "w-[34%]",
   },
   "bottom-left": {
     mobile: "w-[14%]",
-    tablet: "w-[22%]",
+    tablet: "w-[18%]",
+    "square-portrait": "w-[18%]",
+    landscape: "w-[28%]",
     desktop: "w-[30%]",
+    wide: "w-[34%]",
   },
   "bottom-right": {
     mobile: "w-[14%]",
-    tablet: "w-[22%]",
+    tablet: "w-[18%]",
+    "square-portrait": "w-[18%]",
+    landscape: "w-[28%]",
     desktop: "w-[30%]",
+    wide: "w-[34%]",
   },
 };
 
@@ -133,14 +152,14 @@ export function ProjectCollage({
             style={{ zIndex: config.zIndex }}
           >
             <div
-              className={`relative overflow-hidden rounded-xl border border-white/10 ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
+              className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/30 ${ASPECT_CLASSES[img.aspectRatio] ?? "aspect-[16/10]"}`}
               style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.5)" }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover object-top"
+                className="object-contain"
                 sizes={img.position === "center" ? "30vw" : "22vw"}
               />
             </div>
