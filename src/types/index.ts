@@ -93,7 +93,7 @@ export interface CollageImage {
   src: string;
   alt: string;
   position: CollagePosition;
-  aspectRatio: "desktop" | "mobile";
+  aspectRatio: "desktop" | "tablet" | "mobile";
 }
 
 export type PortfolioSiteId =
