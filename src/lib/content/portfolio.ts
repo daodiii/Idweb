@@ -11,12 +11,13 @@ export const PROJECTS = [
     industry: "Hudpleie og skjønnhet",
     title: "Profesjonell nettside for hudpleieklinikk",
     description:
-      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Nettsiden er optimalisert for hastighet og ytelse.",
-    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Betalingsløsning"],
+      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Siden har også integrasjon mot Facebook via API og viser bønnetider i sanntid hentet fra et eksternt API.",
+    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "API-integrasjoner"],
     results: [
+      "Facebook-integrasjon via API",
+      "Sanntids bønnetider fra eksternt API",
       "Integrert betalingssystem for donasjoner",
       "Mobilvennlig og responsivt design",
-      "SEO-optimalisert struktur",
     ],
   },
   {
@@ -25,12 +26,13 @@ export const PROJECTS = [
     industry: "Helse og velvære",
     title: "Moderne nettside for helseklinikk",
     description:
-      "Vocura er en ren og profesjonell nettside som bygger tillit hos potensielle kunder. Siden er utviklet med fokus på moderne design, rask ytelse og en brukervennlig opplevelse som gjør det enkelt å finne riktig informasjon.",
-    services: ["Skreddersydd design", "Mobiloptimalisering", "SEO-oppsett", "Ytelsesoptimalisering"],
+      "Vocura er en ren og profesjonell nettside som bygger tillit hos potensielle kunder. Siden har et eget backend-system med innlogging via personnummer, slik at brukere får tilgang til sin personlige side. Hero-seksjonen har en interaktiv animasjon som reagerer på musebevegelser — en detalj som gir siden et levende og moderne preg.",
+    services: ["Skreddersydd design", "Backend og innlogging", "Interaktiv animasjon", "Mobiloptimalisering"],
     results: [
+      "Sikkert innloggingssystem med personnummer",
+      "Interaktiv hero-animasjon med musebevegelse",
       "Moderne og tillitvekkende design",
       "Lastetid under 1,5 sekunder",
-      "Tydelig konverteringsflyt",
     ],
   },
   {
