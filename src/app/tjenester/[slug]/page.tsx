@@ -55,7 +55,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const seo = SERVICE_SEO[slug];
 
   return (
-    <main>
+    <div>
       {seo && (
         <ServiceJsonLd
           name={seo.title}
@@ -81,6 +81,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
       <ServiceFaq faq={service.faq} />
       <ServiceCta />
-    </main>
+    </div>
   );
 }

@@ -1,14 +1,5 @@
 export const SITE_NAME = "IDweb";
 
-export const NAV_LINKS = [
-  { href: "/tjenester", label: "Tjenester" },
-  { href: "/priser", label: "Priser" },
-  { href: "/referanser", label: "Referanser" },
-  { href: "/blogg", label: "Blogg" },
-  { href: "/om-oss", label: "Om oss" },
-  { href: "/kontakt", label: "Kontakt" },
-] as const;
-
 export const FOOTER_LINKS = {
   tjenester: [
     { href: "/tjenester/nettside", label: "Nettsider" },

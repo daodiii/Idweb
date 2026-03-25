@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MoveRight, Menu as MenuIcon, X } from "lucide-react";
@@ -26,6 +26,47 @@ const MOBILE_LINKS = [
 export function Navbar() {
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeMobile = useCallback(() => {
+    setMobileOpen(false);
+    menuButtonRef.current?.focus();
+  }, []);
+
+  // Escape key closes mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") closeMobile();
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, closeMobile]);
+
+  // Click outside closes mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function onClickOutside(e: MouseEvent) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node) &&
+        !menuButtonRef.current?.contains(e.target as Node)
+      ) {
+        closeMobile();
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [mobileOpen, closeMobile]);
+
+  // Focus first link when menu opens
+  useEffect(() => {
+    if (mobileOpen && mobileMenuRef.current) {
+      const firstLink = mobileMenuRef.current.querySelector("a");
+      firstLink?.focus();
+    }
+  }, [mobileOpen]);
 
   return (
     <>
@@ -112,9 +153,11 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <button
+            ref={menuButtonRef}
             type="button"
             aria-label={mobileOpen ? "Lukk meny" : "Åpne meny"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-panel"
             className="inline-flex items-center justify-center rounded-lg p-2 text-[var(--color-dark-text)] transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
@@ -138,13 +181,19 @@ export function Navbar() {
 
         {/* Mobile menu panel */}
         {mobileOpen && (
-          <div className="absolute inset-x-6 top-full mt-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)]/95 p-6 shadow-xl backdrop-blur-lg md:hidden">
+          <div
+            ref={mobileMenuRef}
+            id="mobile-nav-panel"
+            role="dialog"
+            aria-label="Navigasjonsmeny"
+            className="absolute inset-x-6 top-full mt-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)]/95 p-6 shadow-xl backdrop-blur-lg md:hidden"
+          >
             <nav className="flex flex-col gap-3">
               {MOBILE_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={closeMobile}
                   className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
                 >
                   {link.label}

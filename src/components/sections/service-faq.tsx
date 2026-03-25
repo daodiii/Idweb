@@ -55,7 +55,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-4 text-sm leading-relaxed text-slate-400">
+                    <p className="px-5 pb-4 text-sm leading-relaxed text-[var(--color-dark-muted)]">
                       {item.answer}
                     </p>
                   </div>

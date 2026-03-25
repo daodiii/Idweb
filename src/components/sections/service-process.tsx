@@ -36,7 +36,7 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
                   {step.step}
                 </div>
                 <h3 className="mt-3 font-semibold text-[var(--color-dark-text)]">{step.title}</h3>
-                <p className="mt-1 text-sm text-slate-400">{step.description}</p>
+                <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{step.description}</p>
               </div>
               {i < lastIndex && (
                 <div className="flex items-center text-xl text-[var(--color-accent)]" aria-hidden="true">
@@ -68,7 +68,7 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
                 </div>
                 <div className="pt-2">
                   <h3 className="font-semibold text-[var(--color-dark-text)]">{step.title}</h3>
-                  <p className="mt-1 text-sm text-slate-400">{step.description}</p>
+                  <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{step.description}</p>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import { PACKAGES } from "@/lib/content/pricing";
@@ -11,16 +11,17 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 const SEGMENT_LABELS = ["Enkel", "Standard", "Premium"] as const;
 
 export function PricingPreview() {
+  const prefersReducedMotion = useReducedMotion();
   const [activeTier, setActiveTier] = useState(1); // default to Standard
 
   return (
     <AuroraBackground variant="bottom-left" className="px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
           <h2 className="text-center text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
             Ærlige priser, ingen overraskelser
@@ -44,10 +45,10 @@ export function PricingPreview() {
           <AnimatePresence mode="wait">
             <motion.div
               key={PACKAGES[activeTier].id}
-              initial={{ opacity: 0, y: 12 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
               className={`rounded-2xl p-7 ${
                 PACKAGES[activeTier].highlight
                   ? "bg-[var(--color-dark-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
@@ -102,8 +103,8 @@ export function PricingPreview() {
                   : "border border-white/5 bg-[var(--color-dark-bg-alt)] shadow-lg shadow-black/20"
               }`}
               variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: prefersReducedMotion ? 0 : 0.6 } },
               }}
             >
               {pkg.highlight && (

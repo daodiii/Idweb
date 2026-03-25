@@ -34,14 +34,21 @@ const AUTO_ADVANCE_MS = 4500;
 
 function DesktopProcess() {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Respect prefers-reduced-motion — disable auto-advance
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
+    if (paused || prefersReducedMotion) return;
     timerRef.current = setTimeout(() => {
       setActive((prev) => (prev + 1) % STEPS.length);
     }, AUTO_ADVANCE_MS);
-  }, []);
+  }, [paused, prefersReducedMotion]);
 
   useEffect(() => {
     resetTimer();
@@ -117,8 +124,19 @@ function DesktopProcess() {
                 ))}
               </div>
 
-              {/* Arrow buttons */}
+              {/* Pause + Arrow buttons */}
               <div className="ml-auto flex gap-2">
+                <button
+                  onClick={() => setPaused((p) => !p)}
+                  aria-label={paused ? "Start automatisk avspilling" : "Pause automatisk avspilling"}
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[var(--color-dark-muted)]/20 text-[var(--color-dark-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+                >
+                  {paused ? (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                  ) : (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
+                  )}
+                </button>
                 <button
                   onClick={() => goTo("prev")}
                   aria-label="Forrige steg"

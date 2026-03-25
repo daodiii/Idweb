@@ -1,0 +1,22 @@
+{
+  "name": "IDweb — Nettsideutvikling i Norge",
+  "short_name": "IDweb",
+  "description": "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#F4CE14",
+  "lang": "nb",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

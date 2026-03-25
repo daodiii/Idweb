@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Star } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import type { Testimonial } from "@/types";
@@ -42,14 +42,15 @@ export function TestimonialGrid({
   title = "Hva kundene sier",
   description,
 }: TestimonialGridProps) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <AuroraBackground variant="top-left" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
           <h2 className="text-center text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
             {title}
@@ -73,8 +74,8 @@ export function TestimonialGrid({
               key={t.author.name}
               className="rounded-xl border border-white/5 bg-[var(--color-dark-glass)] p-6 backdrop-blur-sm"
               variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: prefersReducedMotion ? 0 : 0.6 } },
               }}
             >
               {/* Stars */}

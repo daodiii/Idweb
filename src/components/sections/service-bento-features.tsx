@@ -56,7 +56,7 @@ export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
                 <LucideIcon name={feature.iconName} className="h-5 w-5 text-[var(--color-accent)]" />
               </div>
               <h3 className="mt-3 text-lg font-semibold text-[var(--color-dark-text)]">{feature.title}</h3>
-              <p className="mt-1 text-sm text-slate-400">{feature.description}</p>
+              <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{feature.description}</p>
             </li>
           ))}
         </ul>

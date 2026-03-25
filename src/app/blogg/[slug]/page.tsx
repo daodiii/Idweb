@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.title} | IDweb`,
+    title: post.title,
     description: post.metaDescription,
     alternates: {
       canonical: `/blogg/${slug}`,

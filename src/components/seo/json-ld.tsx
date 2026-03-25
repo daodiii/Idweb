@@ -1,24 +1,27 @@
 /**
  * JSON-LD structured data for SEO.
- * Uses Next.js Script component for safe injection.
- * All data is hardcoded (no user input).
+ * Uses inline <script> tags for immediate availability to crawlers.
+ * All data is hardcoded (no user input) — safe to render server-side.
  */
-import Script from "next/script";
 
 const BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   "@id": "https://idweb.no/#business",
   name: "IDweb",
+  legalName: "IDweb v/ Daod Ilyas",
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold.",
   url: "https://idweb.no",
   telephone: "+4798406164",
   email: "hei@idweb.no",
+  logo: "https://idweb.no/images/idweb-logo.png",
+  image: "https://idweb.no/images/idweb-logo.png",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Oslo",
     addressRegion: "Oslo",
+    postalCode: "0001",
     addressCountry: "NO",
   },
   geo: {
@@ -26,11 +29,19 @@ const BUSINESS_SCHEMA = {
     latitude: 59.9139,
     longitude: 10.7522,
   },
-  areaServed: {
-    "@type": "Country",
-    name: "Norway",
-  },
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "Norway",
+    },
+    {
+      "@type": "City",
+      name: "Oslo",
+    },
+  ],
   priceRange: "$$",
+  currenciesAccepted: "NOK",
+  paymentAccepted: "Faktura, Bankoverføring",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -38,13 +49,7 @@ const BUSINESS_SCHEMA = {
     closes: "17:00",
   },
   sameAs: [],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "47",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  knowsLanguage: ["nb", "en"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Webtjenester",
@@ -92,24 +97,36 @@ const WEBSITE_SCHEMA = {
     "@id": "https://idweb.no/#business",
   },
   inLanguage: "nb-NO",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://idweb.no/blogg?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
+
+// SAFETY NOTE: dangerouslySetInnerHTML is used here intentionally.
+// All data is hardcoded constants — no user input is ever injected.
+// This is the recommended pattern for JSON-LD in Next.js to ensure
+// crawlers see structured data on initial HTML parse (not deferred).
 
 export function JsonLd() {
   return (
-    <Script
-      id="business-json-ld"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
-    >
-      {JSON.stringify([BUSINESS_SCHEMA, WEBSITE_SCHEMA])}
-    </Script>
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify([BUSINESS_SCHEMA, WEBSITE_SCHEMA]),
+      }}
+    />
   );
 }
 
 export function FaqJsonLd({
   faqs,
 }: {
-  faqs: { question: string; answer: string }[];
+  faqs: readonly { readonly question: string; readonly answer: string }[];
 }) {
   const schema = {
     "@context": "https://schema.org",
@@ -125,9 +142,10 @@ export function FaqJsonLd({
   };
 
   return (
-    <Script id="faq-json-ld" type="application/ld+json" strategy="afterInteractive">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -153,9 +171,10 @@ export function BlogPostJsonLd({
     datePublished: publishedDate,
     dateModified: publishedDate,
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: "IDweb",
-      url: "https://idweb.no/om-oss",
+      url: "https://idweb.no",
+      logo: "https://idweb.no/images/idweb-logo.png",
     },
     publisher: {
       "@id": "https://idweb.no/#business",
@@ -169,13 +188,10 @@ export function BlogPostJsonLd({
   };
 
   return (
-    <Script
-      id={`blog-json-ld-${slug}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
-    >
-      {JSON.stringify(schema)}
-    </Script>
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -196,13 +212,10 @@ export function BreadcrumbJsonLd({
   };
 
   return (
-    <Script
-      id="breadcrumb-json-ld"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
-    >
-      {JSON.stringify(schema)}
-    </Script>
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -231,12 +244,9 @@ export function ServiceJsonLd({
   };
 
   return (
-    <Script
-      id={`service-json-ld-${slug}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
-    >
-      {JSON.stringify(schema)}
-    </Script>
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }

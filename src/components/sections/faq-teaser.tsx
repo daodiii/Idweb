@@ -1,22 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { ChevronDown, MoveRight } from "lucide-react";
 import { FAQ_TEASER_ITEMS } from "@/lib/content/homepage";
 
 export function FaqTeaser() {
+  const prefersReducedMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="light-section-warm px-6 py-14 sm:py-20 md:py-28">
       <div className="mx-auto max-w-3xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
           <h2 className="text-center text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             Vanlige spørsmål
@@ -28,10 +29,10 @@ export function FaqTeaser() {
             <motion.div
               key={faq.question}
               className="rounded-lg border border-[var(--color-border)] bg-white shadow-sm"
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.4, delay: index * 0.1 }}
             >
               <button
                 onClick={() =>
@@ -56,7 +57,7 @@ export function FaqTeaser() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
                     className="overflow-hidden"
                   >
                     <p className="px-6 pb-4 text-sm leading-relaxed text-[var(--color-text-muted)]">

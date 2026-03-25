@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: SEO.contact.title,
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <div className="bg-[var(--color-dark-bg)]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Kontakt", href: "/kontakt" },
+        ]}
+      />
       {/* Hero */}
       <AuroraBackground variant="top-center" intensity={0.25}>
         <div className="px-6 py-28 text-center sm:py-36">

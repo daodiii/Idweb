@@ -1,93 +1,104 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs } from "@/lib/content/blog";
+import { getAllSlugs, getBlogPost } from "@/lib/content/blog";
 
 const BASE_URL = "https://idweb.no";
 
+// Launch date — update when pages are meaningfully changed
+const LAUNCH_DATE = "2026-03-26";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogSlugs = getAllSlugs();
-  const serviceSlugs = ["nettside", "seo", "vedlikehold"];
 
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
+      url: `${BASE_URL}/tjenester`,
+      lastModified: LAUNCH_DATE,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/tjenester/nettside`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/tjenester/seo`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/tjenester/vedlikehold`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/priser`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/referanser`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/om-oss`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/kontakt`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/faq`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/blogg`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/personvern`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/vilkar`,
-      lastModified: new Date(),
+      lastModified: LAUNCH_DATE,
       changeFrequency: "yearly",
       priority: 0.3,
     },
   ];
 
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${BASE_URL}/blogg/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => {
+    const post = getBlogPost(slug);
+    return {
+      url: `${BASE_URL}/blogg/${slug}`,
+      lastModified: post?.publishedDate ?? LAUNCH_DATE,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    };
+  });
 
   return [...staticPages, ...blogPages];
 }

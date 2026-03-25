@@ -7,6 +7,7 @@ import {
   CATEGORY_COLORS,
   DEFAULT_CATEGORY_COLOR,
 } from "@/lib/content/blog/category-colors";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: SEO.blog.title,
@@ -47,6 +48,12 @@ const BLOG_COVER_IMAGES: Record<string, string> = {
 export default function BloggPage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Blogg", href: "/blogg" },
+        ]}
+      />
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
@@ -77,6 +84,7 @@ export default function BloggPage() {
                     alt={post.title}
                     width={800}
                     height={450}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {(() => {

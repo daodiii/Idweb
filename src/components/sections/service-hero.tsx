@@ -24,7 +24,7 @@ export function ServiceHero({ service }: ServiceHeroProps) {
           {service.title}
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 sm:text-xl">
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-dark-muted)] sm:text-xl">
           {service.shortDescription}
         </p>
 
@@ -47,7 +47,7 @@ export function ServiceHero({ service }: ServiceHeroProps) {
                     decimals={stat.decimals}
                   />
                 </p>
-                <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
+                <p className="mt-1 text-xs text-[var(--color-dark-muted)]">{stat.label}</p>
               </div>
             ))}
           </div>

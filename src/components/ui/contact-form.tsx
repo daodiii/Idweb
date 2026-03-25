@@ -8,12 +8,18 @@ import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 interface ContactFormProps {
   showExtendedFields?: boolean;
   className?: string;
+  variant?: "dark" | "light";
 }
 
 export function ContactForm({
   showExtendedFields = false,
   className = "",
+  variant = "dark",
 }: ContactFormProps) {
+  const inputClasses =
+    variant === "light"
+      ? "w-full rounded-lg border border-black/20 bg-black/[0.07] px-4 py-3 text-sm text-inherit placeholder:text-inherit/60 focus:border-[var(--color-dark-bg)] focus:outline-none focus:ring-1 focus:ring-[var(--color-dark-bg)]"
+      : "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]";
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -75,7 +81,7 @@ export function ContactForm({
           autoComplete="name"
           aria-label="Ditt navn"
           placeholder="Ditt navn"
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+          className={inputClasses}
         />
         <input
           type="email"
@@ -84,7 +90,7 @@ export function ContactForm({
           autoComplete="email"
           aria-label="Din e-post"
           placeholder="Din e-post"
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+          className={inputClasses}
         />
       </div>
 
@@ -96,7 +102,7 @@ export function ContactForm({
             autoComplete="tel"
             aria-label="Telefon"
             placeholder="Telefon (valgfritt)"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+            className={inputClasses}
           />
           <input
             type="text"
@@ -104,7 +110,7 @@ export function ContactForm({
             autoComplete="organization"
             aria-label="Bedriftsnavn"
             placeholder="Bedriftsnavn (valgfritt)"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+            className={inputClasses}
           />
         </div>
       )}

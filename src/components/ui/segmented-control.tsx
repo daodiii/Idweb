@@ -52,7 +52,7 @@ export function SegmentedControl({
                 ? "text-[var(--color-dark-bg)]"
                 : isLight
                   ? "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-                  : "text-slate-400 hover:text-slate-200"
+                  : "text-[var(--color-dark-muted)] hover:text-slate-200"
             )}
           >
             {activeIndex === index && (

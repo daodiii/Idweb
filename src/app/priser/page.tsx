@@ -10,11 +10,12 @@ import {
 } from "@/lib/content/pricing";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Priser — Nettsider, vedlikehold og SEO | IDweb",
+  title: "Priser — Nettsider, vedlikehold og SEO",
   description:
-    "Se våre priser for nettsider, vedlikehold, SEO og tilleggstjenester. Faste priser, ingen bindingstid. Få et skreddersydd tilbud.",
+    "Se våre faste priser for nettsider, vedlikehold, SEO og tilleggstjenester. Ingen bindingstid, ingen skjulte kostnader. Fra kr 8 990. Få et skreddersydd tilbud.",
   keywords: [
     "nettside pris",
     "hva koster nettside",
@@ -22,6 +23,10 @@ export const metadata: Metadata = {
     "seo pris",
     "nettside pris oslo",
     "vedlikehold pris",
+    "billig nettside norge",
+    "nettside kostnad",
+    "pris hjemmeside bedrift",
+    "webdesign pris norge",
   ],
   alternates: {
     canonical: "/priser",
@@ -31,6 +36,13 @@ export const metadata: Metadata = {
 export default function PriserPage() {
   return (
     <div className="bg-[var(--color-dark-bg)]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Priser", href: "/priser" },
+        ]}
+      />
+      <FaqJsonLd faqs={PRICING_FAQ} />
       {/* Hero */}
       <AuroraBackground variant="top-center" intensity={0.25}>
         <div className="px-6 py-28 text-center sm:py-36">

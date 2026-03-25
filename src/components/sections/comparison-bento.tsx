@@ -61,7 +61,7 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
           <p className="text-base font-bold" style={{ color: card.accent }}>
             {card.title}
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-slate-400">
+          <p className="mt-1 text-xs leading-relaxed text-[var(--color-dark-muted)]">
             {card.description}
           </p>
         </div>
@@ -92,7 +92,7 @@ function MobileCard({ card }: { card: ComparisonCard }) {
       <p className="text-[13px] font-bold leading-tight" style={{ color: card.accent }}>
         {card.title}
       </p>
-      <p className="mt-0.5 text-[10px] leading-snug text-slate-400">
+      <p className="mt-0.5 text-[10px] leading-snug text-[var(--color-dark-muted)]">
         {card.description}
       </p>
     </div>
@@ -100,6 +100,7 @@ function MobileCard({ card }: { card: ComparisonCard }) {
 }
 
 function hexToRgb(hex: string): string {
+  if (!/^#[0-9a-fA-F]{6}$/.test(hex)) return "0, 0, 0";
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
@@ -134,7 +135,7 @@ export function ComparisonBento() {
           <h2 className="text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
             Ikke alle nettsider er skapt like
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-slate-400">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--color-dark-muted)]">
             Se forskjellen mellom en typisk leverandør og det vi bygger for deg.
           </p>
         </motion.div>

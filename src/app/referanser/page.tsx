@@ -9,10 +9,11 @@ import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import Image from "next/image";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import type { PortfolioSiteId } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Referanser — Se nettsidene vi har levert | IDweb",
+  title: "Referanser — Se nettsidene vi har levert",
   description:
     "Se utvalgte prosjekter vi har levert til norske bedrifter. Skreddersydde nettsider, nettbutikker og digitale løsninger med målbare resultater.",
   keywords: [
@@ -29,6 +30,12 @@ export const metadata: Metadata = {
 export default function ReferanserPage() {
   return (
     <div className="text-[var(--color-dark-text)]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Referanser", href: "/referanser" },
+        ]}
+      />
       {/* Hero */}
       <AuroraBackground variant="top-center" intensity={0.12} className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">

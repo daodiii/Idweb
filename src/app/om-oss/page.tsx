@@ -17,6 +17,7 @@ import {
 import { TRUST_SIGNALS } from "@/lib/content/homepage";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: SEO.about.title,
@@ -37,6 +38,12 @@ const VALUE_ICONS: Record<string, React.FC<{ className?: string }>> = {
 export default function OmOssPage() {
   return (
     <div className="bg-[var(--color-dark-bg)]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Om oss", href: "/om-oss" },
+        ]}
+      />
       {/* Hero */}
       <AuroraBackground variant="top-center" intensity={0.25}>
         <div className="px-6 py-28 text-center sm:py-36">
