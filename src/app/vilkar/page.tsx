@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Vilkår og betingelser | IDweb",
+  title: "Vilkår og betingelser",
   description:
     "Les våre vilkår og betingelser for bruk av nettsiden og tjenestene til IDweb.",
   alternates: {

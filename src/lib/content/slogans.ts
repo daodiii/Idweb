@@ -4,12 +4,12 @@
  */
 
 export const HERO_HEADLINES = [
-  "Vi bygger nettsider som gir deg flere kunder",
+  "Jeg bygger nettsider som gir deg flere kunder",
   "Din neste kunde søker akkurat nå — finner de deg?",
   "Nettsider som jobber like hardt som deg",
   "Fra usynlig til uunnværlig — på nett",
   "Resultater, ikke bare piksler",
-  "Vi lager nettsider som selger — ikke bare viser",
+  "Jeg lager nettsider som selger — ikke bare viser",
 ] as const;
 
 export const HERO_SUBHEADLINES = [

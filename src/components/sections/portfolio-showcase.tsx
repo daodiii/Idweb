@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
@@ -10,6 +10,7 @@ import { ProjectCollage } from "@/components/ui/project-collage";
 import type { PortfolioSite } from "@/types";
 
 export function PortfolioShowcase() {
+  const prefersReducedMotion = useReducedMotion();
   const sites = FEATURED_PORTFOLIO_IDS.map(getSiteById).filter(
     (s): s is PortfolioSite => s !== null
   );
@@ -21,10 +22,10 @@ export function PortfolioShowcase() {
     <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
           className="mb-16 flex items-end justify-between"
         >
           <div className="flex items-center gap-3">
@@ -48,10 +49,10 @@ export function PortfolioShowcase() {
         {collageSites.map((site) => (
           <motion.article
             key={site.id}
-            initial={{ opacity: 0, y: 32 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
             className="mb-12"
           >
             {/* Mobile: show dark mobile screenshot instead of collage */}
@@ -80,13 +81,10 @@ export function PortfolioShowcase() {
                 backgroundImage={site.images.collageBackground}
               />
             </div>
-            <div className="mt-4 flex items-baseline justify-between gap-4">
+            <div className="mt-4">
               <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
                 {site.name}
               </h3>
-              <span className="shrink-0 font-heading text-sm font-medium text-[var(--color-text-muted)]">
-                {site.domain}
-              </span>
             </div>
           </motion.article>
         ))}
@@ -98,10 +96,10 @@ export function PortfolioShowcase() {
               return (
                 <motion.article
                   key={site.id}
-                  initial={{ opacity: 0, y: 32 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: i * 0.1 }}
                   className="group"
                 >
                   <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
@@ -121,13 +119,10 @@ export function PortfolioShowcase() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-4 flex items-baseline justify-between gap-4">
+                  <div className="mt-4">
                     <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
                       {site.name}
                     </h3>
-                    <span className="shrink-0 font-heading text-sm font-medium text-[var(--color-text-muted)]">
-                      {site.domain}
-                    </span>
                   </div>
                 </motion.article>
               );

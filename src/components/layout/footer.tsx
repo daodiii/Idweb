@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
@@ -15,38 +14,32 @@ function FooterAccordion({
   title: string;
   children: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="border-b border-[var(--color-dark-border)] md:border-none">
-      {/* Mobile: collapsible button */}
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-3 text-left md:hidden"
-        aria-expanded={open}
-      >
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+      {/* Mobile: native <details> for progressive enhancement (works without JS) */}
+      <details className="group md:hidden">
+        <summary className="flex cursor-pointer list-none items-center justify-between py-3 text-left [&::-webkit-details-marker]:hidden">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+            {title}
+          </h3>
+          <ChevronDown
+            className="h-4 w-4 text-[var(--color-dark-muted)] transition-transform group-open:rotate-180"
+            aria-hidden="true"
+          />
+        </summary>
+        <div className="pb-4">
+          {children}
+        </div>
+      </details>
+
+      {/* Desktop: always visible */}
+      <div className="hidden md:block">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)]">
           {title}
         </h3>
-        <ChevronDown
-          className={`h-4 w-4 text-[var(--color-dark-muted)] transition-transform ${open ? "rotate-180" : ""}`}
-          aria-hidden="true"
-        />
-      </button>
-
-      {/* Desktop: static heading */}
-      <h3 className="hidden text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)] md:block">
-        {title}
-      </h3>
-
-      {/* Content — collapses on mobile, always visible on desktop */}
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-96 pb-4" : "max-h-0"
-        } md:max-h-none md:mt-4 md:pb-0`}
-      >
-        {children}
+        <div className="mt-4">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -70,7 +63,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-3 text-sm text-[var(--color-dark-muted)]">
-              Vi bygger nettsider som gir norske bedrifter flere kunder.
+              Jeg bygger nettsider som gir norske bedrifter flere kunder.
             </p>
             <div className="mt-4 space-y-1.5 text-sm text-[var(--color-dark-muted)] md:mt-6 md:space-y-2">
               <p>

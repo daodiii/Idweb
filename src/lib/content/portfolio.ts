@@ -8,7 +8,7 @@ export const PROJECTS = [
   {
     id: "centerrahma",
     client: "Center Rahma",
-    industry: "Hudpleie og skjønnhet",
+    industry: "Trossamfunn og fellesskap",
     title: "Moderne nettside for et trossamfunn",
     description:
       "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Siden har også integrasjon mot Facebook via API og viser bønnetider i sanntid hentet fra et eksternt API.",

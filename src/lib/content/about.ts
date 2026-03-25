@@ -14,31 +14,31 @@ export const STORY = {
 } as const;
 
 export const VALUES = {
-  heading: "Det vi tror p\u00e5",
+  heading: "Det jeg tror på",
   items: [
     {
       icon: "TrendingUp",
       title: "Resultater f\u00f8rst",
       description:
-        "Alt vi gj\u00f8r starter med sp\u00f8rsm\u00e5let: vil dette gi kunden flere kunder? Pen design er fint, men design som konverterer er bedre. Vi m\u00e5ler suksess i henvendelser, salg og synlighet \u2014 ikke bare i piksler.",
+        "Alt jeg gjør starter med spørsmålet: vil dette gi kunden flere kunder? Pen design er fint, men design som konverterer er bedre. Jeg måler suksess i henvendelser, salg og synlighet — ikke bare i piksler.",
     },
     {
       icon: "MessageSquare",
       title: "\u00c6rlighet og tydelighet",
       description:
-        "Ingen skjulte kostnader og ingen bindingstid. Vi kommuniserer \u00e5pent gjennom hele prosessen og gir deg \u00e6rlige r\u00e5d \u2014 selv n\u00e5r svaret er at du ikke trenger det dyreste alternativet.",
+        "Ingen skjulte kostnader og ingen bindingstid. Jeg kommuniserer åpent gjennom hele prosessen og gir deg ærlige råd — selv når svaret er at du ikke trenger det dyreste alternativet.",
     },
     {
       icon: "Handshake",
       title: "Langsiktig partnerskap",
       description:
-        "Vi \u00f8nsker ikke kunder som forsvinner etter lansering. Vi \u00f8nsker partnere vi kan hjelpe over tid. Derfor tilbyr vi l\u00f8pende vedlikehold, r\u00e5dgivning og videreutvikling slik at nettsiden din alltid holder tritt med bedriften din.",
+        "Jeg ønsker ikke kunder som forsvinner etter lansering. Jeg ønsker partnere jeg kan hjelpe over tid. Derfor tilbyr jeg løpende vedlikehold, rådgivning og videreutvikling slik at nettsiden din alltid holder tritt med bedriften din.",
     },
     {
       icon: "Star",
       title: "Kvalitet uten kompromiss",
       description:
-        "Vi bruker moderne teknologi og beste praksis i alt vi lager. Rask lastetid, mobiloptimalisering, sikkerhet og s\u00f8kemotoroptimalisering er ikke tilvalg \u2014 det er standard. Hver nettside vi leverer er noe vi er stolt av.",
+        "Jeg bruker moderne teknologi og beste praksis i alt jeg lager. Rask lastetid, mobiloptimalisering, sikkerhet og søkemotoroptimalisering er ikke tilvalg — det er standard. Hver nettside jeg leverer er noe jeg er stolt av.",
     },
   ],
 } as const;

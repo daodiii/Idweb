@@ -4,7 +4,6 @@ import { SEO } from "@/lib/content/seo";
 import { TESTIMONIALS } from "@/lib/content/homepage";
 import { HeroSection } from "@/components/sections/hero-section";
 import { SocialProofBar } from "@/components/sections/social-proof-bar";
-import { BlogArticles } from "@/components/ui/blogs";
 
 // Below-fold sections — lazy loaded to reduce initial JS parse/execute time
 const PortfolioShowcase = dynamic(
@@ -72,8 +71,7 @@ export default function Home() {
       {/* 7. Process — Dark */}
       <ProcessSection />
 
-      {/* 8. Blog Articles — Light */}
-      <BlogArticles />
+      {/* Blog articles moved to /blogg — homepage focuses on conversion */}
 
       {/* 9. Testimonials — Dark (shown when real testimonials are collected) */}
       {TESTIMONIALS.length > 0 && <TestimonialGrid testimonials={TESTIMONIALS} />}

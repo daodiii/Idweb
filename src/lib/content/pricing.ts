@@ -161,12 +161,12 @@ export const PRICING_FAQ = [
   {
     question: "Hva er inkludert i de månedlige kostnadene?",
     answer:
-      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 690 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se våre vedlikeholdspakker lenger opp på siden for detaljer.",
+      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr jeg separate vedlikeholdspakker fra 690 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se vedlikeholdspakkene lenger opp på siden for detaljer.",
   },
   {
     question: "Er det bindingstid?",
     answer:
-      "Nei, vi har ingen bindingstid. Vedlikeholdsavtaler kan sies opp med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
+      "Nei, jeg har ingen bindingstid. Vedlikeholdsavtaler kan sies opp med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
   },
   {
     question: "Hva om prosjektet mitt ikke passer inn i en pakke?",
@@ -183,6 +183,6 @@ export const PRICING_FAQ = [
 export const PRICING_CTA = {
   headline: "Usikker på hvilken pakke som passer?",
   description:
-    "Ta kontakt for en uforpliktende samtale. Vi hjelper deg med å finne riktig løsning basert på dine behov og budsjett — helt gratis.",
+    "Ta kontakt for en uforpliktende samtale. Jeg hjelper deg med å finne riktig løsning basert på dine behov og budsjett — helt gratis.",
   buttonText: "Få et skreddersydd tilbud",
 } as const;

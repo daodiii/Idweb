@@ -13,9 +13,9 @@ export const HERO = {
 } as const;
 
 export const TRUST_SIGNALS: TrustSignal[] = [
-  { value: 5, suffix: "", label: "Prosjekter levert" },
-  { value: 100, suffix: "%", label: "Kundetilfredshet" },
   { value: 5, suffix: "/5", label: "Google-vurdering" },
+  { value: 100, suffix: "%", label: "Kundetilfredshet" },
+  { value: 0, suffix: "", label: "Bindingstid" },
 ];
 
 export const TRUST_LOCATION = "Basert i Drammen" as const;
@@ -28,7 +28,7 @@ export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
   vocura: { pagespeed: "95/100", result: "Moderne helsenettside" },
   brobekk: { pagespeed: "92/100", result: "Lokal SEO-optimalisert" },
-  centerrahma: { pagespeed: "93/100", result: "Profesjonell hudpleie-side" },
+  centerrahma: { pagespeed: "93/100", result: "Profesjonell fellesskapsside" },
   iqra: { pagespeed: "90/100", result: "Oversiktlig informasjonsside" },
 };
 
@@ -43,7 +43,7 @@ export const SERVICES_OVERVIEW = [
     id: "seo",
     title: "SEO-optimalisering",
     description:
-      "Bli funnet av kundene dine. Vi s\u00f8rger for at bedriften din rangerer h\u00f8yt i Google-s\u00f8k.",
+      "Bli funnet av kundene dine når de søker på Google etter tjenestene du tilbyr.",
   },
   {
     id: "vedlikehold",
@@ -98,7 +98,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hva om jeg allerede har en nettside?",
     answer:
-      "Vi tilbyr b\u00e5de redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Vi gir deg en \u00e6rlig vurdering av hva som gir best resultat.",
+      "Jeg tilbyr både redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Du får en ærlig vurdering av hva som gir best resultat.",
   },
   {
     question: "Hva koster vedlikehold?",
@@ -117,19 +117,19 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: 1,
     title: "Gratis samtale",
     description:
-      "Vi starter med en uforpliktende samtale der vi kartlegger behovene dine, m\u00e5lgruppen din og hva du \u00f8nsker \u00e5 oppn\u00e5. Du forteller \u2014 vi lytter.",
+      "Alt starter med en uforpliktende samtale der jeg kartlegger behovene dine, målgruppen din og hva du ønsker å oppnå. Du forteller — jeg lytter.",
   },
   {
     step: 2,
     title: "Design og utvikling",
     description:
-      "Basert p\u00e5 det vi har l\u00e6rt, lager vi et skreddersydd design og utvikler nettsiden med fokus p\u00e5 hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
+      "Basert på det jeg har lært, lager jeg et skreddersydd design og utvikler nettsiden med fokus på hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
   },
   {
     step: 3,
     title: "Lansering og oppf\u00f8lging",
     description:
-      "N\u00e5r du er forn\u00f8yd, lanserer vi nettsiden. Men vi stopper ikke der \u2014 vi tilbyr l\u00f8pende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
+      "Når du er fornøyd, lanserer jeg nettsiden. Men jeg stopper ikke der — jeg tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
   },
 ];
 
@@ -141,7 +141,7 @@ export const TESTIMONIALS: Testimonial[] = [];
 export const FINAL_CTA = {
   headline: "Klar for en nettside som faktisk leverer?",
   description:
-    "Fortell meg om prosjektet ditt, s\u00e5 sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
+    "Fortell meg om prosjektet ditt, så sender jeg et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
   buttonText: "Send foresp\u00f8rsel",
   secondaryText: "Eller ring meg direkte: 984 06 164",
 } as const;
@@ -149,7 +149,7 @@ export const FINAL_CTA = {
 export const SOCIAL_PROOF = {
   heading: "Stolt samarbeidspartner for norske bedrifter",
   description:
-    "Fra lokale h\u00e5ndverkere til etablerte bedrifter \u2014 vi har hjulpet bedrifter med \u00e5 lykkes p\u00e5 nett.",
+    "Fra lokale håndverkere til etablerte bedrifter — jeg har hjulpet bedrifter med å lykkes på nett.",
 } as const;
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
