@@ -8,7 +8,6 @@ import {
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import Image from "next/image";
 import { getSiteById } from "@/lib/content/portfolio-sites";
-import { ProjectCollage } from "@/components/ui/project-collage";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import type { PortfolioSiteId } from "@/types";
 
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 export default function ReferanserPage() {
   return (
     <div className="text-[var(--color-dark-text)]">
-      {/* Hero — aurora top-center with starfield */}
+      {/* Hero */}
       <AuroraBackground variant="top-center" intensity={0.12} className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -42,11 +41,15 @@ export default function ReferanserPage() {
         </div>
       </AuroraBackground>
 
-      {/* Projects — each pair gets its own aurora for even coverage */}
+      {/* Projects */}
       {PROJECTS.map((project, index) => {
         const variants: Array<"top-left" | "top-right" | "bottom-left" | "bottom-right"> = [
           "top-right", "bottom-left", "top-left", "bottom-right",
         ];
+        const site = getSiteById(project.id as PortfolioSiteId);
+        const showcaseImages = site?.images.showcase ?? [];
+        const heroImage = site?.images.heroImage ?? site?.images.full;
+
         return (
           <AuroraBackground
             key={project.id}
@@ -56,70 +59,68 @@ export default function ReferanserPage() {
             className={`px-6 ${index === 0 ? "pt-8 pb-10" : index === PROJECTS.length - 1 ? "pt-10 pb-24" : "py-10"}`}
           >
             <div className="mx-auto max-w-6xl">
-              <div
-                className={`flex flex-col gap-10 lg:flex-row lg:items-center ${
-                  index % 2 !== 0 ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Project image — hero image, collage, or placeholder */}
-                <div className="flex-1">
-                  {(() => {
-                    const site = getSiteById(project.id as PortfolioSiteId);
-                    if (site?.images.heroImage) {
-                      return (
-                        <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/30">
-                          <Image
-                            src={site.images.heroImage}
-                            alt={`Skjermbilder fra ${site.name}`}
-                            width={1440}
-                            height={810}
-                            className="h-auto w-full object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                        </div>
-                      );
-                    }
-                    if (site?.images.collage?.length) {
-                      return (
-                        <ProjectCollage
-                          images={site.images.collage}
-                          projectName={site.name}
-                          backgroundImage={site.images.collageBackground}
-                        />
-                      );
-                    }
-                    return (
-                      <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] p-12 shadow-lg shadow-black/20 backdrop-blur-md">
-                        <div className="text-center">
-                          <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-dark-muted)]">
-                            {project.industry}
-                          </p>
-                          <p className="mt-2 text-2xl font-bold">{project.client}</p>
-                        </div>
-                      </div>
-                    );
-                  })()}
+              {/* Project header — industry tag + title */}
+              <div className="mb-8">
+                <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
+                  {project.industry}
+                </p>
+                <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{project.title}</h2>
+                <p className="mt-1 text-lg text-[var(--color-dark-muted)]">
+                  {project.client}
+                </p>
+              </div>
+
+              {/* Large hero screenshot — full width */}
+              {heroImage && (
+                <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/40">
+                  <Image
+                    src={heroImage}
+                    alt={`Fullside skjermbilde av ${site?.name ?? project.client}`}
+                    width={1440}
+                    height={900}
+                    className="h-auto w-full object-cover"
+                    sizes="(max-width: 768px) 100vw, 1152px"
+                    priority={index === 0}
+                  />
                 </div>
+              )}
 
-                {/* Project Details — enhanced glassmorphism card */}
-                <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.06] p-8 shadow-xl shadow-black/25 backdrop-blur-md transition-all duration-300 hover:border-[var(--color-accent)]/20 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-[var(--color-accent)]/10">
-                  <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
-                    {project.industry}
-                  </p>
-                  <h2 className="mt-2 text-2xl font-bold">{project.title}</h2>
-                  <p className="mt-1 text-[var(--color-dark-muted)]">
-                    {project.client}
-                  </p>
-                  <p className="mt-4 leading-relaxed text-[var(--color-dark-muted)]">
-                    {project.description}
-                  </p>
+              {/* Supporting screenshots — horizontal scroll on mobile, adaptive grid on desktop */}
+              {showcaseImages.length > 0 && (
+                <div className={`mt-6 flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:pb-0 ${
+                  showcaseImages.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"
+                }`}>
+                  {showcaseImages.map((src, i) => (
+                    <div
+                      key={src}
+                      className="min-w-[70%] flex-shrink-0 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/25 sm:min-w-0"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${site?.name ?? project.client} — skjermbilde ${i + 1}`}
+                        width={960}
+                        height={600}
+                        className="h-auto w-full object-cover"
+                        sizes={showcaseImages.length === 4 ? "(max-width: 640px) 70vw, 25vw" : "(max-width: 640px) 70vw, 33vw"}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
 
-                  {/* Services Used */}
-                  <div className="mt-6">
+              {/* Project details — description + wide Tjenester/Resultater box */}
+              <div className="mt-6">
+                <p className="text-lg leading-relaxed text-[var(--color-dark-muted)]">
+                  {project.description}
+                </p>
+
+                {/* Wide glass box — Tjenester left, Resultater right */}
+                <div className="mt-5 grid gap-6 rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-xl shadow-black/25 backdrop-blur-md sm:grid-cols-2">
+                  <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
                       Tjenester
                     </h3>
-                    <div className="mt-2 flex flex-wrap gap-2">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       {project.services.map((service) => (
                         <span
                           key={service}
@@ -131,20 +132,17 @@ export default function ReferanserPage() {
                     </div>
                   </div>
 
-                  {/* Results */}
-                  <div className="mt-6">
+                  <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
                       Resultater
                     </h3>
-                    <ul className="mt-2 space-y-2">
+                    <ul className="mt-3 space-y-2">
                       {project.results.map((result) => (
                         <li
                           key={result}
-                          className="flex items-center gap-2 text-[var(--color-dark-muted)]"
+                          className="flex items-start gap-2 text-sm text-[var(--color-dark-muted)]"
                         >
-                          <span className="text-[var(--color-accent)]">
-                            &#10003;
-                          </span>
+                          <span className="mt-0.5 text-[var(--color-accent)]">&#10003;</span>
                           {result}
                         </li>
                       ))}
@@ -152,12 +150,17 @@ export default function ReferanserPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Divider between projects */}
+              {index < PROJECTS.length - 1 && (
+                <div className="mt-10 border-t border-white/[0.06]" />
+              )}
             </div>
           </AuroraBackground>
         );
       })}
 
-      {/* CTA — aurora bottom-center */}
+      {/* CTA */}
       <AuroraBackground variant="bottom-center" intensity={0.12} className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>

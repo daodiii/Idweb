@@ -14,9 +14,9 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       mobile: "/images/portfolio/brobekk-mobile.webp",
       full: "/images/portfolio/brobekk-full.webp",
       showcase: [
-        "/images/portfolio/brobekk-s1.webp",
-        "/images/portfolio/brobekk-s2.webp",
-        "/images/portfolio/brobekk-s3.webp",
+        "/images/portfolio/brobekk-showcase-1.webp",
+        "/images/portfolio/brobekk-collage-1.webp",
+        "/images/portfolio/brobekk-collage-3.webp",
       ],
       collageBackground: "/images/portfolio/Brobekk-background.webp",
       collage: [
@@ -37,10 +37,11 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       tablet: "/images/portfolio/centerrahma-tablet.webp",
       mobile: "/images/portfolio/centerrahma-mobile.webp",
       full: "/images/portfolio/centerrahma-full.webp",
+      heroImage: "/images/portfolio/centerrahma-hero.webp",
       showcase: [
-        "/images/portfolio/centerrahma-s1.webp",
-        "/images/portfolio/centerrahma-s2.webp",
-        "/images/portfolio/centerrahma-s3.webp",
+        "/images/portfolio/centerrahma-showcase-1.webp",
+        "/images/portfolio/centerrahma-showcase-2.webp",
+        "/images/portfolio/centerrahma-showcase-3.webp",
       ],
       collageBackground: "/images/portfolio/Centerrahma-background.webp",
       collage: [
@@ -61,12 +62,12 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       tablet: "/images/portfolio/vocura-tablet.webp",
       mobile: "/images/portfolio/vocura-mobile.webp",
       full: "/images/portfolio/vocura-full.webp",
+      heroImage: "/images/portfolio/vocura-collage-1.webp",
       showcase: [
-        "/images/portfolio/vocura-s1.webp",
-        "/images/portfolio/vocura-s2.webp",
-        "/images/portfolio/vocura-s3.webp",
+        "/images/portfolio/vocura-showcase-1.webp",
+        "/images/portfolio/vocura-showcase-2.webp",
+        "/images/portfolio/vocura-showcase-3.webp",
       ],
-      heroImage: "/images/portfolio/vocura-portefolje.webp",
     },
   },
   {
@@ -79,9 +80,9 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       mobile: "/images/portfolio/iqra-mobile.webp",
       full: "/images/portfolio/iqra-full.webp",
       showcase: [
-        "/images/portfolio/iqra-s1.webp",
-        "/images/portfolio/iqra-s2.webp",
-        "/images/portfolio/iqra-s3.webp",
+        "/images/portfolio/iqra-collage-2.webp",
+        "/images/portfolio/iqra-collage-3.webp",
+        "/images/portfolio/iqra-collage-5.webp",
       ],
       collageBackground: "/images/portfolio/Iqra-background.webp",
       collage: [
