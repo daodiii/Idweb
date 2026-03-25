@@ -54,20 +54,26 @@ export function PortfolioShowcase() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            {/* Mobile: show mobile screenshot (cropped to hero area) instead of collage */}
-            {site.images.mobile && (
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--color-border)] sm:hidden">
-                <Image
-                  src={site.images.mobile}
-                  alt={`${site.name} — mobilvisning`}
-                  fill
-                  className="object-cover object-top"
-                  sizes="100vw"
-                />
-              </div>
-            )}
+            {/* Mobile: show dark mobile screenshot instead of collage */}
+            {(() => {
+              const mobileCollageImg = site.images.collage?.find(
+                (img) => img.aspectRatio === "mobile"
+              );
+              if (!mobileCollageImg) return null;
+              return (
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--color-border)] sm:hidden">
+                  <Image
+                    src={mobileCollageImg.src}
+                    alt={`${site.name} — mobilvisning`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="100vw"
+                  />
+                </div>
+              );
+            })()}
             {/* Desktop: show collage */}
-            <div className={site.images.mobile ? "hidden sm:block" : ""}>
+            <div className={site.images.collage?.some((img) => img.aspectRatio === "mobile") ? "hidden sm:block" : ""}>
               <ProjectCollage
                 images={site.images.collage!}
                 projectName={site.name}
