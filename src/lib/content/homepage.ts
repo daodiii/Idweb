@@ -22,7 +22,6 @@ export const TRUST_LOCATION = "Basert i Drammen" as const;
 
 export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
   "centerrahma",
-  "vocura",
 ];
 
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {

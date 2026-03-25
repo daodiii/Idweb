@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FEATURED_PORTFOLIO_IDS } from "@/lib/content/homepage";
 import { getSiteById } from "@/lib/content/portfolio-sites";
 import { ProjectCollage } from "@/components/ui/project-collage";
@@ -16,7 +16,6 @@ export function PortfolioShowcase() {
   );
 
   const collageSites = sites.filter((s) => s.images.collage?.length);
-  const showcaseSites = sites.filter((s) => !s.images.collage?.length && s.images.showcase?.length);
 
   return (
     <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
@@ -26,7 +25,7 @@ export function PortfolioShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          className="mb-16 flex items-end justify-between"
+          className="mb-16"
         >
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-accent)]">
@@ -38,12 +37,6 @@ export function PortfolioShowcase() {
               Utvalgte prosjekter
             </h2>
           </div>
-          <Link
-            href="/referanser"
-            className="hidden items-center gap-1.5 text-sm font-semibold text-[var(--color-text)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent)] sm:inline-flex"
-          >
-            Se flere prosjekter
-          </Link>
         </motion.div>
 
         {collageSites.map((site) => (
@@ -53,7 +46,6 @@ export function PortfolioShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            className="mb-12"
           >
             {/* Mobile: show dark mobile screenshot instead of collage */}
             {(() => {
@@ -89,55 +81,23 @@ export function PortfolioShowcase() {
           </motion.article>
         ))}
 
-        {showcaseSites.length > 0 && (
-          <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
-            {showcaseSites.map((site, i) => {
-              const imgs = site.images.showcase!;
-              return (
-                <motion.article
-                  key={site.id}
-                  initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: i * 0.1 }}
-                  className="group"
-                >
-                  <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    {imgs.map((src, imgIdx) => (
-                      <div
-                        key={imgIdx}
-                        className={`relative overflow-hidden ${imgIdx > 0 ? "hidden border-t border-[var(--color-border)] md:block" : ""}`}
-                      >
-                        <Image
-                          src={src}
-                          alt={`${site.name} — seksjon ${imgIdx + 1}`}
-                          width={1440}
-                          height={900}
-                          className={`block w-full ${imgIdx === 0 ? "transition-transform duration-500 group-hover:scale-[1.02]" : ""}`}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
-                      {site.name}
-                    </h3>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        )}
-
-        <div className="mt-12 text-center sm:hidden">
+        {/* CTA button to see all projects */}
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.45, delay: 0.15 }}
+          className="mt-10 flex justify-center"
+        >
           <Link
             href="/referanser"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-hover)] hover:underline"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[var(--color-accent)] px-8 py-4 text-base font-bold text-[var(--color-text)] shadow-lg shadow-[var(--color-accent)]/25 transition-all duration-300 hover:gap-4 hover:shadow-xl hover:shadow-[var(--color-accent)]/35 sm:px-10 sm:py-5 sm:text-lg"
           >
-            Se alle referanser <MoveRight className="h-4 w-4" />
+            <span className="relative z-10">Se alle prosjektene mine</span>
+            <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            <span className="absolute inset-0 z-0 bg-[var(--color-accent-hover)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
