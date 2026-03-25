@@ -56,16 +56,16 @@ export default function ReferanserPage() {
             variant={variants[index % variants.length]}
             intensity={0.16}
             showStarfield={index === 0}
-            className={`px-6 ${index === 0 ? "pt-8 pb-10" : index === PROJECTS.length - 1 ? "pt-10 pb-24" : "py-10"}`}
+            className={`px-4 sm:px-6 ${index === 0 ? "pt-6 pb-6 sm:pt-8 sm:pb-10" : index === PROJECTS.length - 1 ? "pt-6 pb-16 sm:pt-10 sm:pb-24" : "py-6 sm:py-10"}`}
           >
             <div className="mx-auto max-w-6xl">
               {/* Project header — industry tag + title */}
-              <div className="mb-8">
+              <div className="mb-4 sm:mb-8">
                 <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
                   {project.industry}
                 </p>
-                <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{project.title}</h2>
-                <p className="mt-1 text-lg text-[var(--color-dark-muted)]">
+                <h2 className="mt-1 text-2xl font-bold sm:mt-2 sm:text-4xl">{project.title}</h2>
+                <p className="mt-0.5 text-base text-[var(--color-dark-muted)] sm:mt-1 sm:text-lg">
                   {project.client}
                 </p>
               </div>
@@ -87,13 +87,13 @@ export default function ReferanserPage() {
 
               {/* Supporting screenshots — horizontal scroll on mobile, adaptive grid on desktop */}
               {showcaseImages.length > 0 && (
-                <div className={`mt-6 flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:pb-0 ${
+                <div className={`mt-4 flex gap-2 overflow-x-auto pb-2 sm:mt-6 sm:gap-4 sm:grid sm:overflow-visible sm:pb-0 ${
                   showcaseImages.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"
                 }`}>
                   {showcaseImages.map((src, i) => (
                     <div
                       key={src}
-                      className="min-w-[70%] flex-shrink-0 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/25 sm:min-w-0"
+                      className="min-w-[38%] flex-shrink-0 overflow-hidden rounded-lg border border-white/10 shadow-lg shadow-black/25 sm:min-w-0 sm:rounded-xl"
                     >
                       <Image
                         src={src}
@@ -101,7 +101,7 @@ export default function ReferanserPage() {
                         width={960}
                         height={600}
                         className="h-auto w-full object-cover"
-                        sizes={showcaseImages.length === 4 ? "(max-width: 640px) 70vw, 25vw" : "(max-width: 640px) 70vw, 33vw"}
+                        sizes={showcaseImages.length === 4 ? "(max-width: 640px) 38vw, 25vw" : "(max-width: 640px) 38vw, 33vw"}
                       />
                     </div>
                   ))}
@@ -109,22 +109,22 @@ export default function ReferanserPage() {
               )}
 
               {/* Project details — description + wide Tjenester/Resultater box */}
-              <div className="mt-6">
-                <p className="text-lg leading-relaxed text-[var(--color-dark-muted)]">
+              <div className="mt-4 sm:mt-6">
+                <p className="text-base leading-relaxed text-[var(--color-dark-muted)] sm:text-lg">
                   {project.description}
                 </p>
 
                 {/* Wide glass box — Tjenester left, Resultater right */}
-                <div className="mt-5 grid gap-6 rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-xl shadow-black/25 backdrop-blur-md sm:grid-cols-2">
+                <div className="mt-4 grid grid-cols-2 gap-4 rounded-xl border border-white/10 bg-white/[0.06] p-4 shadow-xl shadow-black/25 backdrop-blur-md sm:mt-5 sm:gap-6 sm:rounded-2xl sm:p-6">
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-dark-text)] sm:text-sm">
                       Tjenester
                     </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-3 sm:gap-2">
                       {project.services.map((service) => (
                         <span
                           key={service}
-                          className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-sm text-[var(--color-dark-muted)] backdrop-blur-sm"
+                          className="rounded-full border border-white/10 bg-white/[0.06] px-2 py-0.5 text-xs text-[var(--color-dark-muted)] backdrop-blur-sm sm:px-3 sm:py-1 sm:text-sm"
                         >
                           {service}
                         </span>
@@ -133,14 +133,14 @@ export default function ReferanserPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-dark-text)] sm:text-sm">
                       Resultater
                     </h3>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
                       {project.results.map((result) => (
                         <li
                           key={result}
-                          className="flex items-start gap-2 text-sm text-[var(--color-dark-muted)]"
+                          className="flex items-start gap-1.5 text-xs text-[var(--color-dark-muted)] sm:gap-2 sm:text-sm"
                         >
                           <span className="mt-0.5 text-[var(--color-accent)]">&#10003;</span>
                           {result}
@@ -153,7 +153,7 @@ export default function ReferanserPage() {
 
               {/* Divider between projects */}
               {index < PROJECTS.length - 1 && (
-                <div className="mt-10 border-t border-white/[0.06]" />
+                <div className="mt-6 border-t border-white/[0.06] sm:mt-10" />
               )}
             </div>
           </AuroraBackground>
