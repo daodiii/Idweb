@@ -142,7 +142,7 @@ export function HeroSection() {
           </motion.div>
 
           {/* Desktop CTAs (no parallax, no stagger) */}
-          <div className="hidden flex-col items-center justify-center gap-3 pt-48 sm:flex-row lg:flex">
+          <div className="hero-entrance-cta-desktop hidden flex-col items-center justify-center gap-3 pt-48 sm:flex-row lg:flex">
             <Link
               href="/referanser"
               className={`${RAINBOW_BUTTON_CLASSES} gap-2 px-6 py-3 text-sm font-bold`}

@@ -341,6 +341,14 @@ h1, h2, h3, h4, h5, h6 {
   .hero-entrance-cta { animation: heroFadeUp 300ms ease-out 950ms both; --hero-translate: 12px; }
 }
 
+/* Desktop hero CTA — fade in to avoid rainbow gradient flash on initial paint */
+@media (min-width: 1024px) {
+  .hero-entrance-cta-desktop {
+    animation: heroFadeUp 400ms ease-out 600ms both;
+    --hero-translate: 0px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-entrance-canvas,
   .hero-entrance-eyebrow,
@@ -350,7 +358,8 @@ h1, h2, h3, h4, h5, h6 {
   .hero-entrance-word-4,
   .hero-entrance-word-5,
   .hero-entrance-sub,
-  .hero-entrance-cta {
+  .hero-entrance-cta,
+  .hero-entrance-cta-desktop {
     animation: none !important;
     opacity: 1 !important;
   }
