@@ -54,11 +54,26 @@ export function PortfolioShowcase() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <ProjectCollage
-              images={site.images.collage!}
-              projectName={site.name}
-              backgroundImage={site.images.collageBackground}
-            />
+            {/* Mobile: show mobile screenshot (cropped to hero area) instead of collage */}
+            {site.images.mobile && (
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--color-border)] sm:hidden">
+                <Image
+                  src={site.images.mobile}
+                  alt={`${site.name} — mobilvisning`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="100vw"
+                />
+              </div>
+            )}
+            {/* Desktop: show collage */}
+            <div className={site.images.mobile ? "hidden sm:block" : ""}>
+              <ProjectCollage
+                images={site.images.collage!}
+                projectName={site.name}
+                backgroundImage={site.images.collageBackground}
+              />
+            </div>
             <div className="mt-4 flex items-baseline justify-between gap-4">
               <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
                 {site.name}
