@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -68,7 +68,7 @@ function DesktopProcess() {
   const step = STEPS[active];
 
   return (
-    <AuroraBackground variant="center" className="hidden px-6 py-20 md:block">
+    <PaletteBackground palette="drommeslor" className="hidden px-6 py-20 md:block">
       <div className="relative mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -202,13 +202,13 @@ function DesktopProcess() {
           </div>
         </div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
 
 function MobileProcess() {
   return (
-    <AuroraBackground variant="center" className="px-6 py-14 md:hidden">
+    <PaletteBackground palette="drommeslor" className="px-6 py-14 md:hidden">
       <div className="relative mx-auto max-w-xl">
         <div className="mb-8 text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -242,7 +242,7 @@ function MobileProcess() {
           ))}
         </div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
 
