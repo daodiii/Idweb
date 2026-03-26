@@ -9,7 +9,7 @@ import {
   PRICING_CTA,
 } from "@/lib/content/pricing";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function PriserPage() {
       />
       <FaqJsonLd faqs={PRICING_FAQ} />
       {/* Hero */}
-      <AuroraBackground variant="top-center" intensity={0.25}>
+      <PaletteBackground palette="orkenblomst">
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -58,10 +58,10 @@ export default function PriserPage() {
             </p>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Build Packages */}
-      <AuroraBackground variant="center" intensity={0.15} showStarfield={false}>
+      <PaletteBackground palette="horisonten">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-3 lg:gap-10">
             {PACKAGES.map((pkg) => (
@@ -122,10 +122,10 @@ export default function PriserPage() {
             ))}
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Maintenance Packages */}
-      <AuroraBackground variant="bottom-left" intensity={0.2}>
+      <PaletteBackground palette="drommeslor">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -194,10 +194,10 @@ export default function PriserPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Add-on Services */}
-      <AuroraBackground variant="top-right" intensity={0.15} showStarfield={false}>
+      <PaletteBackground palette="stille-spenning">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -236,10 +236,10 @@ export default function PriserPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Pricing FAQ */}
-      <AuroraBackground variant="center" intensity={0.12} showStarfield={false}>
+      <PaletteBackground palette="drommeslor">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
@@ -267,10 +267,10 @@ export default function PriserPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* CTA */}
-      <AuroraBackground variant="bottom-center" intensity={0.25}>
+      <PaletteBackground palette="kosmos">
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">
@@ -287,7 +287,7 @@ export default function PriserPage() {
             </Link>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
     </div>
   );
 }
