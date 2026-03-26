@@ -4,7 +4,7 @@ Replace the uniform aurora dark backgrounds with distinct kaleidoscope-derived p
 
 ## Decisions
 
-- **Scope:** All pages site-wide (Homepage, Priser, Referanser, Kontakt, Tjenester)
+- **Scope:** All pages site-wide (Homepage, Priser, Referanser, Kontakt, Tjenester, Om Oss) plus the global Footer and shared service section components
 - **Hero:** One fixed palette (no rotation UI). Best palette chosen during implementation — either an existing one or a new 6th palette if warranted.
 - **Background treatment:** Slow ambient drift — blurred conic gradient rotating at 60s+. Barely perceptible movement that feels premium without affecting readability.
 - **Architecture:** New `<PaletteBackground>` React component replaces both `AuroraBackground` and `KaleidoscopeBackground`.
@@ -29,7 +29,8 @@ Replace the uniform aurora dark backgrounds with distinct kaleidoscope-derived p
 ```typescript
 interface PaletteBackgroundProps {
   palette: "horisonten" | "stille-spenning" | "drommeslor" | "orkenblomst" | "kosmos";
-  className?: string;       // passed to outer section element
+  as?: React.ElementType;   // polymorphic element type (default: "section"). Footer uses as="footer".
+  className?: string;       // passed to outer element
   speed?: number;           // rotation duration in seconds (default: 60)
   blur?: number;            // blur amount in px (default: 55)
   intensity?: number;       // gradient opacity 0-1 (default: 0.8)
@@ -37,6 +38,14 @@ interface PaletteBackgroundProps {
   children: React.ReactNode;
 }
 ```
+
+**Client component:** Uses `"use client"` directive. IntersectionObserver initialized in `useEffect`.
+
+**Color order in conic gradient:** Colors used in array order as listed in the palettes table (dark → mid → accent → light). This is the order from the original kaleidoscope and produces smooth gradients because adjacent colors have natural transitions.
+
+**Noise texture:** Inline SVG data URI in a `background-image` CSS property on a `::before` pseudo-element or dedicated div. Same technique as the current aurora component (SVG feTurbulence filter, `baseFrequency="0.9"`, `numOctaves="4"`). No external file.
+
+**Starfield:** Dropped. The current aurora starfield was only enabled on a few sections and disabled on most text-heavy pages. The palette gradient provides enough visual interest without it.
 
 **Internal layers (bottom to top):**
 
@@ -101,7 +110,33 @@ interface PaletteBackgroundProps {
 | Section | New |
 |---------|-----|
 | Services Hero | "stille-spenning" |
-| Services Grid | "horisonten" |
+
+Note: The Services Grid on the index page does not use AuroraBackground — no change needed there.
+
+### Tjenester shared section components (used across service pages)
+
+| Component | Current | New |
+|-----------|---------|-----|
+| service-hero.tsx | AuroraBackground (top-center) | PaletteBackground "stille-spenning" |
+| service-bento-features.tsx | AuroraBackground (center) | PaletteBackground "horisonten" |
+| service-process.tsx | AuroraBackground (bottom-left) | PaletteBackground "drommeslor" |
+| service-faq.tsx | AuroraBackground (bottom-right) | PaletteBackground "orkenblomst" |
+
+### Om Oss (/om-oss)
+
+| Section | Current | New |
+|---------|---------|-----|
+| Hero | AuroraBackground (top-center, 0.25) | PaletteBackground "horisonten" |
+| Story | AuroraBackground (center, 0.15) | PaletteBackground "drommeslor" |
+| Values | AuroraBackground (bottom-left, 0.2) | PaletteBackground "stille-spenning" |
+| Approach | AuroraBackground (top-right, 0.15) | PaletteBackground "orkenblomst" |
+| CTA | AuroraBackground (bottom-center, 0.25) | PaletteBackground "kosmos" |
+
+### Footer (global, every page)
+
+| Component | Current | New |
+|-----------|---------|-----|
+| footer.tsx | AuroraBackground (as="footer", bottom-center, 0.05) | PaletteBackground (as="footer", "kosmos", intensity=0.4) — subtle, low intensity to not overpower footer content |
 
 ## What Stays Unchanged
 
@@ -112,6 +147,8 @@ interface PaletteBackgroundProps {
 - **Text colors:** var(--color-dark-text), var(--color-dark-muted) — same contrast
 - **Rainbow button:** Own color system (--color-1 through --color-5)
 - **CSS variables:** --color-dark-bg, --color-dark-text, etc. all retained
+- **Pages without AuroraBackground:** /faq, /blogg, /personvern, /vilkar — these use plain backgrounds and are not affected
+- **Tjenester index Services Grid:** Plain div, no background component — not affected
 
 ## Files Changed
 
@@ -122,9 +159,12 @@ interface PaletteBackgroundProps {
 - `src/components/ui/aurora-background.tsx`
 - `src/components/ui/kaleidoscope-background.tsx`
 
-**Modified (~18 section files):**
+**Modified (~24 section/page files):**
 - Swap AuroraBackground/KaleidoscopeBackground imports to PaletteBackground
 - Add palette prop to each usage
+- Files: hero-section.tsx, comparison-bento.tsx, process-section.tsx, pricing-preview.tsx, testimonial-grid.tsx, service-hero.tsx, service-bento-features.tsx, service-process.tsx, service-faq.tsx, footer.tsx, priser/page.tsx (6 sections), referanser/page.tsx (3+ sections), kontakt/page.tsx (2 sections), om-oss/page.tsx (5 sections), tjenester/page.tsx (1 section)
+
+**Responsive note:** ProcessSection renders two AuroraBackground wrappers (desktop and mobile). Both get the same palette ("drommeslor"). The component handles its own responsive layout — PaletteBackground does not need responsive variants.
 
 **CSS (globals.css):**
 - Remove: `aurora-drift`, `kaleidoscope-spin` keyframes, `.kaleidoscope` class, `.aurora-glow-layer` class
