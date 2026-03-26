@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "motion/react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { SegmentedControl } from "@/components/ui/segmented-control";
 import { COMPARISON_GRID } from "@/lib/content/homepage";
@@ -120,7 +120,7 @@ export function ComparisonBento() {
   const spacersNeeded = paddedCount - mobileCards.length;
 
   return (
-    <AuroraBackground variant="center" className="px-6 py-14 sm:py-20 md:py-28">
+    <PaletteBackground palette="stille-spenning" className="px-6 py-14 sm:py-20 md:py-28">
       <div className="relative mx-auto max-w-6xl">
         <motion.div
           className="mb-12 text-center"
@@ -178,6 +178,6 @@ export function ComparisonBento() {
           ))}
         </div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
