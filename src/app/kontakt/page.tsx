@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Phone, Mail, Clock } from "lucide-react";
 
@@ -24,7 +24,7 @@ export default function KontaktPage() {
         ]}
       />
       {/* Hero */}
-      <AuroraBackground variant="top-center" intensity={0.25}>
+      <PaletteBackground palette="drommeslor">
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -40,10 +40,10 @@ export default function KontaktPage() {
             </p>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Contact Form + Info */}
-      <AuroraBackground variant="center" intensity={0.12} showStarfield={false}>
+      <PaletteBackground palette="kosmos">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
             {/* Form */}
@@ -240,7 +240,7 @@ export default function KontaktPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
     </div>
   );
 }
