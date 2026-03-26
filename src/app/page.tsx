@@ -30,6 +30,10 @@ const PricingPreview = dynamic(
   () => import("@/components/sections/pricing-preview").then((m) => m.PricingPreview),
   { ssr: true },
 );
+const BlogArticles = dynamic(
+  () => import("@/components/sections/blog-articles").then((m) => m.BlogArticles),
+  { ssr: true },
+);
 const FaqTeaser = dynamic(
   () => import("@/components/sections/faq-teaser").then((m) => m.FaqTeaser),
   { ssr: true },
@@ -79,7 +83,10 @@ export default function Home() {
       {/* 9. Pricing Preview — Dark */}
       <PricingPreview />
 
-      {/* 10. FAQ Teaser — Light */}
+      {/* 10. Blog Articles — White */}
+      <BlogArticles />
+
+      {/* 11. FAQ Teaser — Light */}
       <FaqTeaser />
 
       {/* 11. Final CTA — Yellow gradient */}
