@@ -8,9 +8,11 @@ import {
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import Image from "next/image";
 import { getSiteById } from "@/lib/content/portfolio-sites";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground, type PaletteId } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import type { PortfolioSiteId } from "@/types";
+
+const PALETTE_ORDER: PaletteId[] = ["horisonten", "stille-spenning", "drommeslor", "orkenblomst", "kosmos"];
 
 export const metadata: Metadata = {
   title: "Referanser — Se nettsidene vi har levert",
@@ -37,7 +39,7 @@ export default function ReferanserPage() {
         ]}
       />
       {/* Hero */}
-      <AuroraBackground variant="top-center" intensity={0.12} className="px-6 py-24 text-center">
+      <PaletteBackground palette="horisonten" className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             {PORTFOLIO_PAGE.headline}
@@ -46,23 +48,18 @@ export default function ReferanserPage() {
             {PORTFOLIO_PAGE.subheadline}
           </p>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Projects */}
       {PROJECTS.map((project, index) => {
-        const variants: Array<"top-left" | "top-right" | "bottom-left" | "bottom-right"> = [
-          "top-right", "bottom-left", "top-left", "bottom-right",
-        ];
         const site = getSiteById(project.id as PortfolioSiteId);
         const showcaseImages = site?.images.showcase ?? [];
         const heroImage = site?.images.heroImage ?? site?.images.full;
 
         return (
-          <AuroraBackground
+          <PaletteBackground
             key={project.id}
-            variant={variants[index % variants.length]}
-            intensity={0.16}
-            showStarfield={index === 0}
+            palette={PALETTE_ORDER[index % PALETTE_ORDER.length]}
             className={`px-4 sm:px-6 ${index === 0 ? "pt-6 pb-6 sm:pt-8 sm:pb-10" : index === PROJECTS.length - 1 ? "pt-6 pb-16 sm:pt-10 sm:pb-24" : "py-6 sm:py-10"}`}
           >
             <div className="mx-auto max-w-6xl">
@@ -163,12 +160,12 @@ export default function ReferanserPage() {
                 <div className="mt-6 border-t border-white/[0.06] sm:mt-10" />
               )}
             </div>
-          </AuroraBackground>
+          </PaletteBackground>
         );
       })}
 
       {/* CTA */}
-      <AuroraBackground variant="bottom-center" intensity={0.12} className="px-6 py-24">
+      <PaletteBackground palette="kosmos" className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>
           <p className="mt-4 text-lg text-[var(--color-dark-muted)]">
@@ -181,7 +178,7 @@ export default function ReferanserPage() {
             {PORTFOLIO_CTA.buttonText}
           </Link>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
     </div>
   );
 }
