@@ -15,7 +15,7 @@ import {
   ABOUT_CTA,
 } from "@/lib/content/about";
 import { TRUST_SIGNALS } from "@/lib/content/homepage";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
@@ -45,7 +45,7 @@ export default function OmOssPage() {
         ]}
       />
       {/* Hero */}
-      <AuroraBackground variant="top-center" intensity={0.25}>
+      <PaletteBackground palette="horisonten">
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -79,10 +79,10 @@ export default function OmOssPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Story */}
-      <AuroraBackground variant="center" intensity={0.15} showStarfield={false}>
+      <PaletteBackground palette="drommeslor">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -101,10 +101,10 @@ export default function OmOssPage() {
             ))}
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Values */}
-      <AuroraBackground variant="bottom-left" intensity={0.2}>
+      <PaletteBackground palette="stille-spenning">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -140,10 +140,10 @@ export default function OmOssPage() {
             </div>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Approach */}
-      <AuroraBackground variant="top-right" intensity={0.15} showStarfield={false}>
+      <PaletteBackground palette="orkenblomst">
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -162,10 +162,10 @@ export default function OmOssPage() {
             ))}
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* CTA */}
-      <AuroraBackground variant="bottom-center" intensity={0.25}>
+      <PaletteBackground palette="kosmos">
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-4xl">
@@ -182,7 +182,7 @@ export default function OmOssPage() {
             </Link>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
     </div>
   );
 }
