@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { Star } from "lucide-react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import type { Testimonial } from "@/types";
 
 const AVATAR_COLORS = [
@@ -44,7 +44,7 @@ export function TestimonialGrid({
 }: TestimonialGridProps) {
   const prefersReducedMotion = useReducedMotion();
   return (
-    <AuroraBackground variant="top-left" className="px-6 py-20 sm:py-28">
+    <PaletteBackground palette="kosmos" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
@@ -115,6 +115,6 @@ export function TestimonialGrid({
           ))}
         </motion.div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
