@@ -8,11 +8,13 @@ import {
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import Image from "next/image";
 import { getSiteById } from "@/lib/content/portfolio-sites";
-import { PaletteBackground, type PaletteId } from "@/components/ui/palette-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import type { PortfolioSiteId } from "@/types";
 
-const PALETTE_ORDER: PaletteId[] = ["horisonten", "stille-spenning", "drommeslor", "orkenblomst", "kosmos"];
+// Single palette for cohesion — intensity varies per project for subtle rhythm
+const INTENSITY_ORDER = [0.7, 0.5, 0.8, 0.4, 0.6];
+const DEGREE_ORDER = [0, 90, 180, 270, 45];
 
 export const metadata: Metadata = {
   title: "Referanser — Se nettsidene vi har levert",
@@ -59,7 +61,9 @@ export default function ReferanserPage() {
         return (
           <PaletteBackground
             key={project.id}
-            palette={PALETTE_ORDER[index % PALETTE_ORDER.length]}
+            palette="horisonten"
+            intensity={INTENSITY_ORDER[index % INTENSITY_ORDER.length]}
+            fromDeg={DEGREE_ORDER[index % DEGREE_ORDER.length]}
             className={`px-4 sm:px-6 ${index === 0 ? "pt-6 pb-6 sm:pt-8 sm:pb-10" : index === PROJECTS.length - 1 ? "pt-6 pb-16 sm:pt-10 sm:pb-24" : "py-6 sm:py-10"}`}
           >
             <div className="mx-auto max-w-6xl">
@@ -165,7 +169,7 @@ export default function ReferanserPage() {
       })}
 
       {/* CTA */}
-      <PaletteBackground palette="kosmos" className="px-6 py-24">
+      <PaletteBackground palette="horisonten" intensity={0.9} fromDeg={270} className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>
           <p className="mt-4 text-lg text-[var(--color-dark-muted)]">

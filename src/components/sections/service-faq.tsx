@@ -12,7 +12,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <PaletteBackground palette="orkenblomst" className="px-6 py-20 sm:py-28">
+    <PaletteBackground palette="stille-spenning" intensity={0.4} fromDeg={90} className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
           Vanlige spørsmål

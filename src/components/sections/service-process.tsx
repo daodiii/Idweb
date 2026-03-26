@@ -9,7 +9,7 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
   const lastIndex = steps.length - 1;
 
   return (
-    <PaletteBackground palette="drommeslor" className="px-6 py-20 sm:py-28">
+    <PaletteBackground palette="stille-spenning" intensity={0.5} fromDeg={180} className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
           Slik jobber vi

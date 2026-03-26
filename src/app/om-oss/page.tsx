@@ -82,7 +82,7 @@ export default function OmOssPage() {
       </PaletteBackground>
 
       {/* Story */}
-      <PaletteBackground palette="drommeslor">
+      <PaletteBackground palette="horisonten" intensity={0.5}>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -104,7 +104,7 @@ export default function OmOssPage() {
       </PaletteBackground>
 
       {/* Values */}
-      <PaletteBackground palette="stille-spenning">
+      <PaletteBackground palette="horisonten" intensity={0.7}>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -143,7 +143,7 @@ export default function OmOssPage() {
       </PaletteBackground>
 
       {/* Approach */}
-      <PaletteBackground palette="orkenblomst">
+      <PaletteBackground palette="horisonten" intensity={0.4} fromDeg={180}>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -165,7 +165,7 @@ export default function OmOssPage() {
       </PaletteBackground>
 
       {/* CTA */}
-      <PaletteBackground palette="kosmos">
+      <PaletteBackground palette="horisonten" intensity={0.9} fromDeg={270}>
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-4xl">

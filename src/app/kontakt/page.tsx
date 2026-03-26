@@ -43,7 +43,7 @@ export default function KontaktPage() {
       </PaletteBackground>
 
       {/* Contact Form + Info */}
-      <PaletteBackground palette="kosmos">
+      <PaletteBackground palette="drommeslor" intensity={0.5} fromDeg={180}>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
             {/* Form */}
