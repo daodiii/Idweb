@@ -1,7 +1,7 @@
 import { icons } from "lucide-react";
 import type { ServiceFeature } from "@/types";
 import { cn } from "@/lib/utils";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 
 interface ServiceBentoFeaturesProps {
   features: ServiceFeature[];
@@ -37,7 +37,7 @@ function LucideIcon({ name, className }: { name: string; className?: string }) {
 
 export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
   return (
-    <AuroraBackground variant="center" className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
+    <PaletteBackground palette="horisonten" className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
       <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
         Dette inkluderer
       </h2>
@@ -60,6 +60,6 @@ export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
             </li>
           ))}
         </ul>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }

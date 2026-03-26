@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { FAQ } from "@/types";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 
 interface ServiceFaqProps {
   faq: FAQ[];
@@ -12,7 +12,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <AuroraBackground variant="bottom-right" className="px-6 py-20 sm:py-28">
+    <PaletteBackground palette="orkenblomst" className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
           Vanlige spørsmål
@@ -65,6 +65,6 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
           })}
         </div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }

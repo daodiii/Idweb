@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Service } from "@/types";
 import { CountUpStat } from "@/components/ui/count-up-stat";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 
 interface ServiceHeroProps {
   service: Service;
@@ -12,7 +12,7 @@ interface ServiceHeroProps {
 
 export function ServiceHero({ service }: ServiceHeroProps) {
   return (
-    <AuroraBackground variant="top-center" className="px-6 py-24 text-center sm:py-32">
+    <PaletteBackground palette="stille-spenning" className="px-6 py-24 text-center sm:py-32">
 
       <div className="mx-auto max-w-4xl">
         {/* Category tag */}
@@ -53,6 +53,6 @@ export function ServiceHero({ service }: ServiceHeroProps) {
           </div>
         )}
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
