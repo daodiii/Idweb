@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import { PACKAGES } from "@/lib/content/pricing";
 import { SegmentedControl } from "@/components/ui/segmented-control";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 
 const SEGMENT_LABELS = ["Enkel", "Standard", "Premium"] as const;
 
@@ -15,7 +15,7 @@ export function PricingPreview() {
   const [activeTier, setActiveTier] = useState(1); // default to Standard
 
   return (
-    <AuroraBackground variant="bottom-left" className="px-6 py-14 sm:py-24 md:py-32">
+    <PaletteBackground palette="orkenblomst" className="px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
@@ -147,6 +147,6 @@ export function PricingPreview() {
           </Link>
         </div>
       </div>
-    </AuroraBackground>
+    </PaletteBackground>
   );
 }
