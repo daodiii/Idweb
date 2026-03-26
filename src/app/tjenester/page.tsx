@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
 import { ArrowRight } from "lucide-react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { PaletteBackground } from "@/components/ui/palette-background";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
@@ -50,7 +50,7 @@ export default function TjenesterPage() {
       />
 
       {/* Hero */}
-      <AuroraBackground variant="top-center" intensity={0.25}>
+      <PaletteBackground palette="stille-spenning">
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -65,7 +65,7 @@ export default function TjenesterPage() {
             </p>
           </div>
         </div>
-      </AuroraBackground>
+      </PaletteBackground>
 
       {/* Services grid */}
       <div className="px-6 py-16 sm:py-24">
