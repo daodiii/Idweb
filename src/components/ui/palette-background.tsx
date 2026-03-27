@@ -92,8 +92,8 @@ export function PaletteBackground({
               right: "-20%",
               height: "60%",
               background: grad,
-              filter: `blur(${blur + 15}px) saturate(160%)`,
-              opacity: intensity * (i === 0 ? 1 : 0.7),
+              filter: `blur(${blur}px) saturate(200%)`,
+              opacity: intensity * (i === 0 ? 1 : 0.85),
               animationDuration: `${speed + i * 15}s`,
               animationDelay: `${-i * (speed / 3)}s`,
               willChange: "transform",
@@ -118,7 +118,7 @@ export function PaletteBackground({
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 50%, rgba(10,10,10,0.25) 0%, transparent 70%)",
+            "radial-gradient(ellipse at 50% 50%, rgba(10,10,10,0.10) 0%, transparent 70%)",
         }}
       />
 
