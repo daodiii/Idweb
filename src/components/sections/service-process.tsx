@@ -11,7 +11,7 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
   return (
     <PaletteBackground palette="stille-spenning" intensity={0.5} speed={120} fadeTop fadeBottom className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
+        <h2 className="mb-12 text-center text-3xl font-extrabold tracking-[-0.02em] text-pretty text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
           Slik jobber vi
         </h2>
 
@@ -35,8 +35,8 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
                 >
                   {step.step}
                 </div>
-                <h3 className="mt-3 font-semibold text-[var(--color-dark-text)]">{step.title}</h3>
-                <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{step.description}</p>
+                <h3 className="mt-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)] sm:text-xl">{step.title}</h3>
+                <p className="mt-1 text-sm font-light text-[var(--color-dark-muted)]">{step.description}</p>
               </div>
               {i < lastIndex && (
                 <div className="flex items-center text-xl text-[var(--color-accent)]" aria-hidden="true">
@@ -67,8 +67,8 @@ export function ServiceProcess({ steps }: ServiceProcessProps) {
                   )}
                 </div>
                 <div className="pt-2">
-                  <h3 className="font-semibold text-[var(--color-dark-text)]">{step.title}</h3>
-                  <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{step.description}</p>
+                  <h3 className="text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">{step.title}</h3>
+                  <p className="mt-1 text-sm font-light text-[var(--color-dark-muted)]">{step.description}</p>
                 </div>
               </div>
             </div>

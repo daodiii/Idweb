@@ -6,10 +6,10 @@ export function ServiceCta() {
   return (
     <Section className="bg-[var(--color-bg)]">
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-bold text-pretty sm:text-4xl">
+        <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-pretty sm:text-4xl lg:text-5xl">
           Klar for å komme i gang?
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-text-muted)]">
+        <p className="mx-auto mt-4 max-w-2xl text-base font-light text-[var(--color-text-muted)] sm:text-lg">
           Bestill en gratis og uforpliktende samtale, så hjelper vi deg med å finne den riktige løsningen for bedriften din.
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

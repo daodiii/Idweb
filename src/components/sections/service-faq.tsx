@@ -14,7 +14,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
   return (
     <PaletteBackground palette="stille-spenning" intensity={0.4} fromDeg={180} speed={120} fadeTop fadeBottom className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
+        <h2 className="mb-12 text-center text-3xl font-extrabold tracking-[-0.02em] text-pretty text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
           Vanlige spørsmål
         </h2>
 
@@ -36,7 +36,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                   className="flex w-full cursor-pointer items-center justify-between px-5 py-4 text-left"
                 >
                   <span
-                    className={`font-semibold transition-colors duration-200 ${
+                    className={`text-lg font-bold tracking-[-0.01em] transition-colors duration-200 sm:text-xl ${
                       isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-dark-text)]"
                     }`}
                   >
@@ -55,7 +55,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-4 text-sm leading-relaxed text-[var(--color-dark-muted)]">
+                    <p className="px-5 pb-4 text-sm font-light leading-relaxed text-[var(--color-dark-muted)]">
                       {item.answer}
                     </p>
                   </div>

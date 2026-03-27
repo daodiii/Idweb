@@ -38,7 +38,7 @@ function LucideIcon({ name, className }: { name: string; className?: string }) {
 export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
   return (
     <PaletteBackground palette="stille-spenning" intensity={0.6} fromDeg={180} speed={120} fadeTop fadeBottom className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
-      <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
+      <h2 className="mb-12 text-center text-3xl font-extrabold tracking-[-0.02em] text-pretty text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
         Dette inkluderer
       </h2>
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -55,8 +55,8 @@ export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-accent)]/15">
                 <LucideIcon name={feature.iconName} className="h-5 w-5 text-[var(--color-accent)]" />
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-[var(--color-dark-text)]">{feature.title}</h3>
-              <p className="mt-1 text-sm text-[var(--color-dark-muted)]">{feature.description}</p>
+              <h3 className="mt-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)] sm:text-xl">{feature.title}</h3>
+              <p className="mt-1 text-sm font-light text-[var(--color-dark-muted)]">{feature.description}</p>
             </li>
           ))}
         </ul>

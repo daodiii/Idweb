@@ -36,7 +36,7 @@ export function ServiceCustomSection({ service }: ServiceCustomSectionProps) {
 function NettsideShowcase() {
   return (
     <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
+      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
         Tilpasset alle enheter
       </h3>
       <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-end">
@@ -107,7 +107,7 @@ function SeoRanking() {
 
   return (
     <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
+      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
         Resultater som vokser over tid
       </h3>
 
@@ -128,12 +128,12 @@ function SeoRanking() {
 
       <div className="mx-auto mt-6 flex max-w-md justify-center gap-8">
         <div className="text-center">
-          <p className="text-2xl font-extrabold text-[var(--color-accent)]">+150%</p>
-          <p className="text-xs text-[var(--color-text-muted)]">mer trafikk</p>
+          <p className="text-2xl font-black tracking-[-0.03em] text-[var(--color-accent)]">+150%</p>
+          <p className="text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">mer trafikk</p>
         </div>
         <div className="text-center">
-          <p className="text-2xl font-extrabold text-[var(--color-accent)]">Side 1</p>
-          <p className="text-xs text-[var(--color-text-muted)]">på Google</p>
+          <p className="text-2xl font-black tracking-[-0.03em] text-[var(--color-accent)]">Side 1</p>
+          <p className="text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">på Google</p>
         </div>
       </div>
     </div>
@@ -147,7 +147,7 @@ function SeoRanking() {
 function VedlikeholdStats({ service }: { service: Service }) {
   return (
     <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
+      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
         Tall som gir trygghet
       </h3>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -156,14 +156,14 @@ function VedlikeholdStats({ service }: { service: Service }) {
             key={stat.label}
             className="rounded-xl border border-[var(--color-border)] bg-white p-6 text-center"
           >
-            <p className="text-4xl font-extrabold text-[var(--color-accent)]">
+            <p className="text-4xl font-black tracking-[-0.03em] text-[var(--color-accent)]">
               <CountUpStat
                 value={stat.value}
                 suffix={stat.suffix}
                 decimals={stat.decimals}
               />
             </p>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">{stat.label}</p>
+            <p className="mt-2 text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -186,7 +186,7 @@ function DesignSpecimen() {
 
   return (
     <div>
-      <h3 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
+      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
         En komplett visuell identitet
       </h3>
 
@@ -205,7 +205,7 @@ function DesignSpecimen() {
 
       {/* Typography specimen */}
       <div className="mx-auto max-w-md rounded-xl border border-[var(--color-border)] bg-white p-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Typografi</p>
+        <p className="mb-2 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">Typografi</p>
         <p className="font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text)]">
           Crimson Pro
         </p>

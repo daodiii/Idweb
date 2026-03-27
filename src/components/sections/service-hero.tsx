@@ -16,15 +16,15 @@ export function ServiceHero({ service }: ServiceHeroProps) {
 
       <div className="mx-auto max-w-4xl">
         {/* Category tag */}
-        <span className="inline-block rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)]">
+        <span className="inline-block rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
           {service.categoryTag}
         </span>
 
-        <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-pretty text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+        <h1 className="mt-6 text-4xl font-black tracking-[-0.03em] text-pretty text-[var(--color-dark-text)] sm:text-6xl lg:text-7xl">
           {service.title}
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-dark-muted)] sm:text-xl">
+        <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
           {service.shortDescription}
         </p>
 
@@ -40,14 +40,14 @@ export function ServiceHero({ service }: ServiceHeroProps) {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-white/10 pt-8">
             {service.trustStats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl font-extrabold tabular-nums text-[var(--color-accent)] sm:text-3xl">
+                <p className="text-2xl font-black tracking-[-0.03em] tabular-nums text-[var(--color-accent)] sm:text-3xl">
                   <CountUpStat
                     value={stat.value}
                     suffix={stat.suffix}
                     decimals={stat.decimals}
                   />
                 </p>
-                <p className="mt-1 text-xs text-[var(--color-dark-muted)]">{stat.label}</p>
+                <p className="mt-1 text-xs font-extralight uppercase tracking-[3px] text-[var(--color-dark-muted)]">{stat.label}</p>
               </div>
             ))}
           </div>

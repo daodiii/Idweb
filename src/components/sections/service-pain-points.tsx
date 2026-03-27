@@ -9,10 +9,10 @@ export function ServicePainPoints({ service }: ServicePainPointsProps) {
   return (
     <Section>
       <div className="mx-auto max-w-3xl">
-        <h2 className="text-center text-3xl font-bold text-pretty sm:text-4xl">
+        <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-pretty sm:text-4xl lg:text-5xl">
           Hvorfor trenger du {service.title.toLowerCase()}?
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-[var(--color-text-muted)]">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-base font-light leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
           {service.longDescription}
         </p>
 
@@ -27,8 +27,8 @@ export function ServicePainPoints({ service }: ServicePainPointsProps) {
                 aria-hidden="true"
               />
               <div>
-                <p className="font-semibold text-[var(--color-text)]">{point.title}</p>
-                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
+                <p className="text-lg font-bold tracking-[-0.01em] text-[var(--color-text)] sm:text-xl">{point.title}</p>
+                <p className="mt-1 text-sm font-light text-[var(--color-text-muted)]">
                   {point.description}
                 </p>
               </div>

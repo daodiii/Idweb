@@ -12,7 +12,7 @@ export function ServiceTestimonial({ testimonial }: ServiceTestimonialProps) {
   return (
     <section className="bg-[var(--color-bg)] px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="mb-8 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+        <p className="mb-8 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
           Kundeomtale
         </p>
 
@@ -24,7 +24,7 @@ export function ServiceTestimonial({ testimonial }: ServiceTestimonialProps) {
             &ldquo;
           </span>
 
-          <blockquote className="relative text-xl font-medium italic leading-relaxed text-[var(--color-text)] sm:text-2xl">
+          <blockquote className="relative text-lg font-medium italic leading-relaxed text-[var(--color-text)] sm:text-xl">
             {text}
           </blockquote>
         </div>

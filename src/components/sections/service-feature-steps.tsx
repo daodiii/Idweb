@@ -32,7 +32,7 @@ const serviceFeatures = [
 export function ServiceFeatureSteps() {
   return (
     <section className="light-section-warm-alt px-4 py-8 sm:py-24 md:py-32">
-      <p className="text-center text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+      <p className="text-center text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">
         Mine tjenester
       </p>
       <FeatureSteps

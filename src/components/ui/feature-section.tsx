@@ -48,7 +48,7 @@ export function FeatureSteps({
   return (
     <div className={cn("p-4 md:p-12", className)}>
       <div className="mx-auto w-full max-w-7xl">
-        <h2 className="mb-6 text-center text-4xl font-extrabold tracking-tight md:mb-12 sm:text-5xl lg:text-6xl">
+        <h2 className="mb-6 text-center text-3xl font-extrabold tracking-[-0.02em] md:mb-12 sm:text-4xl lg:text-5xl">
           {title}
         </h2>
 
@@ -93,7 +93,7 @@ export function FeatureSteps({
                 </motion.div>
 
                 <div className="flex-1">
-                  <h3 className="text-base font-semibold md:text-2xl">
+                  <h3 className="text-lg font-bold tracking-[-0.01em] sm:text-xl">
                     {feature.href ? (
                       <Link
                         href={feature.href}
@@ -105,7 +105,7 @@ export function FeatureSteps({
                       feature.title || feature.step
                     )}
                   </h3>
-                  <p className="text-xs text-muted-foreground md:text-lg">
+                  <p className="text-xs font-light text-muted-foreground md:text-base">
                     {feature.content}
                   </p>
                 </div>
