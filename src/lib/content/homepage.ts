@@ -6,7 +6,7 @@ export const HERO = {
   headline: "BYGGER DIN NYE NETTSIDE",
   subheadline:
     "Bygget med moderne teknologi. Optimalisert for Google. Designet for \u00e5 konvertere bes\u00f8kende til kunder.",
-  primaryCta: "Se mine prosjekter",
+  primaryCta: "Se våre prosjekter",
   secondaryCta: "F\u00e5 et tilbud",
 } as const;
 
@@ -95,7 +95,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hva om jeg allerede har en nettside?",
     answer:
-      "Jeg tilbyr både redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Du får en ærlig vurdering av hva som gir best resultat.",
+      "Vi tilbyr både redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Du får en ærlig vurdering av hva som gir best resultat.",
   },
   {
     question: "Hva koster vedlikehold?",
@@ -114,19 +114,19 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: 1,
     title: "Gratis samtale",
     description:
-      "Alt starter med en uforpliktende samtale der jeg kartlegger behovene dine, målgruppen din og hva du ønsker å oppnå. Du forteller — jeg lytter.",
+      "Alt starter med en uforpliktende samtale der vi kartlegger behovene dine, målgruppen din og hva du ønsker å oppnå. Du forteller — vi lytter.",
   },
   {
     step: 2,
     title: "Design og utvikling",
     description:
-      "Basert på det jeg har lært, lager jeg et skreddersydd design og utvikler nettsiden med fokus på hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
+      "Basert på det vi har lært, lager vi et skreddersydd design og utvikler nettsiden med fokus på hastighet, SEO og brukervennlighet. Du godkjenner underveis.",
   },
   {
     step: 3,
     title: "Lansering og oppf\u00f8lging",
     description:
-      "Når du er fornøyd, lanserer jeg nettsiden. Men jeg stopper ikke der — jeg tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
+      "Når du er fornøyd, lanserer vi nettsiden. Men vi stopper ikke der — vi tilbyr løpende vedlikehold, oppdateringer og support slik at siden alltid presterer optimalt.",
   },
 ];
 
@@ -138,15 +138,15 @@ export const TESTIMONIALS: Testimonial[] = [];
 export const FINAL_CTA = {
   headline: "Klar for en nettside som faktisk leverer?",
   description:
-    "Fortell meg om prosjektet ditt, så sender jeg et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
+    "Fortell oss om prosjektet ditt, så sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
   buttonText: "Send foresp\u00f8rsel",
-  secondaryText: "Eller ring meg direkte: 984 06 164",
+  secondaryText: "Eller ring oss direkte: 984 06 164",
 } as const;
 
 export const SOCIAL_PROOF = {
   heading: "Stolt samarbeidspartner for norske bedrifter",
   description:
-    "Fra lokale håndverkere til etablerte bedrifter — jeg har hjulpet bedrifter med å lykkes på nett.",
+    "Fra lokale håndverkere til etablerte bedrifter — vi har hjulpet bedrifter med å lykkes på nett.",
 } as const;
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {

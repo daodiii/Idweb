@@ -4,12 +4,12 @@
  */
 
 export const HERO_HEADLINES = [
-  "Jeg bygger nettsider som gir deg flere kunder",
+  "Vi bygger nettsider som gir deg flere kunder",
   "Din neste kunde søker akkurat nå — finner de deg?",
   "Nettsider som jobber like hardt som deg",
   "Fra usynlig til uunnværlig — på nett",
   "Resultater, ikke bare piksler",
-  "Jeg lager nettsider som selger — ikke bare viser",
+  "Vi lager nettsider som selger — ikke bare viser",
 ] as const;
 
 export const HERO_SUBHEADLINES = [
@@ -24,26 +24,26 @@ export const CTA_BUTTONS = {
     "Få et uforpliktende tilbud",
     "Start prosjektet ditt i dag",
     "Book en gratis samtale",
-    "Kontakt meg nå",
+    "Kontakt oss nå",
     "Kom i gang",
-    "Se hva jeg kan gjøre for deg",
+    "Se hva vi kan gjøre for deg",
     "Få gratis nettsideanalyse",
   ],
   secondary: [
-    "Se mine prosjekter",
-    "Les mer om tjenestene mine",
+    "Se våre prosjekter",
+    "Les mer om tjenestene våre",
     "Se priser",
     "Lær mer",
   ],
 } as const;
 
 export const VALUE_PROPOSITIONS = [
-  "Ingen bindingstid — jeg beholder kunder gjennom kvalitet",
+  "Ingen bindingstid — vi beholder kunder gjennom kvalitet",
   "Fast pris — ingen overraskelser på fakturaen",
-  "Levert innen avtalt tid — jeg holder det jeg lover",
+  "Levert innen avtalt tid — vi holder det vi lover",
   "Gratis opplæring — du lærer å oppdatere nettsiden selv",
-  "Norsk support — jeg snakker ditt språk, bokstavelig talt",
-  "Din nettside, din kode — du eier alt jeg lager for deg",
+  "Norsk support — vi snakker ditt språk, bokstavelig talt",
+  "Din nettside, din kode — du eier alt vi lager for deg",
 ] as const;
 
 export const TRUST_BADGES = [
@@ -58,40 +58,40 @@ export const TRUST_BADGES = [
 export const SECTION_HEADLINES = {
   services: "Alt du trenger for å lykkes på nett",
   process: "Fra idé til lansering på 1-2-3",
-  testimonials: "Det kundene mine sier",
-  portfolio: "Noen av prosjektene jeg er stolt av",
-  faq: "Spørsmål? Jeg har svarene",
+  testimonials: "Det kundene våre sier",
+  portfolio: "Noen av prosjektene vi er stolte av",
+  faq: "Spørsmål? Vi har svarene",
   blog: "Tips og innsikt for din bedrift",
   contact: "La oss snakke om din nettside",
-  about: "Mennesket bak nettsiden din",
+  about: "Menneskene bak nettsiden din",
   pricing: "Ærlige priser, ingen overraskelser",
 } as const;
 
 export const CONTACT_SECTION = {
   headlines: [
     "La oss ta en prat om din nettside",
-    "Klar for å ta steget? Jeg er her for deg",
-    "Fortell meg om drømmenettsiden din",
+    "Klar for å ta steget? Vi er her for deg",
+    "Fortell oss om drømmenettsiden din",
     "Første steg er en uforpliktende samtale",
   ],
   descriptions: [
-    "Send meg en melding, så tar jeg kontakt innen 24 timer. Helt uforpliktende.",
-    "Beskriv prosjektet ditt kort, så gir jeg deg et skreddersydd tilbud.",
-    "Ingen forpliktelser, ingen salgspress — bare en ærlig samtale om hva jeg kan gjøre for deg.",
+    "Send oss en melding, så tar vi kontakt innen 24 timer. Helt uforpliktende.",
+    "Beskriv prosjektet ditt kort, så gir vi deg et skreddersydd tilbud.",
+    "Ingen forpliktelser, ingen salgspress — bare en ærlig samtale om hva vi kan gjøre for deg.",
   ],
 } as const;
 
 export const BLOG_CTAS = [
-  "Vil du ha en nettside som faktisk gir resultater? Kontakt meg i dag.",
-  "Trenger du hjelp med nettsiden din? Jeg gir deg gjerne et uforpliktende tilbud.",
+  "Vil du ha en nettside som faktisk gir resultater? Kontakt oss i dag.",
+  "Trenger du hjelp med nettsiden din? Vi gir deg gjerne et uforpliktende tilbud.",
   "Usikker på hva bedriften din trenger? Book en gratis rådgivningssamtale.",
 ] as const;
 
 export const FOOTER_TAGLINE =
-  "Jeg bygger nettsider som gir norske bedrifter flere kunder." as const;
+  "Vi bygger nettsider som gir norske bedrifter flere kunder." as const;
 
 export const EMAIL_SUBJECTS = {
-  thankYou: "Takk for din henvendelse — jeg tar kontakt snart!",
+  thankYou: "Takk for din henvendelse — vi tar kontakt snart!",
   quote: "Ditt tilbud fra IDweb",
   welcome: "Velkommen som kunde hos IDweb",
 } as const;

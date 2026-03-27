@@ -74,7 +74,7 @@ export function BentoServices() {
           Alt du trenger for å lykkes på nett
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center font-light text-[var(--color-text-muted)]">
-          Jeg tilbyr helhetlige digitale tjenester — fra design og utvikling til
+          Vi tilbyr helhetlige digitale tjenester — fra design og utvikling til
           SEO og løpende vedlikehold.
         </p>
         <div className="mt-16">

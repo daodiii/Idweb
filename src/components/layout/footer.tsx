@@ -63,7 +63,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-3 text-sm font-light text-[var(--color-dark-muted)]">
-              Jeg bygger nettsider som gir norske bedrifter flere kunder.
+              Vi bygger nettsider som gir norske bedrifter flere kunder.
             </p>
             <div className="mt-4 space-y-1.5 text-sm font-light text-[var(--color-dark-muted)] md:mt-6 md:space-y-2">
               <p>

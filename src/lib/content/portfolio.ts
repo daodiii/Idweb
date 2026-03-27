@@ -1,7 +1,7 @@
 export const PORTFOLIO_PAGE = {
-  headline: "Prosjekter jeg har bygget",
+  headline: "Prosjekter vi har bygget",
   subheadline:
-    "Her er et utvalg av nettsidene jeg har designet og utviklet. Hvert prosjekt er skreddersydd med moderne teknologi, optimalisert for hastighet og søkemotorer.",
+    "Her er et utvalg av nettsidene vi har designet og utviklet. Hvert prosjekt er skreddersydd med moderne teknologi, optimalisert for hastighet og søkemotorer.",
 } as const;
 
 export const PROJECTS = [
@@ -11,7 +11,7 @@ export const PROJECTS = [
     industry: "Trossamfunn og fellesskap",
     title: "Moderne nettside for et trossamfunn",
     description:
-      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Jeg bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Siden har også integrasjon mot Facebook via API og viser bønnetider i sanntid hentet fra et eksternt API.",
+      "Center Rahma trengte en nettside som kommuniserte profesjonalitet og tillit. Vi bygget en moderne, visuelt tiltalende side med tjenesteoversikt, betalingssystem for donasjoner og kontaktskjema for medlemmer. Siden har også integrasjon mot Facebook via API og viser bønnetider i sanntid hentet fra et eksternt API.",
     services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "API-integrasjoner"],
     results: [
       "Facebook-integrasjon via API",
@@ -41,7 +41,7 @@ export const PROJECTS = [
     industry: "Helse og legetjenester",
     title: "Tillitvekkende nettside for legekontor",
     description:
-      "Brobekk Legekontor trengte en nettside som formidlet trygghet og profesjonalitet. Jeg designet en oversiktlig side med informasjon om tjenester, åpningstider og kontaktmuligheter — optimalisert for pasienter som søker etter legekontor i nærområdet.",
+      "Brobekk Legekontor trengte en nettside som formidlet trygghet og profesjonalitet. Vi designet en oversiktlig side med informasjon om tjenester, åpningstider og kontaktmuligheter — optimalisert for pasienter som søker etter legekontor i nærområdet.",
     services: ["Helsedesign", "Responsivt design", "Lokal SEO", "Kontaktskjema"],
     results: [
       "Optimalisert for lokale Google-søk",
@@ -55,7 +55,7 @@ export const PROJECTS = [
     industry: "Utdanning og kultur",
     title: "Informasjonsrik nettside for kultursenter",
     description:
-      "Iqra Senter trengte en nettside som viste frem aktiviteter, kurs og arrangementer på en engasjerende måte. Jeg bygget en oversiktlig og moderne side med tydelig navigasjon. Et sentralt mål var å formidle verdiene som familie, tro og tradisjon — slik at besøkende umiddelbart kjenner fellesskapet og tilhørigheten senteret står for.",
+      "Iqra Senter trengte en nettside som viste frem aktiviteter, kurs og arrangementer på en engasjerende måte. Vi bygget en oversiktlig og moderne side med tydelig navigasjon. Et sentralt mål var å formidle verdiene som familie, tro og tradisjon — slik at besøkende umiddelbart kjenner fellesskapet og tilhørigheten senteret står for.",
     services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Innholdsstruktur"],
     results: [
       "Formidler kjerneverdier som familie og tradisjon",
@@ -68,12 +68,12 @@ export const PROJECTS = [
 export const PORTFOLIO_CTA = {
   headline: "Vil du ha en nettside du er fornøyd med?",
   description:
-    "Hvert prosjekt starter med en samtale. Fortell meg om bedriften din og hva du ønsker å oppnå, så viser jeg deg hva jeg kan gjøre.",
+    "Hvert prosjekt starter med en samtale. Fortell oss om bedriften din og hva du ønsker å oppnå, så viser vi deg hva vi kan gjøre.",
   buttonText: "Start ditt prosjekt",
 } as const;
 
 export const CLIENT_LOGOS_SECTION = {
   heading: "Bygget for norske bedrifter",
   description:
-    "Fra helseklinikker til restauranter — jeg har hjulpet bedrifter med å få en profesjonell tilstedeværelse på nett.",
+    "Fra helseklinikker til restauranter — vi har hjulpet bedrifter med å få en profesjonell tilstedeværelse på nett.",
 } as const;

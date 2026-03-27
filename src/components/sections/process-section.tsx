@@ -79,7 +79,7 @@ function DesktopProcess() {
             Fra idé til lansering på 1-2-3
           </h2>
           <p className="mx-auto max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
-            Min velprøvde prosess sørger for at du får en nettside du er stolt
+            Vår velprøvde prosess sørger for at du får en nettside du er stolt
             av — uten stress.
           </p>
         </div>

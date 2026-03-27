@@ -33,7 +33,7 @@ export function ServiceFeatureSteps() {
   return (
     <section className="light-section-warm-alt px-4 py-8 sm:py-24 md:py-32">
       <p className="text-center text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">
-        Mine tjenester
+        Våre tjenester
       </p>
       <FeatureSteps
         features={serviceFeatures}
