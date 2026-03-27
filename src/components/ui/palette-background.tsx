@@ -9,6 +9,7 @@ const PALETTES = {
   drommeslor: ["#E9A6A6", "#1F1D36", "#F0F0F0", "#864879", "#3F3351", "#2E2E2E"],
   orkenblomst: ["#FFAB91", "#3E2723", "#FFF3E0", "#6D4C41", "#FF7043", "#D7CCC8"],
   kosmos: ["#E94560", "#0F0F1B", "#F5F5F5", "#16213E", "#533483", "#1B1B2F"],
+  smaragd: ["#0D6B4E", "#0A1A14", "#D4AF37", "#134E3A", "#B8860B", "#1A3C2C"],
 } as const;
 
 export type PaletteId = keyof typeof PALETTES;

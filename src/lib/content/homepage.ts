@@ -74,15 +74,15 @@ export const PROBLEM_CARDS = [
 export const COMPARISON_GRID: ComparisonCard[] = [
   // Row 1
   { type: "byrå", icon: "🧱", title: "WordPress + plugins", description: "Tunge ferdigløsninger som bremser ytelse og sikkerhet", accent: "#ef4444" },
-  { type: "idweb", icon: "⚡", title: "Next.js — fra bunnen av", description: "Moderne rammeverk, lynrask og skalerbar", accent: "#22c55e" },
+  { type: "idweb", icon: "⚡", title: "Next.js — fra bunnen av", description: "Moderne rammeverk, lynrask og skalerbar", accent: "#34D399" },
   { type: "byrå", stat: "3-5", unit: "s", title: "Treg lastetid", description: "Besøkende forlater siden før den laster", accent: "#ef4444" },
   // Row 2
-  { type: "idweb", icon: "💬", title: "Direkte til utvikleren", description: "Ingen mellomledd — du snakker med den som bygger", accent: "#fbbf24" },
-  { type: "idweb", stat: "<1", unit: "s", title: "Lastetid", description: "Mens typiske sider bruker 3–5 sekunder", accent: "#38bdf8" },
-  { type: "idweb", stat: "90", unit: "+", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#a855f7" },
+  { type: "idweb", icon: "💬", title: "Direkte til utvikleren", description: "Ingen mellomledd — du snakker med den som bygger", accent: "#D4AF37" },
+  { type: "idweb", stat: "<1", unit: "s", title: "Lastetid", description: "Mens typiske sider bruker 3–5 sekunder", accent: "#6EE7B7" },
+  { type: "idweb", stat: "90", unit: "+", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#F5D060" },
   // Row 3
   { type: "byrå", icon: "🤵", title: "Snakker med en selger", description: "Mellomledd som ikke kjenner koden", accent: "#ef4444" },
-  { type: "idweb", icon: "🎨", title: "100 % skreddersydd", description: "Designet kun for din bedrift — ingen maler", accent: "#f97316" },
+  { type: "idweb", icon: "🎨", title: "100 % skreddersydd", description: "Designet kun for din bedrift — ingen maler", accent: "#10B981" },
   { type: "byrå", icon: "📋", title: "Ferdigmaler", description: "Tilpasset «litt» — ser ut som alle andre", accent: "#ef4444" },
 ];
 
