@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <div className="bg-[var(--color-dark-bg)]">
+    <PaletteBackground palette="drommeslor" as="div" speed={120} intensity={0.6}>
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
@@ -24,26 +24,24 @@ export default function KontaktPage() {
         ]}
       />
       {/* Hero */}
-      <PaletteBackground palette="drommeslor" speed={120} fadeBottom>
-        <div className="px-6 py-28 text-center sm:py-36">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
-              Kontakt
-            </p>
-            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
-              La oss snakke om din nettside
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
-              Send oss en melding, så tar vi kontakt innen 24 timer. Helt
-              uforpliktende — ingen salgspress, bare en ærlig samtale om hva vi
-              kan gjøre for deg.
-            </p>
-          </div>
+      <section className="px-6 py-28 text-center sm:py-36">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
+            Kontakt
+          </p>
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
+            La oss snakke om din nettside
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
+            Send oss en melding, så tar vi kontakt innen 24 timer. Helt
+            uforpliktende — ingen salgspress, bare en ærlig samtale om hva vi
+            kan gjøre for deg.
+          </p>
         </div>
-      </PaletteBackground>
+      </section>
 
       {/* Contact Form + Info */}
-      <PaletteBackground palette="drommeslor" intensity={0.5} fromDeg={180} speed={120} fadeTop>
+      <section>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
             {/* Form */}
@@ -240,7 +238,7 @@ export default function KontaktPage() {
             </div>
           </div>
         </div>
-      </PaletteBackground>
-    </div>
+      </section>
+    </PaletteBackground>
   );
 }

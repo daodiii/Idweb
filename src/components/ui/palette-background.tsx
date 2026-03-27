@@ -3,11 +3,12 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
 const PALETTES = {
-  horisonten: ["#0B132B", "#1C2541", "#3A506B", "#5BC0BE", "#F4F4F4", "#FF6B6B"],
-  "stille-spenning": ["#1A1A1D", "#4E4E50", "#6F2232", "#950740", "#C3073F", "#EAEAEA"],
-  drommeslor: ["#1F1D36", "#3F3351", "#864879", "#E9A6A6", "#F0F0F0", "#2E2E2E"],
-  orkenblomst: ["#3E2723", "#6D4C41", "#D7CCC8", "#FFAB91", "#FF7043", "#FFF3E0"],
-  kosmos: ["#0F0F1B", "#1B1B2F", "#16213E", "#533483", "#E94560", "#F5F5F5"],
+  // Colors reordered: bright and dark interleaved so vibrancy is spread around the circle
+  horisonten: ["#5BC0BE", "#0B132B", "#F4F4F4", "#3A506B", "#FF6B6B", "#1C2541"],
+  "stille-spenning": ["#C3073F", "#1A1A1D", "#EAEAEA", "#6F2232", "#950740", "#4E4E50"],
+  drommeslor: ["#E9A6A6", "#1F1D36", "#F0F0F0", "#864879", "#3F3351", "#2E2E2E"],
+  orkenblomst: ["#FFAB91", "#3E2723", "#FFF3E0", "#6D4C41", "#FF7043", "#D7CCC8"],
+  kosmos: ["#E94560", "#0F0F1B", "#F5F5F5", "#16213E", "#533483", "#1B1B2F"],
 } as const;
 
 export type PaletteId = keyof typeof PALETTES;
@@ -27,6 +28,17 @@ interface PaletteBackgroundProps {
   children: ReactNode;
 }
 
+/**
+ * Gradient layer configuration for multi-blob coverage.
+ * Each blob is positioned at a different vertical zone with a staggered
+ * starting angle so that color is always visible somewhere on the page.
+ */
+const GRADIENT_LAYERS = [
+  { top: "-20%", startOffset: 0 },
+  { top: "25%", startOffset: 120 },
+  { top: "65%", startOffset: 240 },
+];
+
 export function PaletteBackground({
   palette,
   as: Tag = "section",
@@ -39,16 +51,20 @@ export function PaletteBackground({
   fadeBottom = false,
   children,
 }: PaletteBackgroundProps) {
-  const gradientRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Pause animation when out of viewport
+  // Pause all gradient animations when container is out of viewport
   useEffect(() => {
-    const el = gradientRef.current;
+    const el = containerRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        el.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+        const drifters = el.querySelectorAll<HTMLDivElement>(".palette-drift");
+        const state = entry.isIntersecting ? "running" : "paused";
+        drifters.forEach((d) => {
+          d.style.animationPlayState = state;
+        });
       },
       { threshold: 0 },
     );
@@ -58,23 +74,33 @@ export function PaletteBackground({
   }, []);
 
   const colors = PALETTES[palette];
-  const gradient = `conic-gradient(from ${fromDeg}deg, ${colors.join(", ")}, ${colors[0]})`;
 
   return (
-    <Tag className={`relative overflow-hidden bg-[var(--color-dark-bg)] ${className}`}>
-      {/* z-1: Conic gradient with slow drift */}
-      <div
-        ref={gradientRef}
-        className="palette-drift pointer-events-none absolute inset-[-20%] z-[1]"
-        aria-hidden="true"
-        style={{
-          background: gradient,
-          filter: `blur(${blur}px) saturate(160%)`,
-          opacity: intensity,
-          animationDuration: `${speed}s`,
-          willChange: "transform",
-        }}
-      />
+    <Tag ref={containerRef} className={`relative overflow-hidden bg-[var(--color-dark-bg)] ${className}`}>
+      {/* z-1: Multiple conic gradient blobs for continuous color coverage */}
+      {GRADIENT_LAYERS.map((layer, i) => {
+        const deg = (fromDeg + layer.startOffset) % 360;
+        const grad = `conic-gradient(from ${deg}deg, ${colors.join(", ")}, ${colors[0]})`;
+        return (
+          <div
+            key={i}
+            className="palette-drift pointer-events-none absolute z-[1]"
+            aria-hidden="true"
+            style={{
+              top: layer.top,
+              left: "-20%",
+              right: "-20%",
+              height: "60%",
+              background: grad,
+              filter: `blur(${blur + 15}px) saturate(160%)`,
+              opacity: intensity * (i === 0 ? 1 : 0.7),
+              animationDuration: `${speed + i * 15}s`,
+              animationDelay: `${-i * (speed / 3)}s`,
+              willChange: "transform",
+            }}
+          />
+        );
+      })}
 
       {/* z-2: Noise texture */}
       <div

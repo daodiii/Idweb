@@ -12,10 +12,6 @@ import { PaletteBackground } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import type { PortfolioSiteId } from "@/types";
 
-// Single palette for cohesion — intensity varies per project for subtle rhythm
-const INTENSITY_ORDER = [0.7, 0.5, 0.8, 0.4, 0.6];
-const DEGREE_ORDER = [180, 0, 180, 0, 180];
-
 export const metadata: Metadata = {
   title: "Referanser — Se nettsidene vi har levert",
   description:
@@ -33,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function ReferanserPage() {
   return (
-    <div className="text-[var(--color-dark-text)]">
+    <PaletteBackground palette="horisonten" as="div" speed={120} intensity={0.6} className="text-[var(--color-dark-text)]">
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
@@ -41,7 +37,7 @@ export default function ReferanserPage() {
         ]}
       />
       {/* Hero */}
-      <PaletteBackground palette="horisonten" speed={120} fadeBottom className="px-6 py-24 text-center">
+      <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             {PORTFOLIO_PAGE.headline}
@@ -50,7 +46,7 @@ export default function ReferanserPage() {
             {PORTFOLIO_PAGE.subheadline}
           </p>
         </div>
-      </PaletteBackground>
+      </section>
 
       {/* Projects */}
       {PROJECTS.map((project, index) => {
@@ -59,14 +55,8 @@ export default function ReferanserPage() {
         const heroImage = site?.images.heroImage ?? site?.images.full;
 
         return (
-          <PaletteBackground
+          <section
             key={project.id}
-            palette="horisonten"
-            intensity={INTENSITY_ORDER[index % INTENSITY_ORDER.length]}
-            fromDeg={DEGREE_ORDER[index % DEGREE_ORDER.length]}
-            speed={120}
-            fadeTop
-            fadeBottom={index < PROJECTS.length - 1}
             className={`px-4 sm:px-6 ${index === 0 ? "pt-6 pb-6 sm:pt-8 sm:pb-10" : index === PROJECTS.length - 1 ? "pt-6 pb-16 sm:pt-10 sm:pb-24" : "py-6 sm:py-10"}`}
           >
             <div className="mx-auto max-w-6xl">
@@ -167,12 +157,12 @@ export default function ReferanserPage() {
                 <div className="mt-6 border-t border-white/[0.06] sm:mt-10" />
               )}
             </div>
-          </PaletteBackground>
+          </section>
         );
       })}
 
       {/* CTA */}
-      <PaletteBackground palette="horisonten" intensity={0.9} fromDeg={0} speed={120} fadeTop className="px-6 py-24">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-[-0.02em]">{PORTFOLIO_CTA.headline}</h2>
           <p className="mt-4 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
@@ -185,7 +175,7 @@ export default function ReferanserPage() {
             {PORTFOLIO_CTA.buttonText}
           </Link>
         </div>
-      </PaletteBackground>
-    </div>
+      </section>
+    </PaletteBackground>
   );
 }

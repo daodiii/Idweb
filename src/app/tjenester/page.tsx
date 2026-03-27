@@ -41,7 +41,7 @@ const SERVICES = [
 
 export default function TjenesterPage() {
   return (
-    <div className="bg-[var(--color-dark-bg)]">
+    <PaletteBackground palette="stille-spenning" as="div" speed={120} intensity={0.6}>
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
@@ -50,25 +50,23 @@ export default function TjenesterPage() {
       />
 
       {/* Hero */}
-      <PaletteBackground palette="stille-spenning" speed={120} fadeBottom>
-        <div className="px-6 py-28 text-center sm:py-36">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
-              Tjenester
-            </p>
-            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
-              Alt du trenger for å lykkes på nett
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
-              Fra design og utvikling til SEO og vedlikehold — vi tar oss av hele
-              prosessen slik at du kan fokusere på det du gjør best.
-            </p>
-          </div>
+      <section className="px-6 py-28 text-center sm:py-36">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
+            Tjenester
+          </p>
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
+            Alt du trenger for å lykkes på nett
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
+            Fra design og utvikling til SEO og vedlikehold — vi tar oss av hele
+            prosessen slik at du kan fokusere på det du gjør best.
+          </p>
         </div>
-      </PaletteBackground>
+      </section>
 
       {/* Services grid */}
-      <div className="px-6 py-16 sm:py-24">
+      <section className="px-6 py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3">
           {SERVICES.map((service) => (
             <Link
@@ -100,10 +98,10 @@ export default function TjenesterPage() {
             </Link>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* CTA */}
-      <div className="px-6 pb-24 text-center">
+      <section className="px-6 pb-24 text-center">
         <p className="text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
           Usikker på hva du trenger?
         </p>
@@ -113,7 +111,7 @@ export default function TjenesterPage() {
         >
           Få et uforpliktende tilbud
         </Link>
-      </div>
-    </div>
+      </section>
+    </PaletteBackground>
   );
 }
