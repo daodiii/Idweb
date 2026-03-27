@@ -16,10 +16,10 @@ const MOBILE_LINKS = [
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   { href: "/tjenester/seo", label: "SEO-optimalisering" },
   { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
-  { href: "/priser", label: "Priser" },
-  { href: "/om-oss", label: "Om oss" },
   { href: "/referanser", label: "Referanser" },
+  { href: "/priser", label: "Priser" },
   { href: "/blogg", label: "Nyttige artikler" },
+  { href: "/om-oss", label: "Om oss" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -122,24 +122,17 @@ export function Navbar() {
               </MenuItem>
 
               <Link
-                href="/priser"
-                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-              >
-                Priser
-              </Link>
-
-              <MenuItem setActive={setActive} active={active} item="Om oss">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/om-oss">Om selskapet</HoveredLink>
-                  <HoveredLink href="/faq">FAQ</HoveredLink>
-                </div>
-              </MenuItem>
-
-              <Link
                 href="/referanser"
                 className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
               >
                 Referanser
+              </Link>
+
+              <Link
+                href="/priser"
+                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+              >
+                Priser
               </Link>
 
               <Link
@@ -148,6 +141,13 @@ export function Navbar() {
               >
                 Nyttige artikler
               </Link>
+
+              <MenuItem setActive={setActive} active={active} item="Om oss">
+                <div className="flex flex-col space-y-4 text-sm">
+                  <HoveredLink href="/om-oss">Om selskapet</HoveredLink>
+                  <HoveredLink href="/faq">FAQ</HoveredLink>
+                </div>
+              </MenuItem>
             </Menu>
           </div>
 
