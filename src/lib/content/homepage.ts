@@ -2,10 +2,8 @@ import type { Testimonial, ProcessStep, TrustSignal, ComparisonCard } from "@/ty
 import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
-  eyebrow: "5 PROSJEKTER \u00b7 5 FORN\u00d8YDE KUNDER \u00b7 100% TILFREDSHET",
-  headline: "Din nettside skal",
-  headlineHighlight: "jobbe for deg",
-  headlineEnd: "\u2014 ikke mot deg",
+  brand: "IDWEB",
+  headline: "BYGGER DIN NYE NETTSIDE",
   subheadline:
     "Bygget med moderne teknologi. Optimalisert for Google. Designet for \u00e5 konvertere bes\u00f8kende til kunder.",
   primaryCta: "Se mine prosjekter",
