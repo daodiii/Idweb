@@ -4,6 +4,7 @@ import { SEO } from "@/lib/content/seo";
 import { FAQ_PAGE, FAQS } from "@/lib/content/faq";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { PaletteBackground } from "@/components/ui/palette-background";
 
 export const metadata: Metadata = {
   title: SEO.faq.title,
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <div>
+    <PaletteBackground palette="smaragd" as="div" speed={120} intensity={0.65}>
       <FaqJsonLd faqs={FAQS} />
       <BreadcrumbJsonLd
         items={[
@@ -27,10 +28,10 @@ export default function FaqPage() {
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             {FAQ_PAGE.headline}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-text-muted)] sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
             {FAQ_PAGE.subheadline}
           </p>
         </div>
@@ -42,10 +43,10 @@ export default function FaqPage() {
           {FAQS.map((faq, index) => (
             <div
               key={index}
-              className="border-b border-[var(--color-border)] pb-8"
+              className="border-b border-[var(--color-dark-border)] pb-8"
             >
-              <h2 className="text-xl font-bold tracking-[-0.01em]">{faq.question}</h2>
-              <p className="mt-3 font-light text-[var(--color-text-muted)] leading-relaxed">
+              <h2 className="text-xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">{faq.question}</h2>
+              <p className="mt-3 font-light text-[var(--color-dark-muted)] leading-relaxed">
                 {faq.answer}
               </p>
             </div>
@@ -54,12 +55,12 @@ export default function FaqPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[var(--color-bg-alt)] px-6 py-24">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-[-0.02em]">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)]">
             Fant du ikke svaret du lette etter?
           </h2>
-          <p className="mt-4 text-base font-light text-[var(--color-text-muted)] sm:text-lg">
+          <p className="mt-4 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
             Ta kontakt med oss — vi svarer gjerne på alle spørsmål, helt
             uforpliktende.
           </p>
@@ -71,6 +72,6 @@ export default function FaqPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </PaletteBackground>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { SITE_NAME, FOOTER_LINKS, CONTACT_INFO } from "@/lib/constants";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
-import { PaletteBackground } from "@/components/ui/palette-background";
+
 
 function FooterAccordion({
   title,
@@ -47,7 +47,7 @@ function FooterAccordion({
 
 export function Footer() {
   return (
-    <PaletteBackground as="footer" palette="kosmos" intensity={0.4} className="border-t border-[var(--color-dark-border)]">
+    <footer className="bg-[var(--color-dark-bg)] border-t border-[var(--color-dark-border)]">
       <div className="mx-auto max-w-6xl px-6 pb-24 pt-10 md:py-16">
         {/* Top section */}
         <div className="grid gap-6 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
@@ -145,6 +145,6 @@ export function Footer() {
           </p>
         </div>
       </div>
-    </PaletteBackground>
+    </footer>
   );
 }

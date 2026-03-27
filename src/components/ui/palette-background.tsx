@@ -10,6 +10,7 @@ const PALETTES = {
   orkenblomst: ["#FFAB91", "#3E2723", "#FFF3E0", "#6D4C41", "#FF7043", "#D7CCC8"],
   kosmos: ["#E94560", "#0F0F1B", "#F5F5F5", "#16213E", "#533483", "#1B1B2F"],
   smaragd: ["#0D6B4E", "#0A1A14", "#D4AF37", "#134E3A", "#B8860B", "#1A3C2C"],
+  jordtone: ["#8B5E3C", "#1A120B", "#D4A574", "#5C3D2E", "#A0522D", "#2C1810"],
 } as const;
 
 export type PaletteId = keyof typeof PALETTES;

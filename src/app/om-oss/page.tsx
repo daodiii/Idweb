@@ -37,7 +37,7 @@ const VALUE_ICONS: Record<string, React.FC<{ className?: string }>> = {
 
 export default function OmOssPage() {
   return (
-    <PaletteBackground palette="horisonten" as="div" speed={120} intensity={0.65}>
+    <PaletteBackground palette="jordtone" as="div" speed={120} intensity={0.65}>
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
