@@ -49,7 +49,7 @@ export function TestimonialCard({
           <AvatarImage src={author.avatar} alt={author.name} />
         </Avatar>
         <div className="flex flex-col items-start min-w-0">
-          <h3 className="text-md font-semibold leading-none truncate max-w-full text-[var(--color-dark-text)]">{author.name}</h3>
+          <h3 className="text-md font-bold tracking-[-0.01em] leading-none truncate max-w-full text-[var(--color-dark-text)]">{author.name}</h3>
           <p className="text-xs text-[var(--color-dark-muted)] truncate max-w-full">{author.handle}</p>
           {author.company && (
             <p className="text-xs font-medium text-[var(--color-accent)] opacity-80 truncate max-w-full">{author.company}</p>
@@ -75,7 +75,7 @@ export function TestimonialCard({
         </div>
       )}
 
-      <p className="sm:text-md mt-3 text-sm text-[var(--color-dark-muted)] line-clamp-4">{text}</p>
+      <p className="sm:text-md mt-3 text-sm font-light text-[var(--color-dark-muted)] line-clamp-4">{text}</p>
     </Card>
   )
 }

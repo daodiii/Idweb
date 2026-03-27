@@ -55,7 +55,7 @@ export function CountUpStat({ value, suffix = "", prefix = "", decimals }: Count
   }, [value]);
 
   return (
-    <span ref={ref} className="tabular-nums" aria-label={`${prefix}${value}${suffix}`}>
+    <span ref={ref} className="tabular-nums font-serif font-black tracking-[-0.03em]" aria-label={`${prefix}${value}${suffix}`}>
       {prefix}{decimals ? display.toFixed(decimals) : display}{suffix}
     </span>
   );

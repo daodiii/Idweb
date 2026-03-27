@@ -19,7 +19,7 @@ function FooterAccordion({
       {/* Mobile: native <details> for progressive enhancement (works without JS) */}
       <details className="group md:hidden">
         <summary className="flex cursor-pointer list-none items-center justify-between py-3 text-left [&::-webkit-details-marker]:hidden">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-dark-text)]">
+          <h3 className="text-sm font-medium uppercase tracking-[3px] text-[var(--color-dark-text)]">
             {title}
           </h3>
           <ChevronDown
@@ -34,7 +34,7 @@ function FooterAccordion({
 
       {/* Desktop: always visible */}
       <div className="hidden md:block">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-pretty text-[var(--color-dark-text)]">
+        <h3 className="text-sm font-medium uppercase tracking-[3px] text-pretty text-[var(--color-dark-text)]">
           {title}
         </h3>
         <div className="mt-4">
@@ -62,10 +62,10 @@ export function Footer() {
                 className="h-16 w-auto md:h-20 [filter:drop-shadow(0_0_0.5px_rgba(0,0,0,0.3))]"
               />
             </Link>
-            <p className="mt-3 text-sm text-[var(--color-dark-muted)]">
+            <p className="mt-3 text-sm font-light text-[var(--color-dark-muted)]">
               Jeg bygger nettsider som gir norske bedrifter flere kunder.
             </p>
-            <div className="mt-4 space-y-1.5 text-sm text-[var(--color-dark-muted)] md:mt-6 md:space-y-2">
+            <div className="mt-4 space-y-1.5 text-sm font-light text-[var(--color-dark-muted)] md:mt-6 md:space-y-2">
               <p>
                 <a href={CONTACT_INFO.phoneHref} className="hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]">
                   {CONTACT_INFO.phone}
@@ -87,7 +87,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+                    className="text-sm font-light text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
                   >
                     {link.label}
                   </Link>
@@ -103,7 +103,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+                    className="text-sm font-light text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
                   >
                     {link.label}
                   </Link>
@@ -119,7 +119,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+                    className="text-sm font-light text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
                   >
                     {link.label}
                   </Link>
