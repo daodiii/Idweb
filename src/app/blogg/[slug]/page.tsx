@@ -76,10 +76,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span>&middot;</span>
             <span>{post.readingTime} lesetid</span>
           </div>
-          <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <h1 className="mt-6 text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-6 text-lg text-[var(--color-text-muted)]">
+          <p className="mt-6 text-base font-light text-[var(--color-text-muted)] sm:text-lg">
             {post.excerpt}
           </p>
         </div>
@@ -91,12 +91,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {post.sections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mt-12 first:mt-0">
               {section.heading && (
-                <h2 className="text-2xl font-bold">{section.heading}</h2>
+                <h2 className="text-2xl font-bold tracking-[-0.01em]">{section.heading}</h2>
               )}
               {section.paragraphs.map((paragraph, paraIndex) => (
                 <p
                   key={paraIndex}
-                  className="mt-4 text-[var(--color-text-muted)] leading-relaxed"
+                  className="mt-4 font-light text-[var(--color-text-muted)] leading-relaxed"
                 >
                   {paragraph}
                 </p>

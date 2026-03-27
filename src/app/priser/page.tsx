@@ -47,13 +47,13 @@ export default function PriserPage() {
       <PaletteBackground palette="kosmos" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Priser
             </p>
-            <h1 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
               {PRICING_PAGE.headline}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               {PRICING_PAGE.subheadline}
             </p>
           </div>
@@ -79,21 +79,21 @@ export default function PriserPage() {
                   </div>
                 )}
                 <div className={pkg.highlight ? "p-8 lg:py-10" : "p-8"}>
-                  <h2 className="text-2xl font-bold text-[var(--color-dark-text)]">
+                  <h2 className="text-2xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                     {pkg.name}
                   </h2>
                   <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
                     {pkg.subtitle}
                   </p>
                   <div className="mt-6">
-                    <span className={`font-bold tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
+                    <span className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
                       {pkg.price}
                     </span>
                     <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
                       + {pkg.monthly} {pkg.monthlyNote}
                     </p>
                   </div>
-                  <p className="mt-4 text-[var(--color-dark-muted)]">
+                  <p className="mt-4 font-light text-[var(--color-dark-muted)]">
                     {pkg.description}
                   </p>
                   <ul className="mt-6 flex-1 space-y-3">
@@ -129,13 +129,13 @@ export default function PriserPage() {
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                 Vedlikehold
               </p>
-              <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
                 Vedlikehold og drift
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+              <p className="mx-auto mt-5 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
                 Har du allerede en nettside? Vi holder den oppdatert, sikker og rask
                 — så du kan fokusere på bedriften din.
               </p>
@@ -156,15 +156,15 @@ export default function PriserPage() {
                     </div>
                   )}
                   <div className={pkg.highlight ? "p-8 lg:py-10" : "p-8"}>
-                    <h3 className="text-2xl font-bold text-[var(--color-dark-text)]">
+                    <h3 className="text-2xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                       {pkg.name}
                     </h3>
                     <div className="mt-4">
-                      <span className={`font-bold tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
+                      <span className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
                         {pkg.price}
                       </span>
                     </div>
-                    <p className="mt-4 text-[var(--color-dark-muted)]">
+                    <p className="mt-4 font-light text-[var(--color-dark-muted)]">
                       {pkg.description}
                     </p>
                     <ul className="mt-6 flex-1 space-y-3">
@@ -201,13 +201,13 @@ export default function PriserPage() {
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                 Tillegg
               </p>
-              <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
                 Tilleggstjenester
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+              <p className="mx-auto mt-5 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
                 Utvid med tjenester som gir nettsiden din ekstra slagkraft.
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function PriserPage() {
                   key={service.name}
                   className="group rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-7 backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-accent)]/20 hover:shadow-lg hover:shadow-[var(--color-accent)]/5"
                 >
-                  <h3 className="font-bold text-[var(--color-dark-text)]">
+                  <h3 className="font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                     {service.name}
                   </h3>
                   <p className="mt-1 text-sm font-semibold text-[var(--color-accent)]">
@@ -243,10 +243,10 @@ export default function PriserPage() {
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                 FAQ
               </p>
-              <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
                 Spørsmål om priser
               </h2>
             </div>
@@ -256,10 +256,10 @@ export default function PriserPage() {
                   key={index}
                   className="rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-6 backdrop-blur-sm"
                 >
-                  <h3 className="font-bold text-[var(--color-dark-text)]">
+                  <h3 className="font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                     {faq.question}
                   </h3>
-                  <p className="mt-2 text-[var(--color-dark-muted)]">
+                  <p className="mt-2 font-light text-[var(--color-dark-muted)]">
                     {faq.answer}
                   </p>
                 </div>
@@ -273,10 +273,10 @@ export default function PriserPage() {
       <PaletteBackground palette="kosmos" intensity={0.9} fromDeg={180} speed={120} fadeTop>
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">
+            <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
               {PRICING_CTA.headline}
             </h2>
-            <p className="mt-5 text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mt-5 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               {PRICING_CTA.description}
             </p>
             <Link

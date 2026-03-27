@@ -27,10 +27,10 @@ export default function FaqPage() {
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             {FAQ_PAGE.headline}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-text-muted)]">
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-text-muted)] sm:text-lg">
             {FAQ_PAGE.subheadline}
           </p>
         </div>
@@ -44,8 +44,8 @@ export default function FaqPage() {
               key={index}
               className="border-b border-[var(--color-border)] pb-8"
             >
-              <h2 className="text-xl font-bold">{faq.question}</h2>
-              <p className="mt-3 text-[var(--color-text-muted)] leading-relaxed">
+              <h2 className="text-xl font-bold tracking-[-0.01em]">{faq.question}</h2>
+              <p className="mt-3 font-light text-[var(--color-text-muted)] leading-relaxed">
                 {faq.answer}
               </p>
             </div>
@@ -56,10 +56,10 @@ export default function FaqPage() {
       {/* CTA */}
       <section className="bg-[var(--color-bg-alt)] px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em]">
             Fant du ikke svaret du lette etter?
           </h2>
-          <p className="mt-4 text-lg text-[var(--color-text-muted)]">
+          <p className="mt-4 text-base font-light text-[var(--color-text-muted)] sm:text-lg">
             Ta kontakt med oss — vi svarer gjerne på alle spørsmål, helt
             uforpliktende.
           </p>

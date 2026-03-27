@@ -27,13 +27,13 @@ export default function KontaktPage() {
       <PaletteBackground palette="drommeslor" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Kontakt
             </p>
-            <h1 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
               La oss snakke om din nettside
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               Send oss en melding, så tar vi kontakt innen 24 timer. Helt
               uforpliktende — ingen salgspress, bare en ærlig samtale om hva vi
               kan gjøre for deg.
@@ -48,10 +48,10 @@ export default function KontaktPage() {
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
             {/* Form */}
             <div className="rounded-3xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-8 backdrop-blur-sm sm:p-10">
-              <h2 className="text-2xl font-bold text-[var(--color-dark-text)]">
+              <h2 className="text-2xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                 Send oss en melding
               </h2>
-              <p className="mt-2 text-[var(--color-dark-muted)]">
+              <p className="mt-2 font-light text-[var(--color-dark-muted)]">
                 Fortell oss litt om bedriften din og hva du ønsker å oppnå. Jo mer
                 du deler, desto bedre tilbud kan vi gi deg.
               </p>
@@ -159,10 +159,10 @@ export default function KontaktPage() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-[var(--color-dark-text)]">
+                <h2 className="text-2xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                   Kontaktinformasjon
                 </h2>
-                <p className="mt-2 text-[var(--color-dark-muted)]">
+                <p className="mt-2 font-light text-[var(--color-dark-muted)]">
                   Foretrekker du å ta kontakt direkte? Vi er tilgjengelige på
                   telefon og e-post i hverdager mellom 08:00 og 17:00.
                 </p>

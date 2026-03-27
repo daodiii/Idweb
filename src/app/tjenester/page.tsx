@@ -53,13 +53,13 @@ export default function TjenesterPage() {
       <PaletteBackground palette="stille-spenning" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Tjenester
             </p>
-            <h1 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
               Alt du trenger for å lykkes på nett
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               Fra design og utvikling til SEO og vedlikehold — vi tar oss av hele
               prosessen slik at du kan fokusere på det du gjør best.
             </p>
@@ -76,10 +76,10 @@ export default function TjenesterPage() {
               href={`/tjenester/${service.slug}`}
               className="group rounded-2xl border border-white/[0.06] bg-[var(--color-dark-glass)] p-8 backdrop-blur-sm transition-all hover:border-[var(--color-accent)]/30 hover:bg-white/[0.06]"
             >
-              <h2 className="text-xl font-bold text-[var(--color-dark-text)] group-hover:text-[var(--color-accent)] transition-colors">
+              <h2 className="text-xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)] group-hover:text-[var(--color-accent)] transition-colors">
                 {service.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-dark-muted)]">
+              <p className="mt-3 text-sm font-light leading-relaxed text-[var(--color-dark-muted)]">
                 {service.description}
               </p>
               <ul className="mt-6 space-y-2">
@@ -104,7 +104,7 @@ export default function TjenesterPage() {
 
       {/* CTA */}
       <div className="px-6 pb-24 text-center">
-        <p className="text-lg text-[var(--color-dark-muted)]">
+        <p className="text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
           Usikker på hva du trenger?
         </p>
         <Link

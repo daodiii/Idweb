@@ -57,10 +57,10 @@ export default function BloggPage() {
       {/* Hero */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             Tips og innsikt for din bedrift
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-text-muted)]">
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-text-muted)] sm:text-lg">
             Praktiske artikler om nettsider, SEO, digital markedsføring og alt
             du trenger for å lykkes på nett. Skrevet av oss, for norske
             bedrifter.
@@ -103,7 +103,7 @@ export default function BloggPage() {
                 <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
                   <span>{post.readingTime}</span>
                 </div>
-                <h2 className="mt-2 text-lg font-bold leading-snug">
+                <h2 className="mt-2 text-lg font-bold tracking-[-0.01em] leading-snug">
                   <Link
                     href={`/blogg/${post.slug}`}
                     className="transition-colors hover:text-[var(--color-accent)]"
@@ -129,10 +129,10 @@ export default function BloggPage() {
       {/* CTA — Yellow gradient */}
       <section className="bg-gradient-to-r from-[var(--color-accent)] to-[#FBBF24] px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-[var(--color-dark-bg)]">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-bg)]">
             Vil du ha en nettside som faktisk gir resultater?
           </h2>
-          <p className="mt-4 text-lg text-[var(--color-dark-bg)]/70">
+          <p className="mt-4 text-base font-light text-[var(--color-dark-bg)]/70 sm:text-lg">
             Vi hjelper norske bedrifter med å lykkes på nett. Kontakt oss for en
             uforpliktende samtale.
           </p>

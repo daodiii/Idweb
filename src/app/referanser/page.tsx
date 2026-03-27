@@ -43,10 +43,10 @@ export default function ReferanserPage() {
       {/* Hero */}
       <PaletteBackground palette="horisonten" speed={120} fadeBottom className="px-6 py-24 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             {PORTFOLIO_PAGE.headline}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-dark-muted)]">
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
             {PORTFOLIO_PAGE.subheadline}
           </p>
         </div>
@@ -72,10 +72,10 @@ export default function ReferanserPage() {
             <div className="mx-auto max-w-6xl">
               {/* Project header — industry tag + title */}
               <div className="mb-4 sm:mb-8">
-                <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]">
+                <p className="text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                   {project.industry}
                 </p>
-                <h2 className="mt-1 text-2xl font-bold sm:mt-2 sm:text-4xl">{project.title}</h2>
+                <h2 className="mt-1 text-2xl font-bold tracking-[-0.01em] sm:mt-2 sm:text-4xl">{project.title}</h2>
                 <p className="mt-0.5 text-base text-[var(--color-dark-muted)] sm:mt-1 sm:text-lg">
                   {project.client}
                 </p>
@@ -121,7 +121,7 @@ export default function ReferanserPage() {
 
               {/* Project details — description + wide Tjenester/Resultater box */}
               <div className="mt-4 sm:mt-6">
-                <p className="text-base leading-relaxed text-[var(--color-dark-muted)] sm:text-lg">
+                <p className="text-base font-light leading-relaxed text-[var(--color-dark-muted)] sm:text-lg">
                   {project.description}
                 </p>
 
@@ -174,8 +174,8 @@ export default function ReferanserPage() {
       {/* CTA */}
       <PaletteBackground palette="horisonten" intensity={0.9} fromDeg={0} speed={120} fadeTop className="px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold">{PORTFOLIO_CTA.headline}</h2>
-          <p className="mt-4 text-lg text-[var(--color-dark-muted)]">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em]">{PORTFOLIO_CTA.headline}</h2>
+          <p className="mt-4 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
             {PORTFOLIO_CTA.description}
           </p>
           <Link

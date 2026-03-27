@@ -48,13 +48,13 @@ export default function OmOssPage() {
       <PaletteBackground palette="horisonten" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Om oss
             </p>
-            <h1 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
               {ABOUT_PAGE.headline}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               {ABOUT_PAGE.subheadline}
             </p>
 
@@ -85,16 +85,16 @@ export default function OmOssPage() {
       <PaletteBackground palette="horisonten" intensity={0.5} fromDeg={180} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Vår historie
             </p>
-            <h2 className="text-3xl font-bold text-[var(--color-dark-text)]">
+            <h2 className="text-3xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
               {STORY.heading}
             </h2>
             {STORY.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="mt-6 leading-relaxed text-[var(--color-dark-muted)]"
+                className="mt-6 font-light leading-relaxed text-[var(--color-dark-muted)]"
               >
                 {paragraph}
               </p>
@@ -108,10 +108,10 @@ export default function OmOssPage() {
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                 Våre verdier
               </p>
-              <h2 className="text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)] sm:text-4xl">
                 {VALUES.heading}
               </h2>
             </div>
@@ -128,10 +128,10 @@ export default function OmOssPage() {
                         <Icon className="h-6 w-6 text-[var(--color-accent)]" />
                       </div>
                     )}
-                    <h3 className="text-xl font-bold text-[var(--color-dark-text)]">
+                    <h3 className="text-xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                       {value.title}
                     </h3>
-                    <p className="mt-3 leading-relaxed text-[var(--color-dark-muted)]">
+                    <p className="mt-3 font-light leading-relaxed text-[var(--color-dark-muted)]">
                       {value.description}
                     </p>
                   </div>
@@ -146,16 +146,16 @@ export default function OmOssPage() {
       <PaletteBackground palette="horisonten" intensity={0.4} fromDeg={180} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+            <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
               Vår tilnærming
             </p>
-            <h2 className="text-3xl font-bold text-[var(--color-dark-text)]">
+            <h2 className="text-3xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
               {APPROACH.heading}
             </h2>
             {APPROACH.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="mt-6 leading-relaxed text-[var(--color-dark-muted)]"
+                className="mt-6 font-light leading-relaxed text-[var(--color-dark-muted)]"
               >
                 {paragraph}
               </p>
@@ -168,10 +168,10 @@ export default function OmOssPage() {
       <PaletteBackground palette="horisonten" intensity={0.9} speed={120} fadeTop>
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl">
               {ABOUT_CTA.headline}
             </h2>
-            <p className="mt-5 text-lg font-light text-[var(--color-dark-muted)]">
+            <p className="mt-5 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
               {ABOUT_CTA.description}
             </p>
             <Link
