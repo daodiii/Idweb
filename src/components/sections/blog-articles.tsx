@@ -52,7 +52,7 @@ function BlogCard({
           }`}
         />
         <span
-          className={`absolute top-3 left-3 rounded-full border ${catColor.border} ${catColor.bg} px-3 py-1 text-xs font-medium uppercase tracking-wider ${catColor.text} backdrop-blur-md`}
+          className={`absolute top-3 left-3 rounded-full border ${catColor.border} ${catColor.bg} px-3 py-1 text-xs font-medium uppercase tracking-[3px] ${catColor.text} backdrop-blur-md`}
         >
           {post.category}
         </span>
@@ -125,7 +125,7 @@ export function BlogArticles() {
               >
                 <div className="flex-1">
                   <span
-                    className={`inline-block rounded-full border ${catColor.border} ${catColor.bg} px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider ${catColor.text}`}
+                    className={`inline-block rounded-full border ${catColor.border} ${catColor.bg} px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[3px] ${catColor.text}`}
                   >
                     {post.category}
                   </span>

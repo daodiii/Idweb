@@ -90,7 +90,7 @@ export default function BloggPage() {
                   {(() => {
                     const catColor = CATEGORY_COLORS[post.category] ?? DEFAULT_CATEGORY_COLOR;
                     return (
-                      <span className={`absolute left-3 top-3 rounded-full border ${catColor.border} ${catColor.bg} px-3 py-1 text-[10px] font-medium uppercase tracking-wider ${catColor.text} backdrop-blur-md`}>
+                      <span className={`absolute left-3 top-3 rounded-full border ${catColor.border} ${catColor.bg} px-3 py-1 text-[10px] font-medium uppercase tracking-[3px] ${catColor.text} backdrop-blur-md`}>
                         {post.category}
                       </span>
                     );

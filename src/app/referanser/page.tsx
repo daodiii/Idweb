@@ -128,7 +128,7 @@ export default function ReferanserPage() {
                 {/* Wide glass box — Tjenester left, Resultater right */}
                 <div className="mt-4 grid grid-cols-2 gap-4 rounded-xl border border-white/10 bg-white/[0.06] p-4 shadow-xl shadow-black/25 backdrop-blur-md sm:mt-5 sm:gap-6 sm:rounded-2xl sm:p-6">
                   <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-dark-text)] sm:text-sm">
+                    <h3 className="text-xs font-medium uppercase tracking-[3px] text-[var(--color-dark-text)] sm:text-sm">
                       Tjenester
                     </h3>
                     <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-3 sm:gap-2">
@@ -144,7 +144,7 @@ export default function ReferanserPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-dark-text)] sm:text-sm">
+                    <h3 className="text-xs font-medium uppercase tracking-[3px] text-[var(--color-dark-text)] sm:text-sm">
                       Resultater
                     </h3>
                     <ul className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">

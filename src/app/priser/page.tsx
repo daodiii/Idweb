@@ -74,7 +74,7 @@ export default function PriserPage() {
                 }`}
               >
                 {pkg.highlight && (
-                  <div className="bg-[var(--color-accent)] py-2.5 text-center text-xs font-bold uppercase tracking-wider text-[var(--color-dark-bg)]">
+                  <div className="bg-[var(--color-accent)] py-2.5 text-center text-xs font-bold uppercase tracking-[3px] text-[var(--color-dark-bg)]">
                     Mest populær
                   </div>
                 )}
@@ -151,7 +151,7 @@ export default function PriserPage() {
                   }`}
                 >
                   {pkg.highlight && (
-                    <div className="bg-[var(--color-accent)] py-2.5 text-center text-xs font-bold uppercase tracking-wider text-[var(--color-dark-bg)]">
+                    <div className="bg-[var(--color-accent)] py-2.5 text-center text-xs font-bold uppercase tracking-[3px] text-[var(--color-dark-bg)]">
                       Mest populær
                     </div>
                   )}
