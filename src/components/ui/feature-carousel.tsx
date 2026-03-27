@@ -23,14 +23,14 @@ const FEATURES: PortfolioFeature[] = [
     id: "centerrahma",
     label: "Center Rahma",
     icon: CommandFreeIcons,
-    image: "/images/portfolio/centerrahma-tablet.webp",
+    image: "/images/portfolio/centerrahma-desktop.webp",
     description: "Moderne nettside for et trossamfunn med donasjonssystem og bønnetider.",
   },
   {
     id: "vocura",
     label: "Vocura",
     icon: CheckmarkCircle01Icon,
-    image: "/images/portfolio/vocura-tablet.webp",
+    image: "/images/portfolio/vocura-showcase-1.webp",
     description: "Profesjonell helseklinikk med interaktiv animasjon og innlogging.",
   },
   {
