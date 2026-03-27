@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Crimson_Pro, Outfit, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Outfit, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CookieConsent } from "@/components/ui/cookie-consent";
@@ -9,10 +10,10 @@ import "./globals.css";
 
 const GA_ID = "G-P0ZMB9YLTK";
 
-const heading = Crimson_Pro({
+const heading = localFont({
   variable: "--font-heading",
-  subsets: ["latin", "latin-ext"],
   display: "swap",
+  src: "../../public/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2",
 });
 
 const body = Outfit({
