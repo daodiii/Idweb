@@ -22,13 +22,13 @@ export function SocialProofBar() {
                 ·
               </span>
             )}
-            <span className="text-lg font-bold text-[var(--color-text)]">
+            <span className="text-lg font-bold tracking-[-0.01em] text-[var(--color-text)]">
               <CountUpStat
                 value={signal.value}
                 suffix={signal.suffix}
               />
             </span>
-            <span className="text-sm text-[var(--color-text-muted)]">
+            <span className="text-sm font-light text-[var(--color-text-muted)]">
               {signal.label}
             </span>
           </div>

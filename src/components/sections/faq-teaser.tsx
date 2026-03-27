@@ -19,7 +19,7 @@ export function FaqTeaser() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
-          <h2 className="text-center text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
+          <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-text)] sm:text-4xl lg:text-5xl">
             Vanlige spørsmål
           </h2>
         </motion.div>
@@ -60,7 +60,7 @@ export function FaqTeaser() {
                     transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-4 text-sm leading-relaxed text-[var(--color-text-muted)]">
+                    <p className="px-6 pb-4 text-sm font-light leading-relaxed text-[var(--color-text-muted)]">
                       {faq.answer}
                     </p>
                   </motion.div>

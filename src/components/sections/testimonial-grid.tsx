@@ -52,11 +52,11 @@ export function TestimonialGrid({
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
-          <h2 className="text-center text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
+          <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             {title}
           </h2>
           {description && (
-            <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-dark-muted)]">
+            <p className="mx-auto mt-4 max-w-2xl text-center font-light text-[var(--color-dark-muted)]">
               {description}
             </p>
           )}
@@ -90,7 +90,7 @@ export function TestimonialGrid({
               </div>
 
               {/* Quote */}
-              <p className="mb-6 text-sm leading-relaxed text-[var(--color-dark-muted)]">
+              <p className="mb-6 text-lg font-medium italic leading-relaxed text-[var(--color-dark-muted)] sm:text-xl">
                 &ldquo;{t.text}&rdquo;
               </p>
 

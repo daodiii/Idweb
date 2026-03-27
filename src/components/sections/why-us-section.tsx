@@ -37,13 +37,13 @@ export function WhyUsSection() {
       <div className="relative z-[1] mx-auto max-w-5xl px-6 py-20">
         {/* Header */}
         <div className="mb-8 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
             Hvorfor velge oss
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--color-dark-text)] sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             Alt du trenger — én kontaktperson
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-[var(--color-dark-muted)]">
+          <p className="mx-auto mt-4 max-w-xl text-base font-light text-[var(--color-dark-muted)]">
             Ingen byråkrati, ingen mellomledd. Du får en dedikert utvikler som
             kjenner prosjektet ditt fra A til Å.
           </p>
@@ -57,13 +57,13 @@ export function WhyUsSection() {
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-400/10">
                 <MessageCircle className="h-4 w-4 text-orange-400" />
               </div>
-              <span className="text-2xl font-black tracking-tight text-orange-400">0</span>
-              <span className="text-xs font-medium uppercase tracking-wider text-orange-400/70">mellomledd</span>
+              <span className="text-2xl font-black tracking-[-0.03em] text-orange-400">0</span>
+              <span className="text-[11px] font-extralight uppercase tracking-[3px] text-orange-400/70">mellomledd</span>
             </div>
-            <h3 className="mt-3 text-lg font-bold tracking-tight text-[var(--color-dark-text)]">
+            <h3 className="mt-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
               Direkte kontakt
             </h3>
-            <p className="mt-1 text-base leading-relaxed text-[var(--color-dark-muted)]">
+            <p className="mt-1 text-base font-light leading-relaxed text-[var(--color-dark-muted)]">
               Du snakker alltid direkte med utvikleren som bygger nettsiden din.
               Ingen salgsavdeling, ingen ventetid — bare konkrete svar og rask
               fremdrift.
@@ -76,13 +76,13 @@ export function WhyUsSection() {
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)]/10">
                 <Zap className="h-4 w-4 text-[var(--color-accent)]" />
               </div>
-              <span className="text-2xl font-black tracking-tight text-[var(--color-accent)]">&lt;1s</span>
-              <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-accent)]/70">lastetid</span>
+              <span className="text-2xl font-black tracking-[-0.03em] text-[var(--color-accent)]">&lt;1s</span>
+              <span className="text-[11px] font-extralight uppercase tracking-[3px] text-[var(--color-accent)]/70">lastetid</span>
             </div>
-            <h3 className="mt-3 text-lg font-bold text-[var(--color-dark-text)]">
+            <h3 className="mt-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
               Moderne teknologi
             </h3>
-            <p className="mt-1 text-base leading-relaxed text-[var(--color-dark-muted)]">
+            <p className="mt-1 text-base font-light leading-relaxed text-[var(--color-dark-muted)]">
               Vi bygger med Next.js og React — ikke WordPress-maler. Resultatet
               er raskere nettsider, bedre sikkerhet og høyere rangering på
               Google.
@@ -95,15 +95,15 @@ export function WhyUsSection() {
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-400/10">
                 <TrendingUp className="h-4 w-4 text-sky-400" />
               </div>
-              <span className="text-2xl font-black tracking-tight text-sky-400">
+              <span className="text-2xl font-black tracking-[-0.03em] text-sky-400">
                 +<CountUpStat value={127} suffix="%" />
               </span>
-              <span className="text-xs font-medium uppercase tracking-wider text-sky-400/70">henvendelser</span>
+              <span className="text-[11px] font-extralight uppercase tracking-[3px] text-sky-400/70">henvendelser</span>
             </div>
-            <h3 className="mt-3 text-lg font-bold text-[var(--color-dark-text)]">
+            <h3 className="mt-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
               Målbare resultater
             </h3>
-            <p className="mt-1 text-base leading-relaxed text-[var(--color-dark-muted)]">
+            <p className="mt-1 text-base font-light leading-relaxed text-[var(--color-dark-muted)]">
               Hver nettside bygges for konvertering. Vi setter opp sporing,
               måler resultater og optimaliserer løpende for flere henvendelser.
             </p>
@@ -114,14 +114,14 @@ export function WhyUsSection() {
             <div className="grid gap-3 sm:grid-cols-2">
               {/* Competitor side */}
               <div className="sm:border-r sm:border-[var(--color-dark-border)] sm:pr-4">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[2px] text-red-400">
+                <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-red-400">
                   {COMPARISON.competitor.label}
                 </p>
                 <ul className="space-y-2">
                   {COMPARISON.competitor.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 text-base text-[var(--color-dark-muted)]"
+                      className="flex items-start gap-2 text-base font-light text-[var(--color-dark-muted)]"
                     >
                       <span
                         className="mt-0.5 text-red-400/60"
@@ -137,14 +137,14 @@ export function WhyUsSection() {
 
               {/* Us side */}
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[2px] text-[var(--color-accent)]">
+                <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
                   {COMPARISON.us.label}
                 </p>
                 <ul className="space-y-2">
                   {COMPARISON.us.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 text-base text-slate-200"
+                      className="flex items-start gap-2 text-base font-light text-slate-200"
                     >
                       <span
                         className="mt-0.5 text-[var(--color-accent)]"

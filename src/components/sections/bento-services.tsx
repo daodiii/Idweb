@@ -70,10 +70,10 @@ export function BentoServices() {
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-bold text-pretty sm:text-4xl">
+        <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-pretty sm:text-4xl lg:text-5xl">
           Alt du trenger for å lykkes på nett
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-muted)]">
+        <p className="mx-auto mt-4 max-w-2xl text-center font-light text-[var(--color-text-muted)]">
           Jeg tilbyr helhetlige digitale tjenester — fra design og utvikling til
           SEO og løpende vedlikehold.
         </p>

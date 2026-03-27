@@ -16,10 +16,10 @@ export function CtaSection() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
       >
-        <h2 className="text-3xl font-bold text-[var(--color-dark-bg)] sm:text-4xl">
+        <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-bg)] sm:text-4xl lg:text-5xl">
           {FINAL_CTA.headline}
         </h2>
-        <p className="mt-4 text-lg text-[var(--color-dark-bg)]/70">
+        <p className="mt-4 text-lg font-light text-[var(--color-dark-bg)]/70">
           {FINAL_CTA.description}
         </p>
 

@@ -61,7 +61,7 @@ function BlogCard({
       {/* Content */}
       <div className={`flex flex-1 flex-col ${isLarge ? "px-6 py-5" : "px-5 py-4"}`}>
         <h3
-          className={`font-semibold tracking-tight text-[var(--color-text)] text-pretty ${
+          className={`font-bold tracking-[-0.01em] text-[var(--color-text)] text-pretty ${
             isLarge ? "text-lg" : "text-base"
           }`}
         >
@@ -72,7 +72,7 @@ function BlogCard({
             {post.title}
           </Link>
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
+        <p className="mt-2 flex-1 text-sm font-light leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
           {post.excerpt}
         </p>
 
@@ -105,10 +105,10 @@ export function BlogArticles() {
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-6 text-center sm:mb-8">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+          <p className="mb-2 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">
             Fra bloggen vår
           </p>
-          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-pretty sm:text-3xl lg:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-text)] text-pretty sm:text-4xl lg:text-5xl">
             Nyttige artikler for din bedrift
           </h2>
         </div>
@@ -129,7 +129,7 @@ export function BlogArticles() {
                   >
                     {post.category}
                   </span>
-                  <h3 className="mt-1.5 text-sm font-semibold text-[var(--color-text)] text-pretty group-hover:text-[var(--color-accent-hover)]">
+                  <h3 className="mt-1.5 text-sm font-bold tracking-[-0.01em] text-[var(--color-text)] text-pretty group-hover:text-[var(--color-accent-hover)]">
                     {post.title}
                   </h3>
                   <span className="mt-1 block text-[10px] text-[var(--color-text-muted)]">

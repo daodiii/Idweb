@@ -31,11 +31,11 @@ export function ProblemAgitation() {
                 }}
               >
                 <Icon className="mb-4 h-8 w-8 text-red-400" aria-hidden="true" />
-                <h3 className="mb-3 text-lg font-bold text-[var(--color-dark-text)]">
+                <h3 className="mb-3 text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                   {card.title}
                 </h3>
-                <p className="text-3xl font-black text-red-400">{card.stat}</p>
-                <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
+                <p className="text-4xl font-black tracking-[-0.03em] text-red-400 sm:text-5xl">{card.stat}</p>
+                <p className="mt-1 text-[11px] font-extralight uppercase tracking-[3px] text-[var(--color-dark-muted)]">
                   {card.statLabel}
                 </p>
               </motion.div>

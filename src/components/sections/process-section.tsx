@@ -72,13 +72,13 @@ function DesktopProcess() {
       <div className="relative mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
             Slik jobber vi
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-[-0.02em] text-pretty text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             Fra idé til lansering på 1-2-3
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-[var(--color-dark-muted)]">
+          <p className="mx-auto max-w-2xl text-lg font-light text-[var(--color-dark-muted)]">
             Min velprøvde prosess sørger for at du får en nettside du er stolt
             av — uten stress.
           </p>
@@ -96,10 +96,10 @@ function DesktopProcess() {
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.35 }}
               >
-                <h3 className="text-2xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-3xl">
+                <h3 className="text-lg font-bold tracking-[-0.01em] text-pretty text-[var(--color-dark-text)] sm:text-xl">
                   {active + 1}. {step.title}
                 </h3>
-                <p className="mt-6 max-w-md text-lg leading-relaxed text-[var(--color-dark-muted)]">
+                <p className="mt-6 max-w-md text-lg font-light leading-relaxed text-[var(--color-dark-muted)]">
                   {step.description}
                 </p>
               </motion.div>
@@ -211,10 +211,10 @@ function MobileProcess() {
     <PaletteBackground palette="stille-spenning" className="px-6 py-14 md:hidden">
       <div className="relative mx-auto max-w-xl">
         <div className="mb-8 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
             Slik jobber vi
           </p>
-          <h2 className="text-2xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-3xl">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-pretty text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             Fra idé til lansering på 1-2-3
           </h2>
         </div>
@@ -231,10 +231,10 @@ function MobileProcess() {
                 )}
               </div>
               <div className="pb-2">
-                <h3 className="text-base font-bold text-[var(--color-dark-text)]">
+                <h3 className="text-base font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
                   {step.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-[var(--color-dark-muted)]">
+                <p className="mt-1 text-sm font-light leading-relaxed text-[var(--color-dark-muted)]">
                   {step.description}
                 </p>
               </div>

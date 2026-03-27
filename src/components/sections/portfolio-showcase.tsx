@@ -24,7 +24,7 @@ export function PortfolioShowcase() {
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
-            <h2 className="font-heading text-3xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-4xl">
+            <h2 className="font-heading text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-text)] sm:text-4xl lg:text-5xl">
               Utvalgte prosjekter
             </h2>
           </div>

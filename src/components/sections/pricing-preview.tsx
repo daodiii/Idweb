@@ -23,7 +23,7 @@ export function PricingPreview() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
-          <h2 className="text-center text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+          <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             Ærlige priser, ingen overraskelser
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-center text-lg font-light text-[var(--color-dark-muted)]">
@@ -49,21 +49,21 @@ export function PricingPreview() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
-              className={`rounded-2xl p-7 ${
+              className={`rounded-2xl p-7 backdrop-blur-xl ${
                 PACKAGES[activeTier].highlight
-                  ? "bg-[var(--color-dark-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
-                  : "border border-white/5 bg-[var(--color-dark-bg-alt)] shadow-lg shadow-black/20"
+                  ? "bg-white/10 shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/30"
+                  : "bg-white/5 shadow-lg shadow-black/10 ring-1 ring-white/10"
               }`}
             >
               {PACKAGES[activeTier].highlight && (
-                <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-xs font-bold text-[var(--color-dark-bg)]">
+                <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[2px] text-[var(--color-dark-bg)]">
                   Mest populær
                 </span>
               )}
-              <h3 className="text-lg font-bold text-[var(--color-dark-text)]">
+              <h3 className="text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)] sm:text-xl">
                 {PACKAGES[activeTier].name}
               </h3>
-              <p className="mt-2 text-2xl font-black text-[var(--color-dark-text)]">
+              <p className="mt-2 text-3xl font-black tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl">
                 {PACKAGES[activeTier].price}
               </p>
               <p className="mt-1 text-xs text-[var(--color-dark-muted)]">
@@ -73,7 +73,7 @@ export function PricingPreview() {
                 {PACKAGES[activeTier].features.slice(0, 3).map((feat) => (
                   <li
                     key={feat}
-                    className="flex items-start gap-2 text-xs text-[var(--color-dark-muted)]"
+                    className="flex items-start gap-2 text-xs font-light text-[var(--color-dark-muted)]"
                   >
                     <span className="mt-0.5 text-[var(--color-accent)]">
                       &#10003;
@@ -97,10 +97,10 @@ export function PricingPreview() {
           {PACKAGES.map((pkg) => (
             <motion.div
               key={pkg.id}
-              className={`rounded-2xl p-7 transition-shadow duration-300 ${
+              className={`rounded-2xl p-7 backdrop-blur-xl transition-shadow duration-300 ${
                 pkg.highlight
-                  ? "bg-[var(--color-dark-bg-alt)] shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/20"
-                  : "border border-white/5 bg-[var(--color-dark-bg-alt)] shadow-lg shadow-black/20"
+                  ? "bg-white/10 shadow-xl shadow-[var(--color-accent)]/10 ring-1 ring-[var(--color-accent)]/30"
+                  : "bg-white/5 shadow-lg shadow-black/10 ring-1 ring-white/10"
               }`}
               variants={{
                 hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
@@ -108,14 +108,14 @@ export function PricingPreview() {
               }}
             >
               {pkg.highlight && (
-                <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-xs font-bold text-[var(--color-dark-bg)]">
+                <span className="mb-3 inline-block rounded-full bg-[var(--color-accent)] px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[2px] text-[var(--color-dark-bg)]">
                   Mest populær
                 </span>
               )}
-              <h3 className="text-lg font-bold text-[var(--color-dark-text)]">
+              <h3 className="text-lg font-bold tracking-[-0.01em] text-[var(--color-dark-text)] sm:text-xl">
                 {pkg.name}
               </h3>
-              <p className="mt-2 text-2xl font-black text-[var(--color-dark-text)]">
+              <p className="mt-2 text-3xl font-black tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl">
                 {pkg.price}
               </p>
               <p className="mt-1 text-xs text-[var(--color-dark-muted)]">
@@ -125,7 +125,7 @@ export function PricingPreview() {
                 {pkg.features.slice(0, 3).map((feat) => (
                   <li
                     key={feat}
-                    className="flex items-start gap-2 text-xs text-[var(--color-dark-muted)]"
+                    className="flex items-start gap-2 text-xs font-light text-[var(--color-dark-muted)]"
                   >
                     <span className="mt-0.5 text-[var(--color-accent)]">
                       &#10003;

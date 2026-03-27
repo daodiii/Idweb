@@ -43,25 +43,25 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
           }}
         >
           <span
-            className="mb-2 block text-[11px] uppercase tracking-[1.5px]"
+            className="mb-2 block text-[11px] font-medium uppercase tracking-[3px]"
             style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
           >
             {label}
           </span>
 
           {card.stat ? (
-            <p className="mb-0.5 text-[2rem] font-extrabold leading-tight" style={{ color: card.accent }}>
+            <p className="mb-0.5 text-4xl font-black tracking-[-0.03em] leading-tight sm:text-5xl" style={{ color: card.accent }}>
               {card.stat}
-              <span className="text-lg font-bold">{card.unit}</span>
+              <span className="text-lg font-black">{card.unit}</span>
             </p>
           ) : (
             <span className="mb-1 block text-2xl">{card.icon}</span>
           )}
 
-          <p className="text-base font-bold" style={{ color: card.accent }}>
+          <p className="text-base font-bold tracking-[-0.01em]" style={{ color: card.accent }}>
             {card.title}
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-[var(--color-dark-muted)]">
+          <p className="mt-1 text-xs font-light leading-relaxed text-[var(--color-dark-muted)]">
             {card.description}
           </p>
         </div>
@@ -83,16 +83,16 @@ function MobileCard({ card }: { card: ComparisonCard }) {
       }}
     >
       {card.stat && (
-        <p className="text-base font-extrabold leading-none" style={{ color: card.accent }}>
+        <p className="text-base font-black tracking-[-0.03em] leading-none" style={{ color: card.accent }}>
           {card.stat}
-          <span className="text-xs font-bold">{card.unit}</span>
+          <span className="text-xs font-black">{card.unit}</span>
         </p>
       )}
 
-      <p className="text-[13px] font-bold leading-tight" style={{ color: card.accent }}>
+      <p className="text-[13px] font-bold tracking-[-0.01em] leading-tight" style={{ color: card.accent }}>
         {card.title}
       </p>
-      <p className="mt-0.5 text-[10px] leading-snug text-[var(--color-dark-muted)]">
+      <p className="mt-0.5 text-[10px] font-light leading-snug text-[var(--color-dark-muted)]">
         {card.description}
       </p>
     </div>
@@ -129,13 +129,13 @@ export function ComparisonBento() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="mb-2 block text-[13px] uppercase tracking-[2px] text-[var(--color-accent)]">
+          <span className="mb-2 block text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
             Hvorfor oss?
           </span>
-          <h2 className="text-3xl font-bold text-[var(--color-dark-text)] sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             Ikke alle nettsider er skapt like
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--color-dark-muted)]">
+          <p className="mx-auto mt-3 max-w-xl text-sm font-light text-[var(--color-dark-muted)]">
             Se forskjellen mellom en typisk leverandør og det vi bygger for deg.
           </p>
         </motion.div>
