@@ -23,7 +23,7 @@ const FEATURES: PortfolioFeature[] = [
     id: "centerrahma",
     label: "Center Rahma",
     icon: CommandFreeIcons,
-    image: "/images/portfolio/centerrahma-desktop.webp",
+    image: "/images/portfolio/centerrahma-tablet-new.webp",
     description: "Moderne nettside for et trossamfunn med donasjonssystem og bønnetider.",
   },
   {
