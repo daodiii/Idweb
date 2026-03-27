@@ -33,24 +33,24 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
           borderWidth={3}
         />
 
-        {/* Inner card — preserves existing colors */}
+        {/* Inner card */}
         <div
           className="relative h-full overflow-hidden rounded-[14px] p-5"
           style={{
-            background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-            border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
+            background: isByrå ? "rgba(255, 255, 255, 0.08)" : `rgba(${hexToRgb(card.accent)}, 0.08)`,
+            border: `1px solid ${isByrå ? "rgba(255, 255, 255, 0.2)" : `rgba(${hexToRgb(card.accent)}, 0.25)`}`,
             backdropFilter: "blur(12px)",
           }}
         >
           <span
             className="mb-2 block text-[11px] font-medium uppercase tracking-[3px]"
-            style={{ color: `rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.6 : 0.7})` }}
+            style={{ color: isByrå ? "rgba(255, 255, 255, 0.6)" : `rgba(${hexToRgb(card.accent)}, 0.7)` }}
           >
             {label}
           </span>
 
           {card.stat ? (
-            <p className="mb-0.5 text-4xl font-black tracking-[-0.03em] leading-tight sm:text-5xl" style={{ color: card.accent }}>
+            <p className="mb-0.5 text-4xl font-black tracking-[-0.03em] leading-tight sm:text-5xl" style={{ color: isByrå ? "#ffffff" : card.accent }}>
               {card.stat}
               <span className="text-lg font-black">{card.unit}</span>
             </p>
@@ -58,10 +58,10 @@ function Card({ card, index }: { card: ComparisonCard; index: number }) {
             <span className="mb-1 block text-2xl">{card.icon}</span>
           )}
 
-          <p className="text-base font-bold tracking-[-0.01em]" style={{ color: card.accent }}>
+          <p className="text-base font-bold tracking-[-0.01em]" style={{ color: isByrå ? "#ffffff" : card.accent }}>
             {card.title}
           </p>
-          <p className="mt-1 text-xs font-light leading-relaxed text-[var(--color-dark-muted)]">
+          <p className={`mt-1 text-xs font-light leading-relaxed ${isByrå ? "text-white/50" : "text-[var(--color-dark-muted)]"}`}>
             {card.description}
           </p>
         </div>
@@ -78,21 +78,21 @@ function MobileCard({ card }: { card: ComparisonCard }) {
     <div
       className="flex h-[72px] flex-col justify-center overflow-hidden rounded-lg px-2.5 py-2"
       style={{
-        background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-        border: `1px solid rgba(${hexToRgb(card.accent)}, ${isByrå ? 0.2 : 0.25})`,
+        background: isByrå ? "rgba(255, 255, 255, 0.08)" : `rgba(${hexToRgb(card.accent)}, 0.08)`,
+        border: `1px solid ${isByrå ? "rgba(255, 255, 255, 0.2)" : `rgba(${hexToRgb(card.accent)}, 0.25)`}`,
       }}
     >
       {card.stat && (
-        <p className="text-base font-black tracking-[-0.03em] leading-none" style={{ color: card.accent }}>
+        <p className="text-base font-black tracking-[-0.03em] leading-none" style={{ color: isByrå ? "#ffffff" : card.accent }}>
           {card.stat}
           <span className="text-xs font-black">{card.unit}</span>
         </p>
       )}
 
-      <p className="text-[13px] font-bold tracking-[-0.01em] leading-tight" style={{ color: card.accent }}>
+      <p className="text-[13px] font-bold tracking-[-0.01em] leading-tight" style={{ color: isByrå ? "#ffffff" : card.accent }}>
         {card.title}
       </p>
-      <p className="mt-0.5 text-[10px] font-light leading-snug text-[var(--color-dark-muted)]">
+      <p className={`mt-0.5 text-[10px] font-light leading-snug ${isByrå ? "text-white/50" : "text-[var(--color-dark-muted)]"}`}>
         {card.description}
       </p>
     </div>
