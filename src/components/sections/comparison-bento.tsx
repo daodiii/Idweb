@@ -120,7 +120,7 @@ export function ComparisonBento() {
   const spacersNeeded = paddedCount - mobileCards.length;
 
   return (
-    <PaletteBackground palette="drommeslor" className="px-6 py-14 sm:py-20 md:py-28">
+    <PaletteBackground palette="drommeslor" singleLayer className="px-6 py-14 sm:py-20 md:py-28">
       <div className="relative mx-auto max-w-6xl">
         <motion.div
           className="mb-12 text-center"

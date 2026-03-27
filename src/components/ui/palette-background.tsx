@@ -25,6 +25,8 @@ interface PaletteBackgroundProps {
   fadeTop?: boolean;
   /** Render a soft gradient fade at the bottom edge (transparent → dark-bg) */
   fadeBottom?: boolean;
+  /** Use a single gradient blob instead of multi-blob coverage */
+  singleLayer?: boolean;
   children: ReactNode;
 }
 
@@ -49,6 +51,7 @@ export function PaletteBackground({
   fromDeg = 0,
   fadeTop = false,
   fadeBottom = false,
+  singleLayer = false,
   children,
 }: PaletteBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -77,30 +80,44 @@ export function PaletteBackground({
 
   return (
     <Tag ref={containerRef} className={`relative overflow-hidden bg-[var(--color-dark-bg)] ${className}`}>
-      {/* z-1: Multiple conic gradient blobs for continuous color coverage */}
-      {GRADIENT_LAYERS.map((layer, i) => {
-        const deg = (fromDeg + layer.startOffset) % 360;
-        const grad = `conic-gradient(from ${deg}deg, ${colors.join(", ")}, ${colors[0]})`;
-        return (
-          <div
-            key={i}
-            className="palette-drift pointer-events-none absolute z-[1]"
-            aria-hidden="true"
-            style={{
-              top: layer.top,
-              left: "-20%",
-              right: "-20%",
-              height: "60%",
-              background: grad,
-              filter: `blur(${blur}px) saturate(200%)`,
-              opacity: intensity * (i === 0 ? 1 : 0.85),
-              animationDuration: `${speed + i * 15}s`,
-              animationDelay: `${-i * (speed / 3)}s`,
-              willChange: "transform",
-            }}
-          />
-        );
-      })}
+      {/* z-1: Gradient blob(s) */}
+      {singleLayer ? (
+        <div
+          className="palette-drift pointer-events-none absolute inset-[-20%] z-[1]"
+          aria-hidden="true"
+          style={{
+            background: `conic-gradient(from ${fromDeg}deg, ${colors.join(", ")}, ${colors[0]})`,
+            filter: `blur(${blur}px) saturate(160%)`,
+            opacity: intensity,
+            animationDuration: `${speed}s`,
+            willChange: "transform",
+          }}
+        />
+      ) : (
+        GRADIENT_LAYERS.map((layer, i) => {
+          const deg = (fromDeg + layer.startOffset) % 360;
+          const grad = `conic-gradient(from ${deg}deg, ${colors.join(", ")}, ${colors[0]})`;
+          return (
+            <div
+              key={i}
+              className="palette-drift pointer-events-none absolute z-[1]"
+              aria-hidden="true"
+              style={{
+                top: layer.top,
+                left: "-20%",
+                right: "-20%",
+                height: "60%",
+                background: grad,
+                filter: `blur(${blur}px) saturate(200%)`,
+                opacity: intensity * (i === 0 ? 1 : 0.85),
+                animationDuration: `${speed + i * 15}s`,
+                animationDelay: `${-i * (speed / 3)}s`,
+                willChange: "transform",
+              }}
+            />
+          );
+        })
+      )}
 
       {/* z-2: Noise texture */}
       <div

@@ -15,7 +15,7 @@ export function PricingPreview() {
   const [activeTier, setActiveTier] = useState(1); // default to Standard
 
   return (
-    <PaletteBackground palette="orkenblomst" className="px-6 py-14 sm:py-24 md:py-32">
+    <PaletteBackground palette="orkenblomst" singleLayer className="px-6 py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}

@@ -17,7 +17,7 @@ export function HeroSection() {
   const skip = !!prefersReducedMotion;
 
   return (
-    <PaletteBackground palette="horisonten" className="flex min-h-svh w-full items-center justify-center">
+    <PaletteBackground palette="horisonten" singleLayer className="flex min-h-svh w-full items-center justify-center">
       <div className="mx-auto max-w-6xl px-6 text-center">
         {/* Brand name — massive gradient-clipped text */}
         <motion.h1

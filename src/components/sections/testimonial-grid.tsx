@@ -44,7 +44,7 @@ export function TestimonialGrid({
 }: TestimonialGridProps) {
   const prefersReducedMotion = useReducedMotion();
   return (
-    <PaletteBackground palette="kosmos" className="px-6 py-20 sm:py-28">
+    <PaletteBackground palette="kosmos" singleLayer className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
