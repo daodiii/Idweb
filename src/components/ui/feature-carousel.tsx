@@ -87,15 +87,42 @@ export function FeatureCarousel() {
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video bg-white shadow-[0_8px_60px_-12px_rgba(0,0,0,0.15),0_2px_20px_-4px_rgba(0,0,0,0.08)] border border-[var(--color-border)]">
-        {/* Left panel — project names */}
-        <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-white">
-          {/* Top fade */}
-          <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-white via-white/80 to-transparent z-40" />
-          {/* Bottom fade */}
-          <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-white via-white/80 to-transparent z-40" />
+      <div className="relative overflow-hidden rounded-[2rem] lg:rounded-[4rem] flex flex-col lg:flex-row lg:min-h-[600px] lg:aspect-video bg-white shadow-[0_8px_60px_-12px_rgba(0,0,0,0.15),0_2px_20px_-4px_rgba(0,0,0,0.08)] border border-[var(--color-border)]">
 
-          <div className="relative w-full h-full flex items-center justify-center lg:justify-start z-20">
+        {/* Mobile: horizontal chip row */}
+        <div className="flex lg:hidden gap-2 px-4 pt-5 pb-3 overflow-x-auto scrollbar-hide">
+          {FEATURES.map((feature, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <button
+                key={feature.id}
+                onClick={() => handleChipClick(index)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+                className={cn(
+                  "flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium uppercase tracking-wide whitespace-nowrap transition-all duration-500 border shrink-0",
+                  isActive
+                    ? "bg-[var(--color-text)] text-white border-[var(--color-text)] shadow-md shadow-black/10"
+                    : "bg-transparent text-[var(--color-text)]/40 border-[var(--color-border)]"
+                )}
+              >
+                <HugeiconsIcon
+                  icon={feature.icon}
+                  size={14}
+                  strokeWidth={2}
+                />
+                {feature.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Desktop: vertical animated panel */}
+        <div className="hidden lg:flex w-[40%] h-full relative z-30 flex-col items-start justify-center overflow-hidden pl-16 bg-white">
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/80 to-transparent z-40" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent z-40" />
+
+          <div className="relative w-full h-full flex items-center justify-start z-20">
             {FEATURES.map((feature, index) => {
               const isActive = index === currentIndex;
               const distance = index - currentIndex;
@@ -128,7 +155,7 @@ export function FeatureCarousel() {
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                     className={cn(
-                      "relative flex items-center gap-4 px-6 md:px-10 lg:px-8 py-3.5 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
+                      "relative flex items-center gap-4 px-8 py-4 rounded-full transition-all duration-700 text-left group border",
                       isActive
                         ? "bg-[var(--color-text)] text-white border-[var(--color-text)] shadow-lg shadow-black/10 z-10"
                         : "bg-transparent text-[var(--color-text)]/40 border-[var(--color-border)] hover:border-[var(--color-text)]/30 hover:text-[var(--color-text)]/70"
@@ -146,7 +173,7 @@ export function FeatureCarousel() {
                         strokeWidth={2}
                       />
                     </div>
-                    <span className="font-normal text-sm md:text-[15px] tracking-tight whitespace-nowrap uppercase">
+                    <span className="font-normal text-[15px] tracking-tight whitespace-nowrap uppercase">
                       {feature.label}
                     </span>
                   </button>
@@ -156,12 +183,11 @@ export function FeatureCarousel() {
           </div>
         </div>
 
-        {/* Right panel — card carousel */}
-        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-[var(--color-bg)] flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-[var(--color-border)]">
-          {/* Subtle inner shadow gradient */}
+        {/* Image carousel panel */}
+        <div className="flex-1 min-h-[320px] md:min-h-[500px] lg:h-full relative bg-[var(--color-bg)] flex items-center justify-center py-8 md:py-24 lg:py-16 px-4 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-[var(--color-border)]">
           <div className="absolute inset-0 bg-gradient-to-br from-black/[0.02] via-transparent to-black/[0.04] pointer-events-none z-10" />
 
-          <div className="relative w-full max-w-[420px] aspect-[4/5] flex items-center justify-center">
+          <div className="relative w-full max-w-[280px] md:max-w-[420px] aspect-[4/5] flex items-center justify-center">
             {FEATURES.map((feature, index) => {
               const status = getCardStatus(index);
               const isActive = status === "active";
@@ -185,7 +211,7 @@ export function FeatureCarousel() {
                     damping: 25,
                     mass: 0.8,
                   }}
-                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-white bg-white shadow-[0_8px_40px_-8px_rgba(0,0,0,0.12)] origin-center"
+                  className="absolute inset-0 rounded-[1.5rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-white bg-white shadow-[0_8px_40px_-8px_rgba(0,0,0,0.12)] origin-center"
                 >
                   <img
                     src={feature.image}
