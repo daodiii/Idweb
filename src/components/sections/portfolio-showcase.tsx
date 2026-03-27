@@ -9,7 +9,7 @@ export function PortfolioShowcase() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
+    <section className="light-section-warm px-6 pt-6 pb-14 sm:pt-10 sm:pb-24 md:pt-12 md:pb-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}

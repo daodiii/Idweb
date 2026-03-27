@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import {
   CommandFreeIcons,
   GlobalSearchIcon,
@@ -15,7 +15,6 @@ interface PortfolioFeature {
   label: string;
   icon: typeof CommandFreeIcons;
   image: string;
-  description: string;
 }
 
 const FEATURES: PortfolioFeature[] = [
@@ -24,28 +23,24 @@ const FEATURES: PortfolioFeature[] = [
     label: "Center Rahma",
     icon: CommandFreeIcons,
     image: "/images/portfolio/centerrahma-tablet-new.webp",
-    description: "Moderne nettside for et trossamfunn med donasjonssystem og bønnetider.",
   },
   {
     id: "vocura",
     label: "Vocura",
     icon: CheckmarkCircle01Icon,
     image: "/images/portfolio/vocura-showcase-1.webp",
-    description: "Profesjonell helseklinikk med interaktiv animasjon og innlogging.",
   },
   {
     id: "brobekk",
     label: "Brobekk Legekontor",
     icon: GlobalSearchIcon,
     image: "/images/portfolio/brobekk-tablet.webp",
-    description: "Tillitvekkende legekontor-side med lokal SEO og kontaktskjema.",
   },
   {
     id: "iqra",
     label: "Iqra Senter",
     icon: SmartPhone01Icon,
     image: "/images/portfolio/iqra-tablet.webp",
-    description: "Informasjonsrik nettside for kultursenter med aktiviteter og kurs.",
   },
 ];
 
@@ -202,34 +197,6 @@ export function FeatureCarousel() {
                         : "grayscale blur-[2px] brightness-75"
                     )}
                   />
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        className="absolute inset-x-0 bottom-0 p-10 pt-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end pointer-events-none"
-                      >
-                        <div className="bg-white text-[var(--color-text)] px-4 py-1.5 rounded-full text-[11px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3 border border-[var(--color-border)]">
-                          {index + 1} &bull; {feature.label}
-                        </div>
-                        <p className="text-white font-normal text-xl md:text-2xl leading-tight drop-shadow-md tracking-tight">
-                          {feature.description}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                  <div
-                    className={cn(
-                      "absolute top-8 left-8 flex items-center gap-3 transition-opacity duration-300",
-                      isActive ? "opacity-100" : "opacity-0"
-                    )}
-                  >
-                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
-                    <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
-                      Portefølje
-                    </span>
-                  </div>
                 </motion.div>
               );
             })}

@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
 import { TESTIMONIALS } from "@/lib/content/homepage";
 import { HeroSection } from "@/components/sections/hero-section";
-import { SocialProofBar } from "@/components/sections/social-proof-bar";
 
 // Below-fold sections — lazy loaded to reduce initial JS parse/execute time
 const PortfolioShowcase = dynamic(
@@ -58,12 +57,7 @@ export default function Home() {
       {/* 1. Hero — Dark */}
       <HeroSection />
 
-      {/* 2. Social Proof Bar — Light (desktop only) */}
-      <div className="hidden lg:block">
-        <SocialProofBar />
-      </div>
-
-      {/* 4. Portfolio Showcase — Light */}
+      {/* Portfolio Showcase — Light */}
       <PortfolioShowcase />
 
       {/* 5. Comparison Bento — Dark */}
