@@ -1,21 +1,12 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { FEATURED_PORTFOLIO_IDS } from "@/lib/content/homepage";
-import { getSiteById } from "@/lib/content/portfolio-sites";
-import { ProjectCollage } from "@/components/ui/project-collage";
-import type { PortfolioSite } from "@/types";
+import { FeatureCarousel } from "@/components/ui/feature-carousel";
 
 export function PortfolioShowcase() {
   const prefersReducedMotion = useReducedMotion();
-  const sites = FEATURED_PORTFOLIO_IDS.map(getSiteById).filter(
-    (s): s is PortfolioSite => s !== null
-  );
-
-  const collageSites = sites.filter((s) => s.images.collage?.length);
 
   return (
     <section className="light-section-warm px-6 py-14 sm:py-24 md:py-32">
@@ -39,47 +30,14 @@ export function PortfolioShowcase() {
           </div>
         </motion.div>
 
-        {collageSites.map((site) => (
-          <motion.article
-            key={site.id}
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          >
-            {/* Mobile: show dark mobile screenshot instead of collage */}
-            {(() => {
-              const mobileCollageImg = site.images.collage?.find(
-                (img) => img.aspectRatio === "mobile"
-              );
-              if (!mobileCollageImg) return null;
-              return (
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--color-border)] sm:hidden">
-                  <Image
-                    src={mobileCollageImg.src}
-                    alt={`${site.name} — mobilvisning`}
-                    fill
-                    className="object-cover object-top"
-                    sizes="100vw"
-                  />
-                </div>
-              );
-            })()}
-            {/* Desktop: show collage */}
-            <div className={site.images.collage?.some((img) => img.aspectRatio === "mobile") ? "hidden sm:block" : ""}>
-              <ProjectCollage
-                images={site.images.collage!}
-                projectName={site.name}
-                backgroundImage={site.images.collageBackground}
-              />
-            </div>
-            <div className="mt-4">
-              <h3 className="font-heading text-base font-bold text-[var(--color-text)]">
-                {site.name}
-              </h3>
-            </div>
-          </motion.article>
-        ))}
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
+        >
+          <FeatureCarousel />
+        </motion.div>
 
         {/* CTA button to see all projects */}
         <motion.div
