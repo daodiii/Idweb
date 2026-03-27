@@ -24,7 +24,7 @@ export default function KontaktPage() {
         ]}
       />
       {/* Hero */}
-      <PaletteBackground palette="drommeslor">
+      <PaletteBackground palette="drommeslor" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -43,7 +43,7 @@ export default function KontaktPage() {
       </PaletteBackground>
 
       {/* Contact Form + Info */}
-      <PaletteBackground palette="drommeslor" intensity={0.5} fromDeg={180}>
+      <PaletteBackground palette="drommeslor" intensity={0.5} fromDeg={180} speed={120} fadeTop>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
             {/* Form */}

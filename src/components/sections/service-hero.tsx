@@ -12,7 +12,7 @@ interface ServiceHeroProps {
 
 export function ServiceHero({ service }: ServiceHeroProps) {
   return (
-    <PaletteBackground palette="stille-spenning" intensity={0.8} className="px-6 py-24 text-center sm:py-32">
+    <PaletteBackground palette="stille-spenning" intensity={0.8} speed={120} fadeBottom className="px-6 py-24 text-center sm:py-32">
 
       <div className="mx-auto max-w-4xl">
         {/* Category tag */}

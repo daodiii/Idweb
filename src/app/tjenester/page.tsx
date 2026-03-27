@@ -50,7 +50,7 @@ export default function TjenesterPage() {
       />
 
       {/* Hero */}
-      <PaletteBackground palette="stille-spenning">
+      <PaletteBackground palette="stille-spenning" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">

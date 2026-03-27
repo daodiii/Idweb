@@ -20,6 +20,10 @@ interface PaletteBackgroundProps {
   blur?: number;
   intensity?: number;
   fromDeg?: number;
+  /** Render a soft gradient fade at the top edge (dark-bg → transparent) */
+  fadeTop?: boolean;
+  /** Render a soft gradient fade at the bottom edge (transparent → dark-bg) */
+  fadeBottom?: boolean;
   children: ReactNode;
 }
 
@@ -31,6 +35,8 @@ export function PaletteBackground({
   blur = 55,
   intensity = 0.8,
   fromDeg = 0,
+  fadeTop = false,
+  fadeBottom = false,
   children,
 }: PaletteBackgroundProps) {
   const gradientRef = useRef<HTMLDivElement>(null);
@@ -89,6 +95,28 @@ export function PaletteBackground({
             "radial-gradient(ellipse at 50% 50%, rgba(10,10,10,0.25) 0%, transparent 70%)",
         }}
       />
+
+      {/* z-4: Soft edge fades for seamless section transitions */}
+      {fadeTop && (
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-[4] h-24"
+          aria-hidden="true"
+          style={{
+            background:
+              "linear-gradient(to bottom, var(--color-dark-bg), transparent)",
+          }}
+        />
+      )}
+      {fadeBottom && (
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-24"
+          aria-hidden="true"
+          style={{
+            background:
+              "linear-gradient(to top, var(--color-dark-bg), transparent)",
+          }}
+        />
+      )}
 
       {/* z-10: Content */}
       <div className="relative z-10">{children}</div>

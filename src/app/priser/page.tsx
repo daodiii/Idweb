@@ -44,7 +44,7 @@ export default function PriserPage() {
       />
       <FaqJsonLd faqs={PRICING_FAQ} />
       {/* Hero */}
-      <PaletteBackground palette="kosmos">
+      <PaletteBackground palette="kosmos" speed={120} fadeBottom>
         <div className="px-6 py-28 text-center sm:py-36">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[3px] text-[var(--color-accent)]">
@@ -61,7 +61,7 @@ export default function PriserPage() {
       </PaletteBackground>
 
       {/* Build Packages */}
-      <PaletteBackground palette="kosmos" intensity={0.6}>
+      <PaletteBackground palette="kosmos" intensity={0.6} fromDeg={180} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-3 lg:gap-10">
             {PACKAGES.map((pkg) => (
@@ -125,7 +125,7 @@ export default function PriserPage() {
       </PaletteBackground>
 
       {/* Maintenance Packages */}
-      <PaletteBackground palette="kosmos" intensity={0.5} fromDeg={120}>
+      <PaletteBackground palette="kosmos" intensity={0.5} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -197,7 +197,7 @@ export default function PriserPage() {
       </PaletteBackground>
 
       {/* Add-on Services */}
-      <PaletteBackground palette="kosmos" intensity={0.7} fromDeg={240}>
+      <PaletteBackground palette="kosmos" intensity={0.7} fromDeg={180} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
@@ -239,7 +239,7 @@ export default function PriserPage() {
       </PaletteBackground>
 
       {/* Pricing FAQ */}
-      <PaletteBackground palette="kosmos" intensity={0.4} fromDeg={60}>
+      <PaletteBackground palette="kosmos" intensity={0.4} speed={120} fadeTop fadeBottom>
         <div className="px-6 py-24 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
@@ -270,7 +270,7 @@ export default function PriserPage() {
       </PaletteBackground>
 
       {/* CTA */}
-      <PaletteBackground palette="kosmos" intensity={0.9} fromDeg={180}>
+      <PaletteBackground palette="kosmos" intensity={0.9} fromDeg={180} speed={120} fadeTop>
         <div className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-extrabold tracking-tight text-[var(--color-dark-text)] sm:text-5xl">

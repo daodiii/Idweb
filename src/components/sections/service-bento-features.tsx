@@ -37,7 +37,7 @@ function LucideIcon({ name, className }: { name: string; className?: string }) {
 
 export function ServiceBentoFeatures({ features }: ServiceBentoFeaturesProps) {
   return (
-    <PaletteBackground palette="stille-spenning" intensity={0.6} className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
+    <PaletteBackground palette="stille-spenning" intensity={0.6} fromDeg={180} speed={120} fadeTop fadeBottom className="rounded-3xl px-6 py-20 sm:px-10 sm:py-28">
       <h2 className="mb-12 text-center text-3xl font-bold text-pretty text-[var(--color-dark-text)] sm:text-4xl">
         Dette inkluderer
       </h2>
