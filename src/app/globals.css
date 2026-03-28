@@ -230,6 +230,46 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── Lightweight scroll-triggered animations (replaces motion library) ── */
+.animate-in-base {
+  will-change: opacity, transform;
+}
+
+.animate-in-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-in-fade-in {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-in-fade-up.animate-in-visible,
+.animate-in-fade-in.animate-in-visible,
+.animate-in-fade-up-stagger.animate-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-in-fade-up-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in-base {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+}
+
 /* Disable expensive effects on mobile for performance */
 @media (max-width: 767px) {
   .palette-drift {
@@ -242,6 +282,13 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
+}
+
+/* Hero entrance — CSS-only staggered reveal (replaces motion library) */
+.hero-entrance {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ── Mobile Hero Animations ── */
@@ -367,6 +414,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-entrance,
   .hero-entrance-canvas,
   .hero-entrance-eyebrow,
   .hero-entrance-word-1,

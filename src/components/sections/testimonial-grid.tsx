@@ -1,8 +1,6 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import { Star } from "lucide-react";
 import { PaletteBackground } from "@/components/ui/palette-background";
+import { AnimateIn } from "@/components/ui/animate-in";
 import type { Testimonial } from "@/types";
 
 const AVATAR_COLORS = [
@@ -42,16 +40,10 @@ export function TestimonialGrid({
   title = "Hva kundene sier",
   description,
 }: TestimonialGridProps) {
-  const prefersReducedMotion = useReducedMotion();
   return (
     <PaletteBackground palette="kosmos" singleLayer className="px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-        >
+        <AnimateIn>
           <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
             {title}
           </h2>
@@ -60,29 +52,21 @@ export function TestimonialGrid({
               {description}
             </p>
           )}
-        </motion.div>
+        </AnimateIn>
 
-        <motion.div
-          className="mt-16 grid gap-6 md:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-        >
-          {testimonials.map((t) => (
-            <motion.div
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <AnimateIn
               key={t.author.name}
+              variant="fade-up-stagger"
+              delay={i * 0.1}
               className="rounded-xl border border-white/5 bg-[var(--color-dark-glass)] p-6 backdrop-blur-sm"
-              variants={{
-                hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: prefersReducedMotion ? 0 : 0.6 } },
-              }}
             >
               {/* Stars */}
               <div className="mb-4 flex gap-0.5">
-                {Array.from({ length: t.author.rating ?? 5 }).map((_, i) => (
+                {Array.from({ length: t.author.rating ?? 5 }).map((_, j) => (
                   <Star
-                    key={i}
+                    key={j}
                     className="h-4 w-4 fill-[var(--color-accent)] text-[var(--color-accent)]"
                     aria-hidden="true"
                   />
@@ -111,9 +95,9 @@ export function TestimonialGrid({
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </AnimateIn>
           ))}
-        </motion.div>
+        </div>
       </div>
     </PaletteBackground>
   );

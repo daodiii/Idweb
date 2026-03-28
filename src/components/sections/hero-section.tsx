@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { HERO } from "@/lib/content/homepage";
@@ -18,19 +15,11 @@ const BRAND_GRADIENT = [
 const headlineWords = HERO.headline.split(" ");
 
 export function HeroSection() {
-  const prefersReducedMotion = useReducedMotion();
-  const skip = !!prefersReducedMotion;
-
   return (
     <PaletteBackground palette="horisonten" singleLayer className="flex min-h-svh w-full items-center justify-center">
       <div className="mx-auto max-w-6xl px-6 text-center">
         {/* Brand name — massive gradient-clipped text */}
-        <motion.h1
-          className="font-serif select-none"
-          initial={skip ? false : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <h1 className="hero-entrance font-serif select-none" style={{ animationDelay: "0s" }}>
           <span
             className="block text-[clamp(5rem,18vw,14rem)] font-black leading-[0.85] tracking-tight animate-[meshShift_10s_ease-in-out_infinite_alternate]"
             style={{
@@ -46,39 +35,29 @@ export function HeroSection() {
           {/* Headline words — staggered reveal */}
           <span className="mt-2 flex flex-wrap items-center justify-center gap-x-[0.35em] text-[clamp(1.5rem,5vw,3.5rem)] font-extralight leading-tight tracking-[0.04em] text-white/90 sm:mt-4">
             {headlineWords.map((word, i) => (
-              <motion.span
+              <span
                 key={i}
-                className="inline-block"
-                initial={skip ? false : { opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.4 + i * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                className="hero-entrance inline-block"
+                style={{ animationDelay: `${0.4 + i * 0.1}s` }}
               >
                 {word}
-              </motion.span>
+              </span>
             ))}
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subtitle */}
-        <motion.p
-          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55 sm:mt-8 sm:text-lg"
-          initial={skip ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+        <p
+          className="hero-entrance mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55 sm:mt-8 sm:text-lg"
+          style={{ animationDelay: "1.0s" }}
         >
           {HERO.subheadline}
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row"
-          initial={skip ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+        <div
+          className="hero-entrance mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row"
+          style={{ animationDelay: "1.3s" }}
         >
           <Link
             href="/referanser"
@@ -93,7 +72,7 @@ export function HeroSection() {
           >
             {HERO.secondaryCta}
           </Link>
-        </motion.div>
+        </div>
       </div>
 
     </PaletteBackground>

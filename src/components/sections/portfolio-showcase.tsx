@@ -1,23 +1,13 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FeatureCarousel } from "@/components/ui/feature-carousel";
+import { AnimateIn } from "@/components/ui/animate-in";
 
 export function PortfolioShowcase() {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section className="light-section-warm px-6 pt-6 pb-14 sm:pt-10 sm:pb-24 md:pt-12 md:pb-32">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          className="mb-16"
-        >
+        <AnimateIn className="mb-16">
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-accent)]">
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -28,25 +18,14 @@ export function PortfolioShowcase() {
               Utvalgte prosjekter
             </h2>
           </div>
-        </motion.div>
+        </AnimateIn>
 
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-        >
+        <AnimateIn>
           <FeatureCarousel />
-        </motion.div>
+        </AnimateIn>
 
         {/* CTA button to see all projects */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.45, delay: 0.15 }}
-          className="mt-10 flex justify-center"
-        >
+        <AnimateIn className="mt-10 flex justify-center" delay={0.15}>
           <Link
             href="/referanser"
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[var(--color-accent)] px-8 py-4 text-base font-bold text-[var(--color-text)] shadow-lg shadow-[var(--color-accent)]/25 transition-all duration-300 hover:gap-4 hover:shadow-xl hover:shadow-[var(--color-accent)]/35 sm:px-10 sm:py-5 sm:text-lg"
@@ -55,7 +34,7 @@ export function PortfolioShowcase() {
             <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
             <span className="absolute inset-0 z-0 bg-[var(--color-accent-hover)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </Link>
-        </motion.div>
+        </AnimateIn>
       </div>
     </section>
   );
