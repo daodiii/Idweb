@@ -230,11 +230,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Disable expensive palette animations on mobile for performance */
+/* Disable expensive effects on mobile for performance */
 @media (max-width: 767px) {
   .palette-drift {
     animation: none;
     filter: blur(40px) saturate(120%) !important;
+  }
+
+  /* backdrop-blur forces software rendering on mobile — replace with opaque bg */
+  *[class*="backdrop-blur"] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 

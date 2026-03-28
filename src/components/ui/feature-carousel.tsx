@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   CommandFreeIcons,
@@ -213,11 +214,14 @@ export function FeatureCarousel() {
                   }}
                   className="absolute inset-0 rounded-[1.5rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-white bg-white shadow-[0_8px_40px_-8px_rgba(0,0,0,0.12)] origin-center"
                 >
-                  <img
+                  <Image
                     src={feature.image}
                     alt={feature.label}
+                    fill
+                    sizes="(max-width: 768px) 280px, 420px"
+                    loading={index === 0 ? "eager" : "lazy"}
                     className={cn(
-                      "w-full h-full object-cover object-top transition-all duration-700",
+                      "object-cover object-top transition-all duration-700",
                       isActive
                         ? "grayscale-0 blur-0"
                         : "grayscale blur-[2px] brightness-75"

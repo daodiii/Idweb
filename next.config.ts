@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "motion"],
+    optimizePackageImports: ["lucide-react", "motion", "@hugeicons/core-free-icons", "@hugeicons/react"],
   },
   async headers() {
     return [
