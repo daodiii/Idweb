@@ -216,6 +216,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Mesh text color shift — GPU-composited via filter, near-zero cost */
+@keyframes meshShift {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  33% { filter: hue-rotate(25deg) brightness(1.05); }
+  66% { filter: hue-rotate(-15deg) brightness(0.95); }
+  100% { filter: hue-rotate(35deg) brightness(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\\[meshShift_10s_ease-in-out_infinite_alternate\\] {
+    animation: none;
+  }
+}
+
+/* Disable expensive palette animations on mobile for performance */
+@media (max-width: 767px) {
+  .palette-drift {
+    animation: none;
+    filter: blur(40px) saturate(120%) !important;
+  }
+}
+
 /* ── Mobile Hero Animations ── */
 
 @keyframes heroFadeUp {
