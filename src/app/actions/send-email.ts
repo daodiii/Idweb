@@ -36,7 +36,7 @@ export async function sendContactEmail(
 
   try {
     const { error } = await resend.emails.send({
-      from: "IDweb Kontakt <kontakt@idweb.no>",
+      from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
       subject: `Ny henvendelse fra ${name}`,
@@ -44,7 +44,7 @@ export async function sendContactEmail(
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("Resend error:", JSON.stringify(error));
       return {
         success: false,
         message:
