@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
-import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 import { PaletteBackground } from "@/components/ui/palette-background";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { ContactForm } from "@/components/ui/contact-form";
 import { Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -53,105 +53,17 @@ export default function KontaktPage() {
                 Fortell oss litt om bedriften din og hva du ønsker å oppnå. Jo mer
                 du deler, desto bedre tilbud kan vi gi deg.
               </p>
-              <form action="https://formspree.io/f/mreywnwb" method="POST" className="mt-8 space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-[var(--color-dark-text)]"
-                  >
-                    Navn *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    autoComplete="name"
-                    className="mt-2 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[var(--color-dark-text)] placeholder:text-[var(--color-dark-muted)]/50 focus:border-[var(--color-accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]/50"
-                    placeholder="Ditt fulle navn"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-[var(--color-dark-text)]"
-                  >
-                    E-post *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    autoComplete="email"
-                    className="mt-2 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[var(--color-dark-text)] placeholder:text-[var(--color-dark-muted)]/50 focus:border-[var(--color-accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]/50"
-                    placeholder="din@epost.no"
-                  />
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-[var(--color-dark-text)]"
-                    >
-                      Telefon
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      autoComplete="tel"
-                      className="mt-2 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[var(--color-dark-text)] placeholder:text-[var(--color-dark-muted)]/50 focus:border-[var(--color-accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]/50"
-                      placeholder="123 45 678"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-[var(--color-dark-text)]"
-                    >
-                      Bedrift
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      autoComplete="organization"
-                      className="mt-2 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[var(--color-dark-text)] placeholder:text-[var(--color-dark-muted)]/50 focus:border-[var(--color-accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]/50"
-                      placeholder="Bedriftsnavn AS"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-[var(--color-dark-text)]"
-                  >
-                    Melding *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    className="mt-2 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[var(--color-dark-text)] placeholder:text-[var(--color-dark-muted)]/50 focus:border-[var(--color-accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]/50"
-                    placeholder="Fortell oss om prosjektet ditt — hva slags nettside trenger du, hva ønsker du å oppnå, og har du en tidsramme i tankene?"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className={`${RAINBOW_BUTTON_CLASSES} w-full px-8 py-3.5 text-lg font-semibold`}
-                >
-                  Send melding
-                </button>
-                <p className="text-sm text-[var(--color-dark-muted)]">
-                  Ved å sende inn skjemaet godtar du vår{" "}
-                  <a href="/personvern" className="text-[var(--color-accent)] underline">
-                    personvernerklæring
-                  </a>
-                  .
-                </p>
-              </form>
+              <ContactForm
+                showExtendedFields
+                className="mt-8"
+              />
+              <p className="mt-4 text-sm text-[var(--color-dark-muted)]">
+                Ved å sende inn skjemaet godtar du vår{" "}
+                <a href="/personvern" className="text-[var(--color-accent)] underline">
+                  personvernerklæring
+                </a>
+                .
+              </p>
             </div>
 
             {/* Contact Info */}

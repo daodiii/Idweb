@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState } from "react";
 import { motion } from "motion/react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import {
+  sendContactEmail,
+  type ContactFormState,
+} from "@/app/actions/send-email";
 
 interface ContactFormProps {
   showExtendedFields?: boolean;
@@ -16,46 +20,17 @@ export function ContactForm({
   className = "",
   variant = "dark",
 }: ContactFormProps) {
+  const [state, formAction, isPending] = useActionState<
+    ContactFormState,
+    FormData
+  >(sendContactEmail, null);
+
   const inputClasses =
     variant === "light"
       ? "w-full rounded-lg border border-black/20 bg-black/[0.07] px-4 py-3 text-sm text-inherit placeholder:text-inherit/60 focus:border-[var(--color-dark-bg)] focus:outline-none focus:ring-1 focus:ring-[var(--color-dark-bg)]"
       : "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]";
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
-
-    const form = e.currentTarget;
-
-    try {
-      const res = await fetch("https://formspree.io/f/mreywnwb", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
-      });
-
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json.error ?? "Noe gikk galt");
-      }
-
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(
-        err instanceof Error
-          ? err.message
-          : "Noe gikk galt. Prøv igjen eller send e-post direkte.",
-      );
-    }
-  }
-
-  if (status === "success") {
+  if (state?.success) {
     return (
       <motion.div
         className={`flex flex-col items-center gap-3 py-8 ${className}`}
@@ -72,7 +47,7 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
+    <form action={formAction} className={`space-y-4 ${className}`}>
       <div className="grid gap-4 sm:grid-cols-2">
         <input
           type="text"
@@ -123,16 +98,16 @@ export function ContactForm({
         className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
       />
 
-      {status === "error" && (
-        <p className="text-sm text-red-400">{errorMessage}</p>
+      {state && !state.success && (
+        <p className="text-sm text-red-400">{state.message}</p>
       )}
 
       <button
         type="submit"
-        disabled={status === "loading"}
+        disabled={isPending}
         className={`${RAINBOW_BUTTON_CLASSES} w-full gap-2 px-8 py-3 text-sm font-bold sm:w-auto`}
       >
-        {status === "loading" ? (
+        {isPending ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           "Send forespørsel"
