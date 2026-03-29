@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
 import { Outfit, JetBrains_Mono } from "next/font/google";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { CookieConsent } from "@/components/ui/cookie-consent";
+import { LayoutShell } from "@/components/layout/layout-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -104,12 +102,7 @@ gtag('config', '${GA_ID}');`}
         <JsonLd />
       </head>
       <body className={`${heading.variable} ${body.variable} ${code.variable} antialiased`}>
-        <Navbar />
-        <main id="main-content">
-          {children}
-        </main>
-        <Footer />
-        <CookieConsent />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
