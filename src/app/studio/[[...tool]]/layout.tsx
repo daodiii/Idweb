@@ -6,6 +6,10 @@ import {
 export const metadata = {
   ...studioMetadata,
   title: "IDweb Studio",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export const viewport = {

@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold. Få et uforpliktende tilbud i dag.",
   metadataBase: new URL("https://idweb.no"),
   alternates: {
-    canonical: "/",
     languages: {
       "nb-NO": "https://idweb.no",
     },

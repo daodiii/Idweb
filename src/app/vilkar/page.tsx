@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/vilkar",
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };

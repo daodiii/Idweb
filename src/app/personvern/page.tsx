@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/personvern",
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
