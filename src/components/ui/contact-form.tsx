@@ -28,7 +28,7 @@ export function ContactForm({
   const inputClasses =
     variant === "light"
       ? "w-full rounded-lg border border-black/20 bg-black/[0.07] px-4 py-3 text-sm text-inherit placeholder:text-inherit/60 focus:border-[var(--color-dark-bg)] focus:outline-none focus:ring-1 focus:ring-[var(--color-dark-bg)]"
-      : "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]";
+      : "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]";
 
   if (state?.success) {
     return (
@@ -38,8 +38,8 @@ export function ContactForm({
         animate={{ opacity: 1, scale: 1 }}
       >
         <CheckCircle2 className="h-12 w-12 text-green-500" />
-        <p className="text-lg font-semibold">Takk for henvendelsen!</p>
-        <p className="text-sm opacity-70">
+        <p className="text-lg font-semibold text-white">Takk for henvendelsen!</p>
+        <p className="text-sm text-white opacity-70">
           Vi tar kontakt innen 24 timer.
         </p>
       </motion.div>
