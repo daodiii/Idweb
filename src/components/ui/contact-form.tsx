@@ -95,7 +95,7 @@ export function ContactForm({
         rows={3}
         aria-label="Melding"
         placeholder="Fortell kort om prosjektet ditt"
-        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-inherit placeholder:text-inherit/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+        className={inputClasses}
       />
 
       {state && !state.success && (

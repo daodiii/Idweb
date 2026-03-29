@@ -36,7 +36,7 @@ export async function sendContactEmail(
 
   try {
     const { error } = await resend.emails.send({
-      from: "IDweb Kontakt <onboarding@resend.dev>",
+      from: "IDweb Kontakt <kontakt@idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
       subject: `Ny henvendelse fra ${name}`,
