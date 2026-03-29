@@ -47,8 +47,7 @@ export async function sendContactEmail(
       console.error("Resend error:", JSON.stringify(error));
       return {
         success: false,
-        message:
-          "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+        message: `DEBUG: ${error.message || JSON.stringify(error)}`,
       };
     }
 
@@ -58,10 +57,10 @@ export async function sendContactEmail(
     };
   } catch (err) {
     console.error("Send email failed:", err);
+    const msg = err instanceof Error ? err.message : String(err);
     return {
       success: false,
-      message:
-        "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+      message: `DEBUG CATCH: ${msg}`,
     };
   }
 }
