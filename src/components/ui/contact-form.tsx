@@ -90,9 +90,21 @@ export function ContactForm({
         </div>
       )}
 
+      {/* Honeypot — hidden from real users, bots will fill it */}
+      <input
+        type="text"
+        name="website"
+        autoComplete="off"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
+
       <textarea
         name="message"
         rows={3}
+        required
+        maxLength={5000}
         aria-label="Melding"
         placeholder="Fortell kort om prosjektet ditt"
         className={inputClasses}

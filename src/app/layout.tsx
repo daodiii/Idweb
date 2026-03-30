@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import localFont from "next/font/local";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import { LayoutShell } from "@/components/layout/layout-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
-
-const GA_ID = "G-P0ZMB9YLTK";
 
 const heading = localFont({
   variable: "--font-heading",
@@ -73,10 +70,6 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
-  verification: {
-    // Add your Google Search Console verification code here:
-    // google: "your-verification-code",
-  },
 };
 
 export default function RootLayout({
@@ -88,16 +81,6 @@ export default function RootLayout({
     <html lang="nb" style={{ colorScheme: "dark light" }}>
       <head>
         <meta name="theme-color" content="#F4CE14" />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
-        </Script>
         <JsonLd />
       </head>
       <body className={`${heading.variable} ${body.variable} ${code.variable} antialiased`}>

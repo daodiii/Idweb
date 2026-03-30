@@ -4,13 +4,8 @@ import { HERO } from "@/lib/content/homepage";
 import { PaletteBackground } from "@/components/ui/palette-background";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
 
-const BRAND_GRADIENT = [
-  "radial-gradient(ellipse 60% 50% at 15% 45%, #5BC0BE 0%, transparent 65%)",
-  "radial-gradient(ellipse 55% 60% at 80% 30%, #FF6B6B 0%, transparent 60%)",
-  "radial-gradient(ellipse 50% 55% at 50% 75%, #F4CE14 0%, transparent 65%)",
-  "radial-gradient(ellipse 70% 45% at 65% 55%, #D4A414 0%, transparent 55%)",
-  "linear-gradient(135deg, #5BC0BE22 0%, #FF6B6B33 50%, #F4CE1444 100%)",
-].join(", ");
+const BRAND_GRADIENT =
+  "linear-gradient(135deg, #5BC0BE 0%, #FF6B6B 35%, #F4CE14 65%, #5BC0BE 100%)";
 
 const headlineWords = HERO.headline.split(" ");
 
@@ -21,9 +16,10 @@ export function HeroSection() {
         {/* Brand name — massive gradient-clipped text */}
         <h1 className="hero-entrance font-serif select-none" style={{ animationDelay: "0s" }}>
           <span
-            className="block text-[clamp(5rem,18vw,14rem)] font-black leading-[0.85] tracking-tight animate-[meshShift_10s_ease-in-out_infinite_alternate]"
+            className="block text-[clamp(5rem,18vw,14rem)] font-black leading-[0.85] tracking-tight animate-[gradientShift_6s_ease-in-out_infinite_alternate]"
             style={{
               backgroundImage: BRAND_GRADIENT,
+              backgroundSize: "200% 200%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

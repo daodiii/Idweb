@@ -216,16 +216,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Mesh text color shift — GPU-composited via filter, near-zero cost */
-@keyframes meshShift {
-  0% { filter: hue-rotate(0deg) brightness(1); }
-  33% { filter: hue-rotate(25deg) brightness(1.05); }
-  66% { filter: hue-rotate(-15deg) brightness(0.95); }
-  100% { filter: hue-rotate(35deg) brightness(1.02); }
+/* Gradient shift — slides linear gradient across IDWEB text */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-\\[meshShift_10s_ease-in-out_infinite_alternate\\] {
+  .animate-\\[gradientShift_6s_ease-in-out_infinite_alternate\\] {
     animation: none;
   }
 }

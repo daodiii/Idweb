@@ -71,14 +71,14 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => handleChoice("necessary")}
-              className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-[#CBD5E1] transition-all hover:border-white/[0.16] hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
+              className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-[#CBD5E1] transition-all hover:border-white/[0.16] hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
             >
               Avvis
             </button>
             <button
               type="button"
               onClick={() => handleChoice("all")}
-              className="rounded-lg bg-[#F4CE14] px-3 py-1.5 text-xs font-semibold text-[#0a0a0a] transition-all hover:bg-[#D4B200] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
+              className="rounded-lg bg-[#F4CE14] px-4 py-2.5 text-sm font-semibold text-[#0a0a0a] transition-all hover:bg-[#D4B200] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
             >
               Godta
             </button>

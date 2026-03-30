@@ -21,7 +21,7 @@ const BUSINESS_SCHEMA = {
     "@type": "PostalAddress",
     addressLocality: "Oslo",
     addressRegion: "Oslo",
-    postalCode: "0001",
+    postalCode: "0687",
     addressCountry: "NO",
   },
   geo: {
@@ -48,7 +48,9 @@ const BUSINESS_SCHEMA = {
     opens: "08:00",
     closes: "17:00",
   },
-  sameAs: [],
+  sameAs: [
+    "https://share.google/gxNUvzOTp7nHqoSr8", // Google Business Profile
+  ],
   knowsLanguage: ["nb", "en"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -97,14 +99,6 @@ const WEBSITE_SCHEMA = {
     "@id": "https://idweb.no/#business",
   },
   inLanguage: "nb-NO",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://idweb.no/blogg?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 // SAFETY NOTE: dangerouslySetInnerHTML is used here intentionally.

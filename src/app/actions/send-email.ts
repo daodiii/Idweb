@@ -14,6 +14,13 @@ export async function sendContactEmail(
   _prev: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
+  // Honeypot — bots fill hidden fields, real users don't
+  const honeypot = (formData.get("website") as string)?.trim();
+  if (honeypot) {
+    // Silently reject — don't reveal it's a bot trap
+    return { success: true, message: "Takk for meldingen! Vi tar kontakt innen 24 timer." };
+  }
+
   const name = (formData.get("name") as string)?.trim();
   const email = (formData.get("email") as string)?.trim();
   const phone = (formData.get("phone") as string)?.trim() || undefined;
@@ -27,10 +34,29 @@ export async function sendContactEmail(
     };
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (name.length > 100) {
+    return { success: false, message: "Navnet er for langt." };
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) {
     return {
       success: false,
       message: "Vennligst oppgi en gyldig e-postadresse.",
+    };
+  }
+
+  if (phone && !/^[\d\s\-+()]{5,20}$/.test(phone)) {
+    return { success: false, message: "Vennligst oppgi et gyldig telefonnummer." };
+  }
+
+  if (company && company.length > 100) {
+    return { success: false, message: "Bedriftsnavn er for langt." };
+  }
+
+  if (message.length < 10 || message.length > 5000) {
+    return {
+      success: false,
+      message: "Meldingen må være mellom 10 og 5000 tegn.",
     };
   }
 
