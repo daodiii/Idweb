@@ -11,9 +11,15 @@ import { nettbutikkGuide } from "./nettbutikk-guide";
 import { googleAnalyticsGuide } from "./google-analytics-guide";
 import { sosialeMedierForBedrifter } from "./sosiale-medier-for-bedrifter";
 import { webdesigntrender2026 } from "./webdesigntrender-2026";
+import { googleBedriftsprofilGuide } from "./google-bedriftsprofil-guide";
+import { hvordanVelgeDomenenavn } from "./hvordan-velge-domenenavn";
+import { nettsideSomGenerererLeads } from "./nettside-som-genererer-leads";
 
 /** Sorted by publishedDate descending (newest first). */
 export const BLOG_POSTS: BlogPost[] = [
+  nettsideSomGenerererLeads,
+  hvordanVelgeDomenenavn,
+  googleBedriftsprofilGuide,
   webdesigntrender2026,
   konverteringsoptimalisering,
   velgeRiktigWebdesignbyra,
