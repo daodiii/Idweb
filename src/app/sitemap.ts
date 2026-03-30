@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllSlugs, getBlogPost } from "@/lib/content/blog";
 
-const BASE_URL = "https://idweb.no";
+const BASE_URL = "https://www.idweb.no";
 
 // Launch date — update when pages are meaningfully changed
 const LAUNCH_DATE = "2026-03-26";

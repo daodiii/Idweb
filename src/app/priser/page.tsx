@@ -5,6 +5,7 @@ import {
   PACKAGES,
   MAINTENANCE_PACKAGES,
   ADDON_SERVICES,
+  NETTSIDE_DRIFT,
   PRICING_FAQ,
   PRICING_CTA,
 } from "@/lib/content/pricing";
@@ -14,11 +15,12 @@ import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { MobilePricingTabs } from "@/components/sections/mobile-pricing-tabs";
 import { MobileMaintenanceTabs } from "@/components/sections/mobile-maintenance-tabs";
 import { PricingFaqAccordion } from "@/components/sections/pricing-faq-accordion";
+import { SeoPricingSection } from "@/components/sections/seo-pricing-section";
 
 export const metadata: Metadata = {
   title: "Priser — Nettsider, vedlikehold og SEO",
   description:
-    "Se våre faste priser for nettsider, vedlikehold, SEO og tilleggstjenester. Ingen bindingstid, ingen skjulte kostnader. Fra kr 8 990. Få et skreddersydd tilbud.",
+    "Se våre faste priser for nettsider, vedlikehold, SEO og tilleggstjenester. Ingen bindingstid, ingen skjulte kostnader. Fra kr 15 000. Få et skreddersydd tilbud.",
   keywords: [
     "nettside pris",
     "hva koster nettside",
@@ -46,6 +48,7 @@ export default function PriserPage() {
         ]}
       />
       <FaqJsonLd faqs={PRICING_FAQ} />
+
       {/* Hero */}
       <section className="px-6 py-28 text-center sm:py-36">
         <div className="mx-auto max-w-4xl">
@@ -91,7 +94,9 @@ export default function PriserPage() {
                     {pkg.subtitle}
                   </p>
                   <div className="mt-6">
-                    <span className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
+                    <span
+                      className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}
+                    >
                       {pkg.price}
                     </span>
                     <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
@@ -129,6 +134,89 @@ export default function PriserPage() {
         </div>
       </section>
 
+      {/* Nettside + Drift — Subscription spotlight */}
+      <section className="px-6 py-24 sm:py-28">
+        <div className="mx-auto max-w-5xl">
+          {/* Section label */}
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
+              Abonnement
+            </p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
+              Nettside + Drift
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
+              Vil du ha alt på én faktura — uten stor startkostnad? Vi bygger
+              nettsiden og drifter den for en fast månedspris.
+            </p>
+          </div>
+
+          {/* Card */}
+          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-accent)]/25 bg-gradient-to-br from-[var(--color-dark-bg-alt)] via-[#0f0f0f] to-[var(--color-dark-bg)] p-px shadow-2xl shadow-[var(--color-accent)]/10">
+            {/* Inner glow ring */}
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[var(--color-accent)]/8 via-transparent to-transparent pointer-events-none" />
+
+            <div className="relative rounded-[calc(2rem-1px)] bg-[var(--color-dark-bg-alt)]/80 p-8 sm:p-12 lg:p-14">
+              <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
+                {/* Left: pricing + tagline */}
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-[var(--color-accent)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
+                    Alt inkludert
+                  </div>
+
+                  <h3 className="mt-6 text-4xl font-black tracking-[-0.03em] text-[var(--color-dark-text)] sm:text-5xl lg:text-6xl">
+                    {NETTSIDE_DRIFT.price}
+                  </h3>
+
+                  <p className="mt-2 text-base text-[var(--color-dark-muted)]">
+                    Bindingstid {NETTSIDE_DRIFT.minMonths} måneder
+                  </p>
+
+                  <p className="mt-5 text-lg font-light leading-relaxed text-[var(--color-dark-muted)]">
+                    {NETTSIDE_DRIFT.description}
+                  </p>
+
+                  <Link
+                    href="/kontakt"
+                    className={`${RAINBOW_BUTTON_CLASSES} mt-8 inline-block px-8 py-4 text-base font-semibold`}
+                  >
+                    Start i dag
+                  </Link>
+
+                  <p className="mt-4 text-xs text-[var(--color-dark-muted)]/60">
+                    {NETTSIDE_DRIFT.note}
+                  </p>
+                </div>
+
+                {/* Right: feature list */}
+                <div>
+                  <p className="mb-5 text-xs font-semibold uppercase tracking-[2px] text-[var(--color-dark-muted)]/60">
+                    Inkludert i pakken
+                  </p>
+                  <ul className="space-y-4">
+                    {NETTSIDE_DRIFT.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-3 text-[var(--color-dark-text)]"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)]/15 text-[11px] font-bold text-[var(--color-accent)]">
+                          ✓
+                        </span>
+                        <span className="text-sm leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Packages — with billing toggle */}
+      <SeoPricingSection />
+
       {/* Maintenance Packages */}
       <section className="px-6 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl">
@@ -140,8 +228,8 @@ export default function PriserPage() {
               Vedlikehold og drift
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
-              Har du allerede en nettside? Vi holder den oppdatert, sikker og rask
-              — så du kan fokusere på bedriften din.
+              Har du allerede en nettside? Vi holder den oppdatert, sikker og
+              rask — så du kan fokusere på bedriften din.
             </p>
           </div>
 
@@ -171,7 +259,9 @@ export default function PriserPage() {
                     {pkg.name}
                   </h3>
                   <div className="mt-4">
-                    <span className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}>
+                    <span
+                      className={`font-black tracking-[-0.02em] tabular-nums ${pkg.highlight ? "text-5xl text-[var(--color-accent)]" : "text-3xl text-[var(--color-dark-text)]"}`}
+                    >
                       {pkg.price}
                     </span>
                   </div>
@@ -220,7 +310,7 @@ export default function PriserPage() {
               Utvid med tjenester som gir nettsiden din ekstra slagkraft.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {ADDON_SERVICES.map((service) => (
               <div
                 key={service.name}
@@ -232,11 +322,6 @@ export default function PriserPage() {
                 <p className="mt-1 text-sm font-semibold text-[var(--color-accent)]">
                   {service.price}
                 </p>
-                {"monthlyPrice" in service && service.monthlyPrice && (
-                  <p className="mt-0.5 text-sm text-[var(--color-dark-muted)]">
-                    eller {service.monthlyPrice}
-                  </p>
-                )}
                 <p className="mt-3 text-sm text-[var(--color-dark-muted)]">
                   {service.description}
                 </p>
@@ -246,7 +331,7 @@ export default function PriserPage() {
         </div>
       </section>
 
-      {/* Pricing FAQ — accordion (closed by default) */}
+      {/* Pricing FAQ */}
       <section className="px-6 py-24 sm:py-28">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">

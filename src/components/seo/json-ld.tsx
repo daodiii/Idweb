@@ -7,16 +7,16 @@
 const BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://idweb.no/#business",
+  "@id": "https://www.idweb.no/#business",
   name: "IDweb",
   legalName: "IDweb v/ Daod Ilyas",
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold.",
-  url: "https://idweb.no",
+  url: "https://www.idweb.no",
   telephone: "+4798406164",
   email: "hei@idweb.no",
-  logo: "https://idweb.no/images/idweb-logo.png",
-  image: "https://idweb.no/images/idweb-logo.png",
+  logo: "https://www.idweb.no/images/idweb-logo.png",
+  image: "https://www.idweb.no/images/idweb-logo.png",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Oslo",
@@ -90,13 +90,13 @@ const BUSINESS_SCHEMA = {
 const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://idweb.no/#website",
+  "@id": "https://www.idweb.no/#website",
   name: "IDweb",
-  url: "https://idweb.no",
+  url: "https://www.idweb.no",
   description:
     "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter.",
   publisher: {
-    "@id": "https://idweb.no/#business",
+    "@id": "https://www.idweb.no/#business",
   },
   inLanguage: "nb-NO",
 };
@@ -161,23 +161,23 @@ export function BlogPostJsonLd({
     "@type": "BlogPosting",
     headline: title,
     description,
-    url: `https://idweb.no/blogg/${slug}`,
+    url: `https://www.idweb.no/blogg/${slug}`,
     datePublished: publishedDate,
     dateModified: publishedDate,
     author: {
       "@type": "Organization",
       name: "IDweb",
-      url: "https://idweb.no",
-      logo: "https://idweb.no/images/idweb-logo.png",
+      url: "https://www.idweb.no",
+      logo: "https://www.idweb.no/images/idweb-logo.png",
     },
     publisher: {
-      "@id": "https://idweb.no/#business",
+      "@id": "https://www.idweb.no/#business",
     },
     articleSection: category,
     inLanguage: "nb-NO",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://idweb.no/blogg/${slug}`,
+      "@id": `https://www.idweb.no/blogg/${slug}`,
     },
   };
 
@@ -201,7 +201,7 @@ export function BreadcrumbJsonLd({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `https://idweb.no${item.href}`,
+      item: `https://www.idweb.no${item.href}`,
     })),
   };
 
@@ -227,9 +227,9 @@ export function ServiceJsonLd({
     "@type": "Service",
     name,
     description,
-    url: `https://idweb.no/tjenester/${slug}`,
+    url: `https://www.idweb.no/tjenester/${slug}`,
     provider: {
-      "@id": "https://idweb.no/#business",
+      "@id": "https://www.idweb.no/#business",
     },
     areaServed: {
       "@type": "Country",

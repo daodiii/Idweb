@@ -9,8 +9,8 @@ export const PACKAGES = [
     id: "enkel",
     name: "Enkel",
     subtitle: "For deg som trenger en enkel, profesjonell nettside",
-    price: "12 990 kr",
-    monthly: "690 kr/mnd",
+    price: "15 000 kr",
+    monthly: "890 kr/mnd",
     monthlyNote: "for hosting og vedlikehold",
     description:
       "En solid bedriftsnettside med alt du trenger for å bli funnet på nett. Perfekt for nyoppstartede bedrifter, håndverkere og konsulenter.",
@@ -29,8 +29,8 @@ export const PACKAGES = [
     id: "standard",
     name: "Standard",
     subtitle: "Mest populær — for bedrifter som vil vokse",
-    price: "19 990 kr",
-    monthly: "990 kr/mnd",
+    price: "23 000 kr",
+    monthly: "1 290 kr/mnd",
     monthlyNote: "for hosting og vedlikehold",
     description:
       "En komplett nettside med skreddersydd design, blogg og avansert SEO. For bedrifter der nettsiden er en viktig kilde til nye kunder.",
@@ -49,8 +49,8 @@ export const PACKAGES = [
     id: "premium",
     name: "Premium",
     subtitle: "For bedrifter med høye ambisjoner",
-    price: "29 990 kr",
-    monthly: "1 500 kr/mnd",
+    price: "40 000 kr",
+    monthly: "1 990 kr/mnd",
     monthlyNote: "for hosting, vedlikehold og support",
     description:
       "En skreddersydd løsning med utvidet funksjonalitet og dedikert oppfølging. For bedrifter som trenger mer enn en standard nettside.",
@@ -72,7 +72,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-basis",
     name: "Basis",
-    price: "690 kr/mnd",
+    price: "890 kr/mnd",
     description:
       "Grunnleggende drift for nettsider som trenger trygg hosting og jevnlige oppdateringer.",
     features: [
@@ -88,7 +88,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-standard",
     name: "Standard",
-    price: "990 kr/mnd",
+    price: "1 290 kr/mnd",
     description:
       "For bedrifter som vil holde nettsiden oppdatert og overvåket uten bekymringer.",
     features: [
@@ -104,7 +104,7 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-profesjonell",
     name: "Profesjonell",
-    price: "1 500 kr/mnd",
+    price: "1 990 kr/mnd",
     description:
       "Komplett vedlikehold med ubegrensede endringer og dedikert oppfølging.",
     features: [
@@ -118,14 +118,84 @@ export const MAINTENANCE_PACKAGES = [
   },
 ] as const;
 
-export const ADDON_SERVICES = [
+export const SEO_PACKAGES = [
   {
-    name: "SEO-pakke",
-    price: "fra 4 990 kr",
-    monthlyPrice: "fra 2 990 kr/mnd",
+    id: "seo-basis",
+    name: "SEO Basis",
+    monthlyPrice: "4 990 kr",
+    annualPrice: "3 500 kr",
+    annualSavings: 30,
     description:
-      "Teknisk SEO-audit med meta-tagger, schema markup, søkeordanalyse og handlingsplan. Velg månedlig pakke for løpende optimalisering og rapportering.",
+      "Kom i gang med SEO. Teknisk audit, søkeordanalyse og månedlig rapportering.",
+    features: [
+      "Teknisk SEO-audit",
+      "Søkeordanalyse (inntil 20 søkeord)",
+      "Månedlig innholdsoptimalisering",
+      "Google Search Console-oppsett",
+      "Månedlig SEO-rapport",
+    ],
+    highlight: false,
   },
+  {
+    id: "seo-vekst",
+    name: "SEO Vekst",
+    monthlyPrice: "7 990 kr",
+    annualPrice: "6 000 kr",
+    annualSavings: 25,
+    description:
+      "For bedrifter som vil dominere lokale søk og øke organisk trafikk konsekvent.",
+    features: [
+      "Alt i SEO Basis, pluss:",
+      "Søkeordanalyse (inntil 50 søkeord)",
+      "Lokal SEO og Google Business-optimalisering",
+      "2 SEO-optimaliserte artikler per måned",
+      "Konkurrentanalyse",
+      "Ukentlig rangering-tracking",
+    ],
+    highlight: true,
+  },
+  {
+    id: "seo-dominance",
+    name: "SEO Dominance",
+    monthlyPrice: "12 990 kr",
+    annualPrice: "10 000 kr",
+    annualSavings: 23,
+    description:
+      "Komplett SEO-dominans med aggressiv innholdsstrategi og dedikert SEO-rådgivning.",
+    features: [
+      "Alt i SEO Vekst, pluss:",
+      "Ubegrenset søkeordanalyse",
+      "4+ SEO-artikler per måned",
+      "Backlink-bygging og outreach",
+      "Dedikert SEO-rådgiver",
+      "Ukentlig statusmøte",
+    ],
+    highlight: false,
+  },
+] as const;
+
+export const NETTSIDE_DRIFT = {
+  id: "nettside-drift",
+  name: "Nettside + Drift",
+  price: "3 490 kr/mnd",
+  minMonths: 12,
+  tagline: "Alt inkludert. Ingen startkostnad.",
+  description:
+    "Få en skreddersydd nettside uten oppdragskostnad. Vi bygger, drifter og vedlikeholder — du betaler en fast månedspris.",
+  features: [
+    "Skreddersydd nettside (Standard-pakke verdi)",
+    "Hosting på norske servere",
+    "SSL-sertifikat og GDPR-tilpasning",
+    "Månedlige sikkerhetsoppdateringer",
+    "Inntil 3 innholdsendringer per måned",
+    "Grunnleggende SEO-oppsett",
+    "Prioritert support",
+    "Kvartalsvis ytelsesrapport",
+  ],
+  note: "Bindingstid 12 måneder. Etter første år kan avtalen sies opp med 1 måneds varsel.",
+} as const;
+
+export const ADDON_SERVICES = [
   {
     name: "Ytelsesoptimalisering",
     price: "fra 3 990 kr",
@@ -161,12 +231,12 @@ export const PRICING_FAQ = [
   {
     question: "Hva er inkludert i de månedlige kostnadene?",
     answer:
-      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 690 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se vedlikeholdspakkene lenger opp på siden for detaljer.",
+      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 890 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se vedlikeholdspakkene lenger opp på siden for detaljer.",
   },
   {
     question: "Er det bindingstid?",
     answer:
-      "Nei, vi har ingen bindingstid. Vedlikeholdsavtaler kan sies opp med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
+      "Nei, vi har ingen bindingstid på vanlige vedlikeholdsavtaler — disse kan sies opp med én måneds varsel. Nettside + Drift-abonnementet har 12 måneders bindingstid. Nettsiden er din — du eier alt innhold, design og kode.",
   },
   {
     question: "Hva om prosjektet mitt ikke passer inn i en pakke?",
@@ -176,7 +246,12 @@ export const PRICING_FAQ = [
   {
     question: "Hvordan er betalingsmodellen?",
     answer:
-      "Nettsider faktureres i to deler: 50 % ved oppstart og 50 % ved lansering. Vedlikeholdsavtaler og tilleggstjenester faktureres månedlig.",
+      "Nettsider faktureres i to deler: 50 % ved oppstart og 50 % ved lansering. Vedlikeholdsavtaler og tilleggstjenester faktureres månedlig. SEO-pakker kan betales månedlig eller årlig — velger du årlig sparer du opptil 30 %.",
+  },
+  {
+    question: "Hva er forskjellen mellom Vedlikehold og Nettside + Drift?",
+    answer:
+      "Vedlikeholdsavtaler er for deg som allerede har en nettside og trenger løpende drift og support. Nettside + Drift er for deg som ønsker en helt ny nettside uten høy startkostnad — vi bygger og drifter alt, du betaler en fast månedspris.",
   },
 ] as const;
 

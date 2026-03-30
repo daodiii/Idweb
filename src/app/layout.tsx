@@ -30,10 +30,10 @@ export const metadata: Metadata = {
   },
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold. Få et uforpliktende tilbud i dag.",
-  metadataBase: new URL("https://idweb.no"),
+  metadataBase: new URL("https://www.idweb.no"),
   alternates: {
     languages: {
-      "nb-NO": "https://idweb.no",
+      "nb-NO": "https://www.idweb.no",
     },
   },
   openGraph: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "IDweb — Nettsideutvikling i Norge",
     description:
       "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter. Få et uforpliktende tilbud i dag.",
-    url: "https://idweb.no",
+    url: "https://www.idweb.no",
   },
   twitter: {
     card: "summary_large_image",

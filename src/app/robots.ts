@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/studio/"],
       },
     ],
-    sitemap: "https://idweb.no/sitemap.xml",
+    sitemap: "https://www.idweb.no/sitemap.xml",
   };
 }

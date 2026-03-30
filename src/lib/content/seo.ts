@@ -5,9 +5,9 @@
 
 export const SEO = {
   home: {
-    title: "IDweb — Profesjonelle nettsider for bedrifter i Norge | Webdesign Oslo",
+    title: "IDweb — Profesjonelle nettsider for bedrifter",
     description:
-      "Vi lager skreddersydde, raske og mobiloptimaliserte nettsider for norske bedrifter. Webdesign, SEO-optimalisering og vedlikehold med faste priser. Få et uforpliktende tilbud i dag.",
+      "Skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. Webdesign, SEO og vedlikehold med faste priser. Få et uforpliktende tilbud.",
     keywords: [
       "nettside",
       "webdesign",
@@ -78,9 +78,9 @@ export const SEO = {
     ],
   },
   contact: {
-    title: "Kontakt IDweb — Få et gratis og uforpliktende tilbud | Webdesign Oslo",
+    title: "Kontakt oss — Få et gratis tilbud",
     description:
-      "Ta kontakt med IDweb for en uforpliktende samtale om din nye nettside. Vi svarer innen 24 timer. Ring, send e-post eller bruk kontaktskjemaet.",
+      "Ta kontakt for en uforpliktende samtale om din nye nettside. Vi svarer innen 24 timer. Ring, send e-post eller bruk kontaktskjemaet.",
     keywords: [
       "kontakt webbyrå",
       "tilbud nettside",
@@ -116,9 +116,9 @@ export const SEO = {
 
 export const SERVICE_SEO: Record<string, { title: string; description: string; keywords: string[] }> = {
   nettside: {
-    title: "Skreddersydd nettside — Profesjonell webdesign for bedrifter",
+    title: "Skreddersydd nettside — Webdesign for bedrifter",
     description:
-      "Vi designer og utvikler skreddersydde nettsider med fokus på hastighet, SEO og konvertering. Responsivt design, SSL og enkel administrasjon inkludert. Faste priser fra kr 8 990.",
+      "Vi designer skreddersydde nettsider med fokus på hastighet, SEO og konvertering. Responsivt design, SSL og administrasjon inkludert. Fra kr 8 990.",
     keywords: [
       "skreddersydd nettside",
       "webdesign",
@@ -137,7 +137,7 @@ export const SERVICE_SEO: Record<string, { title: string; description: string; k
   seo: {
     title: "SEO-optimalisering — Bli synlig i Google",
     description:
-      "Profesjonell søkemotoroptimalisering for norske bedrifter. Teknisk SEO, innholdsoptimalisering, lokal SEO i Oslo og Norge. Månedlig rapportering og faste priser.",
+      "Profesjonell søkemotoroptimalisering for norske bedrifter. Teknisk SEO, innhold og lokal SEO. Månedlig rapportering og faste priser.",
     keywords: [
       "seo optimalisering",
       "søkemotoroptimalisering",
@@ -155,9 +155,9 @@ export const SERVICE_SEO: Record<string, { title: string; description: string; k
     ],
   },
   vedlikehold: {
-    title: "Drift og vedlikehold — Trygg og oppdatert nettside",
+    title: "Drift og vedlikehold — Trygg nettside",
     description:
-      "Løpende vedlikehold, sikkerhetskopier og oppdateringer for norske bedrifter. Vi holder nettsiden din trygg og rask med pålitelig norsk hosting. Ingen bindingstid.",
+      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig norsk hosting. Ingen bindingstid.",
     keywords: [
       "vedlikehold nettside",
       "drift nettside",
