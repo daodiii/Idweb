@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/studio/"],
+        disallow: ["/api/", "/studio/", "/*opengraph-image*", "/favicon.ico", "/site.webmanifest"],
       },
     ],
     sitemap: "https://www.idweb.no/sitemap.xml",
