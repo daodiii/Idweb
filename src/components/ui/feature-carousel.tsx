@@ -7,6 +7,7 @@ import {
   GlobalSearchIcon,
   SmartPhone01Icon,
   CheckmarkCircle01Icon,
+  Stethoscope02Icon,
 } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -42,6 +43,12 @@ const FEATURES: PortfolioFeature[] = [
     label: "Iqra Senter",
     icon: SmartPhone01Icon,
     image: "/images/portfolio/iqra-tablet.webp",
+  },
+  {
+    id: "ringebu",
+    label: "Ringebu Tannlegesenter",
+    icon: Stethoscope02Icon,
+    image: "/images/portfolio/ringebu-tablet.webp",
   },
 ];
 

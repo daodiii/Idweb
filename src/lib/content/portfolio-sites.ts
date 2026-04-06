@@ -94,6 +94,22 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
       ],
     },
   },
+  {
+    id: "ringebu",
+    name: "Ringebu Tannlegesenter",
+    domain: "ringebutannlegesenter.no",
+    images: {
+      desktop: "/images/portfolio/ringebu-desktop.webp",
+      tablet: "/images/portfolio/ringebu-tablet.webp",
+      mobile: "/images/portfolio/ringebu-mobile.webp",
+      full: "/images/portfolio/ringebu-full.webp",
+      showcase: [
+        "/images/portfolio/ringebu-s1.webp",
+        "/images/portfolio/ringebu-s2.webp",
+        "/images/portfolio/ringebu-s3.webp",
+      ],
+    },
+  },
 ];
 
 /** Helper: look up a site by ID */
