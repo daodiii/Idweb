@@ -69,11 +69,11 @@ export const PROJECTS = [
     industry: "Helse og tannlege",
     title: "Profesjonell nettside for tannlegesenter",
     description:
-      "Ringebu Tannlegesenter trengte en moderne nettside som formidlet trygghet og profesjonalitet i hjertet av Gudbrandsdalen. Vi bygget en visuelt sterk side med fullskjerm naturbilde fra lokalmiljøet, tydelig tjenesteoversikt og enkel timebestilling. Resultatet er en nettside som reflekterer klinikkens moderne utstyr og personlige omsorg.",
-    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Timebestilling-integrasjon"],
+      "Ringebu Tannlegesenter trengte en moderne nettside som formidlet trygghet og profesjonalitet i hjertet av Gudbrandsdalen. Vi bygget en visuelt sterk side med fullskjerm naturbilde fra lokalmiljøet og tydelig tjenesteoversikt. I tillegg har vi produsert en rekke artikler med tips, råd og informasjon om vanlige tannproblemer og symptomer — slik at pasienter enkelt kan finne svar på det de lurer på.",
+    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Innholdsproduksjon"],
     results: [
       "Moderne design med lokalt naturbilde",
-      "Enkel timebestilling for pasienter",
+      "Informative artikler om tannhelse og symptomer",
       "Optimalisert for lokale Google-søk",
       "Mobilvennlig og responsivt design",
     ],
