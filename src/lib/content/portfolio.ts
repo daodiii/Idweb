@@ -36,21 +36,6 @@ export const PROJECTS = [
     ],
   },
   {
-    id: "vocura",
-    client: "Vocura",
-    industry: "Helse og velvære",
-    title: "Moderne nettside for helseklinikk",
-    description:
-      "Vocura er en ren og profesjonell nettside som bygger tillit hos potensielle kunder. Siden har et eget backend-system med innlogging via personnummer, slik at brukere får tilgang til sin personlige side. Hero-seksjonen har en interaktiv animasjon som reagerer på musebevegelser — en detalj som gir siden et levende og moderne preg.",
-    services: ["Skreddersydd design", "Backend og innlogging", "Interaktiv animasjon", "Mobiloptimalisering"],
-    results: [
-      "Sikkert innloggingssystem med personnummer",
-      "Interaktiv hero-animasjon med musebevegelse",
-      "Moderne og tillitvekkende design",
-      "Lastetid under 1,5 sekunder",
-    ],
-  },
-  {
     id: "brobekk",
     client: "Brobekk Legekontor",
     industry: "Helse og legetjenester",
@@ -76,6 +61,21 @@ export const PROJECTS = [
       "Formidler kjerneverdier som familie og tradisjon",
       "Tydelig informasjonsarkitektur",
       "Engasjerende fremstilling av aktiviteter og kurs",
+    ],
+  },
+  {
+    id: "vocura",
+    client: "Vocura",
+    industry: "Helse og velvære",
+    title: "Moderne nettside for helseklinikk",
+    description:
+      "Vocura er en ren og profesjonell nettside som bygger tillit hos potensielle kunder. Siden har et eget backend-system med innlogging via personnummer, slik at brukere får tilgang til sin personlige side. Hero-seksjonen har en interaktiv animasjon som reagerer på musebevegelser — en detalj som gir siden et levende og moderne preg.",
+    services: ["Skreddersydd design", "Backend og innlogging", "Interaktiv animasjon", "Mobiloptimalisering"],
+    results: [
+      "Sikkert innloggingssystem med personnummer",
+      "Interaktiv hero-animasjon med musebevegelse",
+      "Moderne og tillitvekkende design",
+      "Lastetid under 1,5 sekunder",
     ],
   },
 ] as const;
