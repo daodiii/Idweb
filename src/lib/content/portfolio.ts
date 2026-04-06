@@ -21,6 +21,21 @@ export const PROJECTS = [
     ],
   },
   {
+    id: "ringebu",
+    client: "Ringebu Tannlegesenter",
+    industry: "Helse og tannlege",
+    title: "Profesjonell nettside for tannlegesenter",
+    description:
+      "Ringebu Tannlegesenter trengte en moderne nettside som formidlet trygghet og profesjonalitet i hjertet av Gudbrandsdalen. Vi bygget en visuelt sterk side med fullskjerm naturbilde fra lokalmiljøet og tydelig tjenesteoversikt. I tillegg har vi produsert en rekke artikler med tips, råd og informasjon om vanlige tannproblemer og symptomer — slik at pasienter enkelt kan finne svar på det de lurer på.",
+    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Innholdsproduksjon"],
+    results: [
+      "Moderne design med lokalt naturbilde",
+      "Informative artikler om tannhelse og symptomer",
+      "Optimalisert for lokale Google-søk",
+      "Mobilvennlig og responsivt design",
+    ],
+  },
+  {
     id: "vocura",
     client: "Vocura",
     industry: "Helse og velvære",
@@ -61,21 +76,6 @@ export const PROJECTS = [
       "Formidler kjerneverdier som familie og tradisjon",
       "Tydelig informasjonsarkitektur",
       "Engasjerende fremstilling av aktiviteter og kurs",
-    ],
-  },
-  {
-    id: "ringebu",
-    client: "Ringebu Tannlegesenter",
-    industry: "Helse og tannlege",
-    title: "Profesjonell nettside for tannlegesenter",
-    description:
-      "Ringebu Tannlegesenter trengte en moderne nettside som formidlet trygghet og profesjonalitet i hjertet av Gudbrandsdalen. Vi bygget en visuelt sterk side med fullskjerm naturbilde fra lokalmiljøet og tydelig tjenesteoversikt. I tillegg har vi produsert en rekke artikler med tips, råd og informasjon om vanlige tannproblemer og symptomer — slik at pasienter enkelt kan finne svar på det de lurer på.",
-    services: ["Skreddersydd design", "Responsiv utvikling", "SEO-optimalisering", "Innholdsproduksjon"],
-    results: [
-      "Moderne design med lokalt naturbilde",
-      "Informative artikler om tannhelse og symptomer",
-      "Optimalisert for lokale Google-søk",
-      "Mobilvennlig og responsivt design",
     ],
   },
 ] as const;
