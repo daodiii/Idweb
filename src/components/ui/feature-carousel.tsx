@@ -48,7 +48,7 @@ const FEATURES: PortfolioFeature[] = [
     id: "ringebu",
     label: "Ringebu Tannlegesenter",
     icon: Stethoscope02Icon,
-    image: "/images/portfolio/ringebu-full.webp",
+    image: "/images/portfolio/ringebu-carousel.webp",
   },
 ];
 
