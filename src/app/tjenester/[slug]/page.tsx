@@ -28,7 +28,6 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: seo.title,
     description: seo.description,
-    keywords: seo.keywords,
     alternates: {
       canonical: `/tjenester/${slug}`,
     },
@@ -67,7 +66,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
-          { name: "Tjenester", href: "/tjenester/nettside" },
+          { name: "Tjenester", href: "/tjenester" },
           { name: service.title, href: `/tjenester/${slug}` },
         ]}
       />

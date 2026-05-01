@@ -60,9 +60,27 @@ const BUSINESS_SCHEMA = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          name: "Webutvikler i Oslo",
+          description:
+            "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Skreddersydd nettside",
           description:
             "Profesjonell, mobiloptimalisert nettside designet for å tiltrekke kunder.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Nettbutikk-utvikling",
+          description:
+            "Skreddersydde nettbutikker med Vipps og Stripe — lynraske og mobilvennlige.",
         },
       },
       {

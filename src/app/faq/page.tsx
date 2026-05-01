@@ -9,7 +9,6 @@ import { PaletteBackground } from "@/components/ui/palette-background";
 export const metadata: Metadata = {
   title: SEO.faq.title,
   description: SEO.faq.description,
-  keywords: SEO.faq.keywords,
   alternates: {
     canonical: "/faq",
   },

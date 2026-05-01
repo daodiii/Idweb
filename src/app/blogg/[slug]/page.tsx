@@ -1,8 +1,54 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getBlogPost, getAllSlugs } from "@/lib/content/blog";
+import { getBlogPost, getAllSlugs, BLOG_POSTS } from "@/lib/content/blog";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+
+// Map blog category → most relevant service pages.
+// Each link uses keyword-rich anchor text so Google can pick up the topic.
+const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
+  SEO: [
+    { href: "/tjenester/seo", label: "SEO-optimalisering for norske bedrifter" },
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  ],
+  Nettbutikk: [
+    { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling med Vipps og Stripe" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+  ],
+  Design: [
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  ],
+  Teknologi: [
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
+  ],
+  Priser: [
+    { href: "/priser", label: "Se alle priser" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+  ],
+  Tips: [
+    { href: "/tjenester/seo", label: "SEO-optimalisering" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+  ],
+  Markedsføring: [
+    { href: "/tjenester/seo", label: "SEO-optimalisering" },
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  ],
+  Markedsforing: [
+    { href: "/tjenester/seo", label: "SEO-optimalisering" },
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  ],
+  Verktøy: [
+    { href: "/tjenester/seo", label: "SEO-optimalisering" },
+    { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
+  ],
+};
+
+const DEFAULT_RELATED = [
+  { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+];
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -120,6 +166,56 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ))}
         </div>
       </article>
+
+      {/* Related services — keyword-anchored internal links */}
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-xl font-bold tracking-[-0.01em]">
+            Relaterte tjenester
+          </h2>
+          <ul className="mt-4 space-y-2">
+            {(RELATED_SERVICES[post.category] ?? DEFAULT_RELATED).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[var(--color-accent)] underline-offset-4 hover:underline"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Related articles — same category, excluding current post */}
+      {(() => {
+        const related = BLOG_POSTS.filter(
+          (p) => p.category === post.category && p.slug !== post.slug,
+        ).slice(0, 3);
+        if (related.length === 0) return null;
+        return (
+          <section className="px-6 pb-12">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-xl font-bold tracking-[-0.01em]">
+                Relaterte artikler
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {related.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/blogg/${p.slug}`}
+                      className="text-[var(--color-accent)] underline-offset-4 hover:underline"
+                    >
+                      {p.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Back + CTA */}
       <section className="bg-[var(--color-bg-alt)] px-6 py-16">

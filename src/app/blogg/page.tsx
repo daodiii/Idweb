@@ -12,7 +12,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: SEO.blog.title,
   description: SEO.blog.description,
-  keywords: SEO.blog.keywords,
   alternates: {
     canonical: "/blogg",
   },

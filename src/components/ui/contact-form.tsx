@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
@@ -24,6 +24,16 @@ export function ContactForm({
     ContactFormState,
     FormData
   >(sendContactEmail, null);
+
+  // Timestamp set on mount — bots typically submit within milliseconds.
+  // Real users take at least a few seconds to fill the form.
+  const loadedAtRef = useRef<number>(0);
+  const [loadedAt, setLoadedAt] = useState<string>("");
+  useEffect(() => {
+    const ts = Date.now();
+    loadedAtRef.current = ts;
+    setLoadedAt(String(ts));
+  }, []);
 
   const inputClasses =
     variant === "light"
@@ -90,15 +100,19 @@ export function ContactForm({
         </div>
       )}
 
-      {/* Honeypot — hidden from real users, bots will fill it */}
+      {/* Honeypot — hidden from real users; bots fill it. Field name is
+          intentionally bland so scanners that whitelist common honeypots
+          ("website", "url") don't skip it. */}
       <input
         type="text"
-        name="website"
+        name="fax_number"
         autoComplete="off"
         tabIndex={-1}
         aria-hidden="true"
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
+      {/* Timestamp — server rejects submissions faster than 3s (bots) */}
+      <input type="hidden" name="loaded_at" value={loadedAt} />
 
       <textarea
         name="message"

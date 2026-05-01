@@ -9,7 +9,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: SEO.services.title,
   description: SEO.services.description,
-  keywords: SEO.services.keywords,
   alternates: {
     canonical: "/tjenester",
   },
@@ -17,11 +16,25 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
+    slug: "webutvikler-oslo",
+    title: "Webutvikler i Oslo",
+    description:
+      "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
+    features: ["Møter fysisk i Oslo", "Skreddersydd Next.js", "Lokal SEO", "Direkte med utvikleren"],
+  },
+  {
     slug: "nettside",
     title: "Skreddersydd nettside",
     description:
       "Profesjonell, mobiloptimalisert nettside designet for å tiltrekke kunder og styrke merkevaren din.",
     features: ["Responsivt design", "SEO-optimalisert", "Rask lastetid", "SSL-sertifikat"],
+  },
+  {
+    slug: "nettbutikk",
+    title: "Nettbutikk-utvikling",
+    description:
+      "Skreddersydde nettbutikker med Vipps og Stripe — lynraske, mobilvennlige og bygget for konvertering.",
+    features: ["Vipps + Stripe", "Under 2 sek lastetid", "Mobil-først kasse", "SEO på produktsider"],
   },
   {
     slug: "seo",

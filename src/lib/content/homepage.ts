@@ -3,9 +3,9 @@ import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
   brand: "IDWEB",
-  headline: "BYGGER DIN NYE NETTSIDE",
+  headline: "WEBUTVIKLING OG NETTSIDER I OSLO",
   subheadline:
-    "Bygget med moderne teknologi. Optimalisert for Google. Designet for \u00e5 konvertere bes\u00f8kende til kunder.",
+    "Skreddersydde nettsider for bedrifter i Oslo og hele Norge. Bygget med moderne teknologi, optimalisert for Google og designet for \u00e5 konvertere bes\u00f8kende til kunder.",
   primaryCta: "Se våre prosjekter",
   secondaryCta: "F\u00e5 et tilbud",
 } as const;
@@ -16,7 +16,7 @@ export const TRUST_SIGNALS: TrustSignal[] = [
   { value: 0, suffix: "", label: "Bindingstid" },
 ];
 
-export const TRUST_LOCATION = "Basert i Drammen" as const;
+export const TRUST_LOCATION = "Basert i Oslo" as const;
 
 export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
   "centerrahma",

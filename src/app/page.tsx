@@ -45,7 +45,6 @@ const CtaSection = dynamic(
 export const metadata: Metadata = {
   title: SEO.home.title,
   description: SEO.home.description,
-  keywords: SEO.home.keywords,
   alternates: {
     canonical: "/",
   },
