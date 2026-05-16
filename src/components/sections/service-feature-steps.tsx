@@ -31,15 +31,35 @@ const serviceFeatures = [
 
 export function ServiceFeatureSteps() {
   return (
-    <section className="light-section-warm-alt px-4 py-8 sm:py-24 md:py-32">
-      <p className="text-center text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">
-        Våre tjenester
-      </p>
+    <section className="light-section-warm-alt px-6 py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 max-w-2xl">
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]" />
+            Våre tjenester
+          </p>
+          <h2 className="mt-7 font-serif text-[var(--color-text)]">
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[var(--color-text)]/65">
+              Tjenester som
+            </span>
+            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+              <span className="relative inline-block">
+                driver vekst
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 right-0 h-[4px] rounded-full bg-[#F4CE14]"
+                />
+              </span>
+              .
+            </span>
+          </h2>
+        </div>
+      </div>
       <FeatureSteps
         features={serviceFeatures}
-        title="Tjenester som driver vekst"
+        title=""
         autoPlayInterval={4000}
-        className="!pt-2"
+        className="!pt-0"
       />
     </section>
   );

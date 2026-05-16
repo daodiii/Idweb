@@ -1,38 +1,50 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FeatureCarousel } from "@/components/ui/feature-carousel";
 import { AnimateIn } from "@/components/ui/animate-in";
 
 export function PortfolioShowcase() {
   return (
-    <section className="light-section-warm px-6 pt-6 pb-14 sm:pt-10 sm:pb-24 md:pt-12 md:pb-32">
+    <section className="light-section-warm px-6 py-20 sm:py-28 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <AnimateIn className="mb-16">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-accent)]">
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <h2 className="font-heading text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-text)] sm:text-4xl lg:text-5xl">
-              Utvalgte prosjekter
-            </h2>
-          </div>
+        <AnimateIn className="mb-14 max-w-2xl">
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]" />
+            Portefølje
+          </p>
+          <h2 className="mt-7 font-serif text-[var(--color-text)]">
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[var(--color-text)]/65">
+              Utvalgte
+            </span>
+            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+              <span className="relative inline-block">
+                prosjekter
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 right-0 h-[4px] rounded-full bg-[#F4CE14]"
+                />
+              </span>
+              .
+            </span>
+          </h2>
         </AnimateIn>
 
         <AnimateIn>
           <FeatureCarousel />
         </AnimateIn>
 
-        {/* CTA button to see all projects */}
-        <AnimateIn className="mt-10 flex justify-center" delay={0.15}>
+        <AnimateIn className="mt-14 flex justify-center" delay={0.15}>
           <Link
             href="/referanser"
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[var(--color-accent)] px-8 py-4 text-base font-bold text-[var(--color-text)] shadow-lg shadow-[var(--color-accent)]/25 transition-all duration-300 hover:gap-4 hover:shadow-xl hover:shadow-[var(--color-accent)]/35 sm:px-10 sm:py-5 sm:text-lg"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0a0a] px-7 py-4 text-sm font-bold text-[#fafaf9] shadow-[0_10px_30px_-12px_rgba(10,10,10,0.4)] transition-[transform,background-color] duration-150 hover:bg-[#1a1a1a] active:scale-[0.97]"
+            style={{ transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
           >
-            <span className="relative z-10">Tidligere prosjekter</span>
-            <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            <span className="absolute inset-0 z-0 bg-[var(--color-accent-hover)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            Tidligere prosjekter
+            <ArrowUpRight
+              aria-hidden
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              style={{ transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
+            />
           </Link>
         </AnimateIn>
       </div>

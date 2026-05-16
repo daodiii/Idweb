@@ -1,183 +1,198 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useReducedMotion, AnimatePresence } from "motion/react";
-import { PaletteBackground } from "@/components/ui/palette-background";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { SegmentedControl } from "@/components/ui/segmented-control";
+import { motion, useReducedMotion } from "motion/react";
 import { COMPARISON_GRID } from "@/lib/content/homepage";
 import type { ComparisonCard } from "@/types";
 
-function Card({ card, index }: { card: ComparisonCard; index: number }) {
-  const isByrå = card.type === "byrå";
-  const label = isByrå ? "Typisk byrå" : "IDweb";
+const EASE = [0.23, 1, 0.32, 1] as const;
+
+const idwebItems = COMPARISON_GRID.filter((c) => c.type === "idweb");
+const byråItems = COMPARISON_GRID.filter((c) => c.type === "byrå");
+
+function ComparisonRow({
+  card,
+  isIdweb,
+  index,
+}: {
+  card: ComparisonCard;
+  isIdweb: boolean;
+  index: number;
+}) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
     <motion.div
-      className="relative rounded-[1.25rem]"
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+      className={`flex items-start gap-5 border-t py-6 ${
+        isIdweb ? "border-white/[0.08]" : "border-white/[0.05]"
+      }`}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : index * 0.1 }}
-      whileHover={prefersReducedMotion ? undefined : { y: -2 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.5,
+        delay: prefersReducedMotion ? 0 : index * 0.05,
+        ease: EASE,
+      }}
     >
-      {/* Glow wrapper */}
-      <div className="relative h-full rounded-[inherit] border-[0.75px] border-white/10 p-1.5">
-        <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={64}
-          inactiveZone={0.01}
-          borderWidth={3}
-        />
-
-        {/* Inner card */}
-        <div
-          className="relative h-full overflow-hidden rounded-[14px] p-5"
-          style={{
-            background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-            border: `1px solid rgba(${hexToRgb(card.accent)}, 0.25)`,
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          <span
-            className="mb-2 block text-[11px] font-medium uppercase tracking-[3px]"
-            style={{ color: `rgba(${hexToRgb(card.accent)}, 0.7)` }}
-          >
-            {label}
-          </span>
-
-          {card.stat ? (
-            <p className="mb-0.5 text-4xl font-black tracking-[-0.03em] leading-tight sm:text-5xl" style={{ color: card.accent }}>
+      <div className="flex w-20 shrink-0 items-baseline">
+        {card.stat ? (
+          <div className="flex items-baseline gap-0.5">
+            <span
+              className={`font-serif font-black leading-none tracking-tight ${
+                isIdweb ? "text-[#F4CE14]" : "text-white/40"
+              }`}
+              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+            >
               {card.stat}
-              <span className="text-lg font-black">{card.unit}</span>
-            </p>
-          ) : (
-            <span className="mb-1 block text-2xl">{card.icon}</span>
-          )}
+            </span>
+            <span
+              className={`font-serif text-base font-bold ${
+                isIdweb ? "text-[#F4CE14]/80" : "text-white/35"
+              }`}
+            >
+              {card.unit}
+            </span>
+          </div>
+        ) : (
+          <span
+            aria-hidden
+            className={`mt-2 inline-block h-1.5 w-1.5 rounded-full ${
+              isIdweb ? "bg-[#F4CE14]" : "bg-white/25"
+            }`}
+          />
+        )}
+      </div>
 
-          <p className="text-base font-bold tracking-[-0.01em]" style={{ color: card.accent }}>
-            {card.title}
-          </p>
-          <p className="mt-1 text-xs font-light leading-relaxed text-[var(--color-dark-muted)]">
-            {card.description}
-          </p>
-        </div>
+      <div className="flex-1">
+        <h4
+          className={`font-bold tracking-[-0.005em] ${
+            isIdweb ? "text-base text-white sm:text-lg" : "text-sm text-white/55 line-through decoration-white/15 decoration-1 sm:text-base"
+          }`}
+        >
+          {card.title}
+        </h4>
+        <p
+          className={`mt-1.5 text-sm leading-relaxed ${
+            isIdweb ? "text-white/65" : "text-white/40"
+          }`}
+        >
+          {card.description}
+        </p>
       </div>
     </motion.div>
   );
 }
 
-/** Compact mobile card — no icon/emoji, minimal padding, fixed height */
-function MobileCard({ card }: { card: ComparisonCard }) {
-  const isByrå = card.type === "byrå";
-
-  return (
-    <div
-      className="flex h-[72px] flex-col justify-center overflow-hidden rounded-lg px-2.5 py-2"
-      style={{
-        background: `rgba(${hexToRgb(card.accent)}, 0.08)`,
-        border: `1px solid rgba(${hexToRgb(card.accent)}, 0.25)`,
-      }}
-    >
-      {card.stat && (
-        <p className="text-base font-black tracking-[-0.03em] leading-none" style={{ color: card.accent }}>
-          {card.stat}
-          <span className="text-xs font-black">{card.unit}</span>
-        </p>
-      )}
-
-      <p className="text-[13px] font-bold tracking-[-0.01em] leading-tight" style={{ color: card.accent }}>
-        {card.title}
-      </p>
-      <p className="mt-0.5 text-[10px] font-light leading-snug text-[var(--color-dark-muted)]">
-        {card.description}
-      </p>
-    </div>
-  );
-}
-
-function hexToRgb(hex: string): string {
-  if (!/^#[0-9a-fA-F]{6}$/.test(hex)) return "0, 0, 0";
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
-}
-
-const SEGMENTS = ["IDweb", "Typisk byrå"] as const;
-
 export function ComparisonBento() {
-  const [activeFilter, setActiveFilter] = useState(0);
-
-  const byråCards = COMPARISON_GRID.filter((c) => c.type === "byrå");
-  const idwebCards = COMPARISON_GRID.filter((c) => c.type === "idweb");
-  const mobileCards = activeFilter === 0 ? idwebCards : byråCards;
-  // Pad to 6 cells (3 full rows of 2) so both views occupy the same height
-  const paddedCount = 6;
-  const spacersNeeded = paddedCount - mobileCards.length;
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <PaletteBackground palette="smaragd" singleLayer className="px-6 py-14 sm:py-20 md:py-28">
+    <section className="relative overflow-hidden bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28 lg:py-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 40% at 78% 30%, rgba(244,206,20,0.14), transparent 62%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
+
       <div className="relative mx-auto max-w-6xl">
         <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
+          className="max-w-2xl"
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: EASE }}
         >
-          <span className="mb-2 block text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
             Hvorfor oss?
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
-            Ikke alle nettsider er skapt like
+          </p>
+
+          <h2 className="mt-7 font-serif text-white">
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
+              Ikke alle nettsider
+            </span>
+            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+              er skapt
+            </span>
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
+              <span className="relative inline-block">
+                like
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#F4CE14]"
+                />
+              </span>
+              .
+            </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm font-light text-[var(--color-dark-muted)]">
-            Se forskjellen mellom en typisk leverandør og det vi bygger for deg.
+
+          <p className="mt-8 max-w-[55ch] text-base leading-relaxed text-white/65 sm:text-lg">
+            Slik ser forskjellen ut mellom et typisk byrå og det vi leverer.
           </p>
         </motion.div>
 
-        {/* ── Mobile: segmented toggle + filtered compact grid ── */}
-        <div className="sm:hidden">
-          <div className="mb-4 flex justify-center">
-            <SegmentedControl
-              segments={[...SEGMENTS]}
-              defaultIndex={0}
-              onChange={setActiveFilter}
-              variant="dark"
-            />
+        <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <div className="flex items-baseline justify-between border-b border-white/[0.05] pb-4">
+              <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/35">
+                Typisk byrå
+              </p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">
+                01 / Slik det vanligvis er
+              </span>
+            </div>
+            <div>
+              {byråItems.map((card, i) => (
+                <ComparisonRow
+                  key={card.title}
+                  card={card}
+                  isIdweb={false}
+                  index={i}
+                />
+              ))}
+            </div>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeFilter}
-              className="grid grid-cols-2 gap-1.5"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
+          <div className="relative">
+            <span
+              aria-hidden
+              className="absolute -left-6 -top-4 hidden font-serif text-7xl font-black leading-none text-[#F4CE14]/15 lg:block"
             >
-              {mobileCards.map((card) => (
-                <MobileCard key={card.title} card={card} />
+              vs.
+            </span>
+            <div className="flex items-baseline justify-between border-b border-[#F4CE14]/30 pb-4">
+              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#F4CE14]">
+                IDweb
+              </p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                02 / Slik vi gjør det
+              </span>
+            </div>
+            <div>
+              {idwebItems.map((card, i) => (
+                <ComparisonRow
+                  key={card.title}
+                  card={card}
+                  isIdweb={true}
+                  index={i}
+                />
               ))}
-              {/* Invisible spacers keep both views the same height (3 rows) */}
-              {Array.from({ length: spacersNeeded }, (_, i) => (
-                <div key={`spacer-${i}`} className="h-[72px]" aria-hidden="true" />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* ── Tablet+: grid layout (unchanged) ── */}
-        <div className="hidden gap-3 sm:grid sm:grid-cols-2 md:grid-cols-3">
-          {COMPARISON_GRID.map((card, i) => (
-            <Card key={card.title} card={card} index={i} />
-          ))}
+            </div>
+          </div>
         </div>
       </div>
-    </PaletteBackground>
+    </section>
   );
 }
