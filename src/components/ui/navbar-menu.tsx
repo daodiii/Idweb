@@ -54,7 +54,7 @@ export function MenuItem({
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="overflow-hidden rounded-2xl border border-[var(--color-dark-border)] bg-[var(--color-dark-bg)]/95 shadow-xl backdrop-blur-md"
+                className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[rgba(20,20,22,0.96)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_30px_60px_-30px_rgba(0,0,0,0.8)]"
               >
                 <motion.div layout className="h-full w-max p-4">
                   {children}

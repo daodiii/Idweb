@@ -1,10 +1,8 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
-import { FAQ_PAGE, FAQS } from "@/lib/content/faq";
-import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+import { FAQS } from "@/lib/content/faq";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { PaletteBackground } from "@/components/ui/palette-background";
+import { FaqContent } from "./faq-content";
 
 export const metadata: Metadata = {
   title: SEO.faq.title,
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <PaletteBackground palette="smaragd" as="div" speed={120} intensity={0.65}>
+    <>
       <FaqJsonLd faqs={FAQS} />
       <BreadcrumbJsonLd
         items={[
@@ -24,53 +22,7 @@ export default function FaqPage() {
           { name: "Vanlige spørsmål", href: "/faq" },
         ]}
       />
-      {/* Hero */}
-      <section className="px-6 py-24 text-center">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
-            {FAQ_PAGE.headline}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
-            {FAQ_PAGE.subheadline}
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ List */}
-      <section className="px-6 pb-24">
-        <div className="mx-auto max-w-3xl space-y-8">
-          {FAQS.map((faq, index) => (
-            <div
-              key={index}
-              className="border-b border-[var(--color-dark-border)] pb-8"
-            >
-              <h2 className="text-xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">{faq.question}</h2>
-              <p className="mt-3 font-light text-[var(--color-dark-muted)] leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)]">
-            Fant du ikke svaret du lette etter?
-          </h2>
-          <p className="mt-4 text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
-            Ta kontakt med oss — vi svarer gjerne på alle spørsmål, helt
-            uforpliktende.
-          </p>
-          <Link
-            href="/kontakt"
-            className={`${RAINBOW_BUTTON_CLASSES} mt-8 px-8 py-3 text-lg font-semibold`}
-          >
-            Kontakt oss
-          </Link>
-        </div>
-      </section>
-    </PaletteBackground>
+      <FaqContent />
+    </>
   );
 }

@@ -1,234 +1,408 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import type { Service } from "@/types";
-import { Section } from "@/components/ui/section";
 import { CountUpStat } from "@/components/ui/count-up-stat";
 
 interface ServiceCustomSectionProps {
   service: Service;
 }
 
+const EASE = [0.23, 1, 0.32, 1] as const;
+
 export function ServiceCustomSection({ service }: ServiceCustomSectionProps) {
+  switch (service.id) {
+    case "nettside":
+      return <NettsideShowcase />;
+    case "vedlikehold":
+      return <VedlikeholdStats service={service} />;
+    case "design":
+      return <DesignSpecimen />;
+    default:
+      return null;
+  }
+}
+
+/* ────────────────────────────────────────────────
+   Shared shell — dark ambient bg + editorial header
+   ──────────────────────────────────────────────── */
+
+interface ShellProps {
+  eyebrow: string;
+  headOpener: string;
+  headEmphasis: string;
+  headCloser: string;
+  body: string;
+  /** css gradient position e.g. "82% 22%" — vary per section for rhythm. */
+  spotlight: string;
+  children: React.ReactNode;
+}
+
+function Shell({
+  eyebrow,
+  headOpener,
+  headEmphasis,
+  headCloser,
+  body,
+  spotlight,
+  children,
+}: ShellProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <Section>
-      {(() => {
-        switch (service.id) {
-          case "nettside":
-            return <NettsideShowcase />;
-          case "seo":
-            return null;
-          case "vedlikehold":
-            return null;
-          case "design":
-            return <DesignSpecimen />;
-          default:
-            return null;
-        }
-      })()}
-    </Section>
+    <section className="relative overflow-hidden bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28 lg:py-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 55% 45% at ${spotlight}, rgba(244,206,20,0.13), transparent 62%)`,
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
+            {eyebrow}
+          </p>
+
+          <h2 className="mt-7 font-serif text-white">
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
+              {headOpener}
+            </span>
+            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+              <span className="relative inline-block">
+                {headEmphasis}
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#F4CE14]"
+                />
+              </span>
+            </span>
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
+              {headCloser}
+            </span>
+          </h2>
+
+          <p className="mt-8 max-w-[55ch] text-base leading-relaxed text-white/65 sm:text-lg">
+            {body}
+          </p>
+        </motion.div>
+
+        {children}
+      </div>
+    </section>
   );
 }
 
 /* ────────────────────────────────────────────────
-   1. Nettside — CSS device frame mockups
+   1. Nettside — device/responsive editorial list
    ──────────────────────────────────────────────── */
+
+const RESPONSIVE_ROWS = [
+  {
+    code: "DSK",
+    label: "Desktop",
+    width: "1440px+",
+    description:
+      "Full layout med rikt visuelt hierarki — der besøkende dykker dypt inn i innholdet.",
+  },
+  {
+    code: "TAB",
+    label: "Nettbrett",
+    width: "768–1280px",
+    description:
+      "Justert kolonnestruktur som balanserer bilde og tekst på lesebrett og iPad.",
+  },
+  {
+    code: "MOB",
+    label: "Mobil",
+    width: "360–767px",
+    description:
+      "Mobil-først navigasjon, store trykkflater og kontaktknapper innen rekkevidde.",
+  },
+];
 
 function NettsideShowcase() {
-  return (
-    <div>
-      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-        Tilpasset alle enheter
-      </h3>
-      <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-end">
-        {/* Laptop */}
-        <div className="w-full max-w-xs">
-          <div className="rounded-t-lg border-4 border-b-0 border-slate-700 bg-gradient-to-br from-[var(--color-dark-bg)] to-[var(--color-dark-bg-alt)] p-4">
-            <div className="space-y-2">
-              <div className="h-3 w-20 rounded bg-[var(--color-accent)]/40" />
-              <div className="h-2 w-full rounded bg-white/10" />
-              <div className="h-2 w-3/4 rounded bg-white/10" />
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                <div className="h-12 rounded bg-white/5" />
-                <div className="h-12 rounded bg-[var(--color-accent)]/10" />
-                <div className="h-12 rounded bg-white/5" />
-              </div>
-            </div>
-          </div>
-          <div className="h-3 rounded-b-lg bg-slate-600" />
-          <p className="mt-2 text-center text-xs text-[var(--color-text-muted)]">Desktop</p>
-        </div>
-
-        {/* Tablet */}
-        <div className="w-28">
-          <div className="rounded-lg border-4 border-slate-700 bg-gradient-to-br from-[var(--color-dark-bg)] to-[var(--color-dark-bg-alt)] p-3">
-            <div className="space-y-1.5">
-              <div className="h-2 w-10 rounded bg-[var(--color-accent)]/40" />
-              <div className="h-1.5 w-full rounded bg-white/10" />
-              <div className="h-1.5 w-2/3 rounded bg-white/10" />
-              <div className="mt-2 grid grid-cols-2 gap-1.5">
-                <div className="h-8 rounded bg-white/5" />
-                <div className="h-8 rounded bg-[var(--color-accent)]/10" />
-              </div>
-            </div>
-          </div>
-          <p className="mt-2 text-center text-xs text-[var(--color-text-muted)]">Nettbrett</p>
-        </div>
-
-        {/* Phone */}
-        <div className="w-16">
-          <div className="rounded-xl border-4 border-slate-700 bg-gradient-to-br from-[var(--color-dark-bg)] to-[var(--color-dark-bg-alt)] p-2">
-            <div className="space-y-1">
-              <div className="h-1.5 w-6 rounded bg-[var(--color-accent)]/40" />
-              <div className="h-1 w-full rounded bg-white/10" />
-              <div className="h-1 w-2/3 rounded bg-white/10" />
-              <div className="mt-1.5 h-6 rounded bg-white/5" />
-            </div>
-          </div>
-          <p className="mt-2 text-center text-xs text-[var(--color-text-muted)]">Mobil</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ────────────────────────────────────────────────
-   2. SEO — Ranking bar chart
-   ──────────────────────────────────────────────── */
-
-function SeoRanking() {
-  const months = [
-    { label: "Mnd 1", height: 20, color: "bg-slate-400" },
-    { label: "Mnd 2", height: 35, color: "bg-slate-400" },
-    { label: "Mnd 3", height: 50, color: "bg-[var(--color-accent)]" },
-    { label: "Mnd 4", height: 65, color: "bg-[var(--color-accent)]" },
-    { label: "Mnd 5", height: 80, color: "bg-[var(--color-accent)]" },
-    { label: "Mnd 6", height: 95, color: "bg-[var(--color-accent)]" },
-  ];
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <div>
-      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-        Resultater som vokser over tid
-      </h3>
+    <Shell
+      eyebrow="Responsivt design"
+      headOpener="Én nettside,"
+      headEmphasis="alle enheter"
+      headCloser="— samme følelse overalt."
+      body="Vi bygger nettsiden lag for lag, fra mobil og oppover. Resultatet er en opplevelse som føles riktig enten kunden sitter på toget eller foran en stor skjerm."
+      spotlight="82% 22%"
+    >
+      <div className="mt-16 lg:mt-24">
+        <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+            Bruddpunkter
+          </p>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+            03 / Skjermstørrelser
+          </span>
+        </div>
 
-      <div className="mx-auto max-w-md rounded-2xl border border-[var(--color-border)] bg-white p-6">
-        <p className="mb-4 text-sm font-semibold text-[var(--color-text-muted)]">Organisk trafikk</p>
-        <div className="flex items-end justify-between gap-3" style={{ height: 160 }}>
-          {months.map((m) => (
-            <div key={m.label} className="flex flex-1 flex-col items-center gap-1">
-              <div
-                className={`w-full rounded-t-md ${m.color} transition-[height] duration-700`}
-                style={{ height: `${m.height}%` }}
-              />
-              <span className="text-[10px] text-[var(--color-text-muted)]">{m.label}</span>
-            </div>
+        <ul>
+          {RESPONSIVE_ROWS.map((row, i) => (
+            <motion.li
+              key={row.code}
+              className="flex items-start gap-6 border-t border-white/[0.06] py-6 first:border-t-0 sm:gap-10"
+              initial={
+                prefersReducedMotion ? false : { opacity: 0, y: 16 }
+              }
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.5,
+                delay: prefersReducedMotion ? 0 : i * 0.06,
+                ease: EASE,
+              }}
+            >
+              <div className="w-20 shrink-0 sm:w-28">
+                <span
+                  className="font-serif font-black leading-none tracking-tight text-[#F4CE14]"
+                  style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)" }}
+                >
+                  {row.code}
+                </span>
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <h3 className="text-lg font-bold tracking-[-0.005em] text-white sm:text-xl">
+                    {row.label}
+                  </h3>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                    {row.width}
+                  </span>
+                </div>
+                <p className="mt-2 max-w-[58ch] text-sm leading-relaxed text-white/65 sm:text-base">
+                  {row.description}
+                </p>
+              </div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
-
-      <div className="mx-auto mt-6 flex max-w-md justify-center gap-8">
-        <div className="text-center">
-          <p className="text-2xl font-black tracking-[-0.03em] text-[var(--color-accent)]">+150%</p>
-          <p className="text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">mer trafikk</p>
-        </div>
-        <div className="text-center">
-          <p className="text-2xl font-black tracking-[-0.03em] text-[var(--color-accent)]">Side 1</p>
-          <p className="text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">på Google</p>
-        </div>
-      </div>
-    </div>
+    </Shell>
   );
 }
 
 /* ────────────────────────────────────────────────
-   3. Vedlikehold — Count-up stat counters
+   2. Vedlikehold — editorial stat strip
    ──────────────────────────────────────────────── */
 
 function VedlikeholdStats({ service }: { service: Service }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (!service.trustStats?.length) return null;
+
   return (
-    <div>
-      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-        Tall som gir trygghet
-      </h3>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {service.trustStats.map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-xl border border-[var(--color-border)] bg-white p-6 text-center"
-          >
-            <p className="text-4xl font-black tracking-[-0.03em] text-[var(--color-accent)]">
-              <CountUpStat
-                value={stat.value}
-                suffix={stat.suffix}
-                decimals={stat.decimals}
-              />
-            </p>
-            <p className="mt-2 text-xs font-extralight uppercase tracking-[3px] text-[var(--color-text-muted)]">{stat.label}</p>
-          </div>
-        ))}
+    <Shell
+      eyebrow="Tall som teller"
+      headOpener="Drift som"
+      headEmphasis="gir trygghet"
+      headCloser="— uten å mase om det."
+      body="Vi holder nettsiden trygg, oppdatert og rask hver eneste dag. Du merker det bare når noe ville gått galt — og det gjorde det ikke."
+      spotlight="18% 28%"
+    >
+      <div className="mt-16 lg:mt-24">
+        <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+            Nøkkeltall
+          </p>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+            {String(service.trustStats.length).padStart(2, "0")} / Indikatorer
+          </span>
+        </div>
+
+        <ul className="grid grid-cols-1 sm:grid-cols-3">
+          {service.trustStats.map((stat, i) => (
+            <motion.li
+              key={stat.label}
+              className={`border-t border-white/[0.06] py-8 sm:border-l sm:py-10 sm:first:border-l-0 ${
+                i === 0 ? "sm:pl-0" : "sm:pl-8"
+              } ${i < service.trustStats.length - 1 ? "sm:pr-8" : ""}`}
+              initial={
+                prefersReducedMotion ? false : { opacity: 0, y: 16 }
+              }
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.5,
+                delay: prefersReducedMotion ? 0 : i * 0.07,
+                ease: EASE,
+              }}
+            >
+              <p
+                className="text-[#F4CE14]"
+                style={{ fontSize: "clamp(2.5rem, 5vw, 3.75rem)" }}
+              >
+                <CountUpStat
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  decimals={stat.decimals}
+                />
+              </p>
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
+                {stat.label}
+              </p>
+            </motion.li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </Shell>
   );
 }
 
 /* ────────────────────────────────────────────────
-   4. Design — Color swatches + typography specimen
+   3. Design — palette + typography editorial grid
    ──────────────────────────────────────────────── */
 
+const SWATCHES = [
+  { hex: "#F4CE14", name: "Gull", role: "Aksent" },
+  { hex: "#0a0a0a", name: "Sort", role: "Bakgrunn" },
+  { hex: "#fafaf9", name: "Hvit", role: "Tekst" },
+  { hex: "#1a1a1a", name: "Tekst", role: "Brødtekst" },
+  { hex: "#f0f0ef", name: "Sand", role: "Flate" },
+];
+
+const TYPE_SAMPLES = [
+  {
+    family: "Cabinet Grotesk",
+    role: "Overskrift",
+    sample: "En komplett identitet.",
+    className: "font-serif text-3xl font-black tracking-[-0.02em] text-white sm:text-4xl",
+  },
+  {
+    family: "Outfit",
+    role: "Brødtekst",
+    sample: "Lett å lese, rolig å se på, fungerer i alle størrelser.",
+    className: "text-lg leading-relaxed text-white/75 sm:text-xl",
+  },
+  {
+    family: "JetBrains Mono",
+    role: "Detalj",
+    sample: "/* uppercase tracking 0.22em */",
+    className: "font-mono text-sm uppercase tracking-[0.18em] text-white/60",
+  },
+];
+
 function DesignSpecimen() {
-  const swatches = [
-    { color: "#F4CE14", name: "Gull" },
-    { color: "#0a0a0a", name: "Sort" },
-    { color: "#fafaf9", name: "Hvit" },
-    { color: "#1a1a1a", name: "Tekst" },
-    { color: "#f0f0ef", name: "Bakgrunn" },
-  ];
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <div>
-      <h3 className="mb-8 text-center text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-        En komplett visuell identitet
-      </h3>
-
-      {/* Color swatches */}
-      <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-        {swatches.map((s) => (
-          <div key={s.name} className="flex flex-col items-center gap-2">
-            <div
-              className="h-14 w-14 rounded-full border border-[var(--color-border)] shadow-sm"
-              style={{ backgroundColor: s.color }}
-            />
-            <span className="text-xs text-[var(--color-text-muted)]">{s.name}</span>
+    <Shell
+      eyebrow="Visuell identitet"
+      headOpener="Farger, typografi"
+      headEmphasis="og en stemme"
+      headCloser="som henger sammen."
+      body="Identiteten din skal bære nettsiden, visittkortet og signaturen — uten å falle fra hverandre. Vi setter rammene som gjør at alt ser ut som det samme stedet."
+      spotlight="92% 78%"
+    >
+      <div className="mt-16 lg:mt-24 lg:grid lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+              Palett
+            </p>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+              {String(SWATCHES.length).padStart(2, "0")} / Toner
+            </span>
           </div>
-        ))}
-      </div>
 
-      {/* Typography specimen */}
-      <div className="mx-auto max-w-md rounded-xl border border-[var(--color-border)] bg-white p-6">
-        <p className="mb-2 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-text-muted)]">Typografi</p>
-        <p className="font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text)]">
-          Crimson Pro
-        </p>
-        <p className="mt-1 text-lg text-[var(--color-text-muted)]">
-          Outfit — brødtekst som er lett å lese
-        </p>
-        <p className="mt-1 font-mono text-sm text-[var(--color-text-muted)]">
-          JetBrains Mono — for kode
-        </p>
-      </div>
+          <ul>
+            {SWATCHES.map((s, i) => (
+              <motion.li
+                key={s.hex}
+                className="flex items-center gap-5 border-t border-white/[0.06] py-4 first:border-t-0"
+                initial={
+                  prefersReducedMotion ? false : { opacity: 0, y: 12 }
+                }
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.45,
+                  delay: prefersReducedMotion ? 0 : i * 0.05,
+                  ease: EASE,
+                }}
+              >
+                <div
+                  aria-hidden
+                  className="h-12 w-12 shrink-0 rounded-xl border border-white/10"
+                  style={{ backgroundColor: s.hex }}
+                />
+                <div className="flex-1">
+                  <p className="font-bold text-white">{s.name}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                    {s.role}
+                  </p>
+                </div>
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
+                  {s.hex}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
 
-      {/* Logo variant boxes */}
-      <div className="mx-auto mt-6 grid max-w-md grid-cols-3 gap-3">
-        <div className="flex h-20 items-center justify-center rounded-lg bg-[var(--color-dark-bg)]">
-          <span className="text-xs font-bold text-[var(--color-accent)]">Logo lys</span>
-        </div>
-        <div className="flex h-20 items-center justify-center rounded-lg border border-[var(--color-border)] bg-white">
-          <span className="text-xs font-bold text-[var(--color-dark-bg)]">Logo mørk</span>
-        </div>
-        <div className="flex h-20 items-center justify-center rounded-lg bg-[var(--color-accent)]">
-          <span className="text-xs font-bold text-[var(--color-dark-bg)]">Logo ikon</span>
+        <div className="mt-16 lg:col-span-7 lg:mt-0">
+          <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+              Typografi
+            </p>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+              03 / Stemmer
+            </span>
+          </div>
+
+          <ul>
+            {TYPE_SAMPLES.map((t, i) => (
+              <motion.li
+                key={t.family}
+                className="border-t border-white/[0.06] py-8 first:border-t-0"
+                initial={
+                  prefersReducedMotion ? false : { opacity: 0, y: 12 }
+                }
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.5,
+                  delay: prefersReducedMotion ? 0 : i * 0.06,
+                  ease: EASE,
+                }}
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#F4CE14]">
+                    {t.family}
+                  </p>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                    {t.role}
+                  </span>
+                </div>
+                <p className={`mt-4 ${t.className}`}>{t.sample}</p>
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </div>
-    </div>
+    </Shell>
   );
 }

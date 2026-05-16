@@ -2,37 +2,81 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { SEO_PACKAGES } from "@/lib/content/pricing";
-import { RAINBOW_BUTTON_CLASSES } from "@/components/ui/rainbow-button";
+
+const EASE = [0.23, 1, 0.32, 1] as const;
+const EASE_STR = "cubic-bezier(0.23,1,0.32,1)";
 
 export function SeoPricingSection() {
+  const prefersReducedMotion = useReducedMotion();
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="px-6 py-24 sm:py-28">
-      <div className="mx-auto max-w-6xl">
-        {/* Header */}
-        <div className="text-center">
-          <p className="mb-3 text-[11px] font-medium uppercase tracking-[3px] text-[var(--color-accent)]">
+    <section className="relative overflow-hidden bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28 lg:py-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 45% at 92% 78%, rgba(244,206,20,0.13), transparent 62%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
+          <p className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-white/55">
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
             SEO-pakker
+            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
           </p>
-          <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-[var(--color-dark-text)] sm:text-4xl lg:text-5xl">
-            Bli funnet på Google
+
+          <h2 className="mt-7 font-serif text-white">
+            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
+              Bli funnet
+            </span>
+            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+              på{" "}
+              <span className="relative inline-block">
+                google
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#F4CE14]"
+                />
+              </span>
+              .
+            </span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base font-light text-[var(--color-dark-muted)] sm:text-lg">
+
+          <p className="mx-auto mt-7 max-w-[52ch] text-base leading-relaxed text-white/65 sm:text-lg">
             Løpende SEO som gir resultater. Velg månedlig fleksibilitet eller
             spar opptil 30&nbsp;% med årlig betaling.
           </p>
-        </div>
+        </motion.div>
 
         {/* Billing Toggle */}
         <div className="mt-10 flex items-center justify-center gap-4">
           <span
-            className={`text-sm font-medium transition-colors duration-200 ${
-              !isAnnual
-                ? "text-[var(--color-dark-text)]"
-                : "text-[var(--color-dark-muted)]"
+            className={`font-mono text-xs uppercase tracking-[0.22em] transition-colors duration-200 ${
+              !isAnnual ? "text-white" : "text-white/45"
             }`}
+            style={{ transitionTimingFunction: EASE_STR }}
           >
             Månedlig
           </span>
@@ -42,108 +86,135 @@ export function SeoPricingSection() {
             role="switch"
             aria-checked={isAnnual}
             onClick={() => setIsAnnual((v) => !v)}
-            className="relative inline-flex h-7 w-14 cursor-pointer items-center rounded-full border border-white/10 bg-white/5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark-bg)]"
+            className="relative inline-flex h-7 w-14 cursor-pointer items-center rounded-full border border-white/15 bg-white/[0.04] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4CE14] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark-bg)]"
+            style={{ transitionTimingFunction: EASE_STR }}
           >
             <span
-              className={`inline-block h-5 w-5 rounded-full bg-[var(--color-accent)] shadow-lg shadow-[var(--color-accent)]/30 transition-transform duration-300 ${
+              className={`inline-block h-5 w-5 rounded-full bg-[#F4CE14] shadow-[0_4px_12px_-2px_rgba(244,206,20,0.5)] transition-transform duration-300 ${
                 isAnnual ? "translate-x-8" : "translate-x-1"
               }`}
+              style={{ transitionTimingFunction: EASE_STR }}
             />
           </button>
 
           <span
-            className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${
-              isAnnual
-                ? "text-[var(--color-dark-text)]"
-                : "text-[var(--color-dark-muted)]"
+            className={`flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] transition-colors duration-200 ${
+              isAnnual ? "text-white" : "text-white/45"
             }`}
+            style={{ transitionTimingFunction: EASE_STR }}
           >
             Årlig
-            <span className="rounded-full bg-[var(--color-accent)]/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[var(--color-accent)]">
-              Spar opptil 30&nbsp;%
+            <span className="rounded-full bg-[#F4CE14]/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#F4CE14]">
+              -30&nbsp;%
             </span>
           </span>
         </div>
 
         {/* Cards */}
-        <div className="mt-14 grid gap-8 sm:grid-cols-3 lg:gap-10">
-          {SEO_PACKAGES.map((pkg) => (
-            <div
-              key={pkg.id}
-              className={`relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 ${
-                pkg.highlight
-                  ? "border-2 border-[var(--color-accent)] bg-[var(--color-dark-bg-alt)] shadow-2xl shadow-[var(--color-accent)]/20 lg:-my-6"
-                  : "border border-white/[0.06] bg-[var(--color-dark-glass)] backdrop-blur-sm hover:border-white/[0.12]"
-              }`}
-            >
-              {pkg.highlight && (
-                <div className="bg-[var(--color-accent)] py-2.5 text-center text-xs font-bold uppercase tracking-[3px] text-[var(--color-dark-bg)]">
-                  Mest populær
-                </div>
-              )}
+        <motion.div
+          className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6 lg:mt-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            visible: {
+              transition: { staggerChildren: prefersReducedMotion ? 0 : 0.08 },
+            },
+          }}
+        >
+          {SEO_PACKAGES.map((pkg) => {
+            const highlight = pkg.highlight;
+            return (
+              <motion.div
+                key={pkg.id}
+                variants={{
+                  hidden: prefersReducedMotion
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: prefersReducedMotion ? 0 : 0.55,
+                      ease: EASE,
+                    },
+                  },
+                }}
+                className={`relative flex flex-col rounded-3xl border p-8 transition-transform duration-200 ${
+                  highlight
+                    ? "border-[#F4CE14]/35 bg-[rgba(244,206,20,0.035)] shadow-[0_30px_60px_-30px_rgba(244,206,20,0.18)] md:-translate-y-3"
+                    : "border-white/[0.07] bg-white/[0.015]"
+                }`}
+                style={{ transitionTimingFunction: EASE_STR }}
+              >
+                {highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#F4CE14] px-3.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#0a0a0a]">
+                    Mest populær
+                  </span>
+                )}
 
-              <div className={pkg.highlight ? "flex flex-col p-8 lg:py-10" : "flex flex-col p-8"}>
-                <h3 className="text-2xl font-bold tracking-[-0.01em] text-[var(--color-dark-text)]">
+                <p
+                  className={`font-mono text-xs uppercase tracking-[0.22em] ${
+                    highlight ? "text-[#F4CE14]" : "text-white/45"
+                  }`}
+                >
                   {pkg.name}
-                </h3>
+                </p>
 
-                <div className="mt-6">
-                  <div className="flex items-baseline gap-1">
-                    <span
-                      className={`font-black tracking-[-0.02em] tabular-nums transition-all duration-300 ${
-                        pkg.highlight
-                          ? "text-5xl text-[var(--color-accent)]"
-                          : "text-3xl text-[var(--color-dark-text)]"
-                      }`}
-                    >
-                      {isAnnual ? pkg.annualPrice : pkg.monthlyPrice}
-                    </span>
-                    <span className="text-sm text-[var(--color-dark-muted)]">
-                      /mnd
-                    </span>
-                  </div>
-
-                  {isAnnual ? (
-                    <p className="mt-1 text-sm text-[var(--color-accent)]/80">
-                      Faktureres årlig &mdash; spar {pkg.annualSavings}&nbsp;%
-                    </p>
-                  ) : (
-                    <p className="mt-1 text-sm text-[var(--color-dark-muted)]">
-                      Faktureres månedlig
-                    </p>
-                  )}
+                <div className="mt-6 flex items-baseline gap-1.5">
+                  <span className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none tracking-tight text-white tabular-nums">
+                    {isAnnual ? pkg.annualPrice : pkg.monthlyPrice}
+                  </span>
+                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">
+                    /mnd
+                  </span>
                 </div>
 
-                <p className="mt-4 text-sm font-light text-[var(--color-dark-muted)]">
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                  {isAnnual ? `Faktureres årlig · spar ${pkg.annualSavings}%` : "Faktureres månedlig"}
+                </p>
+
+                <p className="mt-5 text-sm leading-relaxed text-white/65">
                   {pkg.description}
                 </p>
 
-                <ul className="mt-6 flex-1 space-y-3">
-                  {pkg.features.map((feature) => (
+                <ul className="mt-8 flex-1 space-y-3 border-t border-white/[0.06] pt-6">
+                  {pkg.features.map((feat) => (
                     <li
-                      key={feature}
-                      className="flex items-start gap-2 text-sm text-[var(--color-dark-text)]"
+                      key={feat}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-white/70"
                     >
-                      <span className="mt-0.5 text-[var(--color-accent)]">
-                        &#10003;
-                      </span>
-                      {feature}
+                      <span
+                        aria-hidden
+                        className={`mt-2 inline-block h-1 w-1 flex-shrink-0 rounded-full ${
+                          highlight ? "bg-[#F4CE14]" : "bg-white/35"
+                        }`}
+                      />
+                      <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   href="/kontakt"
-                  className={`${RAINBOW_BUTTON_CLASSES} mt-8 block text-center font-semibold ${
-                    pkg.highlight ? "px-6 py-4 text-base" : "px-6 py-3"
+                  className={`group mt-8 inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97] ${
+                    highlight
+                      ? "bg-[#F4CE14] text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] hover:bg-[#FFE15D]"
+                      : "border border-white/15 text-white/85 hover:border-white/30 hover:bg-white/[0.04] hover:text-white"
                   }`}
+                  style={{ transitionTimingFunction: EASE_STR }}
                 >
                   Kom i gang
+                  <ArrowUpRight
+                    aria-hidden
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    style={{ transitionTimingFunction: EASE_STR }}
+                  />
                 </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

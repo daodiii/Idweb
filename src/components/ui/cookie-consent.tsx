@@ -41,44 +41,52 @@ export function CookieConsent() {
 
   if (!visible) return null;
 
+  const ease = "cubic-bezier(0.23,1,0.32,1)";
+
   return (
     <div
       role="dialog"
       aria-label="Informasjonskapsler"
       aria-describedby="cookie-desc"
-      className={`fixed inset-x-0 bottom-0 z-[90] px-3 pb-3 sm:px-6 sm:pb-4 ${
+      className={`fixed inset-x-0 bottom-0 z-[90] ${
         exiting ? "animate-cookie-exit" : "animate-cookie-enter"
       }`}
     >
-      <div className="mx-auto max-w-3xl rounded-xl border border-white/[0.08] bg-[#0a0a0a]/90 px-4 py-3 shadow-2xl shadow-black/40 backdrop-blur-xl">
-        <div className="flex items-center gap-4 sm:gap-6">
-          {/* Text */}
-          <p
-            id="cookie-desc"
-            className="min-w-0 flex-1 text-xs leading-snug text-[#CBD5E1] sm:text-sm"
-          >
-            Informasjonskapsler for trafikk og opplevelse.{" "}
-            <a
-              href="/personvern"
-              className="text-[#F4CE14] underline decoration-[#F4CE14]/30 underline-offset-2 transition-colors hover:decoration-[#F4CE14]"
+      <div className="border-t border-[#F4CE14]/30 bg-[#0a0a0a]/95 shadow-[0_-20px_40px_-22px_rgba(0,0,0,0.6)]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <div className="min-w-0 flex-1">
+            <p className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
+              <span aria-hidden className="inline-block h-px w-6 bg-[#F4CE14]/70" />
+              Informasjonskapsler
+            </p>
+            <p
+              id="cookie-desc"
+              className="mt-3 max-w-[62ch] text-sm leading-relaxed text-white/75"
             >
-              Les mer
-            </a>
-          </p>
+              Vi bruker informasjonskapsler for trafikk og opplevelse.{" "}
+              <a
+                href="/personvern"
+                className="text-[#F4CE14] underline decoration-[#F4CE14]/30 underline-offset-2 transition-colors hover:decoration-[#F4CE14]"
+              >
+                Les mer
+              </a>
+            </p>
+          </div>
 
-          {/* Buttons */}
-          <div className="flex shrink-0 gap-2">
+          <div className="flex shrink-0 gap-3">
             <button
               type="button"
               onClick={() => handleChoice("necessary")}
-              className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-[#CBD5E1] transition-all hover:border-white/[0.16] hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
+              className="inline-flex items-center justify-center rounded-xl border border-white/15 px-5 py-3 text-sm font-medium text-white/85 transition-[border-color,background-color,color,transform] duration-150 hover:border-white/30 hover:bg-white/[0.04] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] active:scale-[0.97]"
+              style={{ transitionTimingFunction: ease }}
             >
               Avvis
             </button>
             <button
               type="button"
               onClick={() => handleChoice("all")}
-              className="rounded-lg bg-[#F4CE14] px-4 py-2.5 text-sm font-semibold text-[#0a0a0a] transition-all hover:bg-[#D4B200] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] sm:px-4 sm:py-2 sm:text-sm"
+              className="inline-flex items-center justify-center rounded-xl bg-[#F4CE14] px-5 py-3 text-sm font-bold text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] transition-[transform,background-color] duration-150 hover:bg-[#FFE15D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4CE14] active:scale-[0.97]"
+              style={{ transitionTimingFunction: ease }}
             >
               Godta
             </button>
