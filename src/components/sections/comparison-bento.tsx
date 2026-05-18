@@ -1,87 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { COMPARISON_GRID } from "@/lib/content/homepage";
-import type { ComparisonCard } from "@/types";
+import { TaleOfTwoSites } from "@/components/ui/tale-of-two-sites";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-
-const idwebItems = COMPARISON_GRID.filter((c) => c.type === "idweb");
-const byråItems = COMPARISON_GRID.filter((c) => c.type === "byrå");
-
-function ComparisonRow({
-  card,
-  isIdweb,
-  index,
-}: {
-  card: ComparisonCard;
-  isIdweb: boolean;
-  index: number;
-}) {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={`flex items-start gap-5 border-t py-6 ${
-        isIdweb ? "border-white/[0.08]" : "border-white/[0.05]"
-      }`}
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.5,
-        delay: prefersReducedMotion ? 0 : index * 0.05,
-        ease: EASE,
-      }}
-    >
-      <div className="flex w-20 shrink-0 items-baseline">
-        {card.stat ? (
-          <div className="flex items-baseline gap-0.5">
-            <span
-              className={`font-serif font-black leading-none tracking-tight ${
-                isIdweb ? "text-[#F4CE14]" : "text-white/40"
-              }`}
-              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
-            >
-              {card.stat}
-            </span>
-            <span
-              className={`font-serif text-base font-bold ${
-                isIdweb ? "text-[#F4CE14]/80" : "text-white/35"
-              }`}
-            >
-              {card.unit}
-            </span>
-          </div>
-        ) : (
-          <span
-            aria-hidden
-            className={`mt-2 inline-block h-1.5 w-1.5 rounded-full ${
-              isIdweb ? "bg-[#F4CE14]" : "bg-white/25"
-            }`}
-          />
-        )}
-      </div>
-
-      <div className="flex-1">
-        <h4
-          className={`font-bold tracking-[-0.005em] ${
-            isIdweb ? "text-base text-white sm:text-lg" : "text-sm text-white/55 line-through decoration-white/15 decoration-1 sm:text-base"
-          }`}
-        >
-          {card.title}
-        </h4>
-        <p
-          className={`mt-1.5 text-sm leading-relaxed ${
-            isIdweb ? "text-white/65" : "text-white/40"
-          }`}
-        >
-          {card.description}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
 
 export function ComparisonBento() {
   const prefersReducedMotion = useReducedMotion();
@@ -143,55 +65,7 @@ export function ComparisonBento() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <div className="flex items-baseline justify-between border-b border-white/[0.05] pb-4">
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/35">
-                Typisk byrå
-              </p>
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">
-                01 / Slik det vanligvis er
-              </span>
-            </div>
-            <div>
-              {byråItems.map((card, i) => (
-                <ComparisonRow
-                  key={card.title}
-                  card={card}
-                  isIdweb={false}
-                  index={i}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="relative">
-            <span
-              aria-hidden
-              className="absolute -left-6 -top-4 hidden font-serif text-7xl font-black leading-none text-[#F4CE14]/15 lg:block"
-            >
-              vs.
-            </span>
-            <div className="flex items-baseline justify-between border-b border-[#F4CE14]/30 pb-4">
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#F4CE14]">
-                IDweb
-              </p>
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-                02 / Slik vi gjør det
-              </span>
-            </div>
-            <div>
-              {idwebItems.map((card, i) => (
-                <ComparisonRow
-                  key={card.title}
-                  card={card}
-                  isIdweb={true}
-                  index={i}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+        <TaleOfTwoSites />
       </div>
     </section>
   );
