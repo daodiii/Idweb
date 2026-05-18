@@ -1,35 +1,24 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { HERO, TRUST_LOCATION, TRUST_SIGNALS } from "@/lib/content/homepage";
+import { HERO, TRUST_LOCATION } from "@/lib/content/homepage";
+import { InteractiveGrid } from "@/components/ui/interactive-grid";
+import { LiveBuildEditor } from "@/components/ui/live-build-editor";
 
 const HEADLINE_WORDS = HERO.headline.split(" ");
 const EMPHASIZED_WORD_INDEX = 2;
 const ENTRY_EASE = "cubic-bezier(0.23,1,0.32,1)";
 
-const FLOAT_POSITIONS = [
-  { top: "4%", left: "2%", rotate: "-2.5deg", floatDelay: "0s" },
-  { top: "36%", left: "30%", rotate: "1.6deg", floatDelay: "1.2s" },
-  { top: "68%", left: "6%", rotate: "-1deg", floatDelay: "2.4s" },
-];
-
 export function HeroSection() {
   return (
     <section className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-[var(--color-dark-bg)]">
+      {/* Mouse-reactive grid + accent glow + noise — layered backgrounds */}
+      <InteractiveGrid id="hero-bg" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
             "radial-gradient(ellipse 60% 55% at 82% 22%, rgba(244,206,20,0.16), transparent 62%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-[1] opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
-          backgroundSize: "34px 34px",
         }}
       />
       <div
@@ -41,13 +30,16 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 py-28 lg:grid-cols-12 lg:gap-8 lg:py-0">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 py-28 lg:grid-cols-12 lg:gap-10 lg:py-0">
         <div className="col-span-1 flex flex-col lg:col-span-7">
           <p
             className="hero-entrance flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-white/55"
             style={{ animationDelay: "0s" }}
           >
-            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
+            <span
+              aria-hidden
+              className="status-dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"
+            />
             {HERO.brand} · {TRUST_LOCATION.toUpperCase()}
           </p>
 
@@ -120,52 +112,8 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div
-          className="hero-entrance relative col-span-1 hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center"
-          style={{ animationDelay: "1.05s" }}
-        >
-          <div className="relative h-[460px] w-full max-w-[420px]">
-            <span
-              aria-hidden
-              className="absolute -right-6 top-1/2 -translate-y-1/2 select-none font-serif text-[12rem] font-black leading-none tracking-tighter text-white/[0.025]"
-            >
-              id
-            </span>
-            {TRUST_SIGNALS.map((signal, i) => {
-              const pos = FLOAT_POSITIONS[i];
-              return (
-                <div
-                  key={signal.label}
-                  className="absolute"
-                  style={{ top: pos.top, left: pos.left }}
-                >
-                  <div
-                    className="hero-float"
-                    style={{ animationDelay: pos.floatDelay }}
-                  >
-                    <div
-                      className="rounded-2xl border border-white/[0.08] bg-[rgba(20,20,22,0.88)] px-6 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_20px_40px_-22px_rgba(0,0,0,0.7)]"
-                      style={{ transform: `rotate(${pos.rotate})` }}
-                    >
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="font-serif text-4xl font-black leading-none tracking-tight text-white">
-                          {signal.value}
-                        </span>
-                        {signal.suffix ? (
-                          <span className="font-serif text-2xl font-bold leading-none text-[#F4CE14]">
-                            {signal.suffix}
-                          </span>
-                        ) : null}
-                      </div>
-                      <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/55">
-                        {signal.label}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="col-span-1 hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center">
+          <LiveBuildEditor />
         </div>
       </div>
     </section>

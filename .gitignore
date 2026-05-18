@@ -44,3 +44,4 @@ next-env.d.ts
 .claude/
 .playwright-mcp/
 tools/node_modules/
+.firecrawl/
