@@ -323,12 +323,16 @@ function IdwebPage({ elapsed }: { elapsed: number }) {
     <div className="flex h-full flex-col gap-2.5 p-3.5">
       {/* Header */}
       <div style={block(0)} className="flex items-center gap-2">
-        <div className="h-3 w-3 rounded-full bg-[#F4CE14]" />
-        <div className="h-1.5 flex-1 rounded-full bg-white/10" />
-        <div className="flex gap-1">
-          <div className="h-1.5 w-6 rounded-full bg-white/10" />
-          <div className="h-1.5 w-6 rounded-full bg-white/10" />
-          <div className="h-1.5 w-6 rounded-full bg-white/10" />
+        <div className="flex items-center gap-1">
+          <div className="h-2 w-2 rounded-full bg-[#F4CE14]" />
+          <span className="font-serif text-[9px] font-black tracking-tight text-white">
+            Café Solveig
+          </span>
+        </div>
+        <div className="ml-auto flex gap-2 font-mono text-[7px] uppercase tracking-[0.12em] text-white/55">
+          <span>Meny</span>
+          <span>Bestill</span>
+          <span>Om oss</span>
         </div>
       </div>
 
@@ -345,41 +349,54 @@ function IdwebPage({ elapsed }: { elapsed: number }) {
           }}
         />
         <div className="relative flex h-full flex-col justify-end p-2.5">
-          <div className="h-2 w-28 rounded-full bg-white/85" />
-          <div className="mt-1 h-1.5 w-20 rounded-full bg-white/40" />
-          <div className="mt-2 inline-flex w-fit rounded bg-[#F4CE14] px-2 py-1">
-            <div className="h-1.5 w-8 rounded-full bg-black/80" />
+          <div className="font-serif text-[11px] font-black leading-tight tracking-tight text-white">
+            Frisk bakst,
+            <br />
+            hver morgen.
+          </div>
+          <div className="mt-1.5 inline-flex w-fit items-center gap-1 rounded bg-[#F4CE14] px-1.5 py-[3px]">
+            <span className="font-mono text-[7px] font-bold uppercase tracking-wider text-black">
+              Bestill bord
+            </span>
+            <span aria-hidden className="text-[7px] font-bold text-black">
+              →
+            </span>
           </div>
         </div>
       </div>
 
       {/* Content lines */}
-      <div style={block(2)} className="space-y-1">
-        <div className="h-1.5 w-full rounded-full bg-white/10" />
-        <div className="h-1.5 w-[88%] rounded-full bg-white/10" />
-        <div className="h-1.5 w-[74%] rounded-full bg-white/10" />
+      <div
+        style={block(2)}
+        className="text-[8px] leading-[1.45] text-white/55"
+      >
+        Hjemmelaget surdeigsbrød, croissanter og kanelboller fra ovnen kl
+        07:00. Åpent mandag–lørdag, midt på Frogner.
       </div>
 
       {/* 2-column block */}
       <div style={block(3)} className="grid grid-cols-2 gap-2">
-        <div className="h-12 rounded-md border border-white/5 bg-white/[0.025] p-1.5">
-          <div className="h-1.5 w-10 rounded-full bg-white/20" />
-          <div className="mt-1 h-1 w-14 rounded-full bg-white/10" />
+        <div className="rounded-md border border-white/5 bg-white/[0.025] p-1.5">
+          <div className="font-mono text-[7px] uppercase tracking-wider text-[#F4CE14]/70">
+            Åpningstider
+          </div>
+          <div className="mt-0.5 text-[8px] text-white/65">07–18 man–fre</div>
         </div>
-        <div className="h-12 rounded-md border border-white/5 bg-white/[0.025] p-1.5">
-          <div className="h-1.5 w-10 rounded-full bg-white/20" />
-          <div className="mt-1 h-1 w-14 rounded-full bg-white/10" />
+        <div className="rounded-md border border-white/5 bg-white/[0.025] p-1.5">
+          <div className="font-mono text-[7px] uppercase tracking-wider text-[#F4CE14]/70">
+            Adresse
+          </div>
+          <div className="mt-0.5 text-[8px] text-white/65">Frognerveien 22</div>
         </div>
       </div>
 
       {/* Footer */}
-      <div style={block(4)} className="mt-auto flex items-center justify-between">
-        <div className="h-1.5 w-12 rounded-full bg-white/10" />
-        <div className="flex gap-1">
-          <div className="h-1.5 w-1.5 rounded-full bg-white/15" />
-          <div className="h-1.5 w-1.5 rounded-full bg-white/15" />
-          <div className="h-1.5 w-1.5 rounded-full bg-white/15" />
-        </div>
+      <div
+        style={block(4)}
+        className="mt-auto flex items-center justify-between font-mono text-[7px] uppercase tracking-wider text-white/40"
+      >
+        <span>© Café Solveig</span>
+        <span>Oslo</span>
       </div>
     </div>
   );
@@ -406,24 +423,28 @@ function ByraPage({ elapsed }: { elapsed: number }) {
 
   return (
     <div className="relative flex h-full flex-col gap-2 overflow-hidden p-3">
-      {/* Header — skeleton style */}
+      {/* Header — cluttered menu, comes in as skeleton then text */}
       <div
-        className="flex items-center gap-2"
+        className="flex items-center gap-1.5"
         style={{
           opacity: headerVisible ? 1 : 0,
           transition: "opacity 100ms linear",
         }}
       >
-        <div className="h-3 w-12 rounded-sm bg-white/[0.07]" />
-        <div className="ml-auto flex gap-1">
-          <div className="h-1.5 w-5 rounded-full bg-white/[0.07]" />
-          <div className="h-1.5 w-5 rounded-full bg-white/[0.07]" />
-          <div className="h-1.5 w-5 rounded-full bg-white/[0.07]" />
+        <span className="font-serif text-[9px] font-black tracking-tight text-white/85">
+          CAFÉ SOLVEIG
+        </span>
+        <div className="ml-auto flex gap-1.5 font-mono text-[6.5px] uppercase tracking-[0.1em] text-white/35">
+          <span>Hjem</span>
+          <span>Meny</span>
+          <span>Galleri</span>
+          <span>Blogg</span>
+          <span>Kontakt</span>
         </div>
       </div>
 
       {/* Hero — skeleton → loaded */}
-      <div className="h-[78px] w-full overflow-hidden rounded-sm" style={shakeStyle}>
+      <div className="h-[68px] w-full overflow-hidden rounded-sm" style={shakeStyle}>
         {heroState === "hidden" && <div className="h-full w-full bg-white/[0.03]" />}
         {heroState === "skeleton" && (
           <div className="tale-skeleton h-full w-full rounded-sm" />
@@ -436,9 +457,13 @@ function ByraPage({ elapsed }: { elapsed: number }) {
                 "linear-gradient(135deg, #2a1a1f 0%, #2f1f2f 50%, #1f1f25 100%)",
             }}
           >
-            <div className="absolute inset-0 flex flex-col justify-center p-3">
-              <div className="h-2 w-32 rounded-sm bg-white/40" />
-              <div className="mt-1 h-1.5 w-24 rounded-sm bg-white/20" />
+            <div className="absolute inset-0 flex flex-col justify-center p-2.5">
+              <div className="font-serif text-[11px] font-black leading-tight tracking-tight text-white/85">
+                Velkommen til Café Solveig!
+              </div>
+              <div className="mt-0.5 text-[7.5px] italic text-white/40">
+                Best bakeri 2019 ★★★★★
+              </div>
             </div>
           </div>
         )}
@@ -464,23 +489,25 @@ function ByraPage({ elapsed }: { elapsed: number }) {
 
       {/* Content + optional sidebar */}
       <div className="flex gap-2" style={shake2 ? shakeStyle : undefined}>
-        <div className="flex-1 space-y-1">
-          <div className="h-1.5 w-full rounded-full bg-white/[0.09]" />
-          <div className="h-1.5 w-[85%] rounded-full bg-white/[0.09]" />
-          <div className="h-1.5 w-[72%] rounded-full bg-white/[0.09]" />
-          <div className="h-1.5 w-[60%] rounded-full bg-white/[0.09]" />
+        <div className="flex-1 text-[7.5px] leading-[1.5] text-white/55">
+          Vi serverer hjemmelaget brød, kaker og kanelboller hver dag. Kom
+          innom for en kopp kaffe! Vi har også glutenfrie og veganske
+          alternativer.
         </div>
         {sidebarVisible && (
           <div
-            className="w-16 rounded-sm border border-white/[0.08] bg-white/[0.04] p-1.5"
+            className="w-[68px] shrink-0 rounded-sm border border-white/[0.08] bg-white/[0.04] p-1.5"
             style={{
               animation: "tale-pop-in 180ms cubic-bezier(0.23,1,0.32,1) both",
             }}
           >
-            <div className="font-mono text-[7px] uppercase tracking-wider text-white/30">
-              Ad
+            <div className="font-mono text-[6.5px] uppercase tracking-wider text-white/30">
+              Annonse
             </div>
-            <div className="mt-1.5 h-7 w-full rounded-sm bg-white/[0.04]" />
+            <div className="mt-1 text-[7px] font-bold leading-tight text-[#F4CE14]/80">
+              Klikk her!
+            </div>
+            <div className="mt-1 h-4 w-full rounded-sm bg-white/[0.04]" />
           </div>
         )}
       </div>
@@ -498,11 +525,17 @@ function ByraPage({ elapsed }: { elapsed: number }) {
               <div className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/50">
                 Vi bruker informasjonskapsler
               </div>
-              <div className="mt-1 h-1 w-[80%] rounded-full bg-white/15" />
+              <div className="mt-0.5 text-[7px] leading-tight text-white/35">
+                Vi bruker cookies for å forbedre opplevelsen din.
+              </div>
             </div>
             <div className="flex shrink-0 gap-1">
-              <div className="h-3 w-10 rounded-sm bg-white/[0.08]" />
-              <div className="h-3 w-10 rounded-sm bg-[#F4CE14]/70" />
+              <div className="rounded-sm bg-white/[0.08] px-1.5 py-1 font-mono text-[6.5px] uppercase tracking-wider text-white/45">
+                Avvis
+              </div>
+              <div className="rounded-sm bg-[#F4CE14]/85 px-1.5 py-1 font-mono text-[6.5px] uppercase tracking-wider text-black">
+                Godta
+              </div>
             </div>
           </div>
         </div>

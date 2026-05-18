@@ -320,17 +320,6 @@ export function LiveBuildEditor() {
         </div>
         <StatusBar phase={s.phase} lighthouseScore={s.lighthouseScore} />
       </div>
-
-      <div
-        className="hero-entrance pointer-events-none absolute -left-2 -bottom-3 select-none"
-        style={{ animationDelay: "1.5s" }}
-        aria-hidden="true"
-      >
-        <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.8)]">
-          <span className="block h-1.5 w-1.5 rounded-full bg-[#F4CE14]" />
-          Built with Next.js
-        </div>
-      </div>
     </div>
   );
 }
