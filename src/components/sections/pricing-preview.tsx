@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { PACKAGES } from "@/lib/content/pricing";
+import { PricingCard3D } from "@/components/ui/pricing-card-3d";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -76,74 +77,9 @@ export function PricingPreview() {
             },
           }}
         >
-          {PACKAGES.map((pkg, i) => {
-            const highlight = pkg.highlight;
-            return (
-              <motion.div
-                key={pkg.id}
-                variants={{
-                  hidden: prefersReducedMotion
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 30 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: prefersReducedMotion ? 0 : 0.55,
-                      ease: EASE,
-                    },
-                  },
-                }}
-                className={`relative flex flex-col rounded-3xl border p-8 transition-transform duration-200 ${
-                  highlight
-                    ? "border-[#F4CE14]/35 bg-[rgba(244,206,20,0.035)] shadow-[0_30px_60px_-30px_rgba(244,206,20,0.18)] md:-translate-y-3"
-                    : "border-white/[0.07] bg-white/[0.015]"
-                }`}
-                style={{ transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
-              >
-                {highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#F4CE14] px-3.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#0a0a0a]">
-                    Mest populær
-                  </span>
-                )}
-
-                <p
-                  className={`font-mono text-xs uppercase tracking-[0.22em] ${
-                    highlight ? "text-[#F4CE14]" : "text-white/45"
-                  }`}
-                >
-                  {pkg.name}
-                </p>
-
-                <div className="mt-6 flex items-baseline gap-1.5">
-                  <span className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none tracking-tight text-white">
-                    {pkg.price}
-                  </span>
-                </div>
-
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-                  + {pkg.monthly} vedlikehold
-                </p>
-
-                <ul className="mt-8 flex-1 space-y-3 border-t border-white/[0.06] pt-6">
-                  {pkg.features.slice(0, 4).map((feat) => (
-                    <li
-                      key={feat}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-white/70"
-                    >
-                      <span
-                        aria-hidden
-                        className={`mt-2 inline-block h-1 w-1 flex-shrink-0 rounded-full ${
-                          highlight ? "bg-[#F4CE14]" : "bg-white/35"
-                        }`}
-                      />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+          {PACKAGES.map((pkg, i) => (
+            <PricingCard3D key={pkg.id} pkg={pkg} index={i} />
+          ))}
         </motion.div>
 
         <div className="mt-14 text-center">
