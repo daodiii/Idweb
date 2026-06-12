@@ -282,6 +282,44 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── Monument redesign ── */
+@keyframes monument-spin {
+  to { transform: rotate(360deg); }
+}
+
+.monument-spin {
+  animation: monument-spin 16s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes monument-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.monument-ticker {
+  animation: monument-ticker 24s linear infinite;
+  will-change: transform;
+}
+
+@keyframes monument-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(6px); }
+}
+
+.monument-nudge {
+  animation: monument-nudge 1.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monument-spin,
+  .monument-ticker,
+  .monument-nudge {
+    animation: none !important;
+  }
+}
+
 /* Hero entrance — CSS-only staggered reveal (replaces motion library) */
 .hero-entrance {
   opacity: 0;

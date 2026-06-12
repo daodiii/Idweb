@@ -1,44 +1,46 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
-import { TESTIMONIALS } from "@/lib/content/homepage";
-import { HeroSection } from "@/components/sections/hero-section";
+import { MonumentHero } from "@/components/sections/monument-hero";
+import { Preloader } from "@/components/ui/preloader";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+import { CursorAura } from "@/components/ui/cursor-aura";
 
 // Below-fold sections — lazy loaded to reduce initial JS parse/execute time
-const PortfolioShowcase = dynamic(
-  () => import("@/components/sections/portfolio-showcase").then((m) => m.PortfolioShowcase),
+const ManifestoFill = dynamic(
+  () => import("@/components/sections/manifesto-fill").then((m) => m.ManifestoFill),
   { ssr: true },
 );
-const ComparisonBento = dynamic(
-  () => import("@/components/sections/comparison-bento").then((m) => m.ComparisonBento),
+const TakeoverProjects = dynamic(
+  () => import("@/components/sections/takeover-projects").then((m) => m.TakeoverProjects),
   { ssr: true },
 );
-const ServiceFeatureSteps = dynamic(
-  () => import("@/components/sections/service-feature-steps").then((m) => m.ServiceFeatureSteps),
+const SpecDuel = dynamic(
+  () => import("@/components/sections/spec-duel").then((m) => m.SpecDuel),
   { ssr: true },
 );
-const ProcessSection = dynamic(
-  () => import("@/components/sections/process-section").then((m) => m.ProcessSection),
+const ServicesIndex = dynamic(
+  () => import("@/components/sections/services-index").then((m) => m.ServicesIndex),
   { ssr: true },
 );
-const TestimonialGrid = dynamic(
-  () => import("@/components/sections/testimonial-grid").then((m) => m.TestimonialGrid),
+const ProcessPath = dynamic(
+  () => import("@/components/sections/process-path").then((m) => m.ProcessPath),
   { ssr: true },
 );
-const PricingPreview = dynamic(
-  () => import("@/components/sections/pricing-preview").then((m) => m.PricingPreview),
+const PricingDrag = dynamic(
+  () => import("@/components/sections/pricing-drag").then((m) => m.PricingDrag),
   { ssr: true },
 );
-const BlogArticles = dynamic(
-  () => import("@/components/sections/blog-articles").then((m) => m.BlogArticles),
+const FaqXl = dynamic(
+  () => import("@/components/sections/faq-xl").then((m) => m.FaqXl),
   { ssr: true },
 );
-const FaqTeaser = dynamic(
-  () => import("@/components/sections/faq-teaser").then((m) => m.FaqTeaser),
+const ArticlesStrip = dynamic(
+  () => import("@/components/sections/articles-strip").then((m) => m.ArticlesStrip),
   { ssr: true },
 );
-const CtaSection = dynamic(
-  () => import("@/components/sections/cta-section").then((m) => m.CtaSection),
+const ContactTakeover = dynamic(
+  () => import("@/components/sections/contact-takeover").then((m) => m.ContactTakeover),
   { ssr: true },
 );
 
@@ -50,40 +52,48 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Landing page — "Monumentet". A typographic monument in three worlds
+ * (paper, void, yellow): preloader curtain → poster hero → scroll-fill
+ * manifesto → full-screen project takeovers → spec ledger → service
+ * index → drawn process → receipt pricing → XL FAQ → black finale.
+ */
 export default function Home() {
   return (
-    <div>
-      {/* 1. Hero — Dark */}
-      <HeroSection />
+    <div style={{ backgroundColor: "#F3F0E7" }}>
+      <Preloader />
+      <SmoothScroll />
+      <CursorAura />
 
-      {/* Portfolio Showcase — Light */}
-      <PortfolioShowcase />
+      {/* 1. Typographic monument + velocity marquee */}
+      <MonumentHero />
 
-      {/* 5. Comparison Bento — Dark */}
-      <ComparisonBento />
+      {/* 2. Manifesto — words ink in on scroll */}
+      <ManifestoFill />
 
-      {/* 6. Services Overview */}
-      <ServiceFeatureSteps />
+      {/* 3. Projects — full-screen sticky takeovers */}
+      <TakeoverProjects />
 
-      {/* 7. Process — Dark */}
-      <ProcessSection />
+      {/* 4. Byrå vs IDweb — spec ledger + value ticker */}
+      <SpecDuel />
 
-      {/* Blog articles moved to /blogg — homepage focuses on conversion */}
+      {/* 5. Services — XL click index */}
+      <ServicesIndex />
 
-      {/* 9. Testimonials — Dark (shown when real testimonials are collected) */}
-      {TESTIMONIALS.length > 0 && <TestimonialGrid testimonials={TESTIMONIALS} />}
+      {/* 6. Process — self-drawing timeline */}
+      <ProcessPath />
 
-      {/* 9. Blog Articles — White */}
-      <BlogArticles />
+      {/* 7. Pricing — draggable receipts on the void */}
+      <PricingDrag />
 
-      {/* 10. Pricing Preview — Dark */}
-      <PricingPreview />
+      {/* 8. FAQ — oversized questions */}
+      <FaqXl />
 
-      {/* 11. FAQ Teaser — Light */}
-      <FaqTeaser />
+      {/* 9. Articles — editorial strip */}
+      <ArticlesStrip />
 
-      {/* 11. Final CTA — Yellow gradient */}
-      <CtaSection />
+      {/* 10. Contact — black takeover finale */}
+      <ContactTakeover />
     </div>
   );
 }
