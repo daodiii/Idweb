@@ -50,11 +50,11 @@ export function Preloader() {
             <span>Oslo, NO</span>
           </div>
           <div className="flex items-end justify-between">
-            <span className="font-serif text-2xl font-black uppercase tracking-tight text-[#F3F0E7]">
+            <span className="text-2xl font-bold tracking-[-0.03em] text-[#F3F0E7]">
               Webutvikling
               <span className="text-[#F4CE14]">.</span>
             </span>
-            <span className="font-serif text-[clamp(4rem,12vw,9rem)] font-black leading-none tracking-[-0.04em] text-[#F4CE14] tabular-nums">
+            <span className="text-[clamp(4rem,12vw,9rem)] font-bold leading-none tracking-[-0.05em] text-[#F4CE14] tabular-nums">
               {progress}
             </span>
           </div>

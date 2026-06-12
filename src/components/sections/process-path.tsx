@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useReducedMotion } from "motion/react";
 import { PROCESS_STEPS } from "@/lib/content/homepage";
+import { Marker } from "@/components/ui/marker";
 import { EASE, INK, PAPER, YELLOW, VIEWPORT_ONCE } from "@/lib/motion";
 
 /**
@@ -21,11 +22,11 @@ export function ProcessPath() {
   return (
     <section style={{ backgroundColor: PAPER, color: INK }}>
       <div className="px-[3vw] py-24 sm:py-32">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE} className="font-serif uppercase">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
-              className="block text-[9.5vw] font-black leading-[0.9] tracking-[-0.02em]"
+              className="block text-[clamp(2.6rem,8vw,7rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
               Fra idé til
             </motion.span>
@@ -33,12 +34,9 @@ export function ProcessPath() {
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE, delay: 0.12 } } }}
-              className="block text-[9.5vw] font-black leading-[0.9] tracking-[-0.02em]"
+              className="block text-[clamp(2.6rem,8vw,7rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
-              lansering{" "}
-              <span style={{ color: "transparent", WebkitTextStroke: `max(1.5px, 0.14vw) ${INK}` }}>
-                på 1-2-3
-              </span>
+              lansering <Marker delay={0.8}>på 1-2-3</Marker>
             </motion.span>
           </span>
         </motion.h2>
@@ -70,7 +68,7 @@ export function ProcessPath() {
             />
           </div>
 
-          {PROCESS_STEPS.map((step, i) => (
+          {PROCESS_STEPS.map((step) => (
             <li key={step.step} className="relative pb-16 pl-16 last:pb-0 sm:pl-24">
               {/* Node */}
               <motion.span
@@ -90,7 +88,7 @@ export function ProcessPath() {
                 viewport={{ once: true, margin: "-25% 0px" }}
                 transition={{ duration: 0.75, ease: EASE, delay: 0.1 }}
               >
-                <h3 className="font-serif text-2xl font-black uppercase tracking-tight sm:text-4xl">
+                <h3 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
                   {step.title}
                 </h3>
                 <p className="mt-3 max-w-[52ch] text-base leading-relaxed sm:text-lg" style={{ color: "rgba(20,20,16,0.65)" }}>

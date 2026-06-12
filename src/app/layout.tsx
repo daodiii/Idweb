@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Outfit, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { LayoutShell } from "@/components/layout/layout-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
-const heading = localFont({
-  variable: "--font-heading",
-  display: "swap",
-  src: "../../public/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2",
-});
-
-const body = Outfit({
+// One family, weight-driven hierarchy — Geist carries both headings and body.
+const geistSans = Geist({
   variable: "--font-body",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
-const code = JetBrains_Mono({
+const geistMono = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin", "latin-ext"],
   display: "swap",
@@ -83,7 +77,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#F4CE14" />
         <JsonLd />
       </head>
-      <body className={`${heading.variable} ${body.variable} ${code.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

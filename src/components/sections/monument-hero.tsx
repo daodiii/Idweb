@@ -18,45 +18,55 @@ import { Magnetic } from "@/components/ui/magnetic";
 import { EASE, INK, PAPER, YELLOW } from "@/lib/motion";
 
 /**
- * Hero — a typographic monument. Three poster lines fill the viewport
- * width, rising character by character. Below: the brief and CTAs.
- * At the base: a marquee that accelerates and reverses with scroll
- * velocity. A circular badge rotates forever in the corner.
+ * Hero — solid Geist, no hollow type. Three masked lines land with a
+ * blur focus pull; "nettsider" gets the yellow marker once the line
+ * settles. A velocity-reactive marquee runs along the base and a
+ * circular badge rotates in the corner.
  */
 
-const ENTRY_DELAY = 0.25;
+const ENTRY_DELAY = 0.2;
 
-function PosterLine({
-  text,
-  lineIndex,
+function HeroLine({
+  children,
+  index,
   className = "",
-  style,
 }: {
-  text: string;
-  lineIndex: number;
+  children: React.ReactNode;
+  index: number;
   className?: string;
-  style?: React.CSSProperties;
 }) {
   const reduced = useReducedMotion();
-  const chars = text.split("");
   return (
-    <span className="block overflow-hidden" aria-hidden>
-      <span className={`flex ${className}`} style={style}>
-        {chars.map((char, i) => (
-          <motion.span
-            key={`${char}-${i}`}
-            className="inline-block will-change-transform"
-            initial={reduced ? { opacity: 0 } : { y: "112%" }}
-            animate={reduced ? { opacity: 1 } : { y: "0%" }}
-            transition={{
-              duration: 0.85,
-              ease: EASE,
-              delay: ENTRY_DELAY + lineIndex * 0.14 + i * 0.024,
-            }}
-          >
-            {char === " " ? " " : char}
-          </motion.span>
-        ))}
+    <span className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
+      <motion.span
+        className={`block will-change-transform ${className}`}
+        initial={
+          reduced ? { opacity: 0 } : { y: "110%", filter: "blur(8px)" }
+        }
+        animate={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.0, ease: EASE, delay: ENTRY_DELAY + index * 0.13 }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
+/** Yellow marker that sweeps in behind "nettsider" after its line lands. */
+function HeroMarker({ children }: { children: React.ReactNode }) {
+  const reduced = useReducedMotion();
+  return (
+    <span className="relative inline-block px-[0.06em]">
+      <motion.span
+        aria-hidden
+        className="absolute inset-x-0 bottom-[0.02em] origin-left"
+        style={{ backgroundColor: YELLOW, height: "0.42em", zIndex: 0 }}
+        initial={{ scaleX: reduced ? 1 : 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: EASE, delay: ENTRY_DELAY + 0.85 }}
+      />
+      <span className="relative" style={{ zIndex: 1 }}>
+        {children}
       </span>
     </span>
   );
@@ -80,23 +90,25 @@ function VelocityMarquee({ items }: { items: string[] }) {
     let moveBy = directionRef.current * 2.6 * (delta / 1000);
     moveBy += moveBy * Math.abs(vf);
     let next = baseX.get() - moveBy;
-    // Seamless wrap across one quarter (content rendered 4x)
     if (next <= -25) next += 25;
     if (next > 0) next -= 25;
     baseX.set(next);
   });
 
   const x = useTransform(baseX, (v) => `${v}%`);
-
-  const row = items.join(" ✳ ") + " ✳ ";
+  const row = items.join("  ✳  ") + "  ✳  ";
 
   return (
-    <div className="overflow-hidden border-y py-3.5 sm:py-4" style={{ borderColor: "rgba(20,20,16,0.16)" }} aria-hidden>
+    <div
+      className="overflow-hidden border-y py-3.5 sm:py-4"
+      style={{ borderColor: "rgba(20,20,16,0.16)" }}
+      aria-hidden
+    >
       <motion.div className="flex w-max whitespace-nowrap will-change-transform" style={{ x }}>
         {[0, 1, 2, 3].map((copy) => (
           <span
             key={copy}
-            className="pr-2 font-serif text-xl font-black uppercase tracking-tight sm:text-2xl"
+            className="pr-2 text-xl font-semibold uppercase tracking-tight sm:text-2xl"
             style={{ color: INK }}
           >
             {row}
@@ -135,53 +147,64 @@ export function MonumentHero() {
       style={{ backgroundColor: PAPER, color: INK }}
     >
       <div className="flex flex-1 flex-col justify-center">
-        {/* The monument */}
-        <h1 className="px-[3vw]">
-          <span className="sr-only">{HERO.headline}</span>
-          <PosterLine
-            text="WEBUTVIKLING"
-            lineIndex={0}
-            className="justify-between font-serif text-[13.4vw] font-black leading-[0.88] tracking-[-0.02em]"
-          />
-          <PosterLine
-            text="OG NETTSIDER"
-            lineIndex={1}
-            className="justify-between font-serif text-[13.4vw] font-black leading-[0.88] tracking-[-0.02em]"
-            style={{ color: "transparent", WebkitTextStroke: `max(1.5px, 0.16vw) ${INK}` }}
-          />
-          <PosterLine
-            text="I OSLO ©2026"
-            lineIndex={2}
-            className="justify-between font-serif text-[13.4vw] font-black leading-[0.88] tracking-[-0.02em]"
-            style={{
-              color: YELLOW,
-              WebkitTextStroke: `max(1px, 0.1vw) ${INK}`,
-            }}
-          />
-        </h1>
+        <div className="grid grid-cols-1 items-end gap-10 px-[4vw] lg:grid-cols-[1fr_auto]">
+          {/* The headline — solid Geist, tight tracking */}
+          <h1>
+            <span className="sr-only">{HERO.headline}</span>
+            <span aria-hidden>
+              <HeroLine
+                index={0}
+                className="text-[clamp(3rem,9.8vw,8.6rem)] font-bold leading-[0.98] tracking-[-0.05em]"
+              >
+                Webutvikling
+              </HeroLine>
+              <HeroLine
+                index={1}
+                className="text-[clamp(3rem,9.8vw,8.6rem)] font-bold leading-[0.98] tracking-[-0.05em]"
+              >
+                og <HeroMarker>nettsider</HeroMarker>
+              </HeroLine>
+              <HeroLine
+                index={2}
+                className="text-[clamp(3rem,9.8vw,8.6rem)] font-bold leading-[0.98] tracking-[-0.05em]"
+              >
+                i Oslo<span style={{ color: YELLOW }}>.</span>
+              </HeroLine>
+            </span>
+          </h1>
+
+          <motion.div
+            className="hidden pb-3 lg:block"
+            initial={{ opacity: 0, rotate: -30 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ duration: 1.1, ease: EASE, delay: 1.2 }}
+          >
+            <OrbitBadge />
+          </motion.div>
+        </div>
 
         {/* Brief + CTAs */}
-        <div className="mt-12 grid grid-cols-1 items-end gap-10 px-[3vw] sm:mt-16 lg:grid-cols-[1fr_auto_auto] lg:gap-16">
+        <div className="mt-12 grid grid-cols-1 items-start gap-8 px-[4vw] sm:mt-14 lg:grid-cols-[minmax(0,52ch)_auto] lg:gap-16">
           <motion.p
-            className="max-w-[46ch] text-base leading-relaxed sm:text-lg"
-            style={{ color: "rgba(20,20,16,0.72)" }}
-            initial={{ opacity: 0, y: 24 }}
+            className="text-base leading-relaxed sm:text-lg"
+            style={{ color: "rgba(20,20,16,0.7)" }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 1.0 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.85 }}
           >
             {HERO.subheadline}
           </motion.p>
 
           <motion.div
             className="flex flex-wrap items-center gap-4"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 1.15 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 1.0 }}
           >
             <Magnetic>
               <Link
                 href="/referanser"
-                className="group inline-flex items-center gap-2.5 rounded-full px-7 py-4 text-sm font-bold transition-colors duration-200 active:scale-[0.97]"
+                className="group inline-flex items-center gap-2.5 rounded-full px-7 py-4 text-sm font-semibold transition-colors duration-200 active:scale-[0.97]"
                 style={{ backgroundColor: INK, color: PAPER }}
               >
                 {HERO.primaryCta}
@@ -195,31 +218,22 @@ export function MonumentHero() {
             <Magnetic strength={0.22}>
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 border-b-2 pb-1 text-sm font-bold uppercase tracking-wide transition-opacity hover:opacity-60"
-                style={{ borderColor: INK, color: INK }}
+                className="inline-flex items-center gap-2 border-b-2 pb-1 text-sm font-semibold uppercase tracking-wide transition-opacity hover:opacity-60"
+                style={{ borderColor: YELLOW, color: INK }}
               >
                 {HERO.secondaryCta}
               </Link>
             </Magnetic>
-          </motion.div>
-
-          <motion.div
-            className="hidden lg:block"
-            initial={{ opacity: 0, rotate: -30 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ duration: 1.1, ease: EASE, delay: 1.3 }}
-          >
-            <OrbitBadge />
           </motion.div>
         </div>
       </div>
 
       {/* Velocity marquee at the base */}
       <motion.div
-        className="mt-14"
+        className="mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
+        transition={{ duration: 0.8, delay: 1.4 }}
       >
         <VelocityMarquee
           items={["Webutvikling", "Nettsider", "SEO", "Design", "Vedlikehold", "Oslo"]}

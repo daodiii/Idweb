@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { FAQ_TEASER_ITEMS } from "@/lib/content/homepage";
+import { Marker } from "@/components/ui/marker";
 import { EASE, EASE_CSS, INK, PAPER, YELLOW, VIEWPORT_ONCE } from "@/lib/motion";
 
 /**
@@ -18,16 +19,13 @@ export function FaqXl() {
     <section style={{ backgroundColor: PAPER, color: INK }}>
       <div className="px-[3vw] py-24 sm:py-32">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE} className="font-serif uppercase">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
             <span className="block overflow-hidden">
               <motion.span
                 variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
-                className="block text-[9.5vw] font-black leading-[0.9] tracking-[-0.02em]"
+                className="block text-[clamp(2.6rem,8vw,7rem)] font-bold leading-[1.02] tracking-[-0.045em]"
               >
-                Vanlige{" "}
-                <span style={{ color: "transparent", WebkitTextStroke: `max(1.5px, 0.14vw) ${INK}` }}>
-                  spørsmål
-                </span>
+                Vanlige <Marker delay={0.7}>spørsmål</Marker>
               </motion.span>
             </span>
           </motion.h2>
@@ -62,7 +60,7 @@ export function FaqXl() {
                   <span className="font-mono text-sm tabular-nums" style={{ color: "rgba(20,20,16,0.45)" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-serif text-[clamp(1.2rem,2.6vw,2.1rem)] font-extrabold leading-snug tracking-tight">
+                  <h3 className="text-[clamp(1.2rem,2.6vw,2rem)] font-bold leading-snug tracking-[-0.02em]">
                     <span
                       className="bg-no-repeat [background-position:0_80%] transition-[background-size] duration-600"
                       style={{

@@ -58,7 +58,7 @@ export function ManifestoFill() {
     <section style={{ backgroundColor: PAPER, color: INK }}>
       <div ref={targetRef} className="relative h-[230vh]">
         <div className="sticky top-0 flex h-screen items-center">
-          <p className="mx-auto w-full max-w-5xl px-[4vw] font-serif text-[clamp(1.65rem,4.1vw,3.4rem)] font-extrabold leading-[1.32] tracking-[-0.015em]">
+          <p className="mx-auto w-full max-w-5xl px-[4vw] text-[clamp(1.65rem,4.1vw,3.4rem)] font-bold leading-[1.3] tracking-[-0.035em]">
             {reduced ? (
               HERO.subheadline
             ) : (

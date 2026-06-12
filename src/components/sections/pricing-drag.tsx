@@ -40,13 +40,13 @@ function ReceiptCard({ pkg, index }: { pkg: (typeof PACKAGES)[number]; index: nu
       <p className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: "rgba(20,20,16,0.55)" }}>
         Pakke /{String(index + 1).padStart(2, "0")}
       </p>
-      <h3 className="mt-2 font-serif text-3xl font-black uppercase tracking-tight">{pkg.name}</h3>
+      <h3 className="mt-2 text-3xl font-bold uppercase tracking-[-0.02em]">{pkg.name}</h3>
       <p className="mt-1 text-sm" style={{ color: "rgba(20,20,16,0.6)" }}>
         {pkg.subtitle}
       </p>
 
       <div className="mt-6 border-y-2 border-dashed py-5" style={{ borderColor: "rgba(20,20,16,0.3)" }}>
-        <p className="font-serif text-[2.8rem] font-black leading-none tracking-tight tabular-nums">
+        <p className="text-[2.8rem] font-bold leading-none tracking-[-0.04em] tabular-nums">
           {pkg.price}
         </p>
         <p className="mt-2 font-mono text-xs" style={{ color: "rgba(20,20,16,0.6)" }}>
@@ -105,11 +105,11 @@ export function PricingDrag() {
     <section className="overflow-hidden" style={{ backgroundColor: VOID, color: PAPER }}>
       <div className="py-24 sm:py-32">
         <div className="flex flex-wrap items-end justify-between gap-8 px-[3vw]">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE} className="font-serif uppercase">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
             <span className="block overflow-hidden">
               <motion.span
                 variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
-                className="block text-[clamp(2.2rem,7vw,6rem)] font-black leading-[0.92] tracking-[-0.02em]"
+                className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
               >
                 Ærlige priser,
               </motion.span>
@@ -117,10 +117,10 @@ export function PricingDrag() {
             <span className="block overflow-hidden">
               <motion.span
                 variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE, delay: 0.12 } } }}
-                className="block text-[clamp(2.2rem,7vw,6rem)] font-black leading-[0.92] tracking-[-0.02em]"
-                style={{ color: "transparent", WebkitTextStroke: `max(1.5px, 0.14vw) ${PAPER}` }}
+                className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
+                style={{ color: YELLOW }}
               >
-                ingen overraskelser
+                ingen overraskelser.
               </motion.span>
             </span>
           </motion.h2>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { SERVICES_OVERVIEW } from "@/lib/content/homepage";
+import { Marker } from "@/components/ui/marker";
 import { EASE, EASE_CSS, INK, PAPER, YELLOW, VIEWPORT_ONCE } from "@/lib/motion";
 
 /**
@@ -24,11 +25,11 @@ export function ServicesIndex() {
   return (
     <section style={{ backgroundColor: PAPER, color: INK }}>
       <div className="px-[3vw] py-24 sm:py-32">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE} className="font-serif uppercase">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
-              className="block text-[9.5vw] font-black leading-[0.9] tracking-[-0.02em]"
+              className="block text-[clamp(2.6rem,8vw,7rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
               Tjenester som
             </motion.span>
@@ -36,10 +37,9 @@ export function ServicesIndex() {
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE, delay: 0.12 } } }}
-              className="block text-[9.5vw] font-black leading-[0.9] tracking-[-0.02em]"
-              style={{ color: "transparent", WebkitTextStroke: `max(1.5px, 0.14vw) ${INK}` }}
+              className="block text-[clamp(2.6rem,8vw,7rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
-              driver vekst
+              <Marker delay={0.8}>driver vekst</Marker>
             </motion.span>
           </span>
         </motion.h2>
@@ -58,7 +58,7 @@ export function ServicesIndex() {
                   <span className="font-mono text-sm tabular-nums" style={{ color: "rgba(20,20,16,0.45)" }}>
                     /{String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-serif text-[clamp(1.8rem,5.5vw,4.2rem)] font-black uppercase leading-[0.95] tracking-[-0.02em]">
+                  <h3 className="text-[clamp(1.6rem,4.6vw,3.4rem)] font-bold leading-[1] tracking-[-0.035em]">
                     <span
                       className="bg-no-repeat [background-position:0_78%] [background-size:0%_0.28em] transition-[background-size] duration-700"
                       style={{

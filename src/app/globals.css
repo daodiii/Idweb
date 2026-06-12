@@ -36,6 +36,9 @@
 
   /* Glowing effect */
   --black: #000000;
+
+  /* Headings share the Geist body family — hierarchy comes from weight + size */
+  --font-heading: var(--font-body);
 }
 
 @theme inline {

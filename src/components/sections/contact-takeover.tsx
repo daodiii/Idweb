@@ -19,23 +19,14 @@ export function ContactTakeover() {
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: VOID, color: PAPER }}>
-      {/* Ghost watermark */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[4vw] left-0 select-none font-serif text-[24vw] font-black uppercase leading-none tracking-[-0.04em]"
-        style={{ color: "transparent", WebkitTextStroke: "1.5px rgba(243,240,231,0.07)" }}
-      >
-        IDweb
-      </span>
-
-      <div className="relative grid grid-cols-1 gap-16 px-[3vw] py-24 sm:py-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+      <div className="relative grid grid-cols-1 gap-16 px-[4vw] py-24 sm:py-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
         <div>
           <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
             transition={{ staggerChildren: 0.07 }}
-            className="max-w-[14ch] font-serif text-[clamp(2.6rem,6.5vw,5.6rem)] font-black uppercase leading-[0.95] tracking-[-0.02em]"
+            className="max-w-[16ch] text-[clamp(2.4rem,6vw,5.2rem)] font-bold leading-[1.02] tracking-[-0.045em]"
           >
             {HEADLINE_WORDS.map((word, i) => (
               <span key={`${word}-${i}`} className="mr-[0.24em] inline-block overflow-hidden align-bottom">

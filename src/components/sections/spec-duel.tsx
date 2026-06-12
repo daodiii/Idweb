@@ -122,11 +122,11 @@ export function SpecDuel() {
   return (
     <section style={{ backgroundColor: VOID, color: PAPER }}>
       <div className="mx-auto w-full px-[3vw] py-24 sm:py-32">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE} className="font-serif uppercase">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
-              className="block text-[clamp(2.2rem,7vw,6rem)] font-black leading-[0.92] tracking-[-0.02em]"
+              className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
               Ikke alle nettsider
             </motion.span>
@@ -134,7 +134,7 @@ export function SpecDuel() {
           <span className="block overflow-hidden">
             <motion.span
               variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE, delay: 0.12 } } }}
-              className="block text-[clamp(2.2rem,7vw,6rem)] font-black leading-[0.92] tracking-[-0.02em]"
+              className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
               style={{ color: YELLOW }}
             >
               er skapt like.
@@ -183,7 +183,7 @@ export function SpecDuel() {
               {VALUE_PROPOSITIONS.map((prop) => (
                 <span
                   key={`${copy}-${prop}`}
-                  className="flex items-center font-serif text-lg font-black uppercase tracking-tight sm:text-xl"
+                  className="flex items-center text-lg font-semibold uppercase tracking-tight sm:text-xl"
                   style={{ color: INK }}
                 >
                   <span className="px-5">{prop.split(" — ")[0]}</span>
