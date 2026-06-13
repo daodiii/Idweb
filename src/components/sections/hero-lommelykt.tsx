@@ -111,7 +111,7 @@ function WorldContent({
       </motion.div>
 
       <motion.p
-        className="mt-14 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.3em]"
+        className="mt-14 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.3em] max-sm:hidden [@media(pointer:coarse)]:hidden"
         style={{ color: dark ? "rgba(244,206,20,0.85)" : "rgba(20,20,16,0.6)" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -155,9 +155,11 @@ export function HeroLommelykt() {
       return () => window.removeEventListener("pointermove", onMove);
     }
 
-    // No fine pointer: the lens orbits on its own.
+    // No fine pointer: the lens orbits on its own — but only while the hero
+    // is on screen, so the full-screen mask stops repainting once scrolled past.
     if (!reduced) {
       let raf = 0;
+      let running = false;
       const start = performance.now();
       const loop = (now: number) => {
         const t = (now - start) / 1000;
@@ -168,8 +170,21 @@ export function HeroLommelykt() {
         my.set(h * 0.45 + Math.sin(t * 0.7) * h * 0.28);
         raf = requestAnimationFrame(loop);
       };
-      raf = requestAnimationFrame(loop);
-      return () => cancelAnimationFrame(raf);
+      const io = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !running) {
+          running = true;
+          raf = requestAnimationFrame(loop);
+        } else if (!entry.isIntersecting && running) {
+          running = false;
+          cancelAnimationFrame(raf);
+        }
+      });
+      const node = sectionRef.current;
+      if (node) io.observe(node);
+      return () => {
+        cancelAnimationFrame(raf);
+        io.disconnect();
+      };
     }
   }, [reduced, mx, my]);
 

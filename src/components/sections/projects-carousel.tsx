@@ -257,13 +257,11 @@ export function ProjectsCarousel() {
               <Hand className="h-4 w-4" aria-hidden /> Dra for å spinne
             </span>
             <Link
-              href={`https://${focusedSite.domain}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/referanser"
               className="group inline-flex items-center gap-2.5 rounded-full px-6 py-3.5 text-sm font-semibold transition-transform duration-200 hover:scale-105 active:scale-95"
               style={{ backgroundColor: YELLOW, color: INK }}
             >
-              Besøk siden
+              Se prosjektene
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden

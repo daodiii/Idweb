@@ -10,6 +10,9 @@ import Lenis from "lenis";
 export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Touch devices keep native scrolling — Lenis fights mobile momentum and
+    // address-bar resize, which causes the scroll to stutter and jump back.
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const lenis = new Lenis({
       duration: 1.1,
