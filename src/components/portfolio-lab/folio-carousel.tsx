@@ -44,7 +44,7 @@ export function FolioCarousel() {
     if (!stage) return;
     const measure = () => {
       const w = stage.clientWidth;
-      const cw = Math.min(Math.max(w * 0.26, 210), 360);
+      const cw = Math.min(Math.max(w * 0.34, 260), 520);
       setCardW(cw);
       setRadius(Math.max((cw / 2) / Math.tan(Math.PI / N) * 1.35, cw));
     };
@@ -141,7 +141,7 @@ export function FolioCarousel() {
         }}
       />
 
-      <div className="relative z-10 px-[4vw] pt-24 sm:pt-28">
+      <div className="relative z-10 px-[4vw] pt-20 sm:pt-22">
         <motion.h2 initial="hidden" whileInView="visible" viewport={VIEWPORT_ONCE}>
           <span className="block overflow-hidden">
             <motion.span
@@ -149,7 +149,7 @@ export function FolioCarousel() {
                 hidden: { y: "112%" },
                 visible: { y: "0%", transition: { duration: 0.9, ease: EASE } },
               }}
-              className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
+              className="block text-[clamp(1.5rem,3vw,2.6rem)] font-bold leading-[1.05] tracking-[-0.03em]"
             >
               Utvalgte <Marker delay={0.7}>prosjekter</Marker>
             </motion.span>
@@ -236,7 +236,7 @@ export function FolioCarousel() {
       </div>
 
       {/* Focused project read-out */}
-      <div className="relative z-10 px-[4vw] pb-24 sm:pb-28">
+      <div className="relative z-10 px-[4vw] pb-16 sm:pb-20">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: YELLOW }}>
