@@ -11,8 +11,8 @@ const ManifestoFill = dynamic(
   () => import("@/components/sections/manifesto-fill").then((m) => m.ManifestoFill),
   { ssr: true },
 );
-const TakeoverProjects = dynamic(
-  () => import("@/components/sections/takeover-projects").then((m) => m.TakeoverProjects),
+const ProjectsCarousel = dynamic(
+  () => import("@/components/sections/projects-carousel").then((m) => m.ProjectsCarousel),
   { ssr: true },
 );
 const SpecDuel = dynamic(
@@ -71,8 +71,8 @@ export default function Home() {
       {/* 2. Manifesto — words ink in on scroll */}
       <ManifestoFill />
 
-      {/* 3. Projects — full-screen sticky takeovers */}
-      <TakeoverProjects />
+      {/* 3. Projects — «Karusellen» 3D coverflow ring */}
+      <ProjectsCarousel />
 
       {/* 4. Byrå vs IDweb — spec ledger + value ticker */}
       <SpecDuel />
