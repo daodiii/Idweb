@@ -149,7 +149,7 @@ export function ProjectsCarousel() {
                 hidden: { y: "112%" },
                 visible: { y: "0%", transition: { duration: 0.9, ease: EASE } },
               }}
-              className="block text-[clamp(1.5rem,3vw,2.6rem)] font-bold leading-[1.05] tracking-[-0.03em]"
+              className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
             >
               Utvalgte <Marker delay={0.7}>prosjekter</Marker>
             </motion.span>
