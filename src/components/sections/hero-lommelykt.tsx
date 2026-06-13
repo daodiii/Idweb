@@ -49,7 +49,7 @@ function WorldContent({
 
   return (
     <div
-      className="flex min-h-[100dvh] flex-col justify-center px-[4vw] pt-20"
+      className="flex min-h-[100svh] flex-col justify-center px-[4vw] pt-20"
       style={{ color: fg }}
       aria-hidden={!interactive}
     >

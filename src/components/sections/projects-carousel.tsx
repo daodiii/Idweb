@@ -128,7 +128,7 @@ export function ProjectsCarousel() {
 
   return (
     <section
-      className="relative flex min-h-[100dvh] flex-col overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden"
       style={{ backgroundColor: VOID, color: PAPER }}
     >
       {/* Ambient glow */}
