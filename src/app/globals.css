@@ -323,6 +323,40 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── Portfolio wall — endless vertical streams ── */
+@keyframes wall-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+@keyframes wall-down {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+
+.wall-stream-up {
+  animation: wall-up linear infinite;
+  will-change: transform;
+}
+
+.wall-stream-down {
+  animation: wall-down linear infinite;
+  will-change: transform;
+}
+
+.wall-column:hover .wall-stream-up,
+.wall-column:hover .wall-stream-down {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-stream-up,
+  .wall-stream-down {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* Hero entrance — CSS-only staggered reveal (replaces motion library) */
 .hero-entrance {
   opacity: 0;

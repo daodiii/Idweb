@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
-import { MonumentHero } from "@/components/sections/monument-hero";
+import { HeroLommelykt } from "@/components/sections/hero-lommelykt";
 import { Preloader } from "@/components/ui/preloader";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { CursorAura } from "@/components/ui/cursor-aura";
@@ -65,8 +65,8 @@ export default function Home() {
       <SmoothScroll />
       <CursorAura />
 
-      {/* 1. Typographic monument + velocity marquee */}
-      <MonumentHero />
+      {/* 1. Hero — «Lommelykt»: the cursor is a flashlight revealing the yellow world */}
+      <HeroLommelykt />
 
       {/* 2. Manifesto — words ink in on scroll */}
       <ManifestoFill />
