@@ -475,6 +475,236 @@ export const INDUSTRIES: Service[] = [
       { value: 100, suffix: "%", label: "mobilvennlig" },
     ],
   },
+  {
+    id: "treningssenter",
+    title: "Nettside for treningssentre",
+    shortDescription:
+      "En energisk nettside med medlemsregistrering og timeplan som gjør det enkelt å bli — og forbli — medlem.",
+    longDescription:
+      "Folk melder seg inn på treningssenter når motivasjonen er på topp — ofte på kvelden, fra mobilen. Er det tungvint, forsvinner de. Vi lager raske, energiske nettsider for treningssentre — med enkel medlemsregistrering, oppdatert gruppetimeplan og drop-in-booking, så du fyller både medlemslistene og timene.",
+    categoryTag: "Trening",
+    features: [
+      "Medlemsregistrering rett fra siden",
+      "Oppdatert gruppetimeplan",
+      "Drop-in og PT-timebestilling",
+      "Tydelige priser og medlemskap",
+      "Lokal SEO for «treningssenter [sted]»",
+      "Lynrask og perfekt på mobil",
+    ],
+    detailedFeatures: [
+      { iconName: "calendar", title: "Timeplan & booking", description: "Oppdatert gruppetimeplan og drop-in" },
+      { iconName: "file-text", title: "Medlemskap", description: "Tydelige priser og enkel innmelding" },
+      { iconName: "smartphone", title: "Mobil først", description: "De fleste melder seg inn fra mobilen" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «treningssenter [sted]»" },
+      { iconName: "star", title: "Resultater", description: "Vis fram medlemmer, PT-er og fasiliteter" },
+    ],
+    painPoints: [
+      { title: "Mister medlemmer i innmeldingen", description: "Er det tungvint å melde seg inn på nett, forsvinner motivasjonen før de er medlem" },
+      { title: "Uklar timeplan", description: "Når gruppetimene er vanskelige å finne, faller folk fra" },
+      { title: "Usynlig lokalt", description: "Konkurrenten dukker opp på «treningssenter i nærheten» — ikke du" },
+    ],
+    processSteps: [
+      { step: 1, title: "Kartlegging", description: "Vi ser på medlemskap, timeplan og konkurrentene" },
+      { step: 2, title: "Design", description: "Et energisk uttrykk som matcher senteret" },
+      { step: 3, title: "Utvikling", description: "Vi bygger innmelding, timeplan og lokal SEO" },
+      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+    ],
+    faq: [
+      { question: "Kan medlemmer melde seg inn rett fra siden?", answer: "Ja. Vi setter opp medlemsregistrering, eller kobler nettsiden mot medlemssystemet dere bruker, så innmelding skjer sømløst." },
+      { question: "Kan vi vise en oppdatert gruppetimeplan?", answer: "Ja. Vi kan integrere timeplanen eller koble inn bookingsystemet dere bruker, så den alltid er oppdatert uten ekstra arbeid." },
+      { question: "Hva koster en nettside for et treningssenter?", answer: "En profesjonell nettside for treningssenter starter fra kr 15 000 og avhenger av funksjoner som innmelding og timeplan. Du får alltid et uforpliktende tilbud først." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «treningssenter [sted]» og i Maps." },
+    ],
+    trustStats: [
+      { value: 90, suffix: "+", label: "PageSpeed-score" },
+      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
+      { value: 24, suffix: "/7", label: "åpen innmelding" },
+    ],
+  },
+  {
+    id: "optiker",
+    title: "Nettside for optikere",
+    shortDescription:
+      "En ren, moderne nettside med timebestilling for synsundersøkelse som trekker kunder inn i butikken.",
+    longDescription:
+      "Kunder bestiller synsundersøkelse og kikker på briller på nett før de stikker innom. En treg eller utdatert side sender dem til kjeden i nabolaget. Vi lager rene, moderne nettsider for optikere — med timebestilling for synsundersøkelse, presentasjon av brillekolleksjonen og lokal synlighet, så flere finner veien til butikken.",
+    categoryTag: "Optiker",
+    features: [
+      "Timebestilling for synsundersøkelse",
+      "Presentasjon av brillemerker og kolleksjon",
+      "Tydelig info om tjenester og priser",
+      "Kampanjer og tilbud som trekker kunder",
+      "Lokal SEO for «optiker [sted]»",
+      "Lynrask og perfekt på mobil",
+    ],
+    detailedFeatures: [
+      { iconName: "calendar", title: "Timebestilling", description: "Synsundersøkelse bestilles direkte på nett" },
+      { iconName: "star", title: "Brillekolleksjon", description: "Vis fram merker og utvalg" },
+      { iconName: "file-text", title: "Tjenester & pris", description: "Tydelig hva dere tilbyr" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «optiker [sted]»" },
+      { iconName: "smartphone", title: "Mobil først", description: "De fleste bestiller time på mobilen" },
+    ],
+    painPoints: [
+      { title: "Kunden velger kjeden", description: "Uten en moderne side taper du kunder til store optikerkjeder" },
+      { title: "Tomme timer", description: "Uten online timebestilling fylles ikke kalenderen for synsundersøkelser" },
+      { title: "Usynlig lokalt", description: "Konkurrenten dukker opp på «optiker i nærheten» — ikke du" },
+    ],
+    processSteps: [
+      { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, kolleksjonen og konkurrentene" },
+      { step: 2, title: "Design", description: "Et rent, moderne uttrykk som matcher butikken" },
+      { step: 3, title: "Utvikling", description: "Vi bygger timebestilling, kolleksjon og lokal SEO" },
+      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+    ],
+    faq: [
+      { question: "Kan kunder bestille synsundersøkelse på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
+      { question: "Kan vi vise fram brillemerkene våre?", answer: "Ja. Vi bygger en oversikt over merker og kolleksjon som er enkel å oppdatere når utvalget endrer seg." },
+      { question: "Hva koster en nettside for en optiker?", answer: "En profesjonell optikernettside starter fra kr 15 000 og avhenger av funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «optiker [sted]» og i Maps." },
+    ],
+    trustStats: [
+      { value: 90, suffix: "+", label: "PageSpeed-score" },
+      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
+      { value: 100, suffix: "%", label: "mobilvennlig" },
+    ],
+  },
+  {
+    id: "bilverksted",
+    title: "Nettside for bilverksteder",
+    shortDescription:
+      "En tillitsvekkende nettside med timebestilling for service og EU-kontroll som fyller verkstedet.",
+    longDescription:
+      "Når bilen må på service eller EU-kontroll, googler folk verksted i nærheten og velger det som er lett å booke og virker til å stole på. Vi lager solide, mobilvennlige nettsider for bilverksteder — med timebestilling, tydelige tjenester og garantier som bygger tillit, så du fyller kalenderen med jobber.",
+    categoryTag: "Bilverksted",
+    features: [
+      "Timebestilling for service og EU-kontroll",
+      "Tydelig oversikt over tjenester og merker",
+      "Garantier og sertifiseringer som bygger tillit",
+      "Trykk-for-å-ringe på mobil",
+      "Lokal SEO for «bilverksted [sted]»",
+      "Lynrask og perfekt på mobil",
+    ],
+    detailedFeatures: [
+      { iconName: "calendar", title: "Timebestilling", description: "Service og EU-kontroll bookes på nett" },
+      { iconName: "circle-check", title: "EU-kontroll", description: "Enkel booking av periodisk kjøretøykontroll" },
+      { iconName: "shield", title: "Tillit & garanti", description: "Sertifiseringer og garantier godt synlig" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «bilverksted [sted]»" },
+      { iconName: "smartphone", title: "Ring & book", description: "Trykk-for-å-ringe rett fra mobilen" },
+    ],
+    painPoints: [
+      { title: "Kunden ringer naboverkstedet", description: "Uten enkel booking og lokal synlighet går jobben til et mer synlig verksted" },
+      { title: "Tomme luker", description: "Uten online timebestilling fylles ikke kalenderen for service og kontroll" },
+      { title: "Virker mindre seriøs", description: "En svak nettside skaper tvil om kvalitet og pris" },
+    ],
+    processSteps: [
+      { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, merkene og konkurrentene" },
+      { step: 2, title: "Design", description: "Et solid, tillitsvekkende uttrykk" },
+      { step: 3, title: "Utvikling", description: "Vi bygger timebestilling, tjenester og lokal SEO" },
+      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+    ],
+    faq: [
+      { question: "Kan kunder bestille service og EU-kontroll på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
+      { question: "Kan vi vise hvilke bilmerker vi jobber med?", answer: "Ja. Vi bygger en tydelig oversikt over tjenester og merker, så kunden raskt ser at dere kan hjelpe med nettopp deres bil." },
+      { question: "Hva koster en nettside for et bilverksted?", answer: "En profesjonell verkstednettside starter fra kr 15 000 og avhenger av funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «bilverksted [sted]» og i Maps." },
+    ],
+    trustStats: [
+      { value: 90, suffix: "+", label: "PageSpeed-score" },
+      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
+      { value: 100, suffix: "%", label: "mobilvennlig" },
+    ],
+  },
+  {
+    id: "legekontor",
+    title: "Nettside for legekontor",
+    shortDescription:
+      "En rolig, trygg nettside med timebestilling og tydelig pasientinfo som gjør hverdagen enklere.",
+    longDescription:
+      "Pasienter forventer å finne åpningstider, kontaktinfo og timebestilling med én gang. En utdatert side skaper frustrasjon og unødvendige telefoner. Vi lager rolige, oversiktlige nettsider for legekontor og private klinikker — med timebestilling, tydelig pasientinformasjon og GDPR-trygg kontakt, så både pasienter og ansatte får en enklere hverdag.",
+    categoryTag: "Legekontor",
+    features: [
+      "Online timebestilling eller kobling til pasientsky",
+      "Tydelig pasientinformasjon og åpningstider",
+      "Presentasjon av leger og behandlere",
+      "GDPR-trygg håndtering av henvendelser",
+      "Lokal SEO for «legekontor [sted]»",
+      "Lynrask og perfekt på mobil",
+    ],
+    detailedFeatures: [
+      { iconName: "calendar", title: "Timebestilling", description: "Online booking eller kobling til pasientsky" },
+      { iconName: "file-text", title: "Pasientinfo", description: "Tydelig om tjenester og åpningstider" },
+      { iconName: "lock", title: "GDPR-trygg", description: "Sikker håndtering av sensitive henvendelser" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «legekontor [sted]»" },
+      { iconName: "smartphone", title: "Mobil først", description: "Pasienter finner dere på mobilen" },
+    ],
+    painPoints: [
+      { title: "For mange unødvendige telefoner", description: "Uklar info på nett gir flere telefoner om åpningstider og timer" },
+      { title: "Frustrerte pasienter", description: "En utdatert, rotete side gjør det vanskelig å finne fram" },
+      { title: "Usynlig for nye pasienter", description: "Klinikken dukker ikke opp når folk søker lokalt" },
+    ],
+    processSteps: [
+      { step: 1, title: "Kartlegging", description: "Vi ser på pasientreisen, tjenestene og bookingbehovet" },
+      { step: 2, title: "Design", description: "Et rolig, oversiktlig og trygt uttrykk" },
+      { step: 3, title: "Utvikling", description: "Vi bygger booking, pasientinfo og lokal SEO" },
+      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+    ],
+    faq: [
+      { question: "Kan dere koble på pasientsky / timebestillingssystemet vårt?", answer: "Ja. Vi lenker pasienten rett inn i løsningen dere bruker, eller setter opp en enkel timebestilling — sømløst fra nettsiden." },
+      { question: "Er pasienthenvendelser GDPR-trygge?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning, og vi unngår å samle sensitive opplysninger unødvendig." },
+      { question: "Hva koster en nettside for et legekontor?", answer: "En profesjonell nettside for legekontor starter fra kr 15 000 og avhenger av omfang og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «legekontor [sted]» og i Google Maps." },
+    ],
+    trustStats: [
+      { value: 90, suffix: "+", label: "PageSpeed-score" },
+      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
+      { value: 100, suffix: "%", label: "GDPR-trygg" },
+    ],
+  },
+  {
+    id: "renhold",
+    title: "Nettside for renholdsbedrifter",
+    shortDescription:
+      "En ryddig nettside med enkelt tilbudsskjema som gjør det lett å be om pris på fast renhold og flyttevask.",
+    longDescription:
+      "Både privatkunder og bedrifter googler renhold når behovet melder seg, og velger firmaet som virker seriøst og er lett å be om tilbud fra. Vi lager ryddige, tillitsvekkende nettsider for renholdsbedrifter — med tydelige tjenester, et enkelt tilbudsskjema og lokal synlighet, så du får flere forespørsler på både faste avtaler og enkeltoppdrag.",
+    categoryTag: "Renhold",
+    features: [
+      "Enkelt tilbudsskjema for rask prisforespørsel",
+      "Tydelige tjenester: fast renhold, flyttevask, kontor",
+      "Tillit gjennom forsikring og kundeomtaler",
+      "Skille mellom privat og bedrift",
+      "Lokal SEO for «renhold [sted]»",
+      "Lynrask og perfekt på mobil",
+    ],
+    detailedFeatures: [
+      { iconName: "mail", title: "Tilbudsskjema", description: "Kunden ber om pris på sekunder" },
+      { iconName: "file-text", title: "Tjenester", description: "Fast renhold, flyttevask, kontorrenhold" },
+      { iconName: "shield", title: "Tillit", description: "Forsikring, HMS og kundeomtaler" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «renhold [sted]»" },
+      { iconName: "smartphone", title: "Rask & mobil", description: "Upåklagelig på alle skjermer" },
+    ],
+    painPoints: [
+      { title: "Få forespørsler", description: "Uten et tydelig tilbudsskjema og lokal synlighet kommer det få henvendelser" },
+      { title: "Virker useriøs", description: "En svak nettside skaper tvil hos bedriftskunder som vurderer faste avtaler" },
+      { title: "Usynlig lokalt", description: "Konkurrenten dukker opp på «renhold [sted]» — ikke du" },
+    ],
+    processSteps: [
+      { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, kundetypene og områdene" },
+      { step: 2, title: "Design", description: "Et ryddig, tillitsvekkende uttrykk" },
+      { step: 3, title: "Utvikling", description: "Vi bygger tilbudsskjema, tjenester og lokal SEO" },
+      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+    ],
+    faq: [
+      { question: "Kan kunder be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver behovet, så forespørselen havner rett i innboksen din." },
+      { question: "Kan vi skille mellom privat- og bedriftskunder?", answer: "Ja. Vi kan strukturere siden med egne seksjoner eller sider for privat og bedrift, så hver målgruppe finner det som er relevant." },
+      { question: "Hva koster en nettside for en renholdsbedrift?", answer: "En profesjonell renholdsnettside starter fra kr 15 000 og avhenger av omfang og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «renhold [sted]» og i Maps." },
+    ],
+    trustStats: [
+      { value: 90, suffix: "+", label: "PageSpeed-score" },
+      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
+      { value: 100, suffix: "%", label: "mobilvennlig" },
+    ],
+  },
 ];
 
 export const INDUSTRY_SEO: Record<string, { title: string; description: string }> = {
@@ -527,6 +757,31 @@ export const INDUSTRY_SEO: Record<string, { title: string; description: string }
     title: "Nettside for byggefirmaer — prosjektgalleri og flere oppdrag",
     description:
       "Solide nettsider for byggefirmaer og entreprenører med prosjektgalleri, tilbudsskjema og lokal SEO. Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+  },
+  treningssenter: {
+    title: "Nettside for treningssentre — flere medlemmer og fulle timer",
+    description:
+      "Energiske nettsider for treningssentre med medlemsregistrering, gruppetimeplan og lokal SEO. Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+  },
+  optiker: {
+    title: "Nettside for optikere — timebestilling og flere kunder i butikk",
+    description:
+      "Moderne nettsider for optikere med timebestilling for synsundersøkelse, brillekolleksjon og lokal SEO. Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+  },
+  bilverksted: {
+    title: "Nettside for bilverksteder — timebestilling for service og EU-kontroll",
+    description:
+      "Tillitsvekkende nettsider for bilverksteder med timebestilling, tjenesteoversikt og lokal SEO for «bilverksted [sted]». Faste priser, ingen bindingstid. Få et tilbud.",
+  },
+  legekontor: {
+    title: "Nettside for legekontor — timebestilling og enklere pasientinfo",
+    description:
+      "Rolige, oversiktlige nettsider for legekontor og klinikker med timebestilling, GDPR-trygg kontakt og lokal SEO. Faste priser, ingen bindingstid. Få et tilbud.",
+  },
+  renhold: {
+    title: "Nettside for renholdsbedrifter — flere tilbud og faste avtaler",
+    description:
+      "Ryddige nettsider for renholdsbedrifter med tilbudsskjema, tydelige tjenester og lokal SEO for «renhold [sted]». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
   },
 };
 
