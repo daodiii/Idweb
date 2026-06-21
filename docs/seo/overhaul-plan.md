@@ -31,7 +31,7 @@ Quality bar: every programmatic page must be genuinely differentiated (real indu
 | # | Workstream | Status | Owner |
 |---|---|---|---|
 | **P1** | **Industry landing-page engine** (`/nettside/[bransje]`) — biggest lever for "many keywords" | ✅ first wave done (10 pages + hub + internal links + sitemap) | Claude |
-| **P2** | Geo landing pages (`/webutvikler/[sted]`) around Oslo | ⬜ todo | Claude |
+| **P2** | Geo landing pages (`/webutvikler/[sted]`) around Oslo | ✅ first wave done (6 steder + hub, interlinked with Oslo) | Claude |
 | **P3** | Topical clusters + internal linking (16 posts → pillars → money pages) | ⬜ todo | Claude |
 | **P4** | Core Web Vitals pass (measure → trim heavy homepage JS on mobile) | ⬜ todo | Claude |
 | **P5** | Authority/off-page (GBP, reviews, citations, client footer backlinks, outreach drafts) | ⬜ todo | Ilyas + Claude drafts |
