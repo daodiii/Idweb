@@ -47,7 +47,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på pasientreisen, konkurrentene og bookingbehovet" },
       { step: 2, title: "Design", description: "Et rolig, tillitsvekkende uttrykk tilpasset klinikken" },
       { step: 3, title: "Utvikling", description: "Vi bygger siden med booking, prisliste og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vi allerede bruker?", answer: "Ja. Vi integrerer de fleste norske bookingsystemene, eller lenker pasienten rett inn i løsningen dere har i dag — sømløst fra nettsiden." },
@@ -93,7 +93,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene dine, områdene du dekker og konkurrentene" },
       { step: 2, title: "Design", description: "Et ryddig, solid uttrykk som bygger tillit" },
       { step: 3, title: "Utvikling", description: "Vi bygger siden med ring-knapp, skjema og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Jeg har bare en Facebook-side i dag — er det nok?", answer: "Facebook er fint som tillegg, men en egen nettside rangerer i Google, virker mer seriøs og lar deg styre hvordan kundene finner og kontakter deg. De fleste velger bedrifter med egen nettside." },
@@ -139,7 +139,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, områdene og akuttbehovet" },
       { step: 2, title: "Design", description: "Et solid, tillitsvekkende uttrykk med tydelig kontakt" },
       { step: 3, title: "Utvikling", description: "Vi bygger siden med ring-knapp, døgnvakt-info og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan nettsiden fremheve at vi har døgnvakt?", answer: "Ja. Vi legger akutt- og døgnvaktinfo godt synlig øverst med en ring-knapp, slik at kunder som trenger hjelp raskt finner og kontakter dere umiddelbart." },
@@ -185,7 +185,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på fagområder, målgruppe og konkurrenter" },
       { step: 2, title: "Design", description: "Et nøkternt, autoritativt uttrykk tilpasset firmaet" },
       { step: 3, title: "Utvikling", description: "Vi bygger fagområde-sider, profiler og trygg kontakt" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere lage egne sider for hvert fagområde?", answer: "Ja, og det anbefales. Egne sider for arverett, familierett, eiendom osv. gjør at dere rangerer på relevante søk og fremstår som spesialister på hvert felt." },
@@ -231,7 +231,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på stilen, behandlingene og bookingbehovet" },
       { step: 2, title: "Design", description: "Et visuelt uttrykk som matcher salongen" },
       { step: 3, title: "Utvikling", description: "Vi bygger booking, galleri og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere koble på bookingsystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker kunden rett inn i systemet dere bruker — sømløst fra nettsiden." },
@@ -277,7 +277,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, målgruppen og konkurrentene" },
       { step: 2, title: "Design", description: "Et nøkternt, tillitsvekkende uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger tjenestesider, skjema og SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere lage egne sider for hver tjeneste?", answer: "Ja. Egne sider for f.eks. årsregnskap, lønn og rådgivning gjør at dere rangerer på flere søk og fremstår tydeligere for kunden." },
@@ -323,7 +323,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på områdene, profilen og konkurrentene" },
       { step: 2, title: "Design", description: "Et lekkert uttrykk som bygger meglernavnet" },
       { step: 3, title: "Utvikling", description: "Vi bygger boligvisning, skjema og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere lage egne sider for hvert område jeg dekker?", answer: "Ja, og det anbefales. Egne områdesider gjør at du rangerer på lokale søk som «eiendomsmegler [område]» og fremstår som spesialist der." },
@@ -369,7 +369,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på konseptet, menyen og bestillingsbehovet" },
       { step: 2, title: "Design", description: "Et appetittvekkende uttrykk som matcher stedet" },
       { step: 3, title: "Utvikling", description: "Vi bygger meny, bordbestilling og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan vi oppdatere menyen selv?", answer: "Vi setter opp menyen slik at den er enkel å endre. Mindre oppdateringer kan også inngå i en vedlikeholdsavtale om dere ønsker at vi tar det." },
@@ -415,7 +415,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på behandlinger, pasientreisen og bookingbehovet" },
       { step: 2, title: "Design", description: "Et rolig, tillitsvekkende uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger booking, behandlingssider og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker pasienten rett inn i systemet dere bruker — sømløst fra nettsiden." },
@@ -461,7 +461,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, prosjektene og områdene" },
       { step: 2, title: "Design", description: "Et solid, tillitsvekkende uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger galleri, skjema og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere vise fram prosjektene våre?", answer: "Ja. Vi bygger et prosjektgalleri med før/etter-bilder som dokumenterer kvaliteten og hjelper dere å lande større oppdrag." },
@@ -507,7 +507,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på medlemskap, timeplan og konkurrentene" },
       { step: 2, title: "Design", description: "Et energisk uttrykk som matcher senteret" },
       { step: 3, title: "Utvikling", description: "Vi bygger innmelding, timeplan og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan medlemmer melde seg inn rett fra siden?", answer: "Ja. Vi setter opp medlemsregistrering, eller kobler nettsiden mot medlemssystemet dere bruker, så innmelding skjer sømløst." },
@@ -553,7 +553,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, kolleksjonen og konkurrentene" },
       { step: 2, title: "Design", description: "Et rent, moderne uttrykk som matcher butikken" },
       { step: 3, title: "Utvikling", description: "Vi bygger timebestilling, kolleksjon og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan kunder bestille synsundersøkelse på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
@@ -599,7 +599,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, merkene og konkurrentene" },
       { step: 2, title: "Design", description: "Et solid, tillitsvekkende uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger timebestilling, tjenester og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan kunder bestille service og EU-kontroll på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
@@ -645,7 +645,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på pasientreisen, tjenestene og bookingbehovet" },
       { step: 2, title: "Design", description: "Et rolig, oversiktlig og trygt uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger booking, pasientinfo og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan dere koble på pasientsky / timebestillingssystemet vårt?", answer: "Ja. Vi lenker pasienten rett inn i løsningen dere bruker, eller setter opp en enkel timebestilling — sømløst fra nettsiden." },
@@ -691,7 +691,7 @@ export const INDUSTRIES: Service[] = [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, kundetypene og områdene" },
       { step: 2, title: "Design", description: "Et ryddig, tillitsvekkende uttrykk" },
       { step: 3, title: "Utvikling", description: "Vi bygger tilbudsskjema, tjenester og lokal SEO" },
-      { step: 4, title: "Lansering", description: "Go live, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Kan kunder be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver behovet, så forespørselen havner rett i innboksen din." },

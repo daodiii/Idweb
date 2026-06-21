@@ -10,11 +10,15 @@ const EASE_STR = "cubic-bezier(0.23,1,0.32,1)";
 
 interface ServiceFaqProps {
   faq: FAQ[];
+  /** Adopt the page's identity: no eyebrow, accent underline + toggle. */
+  accent?: string;
 }
 
-export function ServiceFaq({ faq }: ServiceFaqProps) {
+export function ServiceFaq({ faq, accent }: ServiceFaqProps) {
   const prefersReducedMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const accented = Boolean(accent);
+  const accentColor = accent ?? "#F4CE14";
 
   return (
     <section className="light-section-warm-alt px-6 py-20 sm:py-28 md:py-32">
@@ -26,21 +30,20 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: EASE }}
         >
-          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
-            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]" />
-            FAQ
-          </p>
-          <h2 className="mt-7 font-serif text-[var(--color-text)]">
+          {!accented && (
+            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+              <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]" />
+              FAQ
+            </p>
+          )}
+          <h2 className={`font-[family-name:var(--font-heading)] text-[var(--color-text)] ${accented ? "" : "mt-7"}`}>
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[var(--color-text)]/65">
               Det du
             </span>
             <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
               <span className="relative inline-block">
                 lurer
-                <span
-                  aria-hidden
-                  className="absolute -bottom-1 left-0 right-0 h-[4px] rounded-full bg-[#F4CE14]"
-                />
+                <span aria-hidden className="absolute -bottom-1 left-0 right-0 h-[4px] rounded-full" style={{ background: accentColor }} />
               </span>
             </span>
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[var(--color-text)]/65">
@@ -59,11 +62,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: prefersReducedMotion ? 0 : 0.45,
-                  delay: prefersReducedMotion ? 0 : index * 0.05,
-                  ease: EASE,
-                }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.45, delay: prefersReducedMotion ? 0 : index * 0.05, ease: EASE }}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -71,17 +70,13 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                   style={{ transitionTimingFunction: EASE_STR }}
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-lg font-bold tracking-[-0.01em] text-[var(--color-text)] sm:text-xl">
+                  <span className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-[-0.01em] text-[var(--color-text)] sm:text-xl">
                     {item.question}
                   </span>
                   <span
                     aria-hidden
-                    className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border bg-white transition-[transform,border-color,background-color] duration-200 ${
-                      isOpen
-                        ? "rotate-45 border-[#F4CE14] bg-[#F4CE14]"
-                        : "border-[var(--color-border)] group-hover:border-[var(--color-text)]/30"
-                    }`}
-                    style={{ transitionTimingFunction: EASE_STR }}
+                    className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border bg-white transition-[transform,border-color,background-color] duration-200 ${isOpen ? "rotate-45" : "border-[var(--color-border)] group-hover:border-[var(--color-text)]/30"}`}
+                    style={isOpen ? { borderColor: accentColor, background: accentColor, transitionTimingFunction: EASE_STR } : { transitionTimingFunction: EASE_STR }}
                   >
                     <Plus className="h-4 w-4 text-[var(--color-text)]" strokeWidth={2} />
                   </span>
@@ -93,10 +88,7 @@ export function ServiceFaq({ faq }: ServiceFaqProps) {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        duration: prefersReducedMotion ? 0 : 0.3,
-                        ease: EASE,
-                      }}
+                      transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: EASE }}
                       className="overflow-hidden"
                     >
                       <p className="max-w-[60ch] pb-6 pr-12 text-base leading-relaxed text-[var(--color-text-muted)]">

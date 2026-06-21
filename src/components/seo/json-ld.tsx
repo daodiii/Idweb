@@ -17,17 +17,14 @@ const BUSINESS_SCHEMA = {
   email: "hei@idweb.no",
   logo: "https://www.idweb.no/images/idweb-logo.png",
   image: "https://www.idweb.no/images/idweb-logo.png",
+  // Service-area business — no physical office. We assert the locality we
+  // operate from (Oslo) and the areas we serve, but no street address, postal
+  // code or map coordinates that would imply a visitable location.
   address: {
     "@type": "PostalAddress",
     addressLocality: "Oslo",
     addressRegion: "Oslo",
-    postalCode: "0687",
     addressCountry: "NO",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 59.9139,
-    longitude: 10.7522,
   },
   areaServed: [
     {

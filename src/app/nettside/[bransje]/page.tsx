@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { INDUSTRIES, INDUSTRY_SEO, getIndustry } from "@/lib/content/industries";
-import { ServiceHero } from "@/components/sections/service-hero";
+import { INDUSTRY_IDENTITY, FALLBACK_IDENTITY } from "@/lib/content/landing-identity";
+import { IndustryHero } from "@/components/sections/industry-hero";
 import { ServicePainPoints } from "@/components/sections/service-pain-points";
 import { ServiceBentoFeatures } from "@/components/sections/service-bento-features";
 import { ServiceProcess } from "@/components/sections/service-process";
@@ -49,6 +50,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   if (!industry) notFound();
 
   const seo = INDUSTRY_SEO[bransje];
+  const identity = INDUSTRY_IDENTITY[bransje] ?? FALLBACK_IDENTITY;
 
   return (
     <div>
@@ -63,11 +65,16 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           { name: industry.title, href: `/nettside/${bransje}` },
         ]}
       />
-      <ServiceHero service={industry} />
-      <ServicePainPoints service={industry} />
-      <ServiceBentoFeatures features={industry.detailedFeatures} />
-      <ServiceProcess steps={industry.processSteps} />
-      <ServiceFaq faq={industry.faq} />
+      <IndustryHero
+        service={industry}
+        accent={identity.accent}
+        mockup={identity.mockup}
+        business={identity.business}
+      />
+      <ServicePainPoints service={industry} accent={identity.accent} lossNoun={identity.noun} />
+      <ServiceBentoFeatures features={industry.detailedFeatures} accent={identity.accent} gainNoun={identity.noun} />
+      <ServiceProcess steps={industry.processSteps} accent={identity.accent} />
+      <ServiceFaq faq={industry.faq} accent={identity.accent} />
       <ServiceCta />
     </div>
   );
