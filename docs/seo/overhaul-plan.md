@@ -33,7 +33,7 @@ Quality bar: every programmatic page must be genuinely differentiated (real indu
 | **P1** | **Industry landing-page engine** (`/nettside/[bransje]`) — biggest lever for "many keywords" | ✅ first wave done (10 pages + hub + internal links + sitemap) | Claude |
 | **P2** | Geo landing pages (`/webutvikler/[sted]`) around Oslo | ✅ first wave done (6 steder + hub, interlinked with Oslo) | Claude |
 | **P3** | Topical clusters + internal linking (16 posts → pillars → money pages) | ⬜ todo | Claude |
-| **P4** | Core Web Vitals pass (measure → trim heavy homepage JS on mobile) | ⬜ todo | Claude |
+| **P4** | Core Web Vitals pass | 🟡 in progress — see notes | Claude |
 | **P5** | Authority/off-page (GBP, reviews, citations, client footer backlinks, outreach drafts) | ⬜ todo | Ilyas + Claude drafts |
 | **P6** | Measurement (Search Console, rank tracking, monthly review) | ⬜ todo | Ilyas grants GSC |
 
@@ -53,6 +53,18 @@ Next industries to add: treningssenter, optiker, bilverksted, tatovør, eiendoms
 
 ### Target geos (P2)
 Bærum, Asker, Sandvika, Lillestrøm, Lørenskog, Ski/Nordre Follo, Drammen, Skedsmo, Oslo districts (Grünerløkka, Nordstrand, Majorstuen).
+
+## P4 — Core Web Vitals notes
+
+Measured, not assumed:
+- **Animation layer is already fine.** CursorAura is `(hover:hover)+(pointer:fine)` and reduced-motion gated; Lenis bails on `pointer:coarse` + reduced-motion; Preloader is once-per-session + reduced-motion gated and home-only. No global mobile drag. (Earlier assumption was wrong — verified in code.)
+- **FIXED — lucide barrel import.** `service-bento-features.tsx` did `import { icons } from "lucide-react"` and resolved by string key → shipped the entire lucide library (1000+ icons, confirmed: unused icons like Webhook/Banana were in built chunks) to every service/industry/geo page (22+). Replaced with an explicit map of the 19 icons actually used. Verified: unused icons now absent from all chunks; pages still render (18 icon SVGs on /nettside/tannlege).
+- The 4.2 MB chunk in the build is **Sanity Studio**, loaded only on `/studio` (admin, noindex) — not public pages. Leave as-is.
+
+Remaining P4 todo:
+- Get real lab/field numbers (PSI needs an API key — shared quota exhausted; or grant Search Console access for CrUX).
+- Audit homepage (3D carousel, motion) LCP/INP once numbers exist.
+- Image formats/sizes + `next/image` coverage check.
 
 ## Honest timeline
 - Long-tail industry/geo pages: traction within **weeks of indexing**.

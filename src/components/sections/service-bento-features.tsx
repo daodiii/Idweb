@@ -1,9 +1,55 @@
 "use client";
 
-import { icons } from "lucide-react";
+import {
+  Calendar,
+  CircleCheck,
+  Cog,
+  FileText,
+  Headphones,
+  Key,
+  Lock,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Package,
+  RefreshCw,
+  Search,
+  Shield,
+  ShoppingCart,
+  Smartphone,
+  Star,
+  TrendingUp,
+  Zap,
+  type LucideIcon as LucideIconComponent,
+} from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import type { ServiceFeature } from "@/types";
 import { cn } from "@/lib/utils";
+
+// Explicit map of only the icons used in service/industry/geo content.
+// Importing the whole `icons` object defeats tree-shaking and ships the
+// entire lucide library (1000+ icons) to every page that renders this.
+const ICON_MAP: Record<string, LucideIconComponent> = {
+  calendar: Calendar,
+  "circle-check": CircleCheck,
+  cog: Cog,
+  "file-text": FileText,
+  headphones: Headphones,
+  key: Key,
+  lock: Lock,
+  mail: Mail,
+  "map-pin": MapPin,
+  "message-square": MessageSquare,
+  package: Package,
+  "refresh-cw": RefreshCw,
+  search: Search,
+  shield: Shield,
+  "shopping-cart": ShoppingCart,
+  smartphone: Smartphone,
+  star: Star,
+  "trending-up": TrendingUp,
+  zap: Zap,
+};
 
 interface ServiceBentoFeaturesProps {
   features: ServiceFeature[];
@@ -35,11 +81,7 @@ const BENTO_LAYOUT: { className: string; highlight: boolean; large: boolean }[] 
 ];
 
 function LucideIcon({ name, className }: { name: string; className?: string }) {
-  const pascalName = name
-    .split("-")
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join("");
-  const IconComponent = icons[pascalName as keyof typeof icons];
+  const IconComponent = ICON_MAP[name];
   if (!IconComponent) return null;
   return <IconComponent className={className} aria-hidden="true" />;
 }
