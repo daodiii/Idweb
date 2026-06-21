@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllSlugs, getBlogPost } from "@/lib/content/blog";
+import { getAllIndustrySlugs } from "@/lib/content/industries";
 
 const BASE_URL = "https://www.idweb.no";
 
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/tjenester`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/nettside`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/nettside`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/seo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/vedlikehold`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
@@ -27,6 +29,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vilkar`, lastModified: BUILD_DATE, changeFrequency: "yearly", priority: 0.3 },
   ];
 
+  const industryPages: MetadataRoute.Sitemap = getAllIndustrySlugs().map((slug) => ({
+    url: `${BASE_URL}/nettside/${slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => {
     const post = getBlogPost(slug);
     return {
@@ -37,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticPages, ...blogPages];
+  return [...staticPages, ...industryPages, ...blogPages];
 }
