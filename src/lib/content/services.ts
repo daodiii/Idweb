@@ -39,7 +39,7 @@ export const SERVICES: Service[] = [
       { step: 1, title: "Analyse", description: "Vi kartlegger mål, målgruppe og konkurrenter" },
       { step: 2, title: "Design", description: "Visuell prototype du kan gi tilbakemelding på" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
       { question: "Hvor lang tid tar det å lage en nettside?", answer: "Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker." },
@@ -143,10 +143,10 @@ export const SERVICES: Service[] = [
     shortDescription:
       "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
     longDescription:
-      "Trenger bedriften din en webutvikler i Oslo? IDweb er et Oslo-basert webbyrå som bygger nettsider og webapplikasjoner fra bunnen av — ingen ferdigmaler, ingen WordPress-tunge plugins, ingen mellomledd. Du snakker direkte med utvikleren som skriver koden, og du får en moderne nettside som laster på under to sekunder. Vi møter gjerne fysisk i Oslo for oppstart og presentasjon, og vi kjenner det norske markedet — fra Vipps-integrasjon til Brønnøysund-koblinger.",
+      "Trenger bedriften din en webutvikler i Oslo? IDweb er et Oslo-basert webbyrå som bygger nettsider og webapplikasjoner fra bunnen av — ingen ferdigmaler, ingen WordPress-tunge plugins, ingen mellomledd. Du snakker direkte med utvikleren som skriver koden, og du får en moderne nettside som laster på under to sekunder. Hele prosessen er heldigital, så vi jobber like enkelt med bedrifter i hele Norge som i Oslo — effektivt og uten reisetid. Og vi kjenner det norske markedet, fra Vipps-integrasjon til Brønnøysund-koblinger.",
     categoryTag: "Lokal webutvikling",
     features: [
-      "Møter fysisk i Oslo for oppstart og presentasjon",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Skreddersydd kode med Next.js — ikke WordPress-maler",
       "Lokal SEO-optimalisering for Oslo-bedrifter",
       "Norsk hosting med fastpris og rask support",
@@ -154,7 +154,7 @@ export const SERVICES: Service[] = [
       "Direkte kontakt med utvikleren — ingen prosjektledere mellom",
     ],
     detailedFeatures: [
-      { iconName: "map-pin", title: "Oslo-basert", description: "Vi møter deg fysisk for oppstart, presentasjon og strategi" },
+      { iconName: "map-pin", title: "Oslo-basert", description: "Heldigital prosess — oppstart, presentasjon og oppfølging på video" },
       { iconName: "zap", title: "Lynrask Next.js", description: "Moderne rammeverk i stedet for tung WordPress + plugins" },
       { iconName: "search", title: "Lokal SEO", description: "Optimalisert for «webutvikler oslo» og bransjesøk i Oslo" },
       { iconName: "shield", title: "Norsk hosting", description: "Servere i Norge, GDPR-trygg og rask for norske brukere" },
@@ -166,13 +166,13 @@ export const SERVICES: Service[] = [
       { title: "Mal-baserte nettsider", description: "Konkurrentene dine bruker samme mal — du blir usynlig i et hav av like sider" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Oslo", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design og prototype", description: "Visuell prototype basert på din bedrift og dine mål" },
       { step: 3, title: "Utvikling", description: "Skreddersydd kode i Next.js, testet og optimalisert" },
-      { step: 4, title: "Lansering", description: "Go live, Google Search Console, opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Go live, Google Search Console satt opp og overlevering." },
     ],
     faq: [
-      { question: "Møter dere kunder fysisk i Oslo?", answer: "Ja. Vi tar gjerne en kaffe i sentrum eller besøker deg på kontoret. Det er enklere å bygge en god nettside når vi forstår bedriften din ansikt til ansikt." },
+      { question: "Hvordan foregår samarbeidet?", answer: "Heldigitalt. Oppstart, presentasjon og oppfølging skjer på video, e-post og telefon — effektivt og uten reisetid. Du snakker direkte med utvikleren hele veien." },
       { question: "Hva koster det å lage en nettside i Oslo?", answer: "Prisene starter fra kr 15 000 for en enkel bedriftsnettside. Større prosjekter med nettbutikk eller bookingfunksjoner ligger fra kr 35 000. Vi gir alltid fastpris — ingen overraskelser." },
       { question: "Hvorfor velge en lokal webutvikler fremfor et stort byrå?", answer: "Hos store byråer betaler du for en kjede av prosjektledere, designere og utviklere. Hos oss snakker du direkte med utvikleren som skriver koden. Det gir raskere prosess, lavere pris og bedre resultat." },
       { question: "Bygger dere i WordPress?", answer: "Nei — vi bygger med Next.js (samme teknologi som brukes av Spotify, Notion og TikTok). Det gir lynraske sider, bedre SEO og full kontroll. WordPress passer bedre for kunder som vil oppdatere alt selv via et tradisjonelt CMS." },
@@ -215,7 +215,7 @@ export const SERVICES: Service[] = [
       { step: 1, title: "Strategi", description: "Produktsortiment, målgruppe og konverteringsplan" },
       { step: 2, title: "Design", description: "Skreddersydd nettbutikkdesign med fokus på kjøpsopplevelse" },
       { step: 3, title: "Utvikling", description: "Next.js + Vipps + Stripe + lager- og ordrelogikk" },
-      { step: 4, title: "Lansering", description: "Testbestillinger, opplæring i administrasjon og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Testbestillinger kjøres, så går butikken live." },
     ],
     faq: [
       { question: "Hva koster en skreddersydd nettbutikk?", answer: "En nettbutikk fra IDweb starter på kr 35 000 for en enkel butikk med opptil 50 produkter. Større butikker med tilpasset funksjonalitet ligger fra kr 60 000. Vi gir alltid fastpris." },

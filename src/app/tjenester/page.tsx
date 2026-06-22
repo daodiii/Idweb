@@ -20,7 +20,7 @@ const SERVICES = [
     title: "Webutvikler i Oslo",
     description:
       "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
-    features: ["Møter fysisk i Oslo", "Skreddersydd Next.js", "Lokal SEO", "Direkte med utvikleren"],
+    features: ["Heldigital prosess", "Skreddersydd Next.js", "Lokal SEO", "Direkte med utvikleren"],
   },
   {
     slug: "nettside",

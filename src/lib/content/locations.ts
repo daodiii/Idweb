@@ -21,13 +21,13 @@ export const LOCATIONS: Service[] = [
     shortDescription:
       "Lokal webutvikler for bedrifter i Bærum — raske, skreddersydde nettsider med personlig oppfølging.",
     longDescription:
-      "Bærum er blant landets mest næringstette kommuner, fra Sandvika og Bekkestua til Fornebu og Høvik — og konkurransen om kundene på nett er hard. Vi lager raske, skreddersydde nettsider for bedrifter i Bærum, bygget i moderne Next.js i stedet for tung WordPress. Vi holder til i Oslo og møter deg gjerne i Bærum for oppstart og strategi.",
+      "Bærum er blant landets mest næringstette kommuner, fra Sandvika og Bekkestua til Fornebu og Høvik — og konkurransen om kundene på nett er hard. Vi lager raske, skreddersydde nettsider for bedrifter i Bærum, bygget i moderne Next.js i stedet for tung WordPress. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Bærum.",
     categoryTag: "Bærum",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
       "Lokal SEO for «[bransje] Bærum» og «Sandvika»",
       "Personlig oppfølging — du snakker med utvikleren",
-      "Møte i Bærum for oppstart og strategi",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
       "Norsk hosting, GDPR-trygg",
     ],
@@ -44,13 +44,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten i Bærum rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Bærum", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Kan dere møte oss fysisk i Bærum?", answer: "Ja. Vi holder til i Oslo og kommer gjerne til dere i Bærum for oppstartsmøte og strategi. Mye kan også løses digitalt om det passer bedre." },
+      { question: "Jobber dere med bedrifter i Bærum?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Bærum-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Bærum»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Bærum-området." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
@@ -67,13 +67,13 @@ export const LOCATIONS: Service[] = [
     shortDescription:
       "Lokal webutvikler for bedrifter i Asker — moderne, raske nettsider bygget for å skaffe kunder.",
     longDescription:
-      "Asker har et bredt næringsliv fra sentrum til Heggedal, Holmen og det gamle Røyken og Hurum. Vi lager skreddersydde nettsider for Asker-bedrifter som vil skille seg ut og bli funnet lokalt — raske, mobilvennlige og bygget i Next.js. Vi er Oslo-baserte og stiller gjerne i Asker for et oppstartsmøte.",
+      "Asker har et bredt næringsliv fra sentrum til Heggedal, Holmen og det gamle Røyken og Hurum. Vi lager skreddersydde nettsider for Asker-bedrifter som vil skille seg ut og bli funnet lokalt — raske, mobilvennlige og bygget i Next.js. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Asker.",
     categoryTag: "Asker",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
       "Lokal SEO for «[bransje] Asker»",
       "Personlig oppfølging — du snakker med utvikleren",
-      "Møte i Asker for oppstart og strategi",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
       "Norsk hosting, GDPR-trygg",
     ],
@@ -90,13 +90,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten i Asker rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Asker", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Kan dere møte oss fysisk i Asker?", answer: "Ja. Vi holder til i Oslo og kommer gjerne til dere i Asker for oppstartsmøte og strategi. Mye kan også løses digitalt om det passer bedre." },
+      { question: "Jobber dere med bedrifter i Asker?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Asker-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Asker»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Asker-området." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
@@ -113,13 +113,13 @@ export const LOCATIONS: Service[] = [
     shortDescription:
       "Lokal webutvikler for bedrifter i Lillestrøm og på Romerike — raske, skreddersydde nettsider.",
     longDescription:
-      "Lillestrøm kommune samler et voksende næringsliv fra Lillestrøm sentrum og Strømmen til Skedsmokorset og Kjeller. Vi lager moderne, raske nettsider for bedrifter på Romerike som vil bli funnet av lokale kunder — bygget i Next.js, ikke tung WordPress. Vi er Oslo-baserte, og Lillestrøm er bare en kort togtur unna for et oppstartsmøte.",
+      "Lillestrøm kommune samler et voksende næringsliv fra Lillestrøm sentrum og Strømmen til Skedsmokorset og Kjeller. Vi lager moderne, raske nettsider for bedrifter på Romerike som vil bli funnet av lokale kunder — bygget i Next.js, ikke tung WordPress. Vi er Oslo-baserte og jobber heldigitalt med bedrifter på Romerike.",
     categoryTag: "Lillestrøm",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
       "Lokal SEO for «[bransje] Lillestrøm» og Romerike",
       "Personlig oppfølging — du snakker med utvikleren",
-      "Møte i Lillestrøm for oppstart og strategi",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
       "Norsk hosting, GDPR-trygg",
     ],
@@ -136,13 +136,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten på Romerike rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Lillestrøm", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Kan dere møte oss fysisk i Lillestrøm?", answer: "Ja. Vi holder til i Oslo, og Lillestrøm er en kort togtur unna — vi kommer gjerne til dere for oppstartsmøte. Mye kan også løses digitalt." },
+      { question: "Jobber dere med bedrifter i Lillestrøm?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lillestrøm-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Lillestrøm»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps på Romerike." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
@@ -159,13 +159,13 @@ export const LOCATIONS: Service[] = [
     shortDescription:
       "Lokal webutvikler for bedrifter i Lørenskog — moderne, raske nettsider som skaffer flere kunder.",
     longDescription:
-      "Lørenskog ligger midt mellom Oslo og Lillestrøm, med et aktivt næringsliv rundt Lørenskog sentrum, Metro og Visperud. Vi lager skreddersydde, lynraske nettsider for Lørenskog-bedrifter — bygget i Next.js for fart og synlighet i Google. Vi er Oslo-baserte og har kort vei til Lørenskog for et oppstartsmøte.",
+      "Lørenskog ligger midt mellom Oslo og Lillestrøm, med et aktivt næringsliv rundt Lørenskog sentrum, Metro og Visperud. Vi lager skreddersydde, lynraske nettsider for Lørenskog-bedrifter — bygget i Next.js for fart og synlighet i Google. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lørenskog.",
     categoryTag: "Lørenskog",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
       "Lokal SEO for «[bransje] Lørenskog»",
       "Personlig oppfølging — du snakker med utvikleren",
-      "Møte i Lørenskog for oppstart og strategi",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
       "Norsk hosting, GDPR-trygg",
     ],
@@ -182,13 +182,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten i Lørenskog rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Lørenskog", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Kan dere møte oss fysisk i Lørenskog?", answer: "Ja. Vi holder til i Oslo og har kort vei til Lørenskog for oppstartsmøte og strategi. Mye kan også løses digitalt om det passer bedre." },
+      { question: "Jobber dere med bedrifter i Lørenskog?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lørenskog-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Lørenskog»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Lørenskog." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
@@ -228,13 +228,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten i Drammen rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Oppstartsmøte", description: "Uforpliktende oppstartsmøte — digitalt eller fysisk" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Drammen?", answer: "Ja. Vi er Oslo-baserte, men jobber med bedrifter i hele Drammensregionen — oppstart og oppfølging løses enkelt digitalt, og vi kan møtes fysisk ved behov." },
+      { question: "Jobber dere med bedrifter i Drammen?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i hele Drammensregionen. Oppstart, oppfølging og levering skjer på video, e-post og telefon." },
       { question: "Kan dere få oss synlige på «[bransje] Drammen»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Drammen." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
@@ -251,13 +251,13 @@ export const LOCATIONS: Service[] = [
     shortDescription:
       "Lokal webutvikler for bedrifter i Ski og Nordre Follo — moderne, raske nettsider som konverterer.",
     longDescription:
-      "Ski er handels- og knutepunktsbyen i Nordre Follo, med et næringsliv som strekker seg fra Ski sentrum til Kolbotn og Langhus. Vi lager skreddersydde, raske nettsider for bedrifter i Follo som vil bli funnet av lokale kunder — bygget i Next.js for fart og god synlighet i Google. Vi er Oslo-baserte med kort vei til Ski.",
+      "Ski er handels- og knutepunktsbyen i Nordre Follo, med et næringsliv som strekker seg fra Ski sentrum til Kolbotn og Langhus. Vi lager skreddersydde, raske nettsider for bedrifter i Follo som vil bli funnet av lokale kunder — bygget i Next.js for fart og god synlighet i Google. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Follo.",
     categoryTag: "Ski",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
       "Lokal SEO for «[bransje] Ski» og Nordre Follo",
       "Personlig oppfølging — du snakker med utvikleren",
-      "Møte i Ski for oppstart og strategi",
+      "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
       "Norsk hosting, GDPR-trygg",
     ],
@@ -274,13 +274,13 @@ export const LOCATIONS: Service[] = [
       { title: "Usynlig lokalt", description: "Konkurrenten i Follo rangerer på bransjesøkene — ikke du" },
     ],
     processSteps: [
-      { step: 1, title: "Møte i Ski", description: "Uforpliktende oppstartsmøte — fysisk eller digitalt" },
+      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
       { step: 2, title: "Design", description: "Visuell prototype basert på bedriften og målene dine" },
       { step: 3, title: "Utvikling", description: "Vi bygger, tester og optimaliserer for fart og SEO" },
-      { step: 4, title: "Lansering", description: "Go live med opplæring og 30 dagers support" },
+      { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Kan dere møte oss fysisk i Ski?", answer: "Ja. Vi holder til i Oslo og har kort vei til Ski for oppstartsmøte og strategi. Mye kan også løses digitalt om det passer bedre." },
+      { question: "Jobber dere med bedrifter i Ski?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Ski og Nordre Follo. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Ski»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Nordre Follo." },
       { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },

@@ -88,9 +88,10 @@ export default function LocationsHubPage() {
           </h1>
 
           <p className="mt-9 max-w-[60ch] text-base leading-relaxed text-white/65 sm:text-lg">
-            Vi er Oslo-baserte og lager raske, skreddersydde nettsider for
-            bedrifter i hele Oslo-området — bygget i moderne Next.js, ikke tung
-            WordPress. Velg stedet ditt for en lokal gjennomgang.
+            Vi er Oslo-baserte og lager raske, skreddersydde nettsider i moderne
+            Next.js — ikke tung WordPress. Alt skjer heldigitalt, så vi hjelper
+            bedrifter i hele Norge like enkelt som i Oslo-området. Velg stedet
+            ditt for en lokal gjennomgang.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -158,7 +159,7 @@ export default function LocationsHubPage() {
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/60">
                 Vi jobber med bedrifter i hele Norge. Si fra hvor du holder til,
-                så ordner vi resten — digitalt eller med et fysisk møte.
+                så ordner vi resten — heldigitalt, fra start til lansering.
               </p>
               <Link
                 href="/kontakt"

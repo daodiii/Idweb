@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LOCATIONS, LOCATION_SEO, getLocation } from "@/lib/content/locations";
-import { ServiceHero } from "@/components/sections/service-hero";
-import { ServicePainPoints } from "@/components/sections/service-pain-points";
-import { ServiceBentoFeatures } from "@/components/sections/service-bento-features";
+import { GEO_ACCENT } from "@/lib/content/landing-identity";
+import { getLocalInfo } from "@/lib/content/locations-local";
+import { IndustryHero } from "@/components/sections/industry-hero";
+import { GeoLocalContext } from "@/components/sections/geo-local-context";
+import { GeoIndustries } from "@/components/sections/geo-industries";
 import { ServiceProcess } from "@/components/sections/service-process";
 import { ServiceFaq } from "@/components/sections/service-faq";
 import { ServiceCta } from "@/components/sections/service-cta";
@@ -49,6 +51,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
   if (!location) notFound();
 
   const seo = LOCATION_SEO[sted];
+  const local = getLocalInfo(sted);
 
   return (
     <div>
@@ -63,11 +66,24 @@ export default async function LocationPage({ params }: LocationPageProps) {
           { name: location.title, href: `/webutvikler/${sted}` },
         ]}
       />
-      <ServiceHero service={location} />
-      <ServicePainPoints service={location} />
-      <ServiceBentoFeatures features={location.detailedFeatures} />
-      <ServiceProcess steps={location.processSteps} />
-      <ServiceFaq faq={location.faq} />
+      <IndustryHero
+        service={location}
+        accent={GEO_ACCENT}
+        mockup="dev"
+        business={location.categoryTag}
+        mockupUrl="dinbedrift.no"
+      />
+      {local && <GeoLocalContext place={location.categoryTag} local={local} accent={GEO_ACCENT} />}
+      {local && (
+        <GeoIndustries
+          place={location.categoryTag}
+          industries={local.industries}
+          businessNote={local.businessNote}
+          accent={GEO_ACCENT}
+        />
+      )}
+      <ServiceProcess steps={location.processSteps} accent={GEO_ACCENT} />
+      <ServiceFaq faq={location.faq} accent={GEO_ACCENT} />
       <ServiceCta />
     </div>
   );
