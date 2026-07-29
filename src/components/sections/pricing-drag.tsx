@@ -46,11 +46,11 @@ function ReceiptCard({ pkg, index }: { pkg: (typeof PACKAGES)[number]; index: nu
       </p>
 
       <div className="mt-6 border-y-2 border-dashed py-5" style={{ borderColor: "rgba(20,20,16,0.3)" }}>
-        <p className="text-[2.8rem] font-bold leading-none tracking-[-0.04em] tabular-nums">
-          {pkg.price}
+        <p className="text-[1.75rem] font-bold leading-none tracking-[-0.03em]">
+          {pkg.scope}
         </p>
         <p className="mt-2 font-mono text-xs" style={{ color: "rgba(20,20,16,0.6)" }}>
-          + {pkg.monthly} {pkg.monthlyNote}
+          {pkg.meta}
         </p>
       </div>
 
@@ -75,8 +75,8 @@ function ReceiptCard({ pkg, index }: { pkg: (typeof PACKAGES)[number]; index: nu
         className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-bold transition-transform duration-200 hover:scale-[1.03] active:scale-95"
         style={{ backgroundColor: INK, color: pkg.highlight ? YELLOW : PAPER }}
       >
-        Få et tilbud
-        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        Få et uforpliktende tilbud
+        <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </Link>
     </motion.article>
   );
@@ -111,7 +111,7 @@ export function PricingDrag() {
                 variants={{ hidden: { y: "112%" }, visible: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}
                 className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
               >
-                Ærlige priser,
+                Prisen settes
               </motion.span>
             </span>
             <span className="block overflow-hidden">
@@ -120,7 +120,7 @@ export function PricingDrag() {
                 className="block text-[clamp(2.4rem,6.5vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.045em]"
                 style={{ color: YELLOW }}
               >
-                ingen overraskelser.
+                etter omfang.
               </motion.span>
             </span>
           </motion.h2>
@@ -132,7 +132,8 @@ export function PricingDrag() {
             className="mb-2 flex flex-col gap-3"
           >
             <p className="max-w-[36ch] text-base leading-relaxed" style={{ color: "rgba(243,240,231,0.6)" }}>
-              Alle prosjekter skreddersys, men her er utgangspunktene.
+              Alle prosjekter skreddersys. Her er utgangspunktene. Du får
+              fastpris før vi starter.
             </p>
             {dragLimit > 0 && (
               <p

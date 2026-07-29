@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
@@ -11,7 +10,6 @@ const EASE_STR = "cubic-bezier(0.23,1,0.32,1)";
 
 export function SeoPricingSection() {
   const prefersReducedMotion = useReducedMotion();
-  const [isAnnual, setIsAnnual] = useState(false);
 
   return (
     <section className="relative overflow-hidden bg-[var(--color-dark-bg)] px-6 py-20 sm:py-28 lg:py-32">
@@ -65,50 +63,11 @@ export function SeoPricingSection() {
           </h2>
 
           <p className="mx-auto mt-7 max-w-[52ch] text-base leading-relaxed text-white/65 sm:text-lg">
-            Løpende SEO som gir resultater. Velg månedlig fleksibilitet eller
-            spar opptil 30&nbsp;% med årlig betaling.
+            Løpende SEO som gir resultater. Vi setter opp arbeidet etter hvor
+            hard konkurransen er i din bransje, og du får fastpris per måned før
+            vi starter.
           </p>
         </motion.div>
-
-        {/* Billing Toggle */}
-        <div className="mt-10 flex items-center justify-center gap-4">
-          <span
-            className={`font-mono text-xs uppercase tracking-[0.22em] transition-colors duration-200 ${
-              !isAnnual ? "text-white" : "text-white/45"
-            }`}
-            style={{ transitionTimingFunction: EASE_STR }}
-          >
-            Månedlig
-          </span>
-
-          <button
-            type="button"
-            role="switch"
-            aria-checked={isAnnual}
-            onClick={() => setIsAnnual((v) => !v)}
-            className="relative inline-flex h-7 w-14 cursor-pointer items-center rounded-full border border-white/15 bg-white/[0.04] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4CE14] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark-bg)]"
-            style={{ transitionTimingFunction: EASE_STR }}
-          >
-            <span
-              className={`inline-block h-5 w-5 rounded-full bg-[#F4CE14] shadow-[0_4px_12px_-2px_rgba(244,206,20,0.5)] transition-transform duration-300 ${
-                isAnnual ? "translate-x-8" : "translate-x-1"
-              }`}
-              style={{ transitionTimingFunction: EASE_STR }}
-            />
-          </button>
-
-          <span
-            className={`flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] transition-colors duration-200 ${
-              isAnnual ? "text-white" : "text-white/45"
-            }`}
-            style={{ transitionTimingFunction: EASE_STR }}
-          >
-            Årlig
-            <span className="rounded-full bg-[#F4CE14]/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#F4CE14]">
-              -30&nbsp;%
-            </span>
-          </span>
-        </div>
 
         {/* Cards */}
         <motion.div
@@ -161,17 +120,12 @@ export function SeoPricingSection() {
                   {pkg.name}
                 </p>
 
-                <div className="mt-6 flex items-baseline gap-1.5">
-                  <span className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none tracking-tight text-white tabular-nums">
-                    {isAnnual ? pkg.annualPrice : pkg.monthlyPrice}
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">
-                    /mnd
-                  </span>
-                </div>
+                <p className="mt-6 font-serif text-[clamp(1.75rem,3.2vw,2.25rem)] font-black leading-[1.1] tracking-tight text-white">
+                  {pkg.scope}
+                </p>
 
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-                  {isAnnual ? `Faktureres årlig · spar ${pkg.annualSavings}%` : "Faktureres månedlig"}
+                  {pkg.meta}
                 </p>
 
                 <p className="mt-5 text-sm leading-relaxed text-white/65">
@@ -204,10 +158,10 @@ export function SeoPricingSection() {
                   }`}
                   style={{ transitionTimingFunction: EASE_STR }}
                 >
-                  Kom i gang
+                  Få et uforpliktende tilbud
                   <ArrowUpRight
                     aria-hidden
-                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     style={{ transitionTimingFunction: EASE_STR }}
                   />
                 </Link>

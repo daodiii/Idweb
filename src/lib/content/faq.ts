@@ -10,7 +10,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hva koster en nettside?",
     answer:
-      "Prisen avhenger av omfanget og kompleksiteten til prosjektet. En enkel bedriftsnettside starter typisk fra 13 000 kr, mens mer avanserte løsninger med nettbutikk eller spesialfunksjonalitet kan koste fra 30 000 kr og oppover. Vi gir alltid et fast prisestimat før vi starter, slik at du vet nøyaktig hva du betaler for. Ta kontakt for et uforpliktende tilbud tilpasset ditt behov.",
+      "Prisen avhenger av omfanget og kompleksiteten til prosjektet. En enkel bedriftsnettside ligger et helt annet sted enn en løsning med nettbutikk eller spesialfunksjonalitet. Vi gir alltid fastpris før vi starter, slik at du vet nøyaktig hva du betaler for. Ta kontakt for et uforpliktende tilbud tilpasset ditt behov.",
   },
   {
     question: "Hvor lang tid tar det å lage en nettside?",

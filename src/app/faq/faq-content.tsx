@@ -275,7 +275,7 @@ export function FaqContent() {
               className="group inline-flex items-center justify-center gap-2 rounded-xl border border-[#0a0a0a]/25 px-7 py-4 text-sm font-medium text-[#0a0a0a]/85 transition-[border-color,background-color,color,transform] duration-150 hover:border-[#0a0a0a]/50 hover:bg-[#0a0a0a]/[0.04] hover:text-[#0a0a0a] active:scale-[0.97]"
               style={{ transitionTimingFunction: EASE_STR }}
             >
-              Se priser
+              Se hva som inngår
             </Link>
           </div>
 

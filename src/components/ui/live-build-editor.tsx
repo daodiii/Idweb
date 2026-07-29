@@ -593,12 +593,12 @@ function PreviewPricingCard({
               {c.planName}
             </div>
           </SlotFade>
-          <SlotFade show={revealed.has("plan-price")}>
+          <SlotFade show={revealed.has("plan-scope")}>
             <div
-              className="mt-1 text-[22px] font-black leading-none tracking-tight text-white"
+              className="mt-1 whitespace-nowrap text-[16px] font-black leading-none tracking-tight text-white"
               style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
-              {c.planPrice}
+              {c.planScope}
             </div>
           </SlotFade>
           <SlotFade show={revealed.has("plan-delivery")}>

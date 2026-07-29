@@ -1,7 +1,7 @@
 export const PRICING_PAGE = {
-  headline: "Ærlige priser, ingen overraskelser",
+  headline: "Prisen settes etter omfang",
   subheadline:
-    "Her er en oversikt over hva våre tjenester koster. Alle priser er veiledende — ta kontakt for et skreddersydd tilbud.",
+    "Vi setter fastpris før vi starter, og den står. Ta kontakt for et uforpliktende tilbud.",
 } as const;
 
 export const PACKAGES = [
@@ -9,19 +9,17 @@ export const PACKAGES = [
     id: "enkel",
     name: "Enkel",
     subtitle: "For deg som trenger en enkel, profesjonell nettside",
-    price: "15 000 kr",
-    monthly: "890 kr/mnd",
-    monthlyNote: "for hosting og vedlikehold",
+    scope: "Inntil 3 sider",
+    meta: "Levert på 2 uker",
     description:
       "En solid bedriftsnettside med alt du trenger for å bli funnet på nett. Perfekt for nyoppstartede bedrifter, håndverkere og konsulenter.",
     features: [
-      "Inntil 3 sider (forside, tjenester, kontakt)",
+      "Forside, tjenester og kontakt",
       "Responsivt design — mobil, nettbrett og desktop",
       "Grunnleggende SEO-oppsett",
       "Kontaktskjema med e-postvarsling",
       "SSL-sertifikat og GDPR-tilpasning",
       "Google Analytics-oppsett",
-      "Levert innen 2 uker",
     ],
     highlight: false,
   },
@@ -29,19 +27,17 @@ export const PACKAGES = [
     id: "standard",
     name: "Standard",
     subtitle: "Mest populær — for bedrifter som vil vokse",
-    price: "23 000 kr",
-    monthly: "1 290 kr/mnd",
-    monthlyNote: "for hosting og vedlikehold",
+    scope: "Inntil 5 sider",
+    meta: "Levert på 3 uker",
     description:
       "En komplett nettside med skreddersydd design, blogg og avansert SEO. For bedrifter der nettsiden er en viktig kilde til nye kunder.",
     features: [
       "Alt i Enkel, pluss:",
-      "Inntil 5 sider med skreddersydd design",
+      "Skreddersydd design på hver side",
       "Avansert SEO med søkeordanalyse og schema markup",
       "Google Business Profile-oppsett",
       "Animasjoner og interaktive elementer",
       "Ytelsesoptimalisering (Core Web Vitals)",
-      "Levert innen 3 uker",
     ],
     highlight: true,
   },
@@ -49,20 +45,17 @@ export const PACKAGES = [
     id: "premium",
     name: "Premium",
     subtitle: "For bedrifter med høye ambisjoner",
-    price: "40 000 kr",
-    monthly: "1 990 kr/mnd",
-    monthlyNote: "for hosting, vedlikehold og support",
+    scope: "Inntil 10 sider",
+    meta: "Levert på 4–6 uker",
     description:
       "En skreddersydd løsning med utvidet funksjonalitet og dedikert oppfølging. For bedrifter som trenger mer enn en standard nettside.",
     features: [
       "Alt i Standard, pluss:",
-      "Inntil 10 sider",
       "Flerspråklig støtte (norsk/engelsk)",
       "Avanserte kontaktskjemaer med betinget logikk",
       "Tilgjengelighetstilpasning (WCAG)",
       "Prioritert support med rask responstid",
       "Kvartalsvis ytelsesrapport",
-      "Levert innen 4–6 uker",
     ],
     highlight: false,
   },
@@ -72,7 +65,8 @@ export const MAINTENANCE_PACKAGES = [
   {
     id: "vedlikehold-basis",
     name: "Basis",
-    price: "890 kr/mnd",
+    scope: "1 endring/mnd",
+    meta: "Support på e-post",
     description:
       "Grunnleggende drift for nettsider som trenger trygg hosting og jevnlige oppdateringer.",
     features: [
@@ -80,36 +74,34 @@ export const MAINTENANCE_PACKAGES = [
       "SSL-sertifikat inkludert",
       "Daglige sikkerhetskopier",
       "Sikkerhets- og programvareoppdateringer",
-      "1 innholdsendring per måned",
-      "E-postsupport",
     ],
     highlight: false,
   },
   {
     id: "vedlikehold-standard",
     name: "Standard",
-    price: "1 290 kr/mnd",
+    scope: "3 endringer/mnd",
+    meta: "Prioritert e-postsupport",
     description:
       "For bedrifter som vil holde nettsiden oppdatert og overvåket uten bekymringer.",
     features: [
       "Alt i Basis, pluss:",
-      "Inntil 3 innholdsendringer per måned",
       "Ytelsesovervåking og optimalisering",
       "Oppetidskontroll med varsling",
       "Månedlig sikkerhetsrapport",
-      "Prioritert e-postsupport",
     ],
     highlight: true,
   },
   {
     id: "vedlikehold-profesjonell",
     name: "Profesjonell",
-    price: "1 990 kr/mnd",
+    scope: "Ubegrensede endringer",
+    meta: "Månedlig rapport",
     description:
       "Komplett vedlikehold med ubegrensede endringer og dedikert oppfølging.",
     features: [
       "Alt i Standard, pluss:",
-      "Ubegrensede små endringer (tekst, bilder, layout)",
+      "Små endringer i tekst, bilder og layout",
       "Prioritert support med rask responstid",
       "Månedlig ytelsesrapport med forbedringsforslag",
       "Kvartalsvis SEO-helsesjekk",
@@ -122,33 +114,27 @@ export const SEO_PACKAGES = [
   {
     id: "seo-basis",
     name: "SEO Basis",
-    monthlyPrice: "4 990 kr",
-    annualPrice: "3 500 kr",
-    annualSavings: 30,
+    scope: "Inntil 20 søkeord",
+    meta: "Månedlig rapport",
     description:
       "Kom i gang med SEO. Teknisk audit, søkeordanalyse og månedlig rapportering.",
     features: [
       "Teknisk SEO-audit",
-      "Søkeordanalyse (inntil 20 søkeord)",
       "Månedlig innholdsoptimalisering",
       "Google Search Console-oppsett",
-      "Månedlig SEO-rapport",
     ],
     highlight: false,
   },
   {
     id: "seo-vekst",
     name: "SEO Vekst",
-    monthlyPrice: "7 990 kr",
-    annualPrice: "6 000 kr",
-    annualSavings: 25,
+    scope: "Inntil 50 søkeord",
+    meta: "2 artikler i måneden",
     description:
       "For bedrifter som vil dominere lokale søk og øke organisk trafikk konsekvent.",
     features: [
       "Alt i SEO Basis, pluss:",
-      "Søkeordanalyse (inntil 50 søkeord)",
       "Lokal SEO og Google Business-optimalisering",
-      "2 SEO-optimaliserte artikler per måned",
       "Konkurrentanalyse",
       "Ukentlig rangering-tracking",
     ],
@@ -157,15 +143,12 @@ export const SEO_PACKAGES = [
   {
     id: "seo-dominance",
     name: "SEO Dominance",
-    monthlyPrice: "12 990 kr",
-    annualPrice: "10 000 kr",
-    annualSavings: 23,
+    scope: "Ubegrensede søkeord",
+    meta: "4+ artikler i måneden",
     description:
       "Komplett SEO-dominans med aggressiv innholdsstrategi og dedikert SEO-rådgivning.",
     features: [
       "Alt i SEO Vekst, pluss:",
-      "Ubegrenset søkeordanalyse",
-      "4+ SEO-artikler per måned",
       "Backlink-bygging og outreach",
       "Dedikert SEO-rådgiver",
       "Ukentlig statusmøte",
@@ -177,7 +160,6 @@ export const SEO_PACKAGES = [
 export const NETTSIDE_DRIFT = {
   id: "nettside-drift",
   name: "Nettside + Drift",
-  price: "3 490 kr/mnd",
   minMonths: 12,
   tagline: "Alt inkludert. Ingen startkostnad.",
   description:
@@ -198,40 +180,68 @@ export const NETTSIDE_DRIFT = {
 export const ADDON_SERVICES = [
   {
     name: "Ytelsesoptimalisering",
-    price: "fra 3 990 kr",
     description:
       "Forbedring av Core Web Vitals, bildeoptimalisering, lazy loading og hastighetsoptimalisering for bedre brukeropplevelse og Google-rangering.",
   },
   {
     name: "Google Analytics og sporing",
-    price: "fra 2 990 kr",
     description:
       "Komplett GA4-oppsett med konverteringssporing, hendelsesmåling og dashboard — så du ser nøyaktig hva som fungerer.",
   },
   {
     name: "Innholdsproduksjon",
-    price: "fra 1 500 kr per side",
     description:
       "Nye sider, bloggartikler, tekstoppdateringer og bildebytte. SEO-optimalisert innhold tilpasset din bransje.",
   },
   {
     name: "Tilgjengelighet (WCAG)",
-    price: "fra 3 990 kr",
     description:
       "Tilgjengelighetsaudit og utbedring — tastaturnavigasjon, skjermleser-støtte og kontrastforbedringer for å nå alle brukere.",
   },
 ] as const;
 
-export const PRICING_FAQ = [
+/** The three steps from first contact to a fixed price. Replaces the old hero price stats. */
+export const PRICING_STEPS = [
   {
-    question: "Er prisene inkludert mva.?",
-    answer:
-      "Priser er oppgitt uten MVA. IDweb er per i dag ikke MVA-registrert. Dersom MVA-registrering gjennomføres, vil MVA tilkomme i henhold til gjeldende satser.",
+    step: "01",
+    title: "Kort samtale",
+    description:
+      "Vi tar en prat om hva bedriften trenger, hvor mange sider det er snakk om og hva siden skal gjøre for deg.",
   },
   {
-    question: "Hva er inkludert i de månedlige kostnadene?",
+    step: "02",
+    title: "Tilbud på e-post",
+    description:
+      "Du får et skriftlig tilbud med omfang, leveringstid og fastpris. Helt uforpliktende.",
+  },
+  {
+    step: "03",
+    title: "Fastpris før start",
+    description:
+      "Sier du ja, står prisen. Kommer det ønsker underveis som endrer omfanget, avtaler vi det på forhånd.",
+  },
+] as const;
+
+export const PRICING_FAQ = [
+  {
+    question: "Hvorfor står det ingen priser på nettsiden?",
     answer:
-      "Alle nettsidepakker inkluderer månedlig hosting. Utover det tilbyr vi separate vedlikeholdspakker fra 890 kr/mnd som dekker sikkerhetskopier, oppdateringer, support og innholdsendringer. Se vedlikeholdspakkene lenger opp på siden for detaljer.",
+      "Fordi to nettsider sjelden koster det samme. Antall sider, funksjoner og hvor mye innhold vi lager fra bunnen av gjør stor forskjell. I stedet for å sette et tall som uansett må justeres, gir vi deg et tilbud som faktisk stemmer med det du trenger. Du får det på e-post, og det er uforpliktende.",
+  },
+  {
+    question: "Hva koster en nettside hos dere?",
+    answer:
+      "Det avhenger av omfanget. En enkel bedriftsnettside med tre sider ligger et helt annet sted enn en nettbutikk med hundre produkter. Ta kontakt, så får du et konkret tall for akkurat ditt prosjekt — vanligvis innen én virkedag.",
+  },
+  {
+    question: "Er tilbudet bindende?",
+    answer:
+      "Nei. Du får tilbudet skriftlig og kan tenke på det så lenge du vil. Sier du nei, koster det ingenting. Sier du ja, er prisen i tilbudet den du betaler.",
+  },
+  {
+    question: "Kommer det MVA i tillegg?",
+    answer:
+      "Tilbudet du får er uten MVA. IDweb er per i dag ikke MVA-registrert. Dersom MVA-registrering gjennomføres, vil MVA tilkomme i henhold til gjeldende satser.",
   },
   {
     question: "Er det bindingstid?",
@@ -239,14 +249,14 @@ export const PRICING_FAQ = [
       "Nei, vi har ingen bindingstid på vanlige vedlikeholdsavtaler — disse kan sies opp med én måneds varsel. Nettside + Drift-abonnementet har 12 måneders bindingstid. Nettsiden er din — du eier alt innhold, design og kode.",
   },
   {
-    question: "Hva om prosjektet mitt ikke passer inn i en pakke?",
-    answer:
-      "Pakkene er utgangspunkter — alle prosjekter skreddersys til dine behov. Ta kontakt for et tilpasset tilbud med nøyaktig pris basert på hva du trenger.",
-  },
-  {
     question: "Hvordan er betalingsmodellen?",
     answer:
-      "Nettsider faktureres i to deler: 50 % ved oppstart og 50 % ved lansering. Vedlikeholdsavtaler og tilleggstjenester faktureres månedlig. SEO-pakker kan betales månedlig eller årlig — velger du årlig sparer du opptil 30 %.",
+      "Nettsider faktureres i to deler: halvparten ved oppstart og halvparten ved lansering. Vedlikeholdsavtaler, SEO og tilleggstjenester faktureres månedlig.",
+  },
+  {
+    question: "Hva om prosjektet mitt ikke passer inn i en pakke?",
+    answer:
+      "Pakkene er utgangspunkter — alle prosjekter skreddersys til dine behov. Ta kontakt, så lager vi et tilbud på nøyaktig det du trenger.",
   },
   {
     question: "Hva er forskjellen mellom Vedlikehold og Nettside + Drift?",
@@ -259,5 +269,5 @@ export const PRICING_CTA = {
   headline: "Usikker på hvilken pakke som passer?",
   description:
     "Ta kontakt for en uforpliktende samtale. Vi hjelper deg med å finne riktig løsning basert på dine behov og budsjett — helt gratis.",
-  buttonText: "Få et skreddersydd tilbud",
+  buttonText: "Ta kontakt for et uforpliktende tilbud",
 } as const;

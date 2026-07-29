@@ -43,7 +43,7 @@ export const SERVICES: Service[] = [
     ],
     faq: [
       { question: "Hvor lang tid tar det å lage en nettside?", answer: "Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker." },
-      { question: "Hva koster en skreddersydd nettside?", answer: "Prisen avhenger av omfang og funksjonalitet. En enkel bedriftsnettside starter fra kr 15 000. Vi gir alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en skreddersydd nettside?", answer: "Prisen avhenger av omfang og funksjonalitet. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Kan jeg oppdatere innholdet selv?", answer: "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Per i dag har vi ingen enklere løsning for selvbetjent redigering." },
       { question: "Hva med hosting og domene?", answer: "Vi hjelper deg med å sette opp hosting og koble til domenet ditt. Alt er inkludert i leveransen." },
     ],
@@ -89,7 +89,7 @@ export const SERVICES: Service[] = [
     faq: [
       { question: "Hvor lang tid tar det å se resultater?", answer: "SEO er en langsiktig investering. De fleste ser merkbar forbedring etter 3–6 måneder, men noen endringer gir effekt allerede etter uker." },
       { question: "Garanterer du førsteplass på Google?", answer: "Ingen kan garantere en spesifikk plassering — Google endrer algoritmene kontinuerlig. Vi garanterer solid, etisk arbeid som gir varige resultater." },
-      { question: "Hva koster SEO-optimalisering?", answer: "Vi tilbyr månedlige pakker fra kr 5 000. Prisen avhenger av konkurranse i din bransje og omfanget av arbeidet." },
+      { question: "Hva koster SEO-optimalisering?", answer: "Prisen avhenger av konkurransen i din bransje og omfanget av arbeidet. Vi setter opp en månedlig pakke som passer, og du får fastpris før vi starter." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score snitt" },
@@ -132,7 +132,7 @@ export const SERVICES: Service[] = [
     ],
     faq: [
       { question: "Hva dekker en driftsavtale?", answer: "Daglige sikkerhetskopier, automatisert sikkerhetsovervåking, programvareoppdateringer og prioritert support. Mindre innholdsendringer er også inkludert." },
-      { question: "Hva koster vedlikehold?", answer: "Driftsavtaler starter fra kr 790 per måned, avhengig av nettsidens størrelse og kompleksitet." },
+      { question: "Hva koster vedlikehold?", answer: "Prisen avhenger av nettsidens størrelse og kompleksitet. Ta kontakt for et uforpliktende tilbud." },
       { question: "Kan jeg si opp avtalen?", answer: "Ja, avtalen kan sies opp med én måneds varsel. Ingen bindingstid." },
     ],
     trustStats: [],
@@ -173,7 +173,7 @@ export const SERVICES: Service[] = [
     ],
     faq: [
       { question: "Hvordan foregår samarbeidet?", answer: "Heldigitalt. Oppstart, presentasjon og oppfølging skjer på video, e-post og telefon — effektivt og uten reisetid. Du snakker direkte med utvikleren hele veien." },
-      { question: "Hva koster det å lage en nettside i Oslo?", answer: "Prisene starter fra kr 15 000 for en enkel bedriftsnettside. Større prosjekter med nettbutikk eller bookingfunksjoner ligger fra kr 35 000. Vi gir alltid fastpris — ingen overraskelser." },
+      { question: "Hva koster det å lage en nettside i Oslo?", answer: "Det kommer an på omfanget. En enkel bedriftsnettside ligger et helt annet sted enn et prosjekt med nettbutikk eller bookingfunksjoner. Du får alltid fastpris før vi starter — ingen overraskelser." },
       { question: "Hvorfor velge en lokal webutvikler fremfor et stort byrå?", answer: "Hos store byråer betaler du for en kjede av prosjektledere, designere og utviklere. Hos oss snakker du direkte med utvikleren som skriver koden. Det gir raskere prosess, lavere pris og bedre resultat." },
       { question: "Bygger dere i WordPress?", answer: "Nei — vi bygger med Next.js (samme teknologi som brukes av Spotify, Notion og TikTok). Det gir lynraske sider, bedre SEO og full kontroll. WordPress passer bedre for kunder som vil oppdatere alt selv via et tradisjonelt CMS." },
     ],
@@ -218,8 +218,8 @@ export const SERVICES: Service[] = [
       { step: 4, title: "Lansering", description: "Testbestillinger kjøres, så går butikken live." },
     ],
     faq: [
-      { question: "Hva koster en skreddersydd nettbutikk?", answer: "En nettbutikk fra IDweb starter på kr 35 000 for en enkel butikk med opptil 50 produkter. Større butikker med tilpasset funksjonalitet ligger fra kr 60 000. Vi gir alltid fastpris." },
-      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler kr 350–2 800 per måned + 1,75–2 % i transaksjonsgebyr — i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare hosting (~ kr 200/mnd). For butikker som passerer kr 500 000 i årlig omsetning lønner skreddersydd seg raskt." },
+      { question: "Hva koster en skreddersydd nettbutikk?", answer: "Det kommer an på hvor mange produkter du har og hva butikken skal kunne. En enkel butikk er raskt oppe, mens tilpasset funksjonalitet tar mer tid. Du får et uforpliktende tilbud med fastpris før vi starter." },
+      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler kr 350–2 800 per måned + 1,75–2 % i transaksjonsgebyr — i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare en liten månedlig hostingkostnad. For butikker som passerer kr 500 000 i årlig omsetning lønner skreddersydd seg raskt." },
       { question: "Støtter dere Vipps?", answer: "Ja. Vi integrerer Vipps Hurtigkasse + Vipps Faste Betalinger som standard. I tillegg har vi Stripe for kort, Apple Pay og Google Pay." },
       { question: "Hvordan oppdaterer jeg produkter etter lansering?", answer: "Du får et enkelt admin-panel der du kan legge til produkter, justere priser og se ordrer. For mer avanserte endringer i design eller funksjonalitet hjelper vi som del av driftsavtalen." },
     ],

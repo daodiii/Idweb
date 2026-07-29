@@ -52,7 +52,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Bærum?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Bærum-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Bærum»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Bærum-området." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [
@@ -98,7 +98,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Asker?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Asker-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Asker»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Asker-området." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [
@@ -144,7 +144,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Lillestrøm?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lillestrøm-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Lillestrøm»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps på Romerike." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [
@@ -190,7 +190,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Lørenskog?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lørenskog-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Lørenskog»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Lørenskog." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [
@@ -236,7 +236,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Drammen?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i hele Drammensregionen. Oppstart, oppfølging og levering skjer på video, e-post og telefon." },
       { question: "Kan dere få oss synlige på «[bransje] Drammen»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Drammen." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [
@@ -282,7 +282,7 @@ export const LOCATIONS: Service[] = [
     faq: [
       { question: "Jobber dere med bedrifter i Ski?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Ski og Nordre Follo. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
       { question: "Kan dere få oss synlige på «[bransje] Ski»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Nordre Follo." },
-      { question: "Hva koster en nettside?", answer: "En profesjonell bedriftsnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
     ],
     trustStats: [

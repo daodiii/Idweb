@@ -100,7 +100,7 @@ export const FAQ_TEASER_ITEMS = [
   {
     question: "Hva koster vedlikehold?",
     answer:
-      "Driftsavtaler starter fra 690 kr/mnd og dekker hosting, sikkerhetskopier, oppdateringer og support. Ingen bindingstid \u2014 du kan si opp n\u00e5r som helst.",
+      "Driftsavtaler dekker hosting, sikkerhetskopier, oppdateringer og support. Ingen bindingstid \u2014 du kan si opp n\u00e5r som helst. Ta kontakt for et uforpliktende tilbud.",
   },
   {
     question: "Trenger jeg virkelig en skreddersydd nettside?",

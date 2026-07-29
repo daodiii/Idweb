@@ -17,7 +17,7 @@ export type PreviewSlot =
   | "snippet-url"
   | "snippet-desc"
   | "plan-name"
-  | "plan-price"
+  | "plan-scope"
   | "plan-delivery"
   | "plan-feature-1"
   | "plan-feature-2"
@@ -49,7 +49,7 @@ export type Scene = {
       snippetUrl?: string;
       snippetDesc?: string;
       planName?: string;
-      planPrice?: string;
+      planScope?: string;
       planDelivery?: string;
       planFeatures?: [string, string, string];
     };
@@ -140,7 +140,7 @@ export const HERO_BUILD_SCENES: Scene[] = [
     lines: [
       { text: `export const starterPlan = {` },
       { text: `  name: "Starter",`, revealsPreview: "plan-name" },
-      { text: `  price: 9990,`, revealsPreview: "plan-price" },
+      { text: `  scope: "Inntil 3 sider",`, revealsPreview: "plan-scope" },
       { text: `  delivery: "2 uker",`, revealsPreview: "plan-delivery" },
       { text: `  features: [` },
       { text: `    "Skreddersydd design",`, revealsPreview: "plan-feature-1" },
@@ -154,7 +154,7 @@ export const HERO_BUILD_SCENES: Scene[] = [
       layout: "pricing-card",
       content: {
         planName: "Starter",
-        planPrice: "9 990 kr",
+        planScope: "Inntil 3 sider",
         planDelivery: "Leveres på 2 uker",
         planFeatures: [
           "Skreddersydd design",

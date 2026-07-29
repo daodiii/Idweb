@@ -6,6 +6,7 @@ import {
   MAINTENANCE_PACKAGES,
   ADDON_SERVICES,
   NETTSIDE_DRIFT,
+  PRICING_STEPS,
   PRICING_FAQ,
   PRICING_CTA,
 } from "@/lib/content/pricing";
@@ -16,9 +17,9 @@ import { SeoPricingSection } from "@/components/sections/seo-pricing-section";
 const EASE_STR = "cubic-bezier(0.23,1,0.32,1)";
 
 export const metadata: Metadata = {
-  title: "Priser — Nettsider, vedlikehold og SEO",
+  title: "Priser — nettsider, vedlikehold og SEO",
   description:
-    "Se våre faste priser for nettsider, vedlikehold, SEO og tilleggstjenester. Ingen bindingstid, ingen skjulte kostnader. Fra kr 15 000. Få et skreddersydd tilbud.",
+    "Hva koster en nettside? Prisen avhenger av omfang, så du får et uforpliktende tilbud med fastpris før vi starter. Ingen bindingstid, ingen skjulte kostnader.",
   keywords: [
     "nettside pris",
     "hva koster nettside",
@@ -38,16 +39,16 @@ export const metadata: Metadata = {
 
 function PackageCard({
   name,
-  price,
-  monthly,
+  scope,
+  meta,
   description,
   features,
   highlight,
   cta,
 }: {
   name: string;
-  price: string;
-  monthly?: string;
+  scope: string;
+  meta: string;
   description: string;
   features: readonly string[];
   highlight: boolean;
@@ -76,17 +77,13 @@ function PackageCard({
         {name}
       </p>
 
-      <div className="mt-6 flex items-baseline gap-1.5">
-        <span className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none tracking-tight text-white tabular-nums">
-          {price}
-        </span>
-      </div>
+      <p className="mt-6 font-serif text-[clamp(1.75rem,3.2vw,2.25rem)] font-black leading-[1.1] tracking-tight text-white">
+        {scope}
+      </p>
 
-      {monthly ? (
-        <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-          + {monthly} vedlikehold
-        </p>
-      ) : null}
+      <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+        {meta}
+      </p>
 
       <p className="mt-5 text-sm leading-relaxed text-white/65">
         {description}
@@ -179,69 +176,83 @@ export default function PriserPage() {
 
             <h1 className="mt-7 font-serif text-white">
               <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
-                Faste priser,
+                Prisen settes
               </span>
               <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
+                etter{" "}
                 <span className="relative inline-block">
-                  ærlig
+                  omfang
                   <span
                     aria-hidden
                     className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#F4CE14]"
                   />
-                </span>{" "}
-                regning.
+                </span>
+                .
               </span>
               <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
-                Ingen overraskelser.
+                Ikke etter prisliste.
               </span>
             </h1>
 
             <p className="mt-9 max-w-[58ch] text-base leading-relaxed text-white/65 sm:text-lg">
-              Her er hva ting koster — nettside, vedlikehold, SEO og tillegg.
-              Alle priser er veiledende. Trenger du noe utenfor pakkene, lager
-              vi et tilbud som passer.
+              To nettsider koster sjelden det samme. Antall sider, funksjoner og
+              hvor mye innhold vi lager fra bunnen av gjør stor forskjell. Du får
+              et uforpliktende tilbud med fastpris før vi starter.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Link
+                href="/kontakt"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#F4CE14] px-7 py-4 text-sm font-bold text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] transition-[transform,background-color] duration-150 hover:bg-[#FFE15D] active:scale-[0.97]"
+                style={{ transitionTimingFunction: EASE_STR }}
+              >
+                Ta kontakt for et uforpliktende tilbud
+                <ArrowUpRight
+                  aria-hidden
+                  className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  style={{ transitionTimingFunction: EASE_STR }}
+                />
+              </Link>
               <Link
                 href="#pakker"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-7 py-4 text-sm font-medium text-white/85 transition-[border-color,background-color,color,transform] duration-150 hover:border-white/30 hover:bg-white/[0.04] hover:text-white active:scale-[0.97]"
                 style={{ transitionTimingFunction: EASE_STR }}
               >
-                Se pakkene
+                Se hva som inngår
                 <ArrowUpRight
                   aria-hidden
-                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   style={{ transitionTimingFunction: EASE_STR }}
                 />
               </Link>
             </div>
           </div>
 
-          {/* Decorative right column — meta info, hidden on mobile */}
-          <div className="relative col-span-1 hidden lg:col-span-4 lg:flex lg:flex-col lg:justify-center lg:gap-6">
-            <div className="rounded-2xl border border-white/[0.08] bg-[rgba(20,20,22,0.88)] px-6 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_20px_40px_-22px_rgba(0,0,0,0.7)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
-                Fra
-              </p>
-              <p className="mt-2 font-serif text-3xl font-black leading-none tracking-tight text-white">
-                15 000 <span className="text-[#F4CE14]">kr</span>
-              </p>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-                Ferdig nettside
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-[rgba(20,20,22,0.88)] px-6 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_20px_40px_-22px_rgba(0,0,0,0.7)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
-                Eller fra
-              </p>
-              <p className="mt-2 font-serif text-3xl font-black leading-none tracking-tight text-white">
-                890 <span className="text-[#F4CE14]">kr/mnd</span>
-              </p>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
-                Abonnement, alt inkludert
-              </p>
-            </div>
+          {/* Right column — how you get to a fixed price, hidden on mobile */}
+          <div className="relative col-span-1 hidden lg:col-span-4 lg:flex lg:flex-col lg:justify-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+              Slik får du pris
+            </p>
+            <ol className="mt-5">
+              {PRICING_STEPS.map((item) => (
+                <li
+                  key={item.step}
+                  className="grid grid-cols-[auto_1fr] gap-x-4 border-t border-white/[0.08] py-5"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#F4CE14] tabular-nums">
+                    {item.step}
+                  </span>
+                  <div>
+                    <p className="font-serif text-base font-bold tracking-[-0.005em] text-white">
+                      {item.title}
+                    </p>
+                    <p className="mt-1.5 text-pretty text-sm leading-relaxed text-white/60">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
@@ -306,12 +317,12 @@ export default function PriserPage() {
               <PackageCard
                 key={pkg.id}
                 name={pkg.name}
-                price={pkg.price}
-                monthly={pkg.monthly}
+                scope={pkg.scope}
+                meta={pkg.meta}
                 description={pkg.description}
                 features={pkg.features}
                 highlight={pkg.highlight}
-                cta="Få tilbud"
+                cta="Få et uforpliktende tilbud"
               />
             ))}
           </div>
@@ -368,13 +379,11 @@ export default function PriserPage() {
                 {NETTSIDE_DRIFT.description}
               </p>
 
-              <div className="mt-10 flex items-baseline gap-3">
-                <span className="font-serif text-[clamp(3rem,7vw,5rem)] font-black leading-none tracking-tight text-white tabular-nums">
-                  {NETTSIDE_DRIFT.price}
-                </span>
-              </div>
+              <p className="mt-10 font-serif text-[clamp(1.75rem,4vw,2.75rem)] font-black leading-[1.1] tracking-tight text-white">
+                {NETTSIDE_DRIFT.tagline}
+              </p>
               <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
-                Bindingstid {NETTSIDE_DRIFT.minMonths} måneder
+                Fast månedspris · bindingstid {NETTSIDE_DRIFT.minMonths} måneder
               </p>
 
               <div className="mt-10">
@@ -383,10 +392,10 @@ export default function PriserPage() {
                   className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#F4CE14] px-7 py-4 text-sm font-bold text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] transition-[transform,background-color] duration-150 hover:bg-[#FFE15D] active:scale-[0.97]"
                   style={{ transitionTimingFunction: EASE_STR }}
                 >
-                  Start i dag
+                  Ta kontakt for et uforpliktende tilbud
                   <ArrowUpRight
                     aria-hidden
-                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     style={{ transitionTimingFunction: EASE_STR }}
                   />
                 </Link>
@@ -484,11 +493,12 @@ export default function PriserPage() {
               <PackageCard
                 key={pkg.id}
                 name={pkg.name}
-                price={pkg.price}
+                scope={pkg.scope}
+                meta={pkg.meta}
                 description={pkg.description}
                 features={pkg.features}
                 highlight={pkg.highlight}
-                cta="Kom i gang"
+                cta="Få et uforpliktende tilbud"
               />
             ))}
           </div>
@@ -546,36 +556,29 @@ export default function PriserPage() {
           </div>
 
           <div className="mt-14 lg:mt-20">
-            <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/[0.08] pb-4">
               <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/45">
                 Tjeneste
               </p>
               <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/45">
-                Pris
+                Prises etter omfang
               </p>
             </div>
             {ADDON_SERVICES.map((service, i) => (
               <div
                 key={service.name}
-                className="grid grid-cols-1 gap-3 border-t border-white/[0.06] py-6 lg:grid-cols-12 lg:gap-8 lg:py-8"
+                className="grid grid-cols-[auto_1fr] gap-x-4 border-t border-white/[0.06] py-6 lg:gap-x-8 lg:py-8"
               >
-                <div className="flex items-baseline gap-4 lg:col-span-1">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className="lg:col-span-7">
+                <span className="font-mono text-[10px] uppercase leading-7 tracking-[0.2em] text-white/35 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
                   <h3 className="font-serif text-lg font-bold tracking-[-0.005em] text-white sm:text-xl">
                     {service.name}
                   </h3>
                   <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-white/65">
                     {service.description}
                   </p>
-                </div>
-                <div className="lg:col-span-4 lg:text-right">
-                  <span className="font-serif text-2xl font-black leading-none tracking-tight text-[#F4CE14] tabular-nums sm:text-3xl">
-                    {service.price}
-                  </span>
                 </div>
               </div>
             ))}

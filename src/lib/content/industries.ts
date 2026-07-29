@@ -52,7 +52,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vi allerede bruker?", answer: "Ja. Vi integrerer de fleste norske bookingsystemene, eller lenker pasienten rett inn i løsningen dere har i dag — sømløst fra nettsiden." },
       { question: "Hjelper en ny nettside oss å bli funnet på Google?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på søk som «tannlege [bydel]» og i Google Maps." },
-      { question: "Hva koster en nettside for en tannlegeklinikk?", answer: "En profesjonell klinikknettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, basert på omfang og funksjoner." },
+      { question: "Hva koster en nettside for en tannlegeklinikk?", answer: "En profesjonell klinikknettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Er pasienthenvendelser håndtert i tråd med GDPR?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning." },
     ],
     trustStats: [
@@ -98,7 +98,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Jeg har bare en Facebook-side i dag — er det nok?", answer: "Facebook er fint som tillegg, men en egen nettside rangerer i Google, virker mer seriøs og lar deg styre hvordan kundene finner og kontakter deg. De fleste velger bedrifter med egen nettside." },
       { question: "Kan dere få meg synlig på «elektriker [sted]»?", answer: "Ja. Vi bygger inn lokal SEO, strukturerte data og kobler nettsiden mot Google Bedriftsprofil slik at du blir synlig i lokalsøk og Maps." },
-      { question: "Hva koster en nettside for et elektrikerfirma?", answer: "En profesjonell håndverkernettside starter fra kr 15 000. Du får et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside for et elektrikerfirma?", answer: "En profesjonell håndverkernettside prises etter omfang og funksjoner. Du får et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Kan kundene be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver jobben og kan laste opp bilde, så henvendelsen havner rett i innboksen din." },
     ],
     trustStats: [
@@ -144,7 +144,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan nettsiden fremheve at vi har døgnvakt?", answer: "Ja. Vi legger akutt- og døgnvaktinfo godt synlig øverst med en ring-knapp, slik at kunder som trenger hjelp raskt finner og kontakter dere umiddelbart." },
       { question: "Blir vi synlige på «rørlegger [sted]»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler siden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og dukker opp i Maps." },
-      { question: "Hva koster en nettside for et rørleggerfirma?", answer: "En profesjonell håndverkernettside starter fra kr 15 000. Du får et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside for et rørleggerfirma?", answer: "En profesjonell håndverkernettside prises etter omfang og funksjoner. Du får et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Kan kundene be om tilbud på større jobber via siden?", answer: "Ja. Vi setter opp et tilbudsskjema med bildeopplasting, perfekt for baderomsrenoveringer og andre store prosjekter." },
     ],
     trustStats: [
@@ -190,7 +190,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hvert fagområde?", answer: "Ja, og det anbefales. Egne sider for arverett, familierett, eiendom osv. gjør at dere rangerer på relevante søk og fremstår som spesialister på hvert felt." },
       { question: "Hvordan håndteres henvendelser i sensitive saker?", answer: "Vi setter opp en diskret, GDPR-trygg kontaktløsning, og kan tilpasse skjemaer slik at klienter trygt kan beskrive saken sin." },
-      { question: "Hva koster en nettside for et advokatfirma?", answer: "En profesjonell advokatnettside starter fra kr 15 000 og øker med antall fagområde-sider og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et advokatfirma?", answer: "En profesjonell advokatnettside prises etter antall fagområde-sider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Kan dere hjelpe med fagartikler som rangerer i Google?", answer: "Ja. Vi planlegger og kan produsere faginnhold som svarer på det klientene søker etter, noe som både bygger autoritet og gir organisk trafikk over tid." },
     ],
     trustStats: [
@@ -236,7 +236,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på bookingsystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker kunden rett inn i systemet dere bruker — sømløst fra nettsiden." },
       { question: "Kan galleriet hente bilder fra Instagram?", answer: "Ja. Vi kan koble inn Instagram-feeden så nettsiden alltid viser fersk inspirasjon uten ekstra arbeid for dere." },
-      { question: "Hva koster en nettside for en frisørsalong?", answer: "En profesjonell salongnettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, tilpasset omfang og funksjoner." },
+      { question: "Hva koster en nettside for en frisørsalong?", answer: "En profesjonell salongnettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige på «frisør [sted]»?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at salongen dukker opp i lokalsøk og Maps." },
     ],
     trustStats: [
@@ -282,7 +282,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hver tjeneste?", answer: "Ja. Egne sider for f.eks. årsregnskap, lønn og rådgivning gjør at dere rangerer på flere søk og fremstår tydeligere for kunden." },
       { question: "Hjelper dere med faginnhold?", answer: "Ja. Vi kan planlegge og produsere artikler som svarer på det kundene faktisk googler, noe som bygger autoritet og gir trafikk over tid." },
-      { question: "Hva koster en nettside for et regnskapsbyrå?", answer: "En profesjonell byrånettside starter fra kr 15 000 og avhenger av antall sider og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et regnskapsbyrå?", answer: "En profesjonell byrånettside prises etter antall sider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at dere blir synlige på «regnskapsfører [sted]» og i Google Maps." },
     ],
     trustStats: [
@@ -328,7 +328,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hvert område jeg dekker?", answer: "Ja, og det anbefales. Egne områdesider gjør at du rangerer på lokale søk som «eiendomsmegler [område]» og fremstår som spesialist der." },
       { question: "Kan selgere be om verdivurdering fra siden?", answer: "Ja. Vi setter opp et tydelig verdivurderingsskjema som fanger selgere tidlig og sender henvendelsen rett til deg." },
-      { question: "Hva koster en nettside for en eiendomsmegler?", answer: "En profesjonell meglernettside starter fra kr 15 000 og avhenger av antall områdesider og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for en eiendomsmegler?", answer: "En profesjonell meglernettside prises etter antall områdesider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Fungerer siden godt på mobil?", answer: "Ja. Siden bygges mobil-først og lynrask, slik at boliger og skjema ser upåklagelige ut på alle skjermer." },
     ],
     trustStats: [
@@ -374,7 +374,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan vi oppdatere menyen selv?", answer: "Vi setter opp menyen slik at den er enkel å endre. Mindre oppdateringer kan også inngå i en vedlikeholdsavtale om dere ønsker at vi tar det." },
       { question: "Kan gjester bestille bord fra siden?", answer: "Ja. Vi kan integrere bordbestilling eller koble inn reservasjonssystemet dere allerede bruker, sømløst fra nettsiden." },
-      { question: "Hva koster en nettside for en restaurant?", answer: "En profesjonell restaurantnettside starter fra kr 15 000 og avhenger av funksjoner som bestilling og galleri. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for en restaurant?", answer: "En profesjonell restaurantnettside prises etter funksjoner som bestilling og galleri. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige på Google Maps?", answer: "Ja. Vi kobler siden mot Google Bedriftsprofil og bygger inn lokal SEO, slik at dere dukker opp når folk søker etter mat i nærheten." },
     ],
     trustStats: [
@@ -420,7 +420,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker pasienten rett inn i systemet dere bruker — sømløst fra nettsiden." },
       { question: "Blir vi synlige på Google?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «fysioterapeut [sted]» og i Google Maps." },
-      { question: "Hva koster en nettside for en fysioterapiklinikk?", answer: "En profesjonell klinikknettside starter fra kr 15 000. Du får alltid et uforpliktende tilbud først, basert på omfang og funksjoner." },
+      { question: "Hva koster en nettside for en fysioterapiklinikk?", answer: "En profesjonell klinikknettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Er pasienthenvendelser GDPR-trygge?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning." },
     ],
     trustStats: [
@@ -466,7 +466,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere vise fram prosjektene våre?", answer: "Ja. Vi bygger et prosjektgalleri med før/etter-bilder som dokumenterer kvaliteten og hjelper dere å lande større oppdrag." },
       { question: "Kan kunder be om befaring fra siden?", answer: "Ja. Vi setter opp et tilbudsskjema med bildeopplasting, perfekt for å motta forespørsler om større byggeprosjekter." },
-      { question: "Hva koster en nettside for et byggefirma?", answer: "En profesjonell nettside for bygg og entreprenør starter fra kr 15 000 og avhenger av omfang og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et byggefirma?", answer: "En profesjonell nettside for bygg og entreprenør prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «byggefirma [sted]» og i Maps." },
     ],
     trustStats: [
@@ -512,7 +512,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan medlemmer melde seg inn rett fra siden?", answer: "Ja. Vi setter opp medlemsregistrering, eller kobler nettsiden mot medlemssystemet dere bruker, så innmelding skjer sømløst." },
       { question: "Kan vi vise en oppdatert gruppetimeplan?", answer: "Ja. Vi kan integrere timeplanen eller koble inn bookingsystemet dere bruker, så den alltid er oppdatert uten ekstra arbeid." },
-      { question: "Hva koster en nettside for et treningssenter?", answer: "En profesjonell nettside for treningssenter starter fra kr 15 000 og avhenger av funksjoner som innmelding og timeplan. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et treningssenter?", answer: "En profesjonell nettside for treningssenter prises etter funksjoner som innmelding og timeplan. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «treningssenter [sted]» og i Maps." },
     ],
     trustStats: [
@@ -558,7 +558,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder bestille synsundersøkelse på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
       { question: "Kan vi vise fram brillemerkene våre?", answer: "Ja. Vi bygger en oversikt over merker og kolleksjon som er enkel å oppdatere når utvalget endrer seg." },
-      { question: "Hva koster en nettside for en optiker?", answer: "En profesjonell optikernettside starter fra kr 15 000 og avhenger av funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for en optiker?", answer: "En profesjonell optikernettside prises etter funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «optiker [sted]» og i Maps." },
     ],
     trustStats: [
@@ -604,7 +604,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder bestille service og EU-kontroll på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
       { question: "Kan vi vise hvilke bilmerker vi jobber med?", answer: "Ja. Vi bygger en tydelig oversikt over tjenester og merker, så kunden raskt ser at dere kan hjelpe med nettopp deres bil." },
-      { question: "Hva koster en nettside for et bilverksted?", answer: "En profesjonell verkstednettside starter fra kr 15 000 og avhenger av funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et bilverksted?", answer: "En profesjonell verkstednettside prises etter funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «bilverksted [sted]» og i Maps." },
     ],
     trustStats: [
@@ -650,7 +650,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på pasientsky / timebestillingssystemet vårt?", answer: "Ja. Vi lenker pasienten rett inn i løsningen dere bruker, eller setter opp en enkel timebestilling — sømløst fra nettsiden." },
       { question: "Er pasienthenvendelser GDPR-trygge?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning, og vi unngår å samle sensitive opplysninger unødvendig." },
-      { question: "Hva koster en nettside for et legekontor?", answer: "En profesjonell nettside for legekontor starter fra kr 15 000 og avhenger av omfang og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for et legekontor?", answer: "En profesjonell nettside for legekontor prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «legekontor [sted]» og i Google Maps." },
     ],
     trustStats: [
@@ -696,7 +696,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver behovet, så forespørselen havner rett i innboksen din." },
       { question: "Kan vi skille mellom privat- og bedriftskunder?", answer: "Ja. Vi kan strukturere siden med egne seksjoner eller sider for privat og bedrift, så hver målgruppe finner det som er relevant." },
-      { question: "Hva koster en nettside for en renholdsbedrift?", answer: "En profesjonell renholdsnettside starter fra kr 15 000 og avhenger av omfang og funksjoner. Du får alltid et uforpliktende tilbud først." },
+      { question: "Hva koster en nettside for en renholdsbedrift?", answer: "En profesjonell renholdsnettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «renhold [sted]» og i Maps." },
     ],
     trustStats: [
