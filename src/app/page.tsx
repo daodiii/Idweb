@@ -27,10 +27,6 @@ const ProcessPath = dynamic(
   () => import("@/components/sections/process-path").then((m) => m.ProcessPath),
   { ssr: true },
 );
-const PricingDrag = dynamic(
-  () => import("@/components/sections/pricing-drag").then((m) => m.PricingDrag),
-  { ssr: true },
-);
 const FaqXl = dynamic(
   () => import("@/components/sections/faq-xl").then((m) => m.FaqXl),
   { ssr: true },
@@ -56,7 +52,7 @@ export const metadata: Metadata = {
  * Landing page — "Monumentet". A typographic monument in three worlds
  * (paper, void, yellow): preloader curtain → poster hero → scroll-fill
  * manifesto → full-screen project takeovers → spec ledger → service
- * index → drawn process → receipt pricing → XL FAQ → black finale.
+ * index → drawn process → XL FAQ → black finale.
  */
 export default function Home() {
   return (
@@ -83,16 +79,13 @@ export default function Home() {
       {/* 6. Process — self-drawing timeline */}
       <ProcessPath />
 
-      {/* 7. Pricing — draggable receipts on the void */}
-      <PricingDrag />
-
-      {/* 8. FAQ — oversized questions */}
+      {/* 7. FAQ — oversized questions */}
       <FaqXl />
 
-      {/* 9. Articles — editorial strip */}
+      {/* 8. Articles — editorial strip */}
       <ArticlesStrip />
 
-      {/* 10. Contact — black takeover finale */}
+      {/* 9. Contact — black takeover finale */}
       <ContactTakeover />
     </div>
   );

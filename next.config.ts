@@ -55,6 +55,17 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "motion", "@hugeicons/core-free-icons", "@hugeicons/react"],
   },
+  async redirects() {
+    return [
+      // /priser was indexed and linked externally; the page is gone, so send
+      // that traffic to the contact form rather than 404.
+      {
+        source: "/priser",
+        destination: "/kontakt",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

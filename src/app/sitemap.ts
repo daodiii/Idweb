@@ -21,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tjenester/vedlikehold`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/webutvikler-oslo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE_URL}/tjenester/nettbutikk`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${BASE_URL}/priser`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/referanser`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/om-oss`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/kontakt`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },

@@ -134,13 +134,6 @@ export default function TjenesterPage() {
                   style={{ transitionTimingFunction: ENTRY_EASE }}
                 />
               </Link>
-              <Link
-                href="/priser"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-7 py-4 text-sm font-medium text-white/85 transition-[border-color,background-color,color,transform] duration-150 hover:border-white/30 hover:bg-white/[0.04] hover:text-white active:scale-[0.97]"
-                style={{ transitionTimingFunction: ENTRY_EASE }}
-              >
-                Se hva som inngår
-              </Link>
             </div>
           </div>
 

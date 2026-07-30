@@ -32,7 +32,7 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
     { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   ],
   Priser: [
-    { href: "/priser", label: "Se hva som inngår" },
+    { href: "/tjenester", label: "Se tjenestene" },
     { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   ],
   Tips: [

@@ -150,7 +150,7 @@ export const HERO_BUILD_SCENES: Scene[] = [
       { text: `};` },
     ],
     preview: {
-      chrome: { url: "idweb.no/priser" },
+      chrome: { url: "idweb.no/tjenester" },
       layout: "pricing-card",
       content: {
         planName: "Starter",
