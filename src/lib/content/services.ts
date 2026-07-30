@@ -219,13 +219,13 @@ export const SERVICES: Service[] = [
     ],
     faq: [
       { question: "Hva koster en skreddersydd nettbutikk?", answer: "Det kommer an på hvor mange produkter du har og hva butikken skal kunne. En enkel butikk er raskt oppe, mens tilpasset funksjonalitet tar mer tid. Du får et uforpliktende tilbud med fastpris før vi starter." },
-      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler kr 350–2 800 per måned + 1,75–2 % i transaksjonsgebyr — i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare en liten månedlig hostingkostnad. For butikker som passerer kr 500 000 i årlig omsetning lønner skreddersydd seg raskt." },
+      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler en månedlig plattformavgift og et transaksjonsgebyr på hvert salg, i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare hosting. Jo mer du selger, jo raskere lønner det seg: gebyrene vokser med omsetningen, hostingen gjør ikke det." },
       { question: "Støtter dere Vipps?", answer: "Ja. Vi integrerer Vipps Hurtigkasse + Vipps Faste Betalinger som standard. I tillegg har vi Stripe for kort, Apple Pay og Google Pay." },
       { question: "Hvordan oppdaterer jeg produkter etter lansering?", answer: "Du får et enkelt admin-panel der du kan legge til produkter, justere priser og se ordrer. For mer avanserte endringer i design eller funksjonalitet hjelper vi som del av driftsavtalen." },
     ],
     trustStats: [
       { value: 2, suffix: "s", label: "lastetid i kassen" },
-      { value: 0, suffix: " kr", label: "i Shopify-avgifter" },
+      { value: 100, suffix: " %", label: "eierskap til butikken" },
       { value: 24, suffix: "t", label: "responstid på e-post" },
     ],
   },
