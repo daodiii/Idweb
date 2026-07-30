@@ -52,7 +52,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vi allerede bruker?", answer: "Ja. Vi integrerer de fleste norske bookingsystemene, eller lenker pasienten rett inn i løsningen dere har i dag — sømløst fra nettsiden." },
       { question: "Hjelper en ny nettside oss å bli funnet på Google?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på søk som «tannlege [bydel]» og i Google Maps." },
-      { question: "Hva koster en nettside for en tannlegeklinikk?", answer: "En profesjonell klinikknettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Hva koster en nettside for en tannlegeklinikk?", answer: "Det som driver prisen er antall behandlingssider og om dere vil ha timebestilling på nett. En klinikk med fem behandlinger og et enkelt kontaktskjema ligger et helt annet sted enn en med tjue sider og booking. Ta kontakt, så får dere et tall for akkurat deres oppsett." },
       { question: "Er pasienthenvendelser håndtert i tråd med GDPR?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning." },
     ],
     trustStats: [
@@ -74,13 +74,13 @@ export const INDUSTRIES: Service[] = [
       "Enkelt tilbudsskjema med bildeopplasting",
       "Tydelig oversikt over tjenester og områder du dekker",
       "Sertifiseringer og forsikring som bygger tillit",
-      "Lokal SEO for «elektriker [sted]»",
+      "Lokal SEO for «elektriker + stedsnavn»",
       "Lynrask lasting på mobil ute på jobb",
     ],
     detailedFeatures: [
       { iconName: "smartphone", title: "Ring med ett trykk", description: "Kunden når deg uten å lete etter nummeret" },
       { iconName: "mail", title: "Tilbudsskjema", description: "Kunden beskriver jobben og laster opp bilde" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «elektriker [sted]» og i Google Maps" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «elektriker + stedsnavn» og i Google Maps" },
       { iconName: "shield", title: "Tillit", description: "Sertifiseringer, forsikring og kundeomtaler" },
       { iconName: "zap", title: "Lynrask", description: "Laster på sekunder — også på mobildata" },
     ],
@@ -97,8 +97,8 @@ export const INDUSTRIES: Service[] = [
     ],
     faq: [
       { question: "Jeg har bare en Facebook-side i dag — er det nok?", answer: "Facebook er fint som tillegg, men en egen nettside rangerer i Google, virker mer seriøs og lar deg styre hvordan kundene finner og kontakter deg. De fleste velger bedrifter med egen nettside." },
-      { question: "Kan dere få meg synlig på «elektriker [sted]»?", answer: "Ja. Vi bygger inn lokal SEO, strukturerte data og kobler nettsiden mot Google Bedriftsprofil slik at du blir synlig i lokalsøk og Maps." },
-      { question: "Hva koster en nettside for et elektrikerfirma?", answer: "En profesjonell håndverkernettside prises etter omfang og funksjoner. Du får et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Kan dere få meg synlig på «elektriker + stedsnavn»?", answer: "Ja. Vi bygger inn lokal SEO, strukturerte data og kobler nettsiden mot Google Bedriftsprofil slik at du blir synlig i lokalsøk og Maps." },
+      { question: "Hva koster en nettside for et elektrikerfirma?", answer: "Det kommer an på hvor mange tjenester dere vil ha egne sider for, og om dere trenger tilbudsskjema med bildeopplasting. De fleste elektrikerbedrifter klarer seg med en kompakt side der telefonnummeret er lett å treffe på mobil. Send oss en melding, så regner vi på det." },
       { question: "Kan kundene be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver jobben og kan laste opp bilde, så henvendelsen havner rett i innboksen din." },
     ],
     trustStats: [
@@ -120,13 +120,13 @@ export const INDUSTRIES: Service[] = [
       "Trykk-for-å-ringe synlig på mobil hele tiden",
       "Tilbudsskjema med bildeopplasting for større jobber",
       "Tjenesteoversikt: bad, lekkasje, varmtvann, service",
-      "Lokal SEO for «rørlegger [sted]»",
+      "Lokal SEO for «rørlegger + stedsnavn»",
       "Sertifiseringer og våtromsgodkjenning som bygger tillit",
     ],
     detailedFeatures: [
       { iconName: "smartphone", title: "Ring med ett trykk", description: "Akuttkunden når deg umiddelbart" },
       { iconName: "circle-check", title: "Døgnvakt-info", description: "Tydelig om du tar hastejobber utenom arbeidstid" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «rørlegger [sted]» og i Google Maps" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «rørlegger + stedsnavn» og i Google Maps" },
       { iconName: "mail", title: "Tilbudsskjema", description: "Kunden beskriver jobben og laster opp bilde" },
       { iconName: "shield", title: "Tillit", description: "Våtromsgodkjenning, sertifiseringer og omtaler" },
     ],
@@ -143,8 +143,8 @@ export const INDUSTRIES: Service[] = [
     ],
     faq: [
       { question: "Kan nettsiden fremheve at vi har døgnvakt?", answer: "Ja. Vi legger akutt- og døgnvaktinfo godt synlig øverst med en ring-knapp, slik at kunder som trenger hjelp raskt finner og kontakter dere umiddelbart." },
-      { question: "Blir vi synlige på «rørlegger [sted]»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler siden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og dukker opp i Maps." },
-      { question: "Hva koster en nettside for et rørleggerfirma?", answer: "En profesjonell håndverkernettside prises etter omfang og funksjoner. Du får et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Blir vi synlige på «rørlegger + stedsnavn»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler siden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og dukker opp i Maps." },
+      { question: "Hva koster en nettside for et rørleggerfirma?", answer: "Prisen styres mest av om døgnvakten skal fram tydelig, hvor mange tjenesteområder dere dekker, og om dere vil ha tilbudsskjema. Vi setter opp et forslag med fastpris før vi begynner." },
       { question: "Kan kundene be om tilbud på større jobber via siden?", answer: "Ja. Vi setter opp et tilbudsskjema med bildeopplasting, perfekt for baderomsrenoveringer og andre store prosjekter." },
     ],
     trustStats: [
@@ -190,7 +190,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hvert fagområde?", answer: "Ja, og det anbefales. Egne sider for arverett, familierett, eiendom osv. gjør at dere rangerer på relevante søk og fremstår som spesialister på hvert felt." },
       { question: "Hvordan håndteres henvendelser i sensitive saker?", answer: "Vi setter opp en diskret, GDPR-trygg kontaktløsning, og kan tilpasse skjemaer slik at klienter trygt kan beskrive saken sin." },
-      { question: "Hva koster en nettside for et advokatfirma?", answer: "En profesjonell advokatnettside prises etter antall fagområde-sider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Hva koster en nettside for et advokatfirma?", answer: "Hovedfaktoren er hvor mange fagområder som skal ha egen side. Et kontor med tre fagfelt er raskt oppe, mens et fullservicekontor med tolv områder tar lengre tid. Vi gir fastpris så snart omfanget er avklart." },
       { question: "Kan dere hjelpe med fagartikler som rangerer i Google?", answer: "Ja. Vi planlegger og kan produsere faginnhold som svarer på det klientene søker etter, noe som både bygger autoritet og gir organisk trafikk over tid." },
     ],
     trustStats: [
@@ -212,7 +212,7 @@ export const INDUSTRIES: Service[] = [
       "Galleri som viser fram klipp, farge og stil",
       "Tydelig prisliste per behandling",
       "Kobling mot Instagram for ferskt innhold",
-      "Lokal SEO for «frisør [sted]»",
+      "Lokal SEO for «frisør + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
@@ -220,7 +220,7 @@ export const INDUSTRIES: Service[] = [
       { iconName: "star", title: "Galleri", description: "Vis fram arbeidet som selger timene" },
       { iconName: "file-text", title: "Prisliste", description: "Tydelige priser per behandling" },
       { iconName: "smartphone", title: "Mobil først", description: "De fleste bestiller time på mobilen" },
-      { iconName: "search", title: "Lokal SEO", description: "Synlig på «frisør [sted]» i Google og Maps" },
+      { iconName: "search", title: "Lokal SEO", description: "Synlig på «frisør + stedsnavn» i Google og Maps" },
     ],
     painPoints: [
       { title: "Telefonen ringer i utide", description: "Uten online booking går tiden med til å ta imot bestillinger midt i et klipp" },
@@ -236,8 +236,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på bookingsystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker kunden rett inn i systemet dere bruker — sømløst fra nettsiden." },
       { question: "Kan galleriet hente bilder fra Instagram?", answer: "Ja. Vi kan koble inn Instagram-feeden så nettsiden alltid viser fersk inspirasjon uten ekstra arbeid for dere." },
-      { question: "Hva koster en nettside for en frisørsalong?", answer: "En profesjonell salongnettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige på «frisør [sted]»?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at salongen dukker opp i lokalsøk og Maps." },
+      { question: "Hva koster en nettside for en frisørsalong?", answer: "Det avhenger mest av om dere vil ha timebestilling på nett og hvor stort galleriet skal være. En lenke til bookingsystemet dere allerede bruker er rimeligere enn full integrasjon. Ta kontakt for et uforpliktende tilbud." },
+      { question: "Blir vi synlige på «frisør + stedsnavn»?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at salongen dukker opp i lokalsøk og Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -258,7 +258,7 @@ export const INDUSTRIES: Service[] = [
       "Autorisasjon og medlemskap som bygger tillit",
       "Enkelt kontakt- og tilbudsskjema",
       "Fagartikler som svarer på det kundene googler",
-      "Lokal SEO for «regnskapsfører [sted]»",
+      "Lokal SEO for «regnskapsfører + stedsnavn»",
       "Lynrask og profesjonell på alle skjermer",
     ],
     detailedFeatures: [
@@ -282,8 +282,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hver tjeneste?", answer: "Ja. Egne sider for f.eks. årsregnskap, lønn og rådgivning gjør at dere rangerer på flere søk og fremstår tydeligere for kunden." },
       { question: "Hjelper dere med faginnhold?", answer: "Ja. Vi kan planlegge og produsere artikler som svarer på det kundene faktisk googler, noe som bygger autoritet og gir trafikk over tid." },
-      { question: "Hva koster en nettside for et regnskapsbyrå?", answer: "En profesjonell byrånettside prises etter antall sider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at dere blir synlige på «regnskapsfører [sted]» og i Google Maps." },
+      { question: "Hva koster en nettside for et regnskapsbyrå?", answer: "Antall tjenestesider og om dere vil publisere fagartikler jevnlig betyr mest for prisen. Vi lager et forslag med fastpris før oppstart." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at dere blir synlige på «regnskapsfører + stedsnavn» og i Google Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -304,7 +304,7 @@ export const INDUSTRIES: Service[] = [
       "Verdivurderingsskjema som fanger selgere",
       "Profil som bygger tillit og personlig merkevare",
       "Områdesider for lokal synlighet",
-      "Lokal SEO for «eiendomsmegler [sted]»",
+      "Lokal SEO for «eiendomsmegler + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
@@ -328,7 +328,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere lage egne sider for hvert område jeg dekker?", answer: "Ja, og det anbefales. Egne områdesider gjør at du rangerer på lokale søk som «eiendomsmegler [område]» og fremstår som spesialist der." },
       { question: "Kan selgere be om verdivurdering fra siden?", answer: "Ja. Vi setter opp et tydelig verdivurderingsskjema som fanger selgere tidlig og sender henvendelsen rett til deg." },
-      { question: "Hva koster en nettside for en eiendomsmegler?", answer: "En profesjonell meglernettside prises etter antall områdesider og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Hva koster en nettside for en eiendomsmegler?", answer: "Prisen henger mest på hvor mange områdesider dere vil ha, og om verdivurderingsskjemaet skal kobles mot systemene deres. Vi regner på det og gir fastpris før vi starter." },
       { question: "Fungerer siden godt på mobil?", answer: "Ja. Siden bygges mobil-først og lynrask, slik at boliger og skjema ser upåklagelige ut på alle skjermer." },
     ],
     trustStats: [
@@ -374,7 +374,7 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan vi oppdatere menyen selv?", answer: "Vi setter opp menyen slik at den er enkel å endre. Mindre oppdateringer kan også inngå i en vedlikeholdsavtale om dere ønsker at vi tar det." },
       { question: "Kan gjester bestille bord fra siden?", answer: "Ja. Vi kan integrere bordbestilling eller koble inn reservasjonssystemet dere allerede bruker, sømløst fra nettsiden." },
-      { question: "Hva koster en nettside for en restaurant?", answer: "En profesjonell restaurantnettside prises etter funksjoner som bestilling og galleri. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Hva koster en nettside for en restaurant?", answer: "Det som koster er funksjonene rundt menyen: skal den kunne oppdateres av dere selv, skal det være bordbestilling, skal dere ta imot catering-forespørsler. En enkel side med meny og kart er raskt oppe. Ta kontakt, så finner vi riktig nivå." },
       { question: "Blir vi synlige på Google Maps?", answer: "Ja. Vi kobler siden mot Google Bedriftsprofil og bygger inn lokal SEO, slik at dere dukker opp når folk søker etter mat i nærheten." },
     ],
     trustStats: [
@@ -396,13 +396,13 @@ export const INDUSTRIES: Service[] = [
       "Tydelig oversikt over behandlinger og priser",
       "Presentasjon av behandlere og klinikk",
       "GDPR-trygg håndtering av henvendelser",
-      "Lokal SEO for «fysioterapeut [sted]»",
+      "Lokal SEO for «fysioterapeut + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "calendar", title: "Online booking", description: "Pasienter bestiller time selv, døgnet rundt" },
       { iconName: "file-text", title: "Behandlinger", description: "Tydelig hva dere tilbyr og til hvem" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «fysioterapeut [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «fysioterapeut + stedsnavn»" },
       { iconName: "lock", title: "GDPR-trygg", description: "Sikker håndtering av pasienthenvendelser" },
       { iconName: "smartphone", title: "Mobil først", description: "De fleste finner klinikken på mobilen" },
     ],
@@ -419,8 +419,8 @@ export const INDUSTRIES: Service[] = [
     ],
     faq: [
       { question: "Kan dere koble på timebestillingssystemet vårt?", answer: "Ja. Vi integrerer de vanligste norske bookingløsningene, eller lenker pasienten rett inn i systemet dere bruker — sømløst fra nettsiden." },
-      { question: "Blir vi synlige på Google?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «fysioterapeut [sted]» og i Google Maps." },
-      { question: "Hva koster en nettside for en fysioterapiklinikk?", answer: "En profesjonell klinikknettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
+      { question: "Blir vi synlige på Google?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «fysioterapeut + stedsnavn» og i Google Maps." },
+      { question: "Hva koster en nettside for en fysioterapiklinikk?", answer: "Antall behandlingssider og hvordan timebestillingen skal fungere er de to tingene som flytter prisen mest. Vi gir fastpris når vi vet hva klinikken trenger." },
       { question: "Er pasienthenvendelser GDPR-trygge?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning." },
     ],
     trustStats: [
@@ -442,20 +442,20 @@ export const INDUSTRIES: Service[] = [
       "Sentral godkjenning og sertifiseringer godt synlig",
       "Tilbudsskjema med bildeopplasting",
       "Tydelig oversikt over tjenester og områder",
-      "Lokal SEO for «byggefirma [sted]»",
+      "Lokal SEO for «byggefirma + stedsnavn»",
       "Lynrask og perfekt på mobil ute på byggeplass",
     ],
     detailedFeatures: [
       { iconName: "star", title: "Prosjektgalleri", description: "Vis fram tidligere arbeid med før/etter" },
       { iconName: "shield", title: "Godkjenninger", description: "Sentral godkjenning og sertifiseringer" },
       { iconName: "mail", title: "Tilbudsskjema", description: "Kunden beskriver jobben og laster opp bilde" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «byggefirma [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «byggefirma + stedsnavn»" },
       { iconName: "smartphone", title: "Rask & mobil", description: "Laster raskt — også på byggeplassen" },
     ],
     painPoints: [
       { title: "Mister de store jobbene", description: "Uten å vise tidligere arbeid taper du oppdrag til mer synlige firmaer" },
       { title: "Virker mindre seriøs", description: "En svak nettside skaper tvil hos kunder med store prosjekter" },
-      { title: "Usynlig i lokalsøk", description: "Konkurrenten rangerer på «byggefirma [sted]» — ikke du" },
+      { title: "Usynlig i lokalsøk", description: "Konkurrenten rangerer på «byggefirma + stedsnavn» — ikke du" },
     ],
     processSteps: [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, prosjektene og områdene" },
@@ -466,8 +466,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere vise fram prosjektene våre?", answer: "Ja. Vi bygger et prosjektgalleri med før/etter-bilder som dokumenterer kvaliteten og hjelper dere å lande større oppdrag." },
       { question: "Kan kunder be om befaring fra siden?", answer: "Ja. Vi setter opp et tilbudsskjema med bildeopplasting, perfekt for å motta forespørsler om større byggeprosjekter." },
-      { question: "Hva koster en nettside for et byggefirma?", answer: "En profesjonell nettside for bygg og entreprenør prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «byggefirma [sted]» og i Maps." },
+      { question: "Hva koster en nettside for et byggefirma?", answer: "Det avhenger av hvor mange referanseprosjekter som skal presenteres, og om dere vil ha tilbudsskjema. Et solid prosjektgalleri tar tid å sette opp, men det er ofte det som selger. Vi gir fastpris før oppstart." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «byggefirma + stedsnavn» og i Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -488,14 +488,14 @@ export const INDUSTRIES: Service[] = [
       "Oppdatert gruppetimeplan",
       "Drop-in og PT-timebestilling",
       "Tydelige priser og medlemskap",
-      "Lokal SEO for «treningssenter [sted]»",
+      "Lokal SEO for «treningssenter + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "calendar", title: "Timeplan & booking", description: "Oppdatert gruppetimeplan og drop-in" },
       { iconName: "file-text", title: "Medlemskap", description: "Tydelige priser og enkel innmelding" },
       { iconName: "smartphone", title: "Mobil først", description: "De fleste melder seg inn fra mobilen" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «treningssenter [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «treningssenter + stedsnavn»" },
       { iconName: "star", title: "Resultater", description: "Vis fram medlemmer, PT-er og fasiliteter" },
     ],
     painPoints: [
@@ -512,8 +512,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan medlemmer melde seg inn rett fra siden?", answer: "Ja. Vi setter opp medlemsregistrering, eller kobler nettsiden mot medlemssystemet dere bruker, så innmelding skjer sømløst." },
       { question: "Kan vi vise en oppdatert gruppetimeplan?", answer: "Ja. Vi kan integrere timeplanen eller koble inn bookingsystemet dere bruker, så den alltid er oppdatert uten ekstra arbeid." },
-      { question: "Hva koster en nettside for et treningssenter?", answer: "En profesjonell nettside for treningssenter prises etter funksjoner som innmelding og timeplan. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «treningssenter [sted]» og i Maps." },
+      { question: "Hva koster en nettside for et treningssenter?", answer: "Innmelding på nett og timeplan er det som driver prisen. Skal timeplanen hentes automatisk fra bookingsystemet, koster det mer enn en statisk oversikt. Ta kontakt, så ser vi på hva som passer." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «treningssenter + stedsnavn» og i Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -534,14 +534,14 @@ export const INDUSTRIES: Service[] = [
       "Presentasjon av brillemerker og kolleksjon",
       "Tydelig info om tjenester og priser",
       "Kampanjer og tilbud som trekker kunder",
-      "Lokal SEO for «optiker [sted]»",
+      "Lokal SEO for «optiker + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "calendar", title: "Timebestilling", description: "Synsundersøkelse bestilles direkte på nett" },
       { iconName: "star", title: "Brillekolleksjon", description: "Vis fram merker og utvalg" },
       { iconName: "file-text", title: "Tjenester & pris", description: "Tydelig hva dere tilbyr" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «optiker [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «optiker + stedsnavn»" },
       { iconName: "smartphone", title: "Mobil først", description: "De fleste bestiller time på mobilen" },
     ],
     painPoints: [
@@ -558,8 +558,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder bestille synsundersøkelse på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
       { question: "Kan vi vise fram brillemerkene våre?", answer: "Ja. Vi bygger en oversikt over merker og kolleksjon som er enkel å oppdatere når utvalget endrer seg." },
-      { question: "Hva koster en nettside for en optiker?", answer: "En profesjonell optikernettside prises etter funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «optiker [sted]» og i Maps." },
+      { question: "Hva koster en nettside for en optiker?", answer: "Timebestilling for synsundersøkelse, og hvor mye av brillekolleksjonen som skal vises, er det som avgjør. Vi setter fastpris når omfanget er klart." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «optiker + stedsnavn» og i Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -580,14 +580,14 @@ export const INDUSTRIES: Service[] = [
       "Tydelig oversikt over tjenester og merker",
       "Garantier og sertifiseringer som bygger tillit",
       "Trykk-for-å-ringe på mobil",
-      "Lokal SEO for «bilverksted [sted]»",
+      "Lokal SEO for «bilverksted + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "calendar", title: "Timebestilling", description: "Service og EU-kontroll bookes på nett" },
       { iconName: "circle-check", title: "EU-kontroll", description: "Enkel booking av periodisk kjøretøykontroll" },
       { iconName: "shield", title: "Tillit & garanti", description: "Sertifiseringer og garantier godt synlig" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «bilverksted [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «bilverksted + stedsnavn»" },
       { iconName: "smartphone", title: "Ring & book", description: "Trykk-for-å-ringe rett fra mobilen" },
     ],
     painPoints: [
@@ -604,8 +604,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder bestille service og EU-kontroll på nett?", answer: "Ja. Vi setter opp timebestilling, eller kobler nettsiden mot bookingsystemet dere bruker, så kunden booker sømløst." },
       { question: "Kan vi vise hvilke bilmerker vi jobber med?", answer: "Ja. Vi bygger en tydelig oversikt over tjenester og merker, så kunden raskt ser at dere kan hjelpe med nettopp deres bil." },
-      { question: "Hva koster en nettside for et bilverksted?", answer: "En profesjonell verkstednettside prises etter funksjoner som timebestilling. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «bilverksted [sted]» og i Maps." },
+      { question: "Hva koster en nettside for et bilverksted?", answer: "Prisen styres av om dere vil ha timebestilling på nett, og hvor mange tjenester som skal ha egen side. EU-kontroll, dekkskift og service kan ligge på én side eller tre. Ta kontakt for et uforpliktende tilbud." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «bilverksted + stedsnavn» og i Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -626,14 +626,14 @@ export const INDUSTRIES: Service[] = [
       "Tydelig pasientinformasjon og åpningstider",
       "Presentasjon av leger og behandlere",
       "GDPR-trygg håndtering av henvendelser",
-      "Lokal SEO for «legekontor [sted]»",
+      "Lokal SEO for «legekontor + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "calendar", title: "Timebestilling", description: "Online booking eller kobling til pasientsky" },
       { iconName: "file-text", title: "Pasientinfo", description: "Tydelig om tjenester og åpningstider" },
       { iconName: "lock", title: "GDPR-trygg", description: "Sikker håndtering av sensitive henvendelser" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «legekontor [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «legekontor + stedsnavn»" },
       { iconName: "smartphone", title: "Mobil først", description: "Pasienter finner dere på mobilen" },
     ],
     painPoints: [
@@ -650,8 +650,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan dere koble på pasientsky / timebestillingssystemet vårt?", answer: "Ja. Vi lenker pasienten rett inn i løsningen dere bruker, eller setter opp en enkel timebestilling — sømløst fra nettsiden." },
       { question: "Er pasienthenvendelser GDPR-trygge?", answer: "Ja. Skjemaer og datalagring settes opp i samsvar med GDPR og norsk personvernlovgivning, og vi unngår å samle sensitive opplysninger unødvendig." },
-      { question: "Hva koster en nettside for et legekontor?", answer: "En profesjonell nettside for legekontor prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «legekontor [sted]» og i Google Maps." },
+      { question: "Hva koster en nettside for et legekontor?", answer: "Antall sider, og hvordan timebestilling og kontakt skal håndteres innenfor personvernreglene, betyr mest. Vi gir fastpris før vi begynner." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data slik at klinikken blir synlig på «legekontor + stedsnavn» og i Google Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -672,20 +672,20 @@ export const INDUSTRIES: Service[] = [
       "Tydelige tjenester: fast renhold, flyttevask, kontor",
       "Tillit gjennom forsikring og kundeomtaler",
       "Skille mellom privat og bedrift",
-      "Lokal SEO for «renhold [sted]»",
+      "Lokal SEO for «renhold + stedsnavn»",
       "Lynrask og perfekt på mobil",
     ],
     detailedFeatures: [
       { iconName: "mail", title: "Tilbudsskjema", description: "Kunden ber om pris på sekunder" },
       { iconName: "file-text", title: "Tjenester", description: "Fast renhold, flyttevask, kontorrenhold" },
       { iconName: "shield", title: "Tillit", description: "Forsikring, HMS og kundeomtaler" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «renhold [sted]»" },
+      { iconName: "map-pin", title: "Lokal SEO", description: "Synlig på «renhold + stedsnavn»" },
       { iconName: "smartphone", title: "Rask & mobil", description: "Upåklagelig på alle skjermer" },
     ],
     painPoints: [
       { title: "Få forespørsler", description: "Uten et tydelig tilbudsskjema og lokal synlighet kommer det få henvendelser" },
       { title: "Virker useriøs", description: "En svak nettside skaper tvil hos bedriftskunder som vurderer faste avtaler" },
-      { title: "Usynlig lokalt", description: "Konkurrenten dukker opp på «renhold [sted]» — ikke du" },
+      { title: "Usynlig lokalt", description: "Konkurrenten dukker opp på «renhold + stedsnavn» — ikke du" },
     ],
     processSteps: [
       { step: 1, title: "Kartlegging", description: "Vi ser på tjenestene, kundetypene og områdene" },
@@ -696,8 +696,8 @@ export const INDUSTRIES: Service[] = [
     faq: [
       { question: "Kan kunder be om tilbud direkte fra siden?", answer: "Ja. Vi setter opp et enkelt tilbudsskjema der kunden beskriver behovet, så forespørselen havner rett i innboksen din." },
       { question: "Kan vi skille mellom privat- og bedriftskunder?", answer: "Ja. Vi kan strukturere siden med egne seksjoner eller sider for privat og bedrift, så hver målgruppe finner det som er relevant." },
-      { question: "Hva koster en nettside for en renholdsbedrift?", answer: "En profesjonell renholdsnettside prises etter omfang og funksjoner. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «renhold [sted]» og i Maps." },
+      { question: "Hva koster en nettside for en renholdsbedrift?", answer: "Det avhenger av hvor mange tjenester dere tilbyr, og om dere vil ha tilbudsskjema der kunden fyller inn kvadratmeter og type oppdrag. Ta kontakt, så regner vi på det." },
+      { question: "Blir vi synlige lokalt?", answer: "Ja. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil, slik at dere rangerer på «renhold + stedsnavn» og i Maps." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -716,12 +716,12 @@ export const INDUSTRY_SEO: Record<string, { title: string; description: string }
   elektriker: {
     title: "Nettside for elektrikere — bli synlig lokalt og få flere jobber",
     description:
-      "Mobilvennlige nettsider for elektrikere med trykk-for-å-ringe, tilbudsskjema og lokal SEO for «elektriker [sted]». Faste priser, ingen bindingstid. Få et tilbud.",
+      "Mobilvennlige nettsider for elektrikere med trykk-for-å-ringe, tilbudsskjema og lokal SEO for «elektriker + stedsnavn». Faste priser, ingen bindingstid. Få et tilbud.",
   },
   rorlegger: {
     title: "Nettside for rørleggere — fang akuttjobber og store prosjekter",
     description:
-      "Raske nettsider for rørleggere med døgnvakt-info, trykk-for-å-ringe og lokal SEO for «rørlegger [sted]». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+      "Raske nettsider for rørleggere med døgnvakt-info, trykk-for-å-ringe og lokal SEO for «rørlegger + stedsnavn». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
   },
   advokat: {
     title: "Nettside for advokater — bygg troverdighet og få flere klienter",
@@ -731,7 +731,7 @@ export const INDUSTRY_SEO: Record<string, { title: string; description: string }
   frisor: {
     title: "Nettside for frisører — online booking og fulle stoler",
     description:
-      "Stilrene nettsider for frisørsalonger med online timebestilling, galleri og lokal SEO for «frisør [sted]». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+      "Stilrene nettsider for frisørsalonger med online timebestilling, galleri og lokal SEO for «frisør + stedsnavn». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
   },
   regnskapsforer: {
     title: "Nettside for regnskapsførere — bygg tillit og få flere kunder",
@@ -771,7 +771,7 @@ export const INDUSTRY_SEO: Record<string, { title: string; description: string }
   bilverksted: {
     title: "Nettside for bilverksteder — timebestilling for service og EU-kontroll",
     description:
-      "Tillitsvekkende nettsider for bilverksteder med timebestilling, tjenesteoversikt og lokal SEO for «bilverksted [sted]». Faste priser, ingen bindingstid. Få et tilbud.",
+      "Tillitsvekkende nettsider for bilverksteder med timebestilling, tjenesteoversikt og lokal SEO for «bilverksted + stedsnavn». Faste priser, ingen bindingstid. Få et tilbud.",
   },
   legekontor: {
     title: "Nettside for legekontor — timebestilling og enklere pasientinfo",
@@ -781,7 +781,7 @@ export const INDUSTRY_SEO: Record<string, { title: string; description: string }
   renhold: {
     title: "Nettside for renholdsbedrifter — flere tilbud og faste avtaler",
     description:
-      "Ryddige nettsider for renholdsbedrifter med tilbudsskjema, tydelige tjenester og lokal SEO for «renhold [sted]». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+      "Ryddige nettsider for renholdsbedrifter med tilbudsskjema, tydelige tjenester og lokal SEO for «renhold + stedsnavn». Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
   },
 };
 

@@ -25,7 +25,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Bærum",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Bærum» og «Sandvika»",
+      "Lokal SEO for «advokat Bærum» og «tannlege Sandvika»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
@@ -50,10 +50,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Bærum?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Bærum-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
-      { question: "Kan dere få oss synlige på «[bransje] Bærum»?", answer: "Ja. Vi bygger inn lokal SEO og strukturerte data og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Bærum-området." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter i Bærum når dere sitter i Oslo?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Bærum. Oppstart, innspill og overlevering skjer på video, e-post og telefon. Du slipper å betale for reisetid, og vi er like tilgjengelige for en bedrift på Fornebu som for en i Sandvika." },
+      { question: "Kan dere få oss synlige på søk som «advokat Bærum» eller «tannlege Sandvika»?", answer: "Det er akkurat den typen søk vi bygger for. Vi legger inn lokal SEO og strukturerte data, og kobler siden mot Google Bedriftsprofil slik at dere kan dukke opp både i vanlige treff og i Maps. Vi lover ingen bestemt plassering, men siden blir bygget for å konkurrere om dem." },
+      { question: "Kundene her er vant til gjennomarbeidede merkevarer. Holder en enkel nettside?", answer: "Sjelden. Bærum har tunge fagmiljøer på Fornebu og Lysaker, og kundene sammenligner dere med selskaper som bruker mye på design. En malbasert side som laster tregt skiller seg negativt ut. Det trenger ikke bety en stor side, men den må se ut som dere mener alvor." },
+      { question: "Dekker dere hele Bærum, eller bare Sandvika?", answer: "Hele kommunen. Vi bygger sider for bedrifter i Sandvika, Fornebu, Lysaker, Bekkestua, Stabekk, Høvik, Rud og Kolsås. Skal dere være synlige i flere av områdene, legger vi dem inn som egne stedssignaler på siden." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -71,7 +71,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Asker",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Asker»",
+      "Lokal SEO for «tannlege Asker» og «byggefirma Heggedal»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
@@ -96,10 +96,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Asker?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Asker-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
-      { question: "Kan dere få oss synlige på «[bransje] Asker»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Asker-området." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter i Asker?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt, så avstanden spiller ingen rolle. Alt fra oppstartsmøte til overlevering går på video og e-post, og dere betaler ikke for reisetid." },
+      { question: "Kan dere få oss synlige på «tannlege Asker» eller «byggefirma Heggedal»?", answer: "Ja, det er den typen søk vi optimaliserer for. Vi bygger inn lokal SEO og kobler siden mot Google Bedriftsprofil. Bestemte plasseringer kan ingen love, men siden blir bygget teknisk riktig fra dag én." },
+      { question: "Asker strekker seg fra Holmen til Tofte. Hvordan treffer vi hele kommunen?", answer: "Etter sammenslåingen med Røyken og Hurum er Asker geografisk stor, og folk søker fortsatt på de gamle stedsnavnene. Vi legger inn de områdene dere faktisk jobber i, som Slemmestad, Vollen, Røyken og Sætre, i stedet for å satse alt på ordet «Asker»." },
+      { question: "Vi er en liten håndverksbedrift. Blir dette for stort for oss?", answer: "Nei. Mange av bedriftene i Asker er små tjeneste- og håndverksbedrifter, og de trenger sjelden en stor side. Tre til fem sider som laster raskt og er lette å kontakte fra mobil gjør som regel jobben." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -117,7 +117,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Lillestrøm",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Lillestrøm» og Romerike",
+      "Lokal SEO for «elektriker Lillestrøm» og «rørlegger Strømmen»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
@@ -142,10 +142,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Lillestrøm?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lillestrøm-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
-      { question: "Kan dere få oss synlige på «[bransje] Lillestrøm»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps på Romerike." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter på Romerike?", answer: "Ja. Vi holder til i Oslo og jobber heldigitalt med bedrifter i Lillestrøm og resten av Romerike. Toget tar ti minutter, men vi trenger det som regel ikke: oppstart og oppfølging går fint på video." },
+      { question: "Kan dere få oss synlige på «elektriker Lillestrøm» eller «rørlegger Strømmen»?", answer: "Det er søkene vi bygger for. Vi legger inn lokal SEO, strukturerte data og kobling mot Google Bedriftsprofil. Konkurransen på håndverkersøk her er reell, så dette er et arbeid over tid, ikke en bryter vi skrur på." },
+      { question: "Vi holder til på Kjeller eller Skedsmokorset. Teller det som Lillestrøm i Google?", answer: "Ikke automatisk. Google skiller på stedsnavn, og mange søker på nærområdet sitt framfor bykjernen. Vi legger derfor inn de stedene dere faktisk dekker, som Kjeller, Strømmen, Skedsmokorset, Sørumsand og Frogner, som egne signaler på siden." },
+      { question: "Konkurransen på håndverkersøk i Lillestrøm er hard. Hva skal til?", answer: "Tre ting, i denne rekkefølgen: en side som laster raskt på mobil, en oppdatert Google Bedriftsprofil med ekte omtaler, og tekst som svarer på det kundene faktisk lurer på. Det er sjelden design som avgjør, men om dere er lette å finne og lette å ringe." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -163,7 +163,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Lørenskog",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Lørenskog»",
+      "Lokal SEO for «frisør Lørenskog» og «tannlege Skårer»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
@@ -188,10 +188,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Lørenskog?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lørenskog-området. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
-      { question: "Kan dere få oss synlige på «[bransje] Lørenskog»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Lørenskog." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter i Lørenskog?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Lørenskog. Oppstart, innspill og overlevering går på video og e-post, uten reisetid lagt på prisen." },
+      { question: "Kan dere få oss synlige på «frisør Lørenskog» eller «tannlege Skårer»?", answer: "Ja, det er den typen lokalsøk vi bygger for. Vi legger inn lokal SEO og kobler siden mot Google Bedriftsprofil slik at dere kan dukke opp i Maps. Plasseringer kan ingen garantere, men grunnlaget blir riktig." },
+      { question: "Vi ligger tett på Oslo. Bør vi satse på Oslo-søk eller Lørenskog-søk?", answer: "Som regel Lørenskog først. Oslo-søkene har mange ganger så mange om beinet, og en ny side vinner dem sjelden. Lokalsøkene i Lørenskog er langt lettere å nå, og kundene der er nærmere. Oslo kan komme som et neste steg." },
+      { question: "Mye av handelen her skjer rundt Metro og Triaden. Hjelper en nettside da?", answer: "Ja, men på en annen måte enn folk tror. Kundene finner dere kanskje fysisk, men de sjekker dere på mobilen først: åpningstider, priser, om det ser seriøst ut. Er siden treg eller utdatert, taper dere kunder som allerede var i nærheten." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -209,7 +209,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Drammen",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Drammen»",
+      "Lokal SEO for «byggefirma Drammen» og «elektriker Gulskogen»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Dekker hele Drammensregionen",
       "Lynrask lasting og topp PageSpeed-score",
@@ -234,10 +234,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Drammen?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i hele Drammensregionen. Oppstart, oppfølging og levering skjer på video, e-post og telefon." },
-      { question: "Kan dere få oss synlige på «[bransje] Drammen»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Drammen." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter i Drammen når dere sitter i Oslo?", answer: "Ja. Vi jobber heldigitalt, og toget tar rundt 35 minutter om det skulle trengs. I praksis går oppstart, innspillsrunder og overlevering på video og e-post, og dere betaler ikke for reisetid." },
+      { question: "Kan dere få oss synlige på «byggefirma Drammen» eller «elektriker Gulskogen»?", answer: "Det er de søkene vi bygger for. Vi legger inn lokal SEO, strukturerte data og kobling mot Google Bedriftsprofil. Vi lover ingen bestemt plassering, men siden blir bygget for å kunne konkurrere om dem." },
+      { question: "Drammen er mer enn sentrum. Treffer vi også Mjøndalen og Konnerud?", answer: "Ja, hvis vi legger dem inn. Folk søker på sitt eget nærområde, ikke på kommunenavnet. Vi tar med de stedene dere faktisk jobber i, som Bragernes, Strømsø, Gulskogen, Åssiden, Konnerud, Mjøndalen og Svelvik, framfor å satse alt på ordet «Drammen»." },
+      { question: "Vi er en industri- eller byggbedrift, ikke en butikk. Trenger vi egentlig nettside?", answer: "Kundene deres sjekker dere før de tar kontakt, også når avtalene inngås over telefon. En side som viser referanseprosjekter, godkjenninger og hvem dere er, gjør at dere framstår som et trygt valg. Det teller mer i bygg og industri enn i de fleste andre bransjer." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },
@@ -255,7 +255,7 @@ export const LOCATIONS: Service[] = [
     categoryTag: "Ski",
     features: [
       "Skreddersydd Next.js — ingen tung WordPress",
-      "Lokal SEO for «[bransje] Ski» og Nordre Follo",
+      "Lokal SEO for «tannlege Ski» og «frisør Kolbotn»",
       "Personlig oppfølging — du snakker med utvikleren",
       "Heldigital prosess — oppstart og oppfølging på video",
       "Lynrask lasting og topp PageSpeed-score",
@@ -280,10 +280,10 @@ export const LOCATIONS: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Jobber dere med bedrifter i Ski?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i Ski og Nordre Follo. Oppstart, oppfølging og levering skjer på video, e-post og telefon — uten reisetid og ekstra kostnader." },
-      { question: "Kan dere få oss synlige på «[bransje] Ski»?", answer: "Ja. Vi bygger inn lokal SEO og kobler nettsiden mot Google Bedriftsprofil, slik at dere rangerer i lokalsøk og i Maps for Nordre Follo." },
-      { question: "Hva koster en nettside?", answer: "Prisen avhenger av hvor mange sider siden skal ha og hva den skal gjøre. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
-      { question: "Bruker dere WordPress?", answer: "Nei. Vi bygger i moderne Next.js, som gir vesentlig raskere sider, bedre sikkerhet og bedre PageSpeed enn WordPress med plugins." },
+      { question: "Jobber dere med bedrifter i Ski og Nordre Follo?", answer: "Ja. Vi er Oslo-baserte og jobber heldigitalt med bedrifter i hele Nordre Follo. Oppstart og oppfølging går på video og e-post, så dere betaler ikke for reisetid." },
+      { question: "Kan dere få oss synlige på «tannlege Ski» eller «frisør Kolbotn»?", answer: "Ja, det er den typen søk vi bygger for. Vi legger inn lokal SEO og kobler siden mot Google Bedriftsprofil. Bestemte plasseringer kan vi ikke love, men siden blir teknisk riktig fra start." },
+      { question: "Kommunen heter Nordre Follo nå. Bør vi skrive «Ski» eller «Nordre Follo»?", answer: "Begge deler, men «Ski» og «Kolbotn» veier tyngst. Folk søker på stedet de bor, ikke på kommunenavnet, og de gamle navnene sitter fortsatt i språket. Vi bruker stedsnavnene i tekstene og tar med kommunenavnet der det hører hjemme." },
+      { question: "Follobanen har gjort at flere flytter hit. Hvordan når vi tilflytterne?", answer: "Tilflyttere har ingen lokale vaner ennå, så de googler alt: tannlege, frisør, treningssenter. Det er den gruppen som er lettest å vinne, fordi de ikke har valgt noen fra før. En side som svarer tydelig på hvor dere er og hva det koster å komme i gang, tar dem." },
     ],
     trustStats: [
       { value: 90, suffix: "+", label: "PageSpeed-score" },

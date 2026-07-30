@@ -6,7 +6,6 @@ import { getLocalInfo } from "@/lib/content/locations-local";
 import { IndustryHero } from "@/components/sections/industry-hero";
 import { GeoLocalContext } from "@/components/sections/geo-local-context";
 import { GeoIndustries } from "@/components/sections/geo-industries";
-import { ServiceProcess } from "@/components/sections/service-process";
 import { ServiceFaq } from "@/components/sections/service-faq";
 import { ServiceCta } from "@/components/sections/service-cta";
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -82,7 +81,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
           accent={GEO_ACCENT}
         />
       )}
-      <ServiceProcess steps={location.processSteps} accent={GEO_ACCENT} />
+      {/* No ServiceProcess here: those four steps were byte-identical across
+          all six geo pages, which is duplicate weight on pages that need to
+          look distinct to get indexed. The process lives on /tjenester. */}
       <ServiceFaq faq={location.faq} accent={GEO_ACCENT} />
       <ServiceCta />
     </div>
