@@ -15,7 +15,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hvor lang tid tar det å lage en nettside?",
     answer:
-      "Leveringstiden avhenger av hvilken pakke du velger. Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker. Vi setter alltid opp en tydelig tidsplan i starten av prosjektet, slik at du vet nøyaktig når nettsiden din er klar.",
+      "Leveringstiden avhenger av omfanget. En enkel bedriftsnettside tar som regel rundt 2 uker, mens større sider med flere undersider og funksjoner tar 4–6 uker. Vi setter alltid opp en tydelig tidsplan i starten av prosjektet, slik at du vet nøyaktig når nettsiden din er klar.",
   },
   {
     question: "Trenger jeg en driftsavtale etter lansering?",

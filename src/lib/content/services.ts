@@ -42,7 +42,7 @@ export const SERVICES: Service[] = [
       { step: 4, title: "Lansering", description: "Vi setter siden live og overleverer. Du eier alt." },
     ],
     faq: [
-      { question: "Hvor lang tid tar det å lage en nettside?", answer: "Starter-pakken leveres på ca. 2 uker, Standard-pakken tar ca. 3 uker, og større eller premium-løsninger leveres på ca. 6 uker." },
+      { question: "Hvor lang tid tar det å lage en nettside?", answer: "En enkel bedriftsnettside tar som regel rundt 2 uker. Større sider med flere undersider og funksjoner tar 4–6 uker." },
       { question: "Hva koster en skreddersydd nettside?", answer: "Prisen avhenger av omfang og funksjonalitet. Du får alltid et uforpliktende tilbud først, med fastpris før vi starter." },
       { question: "Kan jeg oppdatere innholdet selv?", answer: "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Per i dag har vi ingen enklere løsning for selvbetjent redigering." },
       { question: "Hva med hosting og domene?", answer: "Vi hjelper deg med å sette opp hosting og koble til domenet ditt. Alt er inkludert i leveransen." },
