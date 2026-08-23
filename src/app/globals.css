@@ -482,24 +482,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ── Pricing card glow seam (highlighted tier only) ── */
-@keyframes pricing-glow-seam {
-  0%, 100% { opacity: 0.45; }
-  50%      { opacity: 0.95; }
-}
-
-.pricing-glow-seam {
-  animation: pricing-glow-seam 3.2s ease-in-out infinite;
-  will-change: opacity;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pricing-glow-seam {
-    animation: none !important;
-    opacity: 0.8 !important;
-  }
-}
-
 /* Hero floating chips — gentle perpetual lift, transform-only for GPU */
 @keyframes hero-float {
   0%, 100% { transform: translateY(0); }
