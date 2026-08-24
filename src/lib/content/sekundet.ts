@@ -38,7 +38,6 @@ export const SEKUNDET = {
   },
 
   finale: {
-    total: "1,24 s",
     headline: "Vi bygger backend også.",
     sub: "Database, innlogging, betaling, varsling og admin-panel. Ikke bare nettsiden foran — hele systemet bak.",
   },

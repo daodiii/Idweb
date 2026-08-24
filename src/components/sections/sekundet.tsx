@@ -207,9 +207,6 @@ export function Sekundet() {
             </div>
 
             <div ref={finaleRef} className="sekundet-narr sekundet-finale" aria-hidden="true">
-              <span className="mb-2 block font-mono text-[clamp(2.4rem,5.4vw,4.6rem)] font-bold leading-none tracking-[-0.045em] text-[#F4CE14] [font-variant-numeric:tabular-nums]">
-                {C.finale.total}
-              </span>
               <h3 className="text-balance text-[clamp(1.7rem,3.6vw,3.1rem)] font-extrabold leading-[0.98] tracking-[-0.04em] text-[#EFECE3]">
                 {C.finale.headline}
               </h3>
