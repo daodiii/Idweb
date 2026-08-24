@@ -15,6 +15,10 @@ const ProjectsCarousel = dynamic(
   () => import("@/components/sections/projects-carousel").then((m) => m.ProjectsCarousel),
   { ssr: true },
 );
+const Sekundet = dynamic(
+  () => import("@/components/sections/sekundet").then((m) => m.Sekundet),
+  { ssr: true },
+);
 const SpecDuel = dynamic(
   () => import("@/components/sections/spec-duel").then((m) => m.SpecDuel),
   { ssr: true },
@@ -69,6 +73,11 @@ export default function Home() {
 
       {/* 3. Projects — «Karusellen» 3D coverflow ring */}
       <ProjectsCarousel />
+
+      {/* 3½. Full stack — «Sekundet»: one booking scrubbed through the
+          whole chain. The carousel shows the facades; this shows the
+          machine behind them. */}
+      <Sekundet />
 
       {/* 4. Byrå vs IDweb — spec ledger + value ticker */}
       <SpecDuel />
