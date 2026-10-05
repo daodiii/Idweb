@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Schibsted_Grotesk } from "next/font/google";
 import { LayoutShell } from "@/components/layout/layout-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
@@ -7,6 +7,13 @@ import "./globals.css";
 // One family, weight-driven hierarchy — Geist carries both headings and body.
 const geistSans = Geist({
   variable: "--font-body",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+// Display face for the «Nordisk ro» redesign.
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-display",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -77,7 +84,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#F4CE14" />
         <JsonLd />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${schibsted.variable} antialiased`}>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

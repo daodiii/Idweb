@@ -39,6 +39,17 @@
 
   /* Headings share the Geist body family — hierarchy comes from weight + size */
   --font-heading: var(--font-body);
+
+  /* «Nordisk ro» — the redesign palette: white ground, pine ink, sage surfaces */
+  --color-nordic-bg: #ffffff;
+  --color-nordic-ink: #13302a;
+  --color-nordic-accent: #1e5a4c;
+  --color-nordic-accent-hover: #174a3e;
+  --color-nordic-mint: #a8e0c8;
+  --color-nordic-sage: #eaf1ee;
+  --color-nordic-mist: #f5f8f7;
+  --color-nordic-muted: #4a5f59;
+  --color-nordic-line: #dce6e2;
 }
 
 @theme inline {
@@ -79,6 +90,27 @@
 .animate-rainbow:hover::before,
 .animate-rainbow:focus-visible::before {
   animation-play-state: running;
+}
+
+/* Site showcase: the screenshot scrolls inside the browser frame, and the
+   active tab's bar fills. Both are CSS animations so one play-state class
+   can pause them together; the bar's animationend advances the slide. */
+@keyframes showcase-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--showcase-to, 0%));
+  }
+}
+
+@keyframes showcase-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes marquee {

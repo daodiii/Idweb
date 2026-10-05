@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu as MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -22,7 +24,18 @@ const MOBILE_LINKS = [
   { href: "/faq", label: "FAQ" },
 ];
 
+// Pages already moved to the «Nordisk ro» redesign get the light header.
+// The dark-theme variables the nav reads are re-pointed at the new palette.
+const LIGHT_ROUTES = new Set(["/"]);
+const LIGHT_VARS = {
+  "--color-dark-muted": "var(--color-nordic-muted)",
+  "--color-dark-text": "var(--color-nordic-ink)",
+  "--nav-panel-bg": "#ffffff",
+  "--nav-panel-border": "var(--color-nordic-line)",
+} as CSSProperties;
+
 export function Navbar() {
+  const light = LIGHT_ROUTES.has(usePathname());
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -77,7 +90,15 @@ export function Navbar() {
         Hopp til innhold
       </a>
 
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[var(--color-dark-bg)]/85">
+      <header
+        style={light ? LIGHT_VARS : undefined}
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 border-b",
+          light
+            ? "border-[var(--color-nordic-line)]/60 bg-white/80 backdrop-blur-md"
+            : "border-white/[0.06] bg-[var(--color-dark-bg)]/85",
+        )}
+      >
         <div
           className={cn(
             "mx-auto flex w-full max-w-6xl items-center justify-between",
@@ -157,7 +178,12 @@ export function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/kontakt"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#F4CE14] px-5 py-2 text-sm font-bold text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] transition-[transform,background-color] duration-150 hover:bg-[#FFE15D] active:scale-[0.97]"
+              className={cn(
+                "group inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-bold transition-[transform,background-color] duration-150 active:scale-[0.97]",
+                light
+                  ? "rounded-full bg-[var(--color-nordic-accent)] text-white hover:bg-[var(--color-nordic-accent-hover)]"
+                  : "rounded-xl bg-[#F4CE14] text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(244,206,20,0.55)] hover:bg-[#FFE15D]",
+              )}
               style={{ transitionTimingFunction: ENTRY_EASE }}
             >
               Kom i gang

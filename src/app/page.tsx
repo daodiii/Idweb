@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
-import { HeroLommelykt } from "@/components/sections/hero-lommelykt";
-import { Preloader } from "@/components/ui/preloader";
+import { HomeHero } from "@/components/sections/home-hero";
+import { SiteShowcase } from "@/components/sections/site-showcase";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
-import { CursorAura } from "@/components/ui/cursor-aura";
 
 // Below-fold sections — lazy loaded to reduce initial JS parse/execute time
-const ManifestoFill = dynamic(
-  () => import("@/components/sections/manifesto-fill").then((m) => m.ManifestoFill),
-  { ssr: true },
-);
-const ProjectsCarousel = dynamic(
-  () => import("@/components/sections/projects-carousel").then((m) => m.ProjectsCarousel),
-  { ssr: true },
-);
 const Sekundet = dynamic(
   () => import("@/components/sections/sekundet").then((m) => m.Sekundet),
   { ssr: true },
@@ -49,26 +40,20 @@ export const metadata: Metadata = {
 };
 
 /**
- * Landing page — "Monumentet". A typographic monument in three worlds
- * (paper, void, yellow): preloader curtain → poster hero → scroll-fill
- * manifesto → full-screen project takeovers → spec ledger → service
- * index → drawn process → XL FAQ → black finale.
+ * Landing page, mid-redesign. The top is the new «Nordisk ro» direction
+ * (animated hero + project showcase); the sections below it are still the
+ * previous «Monument» design and will be replaced one by one.
  */
 export default function Home() {
   return (
     <div style={{ backgroundColor: "#F3F0E7" }}>
-      <Preloader />
       <SmoothScroll />
-      <CursorAura />
 
-      {/* 1. Hero — «Lommelykt»: the cursor is a flashlight revealing the yellow world */}
-      <HeroLommelykt />
+      {/* 1. Hero — headline rises word by word, «valgt» gets a drawn highlight */}
+      <HomeHero />
 
-      {/* 2. Manifesto — words ink in on scroll */}
-      <ManifestoFill />
-
-      {/* 3. Projects — «Karusellen» 3D coverflow ring */}
-      <ProjectsCarousel />
+      {/* 2. Showcase — real projects cycle through a browser frame and a phone */}
+      <SiteShowcase />
 
       {/* 3½. Full stack — «Sekundet»: one booking scrubbed through the
           whole chain. The carousel shows the facades; this shows the
