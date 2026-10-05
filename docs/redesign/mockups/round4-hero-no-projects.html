@@ -1,0 +1,1419 @@
+<title>IDweb forside runde 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one concept at a time (its own nav, the hero, then the services under it), swapped by a floating switcher.
+   Single light look on purpose: the site direction is «Nordisk ro». Each concept takes one material from the real world —
+   A marbled paper, B a red-pen proof, C daylight on a wall — and lets it carry the motion down the page. */
+:root{
+  --bg:#ffffff; --ink:#13302a; --accent:#1e5a4c; --accent-2:#174a3e; --mint:#a8e0c8;
+  --sage:#eaf1ee; --mist:#f5f8f7; --muted:#4a5f59; --line:#dce6e2; --device:#10231f;
+  --pen:#c4372c;          /* B only: proofreader's red, used for pen marks and nothing else */
+  --wall:#d7e0dc;         /* C only: a white wall in shade */
+  --display:"Schibsted Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(16px,4vw,48px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body[data-c="c"]{background:var(--wall)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--mono)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.concept{position:relative;overflow:clip}
+
+/* ── nav (each concept carries its own copy) ── */
+.nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px}
+.logo{font-weight:800;font-size:23px;letter-spacing:-.05em;text-decoration:none}
+.nav-links{display:flex;gap:30px;font-size:15px;color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.nav-tel{font-family:var(--mono);font-size:13px;letter-spacing:.02em;text-decoration:none;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.nav-links{display:none}}
+
+/* ═════════ A · Marmorert ═════════ */
+.mb-sheet{position:relative;height:clamp(600px,84vh,860px);background:var(--sage);overflow:hidden;touch-action:pan-y;cursor:crosshair;-webkit-tap-highlight-color:transparent;user-select:none}
+.mb-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mb-label{position:absolute;z-index:2;left:max(var(--gutter),calc((100% - 1240px) / 2 + var(--gutter)));bottom:clamp(20px,4.5vw,64px);width:min(690px,calc(100% - 2 * var(--gutter)));padding:clamp(24px,2.8vw,40px);background:#fff;color:var(--ink);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-8px;box-shadow:0 1px 1px rgba(19,48,42,.14),0 30px 60px -30px rgba(10,30,25,.65);cursor:auto;user-select:text;display:flex;flex-direction:column;gap:20px}
+.mb-label-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--muted);font-variant-numeric:tabular-nums}
+.mb-h1{margin:0;font-size:clamp(2.35rem,4.4vw,4.15rem);line-height:.98;letter-spacing:-.048em;font-weight:760;text-wrap:balance}
+.mb-h1 em{display:block;font-style:italic;font-weight:560;letter-spacing:-.04em;color:var(--accent)}
+.mb-lead{margin:0;max-width:42ch;font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.55;color:var(--muted)}
+.mb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.mb-btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 22px;background:var(--ink);color:#fff;font-weight:600;font-size:16px;text-decoration:none;transition:background-color .2s}
+.mb-btn:hover{background:var(--accent)}
+.mb-btn svg{width:16px;height:16px}
+.mb-hint{font-family:var(--mono);font-size:12px;line-height:1.5;color:var(--muted);max-width:30ch}
+@media (max-width:700px){
+  .mb-label-top span:first-child{display:none}
+  .mb-sheet{height:auto;padding-top:min(58vh,440px);padding-bottom:16px}
+  .mb-label{position:relative;left:auto;bottom:auto;margin-inline:16px;width:auto}
+}
+.mb-services{padding-block:clamp(72px,10vw,140px) 150px}
+.mb-head{display:grid;gap:12px;margin-bottom:clamp(32px,4.5vw,56px)}
+.mb-head p{margin:0;font-size:15px;color:var(--muted)}
+.mb-h2{margin:0;font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:.98;letter-spacing:-.048em;font-weight:760;text-wrap:balance;max-width:14ch}
+.mb-bands{display:grid;gap:clamp(12px,1.4vw,18px)}
+.mb-band{position:relative;min-height:clamp(400px,50vh,500px);background:var(--sage);overflow:hidden;touch-action:pan-y;cursor:crosshair;user-select:none;-webkit-tap-highlight-color:transparent;display:flex;align-items:flex-end;padding:clamp(16px,3vw,40px) max(var(--gutter),calc((100% - 1240px) / 2 + var(--gutter)))}
+.mb-band:nth-child(even){justify-content:flex-end}
+.mb-band .mb-label{position:relative;left:auto;bottom:auto;width:min(470px,100%);gap:14px;outline-offset:-7px}
+.mb-band h3{margin:0;font-size:clamp(1.75rem,2.9vw,2.6rem);line-height:1;letter-spacing:-.04em;font-weight:760}
+.mb-band p{margin:0;line-height:1.55;color:var(--muted)}
+.mb-band .mb-when{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--ink)}
+.mb-band a{font-weight:600;text-underline-offset:4px}
+.mb-new{display:inline-block;margin-left:10px;padding:2px 7px 3px;border:1px solid var(--ink);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;vertical-align:.5em}
+.mb-pattern{position:absolute;z-index:2;right:max(var(--gutter),calc((100% - 1240px) / 2 + var(--gutter)));top:clamp(14px,2vw,22px);padding:4px 8px;background:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted)}
+.mb-band:nth-child(even) .mb-pattern{right:auto;left:max(var(--gutter),calc((100% - 1240px) / 2 + var(--gutter)))}
+
+/* ═════════ B · Korrektur ═════════ */
+.kr{--margin-col:clamp(210px,19vw,270px)}
+.kr-hero{padding-block:clamp(40px,6vw,96px) clamp(64px,8vw,112px)}
+.kr-grid{display:grid;grid-template-columns:minmax(0,1fr) var(--margin-col);gap:clamp(24px,4vw,72px)}
+@media (max-width:900px){.kr-grid{grid-template-columns:minmax(0,1fr)}.kr-margin{display:none}}
+.kr-stack{display:grid}
+.kr-stack > *{grid-area:1 / 1}
+.kr-stack.is-shrinking{transition:height .95s var(--ease)}
+.kr-draft{margin:0;font-size:clamp(1.5rem,3.45vw,3.25rem);line-height:1.9;letter-spacing:-.022em;font-weight:480;color:var(--ink);overflow-wrap:break-word;cursor:default}
+.kr-h1{margin:0;align-self:start;font-size:clamp(3.4rem,10.6vw,9.8rem);line-height:.9;letter-spacing:-.06em;font-weight:820}
+@media (max-width:600px){.kr-h1{font-size:15vw;line-height:.92}}
+.kr-h1 .vis{visibility:hidden}
+.kr-h1 .w{display:inline-block;transform-origin:0 0}
+.kr-printed .kr-h1 .vis{visibility:visible}
+.kr-printed .kr-draft{pointer-events:none}
+.kr-after{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 56px;margin-top:clamp(32px,4.5vw,56px)}
+.kr-lead{margin:0;max-width:40ch;font-size:clamp(1.05rem,1.45vw,1.3rem);line-height:1.55;color:var(--muted)}
+.kr-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.kr-btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 26px;background:var(--ink);color:#fff;font-weight:600;font-size:17px;text-decoration:none;transition:background-color .2s}
+.kr-btn:hover{background:var(--accent)}
+.kr-btn svg{width:16px;height:16px}
+.kr-tel{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.kr-intro .kr-after{opacity:0;transform:translateY(14px)}
+.kr-after{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.kr-skip{position:absolute;left:var(--gutter);bottom:clamp(20px,3vw,40px);margin:0;font-family:var(--mono);font-size:12px;color:var(--muted);opacity:0;transition:opacity .4s}
+.kr-intro .kr-skip{opacity:1}
+.kr-ink{position:absolute;left:0;top:0;z-index:4;overflow:visible;pointer-events:none}
+.kr-ink path{fill:none;stroke:var(--pen);stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.kr-pen{position:absolute;left:0;top:0;z-index:6;width:0;height:0;pointer-events:none;will-change:transform;filter:drop-shadow(5px 9px 5px rgba(19,48,42,.26));transition:filter .25s}
+.kr-pen.up{filter:drop-shadow(13px 21px 10px rgba(19,48,42,.2))}
+.kr-pen .rot{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0}
+.kr-pen svg{position:absolute;left:0;top:-12px;width:236px;height:24px;overflow:visible}
+@media (max-width:700px){.kr-pen svg{width:170px;height:17.3px;top:-8.65px}}
+.kr-services{padding-block:clamp(24px,4vw,64px) 170px}
+.kr-services > p{margin:0 0 10px;font-size:15px;color:var(--muted)}
+.kr-h2{margin:0;font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:.98;letter-spacing:-.048em;font-weight:780;text-wrap:balance}
+.kr-rows{display:grid;margin-top:clamp(28px,4vw,52px)}
+.kr-row{display:grid;grid-template-columns:minmax(0,1fr) var(--margin-col);gap:clamp(24px,4vw,72px);padding-block:clamp(30px,3.6vw,48px);border-top:2px solid var(--ink)}
+.kr-row-main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:18px 48px;align-items:start}
+.kr-row h3{margin:0;font-size:clamp(1.7rem,3vw,2.7rem);line-height:1;letter-spacing:-.042em;font-weight:780}
+.kr-new{display:inline-block;margin-left:10px;padding:2px 7px 3px;border:1px solid currentColor;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;vertical-align:.45em}
+.kr-fill{margin:0;font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.7;color:#7f918b}
+.kr-plain{margin:12px 0 0;font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.55}
+.kr-row a{display:inline-block;margin-top:14px;font-weight:600;text-underline-offset:4px}
+@media (max-width:900px){.kr-row{grid-template-columns:minmax(0,1fr)}.kr-row-main{grid-template-columns:minmax(0,1fr)}.kr-fill{margin-top:22px}}
+
+/* ═════════ C · Dagslys ═════════ */
+.dl{isolation:isolate;background:var(--wall);min-height:100vh}
+.dl-content{position:relative;z-index:3}
+.dl-tex{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.6;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .08  0 0 0 0 .2  0 0 0 0 .17  0 0 0 .11 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.dl-dusk{position:fixed;inset:0;z-index:2;pointer-events:none;background:#1b2f29;opacity:0}
+.dl-lightwrap,.dl-glow{position:absolute;left:0;top:0;z-index:0;pointer-events:none;filter:blur(5px)}
+.dl-glow{filter:blur(34px);opacity:.55}
+.dl-glow .dl-patch{background:#fff6e4}
+.dl-patch{position:absolute;inset:0;overflow:hidden}
+.dl-cast{position:absolute;left:0;top:0}
+.dl-leaves{position:absolute;left:0;top:0}
+.dl-cursor{position:absolute;left:0;top:0;width:15px;height:22px;opacity:0;transition:opacity .3s}
+.dl-cursor svg{display:block;width:100%;height:100%}
+.dl-cast .dl-content *{visibility:hidden;text-shadow:none!important;box-shadow:none!important;transition:none!important}
+.dl-cast .m,.dl-cast .m *{visibility:visible;color:var(--wall)!important}
+.dl-cast .m{--dd:var(--d,1);transform:translate(calc(var(--sx,0px) * var(--dd)),calc(var(--sy,0px) * var(--dd)));transition:transform .55s var(--ease)!important}
+.dl-cast .m.lift{--dd:calc(var(--d,1) * 2.1)}
+.dl-cast .m.press{--dd:calc(var(--d,1) * .18)}
+.dl-cast .dl-btn.m{background:var(--wall)!important}
+.dl .m{text-shadow:0 1px 0 rgba(255,255,255,.35),0 1px 1px rgba(19,48,42,.22),0 3px 6px rgba(19,48,42,.08)}
+.dl .lw{display:inline-block;transition:transform .55s var(--ease),text-shadow .55s var(--ease)}
+.dl .lw.lift{transform:translate(-1px,-2px);text-shadow:0 1px 0 rgba(255,255,255,.4),0 2px 3px rgba(19,48,42,.2),0 12px 22px rgba(19,48,42,.12)}
+.dl-hero{padding-block:clamp(56px,9vw,132px) clamp(48px,6vw,88px)}
+.dl-h1{margin:0;font-size:clamp(3.1rem,11.4vw,10.6rem);line-height:.88;letter-spacing:-.062em;font-weight:830;max-width:11ch}
+@media (max-width:600px){.dl-h1{font-size:16.4vw;line-height:.9}}
+.dl-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 56px;margin-top:clamp(36px,5vw,64px)}
+.dl-lead{margin:0;max-width:40ch;font-size:clamp(1.05rem,1.45vw,1.3rem);line-height:1.55;color:var(--muted)}
+.dl-btn{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 26px;background:var(--ink);color:#fff;font-weight:600;font-size:17px;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 1px 1px rgba(10,25,21,.3),0 3px 6px rgba(10,25,21,.18),0 16px 28px -14px rgba(10,25,21,.45);transition:transform .2s var(--ease),box-shadow .2s var(--ease),background-color .2s}
+.dl-btn:hover{background:var(--accent)}
+.dl-btn.press{transform:translateY(1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 1px 1px rgba(10,25,21,.25)}
+.dl-btn svg{width:16px;height:16px}
+.dl-sun{margin:clamp(40px,6vw,72px) 0 0;max-width:62ch;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--muted)}
+.dl-sun b{font-weight:500;color:var(--ink)}
+.dl-services{padding-block:clamp(72px,10vw,150px) 0}
+.dl-services > p{margin:0 0 12px;font-size:15px;color:var(--muted)}
+.dl-h2{display:block;margin:0 0 clamp(56px,8vw,112px);font-size:clamp(2.3rem,6vw,5.4rem);line-height:.92;letter-spacing:-.055em;font-weight:820;max-width:11ch}
+.dl-svcs{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));row-gap:clamp(64px,9vw,136px);column-gap:24px}
+.dl-svc{display:grid;gap:14px;align-content:start}
+.dl-svc:nth-child(1){grid-column:4 / span 8}
+.dl-svc:nth-child(2){grid-column:1 / span 7}
+.dl-svc:nth-child(3){grid-column:6 / span 7}
+@media (max-width:820px){.dl-svc:nth-child(n){grid-column:1 / -1}}
+.dl-svc h3{margin:0;font-size:clamp(2.1rem,4.8vw,4.2rem);line-height:.95;letter-spacing:-.05em;font-weight:820}
+.dl-svc p{margin:0;max-width:44ch;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.55;color:var(--muted)}
+.dl-svc .dl-meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--ink)}
+.dl-svc a{font-weight:600;text-underline-offset:4px}
+.dl-new{display:inline-block;margin-left:12px;padding:3px 8px 4px;border:1.5px solid currentColor;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;vertical-align:.7em}
+.dl-end{padding-block:clamp(120px,15vw,220px) 170px}
+.dl-end p{margin:0}
+.dl-endline{font-size:clamp(1.6rem,3.4vw,2.8rem);line-height:1.08;letter-spacing:-.04em;font-weight:760;max-width:20ch}
+.dl-sunset{margin-top:16px!important;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.dl-contact{margin-top:28px!important;display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--mono);font-size:14px}
+.dl-clock{position:fixed;right:var(--gutter);top:calc(14px + env(safe-area-inset-top,0px));z-index:40;padding:6px 10px;background:rgba(215,224,220,.88);font-family:var(--mono);font-size:12px;color:var(--ink);font-variant-numeric:tabular-nums;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s var(--ease);pointer-events:none}
+.dl-clock.on{opacity:1;transform:none}
+
+/* ── concept switcher (same as round 3) ── */
+.switcher{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:var(--device);box-shadow:0 18px 40px -16px rgba(16,35,31,.6);max-width:calc(100vw - 24px)}
+.switcher button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#cfe0da;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background-color .2s,color .2s}
+.switcher button b{font-family:var(--mono);font-weight:500;opacity:.7}
+.switcher button:hover{color:#fff}
+.switcher button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+.switcher .replay{padding:0;width:44px;justify-content:center}
+.switcher .replay svg{width:16px;height:16px}
+@media (max-width:620px){.switcher button[data-c] span{display:none}.switcher button[data-c][aria-pressed="true"] span{display:inline}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+</style>
+
+<!-- ═════════ A · Marmorert ═════════ -->
+<section class="concept mb" id="k-a" aria-label="Konsept A: Marmorert">
+  <header class="nav wrap">
+    <a class="logo" href="#" data-noop>IDweb</a>
+    <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+    <a class="nav-tel" href="#" data-noop>984 06 164</a>
+  </header>
+  <div class="mb-sheet" data-ink>
+    <canvas class="mb-canvas" aria-hidden="true"></canvas>
+    <div class="mb-label">
+      <div class="mb-label-top"><span>IDweb, Oslo</span><span class="mb-no">Ark nr. 00 000</span></div>
+      <h1 class="mb-h1">Hvert ark er unikt. <em>Hver nettside også.</em></h1>
+      <p class="mb-lead">Vi designer og koder nettsider fra bunnen av, for én bedrift om gangen. Du får fast pris og svar innen 24 timer.</p>
+      <div class="mb-actions">
+        <a class="mb-btn" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="mb-hint">Mønsteret lages på nytt for hver besøkende. Beveg musa gjennom fargen, eller klikk for en ny dråpe.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-services" id="mb-services">
+    <div class="mb-head wrap"><p>Tjenester</p><h2 class="mb-h2">Tre tjenester, samme håndverk.</h2></div>
+    <div class="mb-bands">
+      <article class="mb-band" data-ink data-recipe="stein">
+        <canvas class="mb-canvas" aria-hidden="true"></canvas>
+        <span class="mb-pattern" aria-hidden="true">Steinmarmor</span>
+        <div class="mb-label">
+          <span class="mb-when">Bygges én gang · ca. 2 uker</span>
+          <h3>Skreddersydd nettside</h3>
+          <p>Designet og kodet fra bunnen av for bedriften din. Rask på mobil og bygget for å bli funnet på Google.</p>
+          <a href="#" data-noop>Les om nettsider</a>
+        </div>
+      </article>
+      <article class="mb-band" data-ink data-recipe="kam">
+        <canvas class="mb-canvas" aria-hidden="true"></canvas>
+        <span class="mb-pattern" aria-hidden="true">Kammarmor</span>
+        <div class="mb-label">
+          <span class="mb-when">Hver måned · ingen bindingstid</span>
+          <h3>Drift og SEO</h3>
+          <p>Hosting, backup og oppdateringer, pluss løpende arbeid med synlighet på Google. Fast pris per måned.</p>
+          <a href="#" data-noop>Les om drift og SEO</a>
+        </div>
+      </article>
+      <article class="mb-band" data-ink data-recipe="bolge">
+        <canvas class="mb-canvas" aria-hidden="true"></canvas>
+        <span class="mb-pattern" aria-hidden="true">Bølgemarmor</span>
+        <div class="mb-label">
+          <span class="mb-when">Etter behov</span>
+          <h3>IDweb-portalen <span class="mb-new">NY</span></h3>
+          <p>AI-chat, booking og omtaler samlet i én innlogging. Du velger bare modulene du trenger.</p>
+          <a href="#" data-noop>Les om portalen</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ B · Korrektur ═════════ -->
+<section class="concept kr" id="k-b" hidden aria-label="Konsept B: Korrektur">
+  <header class="nav wrap">
+    <a class="logo" href="#" data-noop>IDweb</a>
+    <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+    <a class="nav-tel" href="#" data-noop>984 06 164</a>
+  </header>
+  <div class="kr-hero wrap" style="position:relative">
+    <p class="kr-skip" aria-hidden="true">Klikk for å hoppe over</p>
+    <div class="kr-grid">
+      <div class="kr-text">
+        <div class="kr-stack">
+          <p class="kr-draft" aria-hidden="true"><span class="seg" data-e="0">Vi</span> <span class="seg" data-e="1">er et innovativt og fremtidsrettet digitalbyrå som skaper</span> <span class="seg" data-e="2">skreddersydde, brukervennlige og konverteringsoptimaliserte digitale opplevelser</span> <span class="seg" data-e="3">som løfter merkevaren din til nye høyder</span><span class="seg-dot">.</span></p>
+          <h1 class="kr-h1"><span class="sr-only">Jeg lager nettsider.</span><span class="vis" aria-hidden="true"><span class="w">Jeg</span> <span class="w">lager</span> <span class="w">nettsider</span><span class="w">.</span></span></h1>
+        </div>
+        <div class="kr-after">
+          <p class="kr-lead">Designet og kodet fra bunnen av, til fast pris. En enkel nettside tar ca. to uker, og du snakker med meg hele veien.</p>
+          <div class="kr-actions">
+            <a class="kr-btn" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <span class="kr-tel">eller ring 984 06 164</span>
+          </div>
+        </div>
+      </div>
+      <div class="kr-margin" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="kr-services wrap">
+    <p>Tjenester</p>
+    <h2 class="kr-h2">Det jeg gjør, uten pynt.</h2>
+    <div class="kr-rows">
+      <article class="kr-row" data-note="Fast pris.">
+        <div class="kr-row-main">
+          <h3>Skreddersydd nettside</h3>
+          <div>
+            <p class="kr-fill" aria-hidden="true">Helhetlige, skalerbare og fremtidsrettede digitale flater som engasjerer og konverterer.</p>
+            <p class="kr-plain">Designet og kodet fra bunnen av for bedriften din. En enkel nettside tar ca. to uker.</p>
+            <a href="#" data-noop>Les om nettsider</a>
+          </div>
+        </div>
+        <div class="kr-margin" aria-hidden="true"></div>
+      </article>
+      <article class="kr-row" data-note="Ingen bindingstid.">
+        <div class="kr-row-main">
+          <h3>Drift og SEO</h3>
+          <div>
+            <p class="kr-fill" aria-hidden="true">Proaktiv og datadrevet optimalisering av den digitale tilstedeværelsen din.</p>
+            <p class="kr-plain">Hosting, backup og oppdateringer, pluss løpende arbeid med synlighet på Google.</p>
+            <a href="#" data-noop>Les om drift og SEO</a>
+          </div>
+        </div>
+        <div class="kr-margin" aria-hidden="true"></div>
+      </article>
+      <article class="kr-row" data-note="Helt ny.">
+        <div class="kr-row-main">
+          <h3>IDweb-portalen <span class="kr-new">NY</span></h3>
+          <div>
+            <p class="kr-fill" aria-hidden="true">En revolusjonerende AI-plattform som transformerer hele kundereisen.</p>
+            <p class="kr-plain">AI-chat, booking og omtaler i én innlogging. Du velger bare modulene du trenger.</p>
+            <a href="#" data-noop>Les om portalen</a>
+          </div>
+        </div>
+        <div class="kr-margin" aria-hidden="true"></div>
+      </article>
+    </div>
+  </div>
+  <svg class="kr-ink" aria-hidden="true"></svg>
+  <div class="kr-pen" aria-hidden="true"><div class="rot">
+    <svg viewBox="0 -12 236 24">
+      <defs>
+        <linearGradient id="kr-barrel" x1="0" y1="-9" x2="0" y2="9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3b7a69"/><stop offset=".38" stop-color="#1e5a4c"/><stop offset="1" stop-color="#0c241e"/></linearGradient>
+        <linearGradient id="kr-steel" x1="0" y1="-5" x2="0" y2="5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f2f6f4"/><stop offset=".5" stop-color="#b8c6c1"/><stop offset="1" stop-color="#7d8f89"/></linearGradient>
+        <linearGradient id="kr-grip" x1="0" y1="-6" x2="0" y2="6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2a3f3a"/><stop offset="1" stop-color="#0a1714"/></linearGradient>
+      </defs>
+      <path d="M0 0 L22 -4.6 Q24 0 22 4.6 Z" fill="url(#kr-steel)"/>
+      <path d="M2.5 0 L15 0" stroke="#55665f" stroke-width=".7"/>
+      <circle cx="15.5" cy="0" r=".9" fill="#55665f"/>
+      <rect x="21" y="-5.6" width="30" height="11.2" rx="2.4" fill="url(#kr-grip)"/>
+      <rect x="49" y="-8.2" width="168" height="16.4" rx="8.2" fill="url(#kr-barrel)"/>
+      <rect x="128" y="-8.3" width="2.6" height="16.6" fill="#a8e0c8"/>
+      <rect x="140" y="-11" width="66" height="3.4" rx="1.7" fill="#d4ddd9"/>
+      <rect x="49" y="-6.6" width="168" height="2.2" rx="1.1" fill="#ffffff" opacity=".16"/>
+    </svg>
+  </div></div>
+</section>
+
+<!-- ═════════ C · Dagslys ═════════ -->
+<section class="concept dl" id="k-c" hidden aria-label="Konsept C: Dagslys">
+  <div class="dl-glow" aria-hidden="true"><div class="dl-patch"></div></div>
+  <div class="dl-lightwrap" aria-hidden="true">
+    <div class="dl-patch"><canvas class="dl-leaves"></canvas><div class="dl-cast"></div></div>
+  </div>
+  <div class="dl-tex" aria-hidden="true"></div>
+  <div class="dl-dusk" aria-hidden="true"></div>
+  <div class="dl-content">
+    <header class="nav wrap">
+      <a class="logo m" style="--d:.45" href="#" data-noop>IDweb</a>
+      <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+      <a class="nav-tel" href="#" data-noop>984 06 164</a>
+    </header>
+    <div class="dl-hero wrap">
+      <h1 class="dl-h1"><span class="m lw" style="--d:1.35">Nettsider</span> <span class="m lw" style="--d:1.35">som</span> <span class="m lw" style="--d:1.35">tåler</span> <span class="m lw" style="--d:1.35">dagslys.</span></h1>
+      <div class="dl-row">
+        <p class="dl-lead">Designet og kodet fra bunnen av, til fast pris. Du snakker direkte med den som skriver koden, og får svar innen 24 timer.</p>
+        <a class="dl-btn m" style="--d:.55" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <p class="dl-sun">Oslo. Sola står over horisonten, og skyggene på siden følger den.</p>
+    </div>
+    <div class="dl-services wrap">
+      <p>Tjenester</p>
+      <h2 class="dl-h2"><span class="m" style="--d:.8;display:inline-block">Tre ting, gjort ordentlig.</span></h2>
+      <div class="dl-svcs">
+        <article class="dl-svc">
+          <span class="dl-meta">Bygges én gang · ca. 2 uker</span>
+          <h3><span class="m" style="--d:.85;display:inline-block">Skreddersydd nettside</span></h3>
+          <p>Designet og kodet fra bunnen av for bedriften din. Rask på mobil og bygget for å bli funnet på Google.</p>
+          <a href="#" data-noop>Les om nettsider</a>
+        </article>
+        <article class="dl-svc">
+          <span class="dl-meta">Hver måned · ingen bindingstid</span>
+          <h3><span class="m" style="--d:.85;display:inline-block">Drift og SEO</span></h3>
+          <p>Hosting, backup og oppdateringer, pluss løpende arbeid med synlighet på Google. Fast pris per måned.</p>
+          <a href="#" data-noop>Les om drift og SEO</a>
+        </article>
+        <article class="dl-svc">
+          <span class="dl-meta">Etter behov</span>
+          <h3><span class="m" style="--d:.85;display:inline-block">IDweb-portalen</span><span class="dl-new m" style="--d:.5">NY</span></h3>
+          <p>AI-chat, booking og omtaler samlet i én innlogging. Du velger bare modulene du trenger.</p>
+          <a href="#" data-noop>Les om portalen</a>
+        </article>
+      </div>
+    </div>
+    <div class="dl-end wrap">
+      <p class="dl-endline">Du får svar innen 24 timer, også etter at sola har gått ned.</p>
+      <p class="dl-sunset">Sola går ned i Oslo i kveld.</p>
+      <p class="dl-contact"><span>hei@idweb.no</span><span>984 06 164</span></p>
+    </div>
+  </div>
+  <div class="dl-clock" aria-hidden="true"></div>
+</section>
+
+<div class="switcher" role="group" aria-label="Velg konsept">
+  <button type="button" data-c="a" aria-pressed="true"><b>A</b><span>Marmorert</span></button>
+  <button type="button" data-c="b" aria-pressed="false"><b>B</b><span>Korrektur</span></button>
+  <button type="button" data-c="c" aria-pressed="false"><b>C</b><span>Dagslys</span></button>
+  <button type="button" class="replay" aria-label="Spill av på nytt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+</div>
+
+<script>
+(() => {
+"use strict";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = matchMedia("(pointer: fine)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+function abortError() { return new DOMException("aborted", "AbortError"); }
+function sleep(ms, signal) {
+  return new Promise((res, rej) => {
+    if (signal?.aborted) return rej(abortError());
+    const t = setTimeout(res, ms);
+    signal?.addEventListener("abort", () => { clearTimeout(t); rej(abortError()); }, { once: true });
+  });
+}
+function tween(ms, fn, signal, ease = (t) => t) {
+  return new Promise((res, rej) => {
+    const t0 = performance.now();
+    const f = (now) => {
+      if (signal?.aborted) return rej(abortError());
+      const t = ms <= 0 ? 1 : Math.min(1, (now - t0) / ms);
+      fn(ease(t), t);
+      if (t < 1) requestAnimationFrame(f); else res();
+    };
+    if (ms <= 0) { fn(1, 1); res(); } else requestAnimationFrame(f);
+  });
+}
+function mulberry32(a) {
+  return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const OSLO = "Europe/Oslo";
+const fmtClock = new Intl.DateTimeFormat("nb-NO", { hour: "2-digit", minute: "2-digit", timeZone: OSLO });
+const fmtDay = new Intl.DateTimeFormat("nb-NO", { weekday: "long", day: "numeric", month: "long", timeZone: OSLO });
+const fmtDate = new Intl.DateTimeFormat("nb-NO", { day: "numeric", month: "short", timeZone: OSLO });
+const fmtYmd = new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "2-digit", day: "2-digit", timeZone: OSLO });
+const clock = (d) => fmtClock.format(d).replace(".", ":");
+document.querySelectorAll("[data-noop]").forEach((a) => a.addEventListener("click", (e) => e.preventDefault()));
+
+/* ═════════ A · Marmorert — mathematical paper marbling, live ═════════
+   Ink is a stack of polygons. A drop pushes all older ink outwards (area-preserving, after Jaffer & Lu);
+   a comb drags ink along parallel tines; the cursor is a stylus. Every sheet is seeded, so «Ark nr.» is its real recipe. */
+const INK = { pine: "#13302a", deep: "#0b1f1a", accent: "#1e5a4c", sea: "#4d8c7a", mint: "#a8e0c8", sage: "#eaf1ee", white: "#ffffff", bone: "#f3f1e8" };
+
+class Marble {
+  constructor(canvas, bath) {
+    this.cv = canvas; this.ctx = canvas.getContext("2d");
+    this.bath = bath; this.polys = []; this.anims = [];
+    this.w = 0; this.h = 0; this.dpr = 1; this.touched = false; this.dirty = true;
+  }
+  size() {
+    const w = Math.max(1, Math.round(this.cv.clientWidth)), h = Math.max(1, Math.round(this.cv.clientHeight));
+    const dpr = Math.min(1, devicePixelRatio || 1) * (w * h > 6e5 ? 0.6 : 0.8);
+    if (w === this.w && h === this.h && dpr === this.dpr) return false;
+    if (this.w) {
+      const dx = (w - this.w) / 2, dy = (h - this.h) / 2;
+      for (const p of this.polys) { const a = p.pts; for (let i = 0; i < a.length; i += 2) { a[i] += dx; a[i + 1] += dy; } }
+      for (const an of this.anims) { if (an.cx != null) { an.cx += dx; an.cy += dy; } }
+    }
+    this.w = w; this.h = h; this.dpr = dpr;
+    this.cv.width = Math.round(w * dpr); this.cv.height = Math.round(h * dpr);
+    this.dirty = true;
+    return true;
+  }
+  reset() { this.polys = []; this.anims = []; this.dirty = true; }
+  static circle(cx, cy, r, n) {
+    const pts = new Array(n * 2);
+    for (let i = 0; i < n; i++) { const a = (i / n) * Math.PI * 2; pts[2 * i] = cx + Math.cos(a) * r; pts[2 * i + 1] = cy + Math.sin(a) * r; }
+    return pts;
+  }
+  pushOut(cx, cy, r2) {
+    for (const p of this.polys) {
+      const a = p.pts;
+      for (let i = 0; i < a.length; i += 2) {
+        const dx = a[i] - cx, dy = a[i + 1] - cy, d2 = dx * dx + dy * dy;
+        if (d2 < 1e-9) continue;
+        const f = Math.sqrt(1 + r2 / d2);
+        a[i] = cx + dx * f; a[i + 1] = cy + dy * f;
+      }
+    }
+    this.touched = true;
+  }
+  drop(cx, cy, r, color, ms = 0) {
+    const n = Math.round(clamp(r * 2.2, 48, 640));
+    if (!ms || reduce) { this.pushOut(cx, cy, r * r); this.polys.push({ color, pts: Marble.circle(cx, cy, r, n) }); this.touched = true; return; }
+    this.polys.push({ color, pts: Marble.circle(cx, cy, 0.5, n) });
+    this.anims.push({ kind: "drop", cx, cy, total: r * r, done: 0, ms, t: 0 });
+  }
+  // Tines are parallel lines `gap` apart; ink moves along `axis` by z, falling off with distance (sharpness c).
+  combShift(o, z) {
+    if (!z) return;
+    const k = Math.LN2 / o.c, reach = Math.ceil((o.c * 7) / o.gap) + 1, off = o.off || 0;
+    const along = o.axis === "y" ? 1 : 0, across = 1 - along;
+    for (const p of this.polys) {
+      const a = p.pts;
+      for (let i = 0; i < a.length; i += 2) {
+        let q = a[i + across];
+        if (o.wave) q -= o.wave.amp * Math.sin((a[i + along] / o.wave.len) * Math.PI * 2);
+        const j0 = Math.round((q - off) / o.gap);
+        let s = 0;
+        for (let j = j0 - reach; j <= j0 + reach; j++) {
+          const d = Math.abs(q - (off + j * o.gap));
+          const wgt = Math.exp(-d * k);
+          s += o.alt && j & 1 ? -wgt : wgt;
+        }
+        a[i + along] += z * s;
+      }
+    }
+    this.touched = true;
+  }
+  comb(o, z, ms) {
+    if (!ms || reduce) { this.combShift(o, z); return; }
+    this.anims.push({ kind: "comb", o, total: z, done: 0, ms, t: 0 });
+  }
+  // A stylus dragged from a to b carries nearby ink with it.
+  drag(ax, ay, bx, by, strength, c) {
+    const vx = bx - ax, vy = by - ay, L2 = vx * vx + vy * vy;
+    if (L2 < 0.01) return;
+    const k = Math.LN2 / c, reach = c * 7;
+    const minX = Math.min(ax, bx) - reach, maxX = Math.max(ax, bx) + reach, minY = Math.min(ay, by) - reach, maxY = Math.max(ay, by) + reach;
+    for (const p of this.polys) {
+      const a = p.pts;
+      for (let i = 0; i < a.length; i += 2) {
+        const x = a[i], y = a[i + 1];
+        if (x < minX || x > maxX || y < minY || y > maxY) continue;
+        const t = clamp(((x - ax) * vx + (y - ay) * vy) / L2, 0, 1);
+        const dx = x - (ax + t * vx), dy = y - (ay + t * vy);
+        const f = strength * Math.exp(-Math.sqrt(dx * dx + dy * dy) * k);
+        a[i] = x + vx * f; a[i + 1] = y + vy * f;
+      }
+    }
+    this.touched = true;
+  }
+  // Keep outlines smooth where ink has been stretched; thin out ink pushed far off the sheet.
+  refine() {
+    const maxE = 4, maxE2 = maxE * maxE, W = this.w, H = this.h, pad = 90;
+    for (const p of this.polys) {
+      const a = p.pts, n = a.length, out = [];
+      let lx = Infinity, ly = Infinity;
+      for (let i = 0; i < n; i += 2) {
+        const x0 = a[i], y0 = a[i + 1];
+        const off0 = x0 < -pad || x0 > W + pad || y0 < -pad || y0 > H + pad;
+        if (off0 && out.length && Math.abs(x0 - lx) + Math.abs(y0 - ly) < 26) continue;
+        out.push(x0, y0); lx = x0; ly = y0;
+        const j = (i + 2) % n, x1 = a[j], y1 = a[j + 1];
+        const dx = x1 - x0, dy = y1 - y0, l2 = dx * dx + dy * dy;
+        if (l2 > maxE2) {
+          const off1 = x1 < -pad || x1 > W + pad || y1 < -pad || y1 > H + pad;
+          if (off0 && off1) continue;
+          const m = Math.min(96, Math.ceil(Math.sqrt(l2) / maxE));
+          for (let s = 1; s < m; s++) out.push(x0 + (dx * s) / m, y0 + (dy * s) / m);
+          lx = out[out.length - 2]; ly = out[out.length - 1];
+        }
+      }
+      p.pts = out;
+    }
+  }
+  step(dt) {
+    for (const an of this.anims) {
+      an.t += dt;
+      const target = an.total * easeOut(Math.min(1, an.t / an.ms));
+      const inc = target - an.done;
+      an.done = target;
+      if (an.kind === "drop") this.pushOut(an.cx, an.cy, inc);
+      else this.combShift(an.o, inc);
+    }
+    this.anims = this.anims.filter((an) => an.t < an.ms);
+    if (this.touched) { this.refine(); this.touched = false; this.dirty = true; }
+    if (this.dirty) this.render();
+  }
+  finish() { // fast-forward every running animation
+    for (const an of this.anims) { const inc = an.total - an.done; if (an.kind === "drop") this.pushOut(an.cx, an.cy, inc); else this.combShift(an.o, inc); }
+    this.anims = []; this.refine(); this.touched = false; this.render();
+  }
+  render() {
+    const { ctx, dpr } = this;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = this.bath; ctx.fillRect(0, 0, this.w, this.h);
+    for (const p of this.polys) {
+      const a = p.pts;
+      ctx.beginPath(); ctx.moveTo(a[0], a[1]);
+      for (let i = 2; i < a.length; i += 2) ctx.lineTo(a[i], a[i + 1]);
+      ctx.closePath(); ctx.fillStyle = p.color; ctx.fill();
+    }
+    this.dirty = false;
+  }
+}
+
+/* GPU renderer for the same marbling. Every operation is invertible, so each pixel is traced backwards
+   through the list of drops, combs and stylus strokes until it lands inside a drop (or on the base layer).
+   One pass per frame, however much ink is on the sheet. Long histories are baked into a texture. */
+const PAL = [INK.pine, INK.deep, INK.accent, INK.sea, INK.mint, INK.sage, INK.white, INK.bone];
+const PAL_I = Object.fromEntries(PAL.map((c, i) => [c, i]));
+const hexRgb = (h) => { const n = parseInt(h.slice(1), 16); return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255]; };
+const MAX_OPS = 360, BAKE_AT = 140;
+const MARBLE_VS = `#version 300 es
+void main(){ gl_Position = vec4(gl_VertexID == 1 ? 3.0 : -1.0, gl_VertexID == 2 ? 3.0 : -1.0, 0.0, 1.0); }`;
+const MARBLE_FS = `#version 300 es
+precision highp float; precision highp int;
+uniform highp sampler2D uOps; uniform sampler2D uBase;
+uniform int uN, uHasBase; uniform vec2 uSize, uBaseOff, uBaseSize; uniform float uDpr;
+uniform vec3 uPal[8], uBath;
+out vec4 outColor;
+vec3 trace(vec2 p){
+  for (int i = uN - 1; i >= 0; i--) {
+    vec4 a = texelFetch(uOps, ivec2(i * 3, 0), 0);
+    vec4 b = texelFetch(uOps, ivec2(i * 3 + 1, 0), 0);
+    int t = int(a.x + .5);
+    if (t == 0) {
+      vec2 d = p - a.yz; float d2 = dot(d, d), r2 = a.w * a.w;
+      if (d2 <= r2) return uPal[int(b.x + .5)];
+      p = a.yz + d * sqrt(1. - r2 / d2);
+    } else if (t == 1) {
+      float wl = texelFetch(uOps, ivec2(i * 3 + 2, 0), 0).x;
+      bool ay = a.y > .5; float gap = a.z, k = .6931472 / a.w, z = b.x, off = b.y;
+      int R = int(ceil(a.w * 7. / gap)) + 1;
+      float acr0 = ay ? p.x : p.y, al = ay ? p.y : p.x, al0 = al;
+      for (int it = 0; it < 3; it++) {
+        float acr = acr0;
+        if (b.w != 0.) acr -= b.w * sin(al0 / wl * 6.2831853);
+        float j0 = floor((acr - off) / gap + .5), s = 0.;
+        for (int j = -R; j <= R; j++) {
+          float jj = j0 + float(j);
+          float w = exp(-abs(acr - (off + jj * gap)) * k);
+          s += (b.z > .5 && mod(jj, 2.) > .5) ? -w : w;
+        }
+        al0 = al - z * s;
+        if (b.w == 0.) break;
+      }
+      p = ay ? vec2(p.x, al0) : vec2(al0, p.y);
+    } else {
+      vec2 A = a.yz, v = vec2(a.w, b.x) - A; float L2 = max(dot(v, v), 1e-4), k = .6931472 / b.z;
+      vec2 q = p;
+      for (int it = 0; it < 3; it++) { float tt = clamp(dot(q - A, v) / L2, 0., 1.); q = p - v * b.y * exp(-length(q - A - tt * v) * k); }
+      p = q;
+    }
+  }
+  if (uHasBase == 1) return texture(uBase, vec2((p.x - uBaseOff.x) / uBaseSize.x, 1. - (p.y - uBaseOff.y) / uBaseSize.y)).rgb;
+  return uBath;
+}
+void main(){ vec2 f = gl_FragCoord.xy / uDpr; outColor = vec4(trace(vec2(f.x, uSize.y - f.y)), 1.); }`;
+
+class MarbleGL {
+  constructor(canvas, bath) {
+    const gl = canvas.getContext("webgl2", { antialias: false, alpha: false, depth: false, stencil: false, preserveDrawingBuffer: false });
+    if (!gl) throw new Error("webgl2 unavailable");
+    this.cv = canvas; this.gl = gl; this.bath = hexRgb(bath);
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const pr = gl.createProgram();
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, MARBLE_VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, MARBLE_FS)); gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(pr));
+    this.prog = pr; this.u = {};
+    for (const n of ["uOps", "uBase", "uN", "uHasBase", "uSize", "uBaseOff", "uBaseSize", "uDpr", "uPal", "uBath"]) this.u[n] = gl.getUniformLocation(pr, n);
+    this.vao = gl.createVertexArray();
+    const tex = (filter) => { const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE); return t; };
+    this.opsTex = tex(gl.NEAREST);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, MAX_OPS * 3, 1, 0, gl.RGBA, gl.FLOAT, null);
+    this.fbTex = [tex(gl.LINEAR), tex(gl.LINEAR)]; this.fbo = [gl.createFramebuffer(), gl.createFramebuffer()];
+    this.fbTex.forEach((t) => { gl.bindTexture(gl.TEXTURE_2D, t); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null); });
+    this.pal = new Float32Array(PAL.flatMap(hexRgb));
+    this.ops = new Float32Array(MAX_OPS * 12); this.keys = [];
+    this.n = 0; this.anims = []; this.cur = 0; this.hasBase = false; this.baseOff = [0, 0]; this.baseSize = [1, 1];
+    this.w = 0; this.h = 0; this.dpr = 1; this.dirty = true; this.opsDirty = true;
+  }
+  restDpr() { return Math.min(1.5, devicePixelRatio || 1); }
+  backing(dpr) {
+    if (dpr === this.dpr && this.cv.width === Math.round(this.w * dpr)) return;
+    this.dpr = dpr; this.cv.width = Math.round(this.w * dpr); this.cv.height = Math.round(this.h * dpr); this.dirty = true;
+  }
+  size() {
+    const w = Math.max(1, Math.round(this.cv.clientWidth)), h = Math.max(1, Math.round(this.cv.clientHeight));
+    if (w === this.w && h === this.h) return false;
+    if (this.w) {
+      const dx = (w - this.w) / 2, dy = (h - this.h) / 2, o = this.ops;
+      for (let i = 0; i < this.n; i++) {
+        const k = i * 12, t = o[k];
+        if (t === 0) { o[k + 1] += dx; o[k + 2] += dy; }
+        else if (t === 1) o[k + 5] += o[k + 1] ? dx : dy;
+        else { o[k + 1] += dx; o[k + 2] += dy; o[k + 3] += dx; o[k + 4] += dy; }
+      }
+      this.baseOff[0] += dx; this.baseOff[1] += dy; this.opsDirty = true;
+    }
+    this.w = w; this.h = h; this.dpr = 0;
+    this.backing(this.anims.length ? 1 : this.restDpr());
+    return true;
+  }
+  reset() { this.n = 0; this.keys = []; this.anims = []; this.hasBase = false; this.baseOff = [0, 0]; this.dirty = this.opsDirty = true; }
+  push(t, a1, a2, a3, b0, b1, b2, b3, c0 = 0) {
+    if (this.n >= MAX_OPS) { this.finish(); this.bake(); }
+    const i = this.n++, k = i * 12, o = this.ops;
+    o[k] = t; o[k + 1] = a1; o[k + 2] = a2; o[k + 3] = a3; o[k + 4] = b0; o[k + 5] = b1; o[k + 6] = b2; o[k + 7] = b3; o[k + 8] = c0;
+    this.keys[i] = null; this.dirty = this.opsDirty = true;
+    return i;
+  }
+  drop(cx, cy, r, color, ms = 0) {
+    const ci = PAL_I[color] ?? 6;
+    if (!ms || reduce) { this.push(0, cx, cy, r, ci, 0, 0, 0); return; }
+    this.anims.push({ i: this.push(0, cx, cy, 0.01, ci, 0, 0, 0), kind: "drop", total: r, ms, t: 0 });
+  }
+  combArgs(o, z) { return [1, o.axis === "y" ? 1 : 0, o.gap, o.c, z, o.off || 0, o.alt ? 1 : 0, o.wave ? o.wave.amp : 0, o.wave ? o.wave.len : 1]; }
+  comb(o, z, ms) {
+    if (!ms || reduce) { this.push(...this.combArgs(o, z)); return; }
+    this.anims.push({ i: this.push(...this.combArgs(o, 0)), kind: "comb", total: z, ms, t: 0 });
+  }
+  combShift(o, z) {
+    if (!z) return;
+    const key = `${o.axis}|${o.gap}|${o.c}|${o.off}|${o.alt ? 1 : 0}`, last = this.n - 1;
+    if (last >= 0 && this.keys[last] === key && !this.anims.some((a) => a.i === last)) { this.ops[last * 12 + 4] += z; this.dirty = this.opsDirty = true; return; }
+    this.keys[this.push(...this.combArgs(o, z))] = key;
+  }
+  drag(ax, ay, bx, by, strength, c) { this.push(2, ax, ay, bx, by, strength, c, 0); }
+  step(dt) {
+    for (const an of this.anims) {
+      an.t += dt;
+      const k = easeOut(Math.min(1, an.t / an.ms));
+      if (an.kind === "drop") this.ops[an.i * 12 + 3] = Math.max(0.01, an.total * Math.sqrt(k));
+      else this.ops[an.i * 12 + 4] = an.total * k;
+      this.dirty = this.opsDirty = true;
+    }
+    this.anims = this.anims.filter((an) => an.t < an.ms);
+    // Animate at 1× resolution, settle at full resolution.
+    this.backing(this.anims.length ? 1 : this.restDpr());
+    if (!this.anims.length && this.n > BAKE_AT) this.bake();
+    if (this.dirty) this.render(null);
+  }
+  finish() {
+    for (const an of this.anims) { if (an.kind === "drop") this.ops[an.i * 12 + 3] = an.total; else this.ops[an.i * 12 + 4] = an.total; }
+    this.anims = []; this.dirty = this.opsDirty = true;
+    this.backing(this.restDpr()); this.render(null);
+  }
+  bake() {
+    const gl = this.gl, next = 1 - this.cur;
+    gl.bindTexture(gl.TEXTURE_2D, this.fbTex[next]);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, this.cv.width, this.cv.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.fbo[next]);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, this.fbTex[next], 0);
+    this.render(this.fbo[next]);
+    this.cur = next; this.hasBase = true; this.baseOff = [0, 0]; this.baseSize = [this.w, this.h];
+    this.n = 0; this.keys = []; this.dirty = this.opsDirty = true;
+  }
+  render(target) {
+    const gl = this.gl, u = this.u;
+    if (this.opsDirty) {
+      gl.bindTexture(gl.TEXTURE_2D, this.opsTex);
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, Math.max(1, this.n) * 3, 1, gl.RGBA, gl.FLOAT, this.ops, 0);
+      this.opsDirty = false;
+    }
+    gl.bindFramebuffer(gl.FRAMEBUFFER, target);
+    gl.viewport(0, 0, this.cv.width, this.cv.height);
+    gl.useProgram(this.prog); gl.bindVertexArray(this.vao);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, this.opsTex); gl.uniform1i(u.uOps, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, this.fbTex[this.cur]); gl.uniform1i(u.uBase, 1);
+    gl.uniform1i(u.uN, this.n); gl.uniform1i(u.uHasBase, this.hasBase ? 1 : 0);
+    gl.uniform2f(u.uSize, this.w, this.h); gl.uniform2f(u.uBaseOff, this.baseOff[0], this.baseOff[1]); gl.uniform2f(u.uBaseSize, this.baseSize[0], this.baseSize[1]);
+    gl.uniform1f(u.uDpr, this.cv.width / this.w);
+    gl.uniform3fv(u.uPal, this.pal); gl.uniform3f(u.uBath, ...this.bath);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if (!target) this.dirty = false;
+  }
+}
+const makeMarble = (canvas) => { try { return new MarbleGL(canvas, INK.sage); } catch (e) { console.warn("Marmorert: falling back to 2D canvas", e); return new Marble(canvas, INK.sage); } };
+
+/* Recipes: the order of drops and combs a marbler would use for each classic pattern.
+   Radii scale with the sheet's area, so the ink always covers the whole bath. */
+function recipe(kind, m, rnd) {
+  const W = m.w, H = m.h, S = Math.sqrt(W * H), acts = [];
+  const pick = (arr) => arr[Math.floor(rnd() * arr.length)];
+  let at = 120;
+  const drops = (count, fMin, fMax, colors, gap, ms) => {
+    let last = null;
+    for (let i = 0; i < count; i++) {
+      let c = pick(colors); if (c === last) c = pick(colors); last = c;
+      const x = W * (-0.04 + 1.08 * rnd()), y = H * (-0.04 + 1.08 * rnd());
+      const r = S * (fMin + (fMax - fMin) * rnd());
+      acts.push({ at, fn: () => m.drop(x, y, r, c, ms) });
+      at += gap;
+    }
+  };
+  const comb = (o, z, ms, wait) => { acts.push({ at, fn: () => m.comb(o, z, ms) }); at += wait; };
+  // Concentric «targets» on a jittered grid, laid down ring by ring, then raked.
+  const targets = (spacing, rings, rFrac, seqs, waveGap, ms) => {
+    const cols = Math.ceil(W / spacing) + 2, rows = Math.ceil(H / spacing) + 2, cs = [];
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) cs.push([(i - 0.5 + (j % 2) * 0.5 + (rnd() - 0.5) * 0.5) * spacing, (j - 0.5 + (rnd() - 0.5) * 0.5) * spacing, seqs[Math.floor(rnd() * seqs.length)]]);
+    for (let k = 0; k < rings; k++) {
+      const order = cs.map((c, i) => [rnd(), i]).sort((p, q) => p[0] - q[0]);
+      order.forEach(([, i], n) => { const [x, y, seq] = cs[i]; const c = seq[k % seq.length]; acts.push({ at: at + n * 9, fn: () => m.drop(x, y, spacing * rFrac, c, ms) }); });
+      at += waveGap;
+    }
+    at += cs.length * 9;
+  };
+  if (kind === "hero") {
+    targets(Math.max(150, S * 0.24), 5, 0.29, [
+      [INK.pine, INK.mint, INK.white, INK.accent, INK.bone],
+      [INK.accent, INK.white, INK.pine, INK.mint, INK.white],
+      [INK.deep, INK.bone, INK.sea, INK.white, INK.mint],
+    ], 300, 900);
+    at += 350;
+    comb({ axis: "x", gap: Math.max(60, S * 0.11), c: 24, alt: true, off: 40 * rnd() }, Math.max(40, S * 0.07), 1300, 1150);
+    comb({ axis: "y", gap: 58, c: 17, wave: { amp: 16, len: 210 }, off: 58 * rnd() }, 58, 1200, 0);
+  } else if (kind === "stein") {
+    drops(7, 0.2, 0.3, [INK.deep, INK.pine, INK.accent, INK.sea], 110, 1000);
+    drops(36, 0.05, 0.095, [INK.mint, INK.white, INK.sea, INK.bone, INK.accent, INK.pine], 34, 750);
+    drops(70, 0.012, 0.03, [INK.white, INK.bone, INK.mint, INK.white, INK.deep], 14, 480);
+  } else if (kind === "kam") {
+    targets(Math.max(130, S * 0.2), 4, 0.31, [
+      [INK.pine, INK.white, INK.mint, INK.bone],
+      [INK.accent, INK.bone, INK.white, INK.mint],
+    ], 280, 850);
+    at += 300;
+    comb({ axis: "y", gap: 40, c: 12, alt: true, off: 40 * rnd() }, 46, 1000, 950);
+    comb({ axis: "x", gap: 13, c: 3.8, off: 13 * rnd() }, 9, 900, 0);
+  } else {
+    targets(Math.max(130, S * 0.2), 5, 0.272, [
+      [INK.deep, INK.mint, INK.white, INK.sea, INK.bone],
+      [INK.accent, INK.white, INK.mint, INK.pine, INK.white],
+    ], 280, 850);
+    at += 300;
+    comb({ axis: "y", gap: 48, c: 15, wave: { amp: 20, len: 190 }, off: 48 * rnd() }, 80, 1300, 0);
+  }
+  return acts;
+}
+
+const A = (() => {
+  const root = $("#k-a");
+  const sheets = $$("[data-ink]", root).map((el, i) => ({
+    el, i, hero: i === 0, kind: el.dataset.recipe || "hero",
+    m: null, acts: [], t: 0, played: false, visible: false, queue: [], last: null, down: null,
+  }));
+  const PALETTE = [INK.mint, INK.white, INK.pine, INK.accent, INK.bone, INK.sea, INK.deep];
+  let running = false, raf = 0, lastT = 0, lastScroll = 0, seed = 1, colorI = 0;
+  const noEl = $(".mb-no", root);
+  const hint = $(".mb-hint", root);
+  if (!finePointer) hint.textContent = "Mønsteret lages på nytt for hver besøkende. Trykk for en ny dråpe, eller dra sidelengs for å kamme.";
+
+  function play(s) {
+    s.m.size(); s.m.reset();
+    s.acts = recipe(s.kind, s.m, mulberry32(seed + s.i * 7919));
+    s.t = 0; s.played = true;
+    if (reduce) { s.acts.forEach((a) => a.fn()); s.acts = []; s.m.finish(); }
+  }
+  function local(s, e) { const r = s.el.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+  sheets.forEach((s) => {
+    const onLabel = (e) => !!e.target.closest(".mb-label,.mb-pattern");
+    s.el.addEventListener("pointermove", (e) => {
+      if (!running || !s.m) return;
+      const p = local(s, e);
+      if (onLabel(e)) { s.last = null; return; }
+      if (s.last && (e.pointerType === "mouse" || s.down)) s.queue.push([s.last[0], s.last[1], p[0], p[1], s.down ? 1 : 0.6]);
+      s.last = p;
+      if (s.down) s.down.moved += 1;
+    });
+    s.el.addEventListener("pointerleave", () => { s.last = null; });
+    s.el.addEventListener("pointerdown", (e) => { if (onLabel(e)) return; s.down = { p: local(s, e), moved: 0 }; s.last = s.down.p; });
+    s.el.addEventListener("pointercancel", () => { s.down = null; s.last = null; });
+    s.el.addEventListener("pointerup", (e) => {
+      const d = s.down; s.down = null;
+      if (e.pointerType !== "mouse") s.last = null;
+      if (!d || !running || onLabel(e)) return;
+      const p = local(s, e);
+      if (Math.hypot(p[0] - d.p[0], p[1] - d.p[1]) < 8) {
+        const S = Math.max(s.m.w, s.m.h);
+        s.m.drop(p[0], p[1], S * (0.025 + Math.random() * 0.03), PALETTE[colorI++ % PALETTE.length], 650);
+      }
+    });
+  });
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    const s = sheets.find((x) => x.el === e.target);
+    if (!s) return;
+    s.visible = e.isIntersecting;
+    if (running && e.isIntersecting && e.intersectionRatio > 0.3 && !s.played) play(s);
+  }), { threshold: [0, 0.3, 0.6] });
+
+  function tick(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(tick);
+    const dt = Math.min(48, now - lastT); lastT = now;
+    const sy = scrollY, dScroll = sy - lastScroll; lastScroll = sy;
+    for (const s of sheets) {
+      if (!s.played || !s.visible) continue;
+      s.t += dt;
+      while (s.acts.length && s.acts[0].at <= s.t) s.acts.shift().fn();
+      // Scrolling drags a comb through the ink: down the page on the hero sheet, sideways on the service sheets.
+      if (dScroll && !reduce) {
+        if (s.hero) s.m.combShift({ axis: "y", gap: 120, c: 22, off: 40 }, dScroll * 0.3);
+        else s.m.combShift({ axis: "x", gap: 80, c: 16, alt: true, off: 20 }, dScroll * 0.12);
+      }
+      for (const [ax, ay, bx, by, k] of s.queue) {
+        const L = Math.hypot(bx - ax, by - ay), n = Math.max(1, Math.ceil(L / 10));
+        for (let i = 0; i < n; i++) s.m.drag(ax + ((bx - ax) * i) / n, ay + ((by - ay) * i) / n, ax + ((bx - ax) * (i + 1)) / n, ay + ((by - ay) * (i + 1)) / n, k, 13);
+      }
+      s.queue.length = 0;
+      s.m.step(dt);
+    }
+  }
+  addEventListener("resize", () => { if (running) sheets.forEach((s) => { if (s.m && s.played && s.m.size()) s.m.render(); }); });
+
+  return {
+    start() {
+      running = true;
+      seed = (Math.random() * 1e9) | 0;
+      const no = String(10000 + (seed % 90000)).padStart(5, "0");
+      const now = new Date();
+      noEl.textContent = `Ark nr. ${no.slice(0, 2)} ${no.slice(2)}, ${fmtDate.format(now)} kl. ${clock(now)}`;
+      sheets.forEach((s) => { s.m ??= makeMarble($("canvas", s.el)); s.played = false; s.queue.length = 0; s.m.size(); s.m.reset(); s.m.render(); io.unobserve(s.el); io.observe(s.el); });
+      lastT = performance.now(); lastScroll = scrollY;
+      raf = requestAnimationFrame(tick);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); },
+  };
+})();
+
+/* ═════════ B · Korrektur — a proofreader edits the filler out of the hero, by hand ═════════
+   Handwriting is EMS Allure (single-stroke derivative of Allura, SIL Open Font License), drawn stroke by stroke. */
+const GLYPHS = {"!":[359,[[444,665,403,592,295,362,232,214],[204,63,182,41]]],",":[211,[[104,57,123,22,101,-9,28,-117]]],".":[224,[[145,63,129,38]]],"?":[564,[[139,561,151,602,173,624,246,665,309,696,413,693,469,652,498,561,466,476,422,413,362,365,315,337,246,280,214,236,202,205],[129,57,107,32]]],"B":[860,[[95,328,22,369,3,419,25,510,117,583,328,680,548,712,696,709,781,677,819,627,816,561,788,520,737,479,598,435,529,425,469,416,428,410,542,324,633,246,668,158,652,72,605,13,532,-38,438,-44,375,-44,318,-25,290,32,277,82,208,32,161,0,148,25,186,148,324,406,372,510,419,561,479,573,517,570]]],"D":[1033,[[652,554,545,507,472,403,454,334,387,186,350,107,302,9,265,-44,236,-38,205,32,202,113,214,208,233,145,375,35,510,-9,728,25,863,113,976,220,1033,372,1021,532,951,627,828,680,608,706,413,671,261,614,154,548,95,460,85,384,126,321,189,293]]],"F":[624,[[517,576,435,551,369,479,331,384,277,296,217,170,164,76,158,25,176,0,224,9,252,47,268,66],[73,372,25,403,-6,476,44,589,145,652,346,690,513,674,630,658,709,658,791,655,828,677,813,680,740,605,718,554,721,507],[230,309,195,287,570,331]]],"H":[939,[[290,539,302,539,400,592,447,652,482,699,444,589],[444,589,324,255,211,57,110,-72,6,-126,-50,-126,-123,-94,-129,-72],[939,680,854,643,810,567,759,447,712,337,665,211,633,107,643,41,671,9,728,6,794,57,869,132,907,183],[41,198,32,293,82,353,236,372,315,359,441,343,614,306,759,290,832,306,850,321]]],"I":[548,[[501,693,410,413,334,224,280,126,220,50,167,28,98,19,9,25,-6,50,22,72,66,41,117,32,447,38],[233,450,176,523,202,602,277,665,394,684,523,677,598,674,665,649]]],"J":[687,[[643,715,614,687,567,586,501,400,428,202,328,41,258,-35,145,-94,54,-72,28,9,82,110,214,243,309,302,428,356,529,384,624,403],[268,438,217,476,211,567,265,633,397,674,523,684,636,668,684,646]]],"S":[706,[[693,580,721,621,721,668,665,709,520,690,350,636,268,558,265,485,362,438,517,391,617,337,658,277,652,224,617,170,523,98,372,35,167,-6,63,9,28,47,19,129,54,202,117,255,189,293,293,324]]],"T":[554,[[57,378,9,425,-3,501,38,592,113,646,198,677,287,690,466,687,639,665,806,662,860,674,825,690,743,580,734,539,728,485,743,463],[529,570,450,539,391,476,324,353,239,205,180,66,180,25,198,0,230,22,268,63]]],"V":[737,[[54,454,0,529,25,611,73,646,189,668,302,677,391,677,447,655,469,649],[331,718,337,586,299,482,258,410,211,290,164,167,142,82,145,-9,186,-38,277,-38,400,32,532,154,677,343,784,507,844,598,895,662,939,696,983,724,1002,724]]],"a":[526,[[495,183,457,132,406,79,331,32,271,19,243,63,255,142,296,274,277,243,176,145,69,57,-19,19,-63,66,-57,154,35,261,148,331,230,356,312,356,324,343]]],"b":[416,[[-31,183,47,252,132,328,233,406,312,476,394,583,416,674,372,721,284,680,195,564,98,359,38,202,28,72,38,54,50,145,132,243,249,315,334,334,365,296,369,252,328,183,287,120,189,41,135,19,-13,-9]]],"c":[346,[[243,306,239,350,198,365,101,328,-16,208,-47,170,-72,110,-66,66,-47,25,57,16,186,57,268,123,315,183]]],"d":[381,[[328,312,302,356,258,369,151,334,47,265,-38,176,-63,107,-57,50,13,16,79,63,176,148,277,252,387,334,532,457,668,592,693,668,690,709,639,721,561,684,510,633,441,523,387,425,293,217,246,66,233,-44,258,-98,302,-113,340,-101]]],"e":[346,[[66,170,148,211,217,249,252,306,239,350,180,356,63,287,16,252,-35,192,-66,139,-72,88,-50,44,32,9,170,44,214,82,277,135,315,183]]],"f":[334,[[-110,-365,-60,-321,9,-94,104,154,198,369,277,517,328,617,419,696,466,718,523,696,507,598,406,444,290,321,220,261,173,220,117,192,25,183,28,208,208,205,306,217]]],"g":[469,[[306,350,195,353,69,287,-16,205,-57,164,-79,110,-60,57,-19,19,91,69,176,158,265,252,287,274,318,274,164,-85,35,-331,-22,-381,-72,-410,-117,-416,-167,-381,-148,-280,-79,-220,22,-132,85,-88,258,22,369,110,438,183]]],"h":[561,[[-31,183,113,315,343,482,447,605,469,702,394,718,324,662,255,586,180,457,101,309,13,32,110,148,192,252,287,315,328,334,350,312,340,261,290,183,261,76,284,19,350,19,413,63,482,129,529,183]]],"i":[249,[[-31,183,38,236,60,328,-38,85,-19,22,54,6,132,69,183,129,217,183],[123,476,95,438]]],"j":[258,[[-31,183,66,287,104,312,113,299,-82,-145,-173,-309,-243,-391,-306,-416,-365,-406,-387,-353,-359,-287,-252,-183,-69,-60,57,32,151,107,227,183],[205,482,167,444,186,428]]],"k":[356,[[-31,183,32,252,98,337],[73,356,158,356,271,428,381,542,438,627,450,696,406,728,318,696,249,617,183,498,126,394,19,139,-19,13,25,54,113,173,214,284,290,343,340,346],[139,249,186,44,258,-85,362,-148,428,-148,457,-120,460,-101,457,-66]]],"l":[261,[[-25,176,91,265,239,428,346,589,394,662,381,709,312,718,243,674,148,532,41,340,-28,198,-50,85,-22,25,44,19,120,54,195,132,230,183]]],"m":[687,[[-31,183,47,255,76,321,-35,28,38,104,167,252,233,309,280,337,302,340,309,312,296,274,208,107,318,195,403,261,491,293,447,230,400,95,413,38,472,19,561,69,655,183]]],"n":[580,[[148,328,41,25,183,186,271,280,334,318,381,337,394,312,331,195,290,101,293,47,328,16,387,25,450,69,513,132,548,183]]],"o":[391,[[195,337,142,365,66,315,-6,233,-41,161,-57,76,13,9,101,41,183,110,230,208,239,246,239,284,220,284],[167,158,183,101,214,72,255,76,296,110,359,183]]],"p":[356,[[25,359,-72,57,-176,-192,-227,-350,-255,-369,-91,38,-44,13,85,63,208,135,258,227,268,299,227,346,139,321,73,274,16,198,-25,148,-91,32]]],"q":[542,[[324,334,224,359,88,293,-35,180,-60,120,-54,69,-31,28,35,25,120,76,186,154,315,284,422,416,372,406,255,91,139,-205,129,-350,161,-403,246,-403,280,-356,293,-249,280,-110,246,35,321,28,413,79,476,135,507,183]]],"r":[369,[[-31,183,35,287,154,463,47,391,47,365,60,356,258,353,145,214,82,101,98,22,186,28,296,132,337,183]]],"s":[302,[[-31,183,9,217,35,261,66,328,117,394,249,447,293,454,343,444,350,413,343,381,328,365],[54,274,73,233,161,183,198,135,195,88,151,35,79,-6,32,-28,-25,-31,-35,-19,-35,16,-16,35]]],"t":[290,[[-31,183,19,224,54,261,110,337,183,457,217,510,183,517,9,151,-6,66,19,22,98,28,192,110,258,183],[54,346,258,356]]],"u":[495,[[47,309,-19,217,-54,123,-57,57,-9,28,79,54,145,139,227,239,293,353,324,343,214,164,205,98,202,54,255,22,321,41,413,120,463,183]]],"v":[321,[[-31,183,57,274,73,312,69,337,35,356,0,356],[41,334,28,170,0,85,0,9,126,186,224,299,318,381,403,432,447,419]]],"w":[554,[[69,346,-13,227,-57,120,-63,69,-50,32,-3,19,57,41,120,113,195,227,236,290,265,287,205,176,195,85,224,32,280,16,391,82,501,205,551,312,551,369,529,422,476,435]]],"x":[488,[[-31,183,60,306,126,321,142,277,158,202,180,117,202,41,271,13,340,41,397,101,457,183],[400,346,362,343,227,236,110,135,-3,6,-82,-101,-98,-132,-117,-183]]],"y":[488,[[88,312,3,233,-31,186,-47,132,-54,85,-38,47,13,32,69,47,176,151,280,277,334,334,369,331,274,139,183,-98,107,-230,28,-346,-28,-397,-135,-394,-167,-346,-123,-252,-16,-167,123,-66,265,9,406,123,457,183]]],"z":[551,[[35,202,85,277,145,331,214,340,302,315,384,296,447,318,457,340,432,356,397,334,340,280,126,85,60,22,3,9,-13,38,19,66,66,66,117,41,220,-16,315,-19,384,28,469,117,520,183]]],"å":[526,[[495,183,457,132,406,79,331,32,271,19,243,63,255,142,296,274,277,243,176,145,69,57,-19,19,-63,66,-57,154,35,261,148,331,230,356,312,356,324,343],[200,665,200,667,215,714,245,747,289,771,322,782,354,781,385,776,410,755,422,725,426,703,421,664,407,627,380,591,352,567,323,554,276,551,243,567,224,606,228,656,244,687,269,717,295,730,315,740,327,740,340,738]]],"ø":[391,[[195,337,142,365,66,315,-6,233,-41,161,-57,76,13,9,101,41,183,110,230,208,239,246,239,284,220,284],[167,158,183,101,214,72,255,76,296,110,359,183],[293,437,132,227,44,106,-26,-7]]]};
+const B = (() => {
+  const root = $("#k-b");
+  const NS = "http://www.w3.org/2000/svg";
+  const hero = $(".kr-hero", root), stack = $(".kr-stack", root), draft = $(".kr-draft", root);
+  const marginHero = $(".kr-hero .kr-margin", root), words = $$(".kr-h1 .w", root), dot = $(".seg-dot", root);
+  const segs = $$(".seg[data-e]", draft);
+  const ink = $(".kr-ink", root), pen = $(".kr-pen", root), penRot = $(".kr-pen .rot", root);
+  const rows = $$(".kr-row", root);
+  const EDITS = [
+    { ins: "Jeg", note: "Bare meg." },
+    { ins: "lager", note: "Sier alle." },
+    { ins: "nettsider", note: "Si det enkelt." },
+    { ins: null, note: "Hvor høyt?" },
+  ];
+  const DRAW = -50, REST = -16;
+  const P = { x: 0, y: 0, ang: DRAW, up: true };
+  let ac = null, fast = false, phase = "off", rowQueue = [], rowBusy = false, parked = null;
+
+  function setPen() {
+    pen.style.transform = `translate(${P.x}px, ${P.y}px)`;
+    penRot.style.transform = `rotate(${P.ang}deg) scale(${P.up ? 1.04 : 1})`;
+    pen.classList.toggle("up", P.up);
+  }
+  function rel(r) { const R = root.getBoundingClientRect(); return { l: r.left - R.left, t: r.top - R.top, r: r.right - R.left, b: r.bottom - R.top, w: r.width, h: r.height }; }
+  function lineRects(el) {
+    const range = document.createRange(); range.selectNodeContents(el);
+    const rs = [...range.getClientRects()].filter((x) => x.width > 2 && x.height > 2).sort((a, b) => a.top - b.top);
+    const lines = [];
+    for (const x of rs) {
+      const L = lines.find((l) => Math.abs(l.cy - (x.top + x.height / 2)) < x.height * 0.4);
+      if (L) { L.left = Math.min(L.left, x.left); L.right = Math.max(L.right, x.right); }
+      else lines.push({ left: x.left, right: x.right, top: x.top, bottom: x.bottom, width: 0, height: x.height, cy: x.top + x.height / 2 });
+    }
+    return lines.map((l) => rel({ left: l.left, right: l.right, top: l.top, bottom: l.bottom, width: l.right - l.left, height: l.bottom - l.top }));
+  }
+  function el(name, attrs, parent) { const n = document.createElementNS(NS, name); for (const k in attrs) n.setAttribute(k, attrs[k]); parent?.appendChild(n); return n; }
+  function smooth(a, dx) {
+    const n = a.length / 2, X = (i) => a[2 * i] + dx, Y = (i) => a[2 * i + 1];
+    if (n < 3) return `M${X(0)} ${Y(0)}L${X(n - 1)} ${Y(n - 1)}`;
+    let d = `M${X(0)} ${Y(0)}L${(X(0) + X(1)) / 2} ${(Y(0) + Y(1)) / 2}`;
+    for (let i = 1; i < n - 1; i++) d += `Q${X(i)} ${Y(i)} ${(X(i) + X(i + 1)) / 2} ${(Y(i) + Y(i + 1)) / 2}`;
+    return d + `L${X(n - 1)} ${Y(n - 1)}`;
+  }
+  function textWidth(text, size) { let w = 0; for (const ch of text) w += ch === " " ? 290 : (GLYPHS[ch] || GLYPHS["."])[0]; return (w * size) / 1000; }
+  // Handwriting: one <path> per pen stroke, baseline at (x, y), size = em in px.
+  function hand(text, x, y, size, rot, strokePx, group) {
+    const g = el("g", { transform: `translate(${x} ${y}) rotate(${rot}) scale(${size / 1000} ${-size / 1000})`, "stroke-width": (strokePx * 1000) / size }, group);
+    let cx = 0; const strokes = [];
+    for (const ch of text) {
+      if (ch === " ") { cx += 290; continue; }
+      const gl = GLYPHS[ch] || GLYPHS["."];
+      for (const sub of gl[1]) strokes.push(el("path", { d: smooth(sub, cx) }, g));
+      cx += gl[0];
+    }
+    return { g, strokes, width: (cx * size) / 1000 };
+  }
+  function strike(L, group, w) {
+    const y = L.t + L.h * 0.56 + (Math.random() - 0.5) * 3, x0 = L.l - 5, x1 = L.r + 6, dy = (Math.random() - 0.5) * 5;
+    const j = () => (Math.random() - 0.5) * 4;
+    return el("path", { d: `M${x0} ${y}C${x0 + (x1 - x0) * 0.3} ${y + j()} ${x0 + (x1 - x0) * 0.7} ${y + dy + j()} ${x1} ${y + dy}`, "stroke-width": w }, group);
+  }
+  function show(p) { p.style.opacity = 1; p.style.strokeDasharray = "none"; }
+  const tickD = (x, y, s) => `M${x - s * 0.66} ${y - s * 0.34}l${s * 0.15} ${s * 0.19}l${s * 0.33} -${s * 0.5}`;
+  async function penTo(x, y, signal, { ang = DRAW, quick = false } = {}) {
+    if (fast || reduce) { P.x = x; P.y = y; P.ang = ang; P.up = false; setPen(); return; }
+    const x0 = P.x, y0 = P.y, a0 = P.ang, d = Math.hypot(x - x0, y - y0);
+    const ms = quick ? 24 + d * 0.16 : Math.min(520, 140 + d * 0.26);
+    const lift = quick ? Math.min(6, d * 0.1) : Math.min(22, d * 0.06);
+    P.up = true;
+    await tween(ms, (k) => { P.x = lerp(x0, x, k); P.y = lerp(y0, y, k) - Math.sin(k * Math.PI) * lift; P.ang = lerp(a0, ang, k); setPen(); }, signal, easeInOut);
+    P.up = false; setPen();
+  }
+  async function drawPath(p, speed, signal) {
+    const len = p.getTotalLength(), m = p.getCTM(), sc = Math.hypot(m.a, m.b) || 1;
+    if (fast || reduce) { show(p); return; }
+    p.style.strokeDasharray = `${len} ${len + 2}`; p.style.strokeDashoffset = len; p.style.opacity = 1;
+    await tween(((len * sc) / speed) * 1000, (k) => {
+      const l = len * k; p.style.strokeDashoffset = len - l;
+      const pt = p.getPointAtLength(l).matrixTransform(m); P.x = pt.x; P.y = pt.y; setPen();
+    }, signal);
+    p.style.strokeDasharray = "none";
+  }
+  async function write(h, signal, speed) {
+    for (const p of h.strokes) {
+      const st = p.getPointAtLength(0).matrixTransform(p.getCTM());
+      if (Math.hypot(st.x - P.x, st.y - P.y) > 1.5) await penTo(st.x, st.y, signal, { quick: true });
+      await drawPath(p, speed, signal);
+    }
+  }
+  function sizes() {
+    const fs = parseFloat(getComputedStyle(draft).fontSize);
+    const wide = getComputedStyle(marginHero).display !== "none";
+    return { fs, wide, ins: fs * 1.05, note: wide ? 40 : Math.max(24, fs * 0.95), strike: fs > 34 ? 3 : 2.2, hand: fs > 34 ? 2 : 1.6 };
+  }
+  function layout() {
+    ink.setAttribute("width", root.offsetWidth); ink.setAttribute("height", root.offsetHeight);
+  }
+
+  async function intro(signal) {
+    await document.fonts.ready;
+    await sleep(60, signal);
+    layout();
+    const Z = sizes();
+    const g = el("g", { class: "mk-hero" }, ink);
+    const mR = rel(marginHero.getBoundingClientRect()), hR = rel(hero.getBoundingClientRect());
+    const rightBound = rel(draft.getBoundingClientRect()).r;
+    // The pen comes in from the right.
+    P.x = root.offsetWidth + 40; P.y = rel(draft.getBoundingClientRect()).t + 60; P.ang = DRAW; P.up = true; setPen();
+    await sleep(450, signal);
+    let noteFloor = -Infinity, insLine = -1, insEnd = 0, lastNote = null;
+    for (let i = 0; i < segs.length; i++) {
+      const E = EDITS[i], lines = lineRects(segs[i]);
+      for (const L of lines) {
+        const p = strike(L, g, Z.strike);
+        const st = p.getPointAtLength(0);
+        await penTo(st.x, st.y, signal);
+        await drawPath(p, 3400, signal);
+      }
+      const L0 = lines[0];
+      // Insertions on the same line queue up after each other instead of overlapping.
+      if (Math.round(L0.t) !== insLine) { insLine = Math.round(L0.t); insEnd = -Infinity; }
+      if (E.ins) {
+        const ix = Math.max(L0.l + 2, insEnd + Z.ins * 0.28);
+        const h = hand(E.ins, ix, L0.t + L0.h * 0.06, Z.ins, -1.5 + Math.random(), Z.hand, g);
+        E.h = h; insEnd = ix + h.width;
+        await write(h, signal, 2300);
+      }
+      // The comment goes in the margin on wide screens. On narrow ones there is no margin, so the
+      // editor's remarks are written one at a time under the paragraph, each replacing the last.
+      const last = lines[lines.length - 1];
+      let nx, ny;
+      if (Z.wide) { nx = mR.l + 6 + (i % 2) * 14; ny = Math.max(last.t + last.h * 0.62, noteFloor + Z.note * 0.85); }
+      else {
+        const dr = rel(draft.getBoundingClientRect());
+        nx = dr.l + 2; ny = dr.b + Z.note * 1.1;
+        if (lastNote) { const old = lastNote; old.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: "forwards" }).finished.then(() => old.remove()).catch(() => {}); }
+      }
+      noteFloor = ny;
+      const n = hand(E.note, nx, ny, Z.note, -2.5 + Math.random() * 2, Z.hand * 0.85, g);
+      lastNote = n.g;
+      await write(n, signal, 2500);
+    }
+    // Sign the proof off.
+    const okG = el("g", { class: "mk-ok" }, ink);
+    const first = lineRects(segs[0])[0];
+    const okSize = Z.wide ? 44 : Math.max(26, Z.note);
+    const okText = "Til trykk, Daod";
+    const ow = textWidth(okText, okSize);
+    const ox = Z.wide ? mR.l + 4 : rightBound - ow, oy = Z.wide ? first.t - okSize * 0.5 : hR.t + 26;
+    if (Z.wide) {
+      const tick = el("path", { d: tickD(ox, oy, okSize), "stroke-width": Z.hand }, okG);
+      const st = tick.getPointAtLength(0); await penTo(st.x, st.y, signal); await drawPath(tick, 1100, signal);
+    }
+    const ok = hand(okText, ox, oy, okSize, -3, Z.hand, okG);
+    await write(ok, signal, 2500);
+    await sleep(fast ? 0 : 650, signal);
+    await print(signal);
+  }
+
+  async function print(signal) {
+    phase = "print";
+    const from = EDITS.filter((e) => e.h).map((e) => e.h.g.getBoundingClientRect());
+    from.push(dot.getBoundingClientRect());
+    stack.style.height = stack.offsetHeight + "px";
+    root.classList.add("kr-printed");
+    const to = words.map((w) => w.getBoundingClientRect());
+    words.forEach((w, i) => {
+      const f = from[i], t = to[i];
+      const s = clamp(f.width / t.width, 0.12, 1);
+      const tx = f.left - t.left, ty = f.top + f.height / 2 - t.height * s / 2 - t.top;
+      if (!reduce) w.animate([{ transform: `translate(${tx}px, ${ty}px) scale(${s})`, opacity: 0 }, { opacity: 1, offset: 0.25 }, { transform: "none", opacity: 1 }], { duration: 1150, delay: 60 + i * 80, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" });
+    });
+    const hm = $(".mk-hero", ink);
+    if (!reduce) {
+      draft.animate([{ opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)" }], { duration: 480, easing: "ease-out", fill: "forwards" });
+      hm?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 380, easing: "ease-out", fill: "forwards" });
+    }
+    const finalH = $(".kr-h1", root).offsetHeight;
+    requestAnimationFrame(() => { stack.classList.add("is-shrinking"); stack.style.height = finalH + "px"; });
+    await sleep(reduce ? 0 : 520, signal);
+    root.classList.remove("kr-intro");
+    await sleep(reduce ? 0 : 520, signal);
+    draft.hidden = true; hm?.remove();
+    stack.classList.remove("is-shrinking"); stack.style.height = "";
+    phase = "done";
+    layout();
+    await park(signal);
+    pumpRows();
+  }
+  async function park(signal) {
+    const Z = sizes(), okG = $(".mk-ok", ink);
+    if (!okG) return;
+    const b = rel(okG.getBoundingClientRect());
+    parked = Z.wide ? { x: b.l + Math.min(b.w, 150) * 0.55, y: b.b + 46 } : { x: root.offsetWidth - 28, y: b.b + 18 };
+    await penTo(parked.x, parked.y, signal, { ang: REST });
+  }
+
+  // Services: the pen strikes each agency sentence as it scrolls into view and writes a note.
+  async function editRow(row, signal) {
+    const Z = sizes(), g = el("g", { class: "mk-row" }, ink);
+    row.dataset.done = "1";
+    const fill = $(".kr-fill", row), lines = lineRects(fill);
+    for (const L of lines) {
+      const p = strike(L, g, Z.strike > 2.5 ? 2.4 : 2);
+      const st = p.getPointAtLength(0);
+      await penTo(st.x, st.y, signal);
+      await drawPath(p, 3000, signal);
+    }
+    const m = $(".kr-margin", row), mR = rel(m.getBoundingClientRect());
+    const size = Z.wide ? 38 : 26, text = row.dataset.note, w = textWidth(text, size);
+    const last = lines[lines.length - 1];
+    let x, y;
+    if (Z.wide) { x = mR.l + 6; y = last.t + last.h * 0.7; }
+    else { x = Math.max(lines[0].l, last.r - w); y = lines[0].t - 4; }
+    const n = hand(text, x, y, size, -2.5 + Math.random() * 2, Z.hand * 0.85, g);
+    await write(n, signal, 2300);
+    const b = rel(n.g.getBoundingClientRect());
+    parked = Z.wide ? { x: b.l + Math.min(b.w, 140) * 0.6, y: b.b + 40 } : { x: root.offsetWidth - 28, y: b.b + 14 };
+    await penTo(parked.x, parked.y, signal, { ang: REST });
+  }
+  async function pumpRows() {
+    if (rowBusy || phase !== "done") return;
+    rowBusy = true;
+    try {
+      while (rowQueue.length) { const r = rowQueue.shift(); if (!r.dataset.done) await editRow(r, ac.signal); }
+    } catch (e) { /* aborted */ }
+    rowBusy = false;
+  }
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting || phase === "off") return;
+    const r = e.target.closest(".kr-row");
+    if (!r.dataset.done && !rowQueue.includes(r)) { rowQueue.push(r); rowQueue.sort((a, b) => rows.indexOf(a) - rows.indexOf(b)); pumpRows(); }
+  }), { rootMargin: "0px 0px -22% 0px", threshold: 1 });
+
+  if (!finePointer) $(".kr-skip", root).textContent = "Trykk for å hoppe over";
+  hero.addEventListener("click", (e) => { if (phase === "intro" && !e.target.closest("a")) fast = true; });
+  let rt = 0;
+  addEventListener("resize", () => {
+    if (phase === "off") return;
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      if (phase === "intro") { fast = true; return; }
+      // Re-ink completed rows at their new positions.
+      ink.innerHTML = ""; layout();
+      const done = rows.filter((r) => r.dataset.done);
+      done.forEach((r) => { delete r.dataset.done; });
+      const keep = fast; fast = true;
+      (async () => { await signOff(); for (const r of done) await editRow(r, ac.signal); fast = keep; })().catch(() => {});
+    }, 200);
+  });
+  async function signOff() {
+    const Z = sizes(), okG = el("g", { class: "mk-ok" }, ink);
+    const h1 = rel($(".kr-h1", root).getBoundingClientRect()), mR = rel(marginHero.getBoundingClientRect()), hR = rel(hero.getBoundingClientRect());
+    const okSize = Z.wide ? 44 : 26, okText = "Til trykk, Daod", ow = textWidth(okText, okSize);
+    const ox = Z.wide ? mR.l + 4 : rel(stack.getBoundingClientRect()).r - ow, oy = Z.wide ? h1.t - okSize * 0.5 : hR.t + 26;
+    if (Z.wide) show(el("path", { d: tickD(ox, oy, okSize), "stroke-width": Z.hand }, okG));
+    hand(okText, ox, oy, okSize, -3, Z.hand, okG).strokes.forEach(show);
+    await park();
+  }
+
+  return {
+    start() {
+      ac = new AbortController();
+      fast = false; phase = "intro"; rowQueue = []; rowBusy = false; parked = null;
+      ink.innerHTML = "";
+      EDITS.forEach((e) => { e.h = null; });
+      rows.forEach((r) => { delete r.dataset.done; });
+      draft.hidden = false; draft.getAnimations().forEach((a) => a.cancel());
+      words.forEach((w) => w.getAnimations().forEach((a) => a.cancel()));
+      stack.style.height = ""; stack.classList.remove("is-shrinking");
+      root.classList.remove("kr-printed");
+      root.classList.add("kr-intro");
+      $$(".kr-fill", root).forEach((f) => { io.unobserve(f); io.observe(f); });
+      if (reduce) {
+        // Final state at once: the printed headline, signed, with the service sentences already struck.
+        root.classList.add("kr-printed"); root.classList.remove("kr-intro"); draft.hidden = true; phase = "done"; fast = true;
+        layout();
+        (async () => { await signOff(); for (const r of rows) await editRow(r, ac.signal); })().catch(() => {});
+        return;
+      }
+      intro(ac.signal).catch(() => {});
+    },
+    stop() { ac?.abort(); phase = "off"; },
+  };
+})();
+
+/* ═════════ C · Dagslys — real Oslo sunlight through a window, on the page ═════════
+   The sun's position is computed for Oslo right now; scrolling moves the clock towards sunset.
+   Mounted type stands off the wall and casts shadows inside the patch of sunlight. */
+function sunPos(date, lat = 59.9139, lon = 10.7522) {
+  const rad = Math.PI / 180;
+  const d = date.getTime() / 86400000 - 10957.5;
+  const g = (357.529 + 0.98560028 * d) * rad;
+  const q = 280.459 + 0.98564736 * d;
+  const L = (q + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * rad;
+  const e = (23.439 - 0.00000036 * d) * rad;
+  const ra = Math.atan2(Math.cos(e) * Math.sin(L), Math.cos(L));
+  const dec = Math.asin(Math.sin(e) * Math.sin(L));
+  const gmst = (18.697374558 + 24.06570982441908 * d) % 24;
+  const H = (gmst * 15 + lon) * rad - ra;
+  const phi = lat * rad;
+  const alt = Math.asin(Math.sin(phi) * Math.sin(dec) + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
+  const az = Math.atan2(-Math.sin(H), Math.tan(dec) * Math.cos(phi) - Math.sin(phi) * Math.cos(H));
+  return { alt: alt / rad, az: (((az / rad) % 360) + 360) % 360 };
+}
+const C = (() => {
+  const root = $("#k-c");
+  const content = $(".dl-content", root), wrap = $(".dl-lightwrap", root), patch = $(".dl-lightwrap .dl-patch", root);
+  const glow = $(".dl-glow", root), glowPatch = $(".dl-glow .dl-patch", root);
+  const castHost = $(".dl-cast", root), leaves = $(".dl-leaves", root), lctx = leaves.getContext("2d");
+  const dusk = $(".dl-dusk", root), clockEl = $(".dl-clock", root), capEl = $(".dl-sun", root), sunsetEl = $(".dl-sunset", root);
+  let clone = null, realM = [], castM = [], cursorEl = null;
+  let running = false, raf = 0, t0 = new Date(), tEnd = new Date(), lastMin = "", px = -1, py = -1, pointerIn = false;
+  const WINDS = ["nord", "nordøst", "øst", "sørøst", "sør", "sørvest", "vest", "nordvest"];
+  const wind = (az) => WINDS[Math.round(az / 45) % 8];
+
+  function build() {
+    castHost.innerHTML = "";
+    clone = content.cloneNode(true);
+    $$("[id]", clone).forEach((n) => n.removeAttribute("id"));
+    clone.setAttribute("aria-hidden", "true"); clone.inert = true;
+    castHost.appendChild(clone);
+    realM = $$(".m", content); castM = $$(".m", clone);
+    cursorEl = document.createElement("div"); cursorEl.className = "dl-cursor";
+    cursorEl.innerHTML = '<svg viewBox="0 0 15 22"><path d="M1 1v17l4.4-4.1 3 6.8 3-1.3-3-6.6h6.1z" fill="var(--wall)"/></svg>';
+    castHost.appendChild(cursorEl);
+    realM.forEach((m, i) => {
+      if (m.classList.contains("lw")) {
+        m.addEventListener("pointerenter", () => { m.classList.add("lift"); castM[i].classList.add("lift"); });
+        m.addEventListener("pointerleave", () => { m.classList.remove("lift"); castM[i].classList.remove("lift"); });
+      }
+      if (m.classList.contains("dl-btn")) {
+        const on = () => { m.classList.add("press"); castM[i].classList.add("press"); };
+        const off = () => { m.classList.remove("press"); castM[i].classList.remove("press"); };
+        m.addEventListener("pointerdown", on); m.addEventListener("pointerup", off); m.addEventListener("pointerleave", off);
+        m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { on(); setTimeout(off, 160); } });
+      }
+    });
+  }
+  function findTimes() {
+    const now = new Date();
+    let start = now, dark = false;
+    if (sunPos(now).alt < 5) {
+      // Night (or nearly): show the late-morning light of the next day the sun is up.
+      dark = true;
+      let t = new Date(now.getTime());
+      for (let i = 0; i < 400; i++) { t = new Date(t.getTime() + 5 * 60000); const s = sunPos(t); if (s.alt > 3 && s.az >= 205) break; }
+      start = t;
+    }
+    let end = new Date(start.getTime());
+    for (let i = 0; i < 300; i++) { const n = new Date(end.getTime() + 2 * 60000); if (sunPos(n).alt < 0.6) break; end = n; }
+    let set = new Date(end.getTime());
+    for (let i = 0; i < 60; i++) { const n = new Date(set.getTime() + 60000); set = n; if (sunPos(n).alt < -0.83) break; }
+    return { start, end, set, dark };
+  }
+  function writeCaption(times) {
+    const s = sunPos(times.start), deg = Math.round(s.alt);
+    const today = fmtYmd.format(new Date()) === fmtYmd.format(times.start);
+    if (!times.dark) capEl.innerHTML = `Oslo, ${fmtDay.format(times.start)}, kl. <b>${clock(times.start)}</b>. Sola står <b>${deg}°</b> over horisonten i ${wind(s.az)}, og skyggene på siden følger den. Rull nedover, så går dagen.`;
+    else capEl.innerHTML = `Det er mørkt i Oslo nå, så siden viser lyset fra ${today ? "i dag" : "i morgen"} kl. <b>${clock(times.start)}</b>, når sola står <b>${deg}°</b> over horisonten i ${wind(s.az)}. Rull nedover, så går dagen.`;
+    sunsetEl.textContent = `Sola går ned kl. ${clock(times.set)} i Oslo ${today ? "i dag" : "i morgen"}.`;
+  }
+
+  // Light colour and strength by solar altitude: neutral-warm by day, peach near sunset.
+  function lightAt(alt) {
+    const stops = [[-1, [255, 186, 146], 0.06], [1.5, [255, 198, 154], 0.42], [5, [255, 220, 178], 0.86], [12, [255, 239, 212], 1], [25, [255, 251, 241], 1]];
+    let a = stops[0], b = stops[stops.length - 1];
+    for (let i = 0; i < stops.length - 1; i++) if (alt >= stops[i][0] && alt <= stops[i + 1][0]) { a = stops[i]; b = stops[i + 1]; break; }
+    if (alt > 25) { a = b; }
+    const k = a === b ? 0 : clamp((alt - a[0]) / (b[0] - a[0]), 0, 1);
+    const c = a[1].map((v, i) => Math.round(lerp(v, b[1][i], k)));
+    return { rgb: c, a: lerp(a[2], b[2], k) };
+  }
+  // A birch twig outside the window: two shoots with small pointed leaves that sway in the wind.
+  const TWIGS = [{ from: [-0.16, 0.0], to: [0.36, 0.2], bend: 0.05, n: 12 }, { from: [0.06, 0.08], to: [0.22, 0.34], bend: -0.03, n: 6 }];
+  const LEAVES = [];
+  { const r = mulberry32(7); TWIGS.forEach((tw, k) => { for (let i = 0; i < tw.n; i++) LEAVES.push({ k, t: 0.18 + (0.8 * (i + r() * 0.5)) / tw.n, side: i % 2 ? 1 : -1, len: 0.042 + r() * 0.028, ph: r() * 6.283 }); }); }
+  function drawLeaves(time, ww, wh, shear, ox, oy) {
+    lctx.setTransform(1, 0, 0, 1, 0, 0);
+    lctx.clearRect(0, 0, leaves.width, leaves.height);
+    lctx.setTransform(1, 0, shear, 1, ox - shear * oy, oy);
+    lctx.fillStyle = lctx.strokeStyle = "#d7e0dc"; lctx.lineCap = "round";
+    const gust = 0.5 + 0.5 * Math.sin(time * 0.00035);
+    const sway = (k) => (Math.sin(time * 0.0011 + k) * 0.6 + Math.sin(time * 0.0026 + k * 1.7) * 0.4) * (0.5 + gust * 0.7);
+    const at = (tw, t, wob) => [lerp(tw.from[0], tw.to[0], t) * ww + wob * t * t * ww * 0.025, lerp(tw.from[1], tw.to[1], t) * wh + Math.sin(t * Math.PI) * tw.bend * wh + wob * t * t * wh * 0.015];
+    TWIGS.forEach((tw, k) => {
+      const wob = sway(k * 2.3);
+      lctx.lineWidth = k ? 1.6 : 2.6; lctx.beginPath();
+      for (let i = 0; i <= 24; i++) { const [x, y] = at(tw, i / 24, wob); i ? lctx.lineTo(x, y) : lctx.moveTo(x, y); }
+      lctx.stroke();
+      tw.wob = wob;
+    });
+    for (const lf of LEAVES) {
+      const tw = TWIGS[lf.k], [x, y] = at(tw, lf.t, tw.wob), [x2, y2] = at(tw, Math.min(1, lf.t + 0.02), tw.wob);
+      const len = lf.len * ww, dir = Math.atan2(y2 - y, x2 - x);
+      lctx.save(); lctx.translate(x, y); lctx.rotate(dir + lf.side * (0.9 + 0.22 * sway(lf.ph)) + Math.PI / 2 * 0);
+      lctx.lineWidth = 1; lctx.beginPath(); lctx.moveTo(0, 0); lctx.lineTo(len * 0.28, 0); lctx.stroke();
+      lctx.translate(len * 0.26, 0);
+      lctx.beginPath(); lctx.moveTo(0, 0);
+      lctx.bezierCurveTo(len * 0.1, -len * 0.36, len * 0.62, -len * 0.3, len, 0);
+      lctx.bezierCurveTo(len * 0.62, len * 0.3, len * 0.1, len * 0.36, 0, 0);
+      lctx.fill(); lctx.restore();
+    }
+  }
+
+  let lastKey = "", G = null;
+  function geometry(rr, W, H) {
+    const maxScroll = Math.max(1, root.offsetHeight - H);
+    const p = reduce ? 0 : clamp(-rr.top / maxScroll, 0, 1);
+    const t = new Date(t0.getTime() + p * (tEnd.getTime() - t0.getTime()));
+    const s = sunPos(t), A = (s.az * Math.PI) / 180, E = (Math.max(s.alt, 0.4) * Math.PI) / 180;
+    // Where the light lands: a 2×3-pane window projected onto the wall.
+    const a = clamp((s.az - 180) / 70, -1.3, 1.3), e = clamp(s.alt / 25, 0, 1.15);
+    const narrow = W < 760;
+    const ww = clamp(W * (narrow ? 0.78 : 0.4), 260, 640) * (1 + 0.28 * (1 - Math.min(e, 1)));
+    const wh = ww * (narrow ? 1.25 : 1.18) * (0.82 + 0.25 * Math.min(e, 1));
+    const shear = clamp(0.32 * Math.tan(A), -0.75, 0.75);
+    const cx = W * clamp(0.46 + 0.16 * a, 0.3, 0.64), cy = H * (0.38 + 0.18 * Math.min(e, 1));
+    const left = cx - ww / 2, top = cy - wh / 2;
+    const vx = (u, v) => left + u * ww + shear * (v - 0.5) * wh, vy = (v) => top + v * wh;
+    const fr = 0.045, mu = 0.03, cols = 2, rows = 3;
+    const pw = (1 - 2 * fr - (cols - 1) * mu) / cols, frv = (fr * ww) / wh, muv = (mu * ww) / wh, ph = (1 - 2 * frv - (rows - 1) * muv) / rows;
+    // Viewport → section coordinates; the light layer only covers the patch.
+    const ox = -rr.left, oy = -rr.top;
+    const xs = [vx(0, 0), vx(1, 0), vx(0, 1), vx(1, 1)], bx = Math.min(...xs) - 30 + ox, by = top - 30 + oy;
+    const bw = Math.max(...xs) - Math.min(...xs) + 60, bh = wh + 60;
+    let d = "";
+    for (let c = 0; c < cols; c++) for (let r = 0; r < rows; r++) {
+      const u0 = fr + c * (pw + mu), u1 = u0 + pw, v0 = frv + r * (ph + muv), v1 = v0 + ph;
+      const pts = [[u0, v0], [u1, v0], [u1, v1], [u0, v1]].map(([u, v]) => `${(vx(u, v) + ox - bx).toFixed(1)} ${(vy(v) + oy - by).toFixed(1)}`);
+      d += `M${pts[0]}L${pts[1]}L${pts[2]}L${pts[3]}Z`;
+    }
+    // Shadows: standoff × light direction projected on the wall (east to the right, down the wall).
+    const D = clamp(W * 0.026, 14, 38);
+    const sx = D * clamp(Math.tan(A), -3.4, 3.4), sy = D * clamp(Math.tan(E) / Math.max(0.3, Math.abs(Math.cos(A))), 0.12, 2.6);
+    return { t, s, e, ww, wh, shear, left, top, ox, oy, bx, by, bw, bh, d, sx, sy };
+  }
+  function frame(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(frame);
+    const W = innerWidth, H = innerHeight, rr = root.getBoundingClientRect();
+    const key = `${Math.round(rr.top)}|${Math.round(rr.left)}|${W}|${H}`;
+    if (key !== lastKey || !G) {
+      lastKey = key;
+      const g = (G = geometry(rr, W, H));
+      wrap.style.transform = `translate(${g.bx.toFixed(1)}px, ${g.by.toFixed(1)}px)`;
+      wrap.style.width = g.bw.toFixed(0) + "px"; wrap.style.height = g.bh.toFixed(0) + "px";
+      patch.style.clipPath = glowPatch.style.clipPath = `path("${g.d}")`;
+      glow.style.transform = wrap.style.transform; glow.style.width = wrap.style.width; glow.style.height = wrap.style.height;
+      const L = lightAt(g.s.alt);
+      patch.style.backgroundColor = `rgba(${L.rgb[0]}, ${L.rgb[1]}, ${L.rgb[2]}, ${L.a.toFixed(3)})`;
+      glow.style.opacity = (0.6 * L.a).toFixed(3);
+      wrap.style.filter = `blur(${(3.4 + 2.6 * (1 - Math.min(g.e, 1))).toFixed(1)}px)`;
+      castHost.style.transform = `translate(${(-g.bx).toFixed(1)}px, ${(-g.by).toFixed(1)}px)`;
+      castHost.style.width = content.offsetWidth + "px";
+      castHost.style.setProperty("--sx", g.sx.toFixed(2) + "px"); castHost.style.setProperty("--sy", g.sy.toFixed(2) + "px");
+      dusk.style.opacity = (0.16 * clamp(1 - g.s.alt / 6, 0, 1)).toFixed(3);
+      const min = clock(g.t);
+      if (min !== lastMin) { lastMin = min; clockEl.textContent = `Oslo kl. ${min} · sola ${Math.max(0, Math.round(g.s.alt))}°`; }
+      clockEl.classList.toggle("on", -rr.top > H * 0.5);
+    }
+    const g = G;
+    if (cursorEl) {
+      const show = pointerIn && finePointer;
+      cursorEl.style.opacity = show ? "1" : "0";
+      if (show) cursorEl.style.transform = `translate(${(px + g.ox + g.sx * 2.6).toFixed(1)}px, ${(py + g.oy + g.sy * 2.6).toFixed(1)}px)`;
+    }
+    if (!reduce || key !== lastDrawn) { lastDrawn = key; drawLeaves(reduce ? 0 : now, g.ww, g.wh, g.shear, g.left + g.ox - g.bx, g.top + g.oy - g.by); }
+  }
+  let lastDrawn = "";
+  function sizeLeaves() { leaves.width = Math.round(Math.min(900, innerWidth * 1.1)); leaves.height = Math.round(Math.min(1100, innerHeight * 1.3)); leaves.style.width = leaves.width + "px"; leaves.style.height = leaves.height + "px"; }
+  root.addEventListener("pointermove", (e) => { if (e.pointerType !== "mouse") return; px = e.clientX; py = e.clientY; pointerIn = !e.target.closest("a,button"); });
+  root.addEventListener("pointerleave", () => { pointerIn = false; });
+  addEventListener("resize", () => { if (running) sizeLeaves(); });
+
+  return {
+    start() {
+      const times = findTimes();
+      t0 = times.start; tEnd = times.end; lastMin = ""; lastKey = ""; G = null;
+      writeCaption(times);
+      build(); sizeLeaves();
+      running = true;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(frame);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); clockEl.classList.remove("on"); },
+  };
+})();
+
+/* ═════════ switcher ═════════ */
+const concepts = { a: A, b: B, c: C };
+const buttons = $$(".switcher [data-c]");
+let current = null;
+function choose(key) {
+  if (current) concepts[current].stop();
+  $$(".concept").forEach((s) => { s.hidden = s.id !== "k-" + key; });
+  buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.c === key)));
+  document.body.dataset.c = key;
+  current = key;
+  window.scrollTo(0, 0);
+  try { history.replaceState(null, "", "#" + key); } catch {}
+  requestAnimationFrame(() => concepts[key].start());
+}
+buttons.forEach((b) => b.addEventListener("click", () => choose(b.dataset.c)));
+$(".switcher .replay").addEventListener("click", () => choose(current));
+const fromHash = location.hash.slice(1);
+choose(concepts[fromHash] ? fromHash : "a");
+})();
+</script>

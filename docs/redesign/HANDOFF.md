@@ -1,6 +1,6 @@
 # IDweb redesign — handover
 
-Read this first in any new session working on the redesign. Last updated 2026-10-05.
+Read this first in any new session working on the redesign. Last updated 2026-10-05 (round 4).
 
 ## Where the work lives
 
@@ -61,14 +61,41 @@ on the Referanser page instead, so only interested visitors see them. So:
 |---|---|---|---|
 | 1 | https://claude.ai/artifact/5r37qrx95HkAV7unr28suy | A Verkstedet (light, «jeg»), B Mørk presisjon (dark + yellow), C Nordisk ro | **C chosen** |
 | 2 | https://claude.ai/artifact/Nd7P4JKRZzKq5vQJ1AvTxJ | Hero + project showcase: A Byggeplassen (page builds itself, tiles), B Stabelen (3D card deck, brand tint), C Gjennom bokstavene (sites inside «valgt.», zoom through the «l») | Superseded — projects leave the homepage |
-| 3 | https://claude.ai/artifact/VvenbWvVNaFfpsUUUNpCbU | No projects: A Avgangstavla (split-flap board + timetable services), B Samarbeid (page builds itself, «Daod» multiplayer cursor that chats), C Høydekurver (live contour map, cursor raises terrain, coordinates readout) | Owner wants **3 more mockups** before choosing |
+| 3 | https://claude.ai/artifact/VvenbWvVNaFfpsUUUNpCbU | No projects: A Avgangstavla (split-flap board + timetable services), B Samarbeid (page builds itself, «Daod» multiplayer cursor that chats), C Høydekurver (live contour map, cursor raises terrain, coordinates readout) | Owner: still looks like generic AI design. Wants 3 more, «super unique», world class |
+| 4 | https://claude.ai/artifact/9SqNxmSiqbvVcrDp4iazE6 | No projects, and no template layout: A Marmorert (live paper marbling, cursor combs the ink), B Korrektur (a red pen edits agency filler down to «Jeg lager nettsider.»), C Dagslys (real Oslo sunlight through a window, type casts shadows, scroll = time of day) | Awaiting the owner's pick |
 
 Local copies: `docs/redesign/mockups/round1-direction-c-nordisk-ro.dc.html`,
 `round2-hero-showcase.html` (expects images at `img/…`; sources are
-`public/images/showcase/` and `public/images/portfolio/`), `round3-hero-no-projects.html`.
+`public/images/showcase/` and `public/images/portfolio/`), `round3-hero-no-projects.html`,
+`round4-hero-no-projects.html`.
 Rounds 2–3 are single self-contained HTML pages with a floating concept switcher —
 a good template for the next round. Each concept = hero + the services section under
 it, so the owner sees how the motion carries down the page.
+
+## Round 4 notes
+
+The owner's feedback on round 3 was that it still looked AI-made: pill badge with a pulsing dot,
+big centred headline, two pill buttons, three equal cards. Round 4 drops that template entirely.
+Each concept takes one physical material and lets it drive both the layout and the motion:
+
+- **A Marmorert.** Real marbling maths (Jaffer & Lu): drops push older ink outwards, combs rake it.
+  Rendered in a WebGL2 shader that traces each pixel backwards through the operations, so it runs
+  in one pass per frame. There's a 2D-canvas fallback. The hero is a marbled sheet with a
+  bookbinder's label. Every visit gets a new seeded pattern («Ark nr.»), and the cursor drags
+  through the ink. Scrolling combs the ink. The services are three marbled bands (stone, combed,
+  wave patterns) that marble themselves when they come into view.
+- **B Korrektur.** The hero opens on a paragraph of agency filler. A fountain pen strikes it out
+  with handwritten insertions and margin notes («Bare meg.», «Sier alle.»), signs «Til trykk,
+  Daod», and the remaining words morph into «Jeg lager nettsider.». The handwriting is EMS Allure
+  (single-stroke font, SIL OFL) drawn stroke by stroke. In the services, the pen strikes each
+  buzzword sentence as it scrolls into view. **This concept commits to «jeg»**, which is the joke,
+  so it only works if the owner goes with «jeg».
+- **C Dagslys.** «Nettsider som tåler dagslys.» The sun's position is computed for Oslo right
+  now. A window's light patch (with a swaying birch twig) falls on a plaster wall, and the
+  mounted type casts real shadows inside it. Scrolling moves the clock towards sunset: shadows
+  lengthen and the light warms. After dark it shows tomorrow afternoon's light and says so.
+  Hovering a headline word lifts it off the wall, the CTA presses in, and the cursor casts a
+  shadow too.
 
 ## Open items
 
