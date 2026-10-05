@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs, getBlogPost } from "@/lib/content/blog";
 
 const BASE_URL = "https://www.idweb.no";
 
@@ -7,9 +6,7 @@ const BASE_URL = "https://www.idweb.no";
 const BUILD_DATE = new Date().toISOString().split("T")[0];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const blogSlugs = getAllSlugs();
-
-  const staticPages: MetadataRoute.Sitemap = [
+  return [
     { url: BASE_URL, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/tjenester`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/nettside`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
@@ -20,20 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/om-oss`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/kontakt`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/faq`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/blogg`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/personvern`, lastModified: BUILD_DATE, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/vilkar`, lastModified: BUILD_DATE, changeFrequency: "yearly", priority: 0.3 },
   ];
-
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => {
-    const post = getBlogPost(slug);
-    return {
-      url: `${BASE_URL}/blogg/${slug}`,
-      lastModified: post?.publishedDate ?? BUILD_DATE,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    };
-  });
-
-  return [...staticPages, ...blogPages];
 }

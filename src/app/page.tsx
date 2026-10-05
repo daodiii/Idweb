@@ -35,10 +35,6 @@ const FaqXl = dynamic(
   () => import("@/components/sections/faq-xl").then((m) => m.FaqXl),
   { ssr: true },
 );
-const ArticlesStrip = dynamic(
-  () => import("@/components/sections/articles-strip").then((m) => m.ArticlesStrip),
-  { ssr: true },
-);
 const ContactTakeover = dynamic(
   () => import("@/components/sections/contact-takeover").then((m) => m.ContactTakeover),
   { ssr: true },
@@ -91,10 +87,7 @@ export default function Home() {
       {/* 7. FAQ — oversized questions */}
       <FaqXl />
 
-      {/* 8. Articles — editorial strip */}
-      <ArticlesStrip />
-
-      {/* 9. Contact — black takeover finale */}
+      {/* 8. Contact — black takeover finale */}
       <ContactTakeover />
     </div>
   );

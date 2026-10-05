@@ -84,6 +84,12 @@ const nextConfig: NextConfig = {
         destination: "/tjenester/nettside",
         permanent: true,
       },
+      // The blog and all its articles were removed.
+      {
+        source: "/blogg/:slug*",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   async headers() {

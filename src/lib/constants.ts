@@ -9,7 +9,6 @@ export const FOOTER_LINKS = {
   selskap: [
     { href: "/om-oss", label: "Om oss" },
     { href: "/referanser", label: "Referanser" },
-    { href: "/blogg", label: "Nyttige artikler" },
     { href: "/faq", label: "FAQ" },
     { href: "/kontakt", label: "Kontakt" },
   ],

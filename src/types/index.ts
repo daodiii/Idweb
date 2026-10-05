@@ -9,23 +9,6 @@ export interface SectionMeta {
   description?: string;
 }
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  metaDescription: string;
-  publishedDate: string;
-  readingTime: string;
-  category: string;
-  sections: BlogSection[];
-}
-
-export interface BlogSection {
-  heading?: string;
-  paragraphs: string[];
-  listItems?: string[];
-}
-
 export interface PainPoint {
   title: string;
   description: string;

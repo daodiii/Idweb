@@ -18,7 +18,6 @@ const MOBILE_LINKS = [
   { href: "/tjenester/seo", label: "SEO-optimalisering" },
   { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   { href: "/referanser", label: "Referanser" },
-  { href: "/blogg", label: "Nyttige artikler" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -126,13 +125,6 @@ export function Navbar() {
                 className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
               >
                 Referanser
-              </Link>
-
-              <Link
-                href="/blogg"
-                className="text-sm font-medium text-[var(--color-dark-muted)] transition-colors hover:text-[var(--color-dark-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-              >
-                Nyttige artikler
               </Link>
 
               <MenuItem setActive={setActive} active={active} item="Om oss">

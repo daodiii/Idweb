@@ -158,52 +158,6 @@ export function FaqJsonLd({
   );
 }
 
-export function BlogPostJsonLd({
-  title,
-  description,
-  slug,
-  publishedDate,
-  category,
-}: {
-  title: string;
-  description: string;
-  slug: string;
-  publishedDate: string;
-  category: string;
-}) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: title,
-    description,
-    url: `https://www.idweb.no/blogg/${slug}`,
-    datePublished: publishedDate,
-    dateModified: publishedDate,
-    author: {
-      "@type": "Organization",
-      name: "IDweb",
-      url: "https://www.idweb.no",
-      logo: "https://www.idweb.no/images/idweb-logo.png",
-    },
-    publisher: {
-      "@id": "https://www.idweb.no/#business",
-    },
-    articleSection: category,
-    inLanguage: "nb-NO",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.idweb.no/blogg/${slug}`,
-    },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
 export function BreadcrumbJsonLd({
   items,
 }: {

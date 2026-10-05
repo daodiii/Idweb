@@ -32,11 +32,6 @@ export const SEO = {
     description:
       "Ta kontakt for en uforpliktende samtale om din nye nettside. Vi svarer innen 24 timer. Ring, send e-post eller bruk kontaktskjemaet.",
   },
-  blog: {
-    title: "Blogg — Tips om nettsider, SEO og digital markedsføring",
-    description:
-      "Les våre artikler om nettsider, SEO, digital markedsføring og webdesign. Praktiske tips for norske bedrifter som vil lykkes på nett.",
-  },
   privacy: {
     title: "Personvernerklæring",
     description:
