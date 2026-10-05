@@ -138,52 +138,6 @@ export const SERVICES: Service[] = [
     trustStats: [],
   },
   {
-    id: "webutvikler-oslo",
-    title: "Webutvikler i Oslo",
-    shortDescription:
-      "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
-    longDescription:
-      "Trenger bedriften din en webutvikler i Oslo? IDweb er et Oslo-basert webbyrå som bygger nettsider og webapplikasjoner fra bunnen av — ingen ferdigmaler, ingen WordPress-tunge plugins, ingen mellomledd. Du snakker direkte med utvikleren som skriver koden, og du får en moderne nettside som laster på under to sekunder. Hele prosessen er heldigital, så vi jobber like enkelt med bedrifter i hele Norge som i Oslo — effektivt og uten reisetid. Og vi kjenner det norske markedet, fra Vipps-integrasjon til Brønnøysund-koblinger.",
-    categoryTag: "Lokal webutvikling",
-    features: [
-      "Heldigital prosess — oppstart og oppfølging på video",
-      "Skreddersydd kode med Next.js — ikke WordPress-maler",
-      "Lokal SEO-optimalisering for Oslo-bedrifter",
-      "Norsk hosting med fastpris og rask support",
-      "Vipps og norske betalingsløsninger inkludert ved behov",
-      "Direkte kontakt med utvikleren — ingen prosjektledere mellom",
-    ],
-    detailedFeatures: [
-      { iconName: "map-pin", title: "Oslo-basert", description: "Heldigital prosess — oppstart, presentasjon og oppfølging på video" },
-      { iconName: "zap", title: "Lynrask Next.js", description: "Moderne rammeverk i stedet for tung WordPress + plugins" },
-      { iconName: "search", title: "Lokal SEO", description: "Optimalisert for «webutvikler oslo» og bransjesøk i Oslo" },
-      { iconName: "shield", title: "Norsk hosting", description: "Servere i Norge, GDPR-trygg og rask for norske brukere" },
-      { iconName: "message-square", title: "Direkte kommunikasjon", description: "Du snakker med utvikleren — ingen mellomledd" },
-    ],
-    painPoints: [
-      { title: "Byråer i Oslo som outsourcer", description: "Mange Oslo-byråer setter ut kodingen til utlandet — du betaler dyrt for en mellommann" },
-      { title: "WordPress + plugins som bremser", description: "Tunge ferdigløsninger gir 3–5 sekunders lastetid og dårlig PageSpeed-score" },
-      { title: "Mal-baserte nettsider", description: "Konkurrentene dine bruker samme mal — du blir usynlig i et hav av like sider" },
-    ],
-    processSteps: [
-      { step: 1, title: "Digital oppstart", description: "Uforpliktende videomøte — vi blir kjent med bedriften og målene dine" },
-      { step: 2, title: "Design og prototype", description: "Visuell prototype basert på din bedrift og dine mål" },
-      { step: 3, title: "Utvikling", description: "Skreddersydd kode i Next.js, testet og optimalisert" },
-      { step: 4, title: "Lansering", description: "Go live, Google Search Console satt opp og overlevering." },
-    ],
-    faq: [
-      { question: "Hvordan foregår samarbeidet?", answer: "Heldigitalt. Oppstart, presentasjon og oppfølging skjer på video, e-post og telefon — effektivt og uten reisetid. Du snakker direkte med utvikleren hele veien." },
-      { question: "Hva koster det å lage en nettside i Oslo?", answer: "Det kommer an på omfanget. En enkel bedriftsnettside ligger et helt annet sted enn et prosjekt med nettbutikk eller bookingfunksjoner. Du får alltid fastpris før vi starter — ingen overraskelser." },
-      { question: "Hvorfor velge en lokal webutvikler fremfor et stort byrå?", answer: "Hos store byråer betaler du for en kjede av prosjektledere, designere og utviklere. Hos oss snakker du direkte med utvikleren som skriver koden. Det gir raskere prosess, lavere pris og bedre resultat." },
-      { question: "Bygger dere i WordPress?", answer: "Nei — vi bygger med Next.js (samme teknologi som brukes av Spotify, Notion og TikTok). Det gir lynraske sider, bedre SEO og full kontroll. WordPress passer bedre for kunder som vil oppdatere alt selv via et tradisjonelt CMS." },
-    ],
-    trustStats: [
-      { value: 6, suffix: "+", label: "Oslo-prosjekter levert" },
-      { value: 90, suffix: "+", label: "PageSpeed-score" },
-      { value: 24, suffix: "t", label: "responstid på e-post" },
-    ],
-  },
-  {
     id: "nettbutikk",
     title: "Nettbutikk-utvikling",
     shortDescription:

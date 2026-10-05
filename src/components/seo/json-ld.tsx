@@ -232,19 +232,17 @@ export function ServiceJsonLd({
   name,
   description,
   slug,
-  basePath = "tjenester",
 }: {
   name: string;
   description: string;
   slug: string;
-  basePath?: string;
 }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
-    url: `https://www.idweb.no/${basePath}/${slug}`,
+    url: `https://www.idweb.no/tjenester/${slug}`,
     provider: {
       "@id": "https://www.idweb.no/#business",
     },

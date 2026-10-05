@@ -17,7 +17,7 @@ const EASE = "cubic-bezier(0.23,1,0.32,1)";
 const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   SEO: [
     { href: "/tjenester/seo", label: "SEO-optimalisering for norske bedrifter" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   ],
   Nettbutikk: [
     { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling med Vipps og Stripe" },
@@ -25,10 +25,10 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   ],
   Design: [
     { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling" },
   ],
   Teknologi: [
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
     { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   ],
   Priser: [
@@ -41,11 +41,11 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   ],
   Markedsføring: [
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   ],
   Markedsforing: [
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   ],
   Verktøy: [
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
@@ -54,8 +54,8 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
 };
 
 const DEFAULT_RELATED = [
-  { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
+  { href: "/tjenester/seo", label: "SEO-optimalisering" },
 ];
 
 // Cover images — keyed by slug. Kept here to mirror the blogg index page.

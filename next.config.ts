@@ -67,6 +67,23 @@ const nextConfig: NextConfig = {
         destination: "/kontakt",
         permanent: true,
       },
+      // The per-city and per-industry landing pages were removed; send any
+      // indexed or bookmarked URL to the closest real page instead of 404.
+      {
+        source: "/webutvikler/:sted*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/tjenester/webutvikler-oslo",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/nettside/:bransje*",
+        destination: "/tjenester/nettside",
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -60,11 +60,6 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
     description:
       "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig norsk hosting. Ingen bindingstid.",
   },
-  "webutvikler-oslo": {
-    title: "Webutvikler i Oslo — Lokal nettsideutvikling for bedrifter",
-    description:
-      "Søker du en webutvikler i Oslo? IDweb lager raske, skreddersydde nettsider for Oslo-bedrifter. Personlig oppfølging, faste priser og ingen bindingstid.",
-  },
   nettbutikk: {
     title: "Nettbutikk-utvikling — Skreddersydde e-handelsløsninger",
     description:

@@ -16,13 +16,6 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    slug: "webutvikler-oslo",
-    title: "Webutvikler i Oslo",
-    description:
-      "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
-    features: ["Heldigital prosess", "Skreddersydd Next.js", "Lokal SEO", "Direkte med utvikleren"],
-  },
-  {
     slug: "nettside",
     title: "Skreddersydd nettside",
     description:
