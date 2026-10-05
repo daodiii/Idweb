@@ -16,6 +16,7 @@ const ENTRY_EASE = "cubic-bezier(0.23,1,0.32,1)";
 const MOBILE_LINKS = [
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   { href: "/tjenester/drift-og-seo", label: "Drift og SEO" },
+  { href: "/tjenester/portal", label: "IDweb-portalen" },
   { href: "/referanser", label: "Referanser" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/faq", label: "FAQ" },
@@ -112,6 +113,9 @@ export function Navbar() {
                   </HoveredLink>
                   <HoveredLink href="/tjenester/drift-og-seo">
                     Drift og SEO
+                  </HoveredLink>
+                  <HoveredLink href="/tjenester/portal">
+                    IDweb-portalen
                   </HoveredLink>
                 </div>
               </MenuItem>

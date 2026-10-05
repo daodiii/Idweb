@@ -3,7 +3,7 @@ import type { Service } from "@/types";
 export const SERVICES_PAGE = {
   headline: "Tjenester som gir bedriften din vekst",
   subheadline:
-    "Vi bygger skreddersydde nettsider — og holder dem trygge, raske og synlige etter lansering.",
+    "Vi bygger skreddersydde nettsider, gir dem verktøy som skaffer deg kunder — og holder dem trygge, raske og synlige etter lansering.",
 } as const;
 
 export const SERVICES: Service[] = [
@@ -93,6 +93,50 @@ export const SERVICES: Service[] = [
       { question: "Garanterer dere førsteplass på Google?", answer: "Nei. Ingen kan garantere en bestemt plassering — Google endrer algoritmene hele tiden. Vi garanterer solid, etisk arbeid som gir varige resultater." },
       { question: "Hva koster det?", answer: "Det avhenger av nettsidens størrelse og hvor mye SEO-arbeid som trengs. Du får en fast månedspris før vi starter." },
       { question: "Kan jeg si opp avtalen?", answer: "Ja, med én måneds varsel. Ingen bindingstid." },
+    ],
+    trustStats: [],
+  },
+  {
+    id: "portal",
+    title: "IDweb-portalen",
+    shortDescription:
+      "Én innlogging der henvendelser, bookinger og omtaler fra nettsiden samles — med en AI-chat som svarer kundene dine hele døgnet.",
+    longDescription:
+      "IDweb-portalen er verktøyene som gjør nettsiden til en kundekanal. En AI-chat svarer besøkende på norsk når som helst, og sender deg dem som vil noe. Kundene kan bestille time selv, uten å ringe. Og når jobben er gjort, spør portalen om en omtale mens opplevelsen fortsatt er fersk. Alt havner i én innboks, og du velger selv hvilke moduler du trenger.",
+    categoryTag: "Portal",
+    features: [
+      "AI-chat som svarer besøkende døgnet rundt",
+      "Booking direkte på nettsiden — uten telefon",
+      "Automatisk forespørsel om omtale når jobben er ferdig",
+      "Alle henvendelser og bookinger samlet i én innboks",
+      "Velg bare modulene du trenger",
+      "Dine data holdes strengt adskilt fra alle andre",
+    ],
+    detailedFeatures: [
+      { iconName: "message-square", title: "AI-chat", description: "Svarer besøkende på norsk hele døgnet, ut fra det vi har lagt inn om bedriften din" },
+      { iconName: "calendar", title: "Booking", description: "Kundene velger tjeneste og tid selv, og får bekreftelse på e-post" },
+      { iconName: "star", title: "Omtaler", description: "Ber om en omtale når jobben er gjort, mens den fortsatt er fersk" },
+      { iconName: "mail", title: "Én innboks", description: "Henvendelser fra chat og booking på ett sted" },
+      { iconName: "lock", title: "Dine data, adskilt", description: "Ingen andre kunder kan se eller endre det som er ditt" },
+    ],
+    painPoints: [
+      { title: "Ingen svarer etter stengetid", description: "Besøkende har spørsmål klokken ti om kvelden — neste morgen har de gått til en konkurrent" },
+      { title: "Telefonen ringer for å bestille time", description: "Hver booking på telefon tar tid fra jobben du egentlig skal gjøre" },
+      { title: "Fornøyde kunder skriver ikke omtaler", description: "De var fornøyde, men ingen spurte dem mens opplevelsen var fersk" },
+    ],
+    processSteps: [
+      { step: 1, title: "Velg moduler", description: "Vi finner ut hvilke moduler bedriften din faktisk har nytte av" },
+      { step: 2, title: "Oppsett", description: "Vi legger inn tjenester, åpningstider og det chatten skal vite om bedriften" },
+      { step: 3, title: "På nettsiden", description: "Chat og booking kobles til nettsiden din" },
+      { step: 4, title: "I gang", description: "Du logger inn og ser henvendelser og bookinger samlet på ett sted" },
+    ],
+    faq: [
+      { question: "Må jeg ta alle modulene?", answer: "Nei. Du velger modulene du har nytte av, og portalen viser bare dem." },
+      { question: "Hva vet AI-chatten om bedriften min?", answer: "Den svarer ut fra informasjonen vi legger inn om bedriften din — tjenester, åpningstider og vanlige spørsmål. Kan den ikke svare, sender den samtalen videre til deg." },
+      { question: "Kan chatten booke timer?", answer: "Ja. Chatten kan sjekke ledige tider og booke direkte, slik at kunden slipper å ringe." },
+      { question: "Synkroniseres bookingen med Google Kalender?", answer: "Ikke foreløpig. Tider du er opptatt blokkerer du direkte i portalen, og kunden får en kalenderfil i bekreftelsen." },
+      { question: "Hvordan spør portalen om omtaler?", answer: "Når du markerer en jobb som ferdig, sender portalen kunden en e-post og ber om en omtale. Kunden kan enkelt melde seg av." },
+      { question: "Er dataene mine trygge?", answer: "Hver bedrift har sine egne data, strengt adskilt fra alle andre i portalen. Skillet ligger i selve databasen og testes automatisk." },
     ],
     trustStats: [],
   },

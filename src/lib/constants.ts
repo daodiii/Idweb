@@ -4,6 +4,7 @@ export const FOOTER_LINKS = {
   tjenester: [
     { href: "/tjenester/nettside", label: "Nettsider" },
     { href: "/tjenester/drift-og-seo", label: "Drift og SEO" },
+    { href: "/tjenester/portal", label: "IDweb-portalen" },
   ],
   selskap: [
     { href: "/om-oss", label: "Om oss" },

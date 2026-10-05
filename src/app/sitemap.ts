@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tjenester`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/nettside`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/drift-og-seo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/tjenester/portal`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/referanser`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/om-oss`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/kontakt`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },

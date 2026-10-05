@@ -29,6 +29,13 @@ const SERVICES = [
       "Etter lansering holder vi nettsiden trygg, rask og synlig på Google — hosting, backup, oppdateringer og løpende SEO.",
     features: ["Hosting og backup", "Oppdateringer", "Teknisk og lokal SEO", "Månedlig rapport"],
   },
+  {
+    slug: "portal",
+    title: "IDweb-portalen",
+    description:
+      "AI-chat, booking og omtaler i én innlogging — så nettsiden skaffer deg kunder også når du ikke er på jobb.",
+    features: ["AI-chat døgnet rundt", "Booking på nettsiden", "Automatiske omtaler", "Én innboks"],
+  },
 ];
 
 export default function TjenesterPage() {

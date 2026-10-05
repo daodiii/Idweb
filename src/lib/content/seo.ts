@@ -50,4 +50,9 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
     description:
       "Vi holder nettsiden din sikker, oppdatert og synlig på Google: hosting, backup, oppdateringer og løpende SEO. Fast månedspris, ingen bindingstid.",
   },
+  portal: {
+    title: "IDweb-portalen — AI-chat, booking og omtaler for bedriften din",
+    description:
+      "AI-chat som svarer kundene døgnet rundt, booking direkte på nettsiden og automatiske forespørsler om omtaler — samlet i én innlogging. Velg modulene du trenger.",
+  },
 };

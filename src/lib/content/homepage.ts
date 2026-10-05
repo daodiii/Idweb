@@ -42,6 +42,12 @@ export const SERVICES_OVERVIEW = [
     description:
       "Etter lansering holder vi nettsiden trygg, rask og synlig på Google — med fast månedspris og ingen bindingstid.",
   },
+  {
+    id: "portal",
+    title: "IDweb-portalen",
+    description:
+      "AI-chat, booking og omtaler i én innlogging — så nettsiden skaffer deg kunder også når du ikke er på jobb.",
+  },
 ] as const;
 
 export const PROBLEM_CARDS = [
@@ -146,4 +152,5 @@ export const SOCIAL_PROOF = {
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
   nettside: 0,
   "drift-og-seo": 0,
+  portal: 0,
 };

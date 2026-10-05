@@ -71,6 +71,15 @@ const BUSINESS_SCHEMA = {
             "Hosting, backup, oppdateringer og løpende SEO som holder nettsiden trygg, rask og synlig på Google.",
         },
       },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "IDweb-portalen",
+          description:
+            "AI-chat, booking og automatiske forespørsler om omtaler, samlet i én innlogging.",
+        },
+      },
     ],
   },
 };
