@@ -15,8 +15,7 @@ const ENTRY_EASE = "cubic-bezier(0.23,1,0.32,1)";
 
 const MOBILE_LINKS = [
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
-  { href: "/tjenester/seo", label: "SEO-optimalisering" },
-  { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
+  { href: "/tjenester/drift-og-seo", label: "Drift og SEO" },
   { href: "/referanser", label: "Referanser" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/faq", label: "FAQ" },
@@ -111,11 +110,8 @@ export function Navbar() {
                   <HoveredLink href="/tjenester/nettside">
                     Skreddersydd nettside
                   </HoveredLink>
-                  <HoveredLink href="/tjenester/seo">
-                    SEO-optimalisering
-                  </HoveredLink>
-                  <HoveredLink href="/tjenester/vedlikehold">
-                    Drift og vedlikehold
+                  <HoveredLink href="/tjenester/drift-og-seo">
+                    Drift og SEO
                   </HoveredLink>
                 </div>
               </MenuItem>

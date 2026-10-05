@@ -37,16 +37,10 @@ export const SERVICES_OVERVIEW = [
       "Profesjonelle, raske nettsider som representerer merkevaren din og tiltrekker nye kunder gjennom s\u00f8kemotorer.",
   },
   {
-    id: "seo",
-    title: "SEO-optimalisering",
+    id: "drift-og-seo",
+    title: "Drift og SEO",
     description:
-      "Bli funnet av kundene dine når de søker på Google etter tjenestene du tilbyr.",
-  },
-  {
-    id: "vedlikehold",
-    title: "Drift og vedlikehold",
-    description:
-      "L\u00f8pende oppdateringer, sikkerhetskopier og support slik at nettsiden alltid er trygg og oppdatert.",
+      "Etter lansering holder vi nettsiden trygg, rask og synlig på Google — med fast månedspris og ingen bindingstid.",
   },
 ] as const;
 
@@ -151,6 +145,5 @@ export const SOCIAL_PROOF = {
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
   nettside: 0,
-  seo: 0,
-  vedlikehold: 0,
+  "drift-og-seo": 0,
 };

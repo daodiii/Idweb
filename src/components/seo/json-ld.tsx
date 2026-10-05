@@ -57,15 +57,6 @@ const BUSINESS_SCHEMA = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Webutvikler i Oslo",
-          description:
-            "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
           name: "Skreddersydd nettside",
           description:
             "Profesjonell, mobiloptimalisert nettside designet for å tiltrekke kunder.",
@@ -75,27 +66,9 @@ const BUSINESS_SCHEMA = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Nettbutikk-utvikling",
+          name: "Drift og SEO",
           description:
-            "Skreddersydde nettbutikker med Vipps og Stripe — lynraske og mobilvennlige.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "SEO-optimalisering",
-          description:
-            "Søkemotoroptimalisering som gir bedriften din synlighet i Google.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Drift og vedlikehold",
-          description:
-            "Løpende vedlikehold, sikkerhetskopier og oppdateringer for nettsiden din.",
+            "Hosting, backup, oppdateringer og løpende SEO som holder nettsiden trygg, rask og synlig på Google.",
         },
       },
     ],

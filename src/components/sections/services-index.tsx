@@ -15,8 +15,7 @@ import { EASE, EASE_CSS, INK, PAPER, YELLOW, VIEWPORT_ONCE } from "@/lib/motion"
 
 const HREFS: Record<string, string> = {
   nettside: "/tjenester/nettside",
-  seo: "/tjenester/seo",
-  vedlikehold: "/tjenester/vedlikehold",
+  "drift-og-seo": "/tjenester/drift-og-seo",
 };
 
 export function ServicesIndex() {

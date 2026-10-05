@@ -3,7 +3,7 @@ import type { Service } from "@/types";
 export const SERVICES_PAGE = {
   headline: "Tjenester som gir bedriften din vekst",
   subheadline:
-    "Vi tilbyr alt du trenger for å lykkes digitalt — fra skreddersydde nettsider og SEO til løpende vedlikehold.",
+    "Vi bygger skreddersydde nettsider — og holder dem trygge, raske og synlige etter lansering.",
 } as const;
 
 export const SERVICES: Service[] = [
@@ -54,134 +54,47 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    id: "seo",
-    title: "SEO-optimalisering",
+    id: "drift-og-seo",
+    title: "Drift og SEO",
     shortDescription:
-      "Bli funnet av kundene dine når de søker på Google etter tjenestene du tilbyr.",
+      "Etter lansering holder vi nettsiden din trygg, rask og synlig på Google — så den fortsetter å skaffe deg kunder.",
     longDescription:
-      "Det hjelper lite med en flott nettside hvis ingen finner den. Søkemotoroptimalisering sørger for at bedriften din dukker opp når potensielle kunder søker etter det du tilbyr. Vi jobber med både teknisk SEO, innholdsoptimalisering og lokal SEO for å gi deg varige resultater.",
-    categoryTag: "SEO",
+      "En nettside er ikke ferdig den dagen den går live. Den må holdes sikker og oppdatert, og den må bli funnet. Med en driftsavtale tar vi oss av begge deler: hosting, sikkerhet, backup og mindre endringer, pluss løpende arbeid med teknisk SEO, innhold og Google-profilen din. Én avtale, én kontaktperson og fast pris per måned.",
+    categoryTag: "Drift og SEO",
     features: [
-      "Søkeordanalyse og konkurranseanalyse",
-      "Teknisk SEO — hastighetsoptimalisering, strukturerte data, XML-sitemap",
-      "Innholdsoptimalisering med relevante søkeord",
-      "Lokal SEO — Google Business Profile-optimalisering",
-      "Månedlig rapportering med synlige resultater",
+      "Hosting, SSL og daglige sikkerhetskopier",
+      "Sikkerhets- og programvareoppdateringer",
+      "Teknisk SEO — hastighet, strukturerte data og sitemap",
+      "Søkeordanalyse og innholdsoptimalisering",
+      "Lokal SEO og Google Bedriftsprofil",
+      "Mindre innholdsendringer og rask support",
     ],
     detailedFeatures: [
-      { iconName: "key", title: "Søkeordanalyse", description: "Finn de riktige søkeordene for din bransje" },
-      { iconName: "cog", title: "Teknisk SEO", description: "Hastighet, strukturerte data og XML-sitemap" },
-      { iconName: "file-text", title: "Innholdsoptimalisering", description: "Relevante søkeord i tekst og metadata" },
-      { iconName: "map-pin", title: "Lokal SEO", description: "Google Business Profile-optimalisering" },
-      { iconName: "trending-up", title: "Månedlig rapportering", description: "Synlige resultater med detaljerte rapporter" },
+      { iconName: "shield", title: "Sikker drift", description: "Hosting, SSL og overvåking — vi oppdager problemer før du gjør det" },
+      { iconName: "refresh-cw", title: "Oppdateringer og backup", description: "Daglige sikkerhetskopier og jevnlige oppdateringer" },
+      { iconName: "zap", title: "Teknisk SEO", description: "Hastighet, strukturerte data og sitemap som Google forstår" },
+      { iconName: "map-pin", title: "Synlig på Google", description: "Søkeord, innhold og en komplett Google Bedriftsprofil" },
+      { iconName: "trending-up", title: "Månedlig rapport", description: "Hva som er gjort, og hvordan siden presterer" },
     ],
     painPoints: [
-      { title: "Usynlig på Google", description: "Potensielle kunder finner konkurrentene dine — men ikke deg" },
-      { title: "Bortkastet annonsepenger", description: "Du betaler for annonser fordi organisk trafikk er for lav" },
-      { title: "Ingen strategi", description: "Innhold publiseres uten søkeordanalyse eller plan" },
+      { title: "Usynlig på Google", description: "Kundene søker etter det du tilbyr, men finner konkurrentene dine" },
+      { title: "Sårbar uten oppdateringer", description: "En nettside som ikke vedlikeholdes blir et lett mål for angrep og nedetid" },
+      { title: "Tregere for hver måned", description: "Uten løpende optimalisering mister siden både fart og plasseringer" },
     ],
     processSteps: [
-      { step: 1, title: "Analyse", description: "Søkeord, konkurrenter og teknisk status" },
-      { step: 2, title: "Optimalisering", description: "Innhold, struktur og tekniske faktorer" },
-      { step: 3, title: "Implementering", description: "Teknisk SEO, metadata og innholdsoppdateringer" },
-      { step: 4, title: "Rapportering", description: "Månedlig rapport med målbar fremgang" },
+      { step: 1, title: "Helsesjekk", description: "Vi går gjennom sikkerhet, hastighet og synlighet på Google" },
+      { step: 2, title: "Plan", description: "Prioriteringer og fast månedspris, avtalt før vi starter" },
+      { step: 3, title: "Løpende arbeid", description: "Overvåking, oppdateringer, backup og SEO-forbedringer hver måned" },
+      { step: 4, title: "Rapport", description: "Månedlig oversikt over hva som er gjort og hva det har gitt" },
     ],
     faq: [
-      { question: "Hvor lang tid tar det å se resultater?", answer: "SEO er en langsiktig investering. De fleste ser merkbar forbedring etter 3–6 måneder, men noen endringer gir effekt allerede etter uker." },
-      { question: "Garanterer du førsteplass på Google?", answer: "Ingen kan garantere en spesifikk plassering — Google endrer algoritmene kontinuerlig. Vi garanterer solid, etisk arbeid som gir varige resultater." },
-      { question: "Hva koster SEO-optimalisering?", answer: "Prisen avhenger av konkurransen i din bransje og omfanget av arbeidet. Vi setter opp en månedlig pakke som passer, og du får fastpris før vi starter." },
-    ],
-    trustStats: [
-      { value: 90, suffix: "+", label: "PageSpeed-score snitt" },
-      { value: 6, suffix: "+", label: "prosjekter SEO-optimalisert" },
-      { value: 3, suffix: "-6 mnd", label: "tid til synlige resultater" },
-    ],
-  },
-  {
-    id: "vedlikehold",
-    title: "Drift og vedlikehold",
-    shortDescription:
-      "Sov godt om natten. Vi holder nettsiden din trygg, oppdatert og rask — hver eneste dag.",
-    longDescription:
-      "En nettside er ikke et engangsprosjekt — den trenger løpende vedlikehold for å fungere optimalt. Vi tilbyr driftsavtaler som dekker alt fra sikkerhetsoppdateringer og backup til ytelsesovervåking og innholdsendringer.",
-    categoryTag: "Vedlikehold",
-    features: [
-      "Sikkerhetsovervåking og brannmur",
-      "Programvareoppdateringer og kompatibilitetstesting",
-      "Høy oppetid via pålitelig hosting",
-      "Mindre innholdsendringer inkludert",
-      "Prioritert support med rask responstid",
-    ],
-    detailedFeatures: [
-      { iconName: "shield", title: "Sikkerhetsovervåking", description: "Automatisert brannmur og trusselovervåking" },
-      { iconName: "refresh-cw", title: "Programvareoppdateringer", description: "Kompatibilitetstesting og oppdateringer" },
-      { iconName: "circle-check", title: "Pålitelig hosting", description: "Høy tilgjengelighet via pålitelige norske servere" },
-      { iconName: "file-text", title: "Innholdsendringer", description: "Mindre endringer inkludert i avtalen" },
-      { iconName: "headphones", title: "Prioritert support", description: "Rask responstid når du trenger hjelp" },
-    ],
-    painPoints: [
-      { title: "Hacket nettside", description: "Uten oppdateringer er nettsiden sårbar for angrep og nedetid" },
-      { title: "Treg ytelse over tid", description: "Nettsider blir tregere uten løpende optimalisering og opprydding" },
-      { title: "Ingen backup", description: "Hvis noe går galt, risikerer du å miste alt innhold og data" },
-    ],
-    processSteps: [
-      { step: 1, title: "Oppstart", description: "Vi tar over drift og gjør en helsesjekk" },
-      { step: 2, title: "Overvåking", description: "Automatisert oppetids- og sikkerhetsovervåking" },
-      { step: 3, title: "Vedlikehold", description: "Daglige backups, oppdateringer og feilretting" },
-      { step: 4, title: "Rapportering", description: "Månedlig statusrapport til deg" },
-    ],
-    faq: [
-      { question: "Hva dekker en driftsavtale?", answer: "Daglige sikkerhetskopier, automatisert sikkerhetsovervåking, programvareoppdateringer og prioritert support. Mindre innholdsendringer er også inkludert." },
-      { question: "Hva koster vedlikehold?", answer: "Prisen avhenger av nettsidens størrelse og kompleksitet. Ta kontakt for et uforpliktende tilbud." },
-      { question: "Kan jeg si opp avtalen?", answer: "Ja, avtalen kan sies opp med én måneds varsel. Ingen bindingstid." },
+      { question: "Hva dekker avtalen?", answer: "Hosting, daglige sikkerhetskopier, sikkerhetsovervåking, oppdateringer og mindre innholdsendringer — pluss løpende SEO-arbeid: teknisk optimalisering, søkeord, innhold og Google Bedriftsprofil." },
+      { question: "Hvor lang tid tar det før SEO gir resultater?", answer: "SEO er en langsiktig investering. De fleste ser merkbar forbedring etter 3–6 måneder, men tekniske forbedringer kan gi effekt allerede etter noen uker." },
+      { question: "Garanterer dere førsteplass på Google?", answer: "Nei. Ingen kan garantere en bestemt plassering — Google endrer algoritmene hele tiden. Vi garanterer solid, etisk arbeid som gir varige resultater." },
+      { question: "Hva koster det?", answer: "Det avhenger av nettsidens størrelse og hvor mye SEO-arbeid som trengs. Du får en fast månedspris før vi starter." },
+      { question: "Kan jeg si opp avtalen?", answer: "Ja, med én måneds varsel. Ingen bindingstid." },
     ],
     trustStats: [],
-  },
-  {
-    id: "nettbutikk",
-    title: "Nettbutikk-utvikling",
-    shortDescription:
-      "Skreddersydde nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med Vipps og Stripe.",
-    longDescription:
-      "En nettbutikk er ikke bare en produktkatalog — det er en konverteringsmaskin. Vi bygger skreddersydde nettbutikker med Next.js, Stripe og Vipps som laster på under to sekunder, fungerer perfekt på mobil og er bygget for SEO fra dag én. Enten du selger ti produkter eller tusen, får du en løsning som er rask, sikker og enkel å administrere — uten månedlige Shopify-avgifter som spiser av marginen din.",
-    categoryTag: "Nettbutikk",
-    features: [
-      "Lynrask Next.js-arkitektur — under 2 sekunders lastetid",
-      "Vipps og Stripe integrert — norske og internasjonale kort",
-      "Mobiloptimalisert handlekurv og kasse",
-      "Lagerstyring og automatiske ordrebekreftelser",
-      "SEO-optimaliserte produktsider og kategorisider",
-      "Ingen månedlige Shopify-avgifter — du eier alt",
-    ],
-    detailedFeatures: [
-      { iconName: "shopping-cart", title: "Vipps og Stripe", description: "Vipps Hurtigkasse + Stripe for kort, Apple Pay og Google Pay" },
-      { iconName: "zap", title: "Under 2 sek lastetid", description: "Next.js + bildeoptimalisering gjør butikken lynrask" },
-      { iconName: "smartphone", title: "Mobil-først kasse", description: "70 % av netthandel skjer på mobil — vi designer for det først" },
-      { iconName: "search", title: "SEO på produktsider", description: "Strukturert data, rich snippets og rask indeksering i Google" },
-      { iconName: "package", title: "Lager og ordrer", description: "Lagerstyring, ordrebekreftelser og frakthåndtering inkludert" },
-    ],
-    painPoints: [
-      { title: "Shopify-avgifter spiser margin", description: "Månedlige plattformavgifter + transaksjonsgebyrer reduserer fortjenesten din betydelig" },
-      { title: "Treg WooCommerce-butikk", description: "WooCommerce + plugins gir 4–6 sekunders lastetid og høy fluktrate i kassen" },
-      { title: "Generisk mal-design", description: "Konkurrentene bruker samme Shopify-tema — kunden ser ingen forskjell og velger på pris" },
-    ],
-    processSteps: [
-      { step: 1, title: "Strategi", description: "Produktsortiment, målgruppe og konverteringsplan" },
-      { step: 2, title: "Design", description: "Skreddersydd nettbutikkdesign med fokus på kjøpsopplevelse" },
-      { step: 3, title: "Utvikling", description: "Next.js + Vipps + Stripe + lager- og ordrelogikk" },
-      { step: 4, title: "Lansering", description: "Testbestillinger kjøres, så går butikken live." },
-    ],
-    faq: [
-      { question: "Hva koster en skreddersydd nettbutikk?", answer: "Det kommer an på hvor mange produkter du har og hva butikken skal kunne. En enkel butikk er raskt oppe, mens tilpasset funksjonalitet tar mer tid. Du får et uforpliktende tilbud med fastpris før vi starter." },
-      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler en månedlig plattformavgift og et transaksjonsgebyr på hvert salg, i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare hosting. Jo mer du selger, jo raskere lønner det seg: gebyrene vokser med omsetningen, hostingen gjør ikke det." },
-      { question: "Støtter dere Vipps?", answer: "Ja. Vi integrerer Vipps Hurtigkasse + Vipps Faste Betalinger som standard. I tillegg har vi Stripe for kort, Apple Pay og Google Pay." },
-      { question: "Hvordan oppdaterer jeg produkter etter lansering?", answer: "Du får et enkelt admin-panel der du kan legge til produkter, justere priser og se ordrer. For mer avanserte endringer i design eller funksjonalitet hjelper vi som del av driftsavtalen." },
-    ],
-    trustStats: [
-      { value: 2, suffix: "s", label: "lastetid i kassen" },
-      { value: 100, suffix: " %", label: "eierskap til butikken" },
-      { value: 24, suffix: "t", label: "responstid på e-post" },
-    ],
   },
 ];
 

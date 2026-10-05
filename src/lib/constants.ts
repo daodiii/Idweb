@@ -3,8 +3,7 @@ export const SITE_NAME = "IDweb";
 export const FOOTER_LINKS = {
   tjenester: [
     { href: "/tjenester/nettside", label: "Nettsider" },
-    { href: "/tjenester/seo", label: "SEO-optimalisering" },
-    { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
+    { href: "/tjenester/drift-og-seo", label: "Drift og SEO" },
   ],
   selskap: [
     { href: "/om-oss", label: "Om oss" },

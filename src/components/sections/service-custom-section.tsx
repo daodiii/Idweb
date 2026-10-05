@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { Service } from "@/types";
-import { CountUpStat } from "@/components/ui/count-up-stat";
 
 interface ServiceCustomSectionProps {
   service: Service;
@@ -14,8 +13,6 @@ export function ServiceCustomSection({ service }: ServiceCustomSectionProps) {
   switch (service.id) {
     case "nettside":
       return <NettsideShowcase />;
-    case "vedlikehold":
-      return <VedlikeholdStats service={service} />;
     case "design":
       return <DesignSpecimen />;
     default:
@@ -197,73 +194,6 @@ function NettsideShowcase() {
                   {row.description}
                 </p>
               </div>
-            </motion.li>
-          ))}
-        </ul>
-      </div>
-    </Shell>
-  );
-}
-
-/* ────────────────────────────────────────────────
-   2. Vedlikehold — editorial stat strip
-   ──────────────────────────────────────────────── */
-
-function VedlikeholdStats({ service }: { service: Service }) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (!service.trustStats?.length) return null;
-
-  return (
-    <Shell
-      eyebrow="Tall som teller"
-      headOpener="Drift som"
-      headEmphasis="gir trygghet"
-      headCloser="— uten å mase om det."
-      body="Vi holder nettsiden trygg, oppdatert og rask hver eneste dag. Du merker det bare når noe ville gått galt — og det gjorde det ikke."
-      spotlight="18% 28%"
-    >
-      <div className="mt-16 lg:mt-24">
-        <div className="flex items-baseline justify-between border-b border-white/[0.08] pb-4">
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/55">
-            Nøkkeltall
-          </p>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
-            {String(service.trustStats.length).padStart(2, "0")} / Indikatorer
-          </span>
-        </div>
-
-        <ul className="grid grid-cols-1 sm:grid-cols-3">
-          {service.trustStats.map((stat, i) => (
-            <motion.li
-              key={stat.label}
-              className={`border-t border-white/[0.06] py-8 sm:border-l sm:py-10 sm:first:border-l-0 ${
-                i === 0 ? "sm:pl-0" : "sm:pl-8"
-              } ${i < service.trustStats.length - 1 ? "sm:pr-8" : ""}`}
-              initial={
-                prefersReducedMotion ? false : { opacity: 0, y: 16 }
-              }
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{
-                duration: prefersReducedMotion ? 0 : 0.5,
-                delay: prefersReducedMotion ? 0 : i * 0.07,
-                ease: EASE,
-              }}
-            >
-              <p
-                className="text-[#F4CE14]"
-                style={{ fontSize: "clamp(2.5rem, 5vw, 3.75rem)" }}
-              >
-                <CountUpStat
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                />
-              </p>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
-                {stat.label}
-              </p>
             </motion.li>
           ))}
         </ul>

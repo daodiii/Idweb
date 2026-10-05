@@ -23,25 +23,11 @@ const SERVICES = [
     features: ["Responsivt design", "SEO-optimalisert", "Rask lastetid", "SSL-sertifikat"],
   },
   {
-    slug: "nettbutikk",
-    title: "Nettbutikk-utvikling",
+    slug: "drift-og-seo",
+    title: "Drift og SEO",
     description:
-      "Skreddersydde nettbutikker med Vipps og Stripe — lynraske, mobilvennlige og bygget for konvertering.",
-    features: ["Vipps + Stripe", "Under 2 sek lastetid", "Mobil-først kasse", "SEO på produktsider"],
-  },
-  {
-    slug: "seo",
-    title: "SEO-optimalisering",
-    description:
-      "Bli synlig i Google og tiltrekk flere kunder med profesjonell søkemotoroptimalisering.",
-    features: ["Teknisk SEO", "Innholdsoptimalisering", "Lokal SEO", "Månedlig rapportering"],
-  },
-  {
-    slug: "vedlikehold",
-    title: "Drift og vedlikehold",
-    description:
-      "Hold nettsiden din trygg, rask og oppdatert med pålitelig norsk hosting og support.",
-    features: ["Sikkerhetskopier", "Oppdateringer", "Norsk hosting", "Prioritert support"],
+      "Etter lansering holder vi nettsiden trygg, rask og synlig på Google — hosting, backup, oppdateringer og løpende SEO.",
+    features: ["Hosting og backup", "Oppdateringer", "Teknisk og lokal SEO", "Månedlig rapport"],
   },
 ];
 

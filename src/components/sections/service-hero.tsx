@@ -15,7 +15,7 @@ const ENTRY_EASE = "cubic-bezier(0.23,1,0.32,1)";
  * Split the service title into a thin lead-in and a heavy load-bearing tail.
  * - "Skreddersydd nettside"   -> { lead: "Skreddersydd", tail: "nettside" }
  * - "SEO-optimalisering"      -> { lead: "",             tail: "SEO-optimalisering" }
- * - "Drift og vedlikehold"    -> { lead: "Drift og",     tail: "vedlikehold" }
+ * - "Drift og SEO"            -> { lead: "Drift og",     tail: "SEO" }
  * The tail gets the yellow underline accent.
  */
 function splitHeadline(title: string): { lead: string; tail: string } {

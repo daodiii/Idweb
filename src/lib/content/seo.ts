@@ -45,19 +45,9 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
     description:
       "Vi designer skreddersydde nettsider med fokus på hastighet, SEO og konvertering. Responsivt design, SSL og administrasjon inkludert. Webutvikler i Oslo.",
   },
-  seo: {
-    title: "SEO-optimalisering i Oslo — Bli synlig i Google",
+  "drift-og-seo": {
+    title: "Drift og SEO — Trygg, rask og synlig nettside",
     description:
-      "Profesjonell søkemotoroptimalisering for bedrifter i Oslo og hele Norge. Teknisk SEO, innhold og lokal SEO. Månedlig rapportering og faste priser.",
-  },
-  vedlikehold: {
-    title: "Drift og vedlikehold av nettside — Trygg drift",
-    description:
-      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig norsk hosting. Ingen bindingstid.",
-  },
-  nettbutikk: {
-    title: "Nettbutikk-utvikling — Skreddersydde e-handelsløsninger",
-    description:
-      "Vi bygger nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med Stripe og Vipps. Fra enkel produktkatalog til full e-handelsplattform.",
+      "Vi holder nettsiden din sikker, oppdatert og synlig på Google: hosting, backup, oppdateringer og løpende SEO. Fast månedspris, ingen bindingstid.",
   },
 };

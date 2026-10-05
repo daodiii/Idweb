@@ -84,6 +84,18 @@ const nextConfig: NextConfig = {
         destination: "/tjenester/nettside",
         permanent: true,
       },
+      // SEO and maintenance were merged into one service; the webshop
+      // service was dropped.
+      {
+        source: "/tjenester/:old(seo|vedlikehold)",
+        destination: "/tjenester/drift-og-seo",
+        permanent: true,
+      },
+      {
+        source: "/tjenester/nettbutikk",
+        destination: "/tjenester",
+        permanent: true,
+      },
       // The blog and all its articles were removed.
       {
         source: "/blogg/:slug*",
