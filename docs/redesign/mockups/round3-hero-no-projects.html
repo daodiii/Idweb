@@ -1,0 +1,746 @@
+<title>IDweb forside-konsepter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a working slice of idweb.no — the site's own nav, then one concept (hero + the services section under it) at a time; a floating switcher swaps concepts. Single light look by design (the site is «Nordisk ro»). */
+:root{
+  --bg:#ffffff; --ink:#13302a; --accent:#1e5a4c; --accent-2:#174a3e; --mint:#a8e0c8;
+  --sage:#eaf1ee; --mist:#f5f8f7; --muted:#4a5f59; --line:#dce6e2; --device:#10231f; --skel:#e1ebe7;
+  --board:#0f211d; --tile:#1b3631; --tile-ink:#f1f7f4;
+  --display:"Schibsted Grotesk","Helvetica Neue",Helvetica,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(16px,4vw,40px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--mono)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ── site nav ── */
+.site-nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none}
+.site-nav nav{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.site-nav nav a{text-decoration:none}
+.site-nav nav a:hover{color:var(--ink)}
+@media (max-width:720px){.site-nav nav{display:none}}
+
+/* ── shared atoms ── */
+.pill{display:inline-flex;align-items:center;gap:10px;margin:0;background:var(--sage);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.dot{position:relative;width:8px;height:8px;flex:none}
+.dot::before,.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent)}
+.dot::before{animation:ping 1.6s cubic-bezier(0,0,.2,1) infinite;opacity:.45}
+@keyframes ping{75%,100%{transform:scale(2.6);opacity:0}}
+.h1{margin:0;font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:1.02;letter-spacing:-.045em;font-weight:700;text-wrap:balance}
+.lead{margin:0;max-width:38rem;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.6;color:var(--muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;font-weight:600;font-size:17px;text-decoration:none;transition:background-color .2s,transform .2s}
+.btn svg{width:18px;height:18px}
+.btn-sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 14px 30px -12px rgba(30,90,76,.6)}
+.btn-primary:hover,.btn-primary.is-hover{background:var(--accent-2)}
+.btn-soft{background:var(--sage);color:var(--ink)}
+.btn-soft:hover{background:#dde9e4}
+.hl{position:relative;display:inline-block;white-space:nowrap}
+.hl svg{position:absolute;left:0;bottom:.02em;width:100%;height:.42em;overflow:visible}
+.hl path{fill:none;stroke:var(--mint);stroke-width:22;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s cubic-bezier(.65,0,.35,1) .1s}
+.hl.drawn path{stroke-dashoffset:0}
+.hl > span{position:relative}
+.eyebrow{margin:0;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.h2{margin:10px 0 0;font-size:clamp(2rem,4vw,3.25rem);line-height:1.05;letter-spacing:-.04em;font-weight:700;text-wrap:balance}
+.rise{opacity:0;transform:translateY(18px);filter:blur(8px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s),filter .9s var(--ease) var(--d,0s)}
+.is-in .rise{opacity:1;transform:none;filter:none}
+.section{padding-block:clamp(56px,8vw,112px)}
+.concept{position:relative}
+
+/* ═════ A · Avgangstavla ═════ */
+.ft-hero{padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,88px)}
+.ft-hero .inner{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(18px,2.4vw,28px)}
+.ft-line1{display:block;font-size:clamp(2.2rem,5.6vw,4.8rem);font-weight:700;letter-spacing:-.045em;line-height:1}
+.board-wrap{max-width:100%}
+.board{--fw:clamp(22px,6.3vw,84px);display:flex;gap:calc(var(--fw) * .08);padding:calc(var(--fw) * .14);border-radius:calc(var(--fw) * .2);background:var(--board);box-shadow:0 30px 60px -28px rgba(15,33,29,.7),inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flap{--fh:calc(var(--fw) * 1.36);position:relative;width:var(--fw);height:var(--fh);perspective:calc(var(--fw) * 6);font-weight:800;font-size:calc(var(--fh) * .66);color:var(--tile-ink);text-transform:uppercase}
+.flap .half,.flap .leaf{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:var(--tile)}
+.flap .top,.flap .tleaf{top:0;border-radius:calc(var(--fw) * .1) calc(var(--fw) * .1) 0 0}
+.flap .bottom,.flap .bleaf{bottom:0;border-radius:0 0 calc(var(--fw) * .1) calc(var(--fw) * .1)}
+.flap .bottom{background:#183029}
+.flap .tleaf{transform-origin:50% 100%;z-index:3;backface-visibility:hidden}
+.flap .bleaf{transform-origin:50% 0;z-index:2;backface-visibility:hidden;background:#183029}
+.flap span span{display:block;height:var(--fh);line-height:var(--fh);text-align:center}
+.flap .bottom span,.flap .bleaf span{transform:translateY(-50%)}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:max(1px,calc(var(--fw) * .025));transform:translateY(-50%);background:rgba(0,0,0,.55);z-index:5}
+.flap.mint{color:var(--mint)}
+.ft-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.ft-meta b{font-weight:500;color:var(--ink)}
+/* timetable */
+.tt{margin-top:36px;border-top:2px solid var(--ink)}
+.tt-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) minmax(0,.9fr) auto;gap:16px 28px;align-items:center;padding-block:22px;border-bottom:1px solid var(--line)}
+.tt-head{padding-block:12px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tt-name{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;letter-spacing:-.02em}
+.tt-what{color:var(--muted);line-height:1.5}
+.tt-when{font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums}
+.tt .board{--fw:22px;cursor:default;padding:4px;gap:2px;border-radius:6px}
+@media (max-width:760px){.tt-row{grid-template-columns:1fr auto}.tt-what{grid-column:1 / -1;grid-row:2}.tt-when{grid-row:3}.tt-head{display:none}}
+
+/* ═════ B · Samarbeid ═════ */
+.co-hero{position:relative;text-align:center;padding-block:clamp(48px,8vw,104px) clamp(48px,7vw,88px)}
+.co-hero .inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:28px}
+.co-hero .h1{max-width:17ch}
+.co-grid{position:absolute;inset:-60px 0 0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 45%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 50% 45%,#000 30%,transparent 75%);transition:opacity 1.4s ease}
+.co-built .co-grid{opacity:.35}
+.co-overlay{position:absolute;inset:0;z-index:6;pointer-events:none}
+.sk{position:absolute;background:var(--skel);clip-path:inset(0 0 0 0);transition:clip-path .8s var(--ease)}
+.sk.is-gone{clip-path:inset(0 0 0 100%)}
+.tag{position:absolute;padding:2px 7px;border:1px solid var(--mint);border-radius:5px;background:#fff;font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;transition:opacity .4s}
+.tag.is-gone{opacity:0}
+.scan{position:absolute;width:2px;background:var(--accent);box-shadow:0 0 18px 5px rgba(168,224,200,.9);opacity:0}
+[data-b]{transition:clip-path .8s var(--ease)}
+.co-unbuilt [data-b]{clip-path:inset(-60px 100% -60px -60px)}
+.co-unbuilt [data-b].is-built{clip-path:inset(-60px -60px -60px -60px)}
+.mate{position:absolute;left:0;top:0;z-index:30;pointer-events:none;opacity:0;transition:opacity .4s;will-change:transform}
+.mate svg{display:block;width:22px;height:22px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));transition:transform .12s}
+.mate.click svg{transform:scale(.8)}
+.mate .who{position:absolute;left:16px;top:18px;padding:3px 8px;border-radius:6px 6px 6px 2px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;white-space:nowrap}
+.mate .say{position:absolute;left:16px;top:44px;max-width:min(260px,70vw);width:max-content;padding:10px 13px;border-radius:4px 14px 14px 14px;background:#fff;color:var(--ink);font-size:14px;line-height:1.4;box-shadow:0 12px 30px -12px rgba(19,48,42,.45),0 0 0 1px var(--line);opacity:0;transform:translateY(6px) scale(.96);transform-origin:0 0;transition:opacity .25s,transform .35s var(--ease)}
+.mate .say.on{opacity:1;transform:none}
+.you{position:fixed;left:0;top:0;z-index:31;pointer-events:none;padding:3px 8px;border-radius:2px 6px 6px 6px;background:#3b6fd8;color:#fff;font-size:12px;font-weight:600;opacity:0;transition:opacity .3s}
+.co-services{position:relative}
+.co-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
+@media (max-width:860px){.co-cards{grid-template-columns:1fr}}
+.co-card{position:relative;padding:28px;border-radius:18px;background:var(--mist);display:flex;flex-direction:column;gap:12px;min-height:220px}
+.co-card h3{margin:0;font-size:24px;letter-spacing:-.02em}
+.co-card p{margin:0;color:var(--muted);line-height:1.55}
+.co-card a{margin-top:auto;font-weight:600}
+.sel{position:absolute;inset:-8px;pointer-events:none;border:1.5px solid #3b6fd8;border-radius:22px;clip-path:inset(0 100% 100% 0);opacity:0}
+.sel i{position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid #3b6fd8}
+.sel i:nth-child(1){left:-5px;top:-5px}.sel i:nth-child(2){right:-5px;top:-5px}.sel i:nth-child(3){left:-5px;bottom:-5px}.sel i:nth-child(4){right:-5px;bottom:-5px}
+.sel b{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);padding:2px 7px;border-radius:4px;background:#3b6fd8;color:#fff;font-family:var(--mono);font-size:11px;font-weight:500;white-space:nowrap}
+.co-card.picked .sel{animation:select 2.6s var(--ease) forwards}
+@keyframes select{0%{opacity:1;clip-path:inset(0 100% 100% 0)}25%{opacity:1;clip-path:inset(0 0 0 0)}80%{opacity:1;clip-path:inset(0 0 0 0)}100%{opacity:0;clip-path:inset(0 0 0 0)}}
+
+/* ═════ C · Høydekurver ═════ */
+.topo-canvas{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+.tp-hero{position:relative;z-index:1;min-height:min(84vh,820px);display:flex;align-items:center;padding-block:clamp(40px,7vw,88px)}
+.tp-hero .inner{display:flex;flex-direction:column;align-items:flex-start;gap:28px;max-width:860px}
+.tp-hero .h1{font-size:clamp(2.6rem,6.6vw,5.9rem)}
+.readout{position:fixed;left:var(--gutter);bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:2;display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;pointer-events:none}
+.readout b{color:var(--ink);font-weight:500}
+.scalebar{display:flex;align-items:center;gap:8px}
+.scalebar i{display:block;width:72px;height:6px;border:1px solid var(--muted);border-top:0;background:linear-gradient(90deg,var(--muted) 50%,transparent 50%) 0 100%/100% 2px no-repeat}
+.tp-services{position:relative;z-index:1}
+.tp-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
+@media (max-width:860px){.tp-cards{grid-template-columns:1fr}}
+.tp-card{position:relative;padding:28px;border-radius:18px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;gap:12px;min-height:230px;transition:box-shadow .4s,transform .5s var(--ease)}
+.tp-card:hover{box-shadow:0 0 0 1px var(--accent),0 30px 60px -30px rgba(19,48,42,.4);transform:translateY(-4px)}
+.tp-card h3{margin:0;font-size:24px;letter-spacing:-.02em}
+.tp-card p{margin:0;color:var(--muted);line-height:1.55}
+.tp-card a{margin-top:auto;font-weight:600}
+.tp-card .peak{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.tp-after{position:relative;z-index:1;padding-bottom:140px}
+
+/* ── concept switcher ── */
+.switcher{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:var(--device);box-shadow:0 18px 40px -16px rgba(16,35,31,.6);max-width:calc(100vw - 24px)}
+.switcher button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#cfe0da;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background-color .2s,color .2s}
+.switcher button b{font-family:var(--mono);font-weight:500;opacity:.7}
+.switcher button:hover{color:#fff}
+.switcher button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+.switcher .replay{padding:0;width:44px;justify-content:center}
+.switcher .replay svg{width:16px;height:16px}
+@media (max-width:620px){.switcher button[data-c] span{display:none}.switcher button[data-c][aria-pressed="true"] span{display:inline}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+</style>
+
+<header class="site-nav wrap">
+  <a class="logo" href="#" data-noop>IDweb</a>
+  <nav aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om oss</a></nav>
+  <a class="btn btn-primary btn-sm" href="#" data-noop>Kontakt oss</a>
+</header>
+
+<!-- ═════════ A · Avgangstavla ═════════ -->
+<section class="concept" id="k-a" aria-label="Konsept A: Avgangstavla">
+  <div class="ft-hero wrap">
+    <div class="inner">
+      <p class="pill rise" style="--d:.05s"><span class="dot" aria-hidden="true"></span>Webutvikling for norske bedrifter</p>
+      <h1 class="h1">
+        <span class="ft-line1 rise" style="--d:.15s" aria-hidden="true">Nettsider som</span>
+        <span class="sr-only ft-sr">Nettsider som blir valgt.</span>
+        <span class="board-wrap" aria-hidden="true"><span class="board ft-board" title="Trykk for neste"></span></span>
+      </h1>
+      <p class="lead rise" style="--d:.5s">Vi designer, bygger og drifter nettsider som gjør det enkelt for kundene dine å finne deg, stole på deg og ta kontakt.</p>
+      <div class="ctas rise" style="--d:.6s">
+        <a class="btn btn-primary" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-soft" href="#ft-services">Se tjenestene</a>
+      </div>
+      <p class="ft-meta rise" style="--d:.75s"><span>Avgang <b>Oslo</b></span><span>Spor <b>1</b></span><span>Fast pris · ingen bindingstid</span></p>
+    </div>
+  </div>
+  <div class="section wrap" id="ft-services">
+    <p class="eyebrow">Rutetabell</p>
+    <h2 class="h2">Tre tjenester. Én kontaktperson.</h2>
+    <div class="tt" role="table" aria-label="Tjenester">
+      <div class="tt-row tt-head" role="row"><span role="columnheader">Tjeneste</span><span role="columnheader">Hva du får</span><span role="columnheader">Tid</span><span role="columnheader">Status</span></div>
+      <div class="tt-row" role="row"><span class="tt-name" role="cell">Skreddersydd nettside</span><span class="tt-what" role="cell">Design, utvikling og lansering — laget fra bunnen av for din bedrift.</span><span class="tt-when" role="cell">ca. 2 uker</span><span role="cell"><span class="sr-only">I rute</span><span class="board tt-board" data-status="I RUTE" aria-hidden="true"></span></span></div>
+      <div class="tt-row" role="row"><span class="tt-name" role="cell">Drift og SEO</span><span class="tt-what" role="cell">Hosting, backup, oppdateringer og løpende SEO etter lansering.</span><span class="tt-when" role="cell">hver måned</span><span role="cell"><span class="sr-only">I rute</span><span class="board tt-board" data-status="I RUTE" aria-hidden="true"></span></span></div>
+      <div class="tt-row" role="row"><span class="tt-name" role="cell">IDweb-portalen</span><span class="tt-what" role="cell">AI-chat, booking og omtaler samlet i én innlogging.</span><span class="tt-when" role="cell">etter avtale</span><span role="cell"><span class="sr-only">Ny</span><span class="board tt-board" data-status="NY" aria-hidden="true"></span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ B · Samarbeid ═════════ -->
+<section class="concept" id="k-b" hidden aria-label="Konsept B: Samarbeid">
+  <div class="co-overlay" aria-hidden="true"></div>
+  <div class="mate" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M4 2.5l15.5 8.6-6.6 1.9-3.1 6.4z" fill="#1e5a4c" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <span class="who">Daod</span>
+    <span class="say"></span>
+  </div>
+  <div class="co-hero">
+    <div class="co-grid" aria-hidden="true"></div>
+    <div class="wrap inner">
+      <p class="pill" data-b="badge" data-say="Hei! Jeg er Daod — det er jeg som bygger nettsidene."><span class="dot" aria-hidden="true"></span>Webutvikling for norske bedrifter</p>
+      <h1 class="h1" data-b="h1" data-say="Ingen ferdigmaler. Alt tegnes og kodes for deg.">Gode nettsider for bedrifter som vil bli <span class="hl"><svg viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 26 C 48 12, 120 10, 216 18"/></svg><span>valgt.</span></span></h1>
+      <p class="lead" data-b="p" data-say="Du snakker direkte med meg, fra første samtale til lansering.">Vi designer, bygger og drifter nettsider som gjør det enkelt for kundene dine å finne deg, stole på deg og ta kontakt.</p>
+      <div class="ctas" data-b="knapper">
+        <a class="btn btn-primary" href="#" data-noop data-say="Send en forespørsel, så svarer jeg innen 24 timer.">Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-soft" href="#co-services" data-say="Tre tjenester — scroll ned.">Se tjenestene</a>
+      </div>
+    </div>
+  </div>
+  <div class="section wrap co-services" id="co-services">
+    <p class="eyebrow">Tjenester</p>
+    <h2 class="h2">Det du får — tegnet og bygget for deg.</h2>
+    <div class="co-cards">
+      <article class="co-card" data-say="Hver side starter som en skisse, akkurat som denne.">
+        <div class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+        <h3>Skreddersydd nettside</h3>
+        <p>Designet og kodet fra bunnen av. Rask, mobilvennlig og laget for å bli funnet på Google.</p>
+        <a href="#" data-noop>Les mer →</a>
+      </article>
+      <article class="co-card" data-say="Etter lansering passer jeg på siden, hver måned.">
+        <div class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+        <h3>Drift og SEO</h3>
+        <p>Hosting, backup, oppdateringer og løpende SEO — så siden holder seg trygg, rask og synlig.</p>
+        <a href="#" data-noop>Les mer →</a>
+      </article>
+      <article class="co-card" data-say="AI-chat, booking og omtaler — du velger modulene.">
+        <div class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+        <h3>IDweb-portalen</h3>
+        <p>AI-chat, booking og omtaler i én innlogging, så nettsiden jobber for deg også etter stengetid.</p>
+        <a href="#" data-noop>Les mer →</a>
+      </article>
+    </div>
+  </div>
+  <div class="you" aria-hidden="true">Deg</div>
+</section>
+
+<!-- ═════════ C · Høydekurver ═════════ -->
+<section class="concept" id="k-c" hidden aria-label="Konsept C: Høydekurver">
+  <canvas class="topo-canvas" aria-hidden="true"></canvas>
+  <div class="tp-hero wrap">
+    <div class="inner">
+      <p class="pill rise" style="--d:.1s"><span class="dot" aria-hidden="true"></span>Webutvikling for norske bedrifter</p>
+      <h1 class="h1 rise" style="--d:.25s">Gode nettsider for bedrifter som vil bli <span class="hl"><svg viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 26 C 48 12, 120 10, 216 18"/></svg><span>valgt.</span></span></h1>
+      <p class="lead rise" style="--d:.45s">Vi designer, bygger og drifter nettsider som gjør det enkelt for kundene dine å finne deg, stole på deg og ta kontakt.</p>
+      <div class="ctas rise" style="--d:.6s">
+        <a class="btn btn-primary" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-soft" href="#tp-services">Se tjenestene</a>
+      </div>
+    </div>
+  </div>
+  <div class="section wrap tp-services" id="tp-services">
+    <p class="eyebrow">Tjenester</p>
+    <h2 class="h2">Vi kjenner terrenget.</h2>
+    <div class="tp-cards">
+      <article class="tp-card"><span class="peak">Topp 01</span><h3>Skreddersydd nettside</h3><p>Designet og kodet fra bunnen av. Rask, mobilvennlig og laget for å bli funnet på Google.</p><a href="#" data-noop>Les mer →</a></article>
+      <article class="tp-card"><span class="peak">Topp 02</span><h3>Drift og SEO</h3><p>Hosting, backup, oppdateringer og løpende SEO — så siden holder seg trygg, rask og synlig.</p><a href="#" data-noop>Les mer →</a></article>
+      <article class="tp-card"><span class="peak">Topp 03</span><h3>IDweb-portalen</h3><p>AI-chat, booking og omtaler i én innlogging, så nettsiden jobber for deg også etter stengetid.</p><a href="#" data-noop>Les mer →</a></article>
+    </div>
+  </div>
+  <div class="tp-after"></div>
+  <div class="readout" aria-hidden="true">
+    <span class="coord"><b>59,9139° N</b> · <b>10,7522° Ø</b></span>
+    <span class="elev">Høyde <b>— moh</b></span>
+    <span class="scalebar"><i></i>500 m</span>
+  </div>
+</section>
+
+<div class="switcher" role="group" aria-label="Velg konsept">
+  <button type="button" data-c="a" aria-pressed="true"><b>A</b><span>Avgangstavla</span></button>
+  <button type="button" data-c="b" aria-pressed="false"><b>B</b><span>Samarbeid</span></button>
+  <button type="button" data-c="c" aria-pressed="false"><b>C</b><span>Høydekurver</span></button>
+  <button type="button" class="replay" aria-label="Spill av på nytt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+</div>
+
+<script>
+(() => {
+"use strict";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = matchMedia("(pointer: fine)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const clamp01 = (t) => Math.min(1, Math.max(0, t));
+function sleep(ms, signal) {
+  return new Promise((res, rej) => {
+    const t = setTimeout(res, ms);
+    signal?.addEventListener("abort", () => { clearTimeout(t); rej(new DOMException("aborted", "AbortError")); }, { once: true });
+  });
+}
+document.querySelectorAll("[data-noop]").forEach((a) => a.addEventListener("click", (e) => e.preventDefault()));
+
+/* ═════════ A · Avgangstavla — a split-flap departure board ═════════ */
+const A = (() => {
+  const root = $("#k-a");
+  const CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789./-:";
+  const PHRASES = ["BLIR VALGT.", "SELGER MER.", "LASTER RASKT", "SVARER 24/7", "BLIR FUNNET."];
+  const SR = ["blir valgt.", "selger mer.", "laster raskt.", "svarer hele døgnet.", "blir funnet."];
+  const STEP = 46;
+
+  function makeBoard(el, length) {
+    el.innerHTML = "";
+    const tiles = Array.from({ length }, () => {
+      const f = document.createElement("span");
+      f.className = "flap";
+      f.innerHTML = '<span class="half top"><span> </span></span><span class="half bottom"><span> </span></span><span class="leaf tleaf"><span> </span></span><span class="leaf bleaf"><span> </span></span>';
+      el.appendChild(f);
+      const q = (s) => f.querySelector(s);
+      return { el: f, ch: " ", busy: false, top: q(".top span"), bot: q(".bottom span"), tl: q(".tleaf"), tlt: q(".tleaf span"), bl: q(".bleaf"), blt: q(".bleaf span") };
+    });
+    return tiles;
+  }
+  function setStatic(t, ch) { t.ch = ch; t.top.textContent = t.bot.textContent = t.tlt.textContent = t.blt.textContent = ch; }
+  async function step(t, to) {
+    const from = t.ch;
+    t.top.textContent = to; t.bot.textContent = from; t.tlt.textContent = from; t.blt.textContent = to;
+    t.bl.style.transform = "rotateX(90deg)";
+    const a1 = t.tl.animate([{ transform: "rotateX(0deg)", filter: "brightness(1)" }, { transform: "rotateX(-90deg)", filter: "brightness(.6)" }], { duration: STEP, easing: "ease-in", fill: "forwards" });
+    await a1.finished;
+    t.tlt.textContent = to; a1.cancel();
+    t.bl.style.transform = "rotateX(0deg)";
+    const a2 = t.bl.animate([{ transform: "rotateX(90deg)", filter: "brightness(1.5)" }, { transform: "rotateX(0deg)", filter: "brightness(1)" }], { duration: STEP, easing: "ease-out" });
+    await a2.finished;
+    t.bot.textContent = to; t.ch = to;
+  }
+  async function flipTo(t, target, extra) {
+    if (reduce) { setStatic(t, target); return; }
+    t.busy = true;
+    for (let i = 0; i < extra; i++) await step(t, CHARS[1 + Math.floor(Math.random() * (CHARS.length - 1))]);
+    if (t.ch !== target) await step(t, target);
+    t.busy = false;
+  }
+  function show(tiles, text, stagger = 38, extraMin = 3, extraSpread = 6) {
+    const padded = text.padEnd(tiles.length, " ").slice(0, tiles.length);
+    return Promise.all(tiles.map((t, i) => new Promise((res) => setTimeout(() => {
+      const target = padded[i];
+      if (t.ch === target && Math.random() < 0.5) { res(); return; }
+      flipTo(t, target, extraMin + Math.floor(Math.random() * extraSpread)).then(res);
+    }, reduce ? 0 : i * stagger))));
+  }
+
+  const board = $(".ft-board", root), sr = $(".ft-sr", root);
+  const tiles = makeBoard(board, 12);
+  let k = 0, timer = 0, running = false, flipping = false;
+  async function advance() {
+    if (flipping) return;
+    flipping = true;
+    k = (k + 1) % PHRASES.length;
+    sr.textContent = "Nettsider som " + SR[k];
+    await show(tiles, PHRASES[k]);
+    flipping = false;
+    schedule();
+  }
+  function schedule() { clearTimeout(timer); if (running && !reduce) timer = setTimeout(advance, 3600); }
+  board.addEventListener("click", () => { clearTimeout(timer); advance(); });
+  // Fidget: hovering a tile spins it and lets it settle back.
+  tiles.forEach((t) => t.el.addEventListener("pointerenter", (e) => {
+    if (reduce || e.pointerType !== "mouse" || t.busy || flipping) return;
+    flipTo(t, t.ch, 2 + Math.floor(Math.random() * 3));
+  }));
+
+  // Timetable status boards flip in as each row reaches the viewport.
+  const ttBoards = [...root.querySelectorAll(".tt-board")].map((el) => ({ el, tiles: makeBoard(el, 6), text: el.dataset.status, done: false }));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const b = ttBoards.find((x) => x.el === e.target);
+      if (b && e.isIntersecting && !b.done && running) { b.done = true; show(b.tiles, b.text, 60, 4, 8); }
+    });
+  }, { threshold: 0.9 });
+  ttBoards.forEach((b) => io.observe(b.el));
+
+  return {
+    start() {
+      running = true;
+      root.classList.remove("is-in");
+      tiles.forEach((t) => setStatic(t, " "));
+      ttBoards.forEach((b) => { b.done = false; b.tiles.forEach((t) => setStatic(t, " ")); io.unobserve(b.el); io.observe(b.el); });
+      k = 0;
+      sr.textContent = "Nettsider som " + SR[0];
+      requestAnimationFrame(() => root.classList.add("is-in"));
+      setTimeout(() => { if (!running) return; flipping = true; show(tiles, PHRASES[0], 40, 5, 8).then(() => { flipping = false; schedule(); }); }, reduce ? 0 : 450);
+    },
+    stop() { running = false; clearTimeout(timer); },
+  };
+})();
+
+/* ═════════ B · Samarbeid — the page builds itself, then the builder stays to chat ═════════ */
+const B = (() => {
+  const root = $("#k-b");
+  const hero = $(".co-hero", root), overlay = $(".co-overlay", root), mate = $(".mate", root), say = $(".mate .say", root), you = $(".you", root);
+  const parts = [...root.querySelectorAll("[data-b]")];
+  const hl = $(".hl", root);
+  const cards = [...root.querySelectorAll(".co-card")];
+  let ac = null, phase = "off", raf = 0;
+  // Mate position is in section coordinates; it springs toward a target.
+  let mx = 0, my = 0, tx = 0, ty = 0, pointerX = -1, pointerY = -1, lastMove = 0, sayText = "", sayTimer = 0;
+
+  function lineRects(el) {
+    const r = document.createRange();
+    r.selectNodeContents(el);
+    const rects = [...r.getClientRects()].filter((x) => x.width > 2 && x.height > 2).sort((a, b) => a.top - b.top);
+    const lines = [];
+    for (const x of rects) {
+      const cy = x.top + x.height / 2;
+      const L = lines.find((l) => Math.abs(l.cy - cy) < x.height * 0.35);
+      if (L) { L.left = Math.min(L.left, x.left); L.right = Math.max(L.right, x.right); L.top = Math.min(L.top, x.top); L.bottom = Math.max(L.bottom, x.bottom); }
+      else lines.push({ left: x.left, right: x.right, top: x.top, bottom: x.bottom, cy });
+    }
+    return lines;
+  }
+  function skeleton() {
+    overlay.innerHTML = "";
+    const rr = root.getBoundingClientRect();
+    return parts.map((el) => {
+      const kind = el.dataset.b;
+      const isText = kind === "h1" || kind === "p";
+      let rects, radius = "12px";
+      if (isText) rects = lineRects(el);
+      else if (kind === "knapper") { rects = [...el.children].map((c) => c.getBoundingClientRect()); radius = "999px"; }
+      else { rects = [el.getBoundingClientRect()]; radius = getComputedStyle(el).borderRadius || "12px"; }
+      const bars = rects.map((x) => {
+        const h = isText ? (x.bottom - x.top) * 0.64 : x.bottom - x.top;
+        const top = isText ? x.top + (x.bottom - x.top - h) / 2 : x.top;
+        const d = document.createElement("div");
+        d.className = "sk";
+        Object.assign(d.style, { left: x.left - rr.left + "px", top: top - rr.top + "px", width: x.right - x.left + "px", height: h + "px", borderRadius: isText ? "14px" : radius });
+        overlay.appendChild(d);
+        return d;
+      });
+      const box = rects.reduce((u, x) => ({ left: Math.min(u.left, x.left), top: Math.min(u.top, x.top), right: Math.max(u.right, x.right), bottom: Math.max(u.bottom, x.bottom) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
+      const b = { x: box.left - rr.left, y: box.top - rr.top, w: box.right - box.left, h: box.bottom - box.top };
+      const tag = document.createElement("div");
+      tag.className = "tag";
+      tag.textContent = `${kind} · ${Math.round(b.w)} × ${Math.round(b.h)}`;
+      Object.assign(tag.style, { left: b.x + "px", top: b.y - 26 + "px" });
+      overlay.appendChild(tag);
+      const scan = document.createElement("div");
+      scan.className = "scan";
+      Object.assign(scan.style, { left: b.x + "px", top: b.y - 8 + "px", height: b.h + 16 + "px" });
+      overlay.appendChild(scan);
+      return { el, kind, bars, tag, scan, b };
+    });
+  }
+  function talk(text, hold = 2600) {
+    if (!text || text === sayText) return;
+    sayText = text;
+    say.classList.remove("on");
+    clearTimeout(sayTimer);
+    setTimeout(() => { say.textContent = text; say.classList.add("on"); }, 140);
+    sayTimer = setTimeout(() => { say.classList.remove("on"); sayText = ""; }, hold + 140);
+  }
+  function aim(x, y) { tx = x; ty = y; }
+  function loop() {
+    // During the build the mate moves in eased hops; afterwards it springs after its target.
+    const k = phase === "build" ? 0.11 : 0.07;
+    mx += (tx - mx) * k; my += (ty - my) * k;
+    mate.style.transform = `translate(${mx}px, ${my}px)`;
+    if (phase === "follow") follow();
+    raf = requestAnimationFrame(loop);
+  }
+  let tourI = 0, tourAt = 0;
+  const hotspots = () => [...root.querySelectorAll("[data-say]")].filter((el) => el.getBoundingClientRect().bottom > 0 && el.getBoundingClientRect().top < innerHeight);
+  function follow() {
+    const now = performance.now();
+    const rr = root.getBoundingClientRect();
+    if (finePointer && pointerX >= 0 && now - lastMove < 2600) {
+      // Keep a polite distance up-left of the visitor's cursor.
+      aim(pointerX - rr.left - 110, pointerY - rr.top + 26);
+      return;
+    }
+    // Idle (or touch): wander between things worth pointing at.
+    if (now - tourAt > 3400) {
+      tourAt = now;
+      const hs = hotspots();
+      if (!hs.length) return;
+      const el = hs[tourI++ % hs.length];
+      const r = el.getBoundingClientRect();
+      aim(r.left - rr.left + Math.min(60, r.width * 0.3), r.top - rr.top + Math.min(r.height * 0.5, 40));
+      talk(el.dataset.say);
+    }
+  }
+  root.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    pointerX = e.clientX; pointerY = e.clientY; lastMove = performance.now();
+    if (phase === "follow") {
+      you.style.opacity = "1";
+      you.style.transform = `translate(${e.clientX + 14}px, ${e.clientY + 18}px)`;
+      const hit = e.target.closest?.("[data-say]");
+      if (hit) talk(hit.dataset.say);
+    }
+  });
+  root.addEventListener("pointerleave", () => { you.style.opacity = "0"; lastMove = 0; });
+
+  async function buildPart(p, signal) {
+    aim(p.b.x + Math.min(48, p.b.w * 0.12), p.b.y + Math.min(p.b.h * 0.5, 40));
+    await sleep(780, signal);
+    mate.classList.add("click");
+    await sleep(130, signal);
+    mate.classList.remove("click");
+    p.el.classList.add("is-built");
+    p.bars.forEach((b) => b.classList.add("is-gone"));
+    p.tag.classList.add("is-gone");
+    p.scan.animate(
+      [{ transform: "translateX(0)", opacity: 1 }, { transform: `translateX(${p.b.w}px)`, opacity: 1, offset: 0.85 }, { transform: `translateX(${p.b.w}px)`, opacity: 0 }],
+      { duration: 820, easing: "cubic-bezier(.16,1,.3,1)" },
+    );
+    if (p.kind === "h1") setTimeout(() => hl.classList.add("drawn"), 650);
+    await sleep(320, signal);
+  }
+  function finish() {
+    root.classList.add("co-built");
+    root.classList.remove("co-unbuilt");
+    parts.forEach((p) => p.classList.add("is-built"));
+    hl.classList.add("drawn");
+    overlay.innerHTML = "";
+    phase = reduce ? "off" : "follow";
+    if (reduce) mate.style.opacity = "0";
+  }
+  async function intro(signal) {
+    await document.fonts.ready;
+    await sleep(80, signal);
+    const P = skeleton();
+    phase = "build";
+    mx = tx = root.clientWidth * 0.86; my = ty = hero.offsetHeight * 0.92;
+    mate.style.opacity = "1";
+    await sleep(450, signal);
+    for (const p of P) await buildPart(p, signal);
+    const cta = $(".btn-primary", hero), rr = root.getBoundingClientRect(), cr = cta.getBoundingClientRect();
+    aim(cr.left - rr.left + cr.width * 0.7, cr.top - rr.top + cr.height * 0.55);
+    await sleep(700, signal);
+    talk("Ferdig! Hei — jeg er Daod. Flytt musen, så følger jeg med.", 3600);
+    await sleep(400, signal);
+    finish();
+    tourAt = performance.now();
+  }
+  // Services: a selection box draws around each card as it arrives.
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting || phase === "off") return;
+    const c = e.target;
+    c.querySelector(".sel b").textContent = `${Math.round(c.offsetWidth)} × ${Math.round(c.offsetHeight)}`;
+    setTimeout(() => c.classList.add("picked"), cards.indexOf(c) * 260);
+  }), { threshold: 0.6 });
+  addEventListener("resize", () => { if (phase === "build" && ac) { ac.abort(); finish(); } });
+  return {
+    start() {
+      ac = new AbortController();
+      cancelAnimationFrame(raf);
+      phase = "off";
+      sayText = ""; say.classList.remove("on");
+      hl.classList.remove("drawn");
+      parts.forEach((p) => p.classList.remove("is-built"));
+      cards.forEach((c) => { c.classList.remove("picked"); io.unobserve(c); io.observe(c); });
+      root.classList.remove("co-built");
+      mate.style.opacity = "0"; you.style.opacity = "0";
+      if (reduce) { finish(); return; }
+      root.classList.add("co-unbuilt");
+      raf = requestAnimationFrame(loop);
+      intro(ac.signal).catch(() => {});
+    },
+    stop() { ac?.abort(); phase = "off"; cancelAnimationFrame(raf); overlay.innerHTML = ""; you.style.opacity = "0"; mate.style.opacity = "0"; },
+  };
+})();
+
+/* ═════════ C · Høydekurver — a live contour map; the cursor raises terrain ═════════ */
+const C = (() => {
+  const root = $("#k-c");
+  const canvas = $(".topo-canvas", root), ctx = canvas.getContext("2d");
+  const hl = $(".hl", root);
+  const coordEl = $(".readout .coord", root), elevEl = $(".readout .elev", root);
+  const cards = [...root.querySelectorAll(".tp-card")];
+
+  // Ken Perlin's improved noise (3D).
+  const P = new Uint8Array(512);
+  (() => { const p = [...Array(256).keys()]; let s = 1337; for (let i = 255; i > 0; i--) { s = (s * 16807) % 2147483647; const j = s % (i + 1); [p[i], p[j]] = [p[j], p[i]]; } for (let i = 0; i < 512; i++) P[i] = p[i & 255]; })();
+  const fade = (t) => t * t * t * (t * (t * 6 - 15) + 10);
+  const lerp = (a, b, t) => a + t * (b - a);
+  const grad = (h, x, y, z) => { h &= 15; const u = h < 8 ? x : y, v = h < 4 ? y : (h === 12 || h === 14 ? x : z); return ((h & 1) ? -u : u) + ((h & 2) ? -v : v); };
+  function noise(x, y, z) {
+    const X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+    x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+    const u = fade(x), v = fade(y), w = fade(z);
+    const A = P[X] + Y, AA = P[A] + Z, AB = P[A + 1] + Z, B2 = P[X + 1] + Y, BA = P[B2] + Z, BB = P[B2 + 1] + Z;
+    return lerp(
+      lerp(lerp(grad(P[AA], x, y, z), grad(P[BA], x - 1, y, z), u), lerp(grad(P[AB], x, y - 1, z), grad(P[BB], x - 1, y - 1, z), u), v),
+      lerp(lerp(grad(P[AA + 1], x, y, z - 1), grad(P[BA + 1], x - 1, y, z - 1), u), lerp(grad(P[AB + 1], x, y - 1, z - 1), grad(P[BB + 1], x - 1, y - 1, z - 1), u), v),
+      w,
+    );
+  }
+
+  let W = 0, H = 0, dpr = 1, S = 12, cols = 0, rows = 0, field = null;
+  let running = false, raf = 0, t0 = 0, frame = 0;
+  // Bumps: the visitor's cursor plus one per hovered card; each eases its strength.
+  const cursor = { x: -999, y: -999, sx: -999, sy: -999, s: 0, target: 0, r: 150 };
+  const cardBumps = cards.map(() => ({ s: 0, target: 0 }));
+  let scrollFlat = 0;
+  let active = []; // card bumps measured once per frame
+
+  function resize() {
+    dpr = Math.min(2, devicePixelRatio || 1);
+    W = innerWidth; H = innerHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    S = W < 700 ? 10 : 12;
+    cols = Math.ceil(W / S) + 1; rows = Math.ceil(H / S) + 1;
+    field = new Float32Array(cols * rows);
+  }
+  function height(x, y, z) {
+    let v = noise(x * 0.0026, y * 0.0026, z) * 0.85 + noise(x * 0.0065 + 40, y * 0.0065, z * 1.6) * 0.28;
+    v *= 1 - scrollFlat * 0.55;
+    if (cursor.s > 0.001) { const dx = x - cursor.sx, dy = y - cursor.sy; v += cursor.s * 0.75 * Math.exp(-(dx * dx + dy * dy) / (2 * cursor.r * cursor.r)); }
+    for (const k of active) {
+      const dx = x - k.cx, dy = y - k.cy;
+      v += k.s * 1.1 * Math.exp(-(dx * dx + dy * dy) / k.r2);
+    }
+    return v;
+  }
+  function draw(time) {
+    const z = time * 0.00004;
+    active = [];
+    cardBumps.forEach((b, i) => {
+      if (b.s < 0.001) return;
+      const r = cards[i].getBoundingClientRect(), rad = r.width * 0.42;
+      active.push({ s: b.s, cx: r.left + r.width / 2, cy: r.top + r.height / 2, r2: 2 * rad * rad });
+    });
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) field[j * cols + i] = height(i * S, j * S, z);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineJoin = "round";
+    const near = cursor.s > 0.05 ? cursor : null;
+    let li = 0;
+    for (let L = -0.9; L <= 1.5; L += 0.1, li++) {
+      const path = new Path2D();
+      for (let j = 0; j < rows - 1; j++) {
+        const y0 = j * S;
+        for (let i = 0; i < cols - 1; i++) {
+          const a = field[j * cols + i], b = field[j * cols + i + 1], c = field[(j + 1) * cols + i + 1], d = field[(j + 1) * cols + i];
+          const idx = (a > L ? 8 : 0) | (b > L ? 4 : 0) | (c > L ? 2 : 0) | (d > L ? 1 : 0);
+          if (idx === 0 || idx === 15) continue;
+          const x0 = i * S;
+          const T = () => [x0 + S * (L - a) / (b - a), y0];
+          const R = () => [x0 + S, y0 + S * (L - b) / (c - b)];
+          const Bm = () => [x0 + S * (L - d) / (c - d), y0 + S];
+          const Lf = () => [x0, y0 + S * (L - a) / (d - a)];
+          const seg = (p, q) => { path.moveTo(p[0], p[1]); path.lineTo(q[0], q[1]); };
+          switch (idx) {
+            case 1: case 14: seg(Lf(), Bm()); break;
+            case 2: case 13: seg(Bm(), R()); break;
+            case 3: case 12: seg(Lf(), R()); break;
+            case 4: case 11: seg(T(), R()); break;
+            case 5: seg(Lf(), Bm()); seg(T(), R()); break;
+            case 10: seg(T(), Lf()); seg(Bm(), R()); break;
+            case 6: case 9: seg(T(), Bm()); break;
+            case 7: case 8: seg(T(), Lf()); break;
+          }
+        }
+      }
+      const index = Math.round(L * 10) % 5 === 0;
+      ctx.lineWidth = index ? 1.4 : 0.8;
+      ctx.strokeStyle = index ? "rgba(30,90,76,.34)" : "rgba(30,90,76,.17)";
+      ctx.stroke(path);
+      if (near) {
+        ctx.save();
+        ctx.beginPath(); ctx.arc(near.sx, near.sy, near.r * 1.3, 0, Math.PI * 2); ctx.clip();
+        ctx.lineWidth = index ? 1.8 : 1.1;
+        ctx.strokeStyle = `rgba(30,90,76,${0.55 * near.s})`;
+        ctx.stroke(path);
+        ctx.restore();
+      }
+    }
+  }
+  function readout() {
+    const x = cursor.s > 0.05 ? cursor.sx : W * 0.5, y = cursor.s > 0.05 ? cursor.sy : H * 0.5;
+    const lat = 59.98 - (y / H) * 0.12, lon = 10.6 + (x / W) * 0.3;
+    const i = Math.min(cols - 1, Math.max(0, Math.round(x / S))), j = Math.min(rows - 1, Math.max(0, Math.round(y / S)));
+    const elev = Math.max(0, Math.round((field[j * cols + i] + 1) * 260));
+    coordEl.innerHTML = `<b>${lat.toFixed(4).replace(".", ",")}° N</b> · <b>${lon.toFixed(4).replace(".", ",")}° Ø</b>`;
+    elevEl.innerHTML = `Høyde <b>${elev} moh</b>`;
+  }
+  function tick(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(tick);
+    if (frame++ % 2) return; // ~30 fps is plenty for drifting terrain
+    // Touch / idle: the "cursor" slowly wanders on its own.
+    if (!finePointer || performance.now() - lastMove > 4000) {
+      const tt = now * 0.00018;
+      cursor.x = W * (0.5 + 0.32 * Math.sin(tt * 1.3)); cursor.y = H * (0.45 + 0.25 * Math.sin(tt * 1.9 + 1));
+      cursor.target = 0.7;
+    }
+    cursor.sx += (cursor.x - cursor.sx) * 0.12; cursor.sy += (cursor.y - cursor.sy) * 0.12;
+    cursor.s += (cursor.target - cursor.s) * 0.06;
+    cardBumps.forEach((b) => { b.s += (b.target - b.s) * 0.07; });
+    scrollFlat = clamp01(scrollY / (innerHeight * 0.9)) * 0.6;
+    draw(now - t0);
+    readout();
+  }
+  let lastMove = 0;
+  root.addEventListener("pointermove", (e) => {
+    cursor.x = e.clientX; cursor.y = e.clientY; cursor.target = 1; lastMove = performance.now();
+    if (cursor.sx < -900) { cursor.sx = cursor.x; cursor.sy = cursor.y; }
+  });
+  root.addEventListener("pointerleave", () => { cursor.target = 0; });
+  cards.forEach((c, i) => {
+    c.addEventListener("pointerenter", () => { cardBumps[i].target = 1; });
+    c.addEventListener("pointerleave", () => { cardBumps[i].target = 0; });
+    c.addEventListener("focusin", () => { cardBumps[i].target = 1; });
+    c.addEventListener("focusout", () => { cardBumps[i].target = 0; });
+  });
+  addEventListener("resize", () => { if (running || reduce) { resize(); if (reduce) draw(0); } });
+  return {
+    start() {
+      root.classList.remove("is-in");
+      hl.classList.remove("drawn");
+      resize();
+      requestAnimationFrame(() => { root.classList.add("is-in"); setTimeout(() => hl.classList.add("drawn"), reduce ? 0 : 900); });
+      cursor.sx = cursor.sy = -999; cursor.s = 0;
+      if (reduce) { draw(0); readout(); return; }
+      running = true; t0 = performance.now(); frame = 0;
+      raf = requestAnimationFrame(tick);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); },
+  };
+})();
+
+/* ═════════ switcher ═════════ */
+const concepts = { a: A, b: B, c: C };
+const buttons = [...document.querySelectorAll(".switcher [data-c]")];
+let current = null;
+function choose(key) {
+  if (current) concepts[current].stop();
+  document.querySelectorAll(".concept").forEach((s) => { s.hidden = s.id !== "k-" + key; });
+  buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.c === key)));
+  current = key;
+  window.scrollTo(0, 0);
+  try { history.replaceState(null, "", "#" + key); } catch {}
+  requestAnimationFrame(() => concepts[key].start());
+}
+buttons.forEach((b) => b.addEventListener("click", () => choose(b.dataset.c)));
+$(".switcher .replay").addEventListener("click", () => choose(current));
+const fromHash = location.hash.slice(1);
+choose(concepts[fromHash] ? fromHash : "a");
+})();
+</script>

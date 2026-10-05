@@ -31,3 +31,7 @@
 - Types: `kebab-case.ts` (e.g., `site-config.ts`)
 - One exported component per file, named export (not default) for components
 - Page files (`page.tsx`, `layout.tsx`) use default exports per Next.js convention
+
+## Current work
+- A full site redesign is in progress. Before working on it, read `docs/redesign/HANDOFF.md`
+  (decisions, what is done, open items, mockup history).
