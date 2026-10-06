@@ -1,0 +1,1003 @@
+<title>IDweb forside runde 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one full-screen hero at a time, swapped by the floating switcher. Each hero is a real physical
+   system computed live in the browser (granular sand, ferrofluid, ice crystal growth) and the type is made of it.
+   Each concept commits to its own single look; colours are set explicitly per concept. */
+:root{
+  --gutter:clamp(16px,4vw,48px);
+  --display:"Schibsted Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --device:#10231f;
+  /* A · Klang: sand on a steel plate */
+  --plate:#0c1513; --sand:#efe4cb; --sand-2:#c9b994; --plate-ink:#e9e1cf; --plate-muted:#9aa49f;
+  /* B · Magnet: ferrofluid in a photo studio */
+  --studio:#ecebe7; --studio-ink:#0f1412; --studio-muted:#5a615e;
+  /* C · Rimfrost: a frozen window at night */
+  --night:#081122; --frost:#e8f2fb; --frost-muted:#9bb0c6;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--plate);color:var(--plate-ink);font-family:var(--display);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body[data-c="b"]{background:var(--studio);color:var(--studio-ink)}
+body[data-c="c"]{background:var(--night);color:var(--frost)}
+a{color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mono{font-family:var(--mono)}
+
+/* ── shared hero frame ── */
+.hero{position:relative;height:100svh;min-height:640px;max-height:1100px;overflow:hidden;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.hero > canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ui{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.ui > *{width:100%}
+.ui a,.ui button,.ui .dial{pointer-events:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px}
+.logo{font-weight:800;font-size:23px;letter-spacing:-.05em;text-decoration:none}
+.nav-links{display:flex;gap:30px;font-size:15px;opacity:.72}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{opacity:1}
+.nav-tel{font-family:var(--mono);font-size:13px;letter-spacing:.02em;text-decoration:none;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.nav-links{display:none}}
+.foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 56px}
+.lead{margin:0;max-width:36ch;font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.55}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 24px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .25s var(--ease),background-color .2s,color .2s}
+.btn svg{width:16px;height:16px}
+.btn:active{transform:translateY(1px)}
+.note{margin:0;font-family:var(--mono);font-size:12px;line-height:1.6;max-width:34ch}
+.fallback-h1{display:none}
+.no-gl .fallback-h1{display:block}
+
+/* ═════════ A · Klang ═════════ */
+.kl{background:radial-gradient(120% 90% at 50% 35%,#16231f 0%,#0e1816 55%,#090f0d 100%);color:var(--plate-ink)}
+.kl::before{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='b'><feTurbulence type='fractalNoise' baseFrequency='.003 .9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .6  0 0 0 0 .58  0 0 0 .09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23b)'/></svg>")}
+.kl::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 160px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06)}
+.kl .ui{z-index:3}
+.kl .lead{color:var(--plate-ink)}
+.kl .btn{background:var(--sand);color:#10201b}
+.kl .btn:hover{background:#fff6e2}
+.kl .note{color:var(--plate-muted)}
+.kl-tuner{width:min(420px,100%);display:grid;gap:10px}
+.kl-read{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.kl-freq{font-family:var(--mono);font-size:12px;color:var(--plate-muted)}
+.kl-freq b{display:block;margin-top:2px;font-family:var(--display);font-size:clamp(1.7rem,2.6vw,2.3rem);font-weight:700;letter-spacing:-.03em;color:var(--plate-ink);font-variant-numeric:tabular-nums}
+.kl-mode{font-family:var(--mono);font-size:12px;color:var(--sand);text-align:right}
+.dial{position:relative;height:46px;cursor:ew-resize;touch-action:none;border-top:1px solid rgba(233,225,207,.35);background:repeating-linear-gradient(90deg,rgba(233,225,207,.32) 0 1px,transparent 1px 10px) 0 0/100% 9px no-repeat,repeating-linear-gradient(90deg,rgba(233,225,207,.5) 0 1px,transparent 1px 50px) 0 0/100% 16px no-repeat}
+.kl-mark{position:absolute;top:20px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--plate-muted)}
+.kl-mark.text{width:auto;height:auto;margin-left:0;transform:translateX(-50%);border-radius:0;background:none;color:var(--sand);font-family:var(--mono);font-size:10px;letter-spacing:.06em;top:22px}
+.kl-mark.text::before{content:"";display:block;width:5px;height:5px;margin:0 auto 3px;border-radius:50%;background:var(--sand)}
+.kl-needle{position:absolute;top:-8px;bottom:0;width:2px;margin-left:-1px;background:var(--sand);box-shadow:0 0 12px rgba(239,228,203,.6)}
+.kl-needle::before{content:"";position:absolute;left:-5px;top:0;border:6px solid transparent;border-top-color:var(--sand)}
+.kl-btns{display:flex;gap:8px}
+.kl-btns button{min-height:36px;padding:0 12px;border:1px solid rgba(233,225,207,.3);background:transparent;color:var(--plate-ink);font:500 12px var(--mono);cursor:pointer}
+.kl-btns button:hover{border-color:var(--plate-ink)}
+.kl-btns button[aria-pressed="true"]{background:var(--plate-ink);color:#10201b}
+.kl .fallback-h1{margin:0;font-size:clamp(3rem,9vw,8rem);line-height:.9;letter-spacing:-.05em;font-weight:900;color:var(--sand)}
+
+/* ═════════ B · Magnet ═════════ */
+.mg{background:var(--studio);color:var(--studio-ink)}
+.mg .ui{justify-content:space-between}
+.mg-h1{margin:0;max-width:13ch;font-size:clamp(2.3rem,5.2vw,5.2rem);line-height:.95;letter-spacing:-.05em;font-weight:820;text-wrap:balance}
+.mg .lead{color:var(--studio-muted)}
+.mg .btn{background:var(--studio-ink);color:#fff}
+.mg .btn:hover{background:#2b3431}
+.mg .note{color:var(--studio-muted)}
+.mg-right{display:grid;gap:18px;justify-items:start}
+.mg .fallback-h1{margin:0;font-size:clamp(5rem,24vw,22rem);line-height:.8;letter-spacing:-.06em;font-weight:900;text-align:center}
+
+/* ═════════ C · Rimfrost ═════════ */
+.rf{background:var(--night);color:var(--frost)}
+.rf .lead{color:#d5e3f1}
+.rf .btn{background:var(--frost);color:#0b1830}
+.rf .btn:hover{background:#fff}
+.rf .note{color:var(--frost-muted)}
+.rf .nav{position:relative}
+.rf-main{flex:1;display:flex;align-items:center}
+.rf-h1{margin:0;max-width:9.5ch;font-size:clamp(3.2rem,9.4vw,9rem);line-height:.88;letter-spacing:-.058em;font-weight:860;color:var(--frost);text-shadow:0 0 40px rgba(170,205,255,.25)}
+
+/* ── concept switcher (same as rounds 3–4) ── */
+.switcher{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:var(--device);box-shadow:0 18px 40px -16px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.06);max-width:calc(100vw - 24px)}
+.switcher button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#cfe0da;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background-color .2s,color .2s}
+.switcher button b{font-family:var(--mono);font-weight:500;opacity:.7}
+.switcher button:hover{color:#fff}
+.switcher button[aria-pressed="true"]{background:#fff;color:#13302a}
+.switcher .replay{padding:0;width:44px;justify-content:center}
+.switcher .replay svg{width:16px;height:16px}
+@media (max-width:620px){.switcher button[data-c] span{display:none}.switcher button[data-c][aria-pressed="true"] span{display:inline}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+</style>
+
+<!-- ═════════ A · Klang ═════════ -->
+<section class="hero kl" id="k-a" aria-label="Konsept A: Klang">
+  <canvas class="kl-canvas" aria-hidden="true"></canvas>
+  <div class="ui">
+    <header class="nav wrap">
+      <a class="logo" href="#" data-noop>IDweb</a>
+      <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+      <a class="nav-tel" href="#" data-noop>984 06 164</a>
+    </header>
+    <h1 class="sr-only">Nettsider som treffer tonen.</h1>
+    <div class="wrap"><p class="fallback-h1" aria-hidden="true">Nettsider som treffer tonen.</p></div>
+    <div class="foot wrap">
+      <div>
+        <p class="lead">Designet og kodet fra bunnen av, til fast pris. Du snakker direkte med den som skriver koden.</p>
+        <div class="cta-row"><a class="btn" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="kl-tuner">
+        <div class="kl-read">
+          <span class="kl-freq">Frekvens<b aria-live="off">0 Hz</b></span>
+          <span class="kl-mode">Stille plate</span>
+        </div>
+        <div class="dial" role="slider" tabindex="0" aria-label="Frekvens" aria-valuemin="200" aria-valuemax="2500" aria-valuenow="1984">
+          <span class="kl-needle"></span>
+        </div>
+        <div class="kl-read">
+          <p class="note">Sandkorn på en stålplate som vibrerer. På riktig frekvens finner hvert korn sin plass.</p>
+          <div class="kl-btns"><button type="button" class="kl-back">Finn tonen</button><button type="button" class="kl-sound" aria-pressed="false">Lyd</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ B · Magnet ═════════ -->
+<section class="hero mg" id="k-b" hidden aria-label="Konsept B: Magnet">
+  <canvas class="mg-canvas" aria-hidden="true"></canvas>
+  <div class="ui">
+    <header class="nav wrap">
+      <a class="logo" href="#" data-noop>IDweb</a>
+      <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+      <a class="nav-tel" href="#" data-noop>984 06 164</a>
+    </header>
+    <div class="wrap"><p class="fallback-h1" aria-hidden="true">IDweb</p></div>
+    <div class="foot wrap">
+      <h1 class="mg-h1">Nettsider med tiltrekningskraft.</h1>
+      <div class="mg-right">
+        <p class="lead">Skreddersydde nettsider for norske bedrifter, designet og kodet fra bunnen av. Fast pris, og svar innen 24 timer.</p>
+        <a class="btn" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="note">Ferrovæske, regnet ut i sanntid. Pekeren din er magneten. Klikk for et kraftigere felt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ C · Rimfrost ═════════ -->
+<section class="hero rf" id="k-c" hidden aria-label="Konsept C: Rimfrost">
+  <canvas class="rf-canvas" aria-hidden="true"></canvas>
+  <div class="ui">
+    <header class="nav wrap rf-warm">
+      <a class="logo" href="#" data-noop>IDweb</a>
+      <nav class="nav-links" aria-label="Hovedmeny (mockup)"><a href="#" data-noop>Tjenester</a><a href="#" data-noop>Referanser</a><a href="#" data-noop>Om IDweb</a><a href="#" data-noop>Kontakt</a></nav>
+      <a class="nav-tel" href="#" data-noop>984 06 164</a>
+    </header>
+    <div class="wrap rf-main"><h1 class="rf-h1 rf-warm">Laget for norske forhold.</h1></div>
+    <div class="foot wrap">
+      <div class="rf-warm">
+        <p class="lead">Raske nettsider, designet og kodet fra bunnen av for bedriften din. Fast pris, og svar innen 24 timer.</p>
+        <div class="cta-row"><a class="btn" href="#" data-noop>Få et uforpliktende tilbud <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <p class="note rf-warm">Iskrystaller som vokser i sanntid, etter samme fysikk som rimfrost på et vindu. Hold pekeren mot glasset for å varme det.</p>
+    </div>
+  </div>
+</section>
+
+<div class="switcher" role="group" aria-label="Velg konsept">
+  <button type="button" data-c="a" aria-pressed="true"><b>A</b><span>Klang</span></button>
+  <button type="button" data-c="b" aria-pressed="false"><b>B</b><span>Magnet</span></button>
+  <button type="button" data-c="c" aria-pressed="false"><b>C</b><span>Rimfrost</span></button>
+  <button type="button" class="replay" aria-label="Spill av på nytt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+</div>
+
+<script>
+(() => {
+"use strict";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = matchMedia("(pointer: fine)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+document.querySelectorAll("[data-noop]").forEach((a) => a.addEventListener("click", (e) => e.preventDefault()));
+const FONT = '"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif';
+const fontReady = () => document.fonts.load(`900 100px ${FONT}`).catch(() => {}).then(() => document.fonts.ready);
+const gutterFor = (w) => clamp(w * 0.04, 16, 48);
+
+/* ── shared: text masks and signed distance fields ── */
+// Exact Euclidean distance transform (Felzenszwalb & Huttenlocher).
+function edt1d(f, n, d, v, z) {
+  let k = 0; v[0] = 0; z[0] = -1e20; z[1] = 1e20;
+  for (let q = 1; q < n; q++) {
+    let s = (f[q] + q * q - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+    while (s <= z[k]) { k--; s = (f[q] + q * q - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]); }
+    k++; v[k] = q; z[k] = s; z[k + 1] = 1e20;
+  }
+  k = 0;
+  for (let q = 0; q < n; q++) { while (z[k + 1] < q) k++; const dq = q - v[k]; d[q] = dq * dq + f[v[k]]; }
+}
+function edt2d(g, w, h) {
+  const n = Math.max(w, h), f = new Float64Array(n), d = new Float64Array(n), v = new Int32Array(n), z = new Float64Array(n + 1);
+  for (let x = 0; x < w; x++) { for (let y = 0; y < h; y++) f[y] = g[y * w + x]; edt1d(f, h, d, v, z); for (let y = 0; y < h; y++) g[y * w + x] = d[y]; }
+  for (let y = 0; y < h; y++) { const o = y * w; for (let x = 0; x < w; x++) f[x] = g[o + x]; edt1d(f, w, d, v, z); for (let x = 0; x < w; x++) g[o + x] = d[x]; }
+}
+// Signed distance in mask pixels: negative inside the shape, positive outside.
+function signedDistance(alpha, w, h) {
+  const out = new Float64Array(w * h), inn = new Float64Array(w * h);
+  for (let i = 0; i < w * h; i++) { const on = alpha[i] > 127; out[i] = on ? 0 : 1e20; inn[i] = on ? 1e20 : 0; }
+  edt2d(out, w, h); edt2d(inn, w, h);
+  const sd = new Float32Array(w * h);
+  for (let i = 0; i < w * h; i++) sd[i] = Math.sqrt(out[i]) - Math.sqrt(inn[i]);
+  return sd;
+}
+function drawMask(w, h, draw) {
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const x = c.getContext("2d", { willReadFrequently: true });
+  draw(x);
+  const data = x.getImageData(0, 0, w, h).data, a = new Uint8Array(w * h);
+  for (let i = 0; i < a.length; i++) a[i] = data[4 * i + 3];
+  return a;
+}
+// Fit lines of text to a width: returns the font size in px.
+function fitText(lines, maxW, maxSize, weight = 900) {
+  const x = document.createElement("canvas").getContext("2d");
+  x.font = `${weight} 100px ${FONT}`;
+  const widest = Math.max(...lines.map((l) => x.measureText(l).width));
+  return Math.min(maxSize, (maxW / widest) * 100);
+}
+
+/* ── shared: WebGL2 ── */
+const FULL_VS = `#version 300 es
+void main(){ gl_Position = vec4(gl_VertexID == 1 ? 3. : -1., gl_VertexID == 2 ? 3. : -1., 0., 1.); }`;
+function makeProgram(gl, vs, fs) {
+  const sh = (t, src) => { const s = gl.createShader(t); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s) + "\n" + src.slice(0, 200)); return s; };
+  const p = gl.createProgram();
+  gl.attachShader(p, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+  const u = {}, n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+  for (let i = 0; i < n; i++) { const info = gl.getActiveUniform(p, i); const name = info.name.replace(/\[0\]$/, ""); u[name] = gl.getUniformLocation(p, info.name); }
+  return { p, u };
+}
+function makeTex(gl, w, h, internal, format, type, filter, data = null) {
+  const t = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, t);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+  gl.texImage2D(gl.TEXTURE_2D, 0, internal, w, h, 0, format, type, data);
+  return t;
+}
+function makeFbo(gl, tex) { const f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0); return f; }
+function sizeCanvas(canvas, maxDpr) {
+  const w = Math.max(1, Math.round(canvas.clientWidth)), h = Math.max(1, Math.round(canvas.clientHeight));
+  const dpr = Math.min(maxDpr, devicePixelRatio || 1);
+  canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  return { w, h, dpr: canvas.width / w };
+}
+
+/* ═════════ A · Klang — sand on a vibrating plate (Chladni figures) ═════════
+   Every grain hops in proportion to how hard the plate vibrates where it lies, and drifts towards the quiet
+   (nodal) lines. At the plate's resonances the grains draw Chladni figures; at «IDweb-tonen» the quiet
+   places are the letters, so the sand settles into the headline. Crowded spots push grains on, which
+   fills the letters evenly instead of piling at their edges. */
+const A = (() => {
+  const root = $("#k-a"), canvas = $(".kl-canvas", root);
+  const freqEl = $(".kl-freq b", root), modeEl = $(".kl-mode", root), dial = $(".dial", root), needle = $(".kl-needle", root);
+  const backBtn = $(".kl-back", root), soundBtn = $(".kl-sound", root);
+  const MODES = [{ f: 330, n: 1, m: 4 }, { f: 610, n: 2, m: 5 }, { f: 905, n: 3, m: 5 }, { f: 1260, n: 2, m: 7 }, { f: 1600, n: 4, m: 7 }, { f: 1984, text: true }, { f: 2320, n: 5, m: 8 }];
+  const F_MIN = 200, F_MAX = 2500, TEXT_F = 1984, CELL = 3;
+  const nf = new Intl.NumberFormat("nb-NO");
+  let gl = null, prog, buf, shadeBuf, vao, P = null, N = 0, W = 0, H = 0, dpr = 1, gw = 0, gh = 0;
+  let sdf = null, counts = null, cap = 5, fields = new Map(), textArea = 0, mask = null;
+  let running = false, raf = 0, freq = F_MIN, target = F_MIN, script = [], t0 = 0, lastTouch = 0, dragging = false;
+  let px = -1e4, py = -1e4, pIn = false, pvx = 0, pvy = 0, lastPx = 0, lastPy = 0;
+  let audio = null;
+  let seed = 2463534242;
+  const rnd = () => { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; return (seed >>> 0) / 4294967296; };
+
+  MODES.forEach((m) => {
+    const s = document.createElement("span");
+    s.className = "kl-mark" + (m.text ? " text" : "");
+    s.style.left = ((m.f - F_MIN) / (F_MAX - F_MIN)) * 100 + "%";
+    if (m.text) s.textContent = "IDweb";
+    dial.appendChild(s);
+  });
+
+  const VS = `#version 300 es
+  in vec2 aPos; in float aShade;
+  uniform vec2 uRes; uniform vec2 uOff; uniform float uSize;
+  out float vShade;
+  void main(){ vec2 p = aPos + uOff; gl_Position = vec4(p.x / uRes.x * 2. - 1., 1. - p.y / uRes.y * 2., 0., 1.); gl_PointSize = uSize; vShade = aShade; }`;
+  const FS = `#version 300 es
+  precision mediump float;
+  in float vShade; uniform float uShadow; out vec4 o;
+  void main(){
+    float r = length(gl_PointCoord - .5);
+    float a = smoothstep(.5, .18, r);
+    vec3 sand = mix(vec3(.72,.64,.49), vec3(1.,.96,.87), vShade);
+    vec3 c = uShadow > .5 ? vec3(0.) : sand;
+    float al = uShadow > .5 ? a * .6 : a;
+    o = vec4(c * al, al);
+  }`;
+
+  function initGL() {
+    gl = canvas.getContext("webgl2", { antialias: false, alpha: true, premultipliedAlpha: true });
+    if (!gl) throw new Error("no webgl2");
+    prog = makeProgram(gl, VS, FS);
+    vao = gl.createVertexArray(); gl.bindVertexArray(vao);
+    buf = gl.createBuffer(); shadeBuf = gl.createBuffer();
+  }
+  function layout() {
+    ({ w: W, h: H, dpr } = sizeCanvas(canvas, 2));
+    const g = gutterFor(W), contentW = Math.min(1240, W) - 2 * g, left = (W - Math.min(1240, W)) / 2 + g;
+    const narrow = W < 700;
+    const lines = narrow ? ["Nettsider", "som treffer", "tonen."] : ["Nettsider som", "treffer tonen."];
+    const size = fitText(lines, contentW, narrow ? H * 0.13 : Math.min(H * 0.2, 220));
+    const lh = size * 0.94, blockH = lh * lines.length;
+    const top = clamp(H * (narrow ? 0.17 : 0.2), 84, 220) + Math.max(0, (H * 0.5 - blockH) * 0.25);
+    mask = drawMask(W, H, (x) => {
+      x.font = `900 ${size}px ${FONT}`; x.fillStyle = "#000"; x.textBaseline = "alphabetic";
+      if ("letterSpacing" in x) x.letterSpacing = `${-0.035 * size}px`;
+      lines.forEach((l, i) => x.fillText(l, left, top + size * 0.78 + i * lh));
+    });
+    sdf = signedDistance(mask, W, H);
+    textArea = 0; for (let i = 0; i < mask.length; i++) if (mask[i] > 127) textArea++;
+    gw = Math.ceil(W / CELL); gh = Math.ceil(H / CELL);
+    counts = new Uint16Array((gw + 1) * (gh + 1));
+    fields.clear();
+    let textCells = 0;
+    for (let cy = 0; cy < gh; cy++) for (let cx = 0; cx < gw; cx++) { const x = Math.min(W - 1, cx * CELL + 1), y = Math.min(H - 1, cy * CELL + 1); if (sdf[y * W + x] < 0) textCells++; }
+    N = Math.round(clamp(textArea * 0.72, 14000, 120000));
+    cap = Math.max(3, Math.round((N * 0.93) / Math.max(1, textCells)));
+    P = new Float32Array(N * 2);
+    for (let i = 0; i < N; i++) { P[2 * i] = rnd() * W; P[2 * i + 1] = rnd() * H; }
+    const shade = new Uint8Array(N); for (let i = 0; i < N; i++) shade[i] = Math.floor(Math.pow(rnd(), 0.7) * 255);
+    gl.bindVertexArray(vao);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, P.byteLength, gl.DYNAMIC_DRAW);
+    const aPos = gl.getAttribLocation(prog.p, "aPos"); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, shadeBuf); gl.bufferData(gl.ARRAY_BUFFER, shade, gl.STATIC_DRAW);
+    const aShade = gl.getAttribLocation(prog.p, "aShade"); gl.enableVertexAttribArray(aShade); gl.vertexAttribPointer(aShade, 1, gl.UNSIGNED_BYTE, true, 0, 0);
+  }
+  // Vibration amplitude on a coarse grid, with the direction towards quieter plate.
+  function field(key) {
+    if (fields.has(key)) return fields.get(key);
+    const A = new Float32Array(gw * gh), GX = new Float32Array(gw * gh), GY = new Float32Array(gw * gh);
+    if (key === "text") {
+      const R = Math.max(W, H) * 0.32, S = (x, y) => sdf[clamp(y | 0, 0, H - 1) * W + clamp(x | 0, 0, W - 1)];
+      for (let cy = 0; cy < gh; cy++) for (let cx = 0; cx < gw; cx++) {
+        const x = cx * CELL + 1.5, y = cy * CELL + 1.5, s = S(x, y), i = cy * gw + cx;
+        A[i] = s <= 0 ? 0 : 0.2 + 0.8 * Math.min(1, s / R);
+        let gx = S(x + 3, y) - S(x - 3, y), gy = S(x, y + 3) - S(x, y - 3); const l = Math.hypot(gx, gy) || 1;
+        GX[i] = gx / l; GY[i] = gy / l;
+      }
+    } else {
+      const { n, m } = MODES[key], amp = (x, y) => { const u = x / W, v = y / H; return Math.abs(Math.cos(n * Math.PI * u) * Math.cos(m * Math.PI * v) - Math.cos(m * Math.PI * u) * Math.cos(n * Math.PI * v)) * 0.5; };
+      for (let cy = 0; cy < gh; cy++) for (let cx = 0; cx < gw; cx++) {
+        const x = cx * CELL + 1.5, y = cy * CELL + 1.5, i = cy * gw + cx;
+        A[i] = amp(x, y);
+        const gx = amp(x + 1.5, y) - amp(x - 1.5, y), gy = amp(x, y + 1.5) - amp(x, y - 1.5), l = Math.hypot(gx, gy) || 1;
+        GX[i] = gx / l; GY[i] = gy / l;
+      }
+    }
+    const f = { A, GX, GY }; fields.set(key, f); return f;
+  }
+  function resonance() {
+    let best = 0, bd = Infinity;
+    MODES.forEach((m, i) => { const d = Math.abs(m.f - freq); if (d < bd) { bd = d; best = i; } });
+    return { i: best, r: Math.exp(-((bd / 52) ** 2)), mode: MODES[best] };
+  }
+  function step(res) {
+    const F = field(res.mode.text ? "text" : res.i), A = F.A, GX = F.GX, GY = F.GY;
+    const amp = res.r, R = 95, R2 = R * R, textMode = !!res.mode.text;
+    // Crowding is counted on a grid that shifts every frame, so grains never line up on its cell edges.
+    const ox = rnd() * CELL, oy = rnd() * CELL, cw = gw + 1;
+    counts.fill(0);
+    for (let i = 0; i < N; i++) counts[(((P[2 * i + 1] + oy) / CELL) | 0) * cw + (((P[2 * i] + ox) / CELL) | 0)]++;
+    const wMax = W - 0.5, hMax = H - 0.5;
+    for (let i = 0; i < N; i++) {
+      let x = P[2 * i], y = P[2 * i + 1];
+      const c = ((y / CELL) | 0) * gw + ((x / CELL) | 0);
+      const dc = (((y + oy) / CELL) | 0) * cw + (((x + ox) / CELL) | 0);
+      const a = A[c] * amp, k = counts[dc], over = k > cap ? Math.min(2.2, (k - cap) / cap) : 0;
+      let hop = a > 0 ? a * 2.7 + over * 0.8 : (0.75 + over * 0.6) * amp;
+      let dx = -GX[c] * a * 2.4, dy = -GY[c] * a * 2.4;
+      // In a quiet area grains spread from crowded spots to emptier ones, like sand settling in a groove,
+      // so the letters fill evenly instead of piling up at their edges.
+      if (a === 0 && dc > cw && dc < counts.length - cw) {
+        dx += clamp((counts[dc - 1] - counts[dc + 1]) * 0.025, -0.5, 0.5) * amp;
+        dy += clamp((counts[dc - cw] - counts[dc + cw]) * 0.025, -0.5, 0.5) * amp;
+      }
+      if (pIn) {
+        const ex = x - px, ey = y - py, d2 = ex * ex + ey * ey;
+        if (d2 < R2) { const q = 1 - d2 / R2, f = q * q, d = Math.sqrt(d2) + 1; hop += f * 9; dx += (ex / d) * f * 3.2 + pvx * f * 0.35; dy += (ey / d) * f * 3.2 + pvy * f * 0.35; }
+      }
+      let nx = x + dx + (rnd() - 0.5) * hop, ny = y + dy + (rnd() - 0.5) * hop;
+      // A settled grain doesn't hop back out of its letter.
+      if (textMode && a === 0 && !pIn) { const j = (clamp(ny, 0, H - 1) | 0) * W + (clamp(nx, 0, W - 1) | 0); if (sdf[j] > 0) { nx = x; ny = y; } }
+      x = nx; y = ny;
+      P[2 * i] = x < 0.5 ? 0.5 : x > wMax ? wMax : x;
+      P[2 * i + 1] = y < 0.5 ? 0.5 : y > hMax ? hMax : y;
+    }
+  }
+  function draw() {
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(prog.p); gl.bindVertexArray(vao);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, P);
+    gl.uniform2f(prog.u.uRes, W, H);
+    gl.uniform1f(prog.u.uSize, 2.6 * dpr);
+    gl.uniform2f(prog.u.uOff, 0.7, 1.1); gl.uniform1f(prog.u.uShadow, 1); gl.drawArrays(gl.POINTS, 0, N);
+    gl.uniform1f(prog.u.uSize, 1.75 * dpr);
+    gl.uniform2f(prog.u.uOff, 0, 0); gl.uniform1f(prog.u.uShadow, 0); gl.drawArrays(gl.POINTS, 0, N);
+  }
+  function ui(res) {
+    freqEl.textContent = `${nf.format(Math.round(freq))} Hz`;
+    needle.style.left = ((freq - F_MIN) / (F_MAX - F_MIN)) * 100 + "%";
+    dial.setAttribute("aria-valuenow", String(Math.round(freq)));
+    modeEl.textContent = freq < F_MIN + 5 ? "Stille plate" : res.r < 0.35 ? "Ingen resonans" : res.mode.text ? "IDweb-tonen" : `Chladni-figur ${res.mode.n} · ${res.mode.m}`;
+    if (audio) { const t = audio.ctx.currentTime; audio.osc.frequency.setTargetAtTime(freq / 2, t, 0.04); audio.gain.gain.setTargetAtTime(0.05 * (0.25 + 0.75 * res.r), t, 0.08); }
+  }
+  function tick(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(tick);
+    const t = now - t0;
+    while (script.length && script[0].at <= t) { target = script.shift().f; }
+    if (!dragging && !script.length && t - lastTouch > 7000 && Math.abs(target - TEXT_F) > 1) target = TEXT_F;
+    freq += (target - freq) * (dragging ? 0.3 : 0.055);
+    const res = resonance();
+    pvx *= 0.85; pvy *= 0.85;
+    step(res); step(res);
+    draw(); ui(res);
+  }
+  function setFromDial(e) {
+    const r = dial.getBoundingClientRect();
+    target = F_MIN + clamp((e.clientX - r.left) / r.width, 0, 1) * (F_MAX - F_MIN);
+    script = []; lastTouch = performance.now() - t0;
+  }
+  dial.addEventListener("pointerdown", (e) => { dragging = true; dial.setPointerCapture(e.pointerId); setFromDial(e); });
+  dial.addEventListener("pointermove", (e) => { if (dragging) setFromDial(e); });
+  dial.addEventListener("pointerup", () => { dragging = false; });
+  dial.addEventListener("pointercancel", () => { dragging = false; });
+  dial.addEventListener("keydown", (e) => {
+    const d = e.key === "ArrowRight" || e.key === "ArrowUp" ? 20 : e.key === "ArrowLeft" || e.key === "ArrowDown" ? -20 : 0;
+    if (!d) return; e.preventDefault(); script = []; target = clamp(target + d * (e.shiftKey ? 5 : 1), F_MIN, F_MAX); lastTouch = performance.now() - t0;
+  });
+  backBtn.addEventListener("click", () => { script = []; target = TEXT_F; });
+  soundBtn.addEventListener("click", () => {
+    if (audio) { audio.ctx.close(); audio = null; soundBtn.setAttribute("aria-pressed", "false"); return; }
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)(), osc = ctx.createOscillator(), gain = ctx.createGain();
+      osc.type = "sine"; osc.frequency.value = freq / 2; gain.gain.value = 0; osc.connect(gain).connect(ctx.destination); osc.start();
+      audio = { ctx, osc, gain }; soundBtn.setAttribute("aria-pressed", "true");
+    } catch (e) { /* no audio */ }
+  });
+  root.addEventListener("pointermove", (e) => {
+    if (e.target.closest(".dial,a,button")) { pIn = false; return; }
+    const r = root.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    if (pIn) { pvx = pvx * 0.5 + (x - lastPx) * 0.5; pvy = pvy * 0.5 + (y - lastPy) * 0.5; }
+    px = x; py = y; lastPx = x; lastPy = y; pIn = !reduce;
+  });
+  root.addEventListener("pointerleave", () => { pIn = false; });
+  root.addEventListener("pointerup", (e) => { if (e.pointerType !== "mouse") pIn = false; });
+  let rt = 0;
+  addEventListener("resize", () => { if (!running) return; clearTimeout(rt); rt = setTimeout(() => { layout(); }, 180); });
+
+  return {
+    async start() {
+      running = true;
+      try { if (!gl) initGL(); } catch (e) { root.classList.add("no-gl"); running = false; return; }
+      await fontReady();
+      if (!running) return;
+      layout();
+      freq = F_MIN; dragging = false; lastTouch = 0;
+      if (reduce) {
+        // Settled state at once: grains inside the letters, a little dust around them.
+        let i = 0, guard = 0;
+        while (i < N * 0.92 && guard++ < N * 60) { const x = rnd() * W, y = rnd() * H; if (sdf[(y | 0) * W + (x | 0)] < -0.5) { P[2 * i] = x; P[2 * i + 1] = y; i++; } }
+        freq = target = TEXT_F; script = [];
+        draw(); ui(resonance());
+        return;
+      }
+      script = [{ at: 500, f: 905 }, { at: 2700, f: TEXT_F }];
+      target = F_MIN; t0 = performance.now();
+      const dbg = window.__klDebug;
+      if (dbg?.pre) { freq = target = dbg.freq || TEXT_F; script = []; const res = resonance(); for (let i = 0; i < dbg.pre; i++) step(res); }
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); if (audio) { audio.ctx.close(); audio = null; soundBtn.setAttribute("aria-pressed", "false"); } },
+  };
+})();
+
+/* ═════════ B · Magnet — the wordmark as ferrofluid ═════════
+   A height field: the letters are a shallow pool of fluid with rounded edges. Near the magnet the fluid
+   flows towards it, swells, and above a critical field strength breaks into the hexagonal spikes of the
+   Rosensweig instability. Ray-marched from a tilted camera and lit like a photo studio. */
+const B = (() => {
+  const root = $("#k-b"), canvas = $(".mg-canvas", root);
+  let gl = null, prog, sdfTex = null, W = 0, H = 0, dpr = 1, running = false, raf = 0, t0 = 0;
+  const mag = { x: 0, y: 0, vx: 0, vy: 0, s: 0 };
+  let word = { x: 0, y: 0, w: 1, h: 1 }, scale = 1, pointer = { x: 0, y: 0, at: -1e9, inside: false }, pulse = 0, pour = 0;
+
+  const FS = `#version 300 es
+  precision highp float;
+  uniform vec2 uRes; uniform float uDpr; uniform sampler2D uSdf;
+  uniform vec2 uMag; uniform float uStr, uPour, uPulse, uTime, uS;
+  out vec4 o;
+  // Everything physical scales with the size of the wordmark (uS = 1 at desktop size).
+  const float TILT = .52;
+  #define H0 (20. * uS)
+  #define SPH (118. * uS)
+  #define SP (22. * uS)
+  float sdf(vec2 p){ return texture(uSdf, p / uRes).r; }
+  float fieldB(vec2 p){ vec2 d = uMag - p; return uStr * exp(-dot(d, d) / (38000. * uS * uS)); }
+  vec2 hexCell(vec2 p, out vec2 c){
+    vec2 r = vec2(SP, SP * 1.7320508), h = r * .5;
+    vec2 g1 = mod(p, r) - h, g2 = mod(p - h, r) - h;
+    vec2 g = dot(g1, g1) < dot(g2, g2) ? g1 : g2;
+    c = p - g; return g;
+  }
+  float baseAt(vec2 p, float B){
+    vec2 tm = uMag - p; float dm = length(tm) + 1.;
+    vec2 q = p - tm / dm * min(dm * .55, B * 78. * uS);
+    float s = sdf(q) - B * 16. * uS + (1. - uPour) * (70. + 30. * sin(q.x * .021 + q.y * .013 + uTime * 2.)) * uS;
+    float b = smoothstep(0., 30. * uS, -s);
+    return b * (2. - b);
+  }
+  float heightAt(vec2 p){
+    float B = fieldB(p);
+    float b = baseAt(p, B);
+    float h = H0 * b * (1. + B * .85) + b * .7 * uS * sin(p.x * .045 / uS + uTime * 1.3) * sin(p.y * .05 / uS - uTime);
+    if (B * (1. + uPulse) < .1) return h;
+    vec2 c; vec2 g = hexCell(p, c);
+    float Bc = min(1.6, fieldB(c) * (1. + uPulse * .9));
+    float on = smoothstep(.2, .62, Bc) * smoothstep(.3, .85, baseAt(c, Bc));
+    if (on > .001) {
+      vec2 lean = (uMag - c) / (length(uMag - c) + 1.) * Bc * 4.5 * uS;
+      float r = length(g - lean) / (SP * .54);
+      float cone = max(0., 1. - r);
+      h += SPH * on * pow(cone, 1.45) * (.4 + .6 * smoothstep(.2, 1., Bc));
+    }
+    return h;
+  }
+  // A dark studio: an overhead softbox, a strip light on the right, and the white table below.
+  float box(vec3 r, vec3 d, vec3 up, vec2 size){
+    vec3 u = normalize(cross(d, up)), v = cross(u, d);
+    float k = dot(r, d); if (k <= 0.) return 0.;
+    vec2 q = vec2(dot(r, u), dot(r, v)) / k;
+    return smoothstep(size.x, size.x * .82, abs(q.x)) * smoothstep(size.y, size.y * .82, abs(q.y));
+  }
+  vec3 env(vec3 r){
+    vec3 col = vec3(.018) + vec3(.035) * smoothstep(0., 1., r.z);
+    col = mix(col, vec3(.8, .79, .77), smoothstep(.02, -.25, r.z));
+    col += vec3(22.) * box(r, normalize(vec3(-.3, -.12, .95)), vec3(0., 1., 0.), vec2(.36, .24));
+    col += vec3(14., 14.5, 15.) * box(r, normalize(vec3(.92, .1, .38)), vec3(0., 0., 1.), vec2(.05, .55));
+    col += vec3(6.) * box(r, normalize(vec3(-.85, -.3, .42)), vec3(0., 0., 1.), vec2(.04, .3));
+    return col;
+  }
+  void main(){
+    vec2 sp = vec2(gl_FragCoord.x, uRes.y * uDpr - gl_FragCoord.y) / uDpr;
+    float sT = sin(TILT), cT = cos(TILT);
+    float zTop = H0 * 1.9 + SPH + 4.;
+    vec3 L = normalize(vec3(-.35, -.55, .76));
+    bool near = sdf(vec2(sp.x, sp.y + zTop * sT * .5)) < 150. || fieldB(sp) > .04;
+    float hitZ = -1.; vec2 hp = sp;
+    if (near) {
+      // Start low unless spikes can be standing in this column.
+      float zStart = fieldB(vec2(sp.x, sp.y + zTop * sT * .5)) * (1. + uPulse) > .06 ? zTop : H0 * 1.9 + 3.;
+      float z = zStart, dz = zTop / 70., prevZ = z;
+      for (int i = 0; i < 74; i++) {
+        vec2 p = vec2(sp.x, sp.y + z * sT);
+        if (heightAt(p) >= z) {
+          float lo = z, hi = prevZ;
+          for (int k = 0; k < 6; k++) { float mid = .5 * (lo + hi); if (heightAt(vec2(sp.x, sp.y + mid * sT)) >= mid) lo = mid; else hi = mid; }
+          hitZ = lo; hp = vec2(sp.x, sp.y + lo * sT); break;
+        }
+        prevZ = z; z -= dz;
+        if (z < .6) break;
+      }
+    }
+    vec3 col;
+    if (hitZ > .5) {
+      float e = 1.3 * max(uS, .6);
+      float hx = heightAt(hp + vec2(e, 0.)) - heightAt(hp - vec2(e, 0.));
+      float hy = heightAt(hp + vec2(0., e)) - heightAt(hp - vec2(0., e));
+      vec3 N = normalize(vec3(-hx, -hy * cT, 2. * e));
+      vec3 V = normalize(vec3(0., sT, cT));
+      vec3 R = reflect(-V, N);
+      float F = .045 + .955 * pow(1. - max(dot(N, V), 0.), 5.);
+      vec3 c = vec3(.006) + env(R) * F;
+      c = c / (1. + c * .9);
+      col = pow(c, vec3(1. / 2.2));
+    } else {
+      // The studio table: soft light, a contact shadow and the fluid's cast shadow.
+      vec2 tp = sp;
+      vec3 table = mix(vec3(.945, .94, .925), vec3(.885, .88, .865), smoothstep(0., 1.4, length((sp / uRes - vec2(.35, .2)) * vec2(1., .8))));
+      float occ = 0.;
+      if (near) {
+        for (int k = 1; k <= 7; k++) {
+          float zt = float(k) * 9. * uS;
+          vec2 q = tp + L.xy / L.z * zt * vec2(1., 1. / cT);
+          occ = max(occ, smoothstep(0., 10., heightAt(q) - zt) * (1. - float(k) / 9.));
+        }
+      }
+      float sd0 = sdf(tp);
+      float ao = exp(-max(sd0, 0.) / (12. * uS)) * .22 * uPour;
+      col = table * (1. - .38 * occ) * (1. - ao);
+    }
+    o = vec4(col, 1.);
+  }`;
+
+  function initGL() {
+    gl = canvas.getContext("webgl2", { antialias: false, alpha: false });
+    if (!gl) throw new Error("no webgl2");
+    prog = makeProgram(gl, FULL_VS, FS);
+  }
+  function layout() {
+    ({ w: W, h: H, dpr } = sizeCanvas(canvas, 1.25));
+    const narrow = W < 700;
+    const size = fitText(["IDweb"], W * (narrow ? 0.92 : 0.84), H * (narrow ? 0.32 : 0.52));
+    const x = document.createElement("canvas").getContext("2d"); x.font = `900 ${size}px ${FONT}`;
+    const tw = x.measureText("IDweb").width * 0.97;
+    const top = narrow ? H * 0.2 : clamp(H * 0.15, 80, 190);
+    scale = clamp(size / 400, 0.3, 1.3);
+    word = { x: (W - tw) / 2, y: top, w: tw, h: size * 0.78 };
+    const sc = W * H > 2.2e6 ? 0.6 : 1, sw = Math.ceil(W * sc), sh = Math.ceil(H * sc);
+    const m = drawMask(sw, sh, (c) => {
+      c.scale(sc, sc); c.font = `900 ${size}px ${FONT}`; c.fillStyle = "#000"; c.strokeStyle = "#000"; c.lineJoin = "round"; c.lineWidth = size * 0.025;
+      if ("letterSpacing" in c) c.letterSpacing = `${-0.03 * size}px`;
+      c.fillText("IDweb", word.x, top + size * 0.76); c.strokeText("IDweb", word.x, top + size * 0.76);
+    });
+    const sd = signedDistance(m, sw, sh);
+    for (let i = 0; i < sd.length; i++) sd[i] /= sc;
+    if (sdfTex) gl.deleteTexture(sdfTex);
+    sdfTex = makeTex(gl, sw, sh, gl.R16F, gl.RED, gl.FLOAT, gl.LINEAR, sd);
+    mag.x = word.x + word.w * 0.5; mag.y = word.y + word.h * 0.5;
+  }
+  function frame(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(frame);
+    const t = (now - t0) / 1000;
+    pour = reduce ? 1 : clamp(t / 1.8, 0, 1);
+    // The magnet follows the pointer; with nobody steering it drifts over the letters on its own.
+    let tx, ty, ts;
+    const idle = now - pointer.at > 2600 || !pointer.inside;
+    if (!idle) { tx = pointer.x; ty = pointer.y; ts = 1; }
+    else {
+      const k = t * 0.32;
+      tx = word.x + word.w * (0.5 + 0.44 * Math.sin(k * 1.1)); ty = word.y + word.h * (0.5 + 0.32 * Math.sin(k * 1.7 + 1.3));
+      ts = t < 1.4 ? 0 : 0.75 + 0.3 * Math.sin(k * 2.3) ** 2;
+    }
+    mag.vx += (tx - mag.x) * 0.06; mag.vy += (ty - mag.y) * 0.06; mag.vx *= 0.8; mag.vy *= 0.8;
+    mag.x += mag.vx; mag.y += mag.vy;
+    mag.s += (ts - mag.s) * 0.06;
+    pulse *= 0.94;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.useProgram(prog.p);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, sdfTex); gl.uniform1i(prog.u.uSdf, 0);
+    gl.uniform2f(prog.u.uRes, W, H); gl.uniform1f(prog.u.uDpr, dpr);
+    gl.uniform2f(prog.u.uMag, mag.x, mag.y); gl.uniform1f(prog.u.uStr, reduce ? 0 : mag.s);
+    gl.uniform1f(prog.u.uPour, pour); gl.uniform1f(prog.u.uPulse, pulse); gl.uniform1f(prog.u.uTime, t); gl.uniform1f(prog.u.uS, scale);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if (reduce && pour >= 1) { running = false; }
+  }
+  root.addEventListener("pointermove", (e) => {
+    const r = root.getBoundingClientRect();
+    pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.at = performance.now();
+    pointer.inside = !e.target.closest("a,button") && (e.pointerType === "mouse" || e.buttons > 0);
+  });
+  root.addEventListener("pointerdown", (e) => {
+    const r = root.getBoundingClientRect();
+    pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.at = performance.now(); pointer.inside = !e.target.closest("a,button");
+    if (pointer.inside) pulse = 1;
+  });
+  root.addEventListener("pointerleave", () => { pointer.inside = false; });
+  let rt = 0;
+  addEventListener("resize", () => { if (!running) return; clearTimeout(rt); rt = setTimeout(layout, 180); });
+  return {
+    async start() {
+      running = true;
+      try { if (!gl) initGL(); } catch (e) { console.warn(e); root.classList.add("no-gl"); running = false; return; }
+      await fontReady();
+      if (!running) return;
+      layout();
+      mag.s = 0; pulse = 0; pointer.at = -1e9; t0 = performance.now();
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(frame);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); },
+  };
+})();
+
+/* ═════════ C · Rimfrost — ice crystals growing on a window ═════════
+   Kobayashi's phase-field model of dendritic solidification (1993), with six-fold anisotropy for ice,
+   solved on the GPU. Crystals only take hold where the glass is coldest — the letters and the window's
+   edges — so the headline grows as frost. The pointer warms the glass; the frost melts and grows back. */
+const C = (() => {
+  const root = $("#k-c"), canvas = $(".rf-canvas", root);
+  let gl = null, ok = false, W = 0, H = 0, dpr = 1, cell = 2, sw = 0, sh = 0;
+  let st = [], fb = [], aux, auxFb, disp, dispFb, maskTex, cur = 0;
+  let pAux, pStep, pCopy, pShow, running = false, raf = 0, t0 = 0, frameNo = 0, lastNow = 0, frameMs = 16;
+  const heat = { x: -1e4, y: -1e4, on: 0, target: 0 };
+  const DBG = window.__rfDebug || {};
+  const PRM = Object.assign({ ebar: 0.01, delta: 0.05, k: 1.6, cool: 0.5, warm: 1.1, noise: 0.03, dt: 0.0002, cellPx: 1.5 }, DBG.prm || {});
+
+  const AUX = `#version 300 es
+  precision highp float;
+  uniform highp sampler2D uS; uniform sampler2D uM; uniform float uDx, uEbar, uDelta;
+  out vec4 o;
+  void main(){
+    ivec2 c = ivec2(gl_FragCoord.xy), mx = textureSize(uS, 0) - 1;
+    float pl = texelFetch(uS, clamp(c + ivec2(-1, 0), ivec2(0), mx), 0).r, pr = texelFetch(uS, clamp(c + ivec2(1, 0), ivec2(0), mx), 0).r;
+    float pd = texelFetch(uS, clamp(c + ivec2(0, -1), ivec2(0), mx), 0).r, pu = texelFetch(uS, clamp(c + ivec2(0, 1), ivec2(0), mx), 0).r;
+    float px = (pr - pl) / (2. * uDx), py = (pu - pd) / (2. * uDx);
+    float th0 = texelFetch(uM, c, 0).g * 1.0471976;
+    float th = (px * px + py * py) < 1e-8 ? 0. : atan(py, px);
+    const float J = 6.;
+    float eps = uEbar * (1. + uDelta * cos(J * (th - th0)));
+    float deps = -uEbar * J * uDelta * sin(J * (th - th0));
+    o = vec4(eps * eps, eps * deps * px, eps * deps * py, 0.);
+  }`;
+  const STEP = `#version 300 es
+  precision highp float;
+  uniform highp sampler2D uS, uA; uniform sampler2D uM;
+  uniform float uDx, uDt, uFrame, uK, uCool, uWarm, uNoise; uniform vec3 uHeat; uniform float uHeatOn;
+  out vec4 o;
+  float hash(vec3 p){ p = fract(p * vec3(.1031, .1030, .0973)); p += dot(p, p.yxz + 33.33); return fract((p.x + p.y) * p.z); }
+  void main(){
+    ivec2 c = ivec2(gl_FragCoord.xy), mx = textureSize(uS, 0) - 1;
+    #define S(dx, dy) texelFetch(uS, clamp(c + ivec2(dx, dy), ivec2(0), mx), 0)
+    #define AX(dx, dy) texelFetch(uA, clamp(c + ivec2(dx, dy), ivec2(0), mx), 0)
+    vec4 s = S(0, 0), sl = S(-1, 0), sr = S(1, 0), sd = S(0, -1), su = S(0, 1);
+    vec4 s1 = S(-1, -1), s2 = S(1, -1), s3 = S(-1, 1), s4 = S(1, 1);
+    vec4 a = AX(0, 0), al = AX(-1, 0), ar = AX(1, 0), ad = AX(0, -1), au = AX(0, 1);
+    float p = s.r, T = s.g, wet = s.b;
+    float dx2 = uDx * uDx;
+    float lapP = (4. * (sl.r + sr.r + sd.r + su.r) + s1.r + s2.r + s3.r + s4.r - 20. * p) / (6. * dx2);
+    float lapT = (4. * (sl.g + sr.g + sd.g + su.g) + s1.g + s2.g + s3.g + s4.g - 20. * T) / (6. * dx2);
+    float px = (sr.r - sl.r) / (2. * uDx), py = (su.r - sd.r) / (2. * uDx);
+    float t1 = (au.y - ad.y) / (2. * uDx);
+    float t2 = -(ar.z - al.z) / (2. * uDx);
+    float de2x = (ar.x - al.x) / (2. * uDx), de2y = (au.x - ad.x) / (2. * uDx);
+    float M = texelFetch(uM, c, 0).r;
+    const float TAU = .0003, ALPHA = .9, GAMMA = 10., TEQ = 1.;
+    float m = ALPHA / 3.14159265 * atan(GAMMA * (TEQ - T));
+    float noise = (hash(vec3(vec2(c), uFrame)) - .5) * uNoise * p * (1. - p);
+    float dp = (t1 + t2 + a.x * lapP + de2x * px + de2y * py + p * (1. - p) * (p - .5 + m) + noise) * uDt / TAU;
+    float pn = clamp(p + dp, 0., 1.);
+    // The glass is coldest behind the letters and at the frame; elsewhere it is close to melting point.
+    float Tbg = (1. - M) * uWarm;
+    float Tn = T + uDt * lapT + uK * (pn - p) - uDt * uCool * (T - Tbg);
+    if (uHeatOn > .001) {
+      float d = length(vec2(c) - uHeat.xy) / uHeat.z;
+      float f = (1. - smoothstep(.45, 1., d)) * uHeatOn;
+      pn = mix(pn, 0., f * .25); Tn = mix(Tn, 1.3, f * .3); wet = max(wet, f);
+    }
+    wet *= .9992;
+    o = vec4(pn, Tn, wet, 1.);
+  }`;
+  const COPY = `#version 300 es
+  precision highp float;
+  uniform highp sampler2D uS; out vec4 o;
+  void main(){ vec4 s = texelFetch(uS, ivec2(gl_FragCoord.xy), 0); o = vec4(s.r, s.b, clamp(s.g, 0., 1.), 1.); }`;
+  const SHOW = `#version 300 es
+  precision highp float;
+  uniform sampler2D uD; uniform vec2 uRes, uPtr; uniform float uDpr, uTime;
+  out vec4 o;
+  float h1(float n){ return fract(sin(n * 127.1) * 43758.5453); }
+  float h2(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+  vec3 night(vec2 p, float blur){
+    vec2 uv = p / uRes;
+    vec3 col = mix(vec3(.02, .04, .095), vec3(.05, .085, .17), uv.y);
+    col += vec3(.4, .2, .08) * smoothstep(.5, 1.1, uv.y) * .28;
+    for (int i = 0; i < 30; i++) {
+      float fi = float(i);
+      vec2 c = vec2(h1(fi * 1.7 + 3.), .36 + .62 * h1(fi * 3.1 + 1.)) * uRes;
+      float r = mix(8., 34., h1(fi * 7.3) * h1(fi * 2.3)) * (1. + blur * 1.8);
+      vec3 lc = h1(fi * 5.9) < .7 ? vec3(1., .58, .24) : vec3(.7, .82, 1.);
+      float d = length(p - c);
+      float disc = smoothstep(r, r - 1.2 - blur * r * .8, d);
+      float ring = smoothstep(r - 2.5 - blur * 8., r, d) * disc;
+      float glow = exp(-d * d / (r * r * 2.5)) * .06;
+      col += lc * ((disc * .16 + ring * .1) * (1. - blur * .5) + glow) * (.5 + 1. * h1(fi * 9.1));
+    }
+    return col;
+  }
+  float snow(vec2 p){
+    float s = 0.;
+    for (int l = 0; l < 2; l++) {
+      float sc = l == 0 ? 46. : 23., sp = l == 0 ? 22. : 12.;
+      vec2 q = p / sc + vec2(sin(uTime * .3 + p.y * .004) * .4, -uTime * sp / sc);
+      vec2 id = floor(q), f = fract(q) - .5;
+      vec2 off = vec2(h2(id) - .5, h2(id + 7.) - .5) * .6;
+      float r = (l == 0 ? .09 : .06) * (.6 + .6 * h2(id + 3.));
+      s += smoothstep(r, r * .2, length(f - off)) * (l == 0 ? .5 : .28) * step(.45, h2(id + 11.));
+    }
+    return s;
+  }
+  void main(){
+    vec2 p = vec2(gl_FragCoord.x, uRes.y * uDpr - gl_FragCoord.y) / uDpr;
+    vec2 uv = p / uRes, tv = vec2(uv.x, 1. - uv.y);
+    vec2 tx = 1. / vec2(textureSize(uD, 0));
+    vec4 d = texture(uD, tv);
+    float f = d.r;
+    // Thickness and rounded relief come from blurred copies of the crystal field (its mipmaps).
+    float th = textureLod(uD, tv, 2.4).r;
+    float fx = texture(uD, tv + vec2(tx.x, 0.)).r - texture(uD, tv - vec2(tx.x, 0.)).r;
+    float fy = texture(uD, tv + vec2(0., tx.y)).r - texture(uD, tv - vec2(0., tx.y)).r;
+    float bx = textureLod(uD, tv + vec2(tx.x * 2., 0.), 1.6).r - textureLod(uD, tv - vec2(tx.x * 2., 0.), 1.6).r;
+    float by = textureLod(uD, tv + vec2(0., tx.y * 2.), 1.6).r - textureLod(uD, tv - vec2(0., tx.y * 2.), 1.6).r;
+    vec3 nR = normalize(vec3(-bx * 2.4, -by * 2.4, 1.));
+    float rim = smoothstep(.2, .75, length(vec2(fx, fy)));
+    vec3 clear = night(p, 0.) + vec3(.75, .82, .95) * snow(p);
+    vec3 diff = night(p, 1.);
+    float a = smoothstep(.12, .62, f) * (.5 + .5 * smoothstep(.2, .85, th));
+    vec3 L = normalize(vec3(-.45, .55, .7));
+    float lam = .5 + .5 * max(dot(nR, L), 0.);
+    float spec = pow(max(dot(reflect(-L, nR), vec3(0., 0., 1.)), 0.), 22.) * .55;
+    float grain = .95 + .1 * h2(floor(p / 1.5));
+    vec3 ice = vec3(.64, .77, .93) * lam * grain + vec3(.9, .96, 1.) * rim * .62 + spec * 1.2 + diff * 1.7;
+    // Glints: single facets catching the light, shifting as the pointer moves.
+    vec2 gc = floor(p / 3.);
+    float gh = h2(gc);
+    float tw = sin(uTime * (1. + gh * 3.) + gh * 40. + dot(uPtr, vec2(.013, .017)));
+    float glint = step(.978, gh) * smoothstep(.4, .85, f) * pow(max(tw, 0.), 12.) * 1.7;
+    vec3 col = mix(clear, ice, a * .92) + glint;
+    col += vec3(.5, .6, .75) * d.g * .03 * (1. - a);
+    col *= 1. - .35 * pow(length((uv - .5) * vec2(1.1, 1.3)), 2.2);
+    o = vec4(pow(col, vec3(.95)), 1.);
+  }`;
+
+  function initGL() {
+    gl = canvas.getContext("webgl2", { antialias: false, alpha: false });
+    if (!gl || !gl.getExtension("EXT_color_buffer_float")) throw new Error("float render targets unavailable");
+    pAux = makeProgram(gl, FULL_VS, AUX); pStep = makeProgram(gl, FULL_VS, STEP); pCopy = makeProgram(gl, FULL_VS, COPY); pShow = makeProgram(gl, FULL_VS, SHOW);
+    ok = true;
+  }
+  function noise2(x, y, seed) { // smooth value noise
+    const h = (i, j) => { let n = Math.sin(i * 127.1 + j * 311.7 + seed * 74.7) * 43758.5453; return n - Math.floor(n); };
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    return lerp(lerp(h(xi, yi), h(xi + 1, yi), u), lerp(h(xi, yi + 1), h(xi + 1, yi + 1), u), v);
+  }
+  function layout() {
+    ({ w: W, h: H, dpr } = sizeCanvas(canvas, 1.5));
+    cell = clamp(Math.max(PRM.cellPx, W / 1000), 1.2, 2.6);
+    sw = Math.ceil(W / cell); sh = Math.ceil(H / cell);
+    let seedR = 7;
+    const r = () => { seedR = (seedR * 16807) % 2147483647; return seedR / 2147483647; };
+    // Warm air from the room keeps the glass clear behind the text; everywhere else is cold enough for ice.
+    const R = root.getBoundingClientRect();
+    const blocks = $$(".rf-warm", root).map((el) => { const b = el.getBoundingClientRect(); return { x: b.left - R.left, y: b.top - R.top, w: b.width, h: b.height }; });
+    const warmA = drawMask(sw, sh, (x) => {
+      x.scale(1 / cell, 1 / cell); x.fillStyle = "#000";
+      if ("filter" in x) x.filter = "blur(14px)";
+      blocks.forEach((b) => { const p = 26; x.beginPath(); if (x.roundRect) x.roundRect(b.x - p, b.y - p, b.w + 2 * p, b.h + 2 * p, 28); else x.rect(b.x - p, b.y - p, b.w + 2 * p, b.h + 2 * p); x.fill(); });
+    });
+    const mask = new Uint8Array(sw * sh * 2), s = new Float32Array(sw * sh * 4);
+    const coldAt = (cx, cy) => 1 - warmA[clamp(Math.round(cy / cell), 0, sh - 1) * sw + clamp(Math.round(cx / cell), 0, sw - 1)] / 255;
+    for (let y = 0; y < sh; y++) for (let x = 0; x < sw; x++) {
+      const i = y * sw + x, v = 1 - warmA[(sh - 1 - y) * sw + x] / 255;  // row 0 is the bottom of the window
+      mask[2 * i] = Math.round(v * 255);
+      mask[2 * i + 1] = Math.floor(noise2(x / 60, y / 60, 3) * 255);
+      s[4 * i + 1] = (1 - v) * PRM.warm;
+    }
+    const nucleate = (cx, cy) => {
+      const x = Math.round(cx / cell), y = sh - 1 - Math.round(cy / cell);
+      if (x < 1 || y < 1 || x > sw - 2 || y > sh - 2) return;
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) s[4 * ((y + dy) * sw + x + dx)] = 1;
+    };
+    // Free crystals out on the glass, kept apart so each has room to branch.
+    const want = DBG.crystals ?? Math.round(clamp((W * H) / 110000, 4, 14)), placed = [];
+    for (let tries = 0; placed.length < want && tries < 4000; tries++) {
+      const cx = W * (0.04 + 0.92 * r()), cy = H * (0.04 + 0.92 * r());
+      if (coldAt(cx, cy) < 0.98 || placed.some((p) => Math.hypot(p[0] - cx, p[1] - cy) < Math.min(W, H) * 0.24)) continue;
+      placed.push([cx, cy]); nucleate(cx, cy);
+    }
+    // Ferns creep in from the frame, mostly from the bottom edge.
+    for (let x = 12; x < W - 12; x += 34 + r() * 60) if (r() < 0.7) nucleate(x, H - 3);
+    for (let y = H * 0.35; y < H - 12; y += 50 + r() * 80) { if (r() < 0.5) nucleate(3, y); if (r() < 0.5) nucleate(W - 3, y); }
+    [...st, aux, disp, maskTex].forEach((t) => t && gl.deleteTexture(t));
+    [...fb, auxFb, dispFb].forEach((f) => f && gl.deleteFramebuffer(f));
+    st = [0, 1].map(() => makeTex(gl, sw, sh, gl.RGBA32F, gl.RGBA, gl.FLOAT, gl.NEAREST, s));
+    fb = st.map((t) => makeFbo(gl, t));
+    aux = makeTex(gl, sw, sh, gl.RGBA32F, gl.RGBA, gl.FLOAT, gl.NEAREST); auxFb = makeFbo(gl, aux);
+    disp = makeTex(gl, sw, sh, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, gl.LINEAR); dispFb = makeFbo(gl, disp);
+    gl.bindTexture(gl.TEXTURE_2D, disp); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+    maskTex = makeTex(gl, sw, sh, gl.RG8, gl.RG, gl.UNSIGNED_BYTE, gl.NEAREST, mask);
+    cur = 0; frameNo = 0;
+  }
+  function simStep() {
+    const dx = 0.03, dt = PRM.dt;
+    gl.viewport(0, 0, sw, sh);
+    gl.useProgram(pAux.p);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, auxFb);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, st[cur]); gl.uniform1i(pAux.u.uS, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, maskTex); gl.uniform1i(pAux.u.uM, 1);
+    gl.uniform1f(pAux.u.uDx, dx); gl.uniform1f(pAux.u.uEbar, PRM.ebar); gl.uniform1f(pAux.u.uDelta, PRM.delta);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    gl.useProgram(pStep.p);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb[1 - cur]);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, st[cur]); gl.uniform1i(pStep.u.uS, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, aux); gl.uniform1i(pStep.u.uA, 1);
+    gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, maskTex); gl.uniform1i(pStep.u.uM, 2);
+    gl.uniform1f(pStep.u.uDx, dx); gl.uniform1f(pStep.u.uDt, dt); gl.uniform1f(pStep.u.uFrame, frameNo++ % 9973);
+    gl.uniform1f(pStep.u.uK, PRM.k); gl.uniform1f(pStep.u.uCool, PRM.cool); gl.uniform1f(pStep.u.uWarm, PRM.warm); gl.uniform1f(pStep.u.uNoise, PRM.noise);
+    gl.uniform3f(pStep.u.uHeat, heat.x / cell, sh - heat.y / cell, 38 / cell); gl.uniform1f(pStep.u.uHeatOn, heat.on);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    cur = 1 - cur;
+  }
+  function show(t) {
+    gl.useProgram(pCopy.p);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, dispFb); gl.viewport(0, 0, sw, sh);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, st[cur]); gl.uniform1i(pCopy.u.uS, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    gl.bindTexture(gl.TEXTURE_2D, disp); gl.generateMipmap(gl.TEXTURE_2D);
+    gl.useProgram(pShow.p);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, disp); gl.uniform1i(pShow.u.uD, 0);
+    gl.uniform2f(pShow.u.uRes, W, H); gl.uniform1f(pShow.u.uDpr, dpr); gl.uniform1f(pShow.u.uTime, t);
+    gl.uniform2f(pShow.u.uPtr, heat.x, heat.y);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  function frame(now) {
+    if (!running) return;
+    raf = requestAnimationFrame(frame);
+    const t = (now - t0) / 1000;
+    heat.on += (heat.target - heat.on) * 0.12;
+    // Grow fast while the frost forms, then keep it slowly alive; do less work on slow devices.
+    if (lastNow) frameMs = frameMs * 0.9 + (now - lastNow) * 0.1;
+    lastNow = now;
+    const steps = Math.max(2, Math.round((t < 8 ? 11 : 5) * (frameMs > 24 ? 0.5 : 1)));
+    for (let i = 0; i < steps; i++) simStep();
+    show(t);
+  }
+  root.addEventListener("pointermove", (e) => {
+    const r = root.getBoundingClientRect();
+    heat.x = e.clientX - r.left; heat.y = e.clientY - r.top;
+    heat.target = reduce || e.target.closest("a,button") || (e.pointerType !== "mouse" && !e.buttons) ? 0 : 1;
+  });
+  root.addEventListener("pointerdown", (e) => { if (!e.target.closest("a,button") && !reduce) { const r = root.getBoundingClientRect(); heat.x = e.clientX - r.left; heat.y = e.clientY - r.top; heat.target = 1; } });
+  root.addEventListener("pointerup", (e) => { if (e.pointerType !== "mouse") heat.target = 0; });
+  root.addEventListener("pointerleave", () => { heat.target = 0; });
+  let rt = 0;
+  addEventListener("resize", () => { if (!running) return; clearTimeout(rt); rt = setTimeout(layout, 200); });
+  return {
+    async start() {
+      running = true;
+      try { if (!gl) initGL(); } catch (e) { console.warn(e); root.classList.add("no-gl"); running = false; return; }
+      await fontReady();
+      if (!running) return;
+      layout(); heat.on = heat.target = 0; t0 = performance.now(); lastNow = 0; frameMs = 16;
+      if (DBG.pre) { for (let i = 0; i < DBG.pre; i++) simStep(); show(0); if (DBG.stop) { running = false; return; } }
+      if (reduce) { for (let i = 0; i < 1600; i++) simStep(); show(0); running = false; return; }
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(frame);
+    },
+    stop() { running = false; cancelAnimationFrame(raf); },
+  };
+})();
+
+/* ═════════ switcher ═════════ */
+const concepts = { a: A, b: B, c: C };
+const buttons = $$(".switcher [data-c]");
+let current = null;
+function choose(key) {
+  if (current) concepts[current].stop();
+  $$(".hero").forEach((s) => { s.hidden = s.id !== "k-" + key; });
+  buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.c === key)));
+  document.body.dataset.c = key;
+  current = key;
+  window.scrollTo(0, 0);
+  try { history.replaceState(null, "", "#" + key); } catch {}
+  requestAnimationFrame(() => concepts[key].start());
+}
+buttons.forEach((b) => b.addEventListener("click", () => choose(b.dataset.c)));
+$(".switcher .replay").addEventListener("click", () => choose(current));
+const fromHash = location.hash.slice(1);
+choose(concepts[fromHash] ? fromHash : "a");
+})();
+</script>

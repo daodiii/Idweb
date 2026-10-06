@@ -1,6 +1,6 @@
 # IDweb redesign — handover
 
-Read this first in any new session working on the redesign. Last updated 2026-10-05 (round 4).
+Read this first in any new session working on the redesign. Last updated 2026-10-06 (round 5).
 
 ## Where the work lives
 
@@ -62,12 +62,13 @@ on the Referanser page instead, so only interested visitors see them. So:
 | 1 | https://claude.ai/artifact/5r37qrx95HkAV7unr28suy | A Verkstedet (light, «jeg»), B Mørk presisjon (dark + yellow), C Nordisk ro | **C chosen** |
 | 2 | https://claude.ai/artifact/Nd7P4JKRZzKq5vQJ1AvTxJ | Hero + project showcase: A Byggeplassen (page builds itself, tiles), B Stabelen (3D card deck, brand tint), C Gjennom bokstavene (sites inside «valgt.», zoom through the «l») | Superseded — projects leave the homepage |
 | 3 | https://claude.ai/artifact/VvenbWvVNaFfpsUUUNpCbU | No projects: A Avgangstavla (split-flap board + timetable services), B Samarbeid (page builds itself, «Daod» multiplayer cursor that chats), C Høydekurver (live contour map, cursor raises terrain, coordinates readout) | Owner: still looks like generic AI design. Wants 3 more, «super unique», world class |
-| 4 | https://claude.ai/artifact/9SqNxmSiqbvVcrDp4iazE6 | No projects, and no template layout: A Marmorert (live paper marbling, cursor combs the ink), B Korrektur (a red pen edits agency filler down to «Jeg lager nettsider.»), C Dagslys (real Oslo sunlight through a window, type casts shadows, scroll = time of day) | Awaiting the owner's pick |
+| 4 | https://claude.ai/artifact/9SqNxmSiqbvVcrDp4iazE6 | No projects, and no template layout: A Marmorert (live paper marbling, cursor combs the ink), B Korrektur (a red pen edits agency filler down to «Jeg lager nettsider.»), C Dagslys (real Oslo sunlight through a window, type casts shadows, scroll = time of day) | Owner: only A felt new; B and C are looks the owner has seen lately. Wants something never made before |
+| 5 | https://claude.ai/artifact/5KT7pQgJbLz2MDyuwXgYwu | Hero only, each a real physical simulation: A Klang (sand on a vibrating plate: Chladni figures, then the grains settle into the headline), B Magnet (the «IDweb» wordmark as ferrofluid, spikes rise towards the cursor), C Rimfrost (ice crystals grow live on a night window around the headline, the cursor melts them) | Awaiting the owner's pick |
 
 Local copies: `docs/redesign/mockups/round1-direction-c-nordisk-ro.dc.html`,
 `round2-hero-showcase.html` (expects images at `img/…`; sources are
 `public/images/showcase/` and `public/images/portfolio/`), `round3-hero-no-projects.html`,
-`round4-hero-no-projects.html`.
+`round4-hero-no-projects.html`, `round5-hero.html` (hero only).
 Rounds 2–3 are single self-contained HTML pages with a floating concept switcher —
 a good template for the next round. Each concept = hero + the services section under
 it, so the owner sees how the motion carries down the page.
@@ -96,6 +97,32 @@ Each concept takes one physical material and lets it drive both the layout and t
   lengthen and the light warms. After dark it shows tomorrow afternoon's light and says so.
   Hovering a headline word lifts it off the wall, the CTA presses in, and the cursor casts a
   shadow too.
+
+## Round 5 notes
+
+The owner wants a hero nobody has seen before and gave complete freedom (palette included). Only
+round 4's marbling felt new to the owner, so round 5 goes further down that road: every hero is a real
+physical system, computed live in the browser, and the hero's main image is made of it.
+
+- **A Klang.** About 100 000 sand grains on a dark steel plate. Grains hop in proportion to how hard
+  the plate vibrates where they lie and drift towards the quiet (nodal) lines. At the plate's
+  resonances they draw real Chladni figures. At «IDweb-tonen» (1 984 Hz) the quiet places are the
+  letters, so the sand settles into «Nettsider som treffer tonen.». A frequency dial lets visitors
+  detune and re-tune (with optional sound), and the cursor splashes the sand. CPU particles,
+  WebGL points.
+- **B Magnet.** The wordmark «IDweb» as a pool of black ferrofluid on a white studio table.
+  Near the magnet (the cursor, or an autopilot when idle) the fluid flows towards it and breaks
+  into the hexagonal spikes of the Rosensweig instability. Clicking boosts the field. It's a
+  ray-marched height field in one fragment shader, lit like a product photo. This is also a
+  possible answer to the open logo question (a wordmark).
+- **C Rimfrost.** Kobayashi's phase-field model of dendritic crystal growth (six-fold, as in
+  ice), solved on the GPU. Crystals nucleate on a night window and grow into ferns and plates
+  while warm air keeps the glass clear behind the text. The pointer warms the glass: the frost
+  melts and grows back. Headline: «Laget for norske forhold.». It needs float render targets
+  (WebGL2 + EXT_color_buffer_float) and falls back to plain text without them.
+
+Each concept drops to a static final state with `prefers-reduced-motion`. These are heavier than
+earlier rounds, so check them on a mid-range phone before choosing.
 
 ## Open items
 
