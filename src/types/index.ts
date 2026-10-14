@@ -125,3 +125,20 @@ export interface ComparisonCard {
   description: string;
   accent: string;
 }
+
+export interface LocalFact {
+  label: string;
+  value: string;
+}
+
+/** Place-specific content for a local landing page (/webbyra-oslo). */
+export interface LocalInfo {
+  /** Region descriptor used in copy ("Oslo"). */
+  region: string;
+  /** Unique local context: the area, its districts and its economy. */
+  intro: string;
+  /** Spec-sheet facts. Verifiable, unique to the place. */
+  facts: LocalFact[];
+  /** Districts/areas we cover, rendered as a coverage list. */
+  areas: string[];
+}
