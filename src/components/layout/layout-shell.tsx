@@ -31,4 +31,4 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
 }
 
 /** Routes that have moved to A · Klar; "/x/*" means everything under /x. Goes away once every page has. */
-const KLAR_ROUTES = ["/", "/tjenester", "/tjenester/*", "/webbyra-oslo", "/referanser", "/om-oss"];
+const KLAR_ROUTES = ["/", "/tjenester", "/tjenester/*", "/webbyra-oslo", "/referanser", "/om-oss", "/kontakt"];
