@@ -34,14 +34,20 @@ export function ContactSection() {
               </div>
             ) : (
               <>
+                <div className="field">
+                  <label htmlFor="k-navn">Navn</label>
+                  <input id="k-navn" name="name" type="text" required autoComplete="name" placeholder="Kari Nordmann" maxLength={100} />
+                </div>
                 <div className="two">
-                  <div className="field">
-                    <label htmlFor="k-navn">Navn</label>
-                    <input id="k-navn" name="name" type="text" required autoComplete="name" placeholder="Kari Nordmann" maxLength={100} />
-                  </div>
                   <div className="field">
                     <label htmlFor="k-epost">E-post</label>
                     <input id="k-epost" name="email" type="email" required autoComplete="email" placeholder="kari@bedrift.no" />
+                  </div>
+                  <div className="field">
+                    <label htmlFor="k-tlf">
+                      Telefon <span className="opt">(valgfritt)</span>
+                    </label>
+                    <input id="k-tlf" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="900 00 000" maxLength={20} />
                   </div>
                 </div>
                 <fieldset>
@@ -56,16 +62,20 @@ export function ContactSection() {
                   </div>
                 </fieldset>
                 <div className="field">
-                  <label htmlFor="k-msg">Fortell litt om prosjektet</label>
+                  <label htmlFor="k-msg">Kort om hva dere trenger</label>
                   <textarea
                     id="k-msg"
                     name="message"
-                    rows={4}
+                    rows={3}
                     required
-                    minLength={10}
+                    minLength={2}
                     maxLength={5000}
-                    placeholder="Vi er et lite verksted og vil at kundene skal kunne sende bilde av bilen før de kommer …"
+                    aria-describedby="k-msg-hint"
+                    placeholder="For eksempel: kundene skal kunne bestille time på nett."
                   />
+                  <span id="k-msg-hint" className="hint-f">
+                    Én setning holder. Resten tar vi i samtalen.
+                  </span>
                 </div>
                 {/* Honeypot and timing field, as in the existing contact form */}
                 <input type="text" name="fax_number" autoComplete="off" tabIndex={-1} aria-hidden="true" className="trap" />

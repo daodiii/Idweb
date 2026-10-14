@@ -88,10 +88,10 @@ export async function sendContactEmail(
     return { success: false, message: "Bedriftsnavn er for langt." };
   }
 
-  if (message.length < 10 || message.length > 5000) {
+  if (message.length < 2 || message.length > 5000) {
     return {
       success: false,
-      message: "Meldingen må være mellom 10 og 5000 tegn.",
+      message: "Skriv noen ord om hva dere trenger (maks 5000 tegn).",
     };
   }
 

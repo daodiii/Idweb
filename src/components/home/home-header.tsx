@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
+import { MobileMenu, type NavLink } from "@/components/home/mobile-menu";
 
+const LINKS: readonly NavLink[] = [
+  { href: "/#tjenester", label: "Tjenester" },
+  { href: "/#prosess", label: "Slik jobber vi" },
+  { href: "/referanser", label: "Referanser" },
+  { href: "/om-oss", label: "Om oss" },
+];
+
+/** Sticky header: the booking button stays in reach on every scroll position; links fold into a menu below 820 px. */
 export function HomeHeader() {
   return (
-    <div className={`ka ${schibsted.variable}`}>
+    <div className={`ka hdr ${schibsted.variable}`}>
       <a href="#main-content" className="skip">
         Hopp til innholdet
       </a>
@@ -15,14 +24,18 @@ export function HomeHeader() {
             IDweb
           </Link>
           <nav className="navlinks" aria-label="Hovedmeny">
-            <Link href="/#tjenester">Tjenester</Link>
-            <Link href="/#prosess">Slik jobber vi</Link>
-            <Link href="/referanser">Referanser</Link>
-            <Link href="/om-oss">Om oss</Link>
+            {LINKS.map((l) => (
+              <Link key={l.href} href={l.href}>
+                {l.label}
+              </Link>
+            ))}
           </nav>
-          <Link href="/#kontakt" className="btn dark">
-            Book en gratis prat
-          </Link>
+          <div className="top-end">
+            <Link href="/#kontakt" className="btn dark">
+              Book en gratis prat
+            </Link>
+            <MobileMenu links={LINKS} />
+          </div>
         </div>
       </header>
     </div>

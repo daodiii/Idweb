@@ -71,6 +71,24 @@
 @media (hover:hover) and (pointer:fine){.ka .navlinks a:hover{color:var(--cobalt)}}
 @media (max-width:820px){.ka .navlinks{display:none}}
 @media (max-width:420px){.ka .top .btn.dark{padding:0 14px;font-size:14px}}
+/* the header sticks; anchored sections stop below it */
+.ka.hdr{position:sticky;top:0;z-index:40}
+.ka [id]{scroll-margin-top:92px}
+.ka .top-end{display:flex;align-items:center;gap:10px}
+.ka .menubtn{all:unset;box-sizing:border-box;display:none;place-items:center;width:42px;height:42px;border:1px solid var(--line-strong);border-radius:999px;color:var(--ink);cursor:pointer;transition:background-color 160ms,transform 160ms var(--out)}
+.ka .menubtn:active{transform:scale(.95)}
+.ka .menubtn:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.ka .menupanel{position:absolute;left:0;right:0;top:100%;z-index:20;border-bottom:1px solid var(--line);background:var(--bg);box-shadow:0 24px 40px -24px rgba(30,42,110,.25)}
+/* .top .wrap is the header row; the panel's own wrap must not inherit its height and alignment */
+.ka .top .menupanel .wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;height:auto;padding-block:8px 20px}
+.ka .menupanel a{padding:16px 0;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.ka .menupanel a:last-child{border-bottom:0}
+.ka .menupanel a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:6px}
+.ka .menupanel[hidden]{display:none}
+@media (max-width:820px){.ka .menubtn{display:grid}}
+@media (min-width:821px){.ka .menupanel{display:none}}
+@media (max-width:600px){.ka .top .wrap{height:64px;gap:12px}.ka .logo{font-size:19px}.ka .logo img{height:36px}.ka [id]{scroll-margin-top:80px}}
+@media (max-width:360px){.ka .logo{font-size:0;gap:0}}
 
 /* hero copy */
 .ka .hero{padding-block:64px 80px;overflow-x:clip}
@@ -104,6 +122,15 @@
 .ka .band + .band{border-top:1px solid var(--line)}
 .ka .band.alt + .band,.ka .band + .band.alt{border-top:0}
 
+/* booking prompt after the demos */
+.ka .nudge{padding-top:88px}
+.ka .nudge-in{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;padding:28px 32px;border-radius:20px;background:var(--tint)}
+.ka .nudge-in p{display:flex;flex-direction:column;gap:4px;max-width:60ch;font-size:17px;color:var(--muted);text-wrap:pretty}
+.ka .nudge-in b{font-size:20px;font-weight:650;letter-spacing:-.015em;color:var(--ink)}
+.ka .nudge-in .btn{flex:none}
+@media (max-width:700px){.ka .nudge{padding-top:64px}.ka .nudge-in{flex-direction:column;align-items:flex-start;padding:24px 20px}}
+.ka .nudge + .refs{padding-top:88px}
+
 /* references */
 .ka .refs{padding-block:112px}
 .ka .refs-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
@@ -133,6 +160,8 @@
 .ka .cform .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .ka .field{display:flex;flex-direction:column;gap:8px}
 .ka .field label,.ka .cform legend{font-weight:600;font-size:14px}
+.ka .field .opt{font-weight:400;color:var(--soft)}
+.ka .field .hint-f{font-size:13px;color:var(--soft)}
 .ka .field input,.ka .field textarea{font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line-strong);border-radius:10px;background:#fff;color:var(--ink);transition:border-color 160ms,box-shadow 160ms}
 .ka .field input:focus,.ka .field textarea:focus{outline:none;border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(36,71,214,.15)}
 .ka .cform fieldset{border:0;margin:0;padding:0}

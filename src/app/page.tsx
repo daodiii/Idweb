@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/hero";
 import { ClientsStrip } from "@/components/home/clients-strip";
 import { ServicesList } from "@/components/home/services-list";
 import { DemoSection } from "@/components/home/demo-section";
+import { BookingNudge } from "@/components/home/booking-nudge";
 import { References } from "@/components/home/references";
 import { ContactSection } from "@/components/home/contact-section";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
@@ -34,6 +35,7 @@ export default function Home() {
       <DemoSection id="prosess" kind="flyt" html={FLYT_HTML} alt />
       <DemoSection id="overalt" kind="overalt" html={OVERALT_HTML} />
       <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} alt />
+      <BookingNudge />
       <References />
       <ContactSection />
     </div>
