@@ -12,12 +12,14 @@ interface PageHeadProps {
   lede?: React.ReactNode;
   /** Buttons or links under the lede. */
   children?: React.ReactNode;
+  /** Anything below the buttons, such as a short list of proof points. */
+  after?: React.ReactNode;
   /** One column instead of headline left, lede right. For long titles and text pages. */
   solo?: boolean;
 }
 
 /** The top of every A · Klar inner page: breadcrumbs, the page's single h1 and a short lede. */
-export function PageHead({ crumbs, title, lede, children, solo }: PageHeadProps) {
+export function PageHead({ crumbs, title, lede, children, after, solo }: PageHeadProps) {
   return (
     <section className={`phead${solo ? " solo" : ""}`}>
       <div className="wrap">
@@ -42,6 +44,7 @@ export function PageHead({ crumbs, title, lede, children, solo }: PageHeadProps)
             <div>
               {lede && <p className="lede">{lede}</p>}
               {children && <div className="actions">{children}</div>}
+              {after}
             </div>
           )}
         </div>
