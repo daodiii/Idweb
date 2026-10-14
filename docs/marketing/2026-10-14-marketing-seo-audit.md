@@ -6,6 +6,41 @@
 
 ---
 
+## Status: fixes shipped on this branch
+
+**Fixed: #1, #2, #23, #24, #25, #26, #27** (commits `ab488ec`, `363116a`).
+
+**Lead-capture fixes, verified with Playwright:**
+- A message containing `https://…` now reaches the send step instead of being dropped.
+- A missing Resend key now shows the visitor an error instead of crashing.
+- A URL in the name field is still silently discarded as a bot.
+- Softer spam signals are delivered with a `[Mulig spam]` subject prefix.
+
+**Speed fixes, measured:**
+
+| Measurement | Before | After |
+|---|---|---|
+| Observed homepage LCP (mobile viewport, 4× CPU, production build) | 2.4–2.7 s | ~0.4 s |
+| Observed LCP, /kontakt | 0.64–0.69 s | ~0.22 s |
+| Observed LCP, /om-oss | ~0.68 s | ~0.2 s |
+| Lighthouse mobile performance, homepage (average of 2 runs) | 82 | 90 |
+| Lighthouse Speed Index, homepage | 3.35 s | 1.40 s |
+| Lighthouse simulated LCP, homepage | 4.67 s | 3.59 s |
+| Lighthouse mobile performance, other tested pages | 84–91 | 90–94 |
+| Desktop performance, all pages | — | 99–100 |
+| Script transfer, every tested page | — | ~45 KB less |
+
+Lighthouse's *simulated* mobile LCP is still around 3–3.6 s because its model counts the async JS. The real browser measurement above shows the main text now paints at first paint.
+
+**Still open:**
+- #3 (calendar link)
+- #6–#14 (claims)
+- #15–#22 (offer pages)
+- #28 (contrast)
+- #29–#38 (content and privacy)
+
+---
+
 ## 0. How this was verified
 
 | Layer | Method | Coverage |
