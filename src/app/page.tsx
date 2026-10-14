@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
+import { BLOG_POSTS } from "@/lib/content/blog";
 import { HeroLommelykt } from "@/components/sections/hero-lommelykt";
-import { Preloader } from "@/components/ui/preloader";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { CursorAura } from "@/components/ui/cursor-aura";
 
@@ -44,6 +44,20 @@ const ContactTakeover = dynamic(
   { ssr: true },
 );
 
+const FEATURED_ARTICLE_SLUGS = [
+  "tegn-paa-ny-nettside",
+  "hva-koster-en-nettside",
+  "vanlige-feil-med-nettsiden",
+];
+
+// Only the card fields cross to the client — not the full article bodies.
+const FEATURED_ARTICLES = FEATURED_ARTICLE_SLUGS.flatMap((slug) => {
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  return post
+    ? [{ slug: post.slug, title: post.title, category: post.category, readingTime: post.readingTime }]
+    : [];
+});
+
 export const metadata: Metadata = {
   title: SEO.home.title,
   description: SEO.home.description,
@@ -54,14 +68,13 @@ export const metadata: Metadata = {
 
 /**
  * Landing page — "Monumentet". A typographic monument in three worlds
- * (paper, void, yellow): preloader curtain → poster hero → scroll-fill
+ * (paper, void, yellow): poster hero → scroll-fill
  * manifesto → full-screen project takeovers → spec ledger → service
  * index → drawn process → XL FAQ → black finale.
  */
 export default function Home() {
   return (
     <div style={{ backgroundColor: "#F3F0E7" }}>
-      <Preloader />
       <SmoothScroll />
       <CursorAura />
 
@@ -92,7 +105,7 @@ export default function Home() {
       <FaqXl />
 
       {/* 8. Articles — editorial strip */}
-      <ArticlesStrip />
+      <ArticlesStrip posts={FEATURED_ARTICLES} />
 
       {/* 9. Contact — black takeover finale */}
       <ContactTakeover />

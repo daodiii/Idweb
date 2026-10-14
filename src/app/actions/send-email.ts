@@ -3,8 +3,6 @@
 import { Resend } from "resend";
 import { ContactFormEmail } from "@/lib/emails/contact-form-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type ContactFormState = {
   success: boolean;
   message: string;
@@ -12,19 +10,29 @@ export type ContactFormState = {
 
 const MIN_FILL_TIME_MS = 3000;
 const SUCCESS_MESSAGE = "Takk for meldingen! Vi tar kontakt innen 24 timer.";
+const ERROR_MESSAGE =
+  "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.";
 
-// Spam phrase patterns common in form-spam (link injection, SEO/casino spam).
-// Matches case-insensitively. Reject silently — no need to tell spammers what tripped them.
-const SPAM_PATTERNS = [
-  /\bhttps?:\/\//i,                      // any URL in name/company fields
-  /\b(viagra|cialis|casino|crypto|bitcoin|forex|loan|seo services?)\b/i,
-  /\bclick here\b/i,
-  /[а-яА-Я]/,                            // Cyrillic in a Norwegian site = spam
-  /<\/?[a-z][^>]*>/i,                    // any HTML tags
+// Link/markup injection in the name field is never a real enquiry —
+// reject silently, no need to tell spammers what tripped them.
+const NAME_FIELD_SPAM = [
+  /\bhttps?:\/\//i,                      // URL in the name field
+  /<\/?[a-z][^>]*>/i,                    // HTML tags
 ];
 
-function looksLikeSpam(value: string): boolean {
-  return SPAM_PATTERNS.some((re) => re.test(value));
+// Typical spam signals that a real prospect can still trigger (a message
+// linking their current site, an English "SEO services" request, a
+// Ukrainian-speaking client). These are delivered with a subject prefix
+// instead of being dropped, so no genuine lead is lost.
+const SPAM_SIGNALS = [
+  /\b(viagra|cialis|casino|crypto|bitcoin|forex|loan|seo services?)\b/i,
+  /\bclick here\b/i,
+  /[а-яА-Я]/,                            // Cyrillic
+  /<\/?[a-z][^>]*>/i,                    // HTML tags
+];
+
+function matchesAny(patterns: RegExp[], value: string): boolean {
+  return patterns.some((re) => re.test(value));
 }
 
 export async function sendContactEmail(
@@ -52,14 +60,16 @@ export async function sendContactEmail(
   const company = (formData.get("company") as string)?.trim() || undefined;
   const message = (formData.get("message") as string)?.trim();
 
-  // Spam content checks — silently accept on match
-  if (
-    looksLikeSpam(name ?? "") ||
-    looksLikeSpam(message ?? "") ||
-    looksLikeSpam(company ?? "")
-  ) {
+  // Obvious bot payload in the name field — silently accept on match
+  if (matchesAny(NAME_FIELD_SPAM, name ?? "")) {
     return { success: true, message: SUCCESS_MESSAGE };
   }
+
+  // Softer signals are delivered but flagged, never dropped. A URL in the
+  // company field is suspicious but may be a prospect's own website.
+  const possibleSpam =
+    matchesAny(SPAM_SIGNALS, `${name ?? ""}\n${company ?? ""}\n${message ?? ""}`) ||
+    /\bhttps?:\/\//i.test(company ?? "");
 
   if (!name || !email || !message) {
     return {
@@ -95,30 +105,25 @@ export async function sendContactEmail(
   }
 
   try {
+    // Created per request so a missing key surfaces as a handled error
+    // (visitor sees the error message) instead of crashing the action.
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
-      subject: `Ny henvendelse fra ${name}`,
+      subject: `${possibleSpam ? "[Mulig spam] " : ""}Ny henvendelse fra ${name}`,
       react: ContactFormEmail({ name, email, phone, company, message }),
     });
 
     if (error) {
       console.error("Resend error:", JSON.stringify(error));
-      return {
-        success: false,
-        message:
-          "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
-      };
+      return { success: false, message: ERROR_MESSAGE };
     }
 
     return { success: true, message: SUCCESS_MESSAGE };
   } catch (err) {
     console.error("Send email failed:", err);
-    return {
-      success: false,
-      message:
-        "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
-    };
+    return { success: false, message: ERROR_MESSAGE };
   }
 }
