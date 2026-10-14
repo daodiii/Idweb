@@ -70,6 +70,38 @@
 .ka .chiplist{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .ka .chiplist li{padding:7px 13px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;color:#3B404A;background:var(--card)}
 
+/* numbered paragraphs: story, approach, "what happens next" */
+.ka .chapters{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.ka .chapters li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:24px 0;border-bottom:1px solid var(--line)}
+.ka .chapters .n{padding-top:3px;font-size:15px;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums}
+.ka .chapters p{font-size:18px;line-height:1.6;text-wrap:pretty}
+.ka .chapters.small p{font-size:16.5px}
+
+/* ---------- references ---------- */
+.ka .proj{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px 64px;align-items:start}
+.ka .proj.flip > .proj-shot{order:2}
+.ka .proj-shot{position:relative;display:block;aspect-ratio:16/10;border-radius:18px;border:1px solid var(--line);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.ka .proj-shot img{object-fit:cover;object-position:top}
+.ka .proj-text{display:flex;flex-direction:column;gap:18px}
+.ka .proj-text h2{font-size:clamp(28px,3vw,38px);font-weight:700}
+.ka .proj-text .who{font-size:15px;color:var(--soft)}
+.ka .proj-text .who b{color:var(--ink);font-weight:600}
+.ka .proj-text > p{color:var(--muted);font-size:17px;text-wrap:pretty}
+.ka .proj-text > p.label{margin:10px 0 0;color:var(--ink)}
+.ka .proj-text .ticks{border-top-color:var(--line-strong)}
+.ka .proj-text .ticks li{font-size:16px;padding:12px 0}
+.ka .thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin:40px 0 0;padding:0;list-style:none}
+.ka .thumbs li{position:relative;aspect-ratio:3/4;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ka .thumbs img{object-fit:cover;object-position:top}
+
+/* ---------- contact page ---------- */
+.ka .phead + .contact{padding-top:64px}
+.ka .sec-h + .kv{margin-top:28px}
+.ka .label.first{margin-top:0}
+.ka .chapters + .more{margin-top:24px}
+.ka .g-contact .intro p.note{font-size:13px;color:#A3A9B5}
+.ka .g-contact .note a{text-decoration:underline;text-underline-offset:3px}
+
 /* ---------- numbered steps ---------- */
 .ka .stepl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 32px;margin:0;padding:0;list-style:none}
 .ka .stepl li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid var(--ink)}
@@ -106,6 +138,9 @@
   .ka .sec,.ka .cta{padding-block:80px}
   .ka .g-items{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ka .stepl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .proj{grid-template-columns:minmax(0,1fr)}
+  .ka .proj.flip > .proj-shot{order:0}
+  .ka .thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
   .ka .cta-card{grid-template-columns:minmax(0,1fr);padding:36px 24px}
 }
 @media (max-width:560px){
@@ -114,4 +149,7 @@
   .ka .faq .ans{padding-right:0}
   .ka .box{padding:22px 20px}
   .ka .kv.stack > div{flex-direction:column;gap:4px}
+  .ka .chapters li{grid-template-columns:36px minmax(0,1fr)}
+  .ka .chapters p{font-size:17px}
+  .ka .thumbs{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:28px}
 }
