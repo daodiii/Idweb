@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { ContactFormEmail } from "@/lib/emails/contact-form-email";
+import { NEED_OPTIONS } from "@/lib/home/contact";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -94,13 +95,19 @@ export async function sendContactEmail(
     };
   }
 
+  // Optional "Hva trenger du?" choices from the homepage form; only known values are kept.
+  const needs = formData
+    .getAll("needs")
+    .filter((v): v is string => typeof v === "string" && NEED_OPTIONS.includes(v));
+  const body = needs.length ? `Trenger: ${needs.join(", ")}\n\n${message}` : message;
+
   try {
     const { error } = await resend.emails.send({
       from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
       subject: `Ny henvendelse fra ${name}`,
-      react: ContactFormEmail({ name, email, phone, company, message }),
+      react: ContactFormEmail({ name, email, phone, company, message: body }),
     });
 
     if (error) {
