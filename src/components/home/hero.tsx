@@ -23,26 +23,31 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-h">
       <div className="wrap">
         <div className="hero-head">
-          <h1 id="hero-h">Fortell oss hva dere trenger. Vi bygger nettsiden rundt det.</h1>
-          <p className="lede">
-            Hvert ønske blir en del av siden, på pc og mobil. Det dere ikke trenger, lar vi være, så siden blir enklere å
-            bruke og rimeligere å lage.
-          </p>
-          <div className="actions">
-            <Link className="btn" href="/#kontakt">
-              Book en gratis prat
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </Link>
-            <Link className="link" href="/referanser">
-              Se prosjektene
-            </Link>
-          </div>
-          <div className="trust">
-            <span>Fastpris før vi starter</span>
-            <span>Ingen bindingstid</span>
-            <span>Du snakker med den som bygger</span>
+          <h1 id="hero-h">
+            Bygd for en ny digital tid.
+            <br /> Skreddersydd for bedriften deres.
+          </h1>
+          <div className="hero-side">
+            <p className="lede">
+              Fortell oss hva dere trenger. Vi bygger nettsiden, kundeportalen og systemene bak, og ingenting dere ikke
+              har bruk for.
+            </p>
+            <div className="actions">
+              <Link className="btn" href="/#kontakt">
+                Book en gratis prat
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </Link>
+              <Link className="link" href="/referanser">
+                Se prosjektene
+              </Link>
+            </div>
+            <div className="trust">
+              <span>Fastpris før vi starter</span>
+              <span>Ingen bindingstid</span>
+              <span>Du snakker med den som bygger</span>
+            </div>
           </div>
         </div>
         <div className="hx" ref={stageRef} dangerouslySetInnerHTML={{ __html: HERO_STAGE_HTML }} />
