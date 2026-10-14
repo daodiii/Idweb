@@ -10,7 +10,6 @@ import { ContactSection } from "@/components/home/contact-section";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { OVERALT_HTML } from "@/components/home/markup/overalt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
-import "@/styles/a-klar.css";
 
 export const metadata: Metadata = {
   title: SEO.home.title,

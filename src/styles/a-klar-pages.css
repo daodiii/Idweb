@@ -1,0 +1,89 @@
+/* A · Klar inner pages. Same .ka scope and tokens as a-klar.css; this file holds the patterns the homepage
+   does not use: page head, section rhythm, lists, steps, FAQ, CTA card and long-form text. */
+
+/* ---------- page head ---------- */
+.ka .phead{padding-block:48px 88px;border-bottom:1px solid var(--line)}
+.ka .crumbs ol{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 40px;padding:0;list-style:none;font-size:14px;color:var(--soft)}
+.ka .crumbs li + li::before{content:"/";margin-right:8px;color:var(--faint)}
+.ka .crumbs [aria-current]{color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka .crumbs a:hover{color:var(--cobalt)}}
+.ka .crumbs a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+.ka .phead-g{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px 64px;align-items:end}
+.ka .phead h1{max-width:15ch;font-size:clamp(40px,5.4vw,70px);font-weight:700;letter-spacing:-.04em;line-height:1.02}
+.ka .phead .lede{max-width:46ch;font-size:clamp(17px,1.5vw,18.5px);color:var(--muted);text-wrap:pretty}
+.ka .phead .actions{justify-content:flex-start;margin-top:28px}
+.ka .phead.solo .phead-g{grid-template-columns:minmax(0,1fr)}
+.ka .phead.solo h1{max-width:20ch}
+.ka .phead.solo .lede{max-width:60ch}
+
+/* ---------- section rhythm ---------- */
+.ka .sec{padding-block:112px}
+.ka .sec.alt{background:var(--surface)}
+.ka .sec + .sec{border-top:1px solid var(--line)}
+.ka .sec.alt + .sec,.ka .sec + .sec.alt{border-top:0}
+.ka .sec-h.wide{margin-bottom:56px;max-width:760px}
+.ka .copy{display:flex;flex-direction:column;gap:18px;font-size:18px;color:var(--muted);max-width:62ch;text-wrap:pretty}
+.ka .copy strong{color:var(--ink);font-weight:600}
+
+/* text link with arrow */
+.ka .more{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink)}
+.ka .more svg{transition:transform 300ms var(--out)}
+@media (hover:hover) and (pointer:fine){.ka .more:hover{color:var(--cobalt)}.ka .more:hover svg{transform:translateX(4px)}}
+.ka .more:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+
+/* ---------- lists ---------- */
+/* ticked list under an ink rule, same weight as .svc-list */
+.ka .ticks{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.ka .ticks li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
+.ka .ticks svg{margin-top:4px;color:var(--cobalt)}
+
+/* titled items in columns: "what you get", pain points, values */
+.ka .g-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin:0;padding:0;list-style:none}
+.ka .g-items.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ka .g-items li{display:flex;flex-direction:column;gap:8px;padding:26px 0 30px;border-top:1px solid var(--line-strong)}
+.ka .g-items b{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
+.ka .g-items span{color:var(--muted);text-wrap:pretty}
+.ka .g-items.warn li{border-top:2px solid var(--orange)}
+
+/* ---------- numbered steps ---------- */
+.ka .stepl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 32px;margin:0;padding:0;list-style:none}
+.ka .stepl li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid var(--ink)}
+.ka .stepl .n{font-size:15px;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums}
+.ka .stepl b{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
+.ka .stepl span:not(.n){color:var(--muted);font-size:15.5px;text-wrap:pretty}
+
+/* ---------- FAQ (native details) ---------- */
+.ka .faq{border-top:1px solid var(--ink)}
+.ka .faq details{border-bottom:1px solid var(--line)}
+.ka .faq summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.01em;cursor:pointer;list-style:none}
+.ka .faq summary::-webkit-details-marker{display:none}
+.ka .faq summary:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px;border-radius:6px}
+.ka .faq summary svg{flex:none;color:var(--soft);transition:transform 300ms var(--out)}
+.ka .faq details[open] summary svg{transform:rotate(45deg);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka .faq summary:hover{color:var(--cobalt)}}
+.ka .faq .ans{padding:0 48px 26px 0;color:var(--muted);font-size:16.5px;max-width:70ch;text-wrap:pretty}
+
+/* ---------- closing CTA card ---------- */
+.ka .cta{padding-block:112px}
+.ka .sec:not(.alt) + .cta{padding-top:0}
+.ka .cta-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px 64px;align-items:end;padding:56px;border-radius:28px;background:var(--ink);color:#fff}
+.ka .cta-card h2{max-width:18ch;font-size:clamp(32px,4vw,46px);font-weight:700}
+.ka .cta-card p{margin-top:18px;max-width:50ch;color:#C3C8D2;font-size:17px;text-wrap:pretty}
+.ka .cta-card .side{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.ka .cta-card .reach{display:flex;flex-direction:column;gap:6px;font-size:15px;color:#C3C8D2}
+@media (hover:hover) and (pointer:fine){.ka .cta-card .reach a:hover{color:#fff}}
+
+@media (max-width:900px){
+  .ka .phead{padding-block:32px 64px}
+  .ka .crumbs ol{margin-bottom:28px}
+  .ka .phead-g{grid-template-columns:minmax(0,1fr);gap:24px}
+  .ka .sec,.ka .cta{padding-block:80px}
+  .ka .g-items{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .stepl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .cta-card{grid-template-columns:minmax(0,1fr);padding:36px 24px}
+}
+@media (max-width:560px){
+  .ka .g-items,.ka .g-items.two,.ka .stepl{grid-template-columns:minmax(0,1fr)}
+  .ka .faq summary{font-size:17px}
+  .ka .faq .ans{padding-right:0}
+}

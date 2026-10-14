@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LayoutShell } from "@/components/layout/layout-shell";
 import { JsonLd } from "@/components/seo/json-ld";
+import { schibsted } from "@/lib/home/fonts";
 import "./globals.css";
+// A · Klar styles, all scoped under .ka, so loading them site-wide changes nothing outside the redesigned pages.
+import "@/styles/a-klar.css";
+import "@/styles/a-klar-pages.css";
 
 // One family, weight-driven hierarchy — Geist carries both headings and body.
 const geistSans = Geist({
@@ -77,7 +81,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#F4CE14" />
         <JsonLd />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${schibsted.variable} antialiased`}>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

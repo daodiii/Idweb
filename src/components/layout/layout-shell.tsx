@@ -16,16 +16,19 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
 
-  // The homepage has moved to the A · Klar design; the other pages keep the old header and footer until they follow.
-  const isHome = pathname === "/";
+  // Pages already on the A · Klar design get its header and footer; the rest keep the old ones until they follow.
+  const isKlar = KLAR_ROUTES.some((r) => (r.endsWith("/*") ? pathname.startsWith(r.slice(0, -1)) : pathname === r));
 
   return (
     <>
-      {isHome ? <HomeHeader /> : <Navbar />}
+      {isKlar ? <HomeHeader /> : <Navbar />}
       <main id="main-content">{children}</main>
-      {isHome ? <HomeFooter /> : <Footer />}
-      <CookieConsent variant={isHome ? "klar" : "monument"} />
+      {isKlar ? <HomeFooter /> : <Footer />}
+      <CookieConsent variant={isKlar ? "klar" : "monument"} />
       <GoogleAnalytics />
     </>
   );
 }
+
+/** Routes that have moved to A · Klar; "/x/*" means everything under /x. Goes away once every page has. */
+const KLAR_ROUTES = ["/"];
