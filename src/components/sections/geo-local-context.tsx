@@ -27,7 +27,7 @@ export function GeoLocalContext({ place, local, accent }: GeoLocalContextProps) 
           <h2 className="font-[family-name:var(--font-heading)] text-white">
             <span className="block text-[clamp(1.9rem,4vw,3.2rem)] font-extralight leading-[1.08] tracking-[-0.01em] text-white/85">
               Vi kjenner markedet i
-            </span>
+            </span>{" "}
             <span className="block text-[clamp(2.5rem,7vw,5rem)] font-black leading-[0.95] tracking-[-0.035em]">
               <span className="relative inline-block">
                 {place}
