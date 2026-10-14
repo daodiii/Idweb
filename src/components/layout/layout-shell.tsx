@@ -24,7 +24,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       {isHome ? <HomeHeader /> : <Navbar />}
       <main id="main-content">{children}</main>
       {isHome ? <HomeFooter /> : <Footer />}
-      <CookieConsent />
+      <CookieConsent variant={isHome ? "klar" : "monument"} />
       <GoogleAnalytics />
     </>
   );
