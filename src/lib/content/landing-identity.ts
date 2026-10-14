@@ -6,17 +6,6 @@
  * the page's identity (the mockup, the headline underline, section numerals).
  */
 
-export type MockupKind =
-  | "booking"
-  | "call"
-  | "quote"
-  | "valuation"
-  | "menu"
-  | "gallery"
-  | "membership"
-  | "directory"
-  | "dev";
-
 /** Accent for the Oslo agency page. */
 export const GEO_ACCENT = "#6366F1";
 

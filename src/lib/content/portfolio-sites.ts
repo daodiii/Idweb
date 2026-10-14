@@ -1,7 +1,7 @@
 // NOTE: This file holds real site metadata for hero device frames and portfolio showcase.
 // Separate from src/lib/content/portfolio.ts which has case study content.
 
-import type { PortfolioSite, PortfolioSiteId, RotationSet } from "@/types";
+import type { PortfolioSite, PortfolioSiteId } from "@/types";
 
 export const PORTFOLIO_SITES: PortfolioSite[] = [
   {
@@ -118,11 +118,3 @@ export const PORTFOLIO_SITES: PortfolioSite[] = [
 export function getSiteById(id: PortfolioSiteId) {
   return PORTFOLIO_SITES.find((site) => site.id === id) ?? null;
 }
-
-/**
- * Static hero device showcase — hand-picked sites for each device.
- * Vocura (laptop), Brobekk (tablet), Center Rahma (phone).
- */
-export const ROTATION_SETS: RotationSet[] = [
-  { laptop: "vocura", tablet: "brobekk", phone: "centerrahma" },
-];

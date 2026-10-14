@@ -1,11 +1,5 @@
 import type { Service } from "@/types";
 
-export const SERVICES_PAGE = {
-  headline: "Tjenester som gir bedriften din vekst",
-  subheadline:
-    "Vi tilbyr alt du trenger for å lykkes digitalt — fra skreddersydde nettsider og SEO til løpende vedlikehold.",
-} as const;
-
 export const SERVICES: Service[] = [
   {
     id: "nettside",
@@ -231,9 +225,3 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export const SERVICES_CTA = {
-  headline: "Usikker på hva du trenger?",
-  description:
-    "Bestill en gratis og uforpliktende samtale, så hjelper vi deg med å finne den riktige løsningen for bedriften din.",
-  buttonText: "Book en gratis samtale",
-} as const;

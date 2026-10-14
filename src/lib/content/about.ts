@@ -43,13 +43,6 @@ export const VALUES = {
   ],
 } as const;
 
-export const TEAM_SECTION = {
-  heading: "Teamet",
-  description:
-    "Vi kombinerer teknisk ekspertise med kreativ tenkning og jobber tett med kundene våre for å sikre at resultatet blir akkurat som du ønsker — eller bedre.",
-  cta: "Vil du bli kjent med oss? Ta kontakt for en uforpliktende prat.",
-} as const;
-
 export const APPROACH = {
   heading: "Slik jobber vi",
   paragraphs: [
@@ -66,17 +59,3 @@ export const ABOUT_CTA = {
   buttonText: "Ta kontakt i dag",
 } as const;
 
-export const TEAM_MEMBERS = [
-  {
-    name: "Idris Osman",
-    role: "Webutvikler & Grunder",
-    initials: "IO",
-    bio: "Spesialist i Next.js, React og SEO-optimalisering.",
-  },
-] as const;
-
-export const MILESTONES = [
-  { year: "2024", label: "IDweb grunnlagt" },
-  { year: "2025", label: "F\u00f8rste prosjekter levert" },
-  { year: "2026", label: "Ny teknologistack" },
-] as const;

@@ -87,8 +87,3 @@ export const PORTFOLIO_CTA = {
   buttonText: "Start ditt prosjekt",
 } as const;
 
-export const CLIENT_LOGOS_SECTION = {
-  heading: "Bygget for norske bedrifter",
-  description:
-    "Fra helseklinikker til restauranter — vi har hjulpet bedrifter med å få en profesjonell tilstedeværelse på nett.",
-} as const;

@@ -1,14 +1,3 @@
-export interface NavLink {
-  href: string;
-  label: string;
-}
-
-export interface SectionMeta {
-  id: string;
-  title: string;
-  description?: string;
-}
-
 export interface BlogPost {
   slug: string;
   title: string;
@@ -108,22 +97,6 @@ export interface PortfolioSite {
   name: string;
   domain: string;
   images: Record<DeviceViewport, string> & { full?: string; showcase?: string[]; collage?: CollageImage[]; collageBackground?: string; heroImage?: string };
-}
-
-export interface RotationSet {
-  laptop: PortfolioSiteId;
-  tablet: PortfolioSiteId;
-  phone: PortfolioSiteId;
-}
-
-export interface ComparisonCard {
-  type: 'byrå' | 'idweb';
-  icon?: string;
-  stat?: string;
-  unit?: string;
-  title: string;
-  description: string;
-  accent: string;
 }
 
 export interface LocalFact {

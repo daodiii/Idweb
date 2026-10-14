@@ -1,4 +1,4 @@
-import type { Testimonial, ProcessStep, TrustSignal, ComparisonCard } from "@/types";
+import type { Testimonial, ProcessStep, TrustSignal } from "@/types";
 import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
@@ -14,12 +14,6 @@ export const TRUST_SIGNALS: TrustSignal[] = [
   { value: 5, suffix: "/5", label: "Google-vurdering" },
   { value: 100, suffix: "%", label: "Kundetilfredshet" },
   { value: 0, suffix: "", label: "Bindingstid" },
-];
-
-export const TRUST_LOCATION = "Basert i Oslo" as const;
-
-export const FEATURED_PORTFOLIO_IDS: PortfolioSiteId[] = [
-  "centerrahma",
 ];
 
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
@@ -49,42 +43,6 @@ export const SERVICES_OVERVIEW = [
       "L\u00f8pende oppdateringer, sikkerhetskopier og support slik at nettsiden alltid er trygg og oppdatert.",
   },
 ] as const;
-
-export const PROBLEM_CARDS = [
-  {
-    icon: "Gauge",
-    title: "Treg lasting = tapte kunder",
-    stat: "53%",
-    statLabel: "forlater en side som bruker mer enn 3 sekunder p\u00e5 \u00e5 laste",
-  },
-  {
-    icon: "SearchX",
-    title: "Usynlig p\u00e5 Google",
-    stat: "75%",
-    statLabel: "klikker aldri forbi f\u00f8rste side i s\u00f8keresultatene",
-  },
-  {
-    icon: "CalendarX",
-    title: "Ser ut som 2015",
-    stat: "94%",
-    statLabel: "av f\u00f8rsteinntrykket handler om design og troverdighet",
-  },
-] as const;
-
-export const COMPARISON_GRID: ComparisonCard[] = [
-  // Row 1
-  { type: "byrå", icon: "🧱", title: "WordPress + plugins", description: "Tunge ferdigløsninger som bremser ytelse og sikkerhet", accent: "#ef4444" },
-  { type: "idweb", icon: "⚡", title: "Next.js — fra bunnen av", description: "Moderne rammeverk, lynrask og skalerbar", accent: "#34D399" },
-  { type: "byrå", stat: "3-5", unit: "s", title: "Treg lastetid", description: "Besøkende forlater siden før den laster", accent: "#ef4444" },
-  // Row 2
-  { type: "idweb", icon: "💬", title: "Direkte til utvikleren", description: "Ingen mellomledd — du snakker med den som bygger", accent: "#D4AF37" },
-  { type: "idweb", stat: "<1", unit: "s", title: "Lastetid", description: "Mens typiske sider bruker 3–5 sekunder", accent: "#6EE7B7" },
-  { type: "idweb", stat: "90", unit: "+", title: "PageSpeed-score", description: "Typiske byrå-sider scorer 40–60", accent: "#F5D060" },
-  // Row 3
-  { type: "byrå", icon: "🤵", title: "Snakker med en selger", description: "Mellomledd som ikke kjenner koden", accent: "#ef4444" },
-  { type: "idweb", icon: "🎨", title: "100 % skreddersydd", description: "Designet kun for din bedrift — ingen maler", accent: "#10B981" },
-  { type: "byrå", icon: "📋", title: "Ferdigmaler", description: "Tilpasset «litt» — ser ut som alle andre", accent: "#ef4444" },
-];
 
 export const FAQ_TEASER_ITEMS = [
   {
@@ -141,12 +99,6 @@ export const FINAL_CTA = {
     "Fortell oss om prosjektet ditt, så sender vi et uforpliktende tilbud innen 24 timer. Ingen skjulte kostnader, ingen bindingstid.",
   buttonText: "Send foresp\u00f8rsel",
   secondaryText: "Eller ring oss direkte: 984 06 164",
-} as const;
-
-export const SOCIAL_PROOF = {
-  heading: "Stolt samarbeidspartner for norske bedrifter",
-  description:
-    "Fra lokale håndverkere til etablerte bedrifter — vi har hjulpet bedrifter med å lykkes på nett.",
 } as const;
 
 export const SERVICE_TESTIMONIAL_MAP: Record<string, number> = {
