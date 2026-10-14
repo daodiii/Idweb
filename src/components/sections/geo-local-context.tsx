@@ -1,4 +1,4 @@
-import type { LocalInfo } from "@/lib/content/locations-local";
+import type { LocalInfo } from "@/types";
 
 interface GeoLocalContextProps {
   place: string;

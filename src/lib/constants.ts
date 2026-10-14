@@ -4,8 +4,7 @@ export const FOOTER_LINKS = {
   tjenester: [
     { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
     { href: "/tjenester/nettside", label: "Nettsider" },
-    { href: "/nettside", label: "Nettside for din bransje" },
-    { href: "/webutvikler", label: "Webutvikler i Oslo-området" },
+    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
     { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   ],
