@@ -44,7 +44,7 @@ export function ServiceCta() {
           <h2 className="mt-7 font-serif text-[#0a0a0a]">
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[#0a0a0a]/75">
               La oss ta
-            </span>
+            </span>{" "}
             <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
               <span className="relative inline-block">
                 praten
@@ -53,7 +53,7 @@ export function ServiceCta() {
                   className="absolute -bottom-1 left-0 right-0 h-[4px] rounded-full bg-[#0a0a0a]"
                 />
               </span>
-            </span>
+            </span>{" "}
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-[#0a0a0a]/75">
               før vi tar tilbudet.
             </span>

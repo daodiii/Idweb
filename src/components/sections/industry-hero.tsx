@@ -61,6 +61,8 @@ export function IndustryHero({ service, accent, mockup, business, mockupUrl }: I
                 {lead}
               </span>
             )}
+            {/* A real space, so the heading's text reads "Webbyrå i Oslo", not "Webbyrå iOslo". */}
+            {lead && " "}
             <span className="mt-1 block text-[clamp(2.5rem,6.4vw,4.9rem)] font-black leading-[0.95] tracking-[-0.035em]">
               <span className="relative inline-block">
                 {tail}

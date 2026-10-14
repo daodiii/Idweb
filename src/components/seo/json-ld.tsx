@@ -233,25 +233,25 @@ export function ServiceJsonLd({
   description,
   slug,
   basePath = "tjenester",
+  areaServed = { "@type": "Country", name: "Norway" },
 }: {
   name: string;
   description: string;
   slug: string;
+  /** Empty string for a top-level page such as /webbyra-oslo. */
   basePath?: string;
+  areaServed?: { "@type": "Country" | "City"; name: string };
 }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
-    url: `https://www.idweb.no/${basePath}/${slug}`,
+    url: `https://www.idweb.no/${[basePath, slug].filter(Boolean).join("/")}`,
     provider: {
       "@id": "https://www.idweb.no/#business",
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Norway",
-    },
+    areaServed,
   };
 
   return (
