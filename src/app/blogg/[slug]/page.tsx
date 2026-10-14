@@ -20,7 +20,7 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
     { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
   ],
   Nettbutikk: [
-    { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling med Vipps og Stripe" },
+    { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling med trygg betaling" },
     { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
   ],
   Design: [

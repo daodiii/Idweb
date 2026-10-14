@@ -58,7 +58,7 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
   vedlikehold: {
     title: "Drift og vedlikehold av nettside — Trygg drift",
     description:
-      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig norsk hosting. Ingen bindingstid.",
+      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig hosting. Ingen bindingstid.",
   },
   "webutvikler-oslo": {
     title: "Webutvikler i Oslo — Lokal nettsideutvikling for bedrifter",
@@ -68,6 +68,6 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
   nettbutikk: {
     title: "Nettbutikk-utvikling — Skreddersydde e-handelsløsninger",
     description:
-      "Vi bygger nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med Stripe og Vipps. Fra enkel produktkatalog til full e-handelsplattform.",
+      "Vi bygger nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med trygg betaling. Fra enkel produktkatalog til full e-handelsplattform.",
   },
 };

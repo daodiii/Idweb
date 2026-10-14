@@ -104,7 +104,7 @@ export const PRICE_GUIDE = {
   rows: [
     { label: "Enkel bedriftsnettside", detail: "3–5 sider: forside, tjenester, om oss, kontakt", range: "15 000 – 40 000 kr" },
     { label: "Større bedriftsnettside", detail: "5–15 sider, integrasjoner og mer avansert design", range: "40 000 – 80 000 kr" },
-    { label: "Nettbutikk", detail: "Inntil rundt 100 produkter, Vipps og frakt", range: "30 000 – 70 000 kr" },
+    { label: "Nettbutikk", detail: "Inntil rundt 100 produkter, betaling og frakt", range: "30 000 – 70 000 kr" },
     { label: "Avansert nettbutikk", detail: "Flere hundre produkter, kundeportal, integrasjoner", range: "70 000 – 200 000+ kr" },
   ],
   footnote:
@@ -115,7 +115,7 @@ export const PRICE_GUIDE = {
 /** Everything the agency does, linked into the rest of the site. */
 export const AGENCY_SERVICES = [
   { href: "/tjenester/nettside", tag: "Nettsider", title: "Skreddersydd nettside", description: "Design og kode fra bunnen av, uten ferdigmaler. Rask på mobil og bygget for Google." },
-  { href: "/tjenester/nettbutikk", tag: "Nettbutikk", title: "Nettbutikk med Vipps", description: "Egen nettbutikk med Vipps og Stripe, uten månedlige plattformavgifter." },
+  { href: "/tjenester/nettbutikk", tag: "Nettbutikk", title: "Egen nettbutikk", description: "Egen nettbutikk med trygg betaling, uten månedlige plattformavgifter." },
   { href: "/tjenester/seo", tag: "SEO", title: "Synlighet i Google", description: "Teknisk SEO, innhold og Google-bedriftsprofil, så kundene i Oslo finner deg." },
   { href: "/tjenester/vedlikehold", tag: "Drift", title: "Drift og vedlikehold", description: "Oppdateringer, sikkerhetskopier og endringer. Kan sies opp med én måneds varsel." },
   { href: "/referanser", tag: "Referanser", title: "Nettsider vi har levert", description: "Se nettsidene vi har laget for tannleger, legekontor, trossamfunn og kultursentre." },
