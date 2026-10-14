@@ -36,6 +36,9 @@
 .ka .ticks{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
 .ka .ticks li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
 .ka .ticks svg{margin-top:4px;color:var(--cobalt)}
+.ka .ticks .t{display:flex;flex-direction:column;gap:2px}
+.ka .ticks .t b{font-weight:600}
+.ka .ticks .t span{color:var(--muted);font-size:15.5px}
 
 /* titled items in columns: "what you get", pain points, values */
 .ka .g-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin:0;padding:0;list-style:none}
@@ -43,6 +46,7 @@
 .ka .g-items li{display:flex;flex-direction:column;gap:8px;padding:26px 0 30px;border-top:1px solid var(--line-strong)}
 .ka .g-items b{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
 .ka .g-items span{color:var(--muted);text-wrap:pretty}
+.ka .g-items small{margin-left:6px;font:400 13px/1 var(--font-mono);letter-spacing:0;color:var(--faint)}
 .ka .g-items.warn li{border-top:2px solid var(--orange)}
 
 /* ---------- numbered steps ---------- */
