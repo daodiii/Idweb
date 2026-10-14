@@ -3,26 +3,20 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { BLOG_POSTS } from "@/lib/content/blog";
 import { EASE, INK, PAPER, VIEWPORT_ONCE } from "@/lib/motion";
+import type { BlogPost } from "@/types";
 
 /**
  * Articles — a compact editorial strip. Three featured guides as
  * numbered plates that lift on hover.
+ *
+ * Posts arrive as props from the server page so the full blog content
+ * never ends up in the client bundle.
  */
 
-const FEATURED_SLUGS = [
-  "tegn-paa-ny-nettside",
-  "hva-koster-en-nettside",
-  "vanlige-feil-med-nettsiden",
-];
+export type ArticleCard = Pick<BlogPost, "slug" | "title" | "category" | "readingTime">;
 
-const POSTS = FEATURED_SLUGS.flatMap((slug) => {
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
-  return post ? [post] : [];
-});
-
-export function ArticlesStrip() {
+export function ArticlesStrip({ posts }: { posts: ArticleCard[] }) {
   return (
     <section style={{ backgroundColor: PAPER, color: INK }}>
       <div className="border-t px-[3vw] py-20 sm:py-24" style={{ borderColor: "rgba(20,20,16,0.18)" }}>
@@ -55,7 +49,7 @@ export function ArticlesStrip() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {POSTS.map((post, i) => (
+          {posts.map((post, i) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 36 }}

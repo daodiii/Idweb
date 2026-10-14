@@ -151,6 +151,42 @@ h1, h2, h3, h4, h5, h6 {
     var(--color-bg);
 }
 
+/* ── Hero entrance ──
+   Pure CSS so it starts at first paint instead of waiting for hydration.
+   Transform only (no opacity) — the copy is readable from the first frame. */
+@keyframes hero-line-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  animation: hero-line-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-rise {
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line,
+  .hero-rise {
+    animation: none;
+  }
+}
+
 /* ── Hero headline shimmer (single sweep) ── */
 @keyframes hero-shimmer {
   0% {

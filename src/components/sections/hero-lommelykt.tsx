@@ -12,7 +12,7 @@ import {
 } from "motion/react";
 import { HERO } from "@/lib/content/homepage";
 import { Magnetic } from "@/components/ui/magnetic";
-import { EASE, INK, PAPER, VOID, YELLOW } from "@/lib/motion";
+import { INK, PAPER, VOID, YELLOW } from "@/lib/motion";
 
 /**
  * Hero — «Lommelykt». Two parallel worlds occupy the same space: the
@@ -24,14 +24,12 @@ import { EASE, INK, PAPER, VOID, YELLOW } from "@/lib/motion";
 function Line({ children, index }: { children: ReactNode; index: number }) {
   return (
     <span className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
-      <motion.span
-        className="block text-[clamp(2.8rem,9vw,8rem)] font-bold leading-[0.98] tracking-[-0.05em]"
-        initial={{ y: "110%" }}
-        animate={{ y: "0%" }}
-        transition={{ duration: 0.95, ease: EASE, delay: 0.25 + index * 0.12 }}
+      <span
+        className="hero-line block text-[clamp(2.8rem,9vw,8rem)] font-bold leading-[0.98] tracking-[-0.05em]"
+        style={{ animationDelay: `${0.05 + index * 0.08}s` }}
       >
         {children}
-      </motion.span>
+      </span>
     </span>
   );
 }
@@ -64,21 +62,16 @@ function WorldContent({
         </span>
       </h1>
 
-      <motion.p
-        className="mt-8 max-w-[46ch] text-base leading-relaxed sm:text-lg"
-        style={{ color: sub }}
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: EASE, delay: 0.85 }}
+      <p
+        className="hero-rise mt-8 max-w-[46ch] text-base leading-relaxed sm:text-lg"
+        style={{ color: sub, animationDelay: "0.2s" }}
       >
         {HERO.subheadline}
-      </motion.p>
+      </p>
 
-      <motion.div
-        className="mt-10 flex flex-wrap items-center gap-4"
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: EASE, delay: 1.0 }}
+      <div
+        className="hero-rise mt-10 flex flex-wrap items-center gap-4"
+        style={{ animationDelay: "0.3s" }}
       >
         <Magnetic>
           <Link
@@ -108,7 +101,7 @@ function WorldContent({
             {HERO.secondaryCta}
           </Link>
         </Magnetic>
-      </motion.div>
+      </div>
 
       <motion.p
         className="mt-14 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.3em] max-sm:hidden [@media(pointer:coarse)]:hidden"
