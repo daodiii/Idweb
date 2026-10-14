@@ -1,14 +1,3 @@
-export interface NavLink {
-  href: string;
-  label: string;
-}
-
-export interface SectionMeta {
-  id: string;
-  title: string;
-  description?: string;
-}
-
 export interface BlogPost {
   slug: string;
   title: string;
@@ -110,18 +99,19 @@ export interface PortfolioSite {
   images: Record<DeviceViewport, string> & { full?: string; showcase?: string[]; collage?: CollageImage[]; collageBackground?: string; heroImage?: string };
 }
 
-export interface RotationSet {
-  laptop: PortfolioSiteId;
-  tablet: PortfolioSiteId;
-  phone: PortfolioSiteId;
+export interface LocalFact {
+  label: string;
+  value: string;
 }
 
-export interface ComparisonCard {
-  type: 'byrå' | 'idweb';
-  icon?: string;
-  stat?: string;
-  unit?: string;
-  title: string;
-  description: string;
-  accent: string;
+/** Place-specific content for a local landing page (/webbyra-oslo). */
+export interface LocalInfo {
+  /** Region descriptor used in copy ("Oslo"). */
+  region: string;
+  /** Unique local context: the area, its districts and its economy. */
+  intro: string;
+  /** Spec-sheet facts. Verifiable, unique to the place. */
+  facts: LocalFact[];
+  /** Districts/areas we cover, rendered as a coverage list. */
+  areas: string[];
 }

@@ -2,7 +2,6 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Service } from "@/types";
-import type { MockupKind } from "@/lib/content/landing-identity";
 import { IndustryMockup } from "@/components/sections/industry-mockup";
 
 const ENTRY_EASE = "cubic-bezier(0.23,1,0.32,1)";
@@ -24,18 +23,16 @@ function delay(ms: number): CSSProperties {
 interface IndustryHeroProps {
   service: Service;
   accent: string;
-  mockup: MockupKind;
-  business: string;
-  mockupUrl?: string;
+  /** Domain shown in the mockup's browser bar. */
+  mockupUrl: string;
 }
 
 /**
  * Server Component — the entrance is CSS-driven (.lh-rise), so the headline is
  * never trapped at opacity 0 by a hydration hiccup, and no motion JS ships for
- * the hero. The one interactive-feeling leaf (the mockup) is its own client
- * component.
+ * the hero, the mockup included.
  */
-export function IndustryHero({ service, accent, mockup, business, mockupUrl }: IndustryHeroProps) {
+export function IndustryHero({ service, accent, mockupUrl }: IndustryHeroProps) {
   const { lead, tail } = splitHeadline(service.title);
 
   return (
@@ -61,6 +58,8 @@ export function IndustryHero({ service, accent, mockup, business, mockupUrl }: I
                 {lead}
               </span>
             )}
+            {/* A real space, so the heading's text reads "Webbyrå i Oslo", not "Webbyrå iOslo". */}
+            {lead && " "}
             <span className="mt-1 block text-[clamp(2.5rem,6.4vw,4.9rem)] font-black leading-[0.95] tracking-[-0.035em]">
               <span className="relative inline-block">
                 {tail}
@@ -104,7 +103,7 @@ export function IndustryHero({ service, accent, mockup, business, mockupUrl }: I
 
         {/* Right — the product itself */}
         <div className="lh-rise flex justify-center lg:col-span-5 lg:justify-end" style={delay(320)}>
-          <IndustryMockup kind={mockup} accent={accent} business={business} url={mockupUrl} />
+          <IndustryMockup accent={accent} url={mockupUrl} />
         </div>
       </div>
     </section>

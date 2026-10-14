@@ -51,13 +51,13 @@ export function ServiceProcess({ steps, accent }: ServiceProcessProps) {
           <h2 className={`font-[family-name:var(--font-heading)] text-white ${accented ? "" : "mt-7"}`}>
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
               Fra første samtale
-            </span>
+            </span>{" "}
             <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
               <span className="relative inline-block">
                 til lansering
                 <span aria-hidden className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full" style={{ background: accentColor }} />
               </span>
-            </span>
+            </span>{" "}
             <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
               i fire trinn.
             </span>

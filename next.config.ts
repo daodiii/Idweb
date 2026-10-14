@@ -67,6 +67,19 @@ const nextConfig: NextConfig = {
         destination: "/kontakt",
         permanent: true,
       },
+      // The 15 industry pages and 6 town pages were one template with a word
+      // swapped. They were cut; send their indexed URLs to the page that
+      // covers the same search.
+      {
+        source: "/nettside/:path*",
+        destination: "/tjenester/nettside",
+        permanent: true,
+      },
+      {
+        source: "/webutvikler/:path*",
+        destination: "/tjenester/webutvikler-oslo",
+        permanent: true,
+      },
     ];
   },
   async headers() {

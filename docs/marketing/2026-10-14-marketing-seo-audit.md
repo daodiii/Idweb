@@ -32,6 +32,11 @@
 
 Lighthouse's *simulated* mobile LCP is still around 3–3.6 s because its model counts the async JS. The real browser measurement above shows the main text now paints at first paint.
 
+**Changed on `main` since this audit:** daodiii/Idweb#4 removed the 15 `/nettside/[bransje]` and 6 `/webutvikler/[sted]` pages and added `/webbyra-oslo`; daodiii/Idweb#5 removed dead code. As a result:
+- The programmatic-page analysis no longer applies.
+- Findings #10, #17, #21 and #22 are moot as written.
+- `/webbyra-oslo` has not been audited yet.
+
 **Still open:**
 - #3 (calendar link)
 - #6–#14 (claims)
