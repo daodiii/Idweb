@@ -59,8 +59,6 @@ export default function WebbyraOsloPage() {
       <IndustryHero
         service={WEBBYRA_OSLO}
         accent={GEO_ACCENT}
-        mockup="dev"
-        business="Oslo"
         mockupUrl="dinbedrift.no"
       />
       <AgencyServices place="Oslo" services={AGENCY_SERVICES} accent={GEO_ACCENT} />

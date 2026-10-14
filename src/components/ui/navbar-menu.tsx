@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const transition = {
@@ -87,38 +86,6 @@ export function Menu({
     >
       {children}
     </nav>
-  );
-}
-
-export function ProductItem({
-  title,
-  description,
-  href,
-  src,
-}: {
-  title: string;
-  description: string;
-  href: string;
-  src: string;
-}) {
-  return (
-    <Link href={href} className="flex space-x-2">
-      <Image
-        src={src}
-        width={140}
-        height={70}
-        alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
-      />
-      <div>
-        <h4 className="mb-1 text-xl font-bold text-[var(--color-dark-text)]">
-          {title}
-        </h4>
-        <p className="max-w-[10rem] text-sm text-[var(--color-dark-muted)] line-clamp-3">
-          {description}
-        </p>
-      </div>
-    </Link>
   );
 }
 
