@@ -129,7 +129,7 @@ export default function ReferanserPage() {
                 SPOTLIGHT_POSITIONS[index % SPOTLIGHT_POSITIONS.length];
 
               return (
-                <li key={project.id} className="relative">
+                <li key={project.id} id={project.id} className="relative scroll-mt-28">
                   {/* Per-project spotlight to vary rhythm */}
                   <div
                     aria-hidden

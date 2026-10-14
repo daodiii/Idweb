@@ -137,15 +137,15 @@
 .ka .refs-h a{display:inline-flex;gap:8px;align-items:center;font-weight:600}
 .ka .g-refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px}
 .ka .ref{display:flex;flex-direction:column;gap:12px}
-.ka .ref .shot{position:relative;display:block;width:100%;height:210px;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
-.ka .ref .shot img{object-fit:cover;object-position:top;transition:transform 700ms var(--out)}
+.ka .ref .shot{position:relative;display:block;width:100%;height:auto;aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ka .ref .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 700ms var(--out)}
 .ka .ref.big{grid-column:1/-1}
-.ka .ref.big .shot{height:500px;border-radius:18px}
+.ka .ref.big .shot{height:570px;aspect-ratio:auto;border-radius:18px}
 .ka .ref .cap{display:flex;flex-direction:column;gap:2px}
 .ka .ref.big .cap{flex-direction:row;justify-content:space-between;gap:12px;align-items:baseline}
 .ka .ref .cap b{font-size:16px}
 .ka .ref.big .cap b{font-size:18px}
-.ka .ref .cap span{color:var(--soft);font-size:14px}
+.ka .ref .cap span{color:var(--soft);font-size:14px;text-wrap:pretty}
 @media (hover:hover) and (pointer:fine){.ka .ref:hover .shot img{transform:scale(1.025)}}
 
 /* contact */
@@ -202,8 +202,11 @@
   .ka .contact{padding-bottom:80px}
 }
 @media (max-width:560px){
-  .ka .g-refs{grid-template-columns:minmax(0,1fr)}
-  .ka .ref.big .shot{height:240px}
+  /* phones: a sideways row of the sites' own phone views; the next card peeks in */
+  .ka .g-refs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding:0 16px 8px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .ka .g-refs::-webkit-scrollbar{display:none}
+  .ka .ref,.ka .ref.big{flex:0 0 74%;scroll-snap-align:start;scroll-margin-left:16px}
+  .ka .ref .shot,.ka .ref.big .shot{height:auto;aspect-ratio:390/640;border-radius:22px}
   .ka .ref.big .cap{flex-direction:column;gap:2px}
   .ka .cform{padding:20px}
   .ka .cform .two{grid-template-columns:minmax(0,1fr)}
