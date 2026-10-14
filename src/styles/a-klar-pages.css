@@ -122,6 +122,7 @@
 .ka .art-head{padding-top:48px}
 .ka .art-head .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:20px;font-size:14px;color:var(--soft)}
 .ka .art-head .meta b{font-weight:600;color:var(--ink)}
+.ka .art-head h1,.ka .phead h1,.ka .prose h2{overflow-wrap:break-word}
 .ka .art-head h1{max-width:22ch;font-size:clamp(36px,4.6vw,58px);font-weight:700;letter-spacing:-.035em;line-height:1.05}
 .ka .art-head .lede{margin-top:22px;max-width:62ch;font-size:clamp(17px,1.6vw,19.5px);color:var(--muted);text-wrap:pretty}
 .ka .art-cover{position:relative;aspect-ratio:2/1;margin-top:48px;border-radius:20px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
@@ -145,6 +146,7 @@
 
 /* 404 and error */
 .ka .lost{min-height:62vh;display:grid;align-content:center;padding-block:96px}
+.ka .lost > .wrap{width:100%}
 .ka .lost .code{font-size:15px;font-weight:600;color:var(--cobalt)}
 .ka .lost h1{margin-top:18px;max-width:16ch;font-size:clamp(40px,5.4vw,70px);font-weight:700;letter-spacing:-.04em;line-height:1.02}
 .ka .lost p.lede{margin-top:22px;max-width:52ch;font-size:18px;color:var(--muted)}
@@ -213,5 +215,6 @@
   .ka .g-posts .post h3{font-size:17px;hyphens:auto;overflow-wrap:break-word}
   .ka .g-posts .post p{display:none}
   .ka .prose{font-size:17px}
+  .ka .art-head h1,.ka .phead h1,.ka .prose h2{hyphens:auto}
   .ka .art-cover{aspect-ratio:16/10;margin-top:32px}
 }
