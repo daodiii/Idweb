@@ -74,8 +74,8 @@
 
 /* hero copy */
 .ka .hero{padding-block:64px 80px;overflow-x:clip}
-.ka .hero-head{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
-.ka .hero-head h1{max-width:16ch;font-size:clamp(40px,5.6vw,76px);font-weight:700;letter-spacing:-.04em;line-height:1.02}
+.ka .hero-head{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;font-family:var(--font-mona),var(--font)}
+.ka .hero-head h1{max-width:16ch;font-size:clamp(38px,5.6vw,76px);font-weight:700;letter-spacing:-.028em;line-height:1.02}
 .ka .hero-head .lede{max-width:52ch;font-size:clamp(17px,1.6vw,18.5px);color:var(--muted);text-wrap:pretty}
 .ka .actions{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap}
 .ka .trust{display:flex;gap:8px 22px;flex-wrap:wrap;justify-content:center;font-size:14px;color:var(--soft)}

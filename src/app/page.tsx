@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SEO } from "@/lib/content/seo";
-import { schibsted } from "@/lib/home/fonts";
+import { mona, schibsted } from "@/lib/home/fonts";
 import { Hero } from "@/components/home/hero";
 import { ClientsStrip } from "@/components/home/clients-strip";
 import { ServicesList } from "@/components/home/services-list";
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
  */
 export default function Home() {
   return (
-    <div className={`ka ${schibsted.variable}`}>
+    <div className={`ka ${schibsted.variable} ${mona.variable}`}>
       <Hero />
       <ClientsStrip />
       <ServicesList />
