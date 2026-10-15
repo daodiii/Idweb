@@ -1,4 +1,4 @@
-import { Mona_Sans, Schibsted_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Figtree, Mona_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
@@ -13,4 +13,27 @@ export const mona = Mona_Sans({
   variable: "--font-mona",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+});
+
+// Faces of the example clients in the services canvas (a-klar-tjenester.css). Not preloaded: the canvas sits
+// below the fold and draws its first frames only when it scrolls into view.
+export const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin", "latin-ext"],
+  weight: ["800"],
+  display: "swap",
+  preload: false,
+});
+export const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: false,
+});
+export const youngSerif = Young_Serif({
+  variable: "--font-young",
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  display: "swap",
+  preload: false,
 });
