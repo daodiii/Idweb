@@ -29,8 +29,8 @@ export function Hero() {
           </h1>
           <div className="hero-side">
             <p className="lede">
-              Fortell oss hva dere trenger. Vi bygger nettsiden, kundeportalen og systemene bak, og ingenting dere ikke
-              har bruk for.
+              Fortell oss hva dere trenger. Vi bygger nettsiden, kundeportalen og systemene bak, og bare det dere faktisk
+              skal bruke.
             </p>
             <div className="actions">
               <Link className="btn" href="/#kontakt">

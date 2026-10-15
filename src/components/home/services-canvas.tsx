@@ -93,8 +93,8 @@ export function ServicesCanvas() {
             ))}
             <article className="sv-card sv-over" hidden>
               <span className="sv-client">Lerretet</span>
-              <h3>Fem kunder, fem løsninger</h3>
-              <p>Ingen av dem fikk det samme. Velg en for å se den bli laget.</p>
+              <h3>Fem kunder med hver sin løsning</h3>
+              <p>Velg en for å se den bli laget.</p>
               <ul className="sv-ticks sv-jumps">
                 {SERVICES.map((s, i) => (
                   <li key={s.k}>

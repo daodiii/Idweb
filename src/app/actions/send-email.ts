@@ -65,7 +65,7 @@ export async function sendContactEmail(
   if (!name || !email || !message) {
     return {
       success: false,
-      message: "Vennligst fyll ut alle obligatoriske felt.",
+      message: "Fyll ut navn, e-post og hva dere trenger.",
     };
   }
 
@@ -76,12 +76,12 @@ export async function sendContactEmail(
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) {
     return {
       success: false,
-      message: "Vennligst oppgi en gyldig e-postadresse.",
+      message: "Sjekk e-postadressen. Den ser ikke riktig ut.",
     };
   }
 
   if (phone && !/^[\d\s\-+()]{5,20}$/.test(phone)) {
-    return { success: false, message: "Vennligst oppgi et gyldig telefonnummer." };
+    return { success: false, message: "Sjekk telefonnummeret. Det ser ikke riktig ut." };
   }
 
   if (company && company.length > 100) {
@@ -115,7 +115,7 @@ export async function sendContactEmail(
       return {
         success: false,
         message:
-          "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+          "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
       };
     }
 
@@ -125,7 +125,7 @@ export async function sendContactEmail(
     return {
       success: false,
       message:
-        "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+        "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
     };
   }
 }
