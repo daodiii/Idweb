@@ -67,6 +67,11 @@
 .ka .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
 .ka .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em}
 .ka .logo img{height:42px;width:auto}
+/* the wordmark and tagline mirror IDweb's own logo (idweb-logo-dark-1600), set dark for the white header */
+.ka .logo-word{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ka .logo-wm{display:block;width:auto;height:22px}
+.ka .logo-wm text{font-family:var(--font-wordmark),"Michroma",var(--font);font-size:36px}
+.ka .logo-word small{font:600 8.5px/1.2 var(--font-tagline),var(--font);letter-spacing:.06em;text-transform:uppercase;text-align:center;color:var(--soft)}
 .ka .navlinks{display:flex;gap:28px;font-size:15px;color:#3B404A}
 @media (hover:hover) and (pointer:fine){.ka .navlinks a:hover{color:var(--cobalt)}}
 @media (max-width:820px){.ka .navlinks{display:none}}
@@ -87,8 +92,8 @@
 .ka .menupanel[hidden]{display:none}
 @media (max-width:820px){.ka .menubtn{display:grid}}
 @media (min-width:821px){.ka .menupanel{display:none}}
-@media (max-width:600px){.ka .top .wrap{height:64px;gap:12px}.ka .logo{font-size:19px}.ka .logo img{height:36px}.ka [id]{scroll-margin-top:80px}}
-@media (max-width:360px){.ka .logo{font-size:0;gap:0}}
+@media (max-width:600px){.ka .top .wrap{height:64px;gap:12px}.ka .logo{gap:7px}.ka .logo img{height:34px}.ka .logo-wm{height:15px}.ka .logo-word small{display:none}.ka .top-end .btn{white-space:nowrap}.ka [id]{scroll-margin-top:80px}}
+@media (max-width:360px){.ka .logo-word{display:none}}
 
 /* hero copy */
 .ka .hero{padding-block:64px 80px;overflow-x:clip}

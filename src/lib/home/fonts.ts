@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, Figtree, Mona_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Figtree, Michroma, Mona_Sans, Montserrat, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
@@ -12,6 +12,21 @@ export const schibsted = Schibsted_Grotesk({
 export const mona = Mona_Sans({
   variable: "--font-mona",
   subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+// The header lockup from IDweb's own logo: Michroma for «IDWEB» (drawn with a stroke in the header SVG to match the
+// logo's weight) and Montserrat for the tagline «Webbyrå og systemutvikler».
+export const michroma = Michroma({
+  variable: "--font-wordmark",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+export const montserrat = Montserrat({
+  variable: "--font-tagline",
+  subsets: ["latin"],
+  weight: "600",
   display: "swap",
 });
 
