@@ -246,11 +246,11 @@ export const SCENES: Record<SceneKey, Scene> = {
             <div class="pcd blk c3 hid"><div class="imgw" style="background:radial-gradient(110% 85% at 50% 28%,#62403A,#2A1715)">${VASE("sv-kv")}<span class="add">Legg i kurv</span></div><div class="meta"><b>Vase, oksblod</b><small>Steintøy · 22 cm</small></div></div>
           </div>
           <div class="dim"></div>
-          <div class="bts"><span class="hid">${CHECK_W}Lager oppdatert</span><span class="hid">${CHECK_W}Pakkseddel klar</span><span class="hid">${CHECK_W}Kvittering sendt</span></div>
+          <div class="bts"><span class="hid">${CHECK_W}Ordre mottatt</span><span class="hid">${CHECK_W}Beskjed til butikken</span><span class="hid">${CHECK_W}Bekreftelse sendt</span></div>
           <div class="drw">
             <div class="pane p1 on"><h5>Handlekurv</h5><div class="li"><span class="th">${BOWL("sv-kb2")}</span><span><b>Skål, okergul</b><small>1 stk</small></span></div><span class="go blk">Til kassen</span></div>
             <div class="pane p2"><h5>Kassen</h5><span class="lbl">Levering</span><span class="rd r1 sel"><i></i>Hent i butikken</span><span class="rd r2"><i></i>Send med posten</span><span class="lbl" style="margin-top:8px">Betaling</span><span class="rd sel"><i></i>Kort eller mobil</span><span class="go blk">Fullfør kjøp</span></div>
-            <div class="pane p3"><svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true"><circle cx="29" cy="29" r="26" fill="none" stroke="#D9A441" stroke-width="3" stroke-dasharray="164" stroke-dashoffset="164" transform="rotate(-90 29 29)"/><path d="M18 30l7.5 7.5L41 22" fill="none" stroke="#1F1B18" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="36" stroke-dashoffset="36"/></svg><h5>Takk, Maria!</h5><p>Ordren er på vei. Kvitteringen ligger i innboksen din.</p></div>
+            <div class="pane p3"><svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true"><circle cx="29" cy="29" r="26" fill="none" stroke="#D9A441" stroke-width="3" stroke-dasharray="164" stroke-dashoffset="164" transform="rotate(-90 29 29)"/><path d="M18 30l7.5 7.5L41 22" fill="none" stroke="#1F1B18" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="36" stroke-dashoffset="36"/></svg><h5>Takk, Maria!</h5><p>Ordren er mottatt. Bekreftelsen ligger i innboksen din.</p></div>
           </div>
         </div>
       </div>
