@@ -13,8 +13,8 @@ const Tick = () => (
 );
 
 /**
- * Services as «Lerretet»: a design canvas where the camera visits one client frame at a time and the frame
- * builds itself. The canvas is decorative (aria-hidden); the services, their contents and links are in the
+ * Services as «Lerretet»: a design canvas of finished client frames; choosing a service flies the camera to its
+ * frame, which builds itself once. The canvas is decorative (aria-hidden); the services, their contents and links are in the
  * server-rendered panel, one article per service, so they read and work without the animation.
  */
 export function ServicesCanvas() {
@@ -40,9 +40,6 @@ export function ServicesCanvas() {
                 {SERVICES.map((s, i) => (
                   <button key={s.k} type="button" className="sv-tb" data-i={i} aria-pressed={i === 0} aria-controls={`sv-card-${s.k}`}>
                     {s.tab}
-                    <span className="sv-pg" aria-hidden="true">
-                      <i />
-                    </span>
                   </button>
                 ))}
                 <span className="sv-sep" aria-hidden="true" />
@@ -54,16 +51,6 @@ export function ServicesCanvas() {
                     <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
                   </svg>
                   <span>Se alt</span>
-                </button>
-                <button type="button" className="sv-tb sv-pause" data-state="playing" aria-label="Pause animasjonen">
-                  <svg className="i-pause" viewBox="0 0 12 12" aria-hidden="true">
-                    <rect x="2" y="1.5" width="2.6" height="9" rx=".8" />
-                    <rect x="7.4" y="1.5" width="2.6" height="9" rx=".8" />
-                  </svg>
-                  <svg className="i-play" viewBox="0 0 12 12" aria-hidden="true">
-                    <path d="M3 1.8v8.4c0 .5.5.8.9.5l6.6-4.2c.4-.2.4-.8 0-1L3.9 1.3c-.4-.3-.9 0-.9.5z" />
-                  </svg>
-                  <span className="lbl">Pause</span>
                 </button>
               </div>
             </div>

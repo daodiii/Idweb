@@ -6,7 +6,7 @@ import { HERO_STAGE_HTML } from "@/components/home/markup/hero-stage";
 import { startHero } from "@/lib/home/hero-engine";
 
 /**
- * Hero: centred promise, then a wide stage where a client's text messages become features of their site,
+ * Hero: the promise on one line, then a wide stage where a client's text messages become features of their site,
  * on desktop and mobile at once. The stage is decorative (aria-hidden); the message is in the heading and lede.
  */
 export function Hero() {
@@ -23,14 +23,11 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-h">
       <div className="wrap">
         <div className="hero-head">
-          <h1 id="hero-h">
-            Bygd for en ny digital tid.
-            <br /> Skreddersydd for bedriften deres.
-          </h1>
+          <h1 id="hero-h">Dere forteller. Vi bygger.</h1>
           <div className="hero-side">
             <p className="lede">
-              Fortell oss hva dere trenger. Vi bygger nettsiden, kundeportalen og systemene bak, og bare det dere faktisk
-              skal bruke.
+              Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. Bare det dere faktisk skal
+              bruke.
             </p>
             <div className="actions">
               <Link className="btn" href="/#kontakt">

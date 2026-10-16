@@ -1,7 +1,7 @@
 /**
- * Auto-advancing tab sets for the homepage demo sections («Fra idé til trygg drift», «Én nettside overalt»,
- * «Systemene som jobber»). Each panel replays a CSS choreography (the `.play` class) when it becomes active;
- * the progress bar of the active tab drives the timing, so pausing is just pausing that bar.
+ * Tab sets for the homepage demo sections («Slik jobber vi», «Når kunden trykker»). Each panel plays a CSS
+ * choreography (the `.play` class) once and holds its last frame. The first panel plays when the section first comes
+ * into view; the others play when their tab is chosen. Nothing advances on its own.
  * Ported from the approved animation demo; all markup is static and authored by us.
  */
 
@@ -104,26 +104,17 @@ function runScripts(panel: HTMLElement, later: Later, alive: () => boolean, redu
   });
 }
 
-export type RotatorOptions = {
+export type DemoTabsOptions = {
   root: HTMLElement;
   tabs: HTMLElement[];
   panels: HTMLElement[];
-  bars: HTMLElement[];
-  pauseBtn: HTMLButtonElement;
-  holdEls: HTMLElement[];
-  dur: number;
-  onShow?: (i: number) => void;
 };
 
 /** Wire one tab set. Returns a cleanup function. */
-export function rotator({ root, tabs, panels, bars, pauseBtn, holdEls, dur, onShow }: RotatorOptions) {
+export function demoTabs({ root, tabs, panels }: DemoTabsOptions) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const n = tabs.length;
   let cur = 0;
-  let userPaused = reduce;
-  let held = false;
-  let focusHeld = false;
-  let offscreen = true;
   let token = 0;
   let timers: ReturnType<typeof setTimeout>[] = [];
   const off: (() => void)[] = [];
@@ -131,15 +122,7 @@ export function rotator({ root, tabs, panels, bars, pauseBtn, holdEls, dur, onSh
     el.addEventListener(ev, fn as EventListener);
     off.push(() => el.removeEventListener(ev, fn as EventListener));
   };
-  root.style.setProperty("--dur", `${dur}ms`);
 
-  const sync = () => {
-    root.classList.toggle("is-paused", userPaused || held || focusHeld || offscreen || document.hidden);
-    pauseBtn.dataset.state = userPaused ? "paused" : "playing";
-    const lbl = pauseBtn.querySelector(".lbl");
-    if (lbl) lbl.textContent = userPaused ? "Spill av" : "Pause";
-    pauseBtn.setAttribute("aria-label", userPaused ? "Spill av animasjonen" : "Pause animasjonen");
-  };
   const setState = () => {
     tabs.forEach((t, k) => {
       const active = k === cur;
@@ -152,7 +135,6 @@ export function rotator({ root, tabs, panels, bars, pauseBtn, holdEls, dur, onSh
       p.inert = !active;
       if (!active) p.classList.remove("play");
     });
-    onShow?.(cur);
   };
   const play = (panel: HTMLElement) => {
     timers.forEach(clearTimeout);
@@ -166,18 +148,10 @@ export function rotator({ root, tabs, panels, bars, pauseBtn, holdEls, dur, onSh
   const show = (i: number, focus = false) => {
     cur = (i + n) % n;
     setState();
-    bars.forEach((b, k) => {
-      b.classList.remove("run");
-      if (k === cur) {
-        void b.offsetWidth;
-        b.classList.add("run");
-      }
-    });
     play(panels[cur]);
     if (focus) tabs[cur].focus();
   };
 
-  bars.forEach((b) => on(b, "animationend", (e) => { if (e.target === b && b.classList.contains("run")) show(cur + 1); }));
   tabs.forEach((t, k) => {
     on(t, "click", () => show(k));
     on(t, "keydown", (e) => {
@@ -194,41 +168,18 @@ export function rotator({ root, tabs, panels, bars, pauseBtn, holdEls, dur, onSh
       }
     });
   });
-  on(pauseBtn, "click", () => {
-    userPaused = !userPaused;
-    sync();
-  });
-  holdEls.forEach((el) => {
-    on(el, "pointerenter", (e) => { if (e.pointerType === "mouse") { held = true; sync(); } });
-    on(el, "pointerleave", () => { held = false; sync(); });
-  });
-  on(root, "focusin", (e) => {
-    const t = e.target as HTMLElement;
-    focusHeld = t !== pauseBtn && t.matches(":focus-visible");
-    sync();
-  });
-  on(root, "focusout", (e) => {
-    if (!root.contains(e.relatedTarget as Node | null)) {
-      focusHeld = false;
-      sync();
-    }
-  });
-  document.addEventListener("visibilitychange", sync);
-  off.push(() => document.removeEventListener("visibilitychange", sync));
+  // the first panel plays once, the first time the section is on screen
   const io = new IntersectionObserver(
     ([en]) => {
-      const wasOff = offscreen;
-      offscreen = !en.isIntersecting;
-      // replay the current scene each time it comes into view
-      if (!offscreen && wasOff) show(cur);
-      sync();
+      if (!en.isIntersecting) return;
+      io.disconnect();
+      show(cur);
     },
     { threshold: 0.25 },
   );
   io.observe(root);
 
   setState();
-  sync();
 
   return () => {
     io.disconnect();

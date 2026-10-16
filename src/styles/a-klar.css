@@ -18,6 +18,7 @@
   --orange:#F2892B;
   --orange-ink:#B4560A;
   --orange-tint:#FCEBDB;
+  --peach:#F9DABB;
   --accent:#2447D6;
   --accent-soft:rgba(36,71,214,.12);
   --link:#1A3FBF;
@@ -53,7 +54,7 @@
 .ka .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ka .btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;background:var(--cobalt);color:#fff;font-weight:600;font-size:16px;transition:transform 160ms var(--out),background-color 200ms}
 .ka .btn:active{transform:scale(.97)}
-.ka .btn:focus-visible,.ka .link:focus-visible,.ka .navlinks a:focus-visible,.ka .ref:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:8px}
+.ka .btn:focus-visible,.ka .link:focus-visible,.ka .navlinks a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:8px}
 @media (hover:hover) and (pointer:fine){.ka .btn:hover{background:#1D3BBA}}
 .ka .btn.dark{height:42px;padding:0 20px;background:var(--ink);font-size:15px}
 @media (hover:hover) and (pointer:fine){.ka .btn.dark:hover{background:#2A2D35}}
@@ -96,56 +97,66 @@
 @media (max-width:360px){.ka .logo-word{display:none}}
 
 /* hero copy */
-.ka .hero{padding-block:64px 80px;overflow-x:clip}
-/* left-aligned: headline on top, then lede | buttons in one row under a hairline, trust line below */
-.ka .hero-head{display:flex;flex-direction:column;gap:32px;font-family:var(--font-mona),var(--font)}
-.ka .hero-head h1{max-width:20ch;font-size:clamp(38px,5.6vw,76px);font-weight:700;letter-spacing:-.028em;line-height:1.02;text-wrap:balance}
+.ka .hero{padding-block:44px 64px;overflow-x:clip}
+/* left-aligned: the headline on one line on desktop, then lede | buttons in one row under a hairline, trust line below */
+.ka .hero-head{display:flex;flex-direction:column;gap:26px;font-family:var(--font-mona),var(--font)}
+.ka .hero-head h1{font-size:clamp(40px,6.2vw,88px);font-weight:700;letter-spacing:-.034em;line-height:1.02;text-wrap:balance}
 .ka .hero-side{display:grid;grid-template-columns:minmax(0,46ch) auto;justify-content:space-between;align-items:center;gap:18px 48px;padding-top:28px;border-top:1px solid var(--line)}
 .ka .hero-head .lede{max-width:52ch;font-size:clamp(17px,1.6vw,18.5px);color:var(--muted);text-wrap:pretty}
 .ka .actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .ka .trust{grid-column:1/-1;display:flex;gap:8px 22px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
 @media (max-width:900px){.ka .hero-side{grid-template-columns:1fr;gap:22px;padding-top:0;border-top:0}}
 
-/* client strip */
-.ka .clients{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:28px}
-.ka .clients .wrap{display:flex;align-items:center;gap:20px 40px;flex-wrap:wrap;justify-content:space-between}
-.ka .clients p{font-size:14px;color:var(--soft)}
-.ka .clients ul{display:flex;gap:12px 36px;flex-wrap:wrap;margin:0;padding:0;list-style:none;font-weight:600;font-size:17px;color:#3B404A}
+/* logo ticker under the hero: client logos on tiles in their own colours, sliding past on their own (not interactive).
+   The row is rendered twice and moved by half its width, so the loop has no seam. */
+.ka .tk{padding-block:36px 44px;overflow:hidden}
+.ka .tk-l{margin-bottom:20px;font-size:16px;font-weight:500;color:var(--muted)}
+.ka .tk-vp{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ka .tk-track{display:flex;width:max-content;animation:tk-slide 42s linear infinite}
+.ka .tk-set{display:flex;gap:16px;margin:0;padding:0 16px 0 0;list-style:none}
+.ka .tk-t{display:flex;align-items:center;justify-content:center;gap:14px;height:104px;min-width:240px;padding:0 30px;border-radius:22px;font-weight:600;font-size:16px;line-height:1.15;letter-spacing:-.01em;user-select:none}
+.ka .tk-t img{display:block;width:auto}
+.ka .tk-rahma{background:#2F5C37}
+.ka .tk-rahma img,.ka .tk-mk img{height:80px}
+.ka .tk-mk{background:#F8E9EA}
+.ka .tk-iqra{background:#FBF1B4}
+.ka .tk-iqra img{height:42px}
+.ka .tk-brobekk{background:#163A5F;color:#fff}
+.ka .tk-brobekk img{height:56px}
+.ka .tk-ringebu{background:#0B2328;color:#F4EFE3}
+.ka .tk-tooth{width:50px;height:47px;flex:none}
+.ka .tk-vocura{background:#EEF0FB;color:#1A1A2E;font:700 24px/1 var(--font-inter),var(--font);letter-spacing:-.02em}
+.ka .tk-pulse{width:28px;height:28px;color:#5E6AD2}
+@keyframes tk-slide{to{transform:translateX(-50%)}}
+@media (max-width:600px){
+  .ka .tk{padding-block:28px 32px}
+  .ka .tk-t{height:80px;min-width:184px;padding:0 22px;border-radius:18px;font-size:14px}
+  .ka .tk-rahma img,.ka .tk-mk img{height:62px}
+  .ka .tk-iqra img{height:32px}
+  .ka .tk-brobekk img{height:44px}
+  .ka .tk-tooth{width:38px;height:36px}
+  .ka .tk-vocura{font-size:20px}
+  .ka .tk-track{animation-duration:30s}
+}
+@media (prefers-reduced-motion:reduce){
+  /* standing still: the logos in a grid on the page's left edge, under the line */
+  .ka .tk-vp{max-width:1200px;margin-inline:auto;padding-inline:32px;-webkit-mask-image:none;mask-image:none}
+  .ka .tk-track{display:block;width:auto;animation:none}
+  .ka .tk-set{display:grid;grid-template-columns:repeat(3,minmax(0,240px));padding:0}
+  .ka .tk-set[aria-hidden]{display:none}
+  .ka .tk-t{min-width:0}
+}
+@media (prefers-reduced-motion:reduce) and (max-width:600px){.ka .tk-vp{padding-inline:16px}.ka .tk-set{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* services */
 .ka .services{padding-block:112px}
 
 /* section rhythm for the animated demos */
 .ka .band{padding-block:112px}
-.ka .band.alt{background:var(--surface)}
+.ka .band.warm{background:var(--peach)}
+.ka .band.warm .stage{background:rgba(255,255,255,.55)}
 .ka .band + .band{border-top:1px solid var(--line)}
-.ka .band.alt + .band,.ka .band + .band.alt{border-top:0}
-
-/* booking prompt after the demos */
-.ka .nudge{padding-top:88px}
-.ka .nudge-in{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;padding:28px 32px;border-radius:20px;background:var(--tint)}
-.ka .nudge-in p{display:flex;flex-direction:column;gap:4px;max-width:60ch;font-size:17px;color:var(--muted);text-wrap:pretty}
-.ka .nudge-in b{font-size:20px;font-weight:650;letter-spacing:-.015em;color:var(--ink)}
-.ka .nudge-in .btn{flex:none}
-@media (max-width:700px){.ka .nudge{padding-top:64px}.ka .nudge-in{flex-direction:column;align-items:flex-start;padding:24px 20px}}
-.ka .nudge + .refs{padding-top:88px}
-
-/* references */
-.ka .refs{padding-block:112px}
-.ka .refs-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
-.ka .refs-h a{display:inline-flex;gap:8px;align-items:center;font-weight:600}
-.ka .g-refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px}
-.ka .ref{display:flex;flex-direction:column;gap:12px}
-.ka .ref .shot{position:relative;display:block;width:100%;height:auto;aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
-.ka .ref .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 700ms var(--out)}
-.ka .ref.big{grid-column:1/-1}
-.ka .ref.big .shot{height:570px;aspect-ratio:auto;border-radius:18px}
-.ka .ref .cap{display:flex;flex-direction:column;gap:2px}
-.ka .ref.big .cap{flex-direction:row;justify-content:space-between;gap:12px;align-items:baseline}
-.ka .ref .cap b{font-size:16px}
-.ka .ref.big .cap b{font-size:18px}
-.ka .ref .cap span{color:var(--soft);font-size:14px;text-wrap:pretty}
-@media (hover:hover) and (pointer:fine){.ka .ref:hover .shot img{transform:scale(1.025)}}
+.ka .band.warm + .band,.ka .band + .band.warm{border-top:0}
 
 /* testimonials: one large quote at a time; the client logos below are the switch, each on a tile in the client's own
    colours (Center Rahma green, Iqra yellow, Brobekk navy, Ringebu petrol). The stage and its watermark take on the active
@@ -173,8 +184,6 @@
 .ka .tm-q figcaption b{font-size:16px;color:var(--ink)}
 .ka .tm-q .link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:14px}
 .ka .tm-q .link svg{transition:transform 300ms var(--out)}
-/* .pausebtn resets everything with all:unset further down, so the position needs the extra .tm-stage */
-.ka .tm-stage .tm-pause{position:absolute;z-index:2;right:20px;bottom:20px;background:rgba(255,255,255,.85)}
 .ka .tm-logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1040px;margin:22px auto 0}
 .ka .tm-logo{all:unset;box-sizing:border-box;position:relative;display:grid;place-items:center;height:120px;padding:18px;border-radius:22px;overflow:hidden;cursor:pointer;opacity:.72;transform:scale(.97);transition:opacity .35s ease,transform .45s var(--out),box-shadow .45s}
 .ka .tm-logo[aria-pressed=true]{opacity:1;transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(20,22,27,.55)}
@@ -193,13 +202,6 @@
 .ka .tm-word{font-size:16px;font-weight:600;line-height:1.15;letter-spacing:-.01em;text-align:left}
 .ka .tm-logo-iqra .tm-lg img{width:auto;height:40px}
 .ka .tm-heart{width:auto;height:54px;flex:none}
-.ka .tm-bar{position:absolute;z-index:1;left:20px;right:20px;bottom:12px;height:2px;border-radius:1px;overflow:hidden;background:rgba(255,255,255,.25);opacity:0}
-.ka .tm-logo-iqra .tm-bar{background:rgba(31,122,79,.18)}
-.ka .tm-logo[aria-pressed=true] .tm-bar{opacity:1}
-.ka .tm-bar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%;animation:tm-prog 7000ms linear forwards}
-.ka .tm-logo-iqra .tm-bar i{background:#1F7A4F}
-@keyframes tm-prog{to{transform:scaleX(1)}}
-.ka .tm.is-paused .tm-bar i{animation-play-state:paused}
 @media (max-width:1080px){
   .ka .tm-word{display:none}
   .ka .tm-logo-iqra .tm-lg img{height:32px}
@@ -209,20 +211,17 @@
   .ka .tm-head{grid-template-columns:minmax(0,1fr);margin-bottom:32px}
   .ka .tm-stage{min-height:440px;padding:44px 20px 72px;border-radius:24px}
   .ka .tm-wm{width:260px;height:260px;right:-50px;bottom:-40px}
-  .ka .tm-stage .tm-pause{right:50%;transform:translateX(50%);bottom:16px}
-  .ka .tm-stage .tm-pause:active{transform:translateX(50%) scale(.97)}
   .ka .tm-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .ka .tm-logo{height:80px;padding:12px;border-radius:16px}
   .ka .tm-tooth{width:40px;height:38px}
   .ka .tm-heart{height:44px}
   .ka .tm-logo-centerrahma .tm-lg img{height:54px}
   .ka .tm-logo-iqra .tm-lg img{height:28px}
-  .ka .tm-bar{left:12px;right:12px;bottom:8px}
 }
 @media (prefers-reduced-motion:reduce){.ka .tm-q,.ka .tm-wm > span,.ka .tm-logo,.ka .tm-stage{transition:none}}
 
 /* quote request («Få et pristilbud», #kontakt): a step-by-step card with the request summed up beside it */
-.ka .qt{padding-block:clamp(80px,8vw,112px)}
+.ka .qt{padding-block:clamp(80px,8vw,112px);background:var(--orange-tint)}
 .ka .qt-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 .ka .qt-side{position:sticky;top:104px;display:flex;flex-direction:column;gap:20px}
 .ka .qt-side h2{font-size:clamp(32px,4vw,46px);font-weight:700}
@@ -230,7 +229,7 @@
 .ka .qt-reach{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--muted)}
 .ka .qt-reach a{color:var(--ink);font-weight:600}
 @media (hover:hover) and (pointer:fine){.ka .qt-reach a:hover{color:var(--cobalt)}}
-.ka .qt-sum{margin-top:12px;padding:22px 24px;border-radius:20px;background:var(--surface)}
+.ka .qt-sum{margin-top:12px;padding:22px 24px;border-radius:20px;background:rgba(255,255,255,.6)}
 .ka .qt-sum h3{font-size:16px;font-weight:650;letter-spacing:-.01em;margin-bottom:6px}
 .ka .qt-dl{display:flex;flex-direction:column;margin:0}
 .ka .qt-dl>div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line-strong);font-size:15px;animation:qt-rise 260ms var(--out)}
@@ -238,7 +237,7 @@
 .ka .qt-dl dt{color:var(--soft)}
 .ka .qt-dl dd{margin:0;font-weight:500;overflow-wrap:anywhere;white-space:pre-line}
 .ka .qt-dl dd.none{color:var(--soft);font-weight:400}
-.ka .qt-card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:28px 32px;min-height:668px;display:flex;flex-direction:column}
+.ka .qt-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 32px;min-height:668px;display:flex;flex-direction:column}
 .ka .qt-card.sent{min-height:0}
 .ka .qt-prog{display:flex;gap:6px;margin:0 0 26px;padding:0;list-style:none}
 .ka .qt-prog li{flex:1;display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:var(--soft);font-weight:500}
@@ -335,7 +334,10 @@
 .ka .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
 /* footer */
-.ka .foot{border-top:1px solid var(--line);padding:56px 0 40px}
+/* the homepage footer is a navy field that closes the page (.ka > .foot: .dx has its own .foot) */
+.ka > .foot{padding:56px 0 40px;background:var(--navy);color:#fff}
+.ka > .foot .g-foot p,.ka > .foot .legal{color:rgba(255,255,255,.66)}
+.ka > .foot .legal{border-top-color:rgba(255,255,255,.16)}
 .ka .foot .wrap{display:flex;flex-direction:column;gap:40px}
 .ka .g-foot{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:32px}
 .ka .g-foot > div{display:flex;flex-direction:column;gap:10px;font-size:14px}
@@ -343,24 +345,14 @@
 .ka .g-foot .brand img{height:34px;width:auto}
 .ka .g-foot .brand b{font-size:20px;letter-spacing:-.03em}
 .ka .g-foot p{color:var(--soft);max-width:32ch}
-@media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:var(--cobalt)}}
+@media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:#FCB677}}
 .ka .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--faint);border-top:1px solid var(--line);padding-top:24px}
 .ka .legal span{display:flex;gap:20px}
 
 @media (max-width:900px){
-  .ka .g-refs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .ka .ref.big .shot{height:320px}
   .ka .g-foot{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ka .services,.ka .band,.ka .refs{padding-block:80px}
+  .ka .services,.ka .band{padding-block:80px}
   .ka .qt{padding-block:80px}
-}
-@media (max-width:560px){
-  /* phones: a sideways row of the sites' own phone views; the next card peeks in */
-  .ka .g-refs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding:0 16px 8px;scrollbar-width:none;overscroll-behavior-x:contain}
-  .ka .g-refs::-webkit-scrollbar{display:none}
-  .ka .ref,.ka .ref.big{flex:0 0 74%;scroll-snap-align:start;scroll-margin-left:16px}
-  .ka .ref .shot,.ka .ref.big .shot{height:auto;aspect-ratio:390/640;border-radius:22px}
-  .ka .ref.big .cap{flex-direction:column;gap:2px}
 }
 
 /* hero stage modes and controls (the stage itself is styled under .hx) */
@@ -401,7 +393,6 @@
 @keyframes dx-wordIn{from{opacity:0;filter:blur(3px)}}
 @keyframes dx-scan{0%{transform:translateY(-100%);opacity:1}88%{opacity:1}100%{transform:translateY(0);opacity:0}}
 @keyframes dx-fillX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes dx-fillY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes dx-press{45%{transform:scale(.93)}}
 @keyframes dx-cursorMove{0%{opacity:0;transform:translate(var(--sx),var(--sy))}15%{opacity:1}100%{opacity:1;transform:translate(var(--cx),var(--cy))}}
 @keyframes dx-shimmer{to{background-position:-200% 0}}
@@ -422,15 +413,6 @@
 .ka .dx .play .fact{animation:dx-sweep 650ms var(--ease-out) var(--fd,0ms) both}
 .ka .dx .ans .fact{white-space:nowrap}
 
-.ka .dx .pause{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);font:500 13px/1 var(--font-ui);color:var(--ink);cursor:pointer;transition:transform 160ms var(--ease-out),background-color 160ms ease}
-.ka .dx .pause:active{transform:scale(.97)}
-.ka .dx .pause:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.ka .dx .pause svg{width:12px;height:12px;fill:currentColor}
-.ka .dx .pause .i-play{display:none}
-.ka .dx .pause[data-state="paused"] .i-play{display:block}
-.ka .dx .pause[data-state="paused"] .i-pause{display:none}
-@media (hover:hover) and (pointer:fine){.ka .dx .pause:hover{background:var(--surface)}}
-.ka .dx .is-paused .run{animation-play-state:paused!important}
 
 .ka .dx .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
 .ka .dx .card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px;min-width:0}
@@ -444,14 +426,13 @@
 .ka .dx .step{all:unset;box-sizing:border-box;display:grid;grid-template-columns:2px minmax(0,1fr);column-gap:18px;row-gap:4px;padding:14px 0;cursor:pointer;border-radius:6px}
 .ka .dx .step:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .ka .dx .step-bar{grid-row:1/3;position:relative;overflow:hidden;border-radius:2px;background:var(--line)}
-.ka .dx .step-bar i{position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:top}
-.ka .dx .step-bar i.run{animation:dx-fillY var(--dur) linear both}
+.ka .dx .step-bar i{position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:top;transition:transform 600ms var(--out)}
+.ka .dx .step[aria-selected=true] .step-bar i{transform:none}
 .ka .dx .step-t{font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--faint);transition:color 240ms ease}
 .ka .dx .step-d{font-size:15px;color:var(--faint);max-width:44ch;transition:color 240ms ease}
 .ka .dx .step[aria-selected="true"] .step-t{color:var(--ink)}
 .ka .dx .step[aria-selected="true"] .step-d{color:var(--muted)}
 @media (hover:hover) and (pointer:fine){.ka .dx .step:hover .step-t{color:var(--ink)}}
-.ka .dx .controls{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
 
 .ka .dx .stage{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
 .ka .dx .stage::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(17,19,24,.08) 1px,transparent 1.2px);background-size:18px 18px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 78%);pointer-events:none}
@@ -646,8 +627,8 @@
 .ka .dx .sys-tab[aria-selected="true"] small{color:var(--muted)}
 @media (hover:hover) and (pointer:fine){.ka .dx .sys-tab:hover b{color:var(--ink)}}
 .ka .dx .sb{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
-.ka .dx .sb i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left}
-.ka .dx .sb i.run{animation:dx-fillX var(--dur) linear both}
+.ka .dx .sb i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 600ms var(--out)}
+.ka .dx .sys-tab[aria-selected=true] .sb i{transform:none}
 @media (max-width:620px){.ka .dx .sys-tab small{display:none}.ka .dx .sys-tab{padding:14px 12px 16px}.ka .dx .sys-tab b{font-size:14px}}
 
 .ka .dx .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -754,7 +735,8 @@
   .ka .dx .play .a,.ka .dx .play [data-stream] .w,.ka .dx .play .fact,.ka .dx .play .cl.hl::before,.ka .dx .play .cta,.ka .dx .play .cta .l1,.ka .dx .play .cta .l2,.ka .dx .play .stock,.ka .dx .play .track li.next,.ka .dx .play .add,.ka .dx .play .node .ic::after,.ka .dx .play .day.pick > span,.ka .dx .play .day.pick > b,.ka .dx .play .tm.pick > span{animation-duration:1ms!important;animation-delay:0ms!important}
   .ka .dx .scene,.ka .dx .panel,.ka .dx .sys-panel,.ka .dx .url > span{transform:none!important;filter:none!important}
   .ka .dx .typing,.ka .dx .cursor,.ka .dx .seek,.ka .dx .tap{display:none}
-  .ka .dx .step-bar i.run,.ka .dx .tp i.run,.ka .dx .sb i.run{animation:none;transform:none}
+  .ka .dx .tp i.run{animation:none;transform:none}
+  .ka .dx .step-bar i,.ka .dx .sb i{transition:none}
   .ka .dx .up i{animation:none}
   .ka .dx .tabs-on{transition:none}
   .ka .dx .live i,.ka .dx .shim,.ka .dx .caret{animation:none}
@@ -762,7 +744,7 @@
 
 
 /* ================= hero stage (.hx) ================= */
-.ka .hx .fit{position:relative;width:100%;margin-top:56px}
+.ka .hx .fit{position:relative;width:100%;margin-top:40px}
 .ka .hx .stage{position:absolute;left:0;top:0;width:1136px;height:604px;transform-origin:0 0;transition:opacity 450ms}
 .ka .hx .stage *{transition-timing-function:var(--out)}
 .ka .hx .out .stage{opacity:0}

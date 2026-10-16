@@ -1,15 +1,14 @@
 /**
- * «Lerretet»: the services section drawn as a design canvas. Five client frames sit on a dotted board; a camera
- * flies to one frame at a time and that frame plays its scene while the others hold their final frame.
+ * «Lerretet»: the services section drawn as a design canvas. Five client frames sit on a dotted board, each holding
+ * its finished frame. When the section comes into view the camera flies to the first frame; there is no autoplay.
+ * Choosing a service flies the camera to that frame, which builds itself once and stays finished.
  * The panel beside the canvas (server-rendered, one article per service) follows the camera.
- * Autoplay pauses on hover, keyboard focus, the pause button, a hidden tab or when the section is off screen.
  * Ported from the approved mockup (idweb-hero/tjenester/tjenester2.html, «Lerretet»).
  */
 import { CANVAS_NOTES, FRAME_POS, SERVICES } from "@/lib/home/services/data";
 import { EIO, Player, type Rect } from "@/lib/home/services/scene-kit";
 import { FOCUS, SCENES } from "@/lib/home/services/scenes";
 
-const HOLD = 2600;
 const FLY = 1500;
 const WORLD = { x: -10, y: -10, w: 2140, h: 1120 };
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -24,23 +23,15 @@ export function startServicesCanvas(root: HTMLElement) {
   const tbar = root.querySelector<HTMLElement>(".sv-tbar")!;
   const tabs = [...root.querySelectorAll<HTMLButtonElement>(".sv-tb[data-i]")];
   const allBtn = root.querySelector<HTMLButtonElement>(".sv-all")!;
-  const pauseBtn = root.querySelector<HTMLButtonElement>(".sv-pause")!;
   const cards = [...root.querySelectorAll<HTMLElement>(".sv-card")];
   const overCard = root.querySelector<HTMLElement>(".sv-over")!;
   const panel = root.querySelector<HTMLElement>(".sv-panel")!;
-  const n = SERVICES.length;
 
   let players: Player[] = [];
   let frames: HTMLElement[] = [];
   let built = false;
   let active = -1; // -1 before the first flight, -2 while showing the whole canvas
-  let userPaused = reduce;
-  let held = false;
-  let focusHeld = false;
   let offscreen = true;
-  let left = 0;
-  let armedAt = 0;
-  let advT: ReturnType<typeof setTimeout> | undefined;
   let playT: ReturnType<typeof setTimeout> | undefined;
   let introT: ReturnType<typeof setTimeout> | undefined;
   let flight: Animation | null = null;
@@ -145,39 +136,11 @@ export function startServicesCanvas(root: HTMLElement) {
     else cur.animate([{ opacity: 1 }, { opacity: 0, filter: "blur(3px)" }], { duration: 180, easing: "ease-out" }).onfinish = swap;
   };
 
-  /* ---------- autoplay ---------- */
-  const stalled = () => userPaused || held || focusHeld || offscreen || document.hidden || active < 0;
-  const sync = () => {
-    if (armedAt) {
-      clearTimeout(advT);
-      left = Math.max(600, left - (performance.now() - armedAt));
-      armedAt = 0;
-    }
-    if (!stalled()) {
-      armedAt = performance.now();
-      advT = setTimeout(() => go((active + 1) % n), left);
-    }
-    root.classList.toggle("is-paused", stalled());
-    pauseBtn.dataset.state = userPaused ? "paused" : "playing";
-    pauseBtn.setAttribute("aria-label", userPaused ? "Spill av animasjonen" : "Pause animasjonen");
-    const lbl = pauseBtn.querySelector(".lbl");
-    if (lbl) lbl.textContent = userPaused ? "Spill av" : "Pause";
-  };
-  const restartBar = (i: number, total: number, delay: number) => {
-    tabs.forEach((t, k) => {
-      const bar = t.querySelector<HTMLElement>(".sv-pg i")!;
-      bar.style.animation = "none";
-      if (k !== i || reduce) return;
-      void bar.offsetWidth;
-      bar.style.animation = `sv-prog ${total}ms linear ${delay}ms forwards`;
-    });
-  };
-
-  function go(i: number) {
+  /* ---------- choosing a frame ---------- */
+  // `play`: the frame builds itself once and stays finished; otherwise it shows its finished frame right away.
+  function go(i: number, play: boolean) {
     if (!built) build();
     clearTimeout(playT);
-    clearTimeout(advT);
-    armedAt = 0;
     const prev = active;
     active = i;
     if (prev >= 0 && prev !== i) players[prev].still(SCENES[SERVICES[prev].k]);
@@ -187,15 +150,10 @@ export function startServicesCanvas(root: HTMLElement) {
     showCard(cards[i]);
     const dur = prev === i ? 0 : FLY;
     fly(narrow() ? focusBox(i, firstFocus(i)) : frameBox(i), dur, prev >= 0 && prev !== i);
-    const delay = Math.max(0, dur - 200);
     const sc = SCENES[SERVICES[i].k];
-    if (userPaused) playT = setTimeout(() => players[i].still(sc), delay);
-    else playT = setTimeout(() => players[i].play(sc, FOCUS[SERVICES[i].k]), delay);
-    left = delay + sc.dur + HOLD;
-    restartBar(i, sc.dur + HOLD, delay);
+    playT = setTimeout(() => (play ? players[i].play(sc, FOCUS[SERVICES[i].k]) : players[i].still(sc)), Math.max(0, dur - 200));
     const t = tabs[i];
     if (tbar.scrollWidth > tbar.clientWidth) tbar.scrollTo({ left: t.offsetLeft - 20, behavior: reduce ? "auto" : "smooth" });
-    sync();
   }
 
   const showAll = () => {
@@ -208,81 +166,37 @@ export function startServicesCanvas(root: HTMLElement) {
     active = -2;
     tabs.forEach((t) => t.setAttribute("aria-pressed", "false"));
     allBtn.setAttribute("aria-pressed", "true");
-    restartBar(-1, 0, 0);
     showCard(overCard);
     fly(WORLD, 1300, false, 30);
-    sync();
   };
 
   /* ---------- events ---------- */
-  tabs.forEach((t, i) => on(t, "click", () => go(i)));
+  tabs.forEach((t, i) => on(t, "click", () => go(i, true)));
   on(allBtn, "click", showAll);
-  root.querySelectorAll<HTMLButtonElement>(".sv-jump").forEach((b) => on(b, "click", () => go(Number(b.dataset.i))));
-  on(pauseBtn, "click", () => {
-    userPaused = !userPaused;
-    if (active >= 0) {
-      const sc = SCENES[SERVICES[active].k];
-      if (userPaused) {
-        clearTimeout(playT);
-        players[active].still(sc);
-      }
-      left = HOLD;
-      restartBar(active, HOLD, 0);
-    }
-    sync();
-  });
-  on(vp, "pointerenter", (e) => {
-    if (e.pointerType === "mouse") {
-      held = true;
-      sync();
-    }
-  });
-  on(vp, "pointerleave", () => {
-    held = false;
-    sync();
-  });
-  on(root, "focusin", (e) => {
-    const t = e.target as HTMLElement;
-    focusHeld = t !== pauseBtn && t.matches(":focus-visible");
-    sync();
-  });
-  on(root, "focusout", (e) => {
-    if (!root.contains(e.relatedTarget as Node | null)) {
-      focusHeld = false;
-      sync();
-    }
-  });
-  document.addEventListener("visibilitychange", sync);
-  off.push(() => document.removeEventListener("visibilitychange", sync));
+  root.querySelectorAll<HTMLButtonElement>(".sv-jump").forEach((b) => on(b, "click", () => go(Number(b.dataset.i), true)));
 
   const io = new IntersectionObserver(
     ([en]) => {
       const was = offscreen;
       offscreen = !en.isIntersecting;
-      if (!offscreen && was) {
-        if (!built) {
-          build();
-          introT = setTimeout(() => go(0), reduce ? 0 : 900);
-        } else if (active >= 0) {
-          go(active); // replay the current scene when it comes back into view
-        }
+      if (!offscreen && was && !built) {
+        build();
+        introT = setTimeout(() => go(0, false), reduce ? 0 : 600);
       } else if (offscreen && !was && active >= 0) {
+        // a scene that was still building when the visitor scrolled away is finished when they come back
         clearTimeout(playT);
         players[active].still(SCENES[SERVICES[active].k]);
       }
-      sync();
     },
     { threshold: 0.2 },
   );
   io.observe(vp);
   const ro = new ResizeObserver(reframe);
   ro.observe(vp);
-  sync();
 
   return () => {
     io.disconnect();
     ro.disconnect();
-    clearTimeout(advT);
     clearTimeout(playT);
     clearTimeout(introT);
     flight?.cancel();

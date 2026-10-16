@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, Figtree, Michroma, Mona_Sans, Montserrat, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Figtree, Inter, Michroma, Mona_Sans, Montserrat, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
@@ -49,6 +49,15 @@ export const youngSerif = Young_Serif({
   variable: "--font-young",
   subsets: ["latin", "latin-ext"],
   weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+// Vocura's wordmark in the logo ticker under the hero, set in the face their own site uses.
+export const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: "700",
   display: "swap",
   preload: false,
 });

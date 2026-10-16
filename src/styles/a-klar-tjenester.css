@@ -38,16 +38,7 @@
 .ka .sv-tb[aria-pressed=true]{background:var(--ink);color:#fff}
 .ka .sv-tb:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
 @media (hover:hover) and (pointer:fine){.ka .sv-tb:not([aria-pressed=true]):hover{background:var(--surface)}}
-.ka .sv-pg{position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:1px;overflow:hidden;background:rgba(255,255,255,.2);opacity:0}
-.ka .sv-tb[aria-pressed=true] .sv-pg{opacity:1}
-.ka .sv-pg i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%}
-@keyframes sv-prog{to{transform:scaleX(1)}}
-.ka .sv.is-paused .sv-pg i{animation-play-state:paused!important}
 .ka .sv-sep{flex:none;width:1px;height:22px;margin:0 6px;background:var(--line-strong)}
-.ka .sv-pause svg{width:12px;height:12px;fill:currentColor}
-.ka .sv-pause .i-play{display:none}
-.ka .sv-pause[data-state=paused] .i-play{display:block}
-.ka .sv-pause[data-state=paused] .i-pause{display:none}
 
 /* panel */
 .ka .sv-panel{position:absolute;right:16px;top:16px;bottom:16px;width:300px;display:flex;flex-direction:column;padding:24px 24px 22px;border-radius:20px;background:#fff;box-shadow:0 24px 50px -30px rgba(30,42,110,.45),0 0 0 1px rgba(20,22,27,.06)}
@@ -74,7 +65,7 @@
   .ka .sv-vp{height:min(560px,130vw);border-radius:20px}
   .ka .sv-vp::after{display:none}
   .ka .sv-tools{left:12px;right:12px;bottom:12px}
-  .ka .sv-all span,.ka .sv-pause .lbl{display:none}
+  .ka .sv-all span{display:none}
   .ka .sv-panel{position:static;width:auto;margin-top:16px;padding:20px;box-shadow:0 0 0 1px var(--line)}
   .ka .sv-card .link{margin-top:6px}
 }
