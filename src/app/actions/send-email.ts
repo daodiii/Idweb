@@ -3,6 +3,8 @@
 import { Resend } from "resend";
 import { ContactFormEmail } from "@/lib/emails/contact-form-email";
 import { NEED_OPTIONS } from "@/lib/home/contact";
+import { QuoteRequestEmail } from "@/lib/emails/quote-request-email";
+import { checkQuote, quoteFromForm, quoteRows, type QuoteErrors } from "@/lib/home/quote";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -126,6 +128,74 @@ export async function sendContactEmail(
       success: false,
       message:
         "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
+    };
+  }
+}
+
+export type QuoteFormState = {
+  success: boolean;
+  message: string;
+  errors?: QuoteErrors;
+} | null;
+
+const QUOTE_SUCCESS = "Takk! Vi tar kontakt innen 24 timer.";
+
+/** Honeypot filled in, or sent faster than a person could: answer as if it went through. */
+function looksLikeBot(formData: FormData): boolean {
+  if ((formData.get("fax_number") as string | null)?.trim()) return true;
+  const loadedAt = Number.parseInt((formData.get("loaded_at") as string | null) ?? "", 10);
+  return !loadedAt || Date.now() - loadedAt < MIN_FILL_TIME_MS;
+}
+
+/**
+ * The homepage quote request («Få et pristilbud»). The wizard collects what the visitor needs and who to send the
+ * offer to; IDweb gets it as one e-mail and replies with a price offer. Same bot and spam handling as the contact
+ * form. The website address is left out of the spam check, since an address is exactly what that field asks for.
+ */
+export async function sendQuoteRequest(
+  _prev: QuoteFormState,
+  formData: FormData,
+): Promise<QuoteFormState> {
+  if (looksLikeBot(formData)) return { success: true, message: QUOTE_SUCCESS };
+
+  const quote = quoteFromForm(formData);
+  if ([quote.name, quote.company, quote.industry, quote.message].some(looksLikeSpam)) {
+    return { success: true, message: QUOTE_SUCCESS };
+  }
+
+  const errors = checkQuote(quote);
+  const first = Object.values(errors)[0];
+  if (first) return { success: false, message: first, errors };
+
+  const rows = quoteRows(quote, { contact: false });
+  try {
+    const { error } = await resend.emails.send({
+      from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
+      to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
+      replyTo: quote.email,
+      subject: `Tilbudsforespørsel fra ${quote.company}`,
+      react: QuoteRequestEmail({
+        name: quote.name,
+        company: quote.company,
+        email: quote.email,
+        phone: quote.phone || undefined,
+        rows,
+      }),
+    });
+
+    if (error) {
+      console.error("Resend error:", JSON.stringify(error));
+      return {
+        success: false,
+        message: "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
+      };
+    }
+    return { success: true, message: QUOTE_SUCCESS };
+  } catch (err) {
+    console.error("Send quote request failed:", err);
+    return {
+      success: false,
+      message: "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
     };
   }
 }
