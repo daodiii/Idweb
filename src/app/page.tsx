@@ -8,7 +8,7 @@ import { DemoSection } from "@/components/home/demo-section";
 import { BookingNudge } from "@/components/home/booking-nudge";
 import { References } from "@/components/home/references";
 import { Testimonials } from "@/components/home/testimonials";
-import { ContactSection } from "@/components/home/contact-section";
+import { QuoteSection } from "@/components/home/quote-section";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 /**
  * Landing page — «A · Klar». Light, calm and concrete: a hero where a client's wishes become their site,
- * then services as a design canvas, two live demos of how we work (process, systems), references, testimonials and contact.
+ * then services as a design canvas, two live demos of how we work (process, systems), references, testimonials and the quote request («Få et pristilbud»).
  * All styles live in a-klar.css (services canvas: a-klar-tjenester.css) under the .ka scope.
  */
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
       <BookingNudge />
       <References />
       <Testimonials />
-      <ContactSection />
+      <QuoteSection />
     </div>
   );
 }
