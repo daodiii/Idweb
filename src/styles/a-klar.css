@@ -147,6 +147,80 @@
 .ka .ref .cap span{color:var(--soft);font-size:14px;text-wrap:pretty}
 @media (hover:hover) and (pointer:fine){.ka .ref:hover .shot img{transform:scale(1.025)}}
 
+/* testimonials: one large quote at a time; the client logos below are the switch, each on a tile in the client's own
+   colours (Center Rahma green, Iqra yellow, Brobekk navy, Ringebu petrol). The stage and its watermark take on the active
+   client. The quotes are long, so they are set at reading size rather than display size. */
+.ka .tm{padding-block:112px;border-top:1px solid var(--line)}
+.ka .tm-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px 64px;align-items:end;margin-bottom:48px}
+.ka .tm-head p{padding-bottom:6px}
+.ka .tm{--tint:#EEF3EE;--acc:#40744A}
+.ka .tm.tm-on-ringebu{--tint:#E8F0F1;--acc:#0E2A30}
+.ka .tm.tm-on-iqra{--tint:#FBF6DA;--acc:#1F7A4F}
+.ka .tm.tm-on-brobekk{--tint:#E6EDF5;--acc:#C67D4A}
+.ka .tm-stage{position:relative;display:grid;place-items:center;min-height:460px;padding:64px 32px 72px;border-radius:32px;overflow:hidden;background:radial-gradient(85% 95% at 50% 0%,var(--tint),#fff 78%);box-shadow:inset 0 0 0 1px rgba(20,22,27,.05);transition:background .8s ease}
+.ka .tm-wm{position:absolute;right:-50px;bottom:-70px;width:440px;height:440px;opacity:.075;pointer-events:none}
+.ka .tm-wm > span{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .8s ease}
+.ka .tm-wm > span.on{opacity:1}
+.ka .tm-wm img,.ka .tm-wm svg{width:100%;height:100%;object-fit:contain}
+.ka .tm-wm-ringebu{color:#0E2A30}
+.ka .tm-quotes{position:relative;z-index:1;display:grid;width:100%;max-width:840px;text-align:center}
+.ka .tm-q{grid-area:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;margin:0;opacity:0;filter:blur(6px);transform:translateY(10px);transition:opacity .5s ease,filter .5s ease,transform .7s var(--out)}
+.ka .tm-q.on{opacity:1;filter:none;transform:none}
+.ka .tm-q blockquote{display:flex;flex-direction:column;gap:.7em;margin:0;font:500 clamp(18px,1.9vw,26px)/1.45 var(--font-mona),var(--font);letter-spacing:-.012em}
+.ka .tm-q blockquote p{margin:0;text-wrap:pretty}
+.ka .tm-gu{color:var(--acc);transition:color .6s}
+.ka .tm-q figcaption{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:15px;color:var(--soft)}
+.ka .tm-q figcaption b{font-size:16px;color:var(--ink)}
+.ka .tm-q .link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:14px}
+.ka .tm-q .link svg{transition:transform 300ms var(--out)}
+/* .pausebtn resets everything with all:unset further down, so the position needs the extra .tm-stage */
+.ka .tm-stage .tm-pause{position:absolute;z-index:2;right:20px;bottom:20px;background:rgba(255,255,255,.85)}
+.ka .tm-logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1040px;margin:22px auto 0}
+.ka .tm-logo{all:unset;box-sizing:border-box;position:relative;display:grid;place-items:center;height:120px;padding:18px;border-radius:22px;overflow:hidden;cursor:pointer;opacity:.72;transform:scale(.97);transition:opacity .35s ease,transform .45s var(--out),box-shadow .45s}
+.ka .tm-logo[aria-pressed=true]{opacity:1;transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(20,22,27,.55)}
+.ka .tm-logo:active{transform:scale(.97)}
+.ka .tm-logo:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px}
+@media (hover:hover) and (pointer:fine){.ka .tm-logo:not([aria-pressed=true]):hover{opacity:.9;transform:none}.ka .tm-q .link:hover svg{transform:translateX(3px)}}
+.ka .tm-logo-centerrahma{background:radial-gradient(70% 90% at 50% 25%,#4F8A59,#2F5C37)}
+.ka .tm-logo-ringebu{background:radial-gradient(70% 90% at 50% 25%,#18414A,#0B2328);color:#F4EFE3}
+.ka .tm-logo-iqra{background:radial-gradient(70% 90% at 50% 25%,#FFFBE0,#FBEFA2)}
+.ka .tm-logo-brobekk{background:radial-gradient(70% 90% at 50% 25%,#163A5F,#081B30);color:#fff}
+.ka .tm-logo::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.2px);background-size:14px 14px;-webkit-mask-image:radial-gradient(60% 70% at 50% 50%,transparent 45%,#000);mask-image:radial-gradient(60% 70% at 50% 50%,transparent 45%,#000)}
+.ka .tm-logo-iqra::after{background-image:radial-gradient(rgba(31,122,79,.14) 1px,transparent 1.2px)}
+.ka .tm-lg{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:12px;height:100%}
+.ka .tm-logo-centerrahma .tm-lg img{width:auto;height:78px}
+.ka .tm-tooth{width:50px;height:47px;flex:none}
+.ka .tm-word{font-size:16px;font-weight:600;line-height:1.15;letter-spacing:-.01em;text-align:left}
+.ka .tm-logo-iqra .tm-lg img{width:auto;height:40px}
+.ka .tm-heart{width:auto;height:54px;flex:none}
+.ka .tm-bar{position:absolute;z-index:1;left:20px;right:20px;bottom:12px;height:2px;border-radius:1px;overflow:hidden;background:rgba(255,255,255,.25);opacity:0}
+.ka .tm-logo-iqra .tm-bar{background:rgba(31,122,79,.18)}
+.ka .tm-logo[aria-pressed=true] .tm-bar{opacity:1}
+.ka .tm-bar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%;animation:tm-prog 7000ms linear forwards}
+.ka .tm-logo-iqra .tm-bar i{background:#1F7A4F}
+@keyframes tm-prog{to{transform:scaleX(1)}}
+.ka .tm.is-paused .tm-bar i{animation-play-state:paused}
+@media (max-width:1080px){
+  .ka .tm-word{display:none}
+  .ka .tm-logo-iqra .tm-lg img{height:32px}
+}
+@media (max-width:700px){
+  .ka .tm{padding-block:80px}
+  .ka .tm-head{grid-template-columns:minmax(0,1fr);margin-bottom:32px}
+  .ka .tm-stage{min-height:440px;padding:44px 20px 72px;border-radius:24px}
+  .ka .tm-wm{width:260px;height:260px;right:-50px;bottom:-40px}
+  .ka .tm-stage .tm-pause{right:50%;transform:translateX(50%);bottom:16px}
+  .ka .tm-stage .tm-pause:active{transform:translateX(50%) scale(.97)}
+  .ka .tm-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .ka .tm-logo{height:80px;padding:12px;border-radius:16px}
+  .ka .tm-tooth{width:40px;height:38px}
+  .ka .tm-heart{height:44px}
+  .ka .tm-logo-centerrahma .tm-lg img{height:54px}
+  .ka .tm-logo-iqra .tm-lg img{height:28px}
+  .ka .tm-bar{left:12px;right:12px;bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){.ka .tm-q,.ka .tm-wm > span,.ka .tm-logo,.ka .tm-stage{transition:none}}
+
 /* contact */
 .ka .contact{padding-bottom:112px}
 .ka .g-contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;padding:56px;border-radius:28px;background:var(--ink);color:#fff}
