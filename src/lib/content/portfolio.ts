@@ -75,7 +75,6 @@ export const PROJECTS = [
       "Sikkert innloggingssystem med personnummer",
       "Interaktiv hero-animasjon med musebevegelse",
       "Moderne og tillitvekkende design",
-      "Lastetid under 1,5 sekunder",
     ],
   },
 ] as const;

@@ -1,8 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 import { HomeHeader } from "@/components/home/home-header";
 import { HomeFooter } from "@/components/home/home-footer";
 import { CookieConsent } from "@/components/ui/cookie-consent";
@@ -16,16 +14,12 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
 
-  // The homepage has moved to the A · Klar design; the other pages keep the old header and footer until they follow.
-  // The seven service pages are on A · Klar too.
-  const isHome = pathname === "/" || /^\/tjenester\/(nettside|timebestilling|nettbutikk|ai-chatbot|seo|vedlikehold|kundeportal)\/?$/.test(pathname);
-
   return (
     <>
-      {isHome ? <HomeHeader /> : <Navbar />}
+      <HomeHeader />
       <main id="main-content">{children}</main>
-      {isHome ? <HomeFooter /> : <Footer />}
-      <CookieConsent variant={isHome ? "klar" : "monument"} />
+      <HomeFooter />
+      <CookieConsent />
       <GoogleAnalytics />
     </>
   );

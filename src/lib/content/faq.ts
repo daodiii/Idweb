@@ -40,7 +40,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Hvilken teknologi bruker du?",
     answer:
-      "Vi velger teknologi basert på hva som passer best for prosjektet ditt. For de fleste bedriftssider bruker vi moderne rammeverk som gir rask lastetid, god sikkerhet og enkel administrasjon. For nettbutikker bruker vi velprøvde plattformer med integrasjon mot norske betalingsløsninger som Vipps og Klarna. Du får alltid en anbefaling basert på dine behov og budsjett.",
+      "Vi velger teknologi basert på hva som passer best for prosjektet ditt. For de fleste bedriftssider bruker vi moderne rammeverk som gir rask lastetid, god sikkerhet og enkel administrasjon. For nettbutikker bruker vi velprøvde plattformer med integrasjon mot betalingsløsninger som passer butikken. Du får alltid en anbefaling basert på dine behov og budsjett.",
   },
   {
     question: "Hva inkluderes i prisen?",
@@ -50,7 +50,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Tilbyr du hosting?",
     answer:
-      "Ja. Vi tilbyr rask og sikker hosting på pålitelige norske servere med daglige sikkerhetskopier. Hosting kan bestilles som en del av driftsavtalen eller som en separat tjeneste. Vi håndterer alt det tekniske slik at du slipper å forholde deg til serveradministrasjon.",
+      "Ja. Vi tilbyr rask og sikker hosting med daglige sikkerhetskopier. Hosting kan bestilles som en del av driftsavtalen eller som en separat tjeneste. Vi håndterer alt det tekniske slik at du slipper å forholde deg til serveradministrasjon.",
   },
   {
     question: "Er det bindingstid på avtalene?",

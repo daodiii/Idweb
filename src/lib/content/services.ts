@@ -11,7 +11,7 @@ export const SERVICES: Service[] = [
     categoryTag: "Nettsider",
     features: [
       "Responsivt design som fungerer på mobil, nettbrett og desktop",
-      "Optimalisert for hastighet — lastetider under 2 sekunder",
+      "Optimalisert for hastighet og raske lastetider",
       "SEO-vennlig struktur fra dag én",
       "Innebygd kontaktskjema og handlingsknapper",
       "Moderne teknologi med rask og pålitelig ytelse",
@@ -19,7 +19,7 @@ export const SERVICES: Service[] = [
     ],
     detailedFeatures: [
       { iconName: "smartphone", title: "Responsivt design", description: "Fungerer perfekt på mobil, nettbrett og desktop" },
-      { iconName: "zap", title: "Lynrask hastighet", description: "Optimalisert for lastetider under 2 sekunder" },
+      { iconName: "zap", title: "Lynrask hastighet", description: "Optimalisert for raske lastetider" },
       { iconName: "search", title: "SEO-vennlig", description: "Søkemotoroptimalisert struktur fra dag én" },
       { iconName: "mail", title: "Kontaktskjema", description: "Innebygde handlingsknapper som konverterer" },
       { iconName: "lock", title: "SSL og sikkerhet", description: "Sertifikat og sikkerhetstiltak inkludert" },
@@ -41,11 +41,7 @@ export const SERVICES: Service[] = [
       { question: "Kan jeg oppdatere innholdet selv?", answer: "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Per i dag har vi ingen enklere løsning for selvbetjent redigering." },
       { question: "Hva med hosting og domene?", answer: "Vi hjelper deg med å sette opp hosting og koble til domenet ditt. Alt er inkludert i leveransen." },
     ],
-    trustStats: [
-      { value: 6, suffix: "+", label: "prosjekter levert" },
-      { value: 90, suffix: "+", label: "PageSpeed-score" },
-      { value: 2, suffix: "s", label: "gjennomsnittlig lastetid" },
-    ],
+    trustStats: [],
   },
   {
     id: "seo",
@@ -85,11 +81,7 @@ export const SERVICES: Service[] = [
       { question: "Garanterer du førsteplass på Google?", answer: "Ingen kan garantere en spesifikk plassering — Google endrer algoritmene kontinuerlig. Vi garanterer solid, etisk arbeid som gir varige resultater." },
       { question: "Hva koster SEO-optimalisering?", answer: "Prisen avhenger av konkurransen i din bransje og omfanget av arbeidet. Vi setter opp en månedlig pakke som passer, og du får fastpris før vi starter." },
     ],
-    trustStats: [
-      { value: 90, suffix: "+", label: "PageSpeed-score snitt" },
-      { value: 6, suffix: "+", label: "prosjekter SEO-optimalisert" },
-      { value: 3, suffix: "-6 mnd", label: "tid til synlige resultater" },
-    ],
+    trustStats: [],
   },
   {
     id: "vedlikehold",
@@ -109,7 +101,7 @@ export const SERVICES: Service[] = [
     detailedFeatures: [
       { iconName: "shield", title: "Sikkerhetsovervåking", description: "Automatisert brannmur og trusselovervåking" },
       { iconName: "refresh-cw", title: "Programvareoppdateringer", description: "Kompatibilitetstesting og oppdateringer" },
-      { iconName: "circle-check", title: "Pålitelig hosting", description: "Høy tilgjengelighet via pålitelige norske servere" },
+      { iconName: "circle-check", title: "Pålitelig hosting", description: "Høy tilgjengelighet via pålitelig hosting" },
       { iconName: "file-text", title: "Innholdsendringer", description: "Mindre endringer inkludert i avtalen" },
       { iconName: "headphones", title: "Prioritert support", description: "Rask responstid når du trenger hjelp" },
     ],
@@ -137,21 +129,21 @@ export const SERVICES: Service[] = [
     shortDescription:
       "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
     longDescription:
-      "Trenger bedriften din en webutvikler i Oslo? IDweb er et Oslo-basert webbyrå som bygger nettsider og webapplikasjoner fra bunnen av — ingen ferdigmaler, ingen WordPress-tunge plugins, ingen mellomledd. Du snakker direkte med utvikleren som skriver koden, og du får en moderne nettside som laster på under to sekunder. Hele prosessen er heldigital, så vi jobber like enkelt med bedrifter i hele Norge som i Oslo — effektivt og uten reisetid. Og vi kjenner det norske markedet, fra Vipps-integrasjon til Brønnøysund-koblinger.",
+      "Trenger bedriften din en webutvikler i Oslo? IDweb er et Oslo-basert webbyrå som bygger nettsider og webapplikasjoner fra bunnen av — ingen ferdigmaler, ingen WordPress-tunge plugins, ingen mellomledd. Du snakker direkte med utvikleren som skriver koden, og du får en moderne nettside som laster raskt. Hele prosessen er heldigital, så vi jobber like enkelt med bedrifter i hele Norge som i Oslo — effektivt og uten reisetid.",
     categoryTag: "Lokal webutvikling",
     features: [
       "Heldigital prosess — oppstart og oppfølging på video",
       "Skreddersydd kode med Next.js — ikke WordPress-maler",
       "Lokal SEO-optimalisering for Oslo-bedrifter",
-      "Norsk hosting med fastpris og rask support",
-      "Vipps og norske betalingsløsninger inkludert ved behov",
+      "Pålitelig hosting med fastpris og rask support",
+      "Betalingsløsninger inkludert ved behov",
       "Direkte kontakt med utvikleren — ingen prosjektledere mellom",
     ],
     detailedFeatures: [
       { iconName: "map-pin", title: "Oslo-basert", description: "Heldigital prosess — oppstart, presentasjon og oppfølging på video" },
       { iconName: "zap", title: "Lynrask Next.js", description: "Moderne rammeverk i stedet for tung WordPress + plugins" },
       { iconName: "search", title: "Lokal SEO", description: "Optimalisert for «webutvikler oslo» og bransjesøk i Oslo" },
-      { iconName: "shield", title: "Norsk hosting", description: "Servere i Norge, GDPR-trygg og rask for norske brukere" },
+      { iconName: "shield", title: "Pålitelig hosting", description: "Stabil og rask drift for norske brukere" },
       { iconName: "message-square", title: "Direkte kommunikasjon", description: "Du snakker med utvikleren — ingen mellomledd" },
     ],
     painPoints: [
@@ -171,31 +163,27 @@ export const SERVICES: Service[] = [
       { question: "Hvorfor velge en lokal webutvikler fremfor et stort byrå?", answer: "Hos store byråer betaler du for en kjede av prosjektledere, designere og utviklere. Hos oss snakker du direkte med utvikleren som skriver koden. Det gir raskere prosess, lavere pris og bedre resultat." },
       { question: "Bygger dere i WordPress?", answer: "Nei — vi bygger med Next.js (samme teknologi som brukes av Spotify, Notion og TikTok). Det gir lynraske sider, bedre SEO og full kontroll. WordPress passer bedre for kunder som vil oppdatere alt selv via et tradisjonelt CMS." },
     ],
-    trustStats: [
-      { value: 6, suffix: "+", label: "Oslo-prosjekter levert" },
-      { value: 90, suffix: "+", label: "PageSpeed-score" },
-      { value: 24, suffix: "t", label: "responstid på e-post" },
-    ],
+    trustStats: [],
   },
   {
     id: "nettbutikk",
     title: "Nettbutikk-utvikling",
     shortDescription:
-      "Skreddersydde nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med Vipps og Stripe.",
+      "Skreddersydde nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med trygg betaling.",
     longDescription:
-      "En nettbutikk er ikke bare en produktkatalog — det er en konverteringsmaskin. Vi bygger skreddersydde nettbutikker med Next.js, Stripe og Vipps som laster på under to sekunder, fungerer perfekt på mobil og er bygget for SEO fra dag én. Enten du selger ti produkter eller tusen, får du en løsning som er rask, sikker og enkel å administrere — uten månedlige Shopify-avgifter som spiser av marginen din.",
+      "En nettbutikk er ikke bare en produktkatalog — det er en konverteringsmaskin. Vi bygger skreddersydde nettbutikker med Next.js og trygg betaling som laster raskt, fungerer perfekt på mobil og er bygget for SEO fra dag én. Enten du selger ti produkter eller tusen, får du en løsning som er rask, sikker og enkel å administrere — uten månedlige Shopify-avgifter som spiser av marginen din.",
     categoryTag: "Nettbutikk",
     features: [
-      "Lynrask Next.js-arkitektur — under 2 sekunders lastetid",
-      "Vipps og Stripe integrert — norske og internasjonale kort",
+      "Lynrask Next.js-arkitektur",
+      "Betaling integrert, for norske og internasjonale kort",
       "Mobiloptimalisert handlekurv og kasse",
       "Lagerstyring og automatiske ordrebekreftelser",
       "SEO-optimaliserte produktsider og kategorisider",
       "Ingen månedlige Shopify-avgifter — du eier alt",
     ],
     detailedFeatures: [
-      { iconName: "shopping-cart", title: "Vipps og Stripe", description: "Vipps Hurtigkasse + Stripe for kort, Apple Pay og Google Pay" },
-      { iconName: "zap", title: "Under 2 sek lastetid", description: "Next.js + bildeoptimalisering gjør butikken lynrask" },
+      { iconName: "shopping-cart", title: "Betaling", description: "Kortbetaling og andre betalingsmåter rett i kassen" },
+      { iconName: "zap", title: "Rask lastetid", description: "Next.js + bildeoptimalisering gjør butikken lynrask" },
       { iconName: "smartphone", title: "Mobil-først kasse", description: "70 % av netthandel skjer på mobil — vi designer for det først" },
       { iconName: "search", title: "SEO på produktsider", description: "Strukturert data, rich snippets og rask indeksering i Google" },
       { iconName: "package", title: "Lager og ordrer", description: "Lagerstyring, ordrebekreftelser og frakthåndtering inkludert" },
@@ -208,20 +196,16 @@ export const SERVICES: Service[] = [
     processSteps: [
       { step: 1, title: "Strategi", description: "Produktsortiment, målgruppe og konverteringsplan" },
       { step: 2, title: "Design", description: "Skreddersydd nettbutikkdesign med fokus på kjøpsopplevelse" },
-      { step: 3, title: "Utvikling", description: "Next.js + Vipps + Stripe + lager- og ordrelogikk" },
+      { step: 3, title: "Utvikling", description: "Next.js, betaling, lager- og ordrelogikk" },
       { step: 4, title: "Lansering", description: "Testbestillinger kjøres, så går butikken live." },
     ],
     faq: [
       { question: "Hva koster en skreddersydd nettbutikk?", answer: "Det kommer an på hvor mange produkter du har og hva butikken skal kunne. En enkel butikk er raskt oppe, mens tilpasset funksjonalitet tar mer tid. Du får et uforpliktende tilbud med fastpris før vi starter." },
-      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler en månedlig plattformavgift og et transaksjonsgebyr på hvert salg, i tillegg til Vipps-gebyrer. Med en skreddersydd løsning eier du alt og betaler bare hosting. Jo mer du selger, jo raskere lønner det seg: gebyrene vokser med omsetningen, hostingen gjør ikke det." },
-      { question: "Støtter dere Vipps?", answer: "Ja. Vi integrerer Vipps Hurtigkasse + Vipps Faste Betalinger som standard. I tillegg har vi Stripe for kort, Apple Pay og Google Pay." },
+      { question: "Bør jeg velge Shopify eller en skreddersydd løsning?", answer: "Shopify er raskt å komme i gang med, men du betaler en månedlig plattformavgift og et transaksjonsgebyr på hvert salg, i tillegg til gebyrene til betalingsleverandøren. Med en skreddersydd løsning eier du alt og betaler bare hosting. Jo mer du selger, jo raskere lønner det seg: gebyrene vokser med omsetningen, hostingen gjør ikke det." },
+      { question: "Hvilke betalingsløsninger støtter dere?", answer: "Vi kobler butikken til en betalingsløsning som passer den, for norske og internasjonale kort. Hvilken det blir, avklarer vi sammen før vi starter." },
       { question: "Hvordan oppdaterer jeg produkter etter lansering?", answer: "Du får et enkelt admin-panel der du kan legge til produkter, justere priser og se ordrer. For mer avanserte endringer i design eller funksjonalitet hjelper vi som del av driftsavtalen." },
     ],
-    trustStats: [
-      { value: 2, suffix: "s", label: "lastetid i kassen" },
-      { value: 100, suffix: " %", label: "eierskap til butikken" },
-      { value: 24, suffix: "t", label: "responstid på e-post" },
-    ],
+    trustStats: [],
   },
 ];
 

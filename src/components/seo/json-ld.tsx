@@ -77,7 +77,7 @@ const BUSINESS_SCHEMA = {
           "@type": "Service",
           name: "Nettbutikk-utvikling",
           description:
-            "Skreddersydde nettbutikker med Vipps og Stripe — lynraske og mobilvennlige.",
+            "Skreddersydde nettbutikker med trygg betaling, lynraske og mobilvennlige.",
         },
       },
       {

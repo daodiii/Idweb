@@ -1,0 +1,240 @@
+/* A · Klar inner pages. Same .ka scope and tokens as a-klar.css; this file holds the patterns the homepage
+   does not use: page head, section rhythm, lists, steps, FAQ, CTA card and long-form text. */
+
+/* ---------- header: mobile menu ---------- */
+.ka .top-end{display:flex;align-items:center;gap:10px}
+.ka .menubtn{all:unset;box-sizing:border-box;display:none;place-items:center;width:42px;height:42px;border:1px solid var(--line-strong);border-radius:999px;color:var(--ink);cursor:pointer;transition:background-color 160ms,transform 160ms var(--out)}
+.ka .menubtn:active{transform:scale(.95)}
+.ka .menubtn:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.ka .menupanel{position:absolute;left:0;right:0;top:100%;z-index:20;border-bottom:1px solid var(--line);background:var(--bg);box-shadow:0 24px 40px -24px rgba(30,42,110,.25)}
+/* .top .wrap is the header row; the panel's own wrap must not inherit its height and alignment */
+.ka .top .menupanel .wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;height:auto;padding-block:8px 24px}
+.ka .menupanel a:not(.btn){padding:16px 0;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.ka .menupanel .btn{justify-content:center;margin-top:20px}
+.ka .menupanel[hidden]{display:none}
+@media (max-width:820px){.ka .menubtn{display:grid}}
+@media (min-width:821px){.ka .menupanel{display:none}}
+@media (max-width:420px){.ka .top-end .btn.dark{display:none}}
+
+/* ---------- page head ---------- */
+.ka .phead{padding-block:48px 88px;border-bottom:1px solid var(--line)}
+.ka .crumbs ol{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 40px;padding:0;list-style:none;font-size:14px;color:var(--soft)}
+.ka .crumbs li + li::before{content:"/";margin-right:8px;color:var(--faint)}
+.ka .crumbs [aria-current]{color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka .crumbs a:hover{color:var(--cobalt)}}
+.ka .crumbs a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+.ka .phead-g{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px 64px;align-items:end}
+.ka .phead h1{max-width:15ch;font-size:clamp(40px,5.4vw,70px);font-weight:700;letter-spacing:-.04em;line-height:1.02}
+.ka .phead .lede{max-width:46ch;font-size:clamp(17px,1.5vw,18.5px);color:var(--muted);text-wrap:pretty}
+.ka .phead .actions{justify-content:flex-start;margin-top:28px}
+.ka .phead.solo .phead-g{grid-template-columns:minmax(0,1fr)}
+.ka .phead.solo h1{max-width:20ch}
+.ka .phead.solo .lede{max-width:60ch}
+
+/* ---------- section rhythm ---------- */
+.ka .sec{padding-block:112px}
+.ka .sec.alt{background:var(--surface)}
+.ka .sec + .sec{border-top:1px solid var(--line)}
+.ka .sec.alt + .sec,.ka .sec + .sec.alt{border-top:0}
+.ka .sec-h.wide{margin-bottom:56px;max-width:760px}
+.ka .copy{display:flex;flex-direction:column;gap:18px;font-size:18px;color:var(--muted);max-width:62ch;text-wrap:pretty}
+.ka .copy strong{color:var(--ink);font-weight:600}
+
+/* text link with arrow */
+.ka .more{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink)}
+.ka .more svg{transition:transform 300ms var(--out)}
+@media (hover:hover) and (pointer:fine){.ka .more:hover{color:var(--cobalt)}.ka .more:hover svg{transform:translateX(4px)}}
+.ka .more:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+
+/* ---------- lists ---------- */
+/* ticked list under an ink rule, same weight as .svc-list */
+.ka .ticks{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.ka .ticks li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
+.ka .ticks svg{margin-top:4px;color:var(--cobalt)}
+.ka .ticks .t{display:flex;flex-direction:column;gap:2px}
+.ka .ticks .t b{font-weight:600}
+.ka .ticks .t span{color:var(--muted);font-size:15.5px}
+
+/* titled items in columns: "what you get", pain points, values */
+.ka .g-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin:0;padding:0;list-style:none}
+.ka .g-items.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ka .g-items li{display:flex;flex-direction:column;gap:8px;padding:26px 0 30px;border-top:1px solid var(--line-strong)}
+.ka .g-items b{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
+.ka .g-items span{color:var(--muted);text-wrap:pretty}
+.ka .g-items small{margin-left:6px;font:400 13px/1 var(--font-mono);letter-spacing:0;color:var(--faint)}
+.ka .g-items.warn li{border-top:2px solid var(--orange)}
+
+/* short proof points under a page head's actions */
+.ka .proof{display:flex;flex-wrap:wrap;gap:8px 22px;margin:24px 0 0;padding:0;list-style:none;font-size:14px;color:var(--soft)}
+.ka .proof li{display:inline-flex;align-items:center;gap:6px}
+.ka .proof svg{color:var(--cobalt)}
+
+/* wide text left, a boxed panel right */
+.ka .g-split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 72px;align-items:start}
+.ka .box{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow)}
+.ka .box h3{margin-bottom:6px;font-size:15px;font-weight:600;letter-spacing:0;color:var(--soft)}
+.ka .box .note{margin-top:18px;font-size:13px;color:var(--soft);text-wrap:pretty}
+.ka .kv{margin:0}
+.ka .kv > div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.ka .kv > div:last-child{border-bottom:0}
+.ka .kv dt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ka .kv dt b{font-weight:600}
+.ka .kv dt span{font-size:14px;color:var(--muted)}
+.ka .kv dd{margin:0;font-weight:600;white-space:nowrap}
+.ka .label{margin:36px 0 14px;font-size:14px;font-weight:600}
+.ka .chiplist{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.ka .chiplist li{padding:7px 13px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;color:#3B404A;background:var(--card)}
+
+/* numbered paragraphs: story, approach, "what happens next" */
+.ka .chapters{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.ka .chapters li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:24px 0;border-bottom:1px solid var(--line)}
+.ka .chapters .n{padding-top:3px;font-size:15px;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums}
+.ka .chapters p{font-size:18px;line-height:1.6;text-wrap:pretty}
+.ka .chapters.small p{font-size:16.5px}
+
+/* ---------- references ---------- */
+.ka .proj{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px 64px;align-items:start}
+.ka .proj.flip > .proj-shot{order:2}
+.ka .proj-shot{position:relative;display:block;aspect-ratio:16/10;border-radius:18px;border:1px solid var(--line);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.ka .proj-shot img{object-fit:cover;object-position:top}
+.ka .proj-text{display:flex;flex-direction:column;gap:18px}
+.ka .proj-text h2{font-size:clamp(28px,3vw,38px);font-weight:700}
+.ka .proj-text .who{font-size:15px;color:var(--soft)}
+.ka .proj-text .who b{color:var(--ink);font-weight:600}
+.ka .proj-text > p{color:var(--muted);font-size:17px;text-wrap:pretty}
+.ka .proj-text > p.label{margin:10px 0 0;color:var(--ink)}
+.ka .proj-text .ticks{border-top-color:var(--line-strong)}
+.ka .proj-text .ticks li{font-size:16px;padding:12px 0}
+.ka .thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin:40px 0 0;padding:0;list-style:none}
+.ka .thumbs li{position:relative;aspect-ratio:3/4;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ka .thumbs img{object-fit:cover;object-position:top}
+
+/* ---------- contact page ---------- */
+.ka .phead + .contact{padding-top:64px}
+.ka .sec-h + .kv{margin-top:28px}
+.ka .label.first{margin-top:0}
+.ka .chapters + .more{margin-top:24px}
+.ka .g-contact .intro p.note{font-size:13px;color:#A3A9B5}
+.ka .g-contact .note a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- articles: cards ---------- */
+.ka .g-posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 28px}
+.ka .post{display:flex;flex-direction:column;gap:12px}
+.ka .post .shot{position:relative;display:block;aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ka .post .shot img{object-fit:cover;transition:transform 700ms var(--out)}
+.ka .post .meta{margin-top:6px;font-size:13.5px;color:var(--soft)}
+.ka .post h2,.ka .post h3{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+.ka .post p{color:var(--muted);font-size:15.5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ka .post:focus-visible{outline:2px solid var(--cobalt);outline-offset:6px;border-radius:14px}
+@media (hover:hover) and (pointer:fine){.ka .post:hover h2,.ka .post:hover h3{color:var(--cobalt)}.ka .post:hover .shot img{transform:scale(1.025)}}
+.ka .post.lead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px 56px;align-items:center;align-content:center;margin-bottom:80px}
+.ka .post.lead .shot{grid-row:1/5;border-radius:18px}
+.ka .post.lead h2{font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.ka .post.lead p{font-size:17px;-webkit-line-clamp:4}
+.ka .refs-h h2{font-size:clamp(28px,3.4vw,40px);font-weight:700}
+
+/* ---------- articles: reading ---------- */
+.ka .art-head{padding-top:48px}
+.ka .art-head .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:20px;font-size:14px;color:var(--soft)}
+.ka .art-head .meta b{font-weight:600;color:var(--ink)}
+.ka .art-head h1,.ka .phead h1,.ka .prose h2{overflow-wrap:break-word}
+.ka .art-head h1{max-width:22ch;font-size:clamp(36px,4.6vw,58px);font-weight:700;letter-spacing:-.035em;line-height:1.05}
+.ka .art-head .lede{margin-top:22px;max-width:62ch;font-size:clamp(17px,1.6vw,19.5px);color:var(--muted);text-wrap:pretty}
+.ka .art-cover{position:relative;aspect-ratio:2/1;margin-top:48px;border-radius:20px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ka .art-cover img{object-fit:cover}
+.ka .prose{max-width:720px;margin-inline:auto;padding-block:40px 112px;font-size:18px;line-height:1.7;color:#2A2E36}
+.ka .prose h2{margin:56px 0 16px;font-size:clamp(24px,2.4vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink)}
+.ka .prose > section:first-child > h2:first-child{margin-top:16px}
+.ka .prose p + p{margin-top:18px}
+.ka .prose ul{margin:18px 0 0;padding:0;list-style:none}
+.ka .prose li{position:relative;padding-left:24px}
+.ka .prose li + li{margin-top:10px}
+.ka .prose li::before{content:"";position:absolute;left:4px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--cobalt)}
+.ka .prose a{color:var(--link);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.ka .prose strong{font-weight:600;color:var(--ink)}
+
+/* numbered legal sections */
+.ka .terms > section{padding-top:40px;border-top:1px solid var(--line)}
+.ka .terms > section + section{margin-top:40px}
+.ka .terms h2{display:flex;gap:16px;align-items:baseline;margin:0 0 14px}
+.ka .terms h2 .n{flex:none;font-size:15px;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums}
+
+/* 404 and error */
+.ka .lost{min-height:62vh;display:grid;align-content:center;padding-block:96px}
+.ka .lost > .wrap{width:100%}
+.ka .lost .code{font-size:15px;font-weight:600;color:var(--cobalt)}
+.ka .lost h1{margin-top:18px;max-width:16ch;font-size:clamp(40px,5.4vw,70px);font-weight:700;letter-spacing:-.04em;line-height:1.02}
+.ka .lost p.lede{margin-top:22px;max-width:52ch;font-size:18px;color:var(--muted)}
+.ka .lost .actions{justify-content:flex-start;margin-top:32px}
+.ka button.btn{border:0;cursor:pointer;font:inherit;font-weight:600}
+
+/* ---------- numbered steps ---------- */
+.ka .stepl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 32px;margin:0;padding:0;list-style:none}
+.ka .stepl li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid var(--ink)}
+.ka .stepl .n{font-size:15px;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums}
+.ka .stepl b{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
+.ka .stepl span:not(.n){color:var(--muted);font-size:15.5px;text-wrap:pretty}
+
+/* ---------- FAQ (native details) ---------- */
+.ka .faq{border-top:1px solid var(--ink)}
+.ka .faq details{border-bottom:1px solid var(--line)}
+.ka .faq summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.01em;cursor:pointer;list-style:none}
+.ka .faq summary::-webkit-details-marker{display:none}
+.ka .faq summary:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px;border-radius:6px}
+.ka .faq summary svg{flex:none;color:var(--soft);transition:transform 300ms var(--out)}
+.ka .faq details[open] summary svg{transform:rotate(45deg);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka .faq summary:hover{color:var(--cobalt)}}
+.ka .faq .ans{padding:0 48px 26px 0;color:var(--muted);font-size:16.5px;max-width:70ch;text-wrap:pretty}
+
+/* ---------- closing CTA card ---------- */
+.ka .cta{padding-block:112px}
+.ka .sec:not(.alt) + .cta{padding-top:0}
+.ka .cta + .sec:not(.alt){padding-top:0}
+.ka .cta-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px 64px;align-items:end;padding:56px;border-radius:28px;background:var(--ink);color:#fff}
+.ka .cta-card h2{max-width:18ch;font-size:clamp(32px,4vw,46px);font-weight:700}
+.ka .cta-card p{margin-top:18px;max-width:50ch;color:#C3C8D2;font-size:17px;text-wrap:pretty}
+.ka .cta-card .side{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.ka .cta-card .reach{display:flex;flex-direction:column;gap:6px;font-size:15px;color:#C3C8D2}
+@media (hover:hover) and (pointer:fine){.ka .cta-card .reach a:hover{color:#fff}}
+
+@media (max-width:900px){
+  .ka .phead{padding-block:32px 64px}
+  .ka .crumbs ol{margin-bottom:28px}
+  .ka .phead-g,.ka .g-split{grid-template-columns:minmax(0,1fr)}
+  .ka .phead-g{gap:24px}
+  .ka .sec,.ka .cta{padding-block:80px}
+  .ka .g-items{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .stepl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .proj{grid-template-columns:minmax(0,1fr)}
+  .ka .proj.flip > .proj-shot{order:0}
+  .ka .thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ka .g-posts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka .post.lead{grid-template-columns:minmax(0,1fr);margin-bottom:56px}
+  .ka .post.lead .shot{grid-row:auto}
+  .ka .prose{padding-block:32px 80px}
+  .ka .cta-card{grid-template-columns:minmax(0,1fr);padding:36px 24px}
+}
+@media (max-width:560px){
+  .ka .g-items,.ka .g-items.two,.ka .stepl{grid-template-columns:minmax(0,1fr)}
+  .ka .faq summary{font-size:17px}
+  .ka .faq .ans{padding-right:0}
+  .ka .box{padding:22px 20px}
+  .ka .kv.stack > div{flex-direction:column;gap:4px}
+  .ka .chapters li{grid-template-columns:36px minmax(0,1fr)}
+  .ka .chapters p{font-size:17px}
+  .ka .thumbs{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:28px}
+  .ka .g-posts{grid-template-columns:minmax(0,1fr);gap:28px}
+  .ka .g-posts .post{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;align-content:start}
+  .ka .g-posts .post .shot{grid-row:1/3;aspect-ratio:1;border-radius:12px}
+  .ka .g-posts .post .meta{margin-top:0}
+  .ka .g-posts .post h3{font-size:17px;hyphens:auto;overflow-wrap:break-word}
+  .ka .g-posts .post p{display:none}
+  .ka .prose{font-size:17px}
+  .ka .art-head h1,.ka .phead h1,.ka .prose h2{hyphens:auto}
+  .ka .art-cover{aspect-ratio:16/10;margin-top:32px}
+}
+
+/* Anchored sections (e.g. /referanser#<project>) stop below the sticky header. */
+.ka .sec[id] {
+  scroll-margin-top: 96px;
+}

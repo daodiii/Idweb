@@ -1,4 +1,4 @@
-import type { Testimonial, ProcessStep, TrustSignal } from "@/types";
+import type { Testimonial, ProcessStep } from "@/types";
 import type { PortfolioSiteId } from "@/types";
 
 export const HERO = {
@@ -9,12 +9,6 @@ export const HERO = {
   primaryCta: "Se våre prosjekter",
   secondaryCta: "F\u00e5 et tilbud",
 } as const;
-
-export const TRUST_SIGNALS: TrustSignal[] = [
-  { value: 5, suffix: "/5", label: "Google-vurdering" },
-  { value: 100, suffix: "%", label: "Kundetilfredshet" },
-  { value: 0, suffix: "", label: "Bindingstid" },
-];
 
 export const PORTFOLIO_STATS: Partial<Record<PortfolioSiteId, { pagespeed: string; result: string }>> = {
   vocura: { pagespeed: "95/100", result: "Moderne helsenettside" },
