@@ -17,7 +17,8 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   }
 
   // The homepage has moved to the A · Klar design; the other pages keep the old header and footer until they follow.
-  const isHome = pathname === "/";
+  // The seven service pages are on A · Klar too.
+  const isHome = pathname === "/" || /^\/tjenester\/(nettside|timebestilling|nettbutikk|ai-chatbot|seo|vedlikehold|kundeportal)\/?$/.test(pathname);
 
   return (
     <>
