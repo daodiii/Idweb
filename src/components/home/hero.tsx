@@ -23,7 +23,7 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-h">
       <div className="wrap">
         <div className="hero-head">
-          <h1 id="hero-h">Dere forteller. Vi bygger.</h1>
+          <h1 id="hero-h">Vi skreddersyr autentiske nettsider som reflekterer din bedrift.</h1>
           <div className="hero-side">
             <p className="lede">
               Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. La oss jobbe sammen i denne
