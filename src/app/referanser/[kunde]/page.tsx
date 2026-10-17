@@ -33,11 +33,6 @@ const ARROW = (
     <path d="M3 8h9M8.5 4 12.5 8l-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-const OUT = (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-    <path d="M5 13 13 5M6.5 5H13v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 const TICK = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
     <circle cx="11" cy="11" r="10" fill="#1E2A6E" />
@@ -74,12 +69,7 @@ export default async function KundecasePage({ params }: Props) {
             <span>{c.name}</span>
           </nav>
           <h1 id="kc-h1">{c.headline}</h1>
-          <div className="kc-under">
-            <p className="kc-lede">{c.lede}</p>
-            <a className="btn" href={c.url} target="_blank" rel="noopener">
-              Besøk siden {OUT}
-            </a>
-          </div>
+          <p className="kc-lede kc-under">{c.lede}</p>
         </div>
         <div className="kc-stage">
           <div className="kc-pair">

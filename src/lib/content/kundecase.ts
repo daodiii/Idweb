@@ -14,8 +14,7 @@ export type ClientCase = {
   /** The hero sentence, also the page's h1. */
   headline: string;
   lede: string;
-  /** Where «Besøk siden» goes, and the host shown in the browser bar. */
-  url: string;
+  /** The host shown in the browser bar above the hero and in the captions. */
   host: string;
   steps: CaseStep[];
   /** What a visitor never sees but the site does for the client. */
@@ -30,7 +29,6 @@ export const CASES: ClientCase[] = [
     name: "MK Auto",
     headline: "Et showroom på nett.",
     lede: "MK Auto selger håndplukkede bruktbiler fra et lokale i Oslo. Siden skulle kjennes som å gå inn døra der: mørkt lokale, røde detaljer og bilene i front.",
-    url: "https://www.mk-auto.no",
     host: "mk-auto.no",
     steps: [
       { img: "fire-maater", title: "Fire måter å bytte bil på", text: "Kjøp, salg, kommisjon og innbytte har hver sin inngang fra forsiden og hver sin side." },
@@ -55,7 +53,6 @@ export const CASES: ClientCase[] = [
     name: "Kongsvinger Tannhelse",
     headline: "Tannlegen ved Glomma.",
     lede: "Kongsvinger Tannhelse er tannlegene Hafthun og Zia i Fjellgata 4. Den nye siden viser byen fra festningen, om klinikken er åpen akkurat nå, og alle behandlingene forklart på vanlig norsk.",
-    url: "https://kongsvinger-tannhelse.vercel.app",
     host: "kongsvingertannhelse.no",
     steps: [
       { img: "festningen", title: "Byen fra festningen", text: "Kongsvinger er tegnet slik den ser ut fra festningen, med Glomma og brua. Nederst på hver side er det kveld over brua." },
