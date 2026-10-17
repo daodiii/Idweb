@@ -52,10 +52,24 @@ export const TEAM_SECTION = {
 
 export const APPROACH = {
   heading: "Slik jobber vi",
-  paragraphs: [
-    "Vi tror p\u00e5 tett samarbeid. Du kjenner bedriften din best, og vi kjenner nett best. Sammen finner vi den l\u00f8sningen som passer akkurat din virksomhet. Ingen standardmaler \u2014 bare skreddersøm.",
-    "Hvert prosjekt starter med en grundig kartlegging der vi forst\u00e5r m\u00e5lgruppen din, konkurrentene dine og hva du faktisk \u00f8nsker \u00e5 oppn\u00e5. Deretter designer vi en l\u00f8sning som er skreddersydd for nettopp dine behov.",
-    "Gjennom hele prosessen har du full innsikt. Vi viser deg fremdriften underveis, tar imot tilbakemeldinger og justerer kursen ved behov. Du er alltid involvert \u2014 det er tross alt din bedrift og din nettside.",
+  intro:
+    "Du kjenner bedriften din best, og vi kjenner nett best. Sammen finner vi l\u00f8sningen som passer akkurat din virksomhet \u2014 ingen standardmaler, bare skreddersøm.",
+  steps: [
+    {
+      title: "Kartlegging",
+      description:
+        "Hvert prosjekt starter med en grundig kartlegging der vi forst\u00e5r m\u00e5lgruppen din, konkurrentene dine og hva du faktisk \u00f8nsker \u00e5 oppn\u00e5.",
+    },
+    {
+      title: "Skreddersydd l\u00f8sning",
+      description:
+        "Deretter designer og bygger vi en l\u00f8sning som er skreddersydd for nettopp dine behov \u2014 uten ferdigmaler og un\u00f8dvendige kompromisser.",
+    },
+    {
+      title: "Full innsikt",
+      description:
+        "Gjennom hele prosessen viser vi deg fremdriften, tar imot tilbakemeldinger og justerer kursen. Det er tross alt din bedrift og din nettside.",
+    },
   ],
 } as const;
 
