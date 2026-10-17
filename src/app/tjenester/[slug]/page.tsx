@@ -13,12 +13,15 @@ import { ServiceCta } from "@/components/sections/service-cta";
 import { TESTIMONIALS, SERVICE_TESTIMONIAL_MAP } from "@/lib/content/homepage";
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
+const REPLACED = new Set(["nettside", "nettbutikk", "seo", "vedlikehold"]);
+
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.id }));
+  // The seven A · Klar service pages have their own routes (nettside, nettbutikk, seo, vedlikehold among them).
+  return SERVICES.filter((s) => !REPLACED.has(s.id)).map((s) => ({ slug: s.id }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {

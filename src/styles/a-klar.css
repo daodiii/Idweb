@@ -16,6 +16,8 @@
   --cobalt:#2447D6;
   --navy:#1E2A6E;
   --orange:#F2892B;
+  --orange-btn:#F9A04F;
+  --orange-btn-hover:#F58F35;
   --orange-ink:#B4560A;
   --orange-tint:#FCEBDB;
   --peach:#F9DABB;
@@ -58,6 +60,8 @@
 @media (hover:hover) and (pointer:fine){.ka .btn:hover{background:#1D3BBA}}
 .ka .btn.dark{height:42px;padding:0 20px;background:var(--ink);font-size:15px}
 @media (hover:hover) and (pointer:fine){.ka .btn.dark:hover{background:#2A2D35}}
+.ka .btn.book{background:var(--orange-btn);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka .btn.book:hover{background:var(--orange-btn-hover)}}
 .ka .link{font-weight:600;border-bottom:1.5px solid var(--ink);padding-bottom:1px}
 .ka .sec-h{display:flex;flex-direction:column;gap:16px}
 .ka .sec-h h2{font-size:clamp(32px,4vw,46px);font-weight:700}
@@ -74,6 +78,14 @@
 .ka .logo-wm text{font-family:var(--font-wordmark),"Michroma",var(--font);font-size:36px}
 .ka .logo-word small{font:600 8.5px/1.2 var(--font-tagline),var(--font);letter-spacing:.06em;text-transform:uppercase;text-align:center;color:var(--soft)}
 .ka .navlinks{display:flex;gap:28px;font-size:15px;color:#3B404A}
+.ka .hasmenu{position:relative}
+.ka .hasmenu>a::after{content:"";display:inline-block;width:6px;height:6px;margin:0 0 3px 8px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.ka .dropdown{position:absolute;left:-16px;top:100%;min-width:250px;padding:18px 8px 8px;visibility:hidden;opacity:0;transform:translateY(-4px);transition:opacity 160ms var(--out),transform 160ms var(--out),visibility 0s 160ms}
+.ka .dropdown::before{content:"";position:absolute;inset:10px 0 0;z-index:-1;border:1px solid var(--line);border-radius:16px;background:var(--bg);box-shadow:0 24px 40px -24px rgba(30,42,110,.28)}
+.ka .dropdown a{display:block;padding:10px 14px;border-radius:10px;white-space:nowrap}
+.ka .hasmenu:focus-within .dropdown{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+@media (hover:hover) and (pointer:fine){.ka .hasmenu:hover .dropdown{visibility:visible;opacity:1;transform:none;transition-delay:0s}.ka .dropdown a:hover{background:var(--surface);color:var(--cobalt)}}
+@media (prefers-reduced-motion:reduce){.ka .dropdown{transition:none}}
 @media (hover:hover) and (pointer:fine){.ka .navlinks a:hover{color:var(--cobalt)}}
 @media (max-width:820px){.ka .navlinks{display:none}}
 @media (max-width:420px){.ka .top .btn.dark{padding:0 14px;font-size:14px}}
@@ -88,7 +100,11 @@
 /* .top .wrap is the header row; the panel's own wrap must not inherit its height and alignment */
 .ka .top .menupanel .wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;height:auto;padding-block:8px 20px}
 .ka .menupanel a{padding:16px 0;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;letter-spacing:-.01em}
-.ka .menupanel a:last-child{border-bottom:0}
+.ka .menupanel .menuitem{display:flex;flex-direction:column;border-bottom:1px solid var(--line)}
+.ka .menupanel .menuitem>a{border-bottom:0}
+.ka .menupanel .menuitem:last-child{border-bottom:0}
+.ka .menupanel a.sub{padding:9px 0 9px 16px;font-size:16px;font-weight:500;color:#3B404A}
+.ka .menupanel .menuitem>a.sub:last-child{padding-bottom:16px}
 .ka .menupanel a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:6px}
 .ka .menupanel[hidden]{display:none}
 @media (max-width:820px){.ka .menubtn{display:grid}}

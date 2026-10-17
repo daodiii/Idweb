@@ -309,3 +309,12 @@
 .ka .sc-ops .hr.new{height:0;border-top-width:0;transition:height .5s var(--eo)}
 .ka .sc-ops .hr.new.on{height:24px;border-top-width:1px}
 .ka .sc-ops .hr.new b{color:#9A5B07}
+
+.ka .sv-list{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.ka .sv-list a{display:flex;flex-direction:column;align-items:flex-start;gap:6px;height:100%;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:border-color 160ms var(--out),transform 160ms var(--out)}
+.ka .sv-list b{font-size:17px;letter-spacing:-.01em}
+.ka .sv-list span{font-size:15px;line-height:1.5;color:#3B404A}
+.ka .sv-list svg{flex:none;margin-top:auto;color:var(--cobalt)}.ka .sv-list span{margin-bottom:14px}
+.ka .sv-list a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.ka .sv-list a:hover{border-color:var(--cobalt);transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){.ka .sv-list a{transition:none}.ka .sv-list a:hover{transform:none}}
