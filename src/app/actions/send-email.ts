@@ -2,6 +2,9 @@
 
 import { Resend } from "resend";
 import { ContactFormEmail } from "@/lib/emails/contact-form-email";
+import { NEED_OPTIONS } from "@/lib/home/contact";
+import { QuoteRequestEmail } from "@/lib/emails/quote-request-email";
+import { checkQuote, quoteFromForm, quoteRows, type QuoteErrors } from "@/lib/home/quote";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -64,7 +67,7 @@ export async function sendContactEmail(
   if (!name || !email || !message) {
     return {
       success: false,
-      message: "Vennligst fyll ut alle obligatoriske felt.",
+      message: "Fyll ut navn, e-post og hva dere trenger.",
     };
   }
 
@@ -75,24 +78,30 @@ export async function sendContactEmail(
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) {
     return {
       success: false,
-      message: "Vennligst oppgi en gyldig e-postadresse.",
+      message: "Sjekk e-postadressen. Den ser ikke riktig ut.",
     };
   }
 
   if (phone && !/^[\d\s\-+()]{5,20}$/.test(phone)) {
-    return { success: false, message: "Vennligst oppgi et gyldig telefonnummer." };
+    return { success: false, message: "Sjekk telefonnummeret. Det ser ikke riktig ut." };
   }
 
   if (company && company.length > 100) {
     return { success: false, message: "Bedriftsnavn er for langt." };
   }
 
-  if (message.length < 10 || message.length > 5000) {
+  if (message.length < 2 || message.length > 5000) {
     return {
       success: false,
-      message: "Meldingen må være mellom 10 og 5000 tegn.",
+      message: "Skriv noen ord om hva dere trenger (maks 5000 tegn).",
     };
   }
+
+  // Optional "Hva trenger du?" choices from the homepage form; only known values are kept.
+  const needs = formData
+    .getAll("needs")
+    .filter((v): v is string => typeof v === "string" && NEED_OPTIONS.includes(v));
+  const body = needs.length ? `Trenger: ${needs.join(", ")}\n\n${message}` : message;
 
   try {
     const { error } = await resend.emails.send({
@@ -100,7 +109,7 @@ export async function sendContactEmail(
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
       subject: `Ny henvendelse fra ${name}`,
-      react: ContactFormEmail({ name, email, phone, company, message }),
+      react: ContactFormEmail({ name, email, phone, company, message: body }),
     });
 
     if (error) {
@@ -108,7 +117,7 @@ export async function sendContactEmail(
       return {
         success: false,
         message:
-          "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+          "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
       };
     }
 
@@ -118,7 +127,75 @@ export async function sendContactEmail(
     return {
       success: false,
       message:
-        "Noe gikk galt. Vennligst prøv igjen eller send oss en e-post direkte.",
+        "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
+    };
+  }
+}
+
+export type QuoteFormState = {
+  success: boolean;
+  message: string;
+  errors?: QuoteErrors;
+} | null;
+
+const QUOTE_SUCCESS = "Takk! Vi tar kontakt innen 24 timer.";
+
+/** Honeypot filled in, or sent faster than a person could: answer as if it went through. */
+function looksLikeBot(formData: FormData): boolean {
+  if ((formData.get("fax_number") as string | null)?.trim()) return true;
+  const loadedAt = Number.parseInt((formData.get("loaded_at") as string | null) ?? "", 10);
+  return !loadedAt || Date.now() - loadedAt < MIN_FILL_TIME_MS;
+}
+
+/**
+ * The homepage quote request («Få et pristilbud»). The wizard collects what the visitor needs and who to send the
+ * offer to; IDweb gets it as one e-mail and replies with a price offer. Same bot and spam handling as the contact
+ * form. The website address is left out of the spam check, since an address is exactly what that field asks for.
+ */
+export async function sendQuoteRequest(
+  _prev: QuoteFormState,
+  formData: FormData,
+): Promise<QuoteFormState> {
+  if (looksLikeBot(formData)) return { success: true, message: QUOTE_SUCCESS };
+
+  const quote = quoteFromForm(formData);
+  if ([quote.name, quote.company, quote.industry, quote.message].some(looksLikeSpam)) {
+    return { success: true, message: QUOTE_SUCCESS };
+  }
+
+  const errors = checkQuote(quote);
+  const first = Object.values(errors)[0];
+  if (first) return { success: false, message: first, errors };
+
+  const rows = quoteRows(quote, { contact: false });
+  try {
+    const { error } = await resend.emails.send({
+      from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
+      to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
+      replyTo: quote.email,
+      subject: `Tilbudsforespørsel fra ${quote.company}`,
+      react: QuoteRequestEmail({
+        name: quote.name,
+        company: quote.company,
+        email: quote.email,
+        phone: quote.phone || undefined,
+        rows,
+      }),
+    });
+
+    if (error) {
+      console.error("Resend error:", JSON.stringify(error));
+      return {
+        success: false,
+        message: "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
+      };
+    }
+    return { success: true, message: QUOTE_SUCCESS };
+  } catch (err) {
+    console.error("Send quote request failed:", err);
+    return {
+      success: false,
+      message: "Det gikk ikke å sende. Prøv igjen, eller send oss en e-post på hei@idweb.no.",
     };
   }
 }

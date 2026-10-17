@@ -1,48 +1,16 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { SEO } from "@/lib/content/seo";
-import { HeroLommelykt } from "@/components/sections/hero-lommelykt";
-import { Preloader } from "@/components/ui/preloader";
-import { SmoothScroll } from "@/components/ui/smooth-scroll";
-import { CursorAura } from "@/components/ui/cursor-aura";
-
-// Below-fold sections — lazy loaded to reduce initial JS parse/execute time
-const ManifestoFill = dynamic(
-  () => import("@/components/sections/manifesto-fill").then((m) => m.ManifestoFill),
-  { ssr: true },
-);
-const ProjectsCarousel = dynamic(
-  () => import("@/components/sections/projects-carousel").then((m) => m.ProjectsCarousel),
-  { ssr: true },
-);
-const Sekundet = dynamic(
-  () => import("@/components/sections/sekundet").then((m) => m.Sekundet),
-  { ssr: true },
-);
-const SpecDuel = dynamic(
-  () => import("@/components/sections/spec-duel").then((m) => m.SpecDuel),
-  { ssr: true },
-);
-const ServicesIndex = dynamic(
-  () => import("@/components/sections/services-index").then((m) => m.ServicesIndex),
-  { ssr: true },
-);
-const ProcessPath = dynamic(
-  () => import("@/components/sections/process-path").then((m) => m.ProcessPath),
-  { ssr: true },
-);
-const FaqXl = dynamic(
-  () => import("@/components/sections/faq-xl").then((m) => m.FaqXl),
-  { ssr: true },
-);
-const ArticlesStrip = dynamic(
-  () => import("@/components/sections/articles-strip").then((m) => m.ArticlesStrip),
-  { ssr: true },
-);
-const ContactTakeover = dynamic(
-  () => import("@/components/sections/contact-takeover").then((m) => m.ContactTakeover),
-  { ssr: true },
-);
+import { bricolage, figtree, inter, mona, schibsted, youngSerif } from "@/lib/home/fonts";
+import { Hero } from "@/components/home/hero";
+import { LogoTicker } from "@/components/home/logo-ticker";
+import { ServicesCanvas } from "@/components/home/services-canvas";
+import { DemoSection } from "@/components/home/demo-section";
+import { Testimonials } from "@/components/home/testimonials";
+import { QuoteSection } from "@/components/home/quote-section";
+import { FLYT_HTML } from "@/components/home/markup/flyt";
+import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
+import "@/styles/a-klar.css";
+import "@/styles/a-klar-tjenester.css";
 
 export const metadata: Metadata = {
   title: SEO.home.title,
@@ -53,49 +21,20 @@ export const metadata: Metadata = {
 };
 
 /**
- * Landing page — "Monumentet". A typographic monument in three worlds
- * (paper, void, yellow): preloader curtain → poster hero → scroll-fill
- * manifesto → full-screen project takeovers → spec ledger → service
- * index → drawn process → XL FAQ → black finale.
+ * Landing page — «A · Klar». Light, calm and concrete: a hero where a client's wishes become their site,
+ * the client logos sliding past, services as a design canvas, two live demos of how we work (process, systems), testimonials and the quote request («Få et pristilbud»).
+ * All styles live in a-klar.css (services canvas: a-klar-tjenester.css) under the .ka scope.
  */
 export default function Home() {
   return (
-    <div style={{ backgroundColor: "#F3F0E7" }}>
-      <Preloader />
-      <SmoothScroll />
-      <CursorAura />
-
-      {/* 1. Hero — «Lommelykt»: the cursor is a flashlight revealing the yellow world */}
-      <HeroLommelykt />
-
-      {/* 2. Manifesto — words ink in on scroll */}
-      <ManifestoFill />
-
-      {/* 3. Projects — «Karusellen» 3D coverflow ring */}
-      <ProjectsCarousel />
-
-      {/* 3½. Full stack — «Sekundet»: one booking scrubbed through the
-          whole chain. The carousel shows the facades; this shows the
-          machine behind them. */}
-      <Sekundet />
-
-      {/* 4. Byrå vs IDweb — spec ledger + value ticker */}
-      <SpecDuel />
-
-      {/* 5. Services — XL click index */}
-      <ServicesIndex />
-
-      {/* 6. Process — self-drawing timeline */}
-      <ProcessPath />
-
-      {/* 7. FAQ — oversized questions */}
-      <FaqXl />
-
-      {/* 8. Articles — editorial strip */}
-      <ArticlesStrip />
-
-      {/* 9. Contact — black takeover finale */}
-      <ContactTakeover />
+    <div className={`ka ${schibsted.variable} ${mona.variable} ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
+      <Hero />
+      <LogoTicker />
+      <ServicesCanvas />
+      <DemoSection id="prosess" kind="flyt" html={FLYT_HTML} warm />
+      <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} />
+      <Testimonials />
+      <QuoteSection />
     </div>
   );
 }
