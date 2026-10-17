@@ -1,23 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
-import { PORTFOLIO_PAGE, PROJECTS, PORTFOLIO_CTA } from "@/lib/content/portfolio";
-import { getSiteById } from "@/lib/content/portfolio-sites";
+import { CASES } from "@/lib/content/kundecase";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { PageHead } from "@/components/klar/page-head";
 import { CtaCard } from "@/components/klar/cta-card";
-import { Tick } from "@/components/klar/tick";
-import type { PortfolioSiteId } from "@/types";
+import { Arrow } from "@/components/home/arrow";
+import { mona, schibsted } from "@/lib/home/fonts";
+import "@/styles/kundecase.css";
 
 export const metadata: Metadata = {
-  title: "Referanser — Se nettsidene vi har levert",
-  description:
-    "Se utvalgte prosjekter vi har levert til norske bedrifter. Skreddersydde nettsider, nettbutikker og digitale løsninger med målbare resultater.",
-  keywords: [
-    "webdesign referanser",
-    "nettside portefølje",
-    "webdesign eksempler",
-    "nettside prosjekter oslo",
-  ],
+  title: "Kundecaser",
+  description: "Slik laget vi nettsidene til MK Auto og Kongsvinger Tannhelse: hva kunden trengte, hva vi bygde og hva som skjer bak kulissene.",
   alternates: {
     canonical: "/referanser",
   },
@@ -25,74 +19,48 @@ export const metadata: Metadata = {
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },
-  { name: "Referanser", href: "/referanser" },
+  { name: "Kundecaser", href: "/referanser" },
 ];
 
-export default function ReferanserPage() {
+/** The client cases, and nothing else: one card per case, each the way in to its page under /referanser/<slug>. */
+export default function KundecaserPage() {
   return (
-    <div className="ka">
+    <div className={`ka kc ${schibsted.variable} ${mona.variable}`}>
       <BreadcrumbJsonLd items={CRUMBS} />
 
-      <PageHead crumbs={CRUMBS} title="Prosjekter vi har bygget for norske bedrifter." lede={PORTFOLIO_PAGE.subheadline} />
+      <PageHead crumbs={CRUMBS} title="Kundecaser" lede="Slik laget vi nettsidene til to av kundene våre." />
 
-      {PROJECTS.map((project, index) => {
-        const site = getSiteById(project.id as PortfolioSiteId);
-        const heroImage = site?.images.heroImage ?? site?.images.full;
-        const showcase = site?.images.showcase ?? [];
-        const name = site?.name ?? project.client;
-        return (
-          <section key={project.id} id={project.id} className={`sec${index % 2 ? " alt" : ""}`} aria-labelledby={`p-${project.id}`}>
-            <div className="wrap">
-              <div className={`proj${index % 2 ? " flip" : ""}`}>
-                {heroImage && (
-                  <div className="proj-shot">
+      <section className="kc-sec" aria-label="Kundecaser">
+        <div className="wrap">
+          <ul className="kc-cases">
+            {CASES.map((c, i) => (
+              <li key={c.slug}>
+                <Link href={`/referanser/${c.slug}`} className="kc-case">
+                  <span className="kc-case-img">
                     <Image
-                      src={heroImage}
-                      alt={`Fullside skjermbilde av ${name}`}
-                      fill
-                      sizes="(max-width: 900px) 100vw, 640px"
-                      priority={index === 0}
+                      src={`/images/kunder/${c.slug}/hero-desktop.webp`}
+                      alt={`Forsiden til ${c.name}`}
+                      width={2400}
+                      height={1500}
+                      sizes="(max-width: 860px) 100vw, 560px"
+                      priority={i === 0}
                     />
-                  </div>
-                )}
-                <div className="proj-text">
-                  <h2 id={`p-${project.id}`}>{project.title}</h2>
-                  <p className="who">
-                    <b>{project.client}</b> · {project.industry}
-                  </p>
-                  <p>{project.description}</p>
-                  <p className="label">Tjenester</p>
-                  <ul className="chiplist">
-                    {project.services.map((s) => (
-                      <li key={s}>{s}</li>
-                    ))}
-                  </ul>
-                  <p className="label">Resultater</p>
-                  <ul className="ticks">
-                    {project.results.map((r) => (
-                      <li key={r}>
-                        <Tick />
-                        {r}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              {showcase.length > 0 && (
-                <ul className="thumbs" aria-label={`Flere skjermbilder fra ${name}`}>
-                  {showcase.map((src, i) => (
-                    <li key={src}>
-                      <Image src={src} alt={`${name} — skjermbilde ${i + 1}`} fill sizes="(max-width: 560px) 33vw, (max-width: 900px) 25vw, 190px" />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </section>
-        );
-      })}
+                  </span>
+                  <span className="kc-case-t">
+                    <b>{c.name}</b>
+                    <span>{c.headline}</span>
+                    <span className="link">
+                      Se casen <Arrow size={14} />
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      <CtaCard title={PORTFOLIO_CTA.headline} text={PORTFOLIO_CTA.description} button={PORTFOLIO_CTA.buttonText} />
+      <CtaCard title="Skal vi lage deres?" text="Fortell hva bedriften trenger, så viser vi hvordan siden deres kan bli." button="Book en gratis prat" />
     </div>
   );
 }

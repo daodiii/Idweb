@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Arrow } from "@/components/home/arrow";
 import { RingebuMark } from "@/components/home/ringebu-mark";
 import { TESTIMONIALS, type Testimonial } from "@/lib/home/testimonials";
 
@@ -79,10 +78,6 @@ export function Testimonials() {
                 </blockquote>
                 <figcaption>
                   <b>{t.client}</b>
-                  {/* a full page load, like the references: next/link lands short of the project on /referanser */}
-                  <a className="link" href={`/referanser#${t.id}`}>
-                    Se nettsiden <Arrow size={14} />
-                  </a>
                 </figcaption>
               </figure>
             ))}

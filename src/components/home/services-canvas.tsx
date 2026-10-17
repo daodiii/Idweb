@@ -6,17 +6,6 @@ import { Arrow } from "@/components/home/arrow";
 import { SERVICES } from "@/lib/home/services/data";
 import { startServicesCanvas } from "@/lib/home/services-canvas";
 
-/** Every service has its own page. The canvas above shows the first five as scenes; this list is the complete set. */
-const ALL_SERVICES = [
-  { href: "/tjenester/nettside", title: "Skreddersydd nettside", text: "Tegnet og bygget for akkurat dere, uten maler." },
-  { href: "/tjenester/timebestilling", title: "Timebestilling", text: "Kundene velger tid selv. Bekreftelse og påminnelse går av seg selv." },
-  { href: "/tjenester/nettbutikk", title: "Nettbutikk", text: "En butikk bygget rundt varene deres, med ordre, lager og frakt." },
-  { href: "/tjenester/ai-chatbot", title: "AI-chatbot", text: "Svarer på spørsmål, tar imot henvendelser og setter opp timer." },
-  { href: "/tjenester/seo", title: "SEO og AI-synlighet", text: "Bli funnet på Google og i AI-søk." },
-  { href: "/tjenester/vedlikehold", title: "Drift og vedlikehold", text: "Oppdateringer, backup og overvåking, fra 790 kr/mnd eks. mva." },
-  { href: "/tjenester/kundeportal", title: "Kundeportal", text: "Kundene ser status og meldinger på sin egen side." },
-] as const;
-
 const Tick = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M3.5 8.4l3 3 6-6.4" />
@@ -41,7 +30,6 @@ export function ServicesCanvas() {
       <div className="wrap">
         <div className="sec-h sv-head">
           <h2 id="tjenester-h">Alt bedriften trenger på nett, fra én leverandør</h2>
-          <p>Begynn med det dere trenger nå. Resten kan bygges på senere, uten å starte på nytt.</p>
         </div>
         <div className="sv-wrap">
           <div className="sv-vp">
@@ -107,17 +95,6 @@ export function ServicesCanvas() {
             </article>
           </div>
         </div>
-        <ul className="sv-list" aria-label="Alle tjenester">
-          {ALL_SERVICES.map((a) => (
-            <li key={a.href}>
-              <Link href={a.href}>
-                <b>{a.title}</b>
-                <span>{a.text}</span>
-                <Arrow size={14} />
-              </Link>
-            </li>
-          ))}
-        </ul>
         <noscript>
           <style>{".ka .sv-vp{display:none}.ka .sv-panel{position:static;width:auto;display:grid;gap:16px}.ka .sv-card[hidden]:not(.sv-over){display:flex}"}</style>
         </noscript>

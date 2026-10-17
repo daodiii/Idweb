@@ -98,3 +98,16 @@
 @media (prefers-reduced-motion:reduce){
   .ka.kc .kc-step img,.ka.kc .kc-shot img,.ka.kc .kc-next-img,.ka.kc .kc-story.is-scene .kc-step h3,.ka.kc .kc-story.is-scene .kc-step p{transition:none}
 }
+
+/* the list of cases on /referanser */
+.ka.kc .kc-cases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ka.kc .kc-case{display:flex;flex-direction:column;gap:20px;height:100%;padding:20px;border-radius:24px;background:var(--surface);transition:background-color 200ms}
+.ka.kc .kc-case-img{display:block;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:#fff}
+.ka.kc .kc-case-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 300ms var(--out)}
+.ka.kc .kc-case-t{display:flex;flex-direction:column;gap:8px;padding:0 4px 4px}
+.ka.kc .kc-case-t b{font:700 clamp(26px,2.6vw,34px)/1.08 var(--font-mona),var(--font);letter-spacing:-.025em}
+.ka.kc .kc-case-t > span:not(.link){color:var(--muted);font-size:17px}
+.ka.kc .kc-case-t .link{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:8px}
+@media (hover:hover) and (pointer:fine){.ka.kc .kc-case:hover{background:#EEF0F4}.ka.kc .kc-case:hover .kc-case-img img{transform:scale(1.02)}}
+.ka.kc .kc-case:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+@media (max-width:760px){.ka.kc .kc-cases{grid-template-columns:minmax(0,1fr)}.ka.kc .kc-case{padding:14px;border-radius:20px}}
