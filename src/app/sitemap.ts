@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllSlugs, getBlogPost } from "@/lib/content/blog";
+import { CASES } from "@/lib/content/kundecase";
 
 const BASE_URL = "https://www.idweb.no";
 
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tjenester/webutvikler-oslo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE_URL}/tjenester/nettbutikk`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE_URL}/referanser`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.8 },
+    ...CASES.map((c) => ({ url: `${BASE_URL}/referanser/${c.slug}`, lastModified: BUILD_DATE, changeFrequency: "monthly" as const, priority: 0.7 })),
     { url: `${BASE_URL}/om-oss`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/kontakt`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/faq`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },

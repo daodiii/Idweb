@@ -16,8 +16,9 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
 
-  // The homepage has moved to the A · Klar design; the other pages keep the old header and footer until they follow.
-  const isHome = pathname === "/";
+  // The homepage and the client cases (/referanser/<kunde>) have moved to the A · Klar design; the other pages keep
+  // the old header and footer until they follow.
+  const isHome = pathname === "/" || pathname.startsWith("/referanser/");
 
   return (
     <>
