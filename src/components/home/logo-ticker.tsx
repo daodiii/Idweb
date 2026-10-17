@@ -48,12 +48,7 @@ function Tiles({ copy = false }: { copy?: boolean }) {
 
 export function LogoTicker() {
   return (
-    <section className="tk" aria-labelledby="tk-h">
-      <div className="wrap">
-        <p className="tk-l" id="tk-h">
-          Vi har laget nettsider for
-        </p>
-      </div>
+    <section className="tk" aria-label="Kunder vi har laget nettsider for">
       <div className="tk-vp">
         <div className="tk-track">
           <Tiles />

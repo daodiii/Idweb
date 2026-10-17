@@ -36,9 +36,6 @@ export function Hero() {
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
               </Link>
-              <Link className="link" href="/referanser">
-                Se prosjektene
-              </Link>
             </div>
             <div className="trust">
               <span>Fastpris før vi starter</span>
