@@ -26,8 +26,8 @@ export function Hero() {
           <h1 id="hero-h">Dere forteller. Vi bygger.</h1>
           <div className="hero-side">
             <p className="lede">
-              Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. Bare det dere faktisk skal
-              bruke.
+              Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. La oss jobbe sammen i denne
+              nye digitale tiden.
             </p>
             <div className="actions">
               <Link className="btn book" href="/#kontakt">
