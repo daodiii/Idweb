@@ -1,7 +1,7 @@
 /**
  * Homepage hero: a client's text messages arrive one by one; the highlighted words lift off, split in two and land
  * in the desktop site and on the phone, where they become working features. The server renders the finished frame;
- * this engine resets it and plays the sequence while the hero is on screen.
+ * this engine resets it and plays the sequence once while the hero is on screen, then holds the finished frame.
  * Ported from the approved mockup (idweb-hero/onsker2.html, variant 3).
  */
 
@@ -37,6 +37,7 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
   let userPaused = false;
   let offscreen = true;
   let started = false;
+  let finished = false;
   const resumers: (() => void)[] = [];
   let held: Animation[] = [];
 
@@ -152,86 +153,84 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
     return mk;
   };
 
+  // plays once and stops on the finished site; the button then offers to play it again
   const run = async (g: number) => {
-    for (;;) {
-      setCls("snap out");
-      st.querySelectorAll(".fly,.trail,.ripple").forEach((e) => e.remove());
-      thread.innerHTML = "";
-      msgs.length = 0;
-      k.querySelectorAll<HTMLElement>(".cnt").forEach((c) => { c.textContent = fmt(Number(c.dataset.from || 0), c.dataset.fmt); });
-      nb.textContent = "0";
-      nd.textContent = "0";
-      await wait(g, 60);
-      setCls("");
-      await wait(g, 900);
-      let built = 0;
-      let dropped = 0;
-      const ms: string[] = [];
-      for (let i = 0; i < WISHES.length; i++) {
-        const w = WISHES[i];
-        const mk = await reveal(g, i);
-        await wait(g, 220);
-        mk.classList.add("lit");
-        await wait(g, 560);
-        const r = rel(mk);
-        const fly = document.createElement("span");
-        fly.className = `fly${w.t ? "" : " x"}`;
-        fly.textContent = w.m;
-        mk.classList.add("gone");
-        const from = { x: r.x, y: r.y };
-        fly.style.transform = `translate(${from.x}px, ${from.y}px)`;
-        st.appendChild(fly);
-        const fw = fly.offsetWidth;
-        const fh = fly.offsetHeight;
-        if (w.t) {
-          const desk = mode === "mobile" ? null : w.t === "flood" ? bd.querySelector(".hero-t") : bd.querySelector(`.t${w.t}`);
-          const phone = mode === "narrow" ? null : w.t === "flood" ? scr.querySelector(".hero-p") : scr.querySelector(`.p${w.t}`);
-          const targets = [desk, phone].filter(Boolean) as Element[];
-          const pts = targets.map(centre);
-          const apex = { x: (mode === "mobile" ? 420 : 610) - fw / 2, y: 4 };
-          await step(g, flyTo(fly, from, apex, null, 720, { s1: 1.12, o1: 1 }));
-          const flyers = [fly];
-          for (let t = 1; t < pts.length; t++) { const c = fly.cloneNode(true) as HTMLElement; st.appendChild(c); flyers.push(c); }
-          await step(g, Promise.all(pts.map((p, t) => flyTo(flyers[t], apex, { x: p.x - fw / 2, y: p.y - fh / 2 },
-            t === 0 ? null : { x: (apex.x + p.x) / 2 + 60, y: 40 }, t === 0 ? 650 : 820, { s0: 1.12, sm: 1.0, s1: 0.5 }))));
-          flyers.forEach((f) => f.remove());
-          pts.forEach((p) => ripple(p.x, p.y));
-          if (w.t === "flood") {
-            targets.forEach((tg, t) => {
-              const host = tg.closest(".bd, .scr") as HTMLElement;
-              const fl = host.querySelector<HTMLElement>(".flood")!;
-              const hr = rel(host);
-              fl.style.setProperty("--cx", `${pts[t].x - hr.x}px`);
-              fl.style.setProperty("--cy", `${pts[t].y - hr.y}px`);
-            });
-          }
-          ms.push(`m${i + 1}`);
-          setCls(ms.join(" "));
-          k.querySelectorAll<HTMLElement>(`.f${i + 1} .cnt`).forEach((c) =>
-            countUp(c, Number(c.dataset.dur) || (c.dataset.fmt ? 1800 : 1500), COUNT_DELAY[i + 1] ?? 900));
-          bump(nb, ++built);
-        } else {
-          // the one they didn't need: it sets off, is crossed out and falls away
-          const stop = mode === "mobile" ? { x: 120, y: 470 } : { x: 318, y: 430 };
-          await step(g, flyTo(fly, from, stop, null, 700, { s1: 1, o1: 1 }));
-          fly.classList.add("struck");
-          await wait(g, 650);
-          await step(g, anim(fly, [
-            { transform: `translate(${stop.x}px, ${stop.y}px)`, opacity: 1 },
-            { transform: `translate(${stop.x + 14}px, ${stop.y + 110}px) rotate(18deg)`, opacity: 0 },
-          ], { duration: 750, easing: "cubic-bezier(.55,0,1,.45)" }));
-          fly.remove();
-          bump(nd, ++dropped);
+    setCls("snap out");
+    st.querySelectorAll(".fly,.trail,.ripple").forEach((e) => e.remove());
+    thread.innerHTML = "";
+    msgs.length = 0;
+    k.querySelectorAll<HTMLElement>(".cnt").forEach((c) => { c.textContent = fmt(Number(c.dataset.from || 0), c.dataset.fmt); });
+    nb.textContent = "0";
+    nd.textContent = "0";
+    await wait(g, 60);
+    setCls("");
+    await wait(g, 900);
+    let built = 0;
+    let dropped = 0;
+    const ms: string[] = [];
+    for (let i = 0; i < WISHES.length; i++) {
+      const w = WISHES[i];
+      const mk = await reveal(g, i);
+      await wait(g, 220);
+      mk.classList.add("lit");
+      await wait(g, 560);
+      const r = rel(mk);
+      const fly = document.createElement("span");
+      fly.className = `fly${w.t ? "" : " x"}`;
+      fly.textContent = w.m;
+      mk.classList.add("gone");
+      const from = { x: r.x, y: r.y };
+      fly.style.transform = `translate(${from.x}px, ${from.y}px)`;
+      st.appendChild(fly);
+      const fw = fly.offsetWidth;
+      const fh = fly.offsetHeight;
+      if (w.t) {
+        const desk = mode === "mobile" ? null : w.t === "flood" ? bd.querySelector(".hero-t") : bd.querySelector(`.t${w.t}`);
+        const phone = mode === "narrow" ? null : w.t === "flood" ? scr.querySelector(".hero-p") : scr.querySelector(`.p${w.t}`);
+        const targets = [desk, phone].filter(Boolean) as Element[];
+        const pts = targets.map(centre);
+        const apex = { x: (mode === "mobile" ? 420 : 610) - fw / 2, y: 4 };
+        await step(g, flyTo(fly, from, apex, null, 720, { s1: 1.12, o1: 1 }));
+        const flyers = [fly];
+        for (let t = 1; t < pts.length; t++) { const c = fly.cloneNode(true) as HTMLElement; st.appendChild(c); flyers.push(c); }
+        await step(g, Promise.all(pts.map((p, t) => flyTo(flyers[t], apex, { x: p.x - fw / 2, y: p.y - fh / 2 },
+          t === 0 ? null : { x: (apex.x + p.x) / 2 + 60, y: 40 }, t === 0 ? 650 : 820, { s0: 1.12, sm: 1.0, s1: 0.5 }))));
+        flyers.forEach((f) => f.remove());
+        pts.forEach((p) => ripple(p.x, p.y));
+        if (w.t === "flood") {
+          targets.forEach((tg, t) => {
+            const host = tg.closest(".bd, .scr") as HTMLElement;
+            const fl = host.querySelector<HTMLElement>(".flood")!;
+            const hr = rel(host);
+            fl.style.setProperty("--cx", `${pts[t].x - hr.x}px`);
+            fl.style.setProperty("--cy", `${pts[t].y - hr.y}px`);
+          });
         }
-        msgs[i].querySelector(".react")?.classList.add("on");
-        await wait(g, 800);
+        ms.push(`m${i + 1}`);
+        setCls(ms.join(" "));
+        k.querySelectorAll<HTMLElement>(`.f${i + 1} .cnt`).forEach((c) =>
+          countUp(c, Number(c.dataset.dur) || (c.dataset.fmt ? 1800 : 1500), COUNT_DELAY[i + 1] ?? 900));
+        bump(nb, ++built);
+      } else {
+        // the one they didn't need: it sets off, is crossed out and falls away
+        const stop = mode === "mobile" ? { x: 120, y: 470 } : { x: 318, y: 430 };
+        await step(g, flyTo(fly, from, stop, null, 700, { s1: 1, o1: 1 }));
+        fly.classList.add("struck");
+        await wait(g, 650);
+        await step(g, anim(fly, [
+          { transform: `translate(${stop.x}px, ${stop.y}px)`, opacity: 1 },
+          { transform: `translate(${stop.x + 14}px, ${stop.y + 110}px) rotate(18deg)`, opacity: 0 },
+        ], { duration: 750, easing: "cubic-bezier(.55,0,1,.45)" }));
+        fly.remove();
+        bump(nd, ++dropped);
       }
-      msgs.forEach((m) => m.classList.add("past"));
-      setCls(`${ms.join(" ")} done`);
-      await wait(g, 5600);
-      setCls(`${ms.join(" ")} done out`);
-      await wait(g, 600);
+      msgs[i].querySelector(".react")?.classList.add("on");
+      await wait(g, 800);
     }
+    msgs.forEach((m) => m.classList.add("past"));
+    setCls(`${ms.join(" ")} done`);
+    finished = true;
+    sync();
   };
 
   const sync = () => {
@@ -249,10 +248,11 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
       k.classList.toggle("is-paused", p);
     }
     if (pauseBtn) {
-      pauseBtn.dataset.state = userPaused ? "paused" : "playing";
+      pauseBtn.dataset.state = finished || userPaused ? "paused" : "playing";
       const lbl = pauseBtn.querySelector(".lbl");
-      if (lbl) lbl.textContent = userPaused ? "Spill av" : "Pause";
-      pauseBtn.setAttribute("aria-label", userPaused ? "Spill av animasjonen" : "Pause animasjonen");
+      const text = finished ? "Spill av igjen" : userPaused ? "Spill av" : "Pause";
+      if (lbl) lbl.textContent = text;
+      pauseBtn.setAttribute("aria-label", finished ? "Spill av animasjonen igjen" : `${text} animasjonen`);
     }
     if (!paused && !started && !reduce) {
       started = true;
@@ -269,7 +269,15 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
   io.observe(fit);
   const onVis = () => sync();
   document.addEventListener("visibilitychange", onVis);
-  const onPause = () => { userPaused = !userPaused; sync(); };
+  const onPause = () => {
+    if (finished) {
+      finished = false;
+      userPaused = false;
+      started = false;
+      gen++;
+    } else userPaused = !userPaused;
+    sync();
+  };
   pauseBtn?.addEventListener("click", onPause);
   if (reduce && pauseBtn) pauseBtn.hidden = true;
 

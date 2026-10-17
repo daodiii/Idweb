@@ -11,6 +11,8 @@ import { FaqList } from "@/components/klar/faq-list";
 import { CtaCard } from "@/components/klar/cta-card";
 import { Tick } from "@/components/klar/tick";
 
+const REPLACED = new Set(["nettside", "nettbutikk", "seo", "vedlikehold"]);
+
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -23,7 +25,8 @@ const BREAKPOINTS = [
 ];
 
 export async function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.id }));
+  // The seven A · Klar service pages have their own routes (nettside, nettbutikk, seo, vedlikehold among them).
+  return SERVICES.filter((s) => !REPLACED.has(s.id)).map((s) => ({ slug: s.id }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {

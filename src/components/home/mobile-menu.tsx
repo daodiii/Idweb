@@ -3,9 +3,15 @@
 import { useEffect, useId, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavLink } from "@/components/layout/navbar";
 
-/** Below 820 px the header links fold into this disclosure panel. Closes on navigation, Escape and link clicks. */
+export interface NavLink {
+  href: string;
+  label: string;
+  /** Sub-pages, shown in a dropdown on desktop and indented under the link in the phone menu. */
+  children?: readonly NavLink[];
+}
+
+/** Below 820 px the header links fold into this panel. Closes on a link click, Escape, a hash jump or navigation. */
 export function MobileMenu({ links }: { links: readonly NavLink[] }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -20,11 +26,16 @@ export function MobileMenu({ links }: { links: readonly NavLink[] }) {
 
   useEffect(() => {
     if (!open) return;
+    const close = () => setOpen(false);
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") close();
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("hashchange", close);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("hashchange", close);
+    };
   }, [open]);
 
   return (
@@ -44,13 +55,17 @@ export function MobileMenu({ links }: { links: readonly NavLink[] }) {
       <nav id={panelId} className="menupanel" aria-label="Meny" hidden={!open}>
         <div className="wrap">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
-              {l.label}
-            </Link>
+            <div key={l.href} className="menuitem">
+              <Link href={l.href} onClick={() => setOpen(false)}>
+                {l.label}
+              </Link>
+              {l.children?.map((c) => (
+                <Link key={c.href} href={c.href} className="sub" onClick={() => setOpen(false)}>
+                  {c.label}
+                </Link>
+              ))}
+            </div>
           ))}
-          <Link href="/kontakt" className="btn" onClick={() => setOpen(false)}>
-            Book en gratis prat
-          </Link>
         </div>
       </nav>
     </>

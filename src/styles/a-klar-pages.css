@@ -233,3 +233,8 @@
   .ka .art-head h1,.ka .phead h1,.ka .prose h2{hyphens:auto}
   .ka .art-cover{aspect-ratio:16/10;margin-top:32px}
 }
+
+/* Anchored sections (e.g. /referanser#<project>) stop below the sticky header. */
+.ka .sec[id] {
+  scroll-margin-top: 96px;
+}

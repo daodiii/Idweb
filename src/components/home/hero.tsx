@@ -6,7 +6,7 @@ import { HERO_STAGE_HTML } from "@/components/home/markup/hero-stage";
 import { startHero } from "@/lib/home/hero-engine";
 
 /**
- * Hero: centred promise, then a wide stage where a client's text messages become features of their site,
+ * Hero: the promise on one line, then a wide stage where a client's text messages become features of their site,
  * on desktop and mobile at once. The stage is decorative (aria-hidden); the message is in the heading and lede.
  */
 export function Hero() {
@@ -23,26 +23,28 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-h">
       <div className="wrap">
         <div className="hero-head">
-          <h1 id="hero-h">Fortell oss hva dere trenger. Vi bygger nettsiden rundt det.</h1>
-          <p className="lede">
-            Hvert ønske blir en del av siden, på pc og mobil. Det dere ikke trenger, lar vi være, så siden blir enklere å
-            bruke og rimeligere å lage.
-          </p>
-          <div className="actions">
-            <Link className="btn" href="/#kontakt">
-              Book en gratis prat
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </Link>
-            <Link className="link" href="/referanser">
-              Se prosjektene
-            </Link>
-          </div>
-          <div className="trust">
-            <span>Fastpris før vi starter</span>
-            <span>Ingen bindingstid</span>
-            <span>Du snakker med den som bygger</span>
+          <h1 id="hero-h">Dere forteller. Vi bygger.</h1>
+          <div className="hero-side">
+            <p className="lede">
+              Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. Bare det dere faktisk skal
+              bruke.
+            </p>
+            <div className="actions">
+              <Link className="btn book" href="/#kontakt">
+                Book en gratis prat
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </Link>
+              <Link className="link" href="/referanser">
+                Se prosjektene
+              </Link>
+            </div>
+            <div className="trust">
+              <span>Fastpris før vi starter</span>
+              <span>Ingen bindingstid</span>
+              <span>Du snakker med den som bygger</span>
+            </div>
           </div>
         </div>
         <div className="hx" ref={stageRef} dangerouslySetInnerHTML={{ __html: HERO_STAGE_HTML }} />

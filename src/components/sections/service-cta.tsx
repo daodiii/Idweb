@@ -66,7 +66,7 @@ export function ServiceCta() {
           <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-7">
             <Link
               href="/kontakt"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0a0a] px-7 py-4 text-sm font-bold text-[#fafaf9] shadow-[0_10px_30px_-12px_rgba(10,10,10,0.55)] transition-[transform,background-color] duration-150 hover:bg-[#1a1a1a] active:scale-[0.97]"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#F9A04F] px-7 py-4 text-sm font-bold text-[#0a0a0a] shadow-[0_10px_30px_-12px_rgba(245,143,53,0.6)] transition-[transform,background-color] duration-150 hover:bg-[#F58F35] active:scale-[0.97]"
               style={{ transitionTimingFunction: EASE_STR }}
             >
               Book en gratis samtale

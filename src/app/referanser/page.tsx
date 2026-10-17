@@ -41,7 +41,7 @@ export default function ReferanserPage() {
         const showcase = site?.images.showcase ?? [];
         const name = site?.name ?? project.client;
         return (
-          <section key={project.id} className={`sec${index % 2 ? " alt" : ""}`} aria-labelledby={`p-${project.id}`}>
+          <section key={project.id} id={project.id} className={`sec${index % 2 ? " alt" : ""}`} aria-labelledby={`p-${project.id}`}>
             <div className="wrap">
               <div className={`proj${index % 2 ? " flip" : ""}`}>
                 {heroImage && (

@@ -1,0 +1,316 @@
+/* generated from the approved timebestilling draft: scoped to .svc-timebestilling */
+.svc-timebestilling{container-type:inline-size;overflow-x:clip}
+
+/* Mock of idweb.no/tjenester/timebestilling in the homepage's own system (A · Klar): white and light-grey bands,
+   74px Mona Sans hero, 46px section headings, rounded cards with a hairline and soft shadow, pill buttons,
+   live demos with a pause button and a caption. Step titles, e-mail subjects and portal labels are taken from
+   the booking module on the portal's main branch; the clinic, its prices and its customers are made up. */
+.svc-timebestilling{
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --ink:#14161B;
+  --muted:#4A505B;
+  --soft:#5A606C;
+  --line:#E6E8EC;
+  --line-strong:#D9DCE2;
+  --surface:#F6F7F9;
+  --tint:#EEF2FD;
+  --cobalt:#2447D6;
+  --navy:#1E2A6E;
+  --orange:#F2892B;
+  --orange-tint:#FCEBDB;
+  --orange-ink:#B4560A;
+  --shadow:0 1px 2px rgba(20,22,27,.06),0 18px 40px -18px rgba(30,42,110,.32);
+  --lift:0 2px 6px rgba(20,22,27,.08),0 28px 60px -20px rgba(20,22,27,.45);
+  --font:var(--font-schibsted),"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mona:var(--font-mona),"Mona Sans",var(--font-schibsted),"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --out:cubic-bezier(.23,1,.32,1);
+  --io:cubic-bezier(.77,0,.175,1);
+  --top:58px;
+}
+.svc-timebestilling *{box-sizing:border-box}
+.svc-timebestilling,.svc-timebestilling{background:var(--surface)}
+.svc-timebestilling{color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased;padding-inline:16px;padding-block:0 48px}
+.svc-timebestilling button{font:inherit;color:inherit;cursor:pointer}
+.svc-timebestilling a{color:inherit;text-decoration:none}
+.svc-timebestilling h1,.svc-timebestilling h2,.svc-timebestilling h3,.svc-timebestilling h4,.svc-timebestilling h5,.svc-timebestilling h6,.svc-timebestilling p,.svc-timebestilling ul,.svc-timebestilling ol,.svc-timebestilling dl,.svc-timebestilling dd,.svc-timebestilling figure{margin:0}
+.svc-timebestilling ul,.svc-timebestilling ol{list-style:none;padding:0}
+.svc-timebestilling img{display:block;max-width:100%;height:auto}
+.svc-timebestilling :focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+
+/* ---------- mock chrome ---------- */
+.svc-timebestilling .seg{flex:none;display:flex;padding:3px;border-radius:999px;background:#E3E6EC;margin-left:auto}
+.svc-timebestilling .seg button{all:unset;box-sizing:border-box;height:32px;padding:0 12px;border-radius:999px;font-size:14px;font-weight:600;color:var(--soft);cursor:pointer}
+.svc-timebestilling .seg button[aria-pressed=true]{background:var(--bg);color:var(--ink)}
+.svc-timebestilling .seg button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.svc-timebestilling .note{max-width:1440px;margin:6px auto 0;font-size:14px;color:var(--soft)}
+.svc-timebestilling .note strong{color:var(--ink);font-weight:600}
+.svc-timebestilling{container-type:inline-size;background:var(--bg)}
+
+/* ---------- the homepage's furniture ---------- */
+.svc-timebestilling .wrap{max-width:1200px;margin-inline:auto;padding-inline:32px}
+@container (max-width:600px){.svc-timebestilling .wrap{padding-inline:16px}}
+.svc-timebestilling .sec{padding-block:clamp(88px,9cqi,128px)}
+.svc-timebestilling .band{background:var(--surface)}
+.svc-timebestilling h1,.svc-timebestilling h2,.svc-timebestilling h3{letter-spacing:-.03em;line-height:1.06;text-wrap:balance}
+.svc-timebestilling .h1{font:700 clamp(38px,5.4cqi,74px)/1.02 var(--mona);letter-spacing:-.028em;max-width:18ch}
+.svc-timebestilling .h2{font-size:clamp(32px,3.6cqi,46px);font-weight:700}
+.svc-timebestilling .lede{color:var(--muted);font-size:clamp(17px,1.3cqi,18.5px);max-width:54ch;text-wrap:pretty}
+.svc-timebestilling .sec-h{display:flex;flex-direction:column;gap:16px}
+.svc-timebestilling .sec-h.row{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:16px 48px;flex-wrap:wrap}
+.svc-timebestilling .sec-h.row .h2{max-width:18ch}
+.svc-timebestilling .sec-h.row .lede{max-width:48ch}
+.svc-timebestilling .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;background:var(--cobalt);color:#fff;font-weight:600;font-size:16px;border:0;white-space:nowrap;transition:transform 160ms var(--out),background-color 200ms}
+.svc-timebestilling .btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .btn:hover{background:#1D3BBA}.svc-timebestilling .btn:hover svg{transform:translateX(3px)}}
+.svc-timebestilling .btn svg{transition:transform 260ms var(--out)}
+.svc-timebestilling .btn.dark{height:42px;padding:0 20px;background:var(--ink);font-size:15px}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .btn.dark:hover{background:#2A2D35}}
+.svc-timebestilling .link{font-weight:600;border-bottom:1.5px solid var(--ink);padding-bottom:1px;transition:color 160ms,border-color 160ms}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .link:hover{color:var(--cobalt);border-color:var(--cobalt)}}
+.svc-timebestilling .caption{margin-top:14px;font-size:13px;color:var(--soft)}
+.svc-timebestilling .card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.svc-timebestilling .card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.svc-timebestilling .tag{font:600 12px/1 var(--font);padding:5px 9px;border-radius:999px;background:var(--surface);color:var(--muted);flex:none}
+.svc-timebestilling .stage{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px}
+.svc-timebestilling .stage-dots::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(rgba(17,19,24,.08) 1px,transparent 1.2px);background-size:18px 18px;pointer-events:none}
+.svc-timebestilling .pause{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font:500 13px/1 var(--font);color:var(--ink);cursor:pointer;transition:transform 160ms var(--out),background-color 160ms}
+.svc-timebestilling .pause:active{transform:scale(.97)}
+.svc-timebestilling .pause:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.svc-timebestilling .pause svg{width:12px;height:12px;fill:currentColor}
+.svc-timebestilling .pause .ip{display:none}
+.svc-timebestilling .pause[data-state=paused] .ip{display:block}
+.svc-timebestilling .pause[data-state=paused] .ia{display:none}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .pause:hover{background:var(--surface)}}
+.svc-timebestilling .ctrl{display:flex;justify-content:center;align-items:center;gap:12px 16px;margin-top:14px;flex-wrap:wrap}
+.svc-timebestilling .ctrl .caption{margin:0;text-align:center;max-width:80ch}
+.svc-timebestilling .chips{display:flex;flex-wrap:wrap;gap:8px}
+.svc-timebestilling .chips button{all:unset;cursor:pointer;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-size:15px;font-weight:600;transition:background-color 200ms,color 200ms,border-color 200ms,transform 160ms var(--out)}
+.svc-timebestilling .chips button:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .chips button:hover{border-color:var(--ink)}}
+.svc-timebestilling .chips button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.svc-timebestilling .chips button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* header and footer, as on the homepage */
+.svc-timebestilling .top{position:relative;z-index:10;border-bottom:1px solid var(--line);background:var(--bg)}
+.svc-timebestilling .top .wrap{height:72px;display:flex;align-items:center;gap:32px}
+.svc-timebestilling .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em;margin-right:auto}
+.svc-timebestilling .logo img{width:36px;height:auto}
+.svc-timebestilling .navlinks{display:flex;gap:28px;font-size:15px;color:#3B404A}
+.svc-timebestilling .navlinks a[aria-current]{color:var(--ink);font-weight:600}
+@container (max-width:820px){.svc-timebestilling .navlinks{display:none}}
+@container (max-width:420px){.svc-timebestilling .top .btn.dark{padding:0 14px;font-size:14px}.svc-timebestilling .top .wrap{gap:12px}}
+.svc-timebestilling .crumbs{display:flex;gap:8px;font-size:14px;color:var(--soft);margin-bottom:28px}
+.svc-timebestilling .crumbs a{color:var(--muted)}
+.svc-timebestilling .foot{border-top:1px solid var(--line);padding-block:56px 32px}
+.svc-timebestilling .foot-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.svc-timebestilling .foot-g>div{display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--muted)}
+.svc-timebestilling .foot-g b{color:var(--ink);font-size:14px}
+.svc-timebestilling .foot-g [aria-current]{color:var(--ink);font-weight:600}
+.svc-timebestilling .foot-g .brand b{font-size:20px;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+.svc-timebestilling .foot-g .brand img{width:30px}
+.svc-timebestilling .legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--soft)}
+@container (max-width:760px){.svc-timebestilling .foot-g{grid-template-columns:1fr 1fr}.svc-timebestilling .foot-g .brand{grid-column:1/-1}}
+.svc-timebestilling .cta{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(32px,5cqi,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end}
+.svc-timebestilling .cta h2{font-size:clamp(32px,3.6cqi,46px);font-weight:700}
+.svc-timebestilling .cta p{color:#C3C8D2;font-size:17px;margin-top:14px;max-width:44ch}
+.svc-timebestilling .cta .reach{display:flex;flex-direction:column;gap:6px;margin-top:22px;font-size:16px}
+.svc-timebestilling .cta .reach span{color:#9AA1B2}
+.svc-timebestilling .cta .act{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+@container (max-width:760px){.svc-timebestilling .cta{grid-template-columns:1fr}}
+.svc-timebestilling .faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:48px}
+.svc-timebestilling .faq details{border-bottom:1px solid var(--line)}
+.svc-timebestilling .faq details:first-child{border-top:1px solid var(--line)}
+.svc-timebestilling .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.svc-timebestilling .faq summary::-webkit-details-marker{display:none}
+.svc-timebestilling .faq summary i{position:relative;flex:none;width:14px;height:14px}
+.svc-timebestilling .faq summary i::before,.svc-timebestilling .faq summary i::after{content:"";position:absolute;left:0;top:6px;width:14px;height:2px;border-radius:2px;background:currentColor;transition:transform 260ms var(--out)}
+.svc-timebestilling .faq summary i::after{transform:rotate(90deg)}
+.svc-timebestilling .faq details[open] summary i::after{transform:rotate(0)}
+.svc-timebestilling .faq details p{padding:0 0 22px;color:var(--muted);max-width:60ch}
+@container (max-width:760px){.svc-timebestilling .faq{grid-template-columns:1fr;gap:24px}}
+
+
+/* ---------- the booking widget, in the made-up clinic's colours (data-ui) ---------- */
+.svc-timebestilling .bk{--c:#B5472E;--c-ink:#fff;--c-tint:#FBEDE8;position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-family:var(--font)}
+.svc-timebestilling .bk-site{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:#2B1A16;color:#F6E7DF}
+.svc-timebestilling .bk-site b{font:600 19px/1 var(--font-fraunces),Fraunces,Georgia,serif;letter-spacing:-.01em}
+.svc-timebestilling .bk-site span{font-size:13px;opacity:.8}
+.svc-timebestilling .bk-in{position:relative;padding:20px 20px 22px;min-height:470px}
+.svc-timebestilling .bk-in h4{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.svc-timebestilling .bk-sub{margin-top:3px;font-size:14px;color:var(--soft)}
+.svc-timebestilling .bk-back{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.svc-timebestilling .bk-back:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.svc-timebestilling .bk-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.svc-timebestilling .bk-opt{all:unset;cursor:pointer;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;padding:10px 16px;border-radius:12px;border:1.5px solid var(--line-strong);transition:border-color 180ms,background-color 180ms,transform 160ms var(--out)}
+.svc-timebestilling .bk-opt b{display:block;font-size:15.5px;font-weight:650}
+.svc-timebestilling .bk-opt small{display:block;font-size:13px;color:var(--soft)}
+.svc-timebestilling .bk-opt em{font-style:normal;font-size:14px;font-weight:650;white-space:nowrap}
+.svc-timebestilling .bk-opt:active,.svc-timebestilling .bk-opt.tap{transform:scale(.98)}
+.svc-timebestilling .bk-opt.tap,.svc-timebestilling .bk-opt[aria-pressed=true]{border-color:var(--c);background:var(--c-tint)}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .bk-opt:hover{border-color:var(--c)}}
+.svc-timebestilling .bk-opt:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.svc-timebestilling .bk-times{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.svc-timebestilling .bk-times .bk-opt{justify-content:center;min-height:46px;font-weight:650;font-variant-numeric:tabular-nums}
+.svc-timebestilling .bk-sum{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--c-tint);font-size:14px}
+.svc-timebestilling .bk-sum b{font-weight:650}
+.svc-timebestilling .bk-f{margin-top:12px;display:flex;flex-direction:column;gap:4px}
+.svc-timebestilling .bk-f label{font-size:13px;font-weight:600;color:var(--muted)}
+.svc-timebestilling .bk-f input[type=text],.svc-timebestilling .bk-f input[type=tel],.svc-timebestilling .bk-f input[type=email]{height:42px;padding:0 12px;border:1px solid var(--line-strong);border-radius:10px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.svc-timebestilling .bk-f input:focus{outline:2px solid var(--c);outline-offset:0;border-color:transparent}
+.svc-timebestilling .bk-chk{margin-top:12px;display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
+.svc-timebestilling .bk-chk input{margin-top:2px;width:17px;height:17px;accent-color:var(--c)}
+.svc-timebestilling .bk-pv{margin-top:10px;font-size:12.5px;color:var(--soft)}
+.svc-timebestilling .bk-pv u{color:var(--ink)}
+.svc-timebestilling .bk-err{min-height:18px;margin-top:8px;font-size:13px;color:#A12A14}
+.svc-timebestilling .bk-send{all:unset;cursor:pointer;box-sizing:border-box;width:100%;height:48px;margin-top:6px;border-radius:999px;background:var(--c);color:var(--c-ink);text-align:center;font-size:15.5px;font-weight:650;transition:transform 160ms var(--out),filter 160ms}
+.svc-timebestilling .bk-send:active,.svc-timebestilling .bk-send.tap{transform:scale(.98);filter:brightness(.92)}
+.svc-timebestilling .bk-send:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.svc-timebestilling .bk-ok{display:flex;gap:14px;align-items:flex-start}
+.svc-timebestilling .bk-ok i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--c);display:grid;place-items:center;animation:timebestilling-pop 520ms var(--out) both}
+@keyframes timebestilling-pop{from{transform:scale(.4);opacity:0}}
+.svc-timebestilling .bk-ok p{margin-top:4px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.svc-timebestilling .bk-dl{margin-top:16px;border-radius:12px;background:var(--surface);padding:4px 14px}
+.svc-timebestilling .bk-dl div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.svc-timebestilling .bk-dl div:last-child{border-bottom:0}
+.svc-timebestilling .bk-dl dt{color:var(--soft)}
+.svc-timebestilling .bk-dl dd{font-weight:600;text-align:right}
+.svc-timebestilling .bk-step{animation:timebestilling-stepIn 380ms var(--out) both}
+@keyframes timebestilling-stepIn{from{opacity:0;transform:translateX(14px)}}
+.svc-timebestilling .bk-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- hero ---------- */
+.svc-timebestilling .hero{padding-block:clamp(48px,6cqi,88px) clamp(64px,7cqi,104px)}
+.svc-timebestilling .hero-row{margin-top:32px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:end}
+.svc-timebestilling .trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:15px}
+.svc-timebestilling .trust span{display:inline-flex;align-items:center;gap:8px}
+.svc-timebestilling .acts{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+@container (max-width:900px){.svc-timebestilling .hero-row{grid-template-columns:1fr}}
+.svc-timebestilling .hs{margin-top:48px;padding:clamp(14px,2.4cqi,32px)}
+.svc-timebestilling .hs-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(14px,2.4cqi,32px);align-items:start}
+.svc-timebestilling .hs-g>*{min-width:0}
+.svc-timebestilling .after{display:flex;flex-direction:column;gap:12px}
+.svc-timebestilling .after>p{font-size:14px;font-weight:600;color:var(--soft)}
+.svc-timebestilling .ev{opacity:.28;transform:translateY(6px);transition:opacity 500ms,transform 600ms var(--out)}
+.svc-timebestilling .ev.on{opacity:1;transform:none}
+.svc-timebestilling .mail{padding:14px 16px}
+.svc-timebestilling .mail small{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--soft)}
+.svc-timebestilling .mail b{display:block;margin-top:3px;font-size:15px;line-height:1.35}
+.svc-timebestilling .mail p{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.45}
+.svc-timebestilling .ics{display:inline-flex;align-items:center;gap:8px;margin-top:10px;height:32px;padding:0 12px;border-radius:9px;background:var(--surface);font-size:13px;font-weight:600}
+.svc-timebestilling .prow{padding:14px 16px}
+.svc-timebestilling .prow small{font-size:12.5px;color:var(--soft)}
+.svc-timebestilling .prow div{display:flex;justify-content:space-between;gap:12px;margin-top:4px;font-size:15px}
+.svc-timebestilling .prow div b{font-weight:650}
+.svc-timebestilling .prow div span{font-size:14px;color:var(--muted)}
+.svc-timebestilling .prow u{display:inline-block;margin-top:6px;font-size:13.5px}
+.svc-timebestilling .you{display:none;margin-top:10px;font-size:13.5px;color:var(--cobalt);font-weight:600}
+.svc-timebestilling .you.on{display:block}
+@container (max-width:900px){.svc-timebestilling .hs-g{grid-template-columns:1fr}}
+
+/* ---------- after the booking: a rail of moments, two inboxes and the opened e-mail ---------- */
+.svc-timebestilling .ml{margin-top:48px;padding:clamp(14px,2.4cqi,32px)}
+.svc-timebestilling .rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding-top:4px}
+.svc-timebestilling .rail::before{content:"";position:absolute;left:12px;right:12px;top:15px;height:3px;border-radius:3px;background:var(--line-strong)}
+.svc-timebestilling .rail-fill{position:absolute;left:12px;top:15px;height:3px;border-radius:3px;background:var(--cobalt);width:0;transition:width 700ms var(--io)}
+.svc-timebestilling .stop{all:unset;cursor:pointer;position:relative;display:flex;flex-direction:column;gap:6px;padding-top:30px;font-size:13px;color:var(--soft);transition:color 300ms}
+.svc-timebestilling .stop::before{content:"";position:absolute;left:4px;top:7px;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px var(--line-strong);transition:box-shadow 300ms,transform 300ms var(--out)}
+.svc-timebestilling .stop b{font-size:15px;font-weight:650;color:var(--muted)}
+.svc-timebestilling .stop.past::before{box-shadow:inset 0 0 0 10px var(--cobalt)}
+.svc-timebestilling .stop.on::before{box-shadow:inset 0 0 0 10px var(--cobalt),0 0 0 6px rgba(36,71,214,.18);transform:scale(1.1)}
+.svc-timebestilling .stop.on b,.svc-timebestilling .stop.past b{color:var(--ink)}
+.svc-timebestilling .stop:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px;border-radius:6px}
+.svc-timebestilling .ml-g{margin-top:28px;display:grid;grid-template-columns:250px minmax(0,1fr) 270px;gap:clamp(14px,2cqi,24px);align-items:start}
+.svc-timebestilling .ml-g>*{min-width:0}
+.svc-timebestilling .dev-l{display:block;margin-bottom:10px;font-size:13px;font-weight:650;color:var(--soft)}
+/* the customer's phone */
+.svc-timebestilling .ph{position:relative;aspect-ratio:9/17.5;border-radius:34px;background:#14161B;padding:9px;box-shadow:var(--shadow)}
+.svc-timebestilling .ph-s{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1E2A6E;color:#fff;padding:16px 12px;display:flex;flex-direction:column;gap:8px}
+.svc-timebestilling .ph-s::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 20% 0%,#3D5BE0 0%,transparent 60%),radial-gradient(90% 60% at 100% 100%,#F2892B 0%,transparent 55%);opacity:.55}
+.svc-timebestilling .ph-s>*{position:relative}
+.svc-timebestilling .ph-t{text-align:center;font:600 13px/1 var(--font);opacity:.85}
+.svc-timebestilling .ph-c{text-align:center;font:700 44px/1 var(--mona);letter-spacing:-.03em;margin:4px 0 6px;font-variant-numeric:tabular-nums}
+.svc-timebestilling .nt{padding:9px 11px;border-radius:14px;background:rgba(255,255,255,.88);color:var(--ink);font-size:12px;line-height:1.35;animation:timebestilling-ntIn 520ms var(--out) both}
+.svc-timebestilling .nt small{display:flex;justify-content:space-between;font-size:10.5px;color:var(--soft)}
+.svc-timebestilling .nt b{display:block;margin-top:1px;font-size:12px}
+.svc-timebestilling .nt>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.svc-timebestilling .nt small span{white-space:nowrap}
+.svc-timebestilling .nt.calw{background:#fff}
+.svc-timebestilling .nt.calw b::before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:2px;background:#B5472E}
+.svc-timebestilling .nt.old{opacity:.7}
+@keyframes timebestilling-ntIn{from{opacity:0;transform:translateY(-12px) scale(.97)}}
+/* the opened e-mail */
+.svc-timebestilling .em{overflow:hidden}
+.svc-timebestilling .em-h{padding:14px 18px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.svc-timebestilling .em-h dt{color:var(--soft)}
+.svc-timebestilling .em-h dd{color:var(--ink);overflow-wrap:anywhere}
+.svc-timebestilling .em-h dd.subj{font-weight:700}
+.svc-timebestilling .em-b{padding:18px 20px 20px;font-size:15px;line-height:1.55}
+.svc-timebestilling .em-b h4{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.svc-timebestilling .em-b p{white-space:pre-line}
+.svc-timebestilling .em-b p+p{margin-top:12px}
+.svc-timebestilling .em-b .det{display:block;padding:10px 14px;border-radius:12px;background:var(--surface);font-weight:600}
+.svc-timebestilling .em-b .att{display:inline-flex;align-items:center;gap:8px;margin-top:14px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line-strong);font-size:13.5px;font-weight:600}
+.svc-timebestilling .em-b .lnk{color:var(--cobalt);text-decoration:underline;text-underline-offset:3px}
+.svc-timebestilling .em-f{padding:12px 20px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--soft)}
+.svc-timebestilling .em-why{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:13.5px;color:var(--muted)}
+.svc-timebestilling .em-why i{flex:none;margin-top:5px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.svc-timebestilling .em-in{animation:timebestilling-emIn 460ms var(--out) both}
+@keyframes timebestilling-emIn{from{opacity:0;transform:translateY(10px)}}
+/* the clinic's inbox */
+.svc-timebestilling .ci-list li{padding:12px 16px;border-bottom:1px solid #F0F1F4;font-size:13.5px}
+.svc-timebestilling .ci-list li:last-child{border-bottom:0}
+.svc-timebestilling .ci-list li b{display:block;font-size:14px}
+.svc-timebestilling .ci-list li span{display:block;color:var(--soft);font-size:12.5px}
+.svc-timebestilling .ci-list li.new{animation:timebestilling-ntIn 520ms var(--out) both;background:var(--tint)}
+.svc-timebestilling .ci-empty{padding:16px;font-size:13.5px;color:var(--soft)}
+@container (max-width:1080px){.svc-timebestilling .ml-g{grid-template-columns:230px minmax(0,1fr)}.svc-timebestilling .ci{grid-column:1/-1}}
+@container (max-width:700px){.svc-timebestilling .ml-g{grid-template-columns:1fr}.svc-timebestilling .ph{max-width:240px;aspect-ratio:9/13;margin-inline:auto}.svc-timebestilling .rail{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.svc-timebestilling .rail::before,.svc-timebestilling .rail-fill{display:none}}
+
+/* ---------- you control the calendar ---------- */
+.svc-timebestilling .cal{margin-top:48px;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(16px,2.4cqi,32px);align-items:start}
+.svc-timebestilling .pb{padding:20px 22px}
+.svc-timebestilling .pb h4{font-size:17px;font-weight:700}
+.svc-timebestilling .pb>p{margin-top:2px;font-size:13.5px;color:var(--soft)}
+.svc-timebestilling .pb ul{margin-top:10px}
+.svc-timebestilling .pb li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.svc-timebestilling .pb li u{font-size:13.5px;color:var(--muted)}
+.svc-timebestilling .pb+.pb{border-top:1px solid var(--line)}
+.svc-timebestilling .sf{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.svc-timebestilling .sf label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--soft)}
+.svc-timebestilling .sf label.w{grid-column:1/-1}
+.svc-timebestilling .sf span.v{height:40px;padding:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--line-strong);border-radius:10px;font-size:14.5px;line-height:38px;color:var(--ink);background:#fff}
+.svc-timebestilling .stengbtn{all:unset;cursor:pointer;box-sizing:border-box;grid-column:1/-1;height:44px;border-radius:999px;background:var(--ink);color:#fff;text-align:center;font-size:15px;font-weight:650;transition:transform 160ms var(--out)}
+.svc-timebestilling .stengbtn:active{transform:scale(.98)}
+.svc-timebestilling .stengbtn:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.svc-timebestilling .stengbtn[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.svc-timebestilling .closed{display:none;margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--orange-tint);color:var(--orange-ink);font-size:14px;font-weight:600}
+.svc-timebestilling .closed.on{display:block}
+.svc-timebestilling .mini .bk-in{min-height:0}
+.svc-timebestilling .mini .bk-opt{transition:opacity 300ms,max-height 400ms var(--io),min-height 400ms var(--io),padding 400ms var(--io),margin 400ms var(--io),border-width 400ms;max-height:70px}
+.svc-timebestilling .mini .bk-opt.gone{opacity:0;max-height:0;min-height:0;padding-block:0;margin-top:-8px;border-width:0}
+@container (max-width:860px){.svc-timebestilling .cal{grid-template-columns:1fr}}
+@container (max-width:560px){.svc-timebestilling .sf{grid-template-columns:1fr}.svc-timebestilling .bk-in{min-height:380px}}
+
+/* ---------- honest ---------- */
+.svc-timebestilling .no{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5cqi,72px);align-items:start}
+.svc-timebestilling .no .lede{margin-top:16px}
+.svc-timebestilling .promise{margin-top:32px;padding:clamp(24px,3cqi,36px);border-radius:20px;background:var(--navy);color:#fff}
+.svc-timebestilling .promise p{font:600 clamp(20px,1.9cqi,24px)/1.35 var(--font);letter-spacing:-.01em;max-width:34ch}
+.svc-timebestilling .no-list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:14px;align-items:start;padding:16px 18px;border-bottom:1px solid var(--line)}
+.svc-timebestilling .no-list li:last-child{border-bottom:0}
+.svc-timebestilling .no-list li>i{position:relative;margin-top:2px;width:22px;height:22px;border-radius:50%;background:var(--orange-tint)}
+.svc-timebestilling .no-list li>i::before,.svc-timebestilling .no-list li>i::after{content:"";position:absolute;left:6px;top:10px;width:10px;height:2px;background:var(--orange-ink);transform:rotate(45deg)}
+.svc-timebestilling .no-list li>i::after{transform:rotate(-45deg)}
+.svc-timebestilling .no-list b{display:block;font-size:16px;font-weight:600}
+.svc-timebestilling .no-list small{display:block;margin-top:2px;font-size:14px;color:var(--soft)}
+@container (max-width:860px){.svc-timebestilling .no{grid-template-columns:1fr}}
+
+/* reveal on enter */
+.svc-timebestilling.js .rv>*{opacity:0;transform:translateY(18px);transition:opacity 600ms var(--out),transform 800ms var(--out);transition-delay:calc(var(--i,0)*70ms)}
+.svc-timebestilling.js .rv.in>*{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.svc-timebestilling.js .rv>*{opacity:1;transform:none;transition:none}.svc-timebestilling *,.svc-timebestilling *::before,.svc-timebestilling *::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}}
+
+/* booking buttons are orange across the site */
+.svc-timebestilling .btn.book{background:#F9A04F;color:#14161B}
+@media (hover:hover) and (pointer:fine){.svc-timebestilling .btn.book:hover{background:#F58F35}}
