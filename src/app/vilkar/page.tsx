@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageHead } from "@/components/klar/page-head";
 
 export const metadata: Metadata = {
   title: "Vilkår og betingelser",
@@ -164,7 +165,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     body: (
       <>
         <p>For spørsmål om vilkårene, ta kontakt med oss:</p>
-        <p className="mt-3">
+        <p>
           IDweb v/ Daod Ilyas
           <br />
           Org.nr: 837 228 972
@@ -172,7 +173,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
           E-post:{" "}
           <a
             href="mailto:hei@idweb.no"
-            className="underline decoration-[#F4CE14] decoration-2 underline-offset-4 transition-colors hover:decoration-[#FFE15D]"
+           
           >
             hei@idweb.no
           </a>
@@ -180,7 +181,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
           Telefon:{" "}
           <a
             href="tel:+4798406164"
-            className="underline decoration-[#F4CE14] decoration-2 underline-offset-4 transition-colors hover:decoration-[#FFE15D]"
+           
           >
             +47 984 06 164
           </a>
@@ -192,85 +193,31 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
 
 export default function VilkarPage() {
   return (
-    <div className="bg-[var(--color-dark-bg)]">
-      {/* Editorial hero */}
-      <section className="relative overflow-hidden bg-[var(--color-dark-bg)] px-6 pt-28 pb-16 sm:pt-32 sm:pb-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 45% at 82% 22%, rgba(244,206,20,0.13), transparent 62%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
-            backgroundSize: "34px 34px",
-          }}
-        />
-
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-white/55">
-            <span aria-hidden className="inline-block h-px w-8 bg-[#F4CE14]/70" />
-            Vilkår
-          </p>
-
-          <h1 className="mt-7 font-serif text-white">
-            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
-              Vilkår for
-            </span>
-            <span className="block text-[clamp(2.75rem,8vw,6rem)] font-black leading-[0.92] tracking-[-0.035em]">
-              våre{" "}
-              <span className="relative inline-block">
-                tjenester
-                <span
-                  aria-hidden
-                  className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#F4CE14]"
-                />
-              </span>
-              .
-            </span>
-            <span className="block text-[clamp(2rem,4.5vw,3.5rem)] font-extralight leading-[1.05] tracking-[-0.01em] text-white/85">
-              Det vi avtaler.
-            </span>
-          </h1>
-
-          <p className="mt-7 font-mono text-xs uppercase tracking-[0.22em] text-white/45">
-            Sist oppdatert · 1. januar 2026
-          </p>
-        </div>
-      </section>
-
-      {/* Legal body */}
-      <section className="relative bg-[var(--color-dark-bg)] px-6 pb-24">
-        <div className="mx-auto max-w-[72ch]">
+    <div className="ka">
+      <PageHead
+        solo
+        crumbs={[
+          { name: "Hjem", href: "/" },
+          { name: "Vilkår", href: "/vilkar" },
+        ]}
+        title="Vilkår for våre tjenester."
+        lede="Det vi avtaler. Sist oppdatert 1. januar 2026."
+      />
+      <div className="wrap">
+        <div className="prose terms">
           {SECTIONS.map((s) => (
-            <section
-              key={s.num}
-              className="mt-10 border-t border-white/[0.06] pt-10 pb-2 first:mt-0"
-            >
-              <div className="flex items-baseline gap-4">
-                <span
-                  aria-hidden
-                  className="font-mono text-xs uppercase tracking-[0.22em] text-[#F4CE14]/80"
-                >
+            <section key={s.num}>
+              <h2>
+                <span className="n" aria-hidden="true">
                   {s.num}
                 </span>
-                <h2 className="font-serif text-2xl font-black tracking-tight text-[var(--color-dark-text)] sm:text-3xl">
-                  {s.heading}
-                </h2>
-              </div>
-              <div className="mt-4 space-y-3 text-base leading-relaxed text-white/75">
-                {s.body}
-              </div>
+                {s.heading}
+              </h2>
+              {s.body}
             </section>
           ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 }
