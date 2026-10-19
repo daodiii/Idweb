@@ -6,8 +6,6 @@ import { NEED_OPTIONS } from "@/lib/home/contact";
 import { QuoteRequestEmail } from "@/lib/emails/quote-request-email";
 import { checkQuote, quoteFromForm, quoteRows, type QuoteErrors } from "@/lib/home/quote";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type ContactFormState = {
   success: boolean;
   message: string;
@@ -16,18 +14,20 @@ export type ContactFormState = {
 const MIN_FILL_TIME_MS = 3000;
 const SUCCESS_MESSAGE = "Takk for meldingen! Vi tar kontakt innen 24 timer.";
 
-// Spam phrase patterns common in form-spam (link injection, SEO/casino spam).
-// Matches case-insensitively. Reject silently — no need to tell spammers what tripped them.
-const SPAM_PATTERNS = [
-  /\bhttps?:\/\//i,                      // any URL in name/company fields
+// Only obvious bot payloads in the name field are silently discarded.
+const NAME_FIELD_SPAM = [/\bhttps?:\/\//i, /<\/?[a-z][^>]*>/i];
+
+// These can occur in real enquiries. Deliver them with a subject prefix.
+const SPAM_SIGNALS = [
   /\b(viagra|cialis|casino|crypto|bitcoin|forex|loan|seo services?)\b/i,
   /\bclick here\b/i,
-  /[а-яА-Я]/,                            // Cyrillic in a Norwegian site = spam
+  /[а-яА-Я]/,                            // Cyrillic
   /<\/?[a-z][^>]*>/i,                    // any HTML tags
 ];
 
-function looksLikeSpam(value: string): boolean {
-  return SPAM_PATTERNS.some((re) => re.test(value));
+function possibleSpam(company: string, ...values: string[]): boolean {
+  return /\bhttps?:\/\//i.test(company) ||
+    SPAM_SIGNALS.some((re) => re.test([company, ...values].join("\n")));
 }
 
 export async function sendContactEmail(
@@ -55,12 +55,7 @@ export async function sendContactEmail(
   const company = (formData.get("company") as string)?.trim() || undefined;
   const message = (formData.get("message") as string)?.trim();
 
-  // Spam content checks — silently accept on match
-  if (
-    looksLikeSpam(name ?? "") ||
-    looksLikeSpam(message ?? "") ||
-    looksLikeSpam(company ?? "")
-  ) {
+  if (NAME_FIELD_SPAM.some((re) => re.test(name ?? ""))) {
     return { success: true, message: SUCCESS_MESSAGE };
   }
 
@@ -104,11 +99,12 @@ export async function sendContactEmail(
   const body = needs.length ? `Trenger: ${needs.join(", ")}\n\n${message}` : message;
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: email,
-      subject: `Ny henvendelse fra ${name}`,
+      subject: `${possibleSpam(company ?? "", name, message) ? "[Mulig spam] " : ""}Ny henvendelse fra ${name}`,
       react: ContactFormEmail({ name, email, phone, company, message: body }),
     });
 
@@ -150,7 +146,7 @@ function looksLikeBot(formData: FormData): boolean {
 /**
  * The homepage quote request («Få et pristilbud»). The wizard collects what the visitor needs and who to send the
  * offer to; IDweb gets it as one e-mail and replies with a price offer. Same bot and spam handling as the contact
- * form. The website address is left out of the spam check, since an address is exactly what that field asks for.
+ * form. Website links in the request are allowed; softer spam signals only flag the e-mail subject.
  */
 export async function sendQuoteRequest(
   _prev: QuoteFormState,
@@ -159,7 +155,7 @@ export async function sendQuoteRequest(
   if (looksLikeBot(formData)) return { success: true, message: QUOTE_SUCCESS };
 
   const quote = quoteFromForm(formData);
-  if ([quote.name, quote.company, quote.industry, quote.message].some(looksLikeSpam)) {
+  if (NAME_FIELD_SPAM.some((re) => re.test(quote.name))) {
     return { success: true, message: QUOTE_SUCCESS };
   }
 
@@ -169,11 +165,12 @@ export async function sendQuoteRequest(
 
   const rows = quoteRows(quote, { contact: false });
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "IDweb Kontakt <kontakt@kontakt.idweb.no>",
       to: [process.env.CONTACT_EMAIL || "hei@idweb.no"],
       replyTo: quote.email,
-      subject: `Tilbudsforespørsel fra ${quote.company}`,
+      subject: `${possibleSpam(quote.company, quote.name, quote.industry, quote.message) ? "[Mulig spam] " : ""}Tilbudsforespørsel fra ${quote.company}`,
       react: QuoteRequestEmail({
         name: quote.name,
         company: quote.company,
