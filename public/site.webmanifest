@@ -4,17 +4,17 @@
   "description": "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
+  "background_color": "#FFFFFF",
   "theme_color": "#F4CE14",
   "lang": "nb",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/icons/icon-192x192.png?v=idweb-white",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/icons/icon-512x512.png?v=idweb-white",
       "sizes": "512x512",
       "type": "image/png"
     }
