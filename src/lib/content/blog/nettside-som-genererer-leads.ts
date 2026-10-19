@@ -9,7 +9,7 @@ export const nettsideSomGenerererLeads: BlogPost = {
     "Lag en nettside som genererer leads. 10 konkrete elementer bedriften din trenger for flere henvendelser, kunder og salg.",
   publishedDate: "2026-03-30",
   readingTime: "9 min",
-  category: "Markedsforing",
+  category: "Markedsføring",
   sections: [
     {
       paragraphs: [

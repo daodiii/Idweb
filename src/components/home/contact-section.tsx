@@ -4,7 +4,18 @@ import { useActionState, useEffect, useRef } from "react";
 import { sendContactEmail, type ContactFormState } from "@/app/actions/send-email";
 import { NEED_OPTIONS } from "@/lib/home/contact";
 
-export function ContactSection() {
+interface ContactSectionProps {
+  title?: string;
+  text?: string;
+  /** Small print under the contact details, e.g. the privacy notice on /kontakt. */
+  note?: React.ReactNode;
+}
+
+export function ContactSection({
+  title = "Book en gratis prat",
+  text = "Fortell kort hva dere trenger. Dere får et ærlig svar, også hvis svaret er at dere ikke trenger oss.",
+  note,
+}: ContactSectionProps) {
   const [state, formAction, isPending] = useActionState<ContactFormState, FormData>(sendContactEmail, null);
   // The server rejects submissions faster than 3 s after load (bots); the timestamp is set on mount.
   const loadedAt = useRef<HTMLInputElement>(null);
@@ -17,13 +28,14 @@ export function ContactSection() {
       <div className="wrap">
         <div className="g-contact">
           <div className="intro">
-            <h2 id="kontakt-h">Book en gratis prat</h2>
-            <p>Fortell kort hva dere trenger. Dere får et ærlig svar, også hvis svaret er at dere ikke trenger oss.</p>
+            <h2 id="kontakt-h">{title}</h2>
+            <p>{text}</p>
             <div className="reach">
               <a href="mailto:hei@idweb.no">hei@idweb.no</a>
               <a href="tel:+4798406164">+47 984 06 164</a>
               <span>Oslo · vi møter dere gjerne</span>
             </div>
+            {note && <p className="note">{note}</p>}
           </div>
 
           <form action={formAction} className="cform" aria-live="polite">
