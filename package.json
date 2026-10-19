@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:email": "node --test tools/test-email-actions.mjs"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.0.0",
