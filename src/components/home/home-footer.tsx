@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
+import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
 export function HomeFooter() {
   return (
@@ -45,6 +46,7 @@ export function HomeFooter() {
             <span>
               <Link href="/personvern">Personvern</Link>
               <Link href="/vilkar">Vilkår</Link>
+              <CookieSettingsButton className="cookie-btn" />
             </span>
           </div>
         </div>

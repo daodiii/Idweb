@@ -311,6 +311,7 @@
 .ka .qt-final{display:none;padding:16px 18px;border-radius:16px;background:var(--surface)}
 .ka .qt-final .qt-dl>div{animation:none}
 .ka .qt-fine{margin-top:auto;font-size:14.5px;color:var(--soft)}
+.ka .qt-fine a{color:var(--link);text-decoration:underline;text-underline-offset:3px}
 .ka .qt-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
 .ka .qt-back{font-weight:600;font-size:15px;padding:12px 6px;color:var(--muted);border-radius:8px}
 .ka .qt-back[aria-hidden=true]{visibility:hidden}
@@ -363,6 +364,10 @@
 @media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:#FCB677}}
 .ka .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--faint);border-top:1px solid var(--line);padding-top:24px}
 .ka .legal span{display:flex;gap:20px}
+/* «Informasjonskapsler» reopens the cookie choice; a button set like the links beside it */
+.ka .legal .cookie-btn{all:unset;cursor:pointer}
+.ka .legal .cookie-btn:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
+@media (hover:hover) and (pointer:fine){.ka .legal a:hover,.ka .legal .cookie-btn:hover{color:#FCB677}}
 
 @media (max-width:900px){
   .ka .g-foot{grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -7,6 +7,11 @@ const CONSENT_KEY = "idweb-cookie-consent";
 
 export type ConsentChoice = "all" | "necessary" | null;
 
+/** Opens the cookie choice again, e.g. from «Informasjonskapsler» in the footer, so a choice can be changed. */
+export function openCookieSettings() {
+  window.dispatchEvent(new Event("cookie-settings"));
+}
+
 /** Read consent from localStorage (returns null if no choice made yet). */
 export function getConsent(): ConsentChoice {
   if (typeof window === "undefined") return null;
@@ -21,13 +26,19 @@ export function CookieConsent() {
   const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
-    // Only show if no consent choice has been made
-    const consent = getConsent();
-    if (!consent) {
-      // Small delay so it doesn't flash on page load
-      const timer = setTimeout(() => setVisible(true), 1200);
-      return () => clearTimeout(timer);
+    function reopen() {
+      setExiting(false);
+      setVisible(true);
     }
+    window.addEventListener("cookie-settings", reopen);
+
+    // Only show on its own if no consent choice has been made
+    // Small delay so it doesn't flash on page load
+    const timer = getConsent() ? undefined : setTimeout(() => setVisible(true), 1200);
+    return () => {
+      window.removeEventListener("cookie-settings", reopen);
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleChoice = useCallback((choice: "all" | "necessary") => {
