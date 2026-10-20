@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PageHead } from "@/components/klar/page-head";
 import { SEO } from "@/lib/content/seo";
+import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
-export const metadata: Metadata = {
-  title: SEO.privacy.title,
-  description: SEO.privacy.description,
-  alternates: {
-    canonical: "/personvern",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.privacy.title, description: SEO.privacy.description, path: "/personvern" });
 
 const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
   {
@@ -20,12 +12,9 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     heading: "Hvem er behandlingsansvarlig?",
     body: (
       <p>
-        IDweb v/ Daod Ilyas (org.nr: 837 228 972) er behandlingsansvarlig for
-        personopplysninger som samles inn via denne nettsiden. Kontakt oss på{" "}
-        <a href="mailto:hei@idweb.no">
-          hei@idweb.no
-        </a>{" "}
-        dersom du har spørsmål om vår behandling av personopplysninger.
+        IDweb v/ Daod Ilyas (org.nr: 837 228 972) er behandlingsansvarlig for personopplysninger som samles inn via
+        denne nettsiden. Kontakt oss på <a href="mailto:hei@idweb.no">hei@idweb.no</a> dersom du har spørsmål om
+        hvordan vi behandler personopplysninger.
       </p>
     ),
   },
@@ -33,83 +22,100 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     num: "02",
     heading: "Hvilke opplysninger samler vi inn?",
     body: (
-      <>
-        <p>
-          Vi samler inn følgende opplysninger når du bruker nettsiden vår eller
-          tar kontakt med oss:
-        </p>
-        <ul>
-          <li>
-            Kontaktinformasjon: Navn, e-postadresse, telefonnummer og
-            bedriftsnavn som du oppgir via kontaktskjema eller e-post.
-          </li>
-          <li>
-            Teknisk informasjon: IP-adresse, nettlesertype, operativsystem,
-            besøkte sider og tidspunkt for besøk.
-          </li>
-          <li>
-            Informasjonskapsler (cookies): Vi bruker informasjonskapsler for
-            analyse og forbedring av brukeropplevelsen. Se punkt 5 for detaljer.
-          </li>
-        </ul>
-      </>
+      <ul>
+        <li>
+          <strong>Det du sender oss i skjemaene.</strong> Kontaktskjemaet: navn, e-post, telefon (valgfritt),
+          bedrift (valgfritt), hva dere trenger og meldingen. Pristilbudet: det samme, og i tillegg det du velger om
+          nettsiden, nettadressen dere har i dag og bransjen.
+        </li>
+        <li>
+          <strong>Det du sender oss på e-post eller telefon.</strong>
+        </li>
+        <li>
+          <strong>Statistikk, bare hvis du sier ja.</strong> Google Analytics registrerer hvilke sider du besøker,
+          omtrent hvor du er (land og by), hvilken enhet og nettleser du bruker, og en tilfeldig ID i en
+          informasjonskapsel. Google Analytics lagrer ikke IP-adressen din.
+        </li>
+        <li>
+          <strong>Serverlogger.</strong> Når du åpner siden, registrerer vertsleverandøren IP-adresse, tidspunkt og
+          hvilken side du ba om, for å holde siden trygg og i drift.
+        </li>
+      </ul>
     ),
   },
   {
     num: "03",
-    heading: "Formål med behandlingen",
+    heading: "Formål og rettslig grunnlag",
     body: (
-      <>
-        <p>Vi behandler personopplysningene dine for følgende formål:</p>
-        <ul>
-          <li>Svare på henvendelser og gi tilbud på våre tjenester.</li>
-          <li>
-            Levere tjenester du har bestilt, inkludert webdesign, utvikling og
-            vedlikehold.
-          </li>
-          <li>
-            Forbedre nettsiden vår gjennom analyse av besøksmønstre og
-            brukeradferd.
-          </li>
-          <li>
-            Sende relevant informasjon om tjenestene våre, dersom du har
-            samtykket til dette.
-          </li>
-        </ul>
-      </>
+      <ul>
+        <li>
+          <strong>Svare på henvendelser og sende tilbud:</strong> tiltak før en eventuell avtale (GDPR art. 6 nr. 1
+          bokstav b) og vår berettigede interesse i å svare den som tar kontakt (bokstav f).
+        </li>
+        <li>
+          <strong>Levere tjenester du har bestilt:</strong> avtale (bokstav b).
+        </li>
+        <li>
+          <strong>Regnskap og fakturaer:</strong> rettslig forpliktelse etter bokføringsloven (bokstav c).
+        </li>
+        <li>
+          <strong>Statistikk om hvordan siden brukes:</strong> ditt samtykke (bokstav a), jf. ekomloven § 3-15. Du
+          kan trekke samtykket tilbake når som helst.
+        </li>
+        <li>
+          <strong>Serverlogger for sikkerhet og drift:</strong> berettiget interesse (bokstav f).
+        </li>
+      </ul>
     ),
   },
   {
     num: "04",
-    heading: "Rettslig grunnlag",
-    body: (
-      <p>
-        Behandlingen av personopplysninger skjer på grunnlag av: samtykke (GDPR
-        artikkel 6 nr. 1 bokstav a) for markedsføringskommunikasjon, avtale
-        (GDPR artikkel 6 nr. 1 bokstav b) for å levere tjenester du har
-        bestilt, og berettiget interesse (GDPR artikkel 6 nr. 1 bokstav f) for
-        analyse og forbedring av nettsiden.
-      </p>
-    ),
-  },
-  {
-    num: "05",
     heading: "Informasjonskapsler (cookies)",
     body: (
       <>
         <p>
-          Vi bruker informasjonskapsler for å analysere trafikk og forbedre
-          brukeropplevelsen. Du kan når som helst endre innstillingene for
-          informasjonskapsler i nettleseren din. Vi bruker følgende typer:
+          Første gang du besøker siden, velger du selv om du godtar statistikk. Sier du nei, settes ingen
+          informasjonskapsler fra Google. Du kan endre valget når som helst med knappen under eller med
+          «Informasjonskapsler» nederst på hver side.
         </p>
         <ul>
           <li>
-            Nødvendige informasjonskapsler: Sikrer at nettsiden fungerer
-            korrekt.
+            <strong>idweb-cookie-consent</strong> (nødvendig, lagres i nettleseren din): husker valget ditt, til du
+            endrer det eller tømmer nettleseren.
           </li>
           <li>
-            Analytiske informasjonskapsler: Hjelper oss med å forstå hvordan
-            besøkende bruker nettsiden (f.eks. Google Analytics).
+            <strong>_ga og _ga_P0ZMB9YLTK</strong> (Google Analytics, bare med samtykke): skiller besøkende fra
+            hverandre. Varer i opptil 2 år.
+          </li>
+        </ul>
+        <p>
+          <CookieSettingsButton className="btn dark">Endre valget om informasjonskapsler</CookieSettingsButton>
+        </p>
+      </>
+    ),
+  },
+  {
+    num: "05",
+    heading: "Hvem vi deler opplysninger med",
+    body: (
+      <>
+        <p>
+          Vi selger aldri personopplysninger. Disse leverandørene behandler opplysninger på våre vegne, under
+          databehandleravtale:
+        </p>
+        <ul>
+          <li>
+            <strong>Resend</strong> (Resend Inc., USA): sender meldingene fra skjemaene til e-posten vår.
+          </li>
+          <li>
+            <strong>Google Analytics</strong> (Google Ireland Ltd. og Google LLC, USA): statistikk, bare hvis du har
+            sagt ja.
+          </li>
+          <li>
+            <strong>Vertsleverandøren</strong> som driver nettsiden: serverlogger.
+          </li>
+          <li>
+            <strong>E-postleverandøren vår</strong>: oppbevarer e-postene vi sender og mottar.
           </li>
         </ul>
       </>
@@ -117,14 +123,12 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
   },
   {
     num: "06",
-    heading: "Deling av opplysninger",
+    heading: "Overføring til land utenfor EØS",
     body: (
       <p>
-        Vi selger aldri personopplysningene dine til tredjeparter. Vi kan dele
-        opplysninger med pålitelige underleverandører som hjelper oss med å
-        levere tjenestene våre (f.eks. hostingleverandører og e-posttjenester),
-        men kun i den grad det er nødvendig og i henhold til
-        databehandleravtaler.
+        Resend og Google er amerikanske selskaper, så opplysninger kan bli overført til USA. Overføringen skjer på
+        grunnlag av EU–US Data Privacy Framework der leverandøren er sertifisert, og ellers EU-kommisjonens
+        standardkontrakter (SCC).
       </p>
     ),
   },
@@ -132,12 +136,11 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     num: "07",
     heading: "Lagring og sletting",
     body: (
-      <p>
-        Vi lagrer personopplysninger kun så lenge det er nødvendig for formålet
-        de ble samlet inn for. Kontaktopplysninger fra henvendelser slettes
-        etter 12 måneder dersom det ikke etableres et kundeforhold. Kundedata
-        lagres i henhold til bokføringsloven.
-      </p>
+      <ul>
+        <li>Henvendelser som ikke fører til et kundeforhold, slettes etter 12 måneder.</li>
+        <li>Fakturaer og regnskapsbilag oppbevares i 5 år, slik bokføringsloven krever.</li>
+        <li>Statistikk i Google Analytics slettes automatisk etter oppbevaringstiden vi har satt, høyst 14 måneder.</li>
+      </ul>
     ),
   },
   {
@@ -145,14 +148,10 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     heading: "Dine rettigheter",
     body: (
       <p>
-        Du har rett til innsyn i opplysningene vi har om deg, retting av
-        feilaktige opplysninger, sletting av opplysninger, dataportabilitet, og
-        å trekke tilbake samtykke. For å utøve rettighetene dine, kontakt oss
-        på{" "}
-        <a href="mailto:hei@idweb.no">
-          hei@idweb.no
-        </a>
-        . Vi svarer innen 30 dager.
+        Du har rett til innsyn i opplysningene vi har om deg, til å få feil rettet, til å få opplysninger slettet, til
+        å protestere mot behandling vi gjør på grunnlag av berettiget interesse, til dataportabilitet og til å trekke
+        tilbake samtykke. Kontakt oss på <a href="mailto:hei@idweb.no">hei@idweb.no</a>, så svarer vi innen 30
+        dager.
       </p>
     ),
   },
@@ -161,14 +160,8 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     heading: "Klage",
     body: (
       <p>
-        Dersom du mener at vi behandler personopplysningene dine i strid med
-        personvernlovgivningen, kan du klage til Datatilsynet (
-        <a
-          href="https://www.datatilsynet.no"
-          target="_blank"
-          rel="noopener noreferrer"
-         
-        >
+        Mener du at vi behandler personopplysningene dine i strid med regelverket, kan du klage til Datatilsynet (
+        <a href="https://www.datatilsynet.no" target="_blank" rel="noopener noreferrer">
           datatilsynet.no
         </a>
         ).
@@ -186,15 +179,9 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
           <br />
           Org.nr: 837 228 972
           <br />
-          E-post:{" "}
-          <a href="mailto:hei@idweb.no">
-            hei@idweb.no
-          </a>
+          E-post: <a href="mailto:hei@idweb.no">hei@idweb.no</a>
           <br />
-          Telefon:{" "}
-          <a href="tel:+4798406164">
-            +47 984 06 164
-          </a>
+          Telefon: <a href="tel:+4798406164">+47 984 06 164</a>
         </p>
       </>
     ),
@@ -211,7 +198,7 @@ export default function PersonvernPage() {
           { name: "Personvern", href: "/personvern" },
         ]}
         title="Slik tar vi vare på ditt personvern."
-        lede="Klart og ryddig. Sist oppdatert 1. januar 2026."
+        lede="Klart og ryddig. Sist oppdatert 20. oktober 2026."
       />
       <div className="wrap">
         <div className="prose terms">

@@ -133,10 +133,9 @@ Pris for vedlikehold avtales separat.
 ## 9. Kansellering
 
 ### Av Kunden:
-Kunden kan kansellere prosjektet når som helst. Ved kansellering faktureres utført arbeid basert på fremdrift:
+Kunden kan kansellere prosjektet når som helst. Ved kansellering faktureres utført arbeid basert på prosjektets fremdriftsplan, og innbetalt forskudd for ikke-utført arbeid refunderes (samme regel som i vilkårene på idweb.no/vilkar).
 
-- Før designstart: Oppstartsbetaling (50 %) tilbakebetales ikke
-- Etter utvikling påbegynt: Fullt beløp faktureres
+Er Kunden forbruker, gjelder i tillegg angreretten etter angrerettloven, se idweb.no/vilkar punkt 08.
 
 ### Av Leverandøren:
 Leverandøren kan trekke seg fra prosjektet dersom:

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PageHead } from "@/components/klar/page-head";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Vilkår og betingelser",
-  description:
-    "Les våre vilkår og betingelser for bruk av nettsiden og tjenestene til IDweb.",
-  alternates: {
-    canonical: "/vilkar",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  description: "Vilkårene for nettsider, systemer og drift fra IDweb: tilbud og avtale, betaling, angrerett, eierskap, ansvar og oppsigelse.",
+  path: "/vilkar",
+});
 
 const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
   {
@@ -78,9 +72,9 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
         Driftsavtaler har ingen bindingstid og kan sies opp med én måneds
         skriftlig varsel. Driftsavtalen dekker hosting, sikkerhetskopier,
         programvareoppdateringer og support som spesifisert i den individuelle
-        avtalen. Vi tilstreber høy oppetid for hosting via pålitelige norske
-        servere, med unntak av planlagt vedlikehold som varsles minst 48 timer
-        i forveien.
+        avtalen. Vi tilstreber høy oppetid hos en anerkjent
+        vertsleverandør, med unntak av planlagt vedlikehold som varsles minst
+        48 timer i forveien.
       </p>
     ),
   },
@@ -104,8 +98,9 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
       <p>
         Prosjekter inkluderer inntil to revideringsrunder etter presentert
         design. Ytterligere revisjoner faktureres etter medgått tid. Kunden har
-        10 virkedager til å gi tilbakemelding på presentert arbeid. Manglende
-        tilbakemelding innen fristen anses som godkjenning.
+        10 virkedager til å gi tilbakemelding på presentert arbeid. For
+        næringsdrivende anses manglende tilbakemelding innen fristen som
+        godkjenning.
       </p>
     ),
   },
@@ -113,13 +108,27 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     num: "08",
     heading: "Angrerett og kansellering",
     body: (
-      <p>
-        For skreddersydde tjenester gjelder ikke lovbestemt angrerett i henhold
-        til angrerettloven, da tjenestene er tilpasset kundens spesifikke
-        behov. Ved kansellering av prosjektet etter oppstart faktureres utført
-        arbeid i henhold til prosjektets fremdriftsplan. Innbetalt forskudd for
-        ikke-utført arbeid refunderes.
-      </p>
+      <>
+        <p>
+          <strong>Er du forbruker</strong> og avtalen inngås på nett, e-post,
+          telefon eller utenfor vårt faste forretningssted, har du 14 dagers
+          angrerett etter angrerettloven, regnet fra dagen avtalen ble inngått.
+          Vi starter ikke arbeidet før angrefristen er ute, med mindre du
+          uttrykkelig ber om det. Går du fra avtalen etter at vi har startet på
+          din forespørsel, betaler du for det som er utført frem til du ga
+          beskjed. Er tjenesten levert i sin helhet innen fristen, etter at du
+          har bedt om det og bekreftet at angreretten da går tapt, har du ikke
+          lenger angrerett. Gi beskjed på{" "}
+          <a href="mailto:hei@idweb.no">hei@idweb.no</a>, gjerne med
+          Forbrukertilsynets standard angreskjema.
+        </p>
+        <p>
+          <strong>For næringsdrivende</strong> gjelder ikke angrerett. Kansellerer
+          du prosjektet etter oppstart, faktureres utført arbeid i henhold til
+          prosjektets fremdriftsplan, og innbetalt forskudd for ikke-utført
+          arbeid refunderes.
+        </p>
+      </>
     ),
   },
   {
@@ -133,6 +142,8 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
         ansvarlige for indirekte tap, følgeskader, tapt fortjeneste eller tap
         av data. Vi er ikke ansvarlige for tredjepartstjenester som hosting,
         domeneregistrering eller betalingsformidling utover rimelig oppfølging.
+        Begrensningene gjelder ikke overfor forbrukere i den grad loven gir deg
+        sterkere rettigheter.
       </p>
     ),
   },
@@ -155,7 +166,9 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
         Eventuelle tvister som oppstår i forbindelse med disse vilkårene skal
         forsøkes løst i minnelighet. Dersom partene ikke kommer til enighet,
         skal tvisten avgjøres ved de alminnelige domstolene i Norge med
-        selskapets hjemsted som verneting. Norsk lov kommer til anvendelse.
+        selskapets hjemsted som verneting. Norsk lov kommer til anvendelse. Er
+        du forbruker, kan du også klage til Forbrukertilsynet, og du kan alltid
+        reise sak ved domstolen der du bor.
       </p>
     ),
   },
@@ -201,7 +214,7 @@ export default function VilkarPage() {
           { name: "Vilkår", href: "/vilkar" },
         ]}
         title="Vilkår for våre tjenester."
-        lede="Det vi avtaler. Sist oppdatert 1. januar 2026."
+        lede="Det vi avtaler. Sist oppdatert 20. oktober 2026."
       />
       <div className="wrap">
         <div className="prose terms">
