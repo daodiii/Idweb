@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { CONTACT_INFO } from "@/lib/constants";
-import { CASES } from "@/lib/content/kundecase";
 import { TESTIMONIALS } from "@/lib/home/testimonials";
 import { inter, mona } from "@/lib/home/fonts";
 import {
@@ -20,9 +19,13 @@ import { Arrow } from "@/components/home/arrow";
 import { ClientTiles } from "@/components/home/logo-ticker";
 import { Tick } from "@/components/klar/tick";
 import { QuoteChapter } from "@/components/om-oss/quote-chapter";
+import { BriefToSite } from "@/components/om-oss/brief-to-site";
 import "@/styles/a-klar-om-oss.css";
 
 export const metadata: Metadata = pageMetadata({ title: SEO.about.title, description: SEO.about.description, path: "/om-oss" });
+
+/** Three full quotes, one row. Ringebu's is quoted in its chapter above. */
+const FULL_QUOTES = TESTIMONIALS.filter((t) => t.id !== "ringebu");
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },
@@ -58,10 +61,10 @@ function ChapterProof({ client }: { client: string }) {
       return (
         <div className="om-shot">
           <Image
-            src="/images/portfolio/ringebu-desktop.webp"
-            alt="Forsiden til Ringebu Tannlegesenter"
-            width={1440}
-            height={1008}
+            src="/images/kunder/kongsvinger-tannhelse/hero-desktop.webp"
+            alt="Forsiden til Kongsvinger Tannhelse, med byen tegnet slik den ser ut fra festningen"
+            width={2400}
+            height={1500}
             sizes="(max-width: 900px) 100vw, 560px"
           />
         </div>
@@ -135,7 +138,7 @@ export default function OmOssPage() {
         <div className="wrap">
           <div className="sec-h wide">
             <h2 id="ordene-h">Det de sier, og hva det betyr for deg.</h2>
-            <p>Fire ting kundene våre trekker frem. Setningene er hentet ordrett fra sitatene deres lenger ned.</p>
+            <p>Fire ting kundene våre trekker frem, med setninger hentet ordrett fra det de skrev til oss.</p>
           </div>
           <div className="om-chs">
             {ABOUT_CHAPTERS.map((c, i) => (
@@ -159,27 +162,7 @@ export default function OmOssPage() {
               Se alle kundecasene <Arrow />
             </Link>
           </div>
-          <ul className="om-cases">
-            {CASES.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/referanser/${c.slug}`} className="om-case">
-                  <span className="om-case-shot">
-                    <Image
-                      src={`/images/kunder/${c.slug}/hero-desktop.webp`}
-                      alt=""
-                      width={2400}
-                      height={1500}
-                      sizes="(max-width: 900px) 100vw, 300px"
-                    />
-                  </span>
-                  <span className="om-case-t">
-                    <b>{c.name}</b>
-                    {c.headline}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <BriefToSite />
         </div>
       </section>
 
@@ -190,7 +173,7 @@ export default function OmOssPage() {
             <p>Slik kundene skrev dem til oss, uten redigering.</p>
           </div>
           <div className="om-full">
-            {TESTIMONIALS.map((t) => (
+            {FULL_QUOTES.map((t) => (
               <figure key={t.id} className="om-full-q">
                 <blockquote>
                   {t.quote.map((para, j) => (

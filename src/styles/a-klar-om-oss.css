@@ -60,17 +60,47 @@
 .ka .om-who .sec-h > p:not(.om-who-k){font-size:17px}
 .ka .om-who-k{font-size:15px;color:var(--muted)}
 .ka .om-who .more{margin-top:6px}
-.ka .om-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0;padding:0;list-style:none}
-.ka .om-case{display:flex;flex-direction:column;gap:14px}
-.ka .om-case-shot{position:relative;display:block;aspect-ratio:16/10;border-radius:20px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
-.ka .om-case-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 700ms var(--out)}
-.ka .om-case-t{display:flex;flex-direction:column;gap:2px;font-size:15px;color:var(--muted)}
-.ka .om-case-t b{font-size:17px;color:var(--ink)}
-.ka .om-case:focus-visible{outline:2px solid var(--cobalt);outline-offset:6px;border-radius:20px}
-@media (hover:hover) and (pointer:fine){.ka .om-case:hover b{color:var(--cobalt)}.ka .om-case:hover img{transform:scale(1.03)}}
+
+/* ---------- «fra melding til nettside»: the loop beside «Hvem de er» (14 s) ---------- */
+.ka .om-b2s{margin:0;display:flex;flex-direction:column;gap:14px}
+.ka .om-b2s figcaption{font-size:14px;color:var(--soft)}
+.ka .om-b2s-stage{position:relative;aspect-ratio:10/9;border-radius:28px;border:1px solid var(--line);overflow:hidden;background-color:var(--surface);background-image:radial-gradient(#D9DCE2 1.2px,transparent 1.2px);background-size:22px 22px}
+@media (hover:hover) and (pointer:fine){.ka .om-b2s-stage:hover *{animation-play-state:paused}}
+.ka .om-b2s-msg{position:absolute;display:flex;flex-direction:column;gap:4px;max-width:62%;margin:0;padding:12px 16px;border-radius:18px;font-size:15px;line-height:1.4;box-shadow:0 12px 28px -18px rgba(30,42,110,.45);animation:14s var(--out) infinite both}
+.ka .om-b2s-msg .who{font-size:12px;font-weight:600;opacity:.75}
+.ka .om-b2s-msg.in{top:6%;left:5%;border-bottom-left-radius:6px;background:#fff;color:var(--ink);animation-name:om-b2s-in}
+.ka .om-b2s-msg.out{top:27%;right:5%;border-bottom-right-radius:6px;background:var(--cobalt);color:#fff;animation-name:om-b2s-out}
+.ka .om-b2s-win{position:absolute;left:7%;right:7%;bottom:6%;height:52%;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);animation:om-b2s-win 14s var(--out) infinite both}
+.ka .om-b2s-bar{display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-bottom:1px solid var(--line)}
+.ka .om-b2s-bar i{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
+.ka .om-b2s-bar span{margin-inline:auto;padding:1px 14px;border:1px solid var(--line);border-radius:6px;font-size:10px;color:var(--soft)}
+.ka .om-b2s-page{position:absolute;inset:26px 0 0;overflow:hidden;border-radius:0 0 13px 13px}
+.ka .om-b2s-page .sk{position:absolute;border-radius:6px;background:#E9ECF2;transform-origin:left center;animation:14s var(--out) infinite both}
+.ka .om-b2s-page .sk-nav{left:6%;right:6%;top:7%;height:8%;animation-name:om-b2s-sk1}
+.ka .om-b2s-page .sk-hero{left:6%;width:52%;top:24%;height:34%;background:#DCE3FB;animation-name:om-b2s-sk2}
+.ka .om-b2s-page .sk-a,.ka .om-b2s-page .sk-b,.ka .om-b2s-page .sk-c{top:66%;height:26%;width:27%;transform-origin:center bottom;animation-name:om-b2s-sk3}
+.ka .om-b2s-page .sk-a{left:6%}
+.ka .om-b2s-page .sk-b{left:36.5%;animation-delay:.15s}
+.ka .om-b2s-page .sk-c{left:67%;animation-delay:.3s}
+.ka .om-b2s-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;animation:om-b2s-shot 14s var(--out) infinite both}
+.ka .om-b2s-live{position:absolute;top:-14px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--orange-btn);color:var(--ink);font-size:13px;font-weight:700;box-shadow:0 10px 24px -12px rgba(180,86,10,.6);animation:om-b2s-live 14s var(--ease-pop) infinite both}
+
+@keyframes om-b2s-in{0%{opacity:0;transform:translateY(12px)}4%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
+@keyframes om-b2s-out{0%,14%{opacity:0;transform:translateY(12px)}19%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
+@keyframes om-b2s-win{0%,26%{opacity:0;transform:translateY(24px) scale(.97)}33%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
+@keyframes om-b2s-sk1{0%,33%{transform:scaleX(0)}38%,100%{transform:scaleX(1)}}
+@keyframes om-b2s-sk2{0%,38%{transform:scaleX(0)}44%,100%{transform:scaleX(1)}}
+@keyframes om-b2s-sk3{0%,44%{transform:scaleY(0)}50%,100%{transform:scaleY(1)}}
+@keyframes om-b2s-shot{0%,57%{opacity:0;transform:scale(1.04)}64%,100%{opacity:1;transform:none}}
+@keyframes om-b2s-live{0%,68%{opacity:0;transform:scale(.6)}72%{opacity:1;transform:scale(1.06)}75%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
+
+/* standing still: the finished state, both messages and the launched page */
+@media (prefers-reduced-motion:reduce){
+  .ka .om-b2s *{animation:none !important}
+}
 
 /* ---------- the full quotes ---------- */
-.ka .om-full{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ka .om-full{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .ka .om-full-q{display:flex;flex-direction:column;gap:20px;margin:0;padding:32px;border:1px solid var(--line);border-radius:22px;background:var(--card)}
 .ka .om-full-q blockquote{margin:0;display:flex;flex-direction:column;gap:12px;font-size:16.5px;line-height:1.6;text-wrap:pretty}
 .ka .om-full-q figcaption{display:flex;align-items:center;gap:10px;margin-top:auto;font-weight:600}

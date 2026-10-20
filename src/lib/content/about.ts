@@ -44,7 +44,7 @@ export const ABOUT_CHAPTERS: AboutChapter[] = [
     theme: "Eget uttrykk",
     quote: quoteSentence("ringebu", "En autentisk nettside som representerer byen og yrket vårt."),
     title: "Ingen maler.",
-    text: "Hver side starter på et blankt ark og skal ligne bedriften, ikke oss. Ringebu fikk tegninger og animasjoner laget for en tannlege.",
+    text: "Hver side starter på et blankt ark og skal ligne bedriften, ikke oss. Kongsvinger Tannhelse fikk byen sin tegnet inn i forsiden, slik den ser ut fra festningen.",
   },
   {
     client: "brobekk",
