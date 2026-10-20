@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CASES } from "@/lib/content/kundecase";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { PageHead } from "@/components/klar/page-head";
@@ -9,13 +10,11 @@ import { Arrow } from "@/components/home/arrow";
 import { mona, schibsted } from "@/lib/home/fonts";
 import "@/styles/kundecase.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kundecaser",
   description: "Slik laget vi nettsidene til MK Auto og Kongsvinger Tannhelse: hva kunden trengte, hva vi bygde og hva som skjer bak kulissene.",
-  alternates: {
-    canonical: "/referanser",
-  },
-};
+  path: "/referanser",
+});
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },

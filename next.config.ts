@@ -55,9 +55,6 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
-  experimental: {
-    optimizePackageImports: ["lucide-react", "motion", "@hugeicons/core-free-icons", "@hugeicons/react"],
-  },
   async redirects() {
     return [
       // /priser was indexed and linked externally; the page is gone, so send
@@ -77,7 +74,13 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/webutvikler/:path*",
-        destination: "/tjenester/webutvikler-oslo",
+        destination: "/webbyra-oslo",
+        permanent: true,
+      },
+      // /tjenester/webutvikler-oslo competed with /webbyra-oslo for the same Oslo searches; one page now owns them.
+      {
+        source: "/tjenester/webutvikler-oslo",
+        destination: "/webbyra-oslo",
         permanent: true,
       },
     ];
@@ -89,7 +92,7 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
-        source: "/:path*/opengraph-image",
+        source: "/og/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { CONTACT_INFO } from "@/lib/constants";
 import { CASES } from "@/lib/content/kundecase";
@@ -21,13 +22,7 @@ import { Tick } from "@/components/klar/tick";
 import { QuoteChapter } from "@/components/om-oss/quote-chapter";
 import "@/styles/a-klar-om-oss.css";
 
-export const metadata: Metadata = {
-  title: SEO.about.title,
-  description: SEO.about.description,
-  alternates: {
-    canonical: "/om-oss",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.about.title, description: SEO.about.description, path: "/om-oss" });
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },

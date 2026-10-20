@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { bricolage, figtree, inter, mona, schibsted, youngSerif } from "@/lib/home/fonts";
 import { Hero } from "@/components/home/hero";
@@ -12,13 +13,7 @@ import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
 import "@/styles/a-klar-tjenester.css";
 
-export const metadata: Metadata = {
-  title: SEO.home.title,
-  description: SEO.home.description,
-  alternates: {
-    canonical: "/",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.home.title, description: SEO.home.description, path: "/" });
 
 /**
  * Landing page — «A · Klar». Light, calm and concrete: a hero where a client's wishes become their site,

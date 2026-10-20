@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tjenester/seo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/vedlikehold`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/webbyra-oslo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${BASE_URL}/tjenester/webutvikler-oslo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE_URL}/tjenester/nettbutikk`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE_URL}/tjenester/timebestilling`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/tjenester/ai-chatbot`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },

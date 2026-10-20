@@ -46,6 +46,19 @@
 @media (hover:hover) and (pointer:fine){.ka .more:hover{color:var(--cobalt)}.ka .more:hover svg{transform:translateX(4px)}}
 .ka .more:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
 
+/* heading left, content right; and the linked rows that list services (restored: the homepage rebuild dropped
+   them from a-klar.css while /tjenester, /faq, /webbyra-oslo and the articles still use them) */
+.ka .g-2{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px}
+.ka .svc-list{border-top:1px solid var(--ink)}
+.ka .svc-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+.ka .svc-row b{display:block;font-size:24px;font-weight:650;letter-spacing:-.02em}
+.ka .svc-row > span{display:block;color:var(--ink)}
+.ka .svc-row > span > span{display:block;color:var(--muted);margin-top:6px}
+.ka .svc-row small{display:block;margin-top:6px;font:400 12px/1.4 var(--font-mono);color:var(--soft)}
+.ka .svc-row svg{transition:transform 300ms var(--out)}
+.ka .svc-row:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:8px}
+@media (hover:hover) and (pointer:fine){.ka .svc-row:hover b{color:var(--cobalt)}.ka .svc-row:hover svg{transform:translateX(4px)}}
+
 /* ---------- lists ---------- */
 /* ticked list under an ink rule, same weight as .svc-list */
 .ka .ticks{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
@@ -146,6 +159,7 @@
 .ka .prose h2{margin:56px 0 16px;font-size:clamp(24px,2.4vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink)}
 .ka .prose > section:first-child > h2:first-child{margin-top:16px}
 .ka .prose p + p{margin-top:18px}
+.ka .prose ul + p{margin-top:20px}
 .ka .prose ul{margin:18px 0 0;padding:0;list-style:none}
 .ka .prose li{position:relative;padding-left:24px}
 .ka .prose li + li{margin-top:10px}
@@ -200,7 +214,8 @@
 @media (max-width:900px){
   .ka .phead{padding-block:32px 64px}
   .ka .crumbs ol{margin-bottom:28px}
-  .ka .phead-g,.ka .g-split{grid-template-columns:minmax(0,1fr)}
+  .ka .phead-g,.ka .g-split,.ka .g-2{grid-template-columns:minmax(0,1fr)}
+  .ka .g-2{gap:40px}
   .ka .phead-g{gap:24px}
   .ka .sec,.ka .cta{padding-block:80px}
   .ka .g-items{grid-template-columns:repeat(2,minmax(0,1fr))}

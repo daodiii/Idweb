@@ -14,6 +14,7 @@ const LINKS: readonly NavLink[] = [
       { href: "/tjenester/seo", label: "SEO og AI-synlighet" },
       { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
       { href: "/tjenester/kundeportal", label: "Kundeportal" },
+      { href: "/tjenester", label: "Alle tjenester" },
     ],
   },
   { href: "/#prosess", label: "Slik jobber vi" },

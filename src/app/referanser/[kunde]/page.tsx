@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CASES, getCase, nextCase } from "@/lib/content/kundecase";
 import { mona, schibsted } from "@/lib/home/fonts";
 import { Scene } from "@/components/kundecase/scene";
@@ -20,12 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = getCase((await params).kunde);
   if (!c) return {};
-  return {
-    title: c.metaTitle,
-    description: c.metaDescription,
-    alternates: { canonical: `/referanser/${c.slug}` },
-    openGraph: { title: c.metaTitle, description: c.metaDescription, images: [`/images/kunder/${c.slug}/hero-desktop.webp`] },
-  };
+  return pageMetadata({ title: c.metaTitle, description: c.metaDescription, path: `/referanser/${c.slug}` });
 }
 
 const ARROW = (

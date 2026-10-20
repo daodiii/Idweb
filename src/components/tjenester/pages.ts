@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
 export const SERVICE_PAGES = {
   nettside: {
@@ -42,11 +43,5 @@ export type ServicePageSlug = keyof typeof SERVICE_PAGES;
 
 export function serviceMetadata(slug: ServicePageSlug): Metadata {
   const { title, description } = SERVICE_PAGES[slug];
-  return {
-    title,
-    description,
-    alternates: { canonical: `/tjenester/${slug}` },
-    openGraph: { title, description, type: "website", locale: "nb_NO", siteName: "IDweb" },
-    twitter: { card: "summary_large_image", title, description },
-  };
+  return pageMetadata({ title, description, path: `/tjenester/${slug}` });
 }
