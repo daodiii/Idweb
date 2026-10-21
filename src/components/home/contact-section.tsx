@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef } from "react";
 import { sendContactEmail, type ContactFormState } from "@/app/actions/send-email";
 import { NEED_OPTIONS } from "@/lib/home/contact";
+import { trackLead } from "@/lib/analytics";
 
 interface ContactSectionProps {
   title?: string;
@@ -22,6 +23,9 @@ export function ContactSection({
   useEffect(() => {
     if (loadedAt.current) loadedAt.current.value = String(Date.now());
   }, []);
+  useEffect(() => {
+    if (state?.success) trackLead("kontakt");
+  }, [state]);
 
   return (
     <section className="contact" id="kontakt" aria-labelledby="kontakt-h">

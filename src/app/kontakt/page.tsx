@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { SEO } from "@/lib/content/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -6,13 +7,7 @@ import { ContactSection } from "@/components/home/contact-section";
 import { Arrow } from "@/components/home/arrow";
 import { PageHead } from "@/components/klar/page-head";
 
-export const metadata: Metadata = {
-  title: SEO.contact.title,
-  description: SEO.contact.description,
-  alternates: {
-    canonical: "/kontakt",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.contact.title, description: SEO.contact.description, path: "/kontakt" });
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },

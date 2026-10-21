@@ -8,19 +8,19 @@
 
 export const SEO = {
   home: {
-    title: "Webutvikler i Oslo — Skreddersydde nettsider for bedrifter | IDweb",
+    title: "Skreddersydde nettsider og systemer for bedrifter | IDweb",
     description:
-      "IDweb er en norsk webutvikler i Oslo som lager raske, mobiloptimaliserte nettsider for bedrifter. Faste priser, ingen bindingstid. Få et uforpliktende tilbud.",
+      "IDweb lager skreddersydde nettsider, timebestilling, nettbutikker og kundeportaler for norske bedrifter. Fastpris før vi starter, ingen bindingstid.",
   },
   services: {
-    title: "Tjenester — Nettside, SEO og vedlikehold i Oslo",
+    title: "Tjenester — nettsider, systemer og drift for bedrifter",
     description:
-      "Skreddersydde nettsider, profesjonell SEO-optimalisering og pålitelig vedlikehold for norske bedrifter. Faste priser, ingen bindingstid. Webutvikler i Oslo.",
+      "Nettside, timebestilling, nettbutikk, AI-chatbot, SEO og AI-synlighet, drift og kundeportal. Alt bedriften trenger på nett, fra én leverandør.",
   },
   about: {
-    title: "Om IDweb — Norsk webutvikler i Oslo",
+    title: "Om oss — kundene forteller",
     description:
-      "IDweb er en norsk webutvikler i Oslo som hjelper bedrifter med å lykkes på nett. Skreddersydde nettsider, ærlige priser og personlig oppfølging.",
+      "Hvordan er det å jobbe med IDweb? Kundene våre forteller med egne ord. Et webbyrå i Oslo for nettsider, timebestilling, nettbutikk og kundeportaler.",
   },
   faq: {
     title: "Vanlige spørsmål om nettsider, priser og webdesign",
@@ -44,30 +44,3 @@ export const SEO = {
   },
 };
 
-export const SERVICE_SEO: Record<string, { title: string; description: string }> = {
-  nettside: {
-    title: "Skreddersydd nettside — Webdesign for bedrifter i Oslo",
-    description:
-      "Vi designer skreddersydde nettsider med fokus på hastighet, SEO og konvertering. Responsivt design, SSL og administrasjon inkludert. Webutvikler i Oslo.",
-  },
-  seo: {
-    title: "SEO-optimalisering i Oslo — Bli synlig i Google",
-    description:
-      "Profesjonell søkemotoroptimalisering for bedrifter i Oslo og hele Norge. Teknisk SEO, innhold og lokal SEO. Månedlig rapportering og faste priser.",
-  },
-  vedlikehold: {
-    title: "Drift og vedlikehold av nettside — Trygg drift",
-    description:
-      "Løpende vedlikehold, sikkerhetskopier og oppdateringer. Vi holder nettsiden din trygg og rask med pålitelig hosting. Ingen bindingstid.",
-  },
-  "webutvikler-oslo": {
-    title: "Webutvikler i Oslo — Lokal nettsideutvikling for bedrifter",
-    description:
-      "Søker du en webutvikler i Oslo? IDweb lager raske, skreddersydde nettsider for Oslo-bedrifter. Personlig oppfølging, faste priser og ingen bindingstid.",
-  },
-  nettbutikk: {
-    title: "Nettbutikk-utvikling — Skreddersydde e-handelsløsninger",
-    description:
-      "Vi bygger nettbutikker som faktisk selger. Lynraske, mobilvennlige løsninger med trygg betaling. Fra enkel produktkatalog til full e-handelsplattform.",
-  },
-};

@@ -3,7 +3,7 @@ import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, M
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
   variable: "--font-schibsted",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
@@ -11,7 +11,7 @@ export const schibsted = Schibsted_Grotesk({
 // The hero face: headline, lede and buttons at the top of the homepage. Variable weight, exposed as --font-mona.
 export const mona = Mona_Sans({
   variable: "--font-mona",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   display: "swap",
 });
 

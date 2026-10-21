@@ -11,13 +11,16 @@ import "@/styles/a-klar-pages.css";
 // One family, weight-driven hierarchy — Geist carries both headings and body.
 const geistSans = Geist({
   variable: "--font-body",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
+  // Every page sets its own face inside .ka; Geist is only the fallback outside it, so it is not preloaded.
+  preload: false,
   display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-code",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
+  preload: false,
   display: "swap",
 });
 
@@ -34,20 +37,17 @@ export const metadata: Metadata = {
       "nb-NO": "https://www.idweb.no",
     },
   },
+  // Pages set their own title, address and preview through pageMetadata (lib/metadata.ts); this is only the
+  // fallback, so it names no page title or URL that could be wrong for the page being shared.
   openGraph: {
     type: "website",
     locale: "nb_NO",
     siteName: "IDweb",
-    title: "IDweb — Nettsideutvikling i Norge",
-    description:
-      "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter. Få et uforpliktende tilbud i dag.",
-    url: "https://www.idweb.no",
+    images: [{ url: "/og/hjem.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IDweb — Nettsideutvikling i Norge",
-    description:
-      "Skreddersydde nettsider, SEO og vedlikehold for norske bedrifter.",
+    images: ["/og/hjem.png"],
   },
   robots: {
     index: true,

@@ -5,6 +5,7 @@ import { ContactFormEmail } from "@/lib/emails/contact-form-email";
 import { NEED_OPTIONS } from "@/lib/home/contact";
 import { QuoteRequestEmail } from "@/lib/emails/quote-request-email";
 import { checkQuote, quoteFromForm, quoteRows, type QuoteErrors } from "@/lib/home/quote";
+import { withinRateLimit } from "@/lib/rate-limit";
 
 export type ContactFormState = {
   success: boolean;
@@ -13,6 +14,17 @@ export type ContactFormState = {
 
 const MIN_FILL_TIME_MS = 3000;
 const SUCCESS_MESSAGE = "Takk for meldingen! Vi tar kontakt innen 24 timer.";
+const RATE_LIMITED =
+  "Du har sendt flere meldinger på kort tid. Vent litt og prøv igjen, eller send oss en e-post på hei@idweb.no.";
+
+/**
+ * Sent faster than a person could fill in the form. A missing timestamp is not proof of a bot: the homepage form
+ * can be sent before the page's script has set it (slow connection, script blocked), so that is let through.
+ */
+function tooFast(formData: FormData): boolean {
+  const loadedAt = Number.parseInt((formData.get("loaded_at") as string | null) ?? "", 10);
+  return loadedAt > 0 && Date.now() - loadedAt < MIN_FILL_TIME_MS;
+}
 
 // Only obvious bot payloads in the name field are silently discarded.
 const NAME_FIELD_SPAM = [/\bhttps?:\/\//i, /<\/?[a-z][^>]*>/i];
@@ -42,12 +54,12 @@ export async function sendContactEmail(
   }
 
   // Timing check — bots fill and submit in milliseconds
-  const loadedAtRaw = formData.get("loaded_at") as string | null;
-  const loadedAt = loadedAtRaw ? Number.parseInt(loadedAtRaw, 10) : 0;
-  if (!loadedAt || Date.now() - loadedAt < MIN_FILL_TIME_MS) {
+  if (tooFast(formData)) {
     // Silently accept — same fake-success response as honeypot
     return { success: true, message: SUCCESS_MESSAGE };
   }
+
+  if (!(await withinRateLimit())) return { success: false, message: RATE_LIMITED };
 
   const name = (formData.get("name") as string)?.trim();
   const email = (formData.get("email") as string)?.trim();
@@ -138,9 +150,7 @@ const QUOTE_SUCCESS = "Takk! Vi tar kontakt innen 24 timer.";
 
 /** Honeypot filled in, or sent faster than a person could: answer as if it went through. */
 function looksLikeBot(formData: FormData): boolean {
-  if ((formData.get("fax_number") as string | null)?.trim()) return true;
-  const loadedAt = Number.parseInt((formData.get("loaded_at") as string | null) ?? "", 10);
-  return !loadedAt || Date.now() - loadedAt < MIN_FILL_TIME_MS;
+  return !!(formData.get("fax_number") as string | null)?.trim() || tooFast(formData);
 }
 
 /**
@@ -153,6 +163,7 @@ export async function sendQuoteRequest(
   formData: FormData,
 ): Promise<QuoteFormState> {
   if (looksLikeBot(formData)) return { success: true, message: QUOTE_SUCCESS };
+  if (!(await withinRateLimit())) return { success: false, message: RATE_LIMITED };
 
   const quote = quoteFromForm(formData);
   if (NAME_FIELD_SPAM.some((re) => re.test(quote.name))) {

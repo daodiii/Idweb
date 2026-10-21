@@ -19,7 +19,7 @@ export function ServicePage({ slug, html, script }: { slug: ServicePageSlug; htm
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
-          { name: "Tjenester", href: "/#tjenester" },
+          { name: "Tjenester", href: "/tjenester" },
           { name: meta.name, href: `/tjenester/${slug}` },
         ]}
       />

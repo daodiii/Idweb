@@ -6,7 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/studio/", "/*opengraph-image*", "/favicon.ico", "/site.webmanifest"],
+        // Link preview images (/og/*), the favicon and the manifest stay crawlable: LinkedIn, X and Google's favicon
+        // fetcher obey robots.txt. next.config.ts keeps them out of search with an X-Robots-Tag header instead.
+        disallow: ["/api/", "/studio"],
       },
     ],
     sitemap: "https://www.idweb.no/sitemap.xml",

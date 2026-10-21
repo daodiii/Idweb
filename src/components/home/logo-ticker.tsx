@@ -4,9 +4,9 @@ import { RingebuMark } from "@/components/home/ringebu-mark";
 /**
  * Under the hero: the logos of the clients IDweb has built sites for, on tiles in each client's own colours, sliding
  * past on their own. Not interactive. The row is rendered twice so the loop is seamless; the copy is hidden from
- * screen readers. With reduced motion the row stands still and wraps.
+ * screen readers. With reduced motion the row stands still and wraps. The tiles alone also stand in a grid on /om-oss.
  */
-function Tiles({ copy = false }: { copy?: boolean }) {
+export function ClientTiles({ copy = false }: { copy?: boolean }) {
   const alt = (name: string) => (copy ? "" : name);
   return (
     <ul className="tk-set" aria-hidden={copy || undefined}>
@@ -51,8 +51,8 @@ export function LogoTicker() {
     <section className="tk" aria-label="Kunder vi har laget nettsider for">
       <div className="tk-vp">
         <div className="tk-track">
-          <Tiles />
-          <Tiles copy />
+          <ClientTiles />
+          <ClientTiles copy />
         </div>
       </div>
     </section>

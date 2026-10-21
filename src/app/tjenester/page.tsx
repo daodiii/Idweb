@@ -1,56 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { SERVICE_PAGES, type ServicePageSlug } from "@/components/tjenester/pages";
 import { SEO } from "@/lib/content/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Arrow } from "@/components/home/arrow";
 import { PageHead } from "@/components/klar/page-head";
 import { CtaCard } from "@/components/klar/cta-card";
 
-export const metadata: Metadata = {
-  title: SEO.services.title,
-  description: SEO.services.description,
-  alternates: {
-    canonical: "/tjenester",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.services.title, description: SEO.services.description, path: "/tjenester" });
 
-const SERVICES = [
-  {
-    slug: "webutvikler-oslo",
-    title: "Webutvikler i Oslo",
-    description:
-      "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter i hovedstaden.",
-    features: ["Heldigital prosess", "Skreddersydd Next.js", "Lokal SEO", "Direkte med utvikleren"],
-  },
-  {
-    slug: "nettside",
-    title: "Skreddersydd nettside",
-    description:
-      "Profesjonell, mobiloptimalisert nettside designet for å tiltrekke kunder og styrke merkevaren din.",
-    features: ["Responsivt design", "SEO-optimalisert", "Rask lastetid", "SSL-sertifikat"],
-  },
-  {
-    slug: "nettbutikk",
-    title: "Nettbutikk-utvikling",
-    description:
-      "Skreddersydde nettbutikker med trygg betaling, lynraske, mobilvennlige og bygget for konvertering.",
-    features: ["Betaling", "Rask lastetid", "Mobil-først kasse", "SEO på produktsider"],
-  },
-  {
-    slug: "seo",
-    title: "SEO-optimalisering",
-    description:
-      "Bli synlig i Google og tiltrekk flere kunder med profesjonell søkemotoroptimalisering.",
-    features: ["Teknisk SEO", "Innholdsoptimalisering", "Lokal SEO", "Månedlig rapportering"],
-  },
-  {
-    slug: "vedlikehold",
-    title: "Drift og vedlikehold",
-    description:
-      "Hold nettsiden din trygg, rask og oppdatert med pålitelig hosting og support.",
-    features: ["Sikkerhetskopier", "Oppdateringer", "Pålitelig hosting", "Prioritert support"],
-  },
-];
+const SLUGS = Object.keys(SERVICE_PAGES) as ServicePageSlug[];
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },
@@ -64,8 +24,8 @@ export default function TjenesterPage() {
 
       <PageHead
         crumbs={CRUMBS}
-        title="Alt du trenger for å lykkes på nett."
-        lede="Fra design og utvikling til SEO og vedlikehold, vi tar oss av hele prosessen slik at du kan fokusere på det du gjør best."
+        title="Alt bedriften trenger på nett, fra én leverandør."
+        lede="Nettsiden, systemene bak og driften etterpå. Vi tar oss av hele prosessen, så du kan fokusere på det du gjør best."
       >
         <Link href="/kontakt" className="btn">
           Få et uforpliktende tilbud <Arrow />
@@ -75,19 +35,17 @@ export default function TjenesterPage() {
       <section className="sec" aria-labelledby="tj-h">
         <div className="wrap g-2">
           <div className="sec-h">
-            <h2 id="tj-h">Fem tjenester, ett team.</h2>
+            <h2 id="tj-h">Sju tjenester, én leverandør.</h2>
             <p>
-              Du snakker direkte med utvikleren. Ingen mellomledd, ingen hvitkalking, ingen overraskelser i
-              sluttregningen.
+              Du snakker direkte med den som bygger. Ingen mellomledd, og prisen er avtalt før vi starter.
             </p>
           </div>
           <div className="svc-list">
-            {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/tjenester/${s.slug}`} className="svc-row">
+            {SLUGS.map((slug) => (
+              <Link key={slug} href={`/tjenester/${slug}`} className="svc-row">
                 <span>
-                  <b>{s.title}</b>
-                  <span>{s.description}</span>
-                  <small>{s.features.join(" · ")}</small>
+                  <b>{SERVICE_PAGES[slug].name}</b>
+                  <span>{SERVICE_PAGES[slug].description}</span>
                 </span>
                 <Arrow size={22} />
               </Link>

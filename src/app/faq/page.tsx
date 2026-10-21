@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { FAQ_PAGE, FAQS } from "@/lib/content/faq";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -6,13 +7,7 @@ import { PageHead } from "@/components/klar/page-head";
 import { FaqList } from "@/components/klar/faq-list";
 import { CtaCard } from "@/components/klar/cta-card";
 
-export const metadata: Metadata = {
-  title: SEO.faq.title,
-  description: SEO.faq.description,
-  alternates: {
-    canonical: "/faq",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.faq.title, description: SEO.faq.description, path: "/faq" });
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },

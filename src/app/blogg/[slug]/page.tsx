@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { getBlogPost, getAllSlugs, BLOG_POSTS } from "@/lib/content/blog";
 import { coverFor } from "@/lib/content/blog/covers";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -14,7 +15,7 @@ import { PostCard } from "@/components/klar/post-card";
 const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   SEO: [
     { href: "/tjenester/seo", label: "SEO-optimalisering for norske bedrifter" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
   ],
   Nettbutikk: [
     { href: "/tjenester/nettbutikk", label: "Nettbutikk-utvikling med trygg betaling" },
@@ -22,10 +23,10 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   ],
   Design: [
     { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
   ],
   Teknologi: [
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
     { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
   ],
   Priser: [
@@ -38,7 +39,7 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
   ],
   Markedsføring: [
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
-    { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+    { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
   ],
   Verktøy: [
     { href: "/tjenester/seo", label: "SEO-optimalisering" },
@@ -47,7 +48,7 @@ const RELATED_SERVICES: Record<string, { href: string; label: string }[]> = {
 };
 
 const DEFAULT_RELATED = [
-  { href: "/tjenester/webutvikler-oslo", label: "Webutvikler i Oslo" },
+  { href: "/webbyra-oslo", label: "Webbyrå i Oslo" },
   { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
 ];
 
@@ -79,27 +80,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = getBlogPost(slug);
   if (!post) return {};
 
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.metaDescription,
-    alternates: {
-      canonical: `/blogg/${slug}`,
-    },
-    openGraph: {
-      title: post.title,
-      description: post.metaDescription,
-      type: "article",
-      publishedTime: post.publishedDate,
-      authors: ["IDweb"],
-      locale: "nb_NO",
-      siteName: "IDweb",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.metaDescription,
-    },
-  };
+    path: `/blogg/${slug}`,
+    type: "article",
+    publishedTime: post.publishedDate,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

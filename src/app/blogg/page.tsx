@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { BLOG_POSTS } from "@/lib/content/blog";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -6,13 +7,7 @@ import { PageHead } from "@/components/klar/page-head";
 import { PostCard } from "@/components/klar/post-card";
 import { CtaCard } from "@/components/klar/cta-card";
 
-export const metadata: Metadata = {
-  title: SEO.blog.title,
-  description: SEO.blog.description,
-  alternates: {
-    canonical: "/blogg",
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: SEO.blog.title, description: SEO.blog.description, path: "/blogg" });
 
 const CRUMBS = [
   { name: "Hjem", href: "/" },

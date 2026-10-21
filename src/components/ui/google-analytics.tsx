@@ -1,35 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import Script from "next/script";
 import { getConsent } from "@/components/ui/cookie-consent";
 
 const GA_ID = "G-P0ZMB9YLTK";
 
+function subscribe(onChange: () => void) {
+  window.addEventListener("cookie-consent", onChange);
+  return () => window.removeEventListener("cookie-consent", onChange);
+}
+
+/** Removes Google Analytics' own cookies (_ga, _ga_<id>) on this domain and its parent. */
+function clearGaCookies() {
+  const host = location.hostname.replace(/^www\./, "");
+  for (const name of document.cookie.split(";").map((c) => c.split("=")[0].trim())) {
+    if (!name.startsWith("_ga")) continue;
+    for (const domain of ["", `; domain=${host}`, `; domain=.${host}`]) {
+      document.cookie = `${name}=; Max-Age=0; path=/${domain}`;
+    }
+  }
+}
+
 /**
- * Loads Google Analytics only when the user has consented to "all" cookies.
- * Listens for the custom "cookie-consent" event dispatched by CookieConsent.
+ * Loads Google Analytics only when the user has consented to "all" cookies, and follows the choice if it changes
+ * («Informasjonskapsler» in the footer): withdrawing turns tracking off for the page and removes GA's cookies.
  */
 export function GoogleAnalytics() {
-  const [allowed, setAllowed] = useState(false);
+  const allowed = useSyncExternalStore(subscribe, () => getConsent() === "all", () => false);
 
   useEffect(() => {
-    // Check existing consent on mount
-    if (getConsent() === "all") {
-      setAllowed(true);
-    }
-
-    // Listen for new consent choices
-    function onConsent(e: Event) {
-      const detail = (e as CustomEvent<string>).detail;
-      if (detail === "all") {
-        setAllowed(true);
-      }
-    }
-
-    window.addEventListener("cookie-consent", onConsent);
-    return () => window.removeEventListener("cookie-consent", onConsent);
-  }, []);
+    (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = !allowed;
+    if (!allowed) clearGaCookies();
+  }, [allowed]);
 
   if (!allowed) return null;
 

@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { startTransition, useActionState, useEffect, useRef, useState, type FormEvent } from "react";
 import { sendQuoteRequest, type QuoteFormState } from "@/app/actions/send-email";
+import { trackLead } from "@/lib/analytics";
 import {
   EMPTY_QUOTE,
   QUOTE_EXTRAS,
@@ -81,6 +83,10 @@ function QuoteWizard({ onReset }: { onReset: () => void }) {
     const top = formRef.current?.getBoundingClientRect().top ?? 0;
     if (top < 80) window.scrollBy({ top: top - 96, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }, [i, sent]);
+
+  useEffect(() => {
+    if (sent) trackLead("pristilbud");
+  }, [sent]);
 
   const set = <K extends QuoteField>(key: K, value: Quote[K]) => {
     setQ((prev) => ({ ...prev, [key]: value }));
@@ -323,7 +329,10 @@ function QuoteWizard({ onReset }: { onReset: () => void }) {
                       <SummaryList rows={quoteRows(q, { contact: false })} />
                     </div>
                     {state && !state.success && <p className="qt-gerr" role="alert">{state.message}</p>}
-                    <p className="qt-fine">Vi tar kontakt innen 24 timer.</p>
+                    <p className="qt-fine">
+                      Vi tar kontakt innen 24 timer. Opplysningene brukes bare til å svare dere, se{" "}
+                      <Link href="/personvern">personvernerklæringen</Link>.
+                    </p>
                   </>
                 )}
               </div>

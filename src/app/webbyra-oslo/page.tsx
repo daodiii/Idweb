@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import {
   WEBBYRA_OSLO,
@@ -20,26 +21,7 @@ const PATH = "/webbyra-oslo";
 /** Honest proof only: things that are true of every IDweb delivery. */
 const PROOF = ["Ingen bindingstid — du eier siden", "Norsk utvikler, rask levering", "Bygget for fart og mobil"];
 
-export const metadata: Metadata = {
-  title: WEBBYRA_OSLO_SEO.title,
-  description: WEBBYRA_OSLO_SEO.description,
-  alternates: {
-    canonical: PATH,
-  },
-  openGraph: {
-    title: WEBBYRA_OSLO_SEO.title,
-    description: WEBBYRA_OSLO_SEO.description,
-    type: "website",
-    locale: "nb_NO",
-    siteName: "IDweb",
-    url: `https://www.idweb.no${PATH}`,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: WEBBYRA_OSLO_SEO.title,
-    description: WEBBYRA_OSLO_SEO.description,
-  },
-};
+export const metadata: Metadata = pageMetadata({ title: WEBBYRA_OSLO_SEO.title, description: WEBBYRA_OSLO_SEO.description, path: PATH });
 
 export default function WebbyraOsloPage() {
   const crumbs = [

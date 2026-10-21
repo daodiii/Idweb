@@ -42,3 +42,15 @@ export const TESTIMONIALS: Testimonial[] = [
     ],
   },
 ];
+
+/**
+ * One sentence lifted word for word from a client's quote, for use as a heading. Throws at build time if the
+ * sentence is not in the quote, so an excerpt can never drift from what the client actually wrote.
+ */
+export function quoteSentence(id: Testimonial["id"], sentence: string): string {
+  const t = TESTIMONIALS.find((q) => q.id === id);
+  if (!t || !t.quote.some((para) => para.includes(sentence))) {
+    throw new Error(`Not a verbatim sentence from the ${id} testimonial: «${sentence}»`);
+  }
+  return sentence;
+}
