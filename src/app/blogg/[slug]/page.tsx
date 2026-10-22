@@ -5,10 +5,14 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { getBlogPost, getAllSlugs, BLOG_POSTS } from "@/lib/content/blog";
 import { coverFor } from "@/lib/content/blog/covers";
-import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { BlogPostJsonLd, BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { Arrow } from "@/components/home/arrow";
 import { CtaCard } from "@/components/klar/cta-card";
 import { PostCard } from "@/components/klar/post-card";
+import { FaqList } from "@/components/klar/faq-list";
+import { RichText } from "@/components/blog/rich-text";
+import { SectionExtras } from "@/components/blog/section-extras";
+import "@/styles/a-klar-artikler.css";
 
 // Map blog category → most relevant service pages.
 // Each link uses keyword-rich anchor text so Google can pick up the topic.
@@ -108,6 +112,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         publishedDate={post.publishedDate}
         category={post.category}
       />
+      {post.faq && <FaqJsonLd faqs={post.faq} />}
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
@@ -145,20 +150,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="prose">
           {post.sections.map((section, i) => (
             <section key={i}>
-              {section.heading && <h2>{section.heading}</h2>}
+              {section.heading && (section.level === 3 ? <h3>{section.heading}</h3> : <h2>{section.heading}</h2>)}
               {section.paragraphs.map((paragraph, j) => (
-                <p key={j}>{paragraph}</p>
+                <p key={j}>
+                  <RichText text={paragraph} />
+                </p>
               ))}
               {section.listItems && (
                 <ul>
                   {section.listItems.map((item, k) => (
-                    <li key={k}>{item}</li>
+                    <li key={k}>
+                      <RichText text={item} />
+                    </li>
                   ))}
                 </ul>
               )}
+              <SectionExtras section={section} />
             </section>
           ))}
         </div>
+        {post.faq && (
+          <div className="prose bx-faq">
+            <h2>Spørsmål og svar</h2>
+            <FaqList faq={post.faq} openFirst={false} />
+          </div>
+        )}
       </article>
 
       <CtaCard
