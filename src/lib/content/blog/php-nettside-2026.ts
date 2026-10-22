@@ -4,7 +4,7 @@ export const phpNettside2026: BlogPost = {
   slug: "php-nettside-2026",
   title: "Nettside i PHP i 2026: fortsatt et smart valg?",
   excerpt:
-    "PHP er ikke dødt, og WordPress er ikke feil valg. Men om to måneder mister PHP 8.2 sikkerhetsstøtten, og mange nettsider kjører fortsatt på den.",
+    "PHP er ikke dødt, og WordPress er ikke feil valg. Men PHP 8.2 mister sikkerhetsstøtten 31. desember 2026, og mange nettsider kjører fortsatt på den.",
   metaDescription:
     "PHP 8.2 mister sikkerhetsstøtte 31. desember 2026. Hva det betyr for WordPress-siden din, når PHP fortsatt er riktig valg, og når det lønner seg å bygge noe annet.",
   publishedDate: "2026-10-22",
@@ -27,7 +27,7 @@ export const phpNettside2026: BlogPost = {
     },
     {
       paragraphs: [
-        "Praktisk betyr det dette: ligger du på 8.2, har du omtrent to måneder. Ligger du på 8.1 eller eldre, får du ingen rettelser i dag. PHP 8.3 eller 8.4 er et trygt valg akkurat nå.",
+        "Praktisk betyr det dette: ligger du på 8.2, har du til 31. desember 2026. Ligger du på 8.1 eller eldre, får du ingen rettelser i dag. PHP 8.3 eller 8.4 er et trygt valg akkurat nå.",
       ],
       tip: {
         title: "Ikke bare skru opp versjonen",

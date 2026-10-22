@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import type { BlogSection } from "@/types";
 import { pageMetadata } from "@/lib/metadata";
 import { getBlogPost, getAllSlugs, BLOG_POSTS } from "@/lib/content/blog";
 import { coverFor } from "@/lib/content/blog/covers";
@@ -69,6 +70,11 @@ function formatPublishedDate(iso: string): string {
   } catch {
     return iso;
   }
+}
+
+/** A heading-less section right after a figure, table, tip, code, tabs or checklist needs a gap above its text. */
+function continuesBlock(prev?: BlogSection): boolean {
+  return Boolean(prev && (prev.widget || prev.table || prev.tip || prev.code || prev.tabs || prev.checklist));
 }
 
 interface BlogPostPageProps {
@@ -149,7 +155,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="wrap">
         <div className="prose">
           {post.sections.map((section, i) => (
-            <section key={i}>
+            <section key={i} className={!section.heading && continuesBlock(post.sections[i - 1]) ? "bx-cont" : undefined}>
               {section.heading && (section.level === 3 ? <h3>{section.heading}</h3> : <h2>{section.heading}</h2>)}
               {section.paragraphs.map((paragraph, j) => (
                 <p key={j}>

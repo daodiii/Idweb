@@ -9,7 +9,7 @@ export function SectionExtras({ section }: { section: BlogSection }) {
     <>
       {widget && <PostWidget name={widget} />}
       {table && (
-        <div className="bx-table">
+        <div className="bx-table" role="region" aria-label="Sammenligning" tabIndex={0}>
           <table>
             <thead>
               <tr>
@@ -21,8 +21,8 @@ export function SectionExtras({ section }: { section: BlogSection }) {
               </tr>
             </thead>
             <tbody>
-              {table.rows.map((row) => (
-                <tr key={row[0]}>
+              {table.rows.map((row, r) => (
+                <tr key={`${row[0]}-${r}`}>
                   {row.map((cell, i) => (i === 0 ? <th key={i} scope="row">{cell}</th> : <td key={i}>{cell}</td>))}
                 </tr>
               ))}
@@ -32,7 +32,7 @@ export function SectionExtras({ section }: { section: BlogSection }) {
       )}
       {tip && (
         <aside className={`bx-tip${tip.tone === "warn" ? " warn" : ""}`}>
-          <h4>{tip.title}</h4>
+          <p className="bx-tip-title">{tip.title}</p>
           <p>
             <RichText text={tip.text} />
           </p>

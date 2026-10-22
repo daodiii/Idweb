@@ -2,7 +2,7 @@
    Everything is scoped under .ka .prose and prefixed bx- so nothing leaks to other pages. */
 
 .ka .prose h3{margin:36px 0 10px;font-size:clamp(19px,1.9vw,22px);font-weight:650;letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
-.ka .prose section + section > p:first-child{margin-top:20px}
+.ka .prose section.bx-cont > p:first-child{margin-top:20px}
 .ka .prose code{font-family:var(--font-mono);font-size:.84em;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
 .ka .prose:has(+ .bx-faq){padding-bottom:0}
 .ka .bx-faq{padding-block:0 112px}
@@ -10,7 +10,7 @@
 
 /* ---------- tip ---------- */
 .ka .bx-tip{margin:28px 0 0;padding:20px 22px;border-radius:14px;background:var(--orange-tint);border:1px solid var(--peach)}
-.ka .bx-tip h4{margin:0 0 6px;font-size:16px;font-weight:650;color:var(--ink)}
+.ka .bx-tip .bx-tip-title{margin:0 0 6px;font-size:16px;font-weight:650;color:var(--ink)}
 .ka .bx-tip p{margin:0;font-size:16.5px;color:#3A3F49}
 .ka .bx-tip.warn{background:#FDF0EC;border-color:#F2C7BB}
 
@@ -82,6 +82,7 @@
 .ka .bx-ring-fg{stroke:var(--orange);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .5s var(--out)}
 .ka .bx-ring text{font:700 17px var(--font);fill:var(--ink)}
 .ka .bx-check ul{margin:0;padding:0;list-style:none}
+.ka .prose .bx-check li + li{margin-top:0}
 .ka .bx-check li{margin:0;padding:0;border-bottom:1px solid var(--line)}
 .ka .bx-check li:last-child{border-bottom:0}
 .ka .bx-check li::before{display:none}
@@ -101,11 +102,13 @@
 .ka .bx-quiz label:has(input:focus-visible){outline:2px solid var(--cobalt);outline-offset:2px}
 .ka .bx-quiz input{accent-color:var(--cobalt);margin-top:6px}
 .ka .bx-verdict{margin-top:8px;padding:20px 22px;border-radius:14px;background:var(--navy);color:#EEF1FB;min-height:96px;animation:bx-pop 420ms var(--out)}
-.ka .bx-verdict h4{margin:0 0 6px;font-size:18px;color:#fff}
+.ka .bx-verdict .bx-verdict-title{margin:0 0 6px;font-size:18px;color:#fff}
 .ka .bx-verdict p{margin:0;font-size:16.5px;color:#CDD3EE}
 @keyframes bx-pop{from{transform:scale(.97);opacity:.6}to{transform:none;opacity:1}}
 
 /* ---------- answer-first demo ---------- */
+.ka .bx-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ka .bx-table:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
 .ka .bx-ba{padding-top:20px}
 .ka .bx-seg{display:inline-flex;flex-wrap:wrap;gap:2px;margin-bottom:16px;padding:4px;border-radius:999px;background:var(--surface)}
 .ka .bx-seg button{font:inherit;font-size:15px;padding:8px 16px;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}

@@ -143,7 +143,7 @@ export default nextConfig;`,
             },
             {
               type: "p",
-              text: "Husk `priority` på bildet over skjermbrettet, og oppgi `width` og `height` eller `fill` med en fast ramme.",
+              text: "Husk `preload` på bildet over skjermbrettet (i eldre Next.js-versjoner heter det `priority`), og oppgi `width` og `height` eller `fill` med en fast ramme.",
             },
           ],
         },
@@ -157,7 +157,7 @@ export default nextConfig;`,
       heading: "Bildet er mye større enn det vises",
       level: 3,
       paragraphs: [
-        "Et bilde på 4000 piksler i bredden som vises i en kolonne på 700 piksler, sender mer enn fem ganger så mange piksler som nødvendig. Lag flere størrelser og la nettleseren velge med `srcset` og `sizes`.",
+        "Et bilde på 4000 piksler i bredden som vises i en kolonne på 700 piksler, sender omtrent 30 ganger så mange piksler som nødvendig (nesten seks ganger bredden, og like mye i høyden). Lag flere størrelser og la nettleseren velge med `srcset` og `sizes`.",
       ],
     },
     {

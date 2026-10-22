@@ -129,7 +129,7 @@ Sitemap: https://din-side.no/sitemap.xml`,
       listItems: [
         "Å fylle siden med AI-skrevet tekst som ikke sier noe nytt. Den blir lik tusen andre sider, og det finnes ingen grunn til å sitere den.",
         "Å skjule tekst for mennesker og skrive den for roboter. Det er gammelt spam i ny drakt.",
-        "En llms.txt-fil som hovedtiltak. Google har sagt at de ikke bruker den. Lag den gjerne senere, men innholdet kommer først.",
+        "En llms.txt-fil som hovedtiltak. Google har uttalt at de ikke bruker den. Lag den gjerne senere, men innholdet kommer først.",
         "Å love kunder «topplassering i ChatGPT». Svarene varierer fra person til person og fra dag til dag, så ingen kan garantere dem.",
       ],
     },
@@ -161,7 +161,7 @@ Sitemap: https://din-side.no/sitemap.xml`,
     {
       question: "Trenger jeg en llms.txt-fil?",
       answer:
-        "Nei. Google sier de ikke bruker den, og lite tyder på at andre vektlegger den. Den skader ikke, men bruk tiden på innholdet først.",
+        "Nei. Google har uttalt at de ikke bruker den, og lite tyder på at andre vektlegger den. Den skader ikke, men bruk tiden på innholdet først.",
     },
     {
       question: "Erstatter AI-søk vanlig SEO?",

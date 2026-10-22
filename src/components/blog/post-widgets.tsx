@@ -77,8 +77,10 @@ export function Tabs({ tabs }: { tabs: BlogTab[] }) {
             tabIndex={active === i ? 0 : -1}
             onClick={() => setActive(i)}
             onKeyDown={(e) => {
-              if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-              const next = (active + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length;
+              const step: Record<string, number> = { ArrowRight: active + 1, ArrowLeft: active + tabs.length - 1, Home: 0, End: tabs.length - 1 };
+              if (!(e.key in step)) return;
+              e.preventDefault();
+              const next = step[e.key] % tabs.length;
               setActive(next);
               document.getElementById(`${id}-t${next}`)?.focus();
             }}
@@ -318,9 +320,11 @@ function PhpQuiz() {
           ))}
         </fieldset>
       ))}
-      <div className="bx-verdict" aria-live="polite" key={verdict?.title ?? "none"}>
-        <h4>{verdict ? verdict.title : "Svar på spørsmålene"}</h4>
-        <p>{verdict ? verdict.text : "Anbefalingen dukker opp her når du har svart på alle fire."}</p>
+      <div aria-live="polite">
+        <div className="bx-verdict" key={verdict?.title ?? "none"}>
+          <p className="bx-verdict-title">{verdict ? verdict.title : "Svar på spørsmålene"}</p>
+          <p>{verdict ? verdict.text : "Anbefalingen dukker opp her når du har svart på alle fire."}</p>
+        </div>
       </div>
     </div>
   );
@@ -373,8 +377,9 @@ function AnswerFirst() {
       <blockquote>{ANSWER_FIRST[v].text}</blockquote>
       <div className="bx-chat">
         <small>Det en AI kan svare, basert på denne teksten</small>
-        <span aria-live="polite" aria-label={ANSWER_FIRST[v].answer}>
-          <span aria-hidden="true">{typed}</span>
+        <span aria-hidden="true">{typed}</span>
+        <span className="bx-sr" aria-live="polite">
+          {ANSWER_FIRST[v].answer}
         </span>
       </div>
       <p className="bx-note">Eksempelet er laget for å vise poenget. Klinikken finnes ikke.</p>
