@@ -16,7 +16,7 @@ let pages: Record<string, OgCard> | undefined;
  */
 export function ogPages(): Record<string, OgCard> {
   pages ??= {
-    hjem: { kicker: "Webbyrå og systemutvikler i Oslo", title: "Vi skreddersyr autentiske nettsider som reflekterer din bedrift." },
+    hjem: { kicker: "Webbyrå og systemutvikler i Oslo", title: "Vi lager nettsiden dere kan være stolte over." },
     "om-oss": { kicker: "Om oss", title: "«IDweb tok det derfra.»" },
     kontakt: { kicker: "Kontakt", title: "La oss snakke ærlig om nettsiden din." },
     faq: { kicker: "Spørsmål og svar", title: "Alt du lurer på, besvart uten omveier." },

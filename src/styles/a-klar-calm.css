@@ -30,6 +30,13 @@
   --font:var(--font-jakarta),"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
+/* ---------- page frame: side margins of 7% of the screen (as responsivmedia.no), content capped at 1320px ----------
+   At 1440 the text starts 101px in instead of 152, and the content is 1238px wide instead of 1136, so pictures can be
+   larger. Phones and tablets keep the narrower margins from a-klar.css (16px / 32px). */
+@media (min-width:1024px){
+  :root:has(.ka.calm) .ka .wrap{max-width:none;padding-inline:max(7vw,calc((100% - 1320px) / 2))}
+}
+
 /* ---------- type: one face, medium-weight headings, airy body ---------- */
 .ka.calm .hero-head,.ka.calm .tm-q blockquote{font-family:var(--font)}
 .ka.calm .hero-head h1{font-weight:500;letter-spacing:-.03em;line-height:1.1}
@@ -41,6 +48,57 @@
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
 :root:has(.ka.calm) .ka .btn.book{background:var(--cobalt);color:#fff}
 @media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .btn.book:hover{background:var(--orange-btn-hover)}}
+
+/* ---------- header: see-through with blur; slides away on scroll down, back on scroll up (header-autohide.tsx) ---------- */
+:root:has(.ka.calm) .ka.hdr{transition:transform var(--dur-ui) var(--out)}
+:root:has(.ka.calm) .ka.hdr[data-hide]:not(:focus-within){transform:translateY(-100%)}
+:root:has(.ka.calm) .ka .top{background:rgba(250,250,249,.78);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka.hdr{transition:none}}
+
+/* ---------- signature: one orange marker stroke behind a key word, drawn in once ---------- */
+.ka.calm .mk{position:relative;isolation:isolate;white-space:nowrap}
+/* the stroke keeps an even width at any word length (non-scaling); it is revealed left to right by a clip, not a dash */
+.ka.calm .mk svg{position:absolute;z-index:-1;left:-.06em;bottom:.04em;width:calc(100% + .12em);height:.5em;overflow:visible;clip-path:inset(-50% 100% -50% -5%);animation:calm-mk var(--dur-reveal) var(--out) .35s forwards}
+.ka.calm .mk path{fill:none;stroke:var(--orange);stroke-opacity:.42;stroke-width:.34em;stroke-linecap:round;vector-effect:non-scaling-stroke}
+@keyframes calm-mk{to{clip-path:inset(-50% -5% -50% -5%)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .mk svg{animation:none;clip-path:none}}
+
+/* ---------- hero still: one landscape cropped into desktop, tablet and phone frames ---------- */
+.ka.calm .hs{margin:56px 0 0}
+.ka.calm .hs-frames{position:relative;aspect-ratio:1136/620}
+.ka.calm .hs-f{position:absolute;overflow:hidden;border-radius:var(--r-card);background:var(--surface);box-shadow:0 1px 2px rgba(19,26,58,.06),0 34px 64px -34px rgba(19,26,58,.42)}
+.ka.calm .hs-f img{object-fit:cover}
+.ka.calm .hs-d{left:0;top:0;width:66%;aspect-ratio:1088/680}
+.ka.calm .hs-t{right:3%;top:13%;width:27%;aspect-ratio:510/680}
+.ka.calm .hs-p{left:56%;bottom:0;width:13%;aspect-ratio:314/680}
+/* a small menu mark in the corner says «this is a website» without any interface clutter */
+.ka.calm .hs-m{position:absolute;top:14px;right:14px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.45);box-shadow:0 5px 0 rgba(19,26,58,.45),0 10px 0 rgba(19,26,58,.45)}
+.ka.calm .hs figcaption{margin-top:18px;font-size:13px;color:var(--faint)}
+.ka.calm .hs figcaption a{border-bottom:1px solid currentColor}
+@media (max-width:600px){
+  .ka.calm .hs{margin-top:40px}
+  .ka.calm .hs-frames{aspect-ratio:358/330}
+  .ka.calm .hs-d{width:90%}
+  .ka.calm .hs-t{right:0;top:30%;width:36%}
+  .ka.calm .hs-p{left:46%;width:20%}
+  .ka.calm .hs-m{top:10px;right:10px;width:12px;box-shadow:0 4px 0 rgba(19,26,58,.45),0 8px 0 rgba(19,26,58,.45)}
+}
+
+/* ---------- hero: text left, visual right on wide screens, so the headline and the picture share the first screen ---------- */
+@media (min-width:1080px){
+  .ka.calm .hero{padding-block:48px 72px}
+  .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
+  .ka.calm .hero-head{gap:28px}
+  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
+  .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
+  .ka.calm .hero-side .lede{max-width:44ch}
+  .ka.calm .hs{margin-top:0}
+  /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
+  .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
+  .ka.calm .hero-vis .hs-d{width:82%}
+  .ka.calm .hero-vis .hs-t{right:0;top:27%;width:33%}
+  .ka.calm .hero-vis .hs-p{left:52%;width:16%}
+}
 
 /* ---------- radii ---------- */
 :root:has(.ka.calm) .ka .dropdown::before{border-radius:var(--r-sm)}
