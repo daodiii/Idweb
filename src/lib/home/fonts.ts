@@ -38,8 +38,8 @@ export const montserrat = Montserrat({
   display: "swap",
 });
 
-// Faces of the example clients in the services canvas (a-klar-tjenester.css). Not preloaded: the canvas sits
-// below the fold and draws its first frames only when it scrolls into view.
+// Faces of the example clients in the services section (a-klar-tjenester.css). Not preloaded: the section sits
+// below the fold.
 export const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin", "latin-ext"],

@@ -1,73 +1,44 @@
 /*
- * «Lerretet» — the services section as a design canvas (components/home/services-canvas.tsx,
- * lib/home/services-canvas.ts). Section chrome uses the sv- prefix; the scenes inside the frames are styled
- * under .cv and .sc-* further down. Everything is scoped under .ka like a-klar.css.
+ * The services section (components/home/services-section.tsx, lib/home/services-stage.ts): a row of tabs, then one
+ * example at a time in a calm frame, with the chosen service described beside it. Section chrome uses the sv- prefix;
+ * the scenes inside the frame are styled under .cv and .sc-* further down. Everything is scoped under .ka.
  */
-.ka .sv-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px 64px;align-items:end}
-.ka .sv-head h2{max-width:16ch}
-.ka .sv-head p{padding-bottom:6px}
-.ka .sv-wrap{position:relative;margin-top:48px}
-.ka .sv-vp{position:relative;height:clamp(560px,50vw,700px);border-radius:28px;overflow:hidden;background-color:#F1F2F5;background-image:radial-gradient(#C9CEDA 1.1px,transparent 1.3px);background-size:22px 22px;box-shadow:inset 0 0 0 1px rgba(30,42,110,.07)}
-/* the strip under the panel hides the frames that would otherwise peek out beside it */
-.ka .sv-vp::after{content:"";position:absolute;top:0;right:0;bottom:0;width:340px;background:linear-gradient(90deg,rgba(241,242,245,0),#F1F2F5 28px);pointer-events:none}
-.ka .sv-world{position:absolute;left:0;top:0;width:2120px;height:1110px;transform-origin:0 0;will-change:transform}
-.ka .sv-lf{position:absolute;width:640px}
-.ka .sv-lab{display:flex;align-items:baseline;gap:8px;height:24px;font-size:13px;font-weight:600;color:#3B404A;white-space:nowrap}
-.ka .sv-lab small{font-size:12px;font-weight:500;color:#6E747F}
-.ka .sv-lf.is-sel .sv-lab{color:var(--cobalt)}
-.ka .sv-box{position:relative;width:640px;height:440px;border-radius:4px;background:#F7F8FB;box-shadow:0 1px 2px rgba(20,22,27,.06),0 0 0 1px rgba(20,22,27,.07)}
-.ka .sv-host{position:absolute;inset:0;overflow:hidden;border-radius:4px}
-.ka .sv-sel{position:absolute;inset:-1px;border:1.5px solid var(--cobalt);border-radius:5px;opacity:0;pointer-events:none;transition:opacity .3s}
-.ka .sv-sel i{position:absolute;width:9px;height:9px;border:1.5px solid var(--cobalt);border-radius:1px;background:#fff}
-.ka .sv-sel i:nth-child(1){left:-5px;top:-5px}
-.ka .sv-sel i:nth-child(2){right:-5px;top:-5px}
-.ka .sv-sel i:nth-child(3){left:-5px;bottom:-5px}
-.ka .sv-sel i:nth-child(4){right:-5px;bottom:-5px}
-.ka .sv-dim{position:absolute;left:50%;bottom:-30px;height:20px;padding:0 8px;border-radius:5px;background:var(--cobalt);color:#fff;font-size:11px;font-weight:600;line-height:20px;font-variant-numeric:tabular-nums;transform:translateX(-50%);opacity:0;transition:opacity .3s}
-.ka .sv-lf.is-sel .sv-sel,.ka .sv-lf.is-sel .sv-dim{opacity:1}
-.ka .sv-cm{position:absolute;display:flex;align-items:flex-start;gap:8px;width:280px}
-.ka .sv-cm i{flex:none;width:30px;height:30px;border-radius:50% 50% 50% 4px;background:var(--cobalt);color:#fff;font-style:normal;font-size:11px;font-weight:700;display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(36,71,214,.6)}
-.ka .sv-cm span{padding:9px 12px;border-radius:12px;background:#fff;font-size:13.5px;line-height:1.4;box-shadow:0 10px 24px -14px rgba(20,22,27,.4),0 0 0 1px rgba(20,22,27,.06)}
-
-/* toolbar */
-.ka .sv-tools{position:absolute;left:16px;right:332px;bottom:16px;display:flex;justify-content:center;pointer-events:none}
-.ka .sv-tbar{pointer-events:auto;display:flex;align-items:center;gap:2px;max-width:100%;padding:5px;border-radius:16px;background:#fff;box-shadow:0 16px 36px -20px rgba(20,22,27,.45),0 0 0 1px rgba(20,22,27,.07);overflow-x:auto;scrollbar-width:none}
+.ka .sv-head h2{max-width:18ch}
+.ka .sv-tbar{display:flex;gap:8px;margin-top:36px;overflow-x:auto;scrollbar-width:none;padding:2px}
 .ka .sv-tbar::-webkit-scrollbar{display:none}
-.ka .sv-tb{all:unset;box-sizing:border-box;position:relative;flex:none;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:11px;font-size:14px;font-weight:600;color:#3B404A;white-space:nowrap;cursor:pointer;transition:background-color .2s,color .2s,transform .16s var(--out)}
+.ka .sv-tb{all:unset;box-sizing:border-box;flex:none;display:inline-flex;align-items:center;height:42px;padding:0 20px;border:1px solid var(--line-strong);border-radius:999px;font-size:15px;font-weight:500;color:var(--ink);white-space:nowrap;cursor:pointer;transition:background-color .45s var(--out),color .45s var(--out),border-color .45s var(--out),transform 160ms var(--out)}
 .ka .sv-tb:active{transform:scale(.97)}
-.ka .sv-tb[aria-pressed=true]{background:var(--ink);color:#fff}
+.ka .sv-tb[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .ka .sv-tb:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
 @media (hover:hover) and (pointer:fine){.ka .sv-tb:not([aria-pressed=true]):hover{background:var(--surface)}}
-.ka .sv-sep{flex:none;width:1px;height:22px;margin:0 6px;background:var(--line-strong)}
 
-/* panel */
-.ka .sv-panel{position:absolute;right:16px;top:16px;bottom:16px;width:300px;display:flex;flex-direction:column;padding:24px 24px 22px;border-radius:20px;background:#fff;box-shadow:0 24px 50px -30px rgba(30,42,110,.45),0 0 0 1px rgba(20,22,27,.06)}
-.ka .sv-card{flex:1;display:flex;flex-direction:column;gap:14px}
+/* one example, alone: a grey card holding the 640×440 frame, the same look as the work section's cards */
+.ka .sv-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:64px;align-items:center;margin-top:24px}
+.ka .sv-stage{padding:clamp(20px,4.5vw,64px);border-radius:20px;background:var(--surface)}
+.ka .sv-frame{position:relative;aspect-ratio:640/440;overflow:hidden;border-radius:12px;background:#F7F8FB;box-shadow:0 1px 2px rgba(19,26,58,.08),0 30px 60px -30px rgba(19,26,58,.45)}
+.ka .sv-host{position:absolute;inset:0;overflow:hidden}
+
+/* the chosen service, described beside the frame */
+.ka .sv-panel{display:flex;flex-direction:column}
+.ka .sv-card{display:flex;flex-direction:column;gap:16px}
 .ka .sv-card[hidden]{display:none}
-.ka .sv-card h3{font-size:25px;line-height:1.12;letter-spacing:-.02em;font-weight:700}
-.ka .sv-card p{margin:0;color:var(--muted);font-size:15px;text-wrap:pretty}
-.ka .sv-card .link{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:auto}
-.ka .sv-client{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--soft)}
+.ka .sv-card h3{font-size:clamp(24px,2.2vw,30px);line-height:1.15;letter-spacing:-.03em;font-weight:500}
+.ka .sv-card p{margin:0;color:var(--muted);font-size:17px;line-height:1.7;text-wrap:pretty}
+.ka .sv-card .link{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:8px;border-bottom:0;color:var(--cobalt)}
+.ka .sv-client{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--soft)}
 .ka .sv-client i{width:8px;height:8px;border-radius:50%;background:var(--c,#999)}
-.ka .sv-ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-.ka .sv-ticks li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
-.ka .sv-ticks li svg{flex:none;margin-top:1px;color:var(--cobalt)}
-.ka .sv-jumps{gap:2px}
-.ka .sv-jump{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:calc(100% + 20px);margin-inline:-10px;padding:9px 10px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer}
-.ka .sv-jump i{width:8px;height:8px;border-radius:50%;background:var(--c)}
-.ka .sv-jump small{margin-left:auto;font-size:12.5px;font-weight:500;color:var(--soft)}
-.ka .sv-jump:focus-visible{outline:2px solid var(--cobalt)}
-@media (hover:hover) and (pointer:fine){.ka .sv-jump:hover{background:var(--surface)}}
+.ka .sv-ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ka .sv-ticks li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45}
+.ka .sv-ticks li svg{flex:none;margin-top:2px;color:var(--cobalt)}
 
 @media (max-width:900px){
-  .ka .sv-head{grid-template-columns:minmax(0,1fr)}
-  .ka .sv-wrap{margin-top:32px}
-  .ka .sv-vp{height:min(560px,130vw);border-radius:20px}
-  .ka .sv-vp::after{display:none}
-  .ka .sv-tools{left:12px;right:12px;bottom:12px}
-  .ka .sv-all span{display:none}
-  .ka .sv-panel{position:static;width:auto;margin-top:16px;padding:20px;box-shadow:0 0 0 1px var(--line)}
-  .ka .sv-card .link{margin-top:6px}
+  .ka .sv-tbar{margin-top:28px;margin-inline:-2px}
+  .ka .sv-body{grid-template-columns:minmax(0,1fr);gap:32px}
+}
+@media (max-width:600px){
+  .ka .sv-tb{height:38px;padding:0 16px;font-size:14.5px}
+  .ka .sv-stage{border-radius:16px}
+  .ka .sv-frame{border-radius:8px}
 }
 @media (prefers-reduced-motion:reduce){.ka .sv-tb{transition:none}}
 

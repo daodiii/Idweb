@@ -1,5 +1,5 @@
 /**
- * The five services shown on the homepage canvas («Lerretet»). Each one is illustrated by an animated scene
+ * The five services in the homepage services section. Each one is illustrated by an animated scene
  * built for a fictional example client; the client names are labelled as examples wherever they appear.
  */
 
@@ -73,18 +73,4 @@ export const SERVICES: CanvasService[] = [
     more: "Les om drift",
     href: "/tjenester/vedlikehold",
   },
-];
-
-/** Where each frame sits on the canvas (world units), and the design notes pinned between them. */
-export const FRAME_POS = [
-  { x: 40, y: 64 },
-  { x: 760, y: 24 },
-  { x: 1480, y: 84 },
-  { x: 330, y: 610 },
-  { x: 1040, y: 640 },
-];
-export const CANVAS_NOTES = [
-  { x: 20, y: 640, t: "Nordvik ønsket fjordfarger og store bilder." },
-  { x: 1740, y: 660, t: "Krus & Kar: bare kurv og betaling, ingen tunge tillegg." },
-  { x: 20, y: 860, t: "Lia: kundene spør om akutt-timer, så det står øverst." },
 ];
