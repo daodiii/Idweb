@@ -1,4 +1,4 @@
-import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, Michroma, Mona_Sans, Montserrat, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, Michroma, Mona_Sans, Montserrat, Plus_Jakarta_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
@@ -6,6 +6,16 @@ export const schibsted = Schibsted_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+});
+
+// Candidate face for the calm homepage, compared against Schibsted on the preview (?font=jakarta). Not preloaded:
+// it only downloads when the comparison switches it on. The losing face is removed before merge.
+export const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: false,
 });
 
 // The hero face: headline, lede and buttons at the top of the homepage. Variable weight, exposed as --font-mona.
