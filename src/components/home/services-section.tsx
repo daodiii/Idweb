@@ -14,7 +14,7 @@ const Tick = () => (
 );
 
 /**
- * Services: a row of tabs, then one example at a time in a calm frame, with the chosen service described beside it.
+ * Services: a row of tabs, then the chosen service described on the left and its example alone in a calm frame on the right.
  * The frame is decorative (aria-hidden); the services, their contents and links are in the server-rendered panel, one
  * article per service, so they read and work without the animation.
  */
@@ -31,7 +31,7 @@ export function ServicesSection() {
       <div className="wrap">
         <div className="sec-h sv-head">
           <h2 id="tjenester-h">
-            Alt bedriften trenger på nett, fra <Marker>én</Marker> leverandør
+            Alt bedriften trenger på nett, fra én <Marker>leverandør</Marker>
           </h2>
         </div>
         <div className="sv-tbar" role="group" aria-label="Velg tjeneste">
