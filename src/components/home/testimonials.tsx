@@ -7,12 +7,12 @@ import { RingebuMark } from "@/components/home/ringebu-mark";
 import { TESTIMONIALS, type Testimonial } from "@/lib/home/testimonials";
 
 /**
- * «Det kundene sier»: one large quote at a time. The four client logos underneath are the switch (on the calm homepage
- * in one tone, a-klar-calm.css); the quote changes only when a logo is chosen. All quotes are in the HTML, stacked in one grid cell so the stage keeps the height of the longest;
+ * «Det kundene sier»: one large quote at a time. The four client logos underneath are the switch: one tone while
+ * waiting, the client's own colours once chosen (a-klar-calm.css); the quote changes only when a logo is chosen. All quotes are in the HTML, stacked in one grid cell so the stage keeps the height of the longest;
  * the inactive ones are hidden from assistive tech.
  */
 function Logo({ id }: { id: Testimonial["id"] }) {
-  if (id === "centerrahma") return <Image src="/images/clients/rahma-logo-white.png" alt="" width={412} height={433} sizes="80px" />;
+  if (id === "centerrahma") return <Image src="/images/clients/rahma-logo.png" alt="" width={412} height={433} sizes="80px" />;
   if (id === "ringebu")
     return (
       <>
