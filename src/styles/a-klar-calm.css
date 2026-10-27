@@ -30,6 +30,13 @@
   --font:var(--font-jakarta),"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
+/* ---------- page frame: side margins of 7% of the screen (as responsivmedia.no), content capped at 1320px ----------
+   At 1440 the text starts 101px in instead of 152, and the content is 1238px wide instead of 1136, so pictures can be
+   larger. Phones and tablets keep the narrower margins from a-klar.css (16px / 32px). */
+@media (min-width:1024px){
+  :root:has(.ka.calm) .ka .wrap{max-width:none;padding-inline:max(7vw,calc((100% - 1320px) / 2))}
+}
+
 /* ---------- type: one face, medium-weight headings, airy body ---------- */
 .ka.calm .hero-head,.ka.calm .tm-q blockquote{font-family:var(--font)}
 .ka.calm .hero-head h1{font-weight:500;letter-spacing:-.03em;line-height:1.1}
@@ -59,9 +66,9 @@
 /* ---------- hero: text left, visual right on wide screens, so the headline and the picture share the first screen ---------- */
 @media (min-width:1080px){
   .ka.calm .hero{padding-block:48px 72px}
-  .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:56px;align-items:center}
+  .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
   .ka.calm .hero-head{gap:28px}
-  .ka.calm .hero-head h1{font-size:clamp(44px,4.3vw,62px)}
+  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
   .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
   .ka.calm .hero-side .lede{max-width:44ch}
   /* the stage runs in its compact cut here (chat and phone), at full size and centred in the column */
