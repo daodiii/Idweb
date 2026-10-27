@@ -9,6 +9,10 @@ export const W = 640;
 export const H = 440;
 export const EO = "cubic-bezier(.23,1,.32,1)";
 export const EIO = "cubic-bezier(.77,0,.175,1)";
+/** Calm pace: the scenes' timelines were written fast; steps start PACE× later and each motion runs MOTION× longer,
+ *  so one step settles before the next begins. */
+const PACE = 1.28;
+const MOTION = 1.08;
 
 export type Rect = [number, number, number, number];
 export type Scene = { dur: number; html: string; run: (a: Api) => void };
@@ -46,7 +50,7 @@ export class Player {
 
   at(ms: number, fn: () => void) {
     if (this.fast) fn();
-    else this.timers.push(setTimeout(fn, ms));
+    else this.timers.push(setTimeout(fn, ms * PACE));
   }
 
   stop() {
@@ -73,7 +77,7 @@ export class Player {
   /** Play a scene from the start; `focus` tells the page where the action is over time. */
   play(sc: Scene, focus: number[][]) {
     this.build(sc, false);
-    if (!this.fast) this.cv.animate([{ opacity: 0, filter: "blur(4px)" }, { opacity: 1, filter: "blur(0px)" }], { duration: 320, easing: "ease-out" });
+    if (!this.fast) this.cv.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 450, easing: EO });
     focus.forEach(([ms, x, y, w, h]) => this.at(ms, () => this.onFocus?.([x, y, w, h], ms > 0)));
   }
 
@@ -123,7 +127,7 @@ export class Api {
   anim(el: Element | null, kf: Keyframe[], o: KeyframeAnimationOptions = {}) {
     if (!el) return null;
     const fast = this.p.fast;
-    const x = el.animate(kf, { easing: EO, ...o, duration: fast ? 0 : Number(o.duration) || 400, delay: fast ? 0 : o.delay || 0 });
+    const x = el.animate(kf, { easing: EO, ...o, duration: fast ? 0 : (Number(o.duration) || 400) * MOTION, delay: fast ? 0 : (o.delay || 0) * MOTION });
     this.p.anims.push(x);
     return x;
   }
@@ -145,7 +149,7 @@ export class Api {
     this.at(ms, () => {
       const el = this.q(sel);
       el.classList.remove("hid");
-      this.anim(el, [{ opacity: 0, transform: "scale(.85)" }, { opacity: 1, transform: "none" }], { duration: 380, fill: "backwards", easing: "cubic-bezier(.34,1.56,.64,1)" });
+      this.anim(el, [{ opacity: 0, transform: "scale(.85)" }, { opacity: 1, transform: "none" }], { duration: 420, fill: "backwards" });
     });
   }
 
@@ -165,7 +169,7 @@ export class Api {
           clearInterval(id);
           el.classList.remove("typing");
         }
-      }, 1000 / cps);
+      }, (1000 / cps) * MOTION);
       this.p.timers.push(id);
     });
   }
