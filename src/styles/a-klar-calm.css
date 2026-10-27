@@ -63,25 +63,7 @@
 @keyframes calm-mk{to{clip-path:inset(-50% -5% -50% -5%)}}
 @media (prefers-reduced-motion:reduce){.ka.calm .mk svg{animation:none;clip-path:none}}
 
-/* ---------- hero: text left, visual right on wide screens, so the headline and the picture share the first screen ---------- */
-@media (min-width:1080px){
-  .ka.calm .hero{padding-block:48px 72px}
-  .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
-  .ka.calm .hero-head{gap:28px}
-  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
-  .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
-  .ka.calm .hero-side .lede{max-width:44ch}
-  /* the stage runs in its compact cut here (chat and phone), at full size and centred in the column */
-  .ka.calm .hero-vis .hx .fit{max-width:540px;margin:0 auto}
-  .ka.calm .hs{margin-top:0}
-  /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
-  .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
-  .ka.calm .hero-vis .hs-d{width:82%}
-  .ka.calm .hero-vis .hs-t{right:0;top:27%;width:33%}
-  .ka.calm .hero-vis .hs-p{left:52%;width:16%}
-}
-
-/* ---------- hero variant B: one landscape cropped into desktop, tablet and phone frames ---------- */
+/* ---------- hero still: one landscape cropped into desktop, tablet and phone frames ---------- */
 .ka.calm .hs{margin:56px 0 0}
 .ka.calm .hs-frames{position:relative;aspect-ratio:1136/620}
 .ka.calm .hs-f{position:absolute;overflow:hidden;border-radius:var(--r-card);background:var(--surface);box-shadow:0 1px 2px rgba(19,26,58,.06),0 34px 64px -34px rgba(19,26,58,.42)}
@@ -102,11 +84,21 @@
   .ka.calm .hs-m{top:10px;right:10px;width:12px;box-shadow:0 4px 0 rgba(19,26,58,.45),0 8px 0 rgba(19,26,58,.45)}
 }
 
-/* ---------- temporary hero comparison (hero.tsx), removed before merge ---------- */
-.ka .hsw{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;gap:4px;padding:4px;border-radius:var(--r-pill);background:var(--ink);box-shadow:0 18px 40px -18px rgba(19,26,58,.6)}
-.ka .hsw button{all:unset;cursor:pointer;padding:9px 14px;border-radius:var(--r-pill);color:rgba(255,255,255,.75);font:500 13px/1 var(--font)}
-.ka .hsw button[aria-pressed=true]{background:#fff;color:var(--ink)}
-.ka .hsw button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* ---------- hero: text left, visual right on wide screens, so the headline and the picture share the first screen ---------- */
+@media (min-width:1080px){
+  .ka.calm .hero{padding-block:48px 72px}
+  .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
+  .ka.calm .hero-head{gap:28px}
+  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
+  .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
+  .ka.calm .hero-side .lede{max-width:44ch}
+  .ka.calm .hs{margin-top:0}
+  /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
+  .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
+  .ka.calm .hero-vis .hs-d{width:82%}
+  .ka.calm .hero-vis .hs-t{right:0;top:27%;width:33%}
+  .ka.calm .hero-vis .hs-p{left:52%;width:16%}
+}
 
 /* ---------- radii ---------- */
 :root:has(.ka.calm) .ka .dropdown::before{border-radius:var(--r-sm)}
