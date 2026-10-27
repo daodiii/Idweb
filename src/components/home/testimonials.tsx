@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Marker } from "@/components/home/marker";
 import { RingebuMark } from "@/components/home/ringebu-mark";
 import { TESTIMONIALS, type Testimonial } from "@/lib/home/testimonials";
 
 /**
- * «Det kundene sier»: one large quote at a time. The four client logos underneath are the switch, each on a tile in
- * the client's own colours; the quote changes only when a tile is chosen. All quotes are in the HTML, stacked in one grid cell so the stage keeps the height of the longest;
+ * «Det kundene sier»: one large quote at a time. The four client logos underneath are the switch (on the calm homepage
+ * in one tone, a-klar-calm.css); the quote changes only when a logo is chosen. All quotes are in the HTML, stacked in one grid cell so the stage keeps the height of the longest;
  * the inactive ones are hidden from assistive tech.
  */
 function Logo({ id }: { id: Testimonial["id"] }) {
@@ -52,7 +53,9 @@ export function Testimonials() {
     <section className={`tm tm-on-${active.id}`} id="kundene-sier" aria-labelledby="tm-h">
       <div className="wrap">
         <div className="sec-h tm-head">
-          <h2 id="tm-h">Det kundene sier</h2>
+          <h2 id="tm-h">
+            Det <Marker>kundene</Marker> sier
+          </h2>
           <p>Fire av kundene vi har bygd for, med egne ord.</p>
         </div>
 

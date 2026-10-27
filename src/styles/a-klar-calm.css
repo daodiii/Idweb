@@ -203,3 +203,29 @@
 .ka.calm .dx .deal-list s{text-decoration-color:var(--soft)}
 /* the summary follows the steps instead of sinking to the bottom of the tall phone column */
 .ka.calm .dx .back-note{margin-top:8px}
+
+/* ---------- testimonials (Part 5): one big quote on a plain grey card, the logos below in one tone ----------
+   The client tint, the watermark and the coloured tiles go; the logos get the logo strip's treatment. */
+.ka.calm .tm-stage{background:var(--surface);box-shadow:none;min-height:420px;padding:64px clamp(24px,6vw,96px)}
+.ka.calm .tm-wm{display:none}
+.ka.calm .tm-q{filter:none;transition:opacity .45s var(--out),transform .45s var(--out)}
+/* the base rule's shorthand names --font-mona, which no longer loads, so the browser dropped the whole declaration */
+.ka.calm .tm-q blockquote{font:500 clamp(20px,2vw,28px)/1.45 var(--font);letter-spacing:-.02em;color:var(--ink)}
+.ka.calm .tm-gu{color:var(--soft)}
+.ka.calm .tm-logos{gap:8px;margin-top:16px}
+.ka.calm .tm-logo{height:96px;background:none;color:var(--ink);opacity:.55;transform:none;box-shadow:none}
+.ka.calm .tm-logo[aria-pressed=true]{opacity:1;transform:none;box-shadow:none}
+.ka.calm .tm-logo::after{inset:auto 50% 10px auto;width:28px;height:2px;margin-right:-14px;border-radius:2px;background:var(--ink);-webkit-mask-image:none;mask-image:none;transform:scaleX(0);transition:transform .45s var(--out)}
+.ka.calm .tm-logo[aria-pressed=true]::after{transform:none}
+.ka.calm .tm-logo .tm-lg img{filter:brightness(0)}
+.ka.calm .tm-logo-centerrahma .tm-lg img{height:64px}
+@media (hover:hover) and (pointer:fine){.ka.calm .tm-logo:not([aria-pressed=true]):hover{opacity:.8}}
+@media (max-width:700px){
+  .ka.calm .tm-stage{min-height:0;padding:40px 22px}
+  .ka.calm .tm-logo{height:72px}
+  .ka.calm .tm-logo-centerrahma .tm-lg img{height:48px}
+}
+@media (prefers-reduced-motion:reduce){.ka.calm .tm-logo::after{transition:none}}
+
+/* markers draw when their heading scrolls into view (marker-reveal.tsx); without script they draw on load as before */
+:root[data-mk] .ka.calm .mk:not(.in) svg{animation-play-state:paused}
