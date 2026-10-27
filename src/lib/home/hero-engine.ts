@@ -16,12 +16,16 @@ const WISHES: Wish[] = [
   { a: "", m: "Blogg", b: "? Nei, ingen kommer til å lese den.", t: null },
 ];
 const COUNT_DELAY: Record<number, number> = { 4: 700, 5: 900 };
+// The calm cut (docs/specs/calm-homepage.md, Part 2): three wishes built and one turned down, without flight trails.
+const CALM_WISHES = [0, 1, 3, 5].map((i) => WISHES[i]);
+const WORD = ["ingen", "ett", "to", "tre", "fire", "fem", "seks"];
 
 type Mode = "wide" | "narrow" | "mobile";
 const halt = new Error("halt");
 
-export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
+export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null, opts: { calm?: boolean } = {}) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wishes = opts.calm ? CALM_WISHES : WISHES;
   const st = k.querySelector<HTMLElement>(".stage")!;
   const fit = k.querySelector<HTMLElement>(".fit")!;
   const bd = k.querySelector<HTMLElement>(".bd")!;
@@ -104,7 +108,7 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
     const a = el.animate(kf, { duration: dur, fill: "forwards", easing: "cubic-bezier(.65,0,.35,1)" });
     const tick = () => {
       if (a.playState === "finished" || a.playState === "idle" || !el.isConnected) return;
-      if (a.playState === "running") {
+      if (a.playState === "running" && !opts.calm) {
         const m = new DOMMatrixReadOnly(getComputedStyle(el).transform);
         trail(m.m41 + el.offsetWidth / 2, m.m42 + el.offsetHeight / 2);
       }
@@ -127,7 +131,7 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
   const step = async (g: number, p: Promise<unknown>) => { await p; if (g !== gen) throw halt; };
 
   const msgs: HTMLElement[] = [];
-  const reveal = async (g: number, i: number) => {
+  const reveal = async (g: number, w: Wish) => {
     msgs.forEach((m) => m.classList.add("past"));
     const dots = document.createElement("div");
     dots.className = "dotsb";
@@ -135,7 +139,6 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
     thread.appendChild(dots);
     await wait(g, 900);
     dots.remove();
-    const w = WISHES[i];
     const m = document.createElement("div");
     m.className = "msg";
     m.append(w.a);
@@ -162,15 +165,24 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
     k.querySelectorAll<HTMLElement>(".cnt").forEach((c) => { c.textContent = fmt(Number(c.dataset.from || 0), c.dataset.fmt); });
     nb.textContent = "0";
     nd.textContent = "0";
+    // the tally and the closing pill count the wishes this cut plays
+    const of = k.querySelector(".tally em");
+    if (of) of.textContent = `av ${wishes.length} meldinger`;
+    const pill = k.querySelector(".final .pill")?.lastChild;
+    const yes = wishes.filter((w) => w.t).length;
+    const no = wishes.length - yes;
+    if (pill) pill.textContent = `Rørlegger Hansen: ${WORD[yes]} ønsker med, ${no === 1 ? "ett" : WORD[no]} nei takk`;
     await wait(g, 60);
     setCls("");
     await wait(g, 900);
     let built = 0;
     let dropped = 0;
     const ms: string[] = [];
-    for (let i = 0; i < WISHES.length; i++) {
-      const w = WISHES[i];
-      const mk = await reveal(g, i);
+    for (let i = 0; i < wishes.length; i++) {
+      const w = wishes[i];
+      // n is the wish's place in the full story: the stage's feature classes (m2, .f2, .t2 …) are numbered by it
+      const n = WISHES.indexOf(w) + 1;
+      const mk = await reveal(g, w);
       await wait(g, 220);
       mk.classList.add("lit");
       await wait(g, 560);
@@ -206,10 +218,10 @@ export function startHero(k: HTMLElement, pauseBtn: HTMLButtonElement | null) {
             fl.style.setProperty("--cy", `${pts[t].y - hr.y}px`);
           });
         }
-        ms.push(`m${i + 1}`);
+        ms.push(`m${n}`);
         setCls(ms.join(" "));
-        k.querySelectorAll<HTMLElement>(`.f${i + 1} .cnt`).forEach((c) =>
-          countUp(c, Number(c.dataset.dur) || (c.dataset.fmt ? 1800 : 1500), COUNT_DELAY[i + 1] ?? 900));
+        k.querySelectorAll<HTMLElement>(`.f${n} .cnt`).forEach((c) =>
+          countUp(c, Number(c.dataset.dur) || (c.dataset.fmt ? 1800 : 1500), COUNT_DELAY[n] ?? 900));
         bump(nb, ++built);
       } else {
         // the one they didn't need: it sets off, is crossed out and falls away

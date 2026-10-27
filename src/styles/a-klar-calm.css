@@ -42,6 +42,47 @@
 :root:has(.ka.calm) .ka .btn.book{background:var(--cobalt);color:#fff}
 @media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .btn.book:hover{background:var(--orange-btn-hover)}}
 
+/* ---------- header: see-through with blur; slides away on scroll down, back on scroll up (header-autohide.tsx) ---------- */
+:root:has(.ka.calm) .ka.hdr{transition:transform var(--dur-ui) var(--out)}
+:root:has(.ka.calm) .ka.hdr[data-hide]:not(:focus-within){transform:translateY(-100%)}
+:root:has(.ka.calm) .ka .top{background:rgba(250,250,249,.78);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka.hdr{transition:none}}
+
+/* ---------- signature: one orange marker stroke behind a key word, drawn in once ---------- */
+.ka.calm .mk{position:relative;isolation:isolate;white-space:nowrap}
+/* the stroke keeps an even width at any word length (non-scaling); it is revealed left to right by a clip, not a dash */
+.ka.calm .mk svg{position:absolute;z-index:-1;left:-.06em;bottom:.04em;width:calc(100% + .12em);height:.5em;overflow:visible;clip-path:inset(-50% 100% -50% -5%);animation:calm-mk var(--dur-reveal) var(--out) .35s forwards}
+.ka.calm .mk path{fill:none;stroke:var(--orange);stroke-opacity:.42;stroke-width:.34em;stroke-linecap:round;vector-effect:non-scaling-stroke}
+@keyframes calm-mk{to{clip-path:inset(-50% -5% -50% -5%)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .mk svg{animation:none;clip-path:none}}
+
+/* ---------- hero variant B: one landscape cropped into desktop, tablet and phone frames ---------- */
+.ka.calm .hs{margin:56px 0 0}
+.ka.calm .hs-frames{position:relative;aspect-ratio:1136/620}
+.ka.calm .hs-f{position:absolute;overflow:hidden;border-radius:var(--r-card);background:var(--surface);box-shadow:0 1px 2px rgba(19,26,58,.06),0 34px 64px -34px rgba(19,26,58,.42)}
+.ka.calm .hs-f img{object-fit:cover}
+.ka.calm .hs-d{left:0;top:0;width:66%;aspect-ratio:1088/680}
+.ka.calm .hs-t{right:3%;top:13%;width:27%;aspect-ratio:510/680}
+.ka.calm .hs-p{left:56%;bottom:0;width:13%;aspect-ratio:314/680}
+/* a small menu mark in the corner says «this is a website» without any interface clutter */
+.ka.calm .hs-m{position:absolute;top:14px;right:14px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.45);box-shadow:0 5px 0 rgba(19,26,58,.45),0 10px 0 rgba(19,26,58,.45)}
+.ka.calm .hs figcaption{margin-top:18px;font-size:13px;color:var(--faint)}
+.ka.calm .hs figcaption a{border-bottom:1px solid currentColor}
+@media (max-width:600px){
+  .ka.calm .hs{margin-top:40px}
+  .ka.calm .hs-frames{aspect-ratio:358/330}
+  .ka.calm .hs-d{width:90%}
+  .ka.calm .hs-t{right:0;top:30%;width:36%}
+  .ka.calm .hs-p{left:46%;width:20%}
+  .ka.calm .hs-m{top:10px;right:10px;width:12px;box-shadow:0 4px 0 rgba(19,26,58,.45),0 8px 0 rgba(19,26,58,.45)}
+}
+
+/* ---------- temporary hero comparison (hero.tsx), removed before merge ---------- */
+.ka .hsw{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;gap:4px;padding:4px;border-radius:var(--r-pill);background:var(--ink);box-shadow:0 18px 40px -18px rgba(19,26,58,.6)}
+.ka .hsw button{all:unset;cursor:pointer;padding:9px 14px;border-radius:var(--r-pill);color:rgba(255,255,255,.75);font:500 13px/1 var(--font)}
+.ka .hsw button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.ka .hsw button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
 /* ---------- radii ---------- */
 :root:has(.ka.calm) .ka .dropdown::before{border-radius:var(--r-sm)}
 :root:has(.ka.calm) .ka .dropdown a{border-radius:var(--r-sm)}

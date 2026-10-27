@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { michroma, montserrat, schibsted } from "@/lib/home/fonts";
 import { MobileMenu, type NavLink } from "@/components/home/mobile-menu";
+import { HeaderAutohide } from "@/components/home/header-autohide";
 
 const LINKS: readonly NavLink[] = [
   {
@@ -22,7 +23,10 @@ const LINKS: readonly NavLink[] = [
   { href: "/om-oss", label: "Om oss" },
 ];
 
-/** Sticky header: the booking button stays in reach on every scroll position; links fold into a menu below 820 px. */
+/**
+ * Sticky header: links fold into a menu below 820 px. On the calm homepage it slides away while scrolling down and
+ * returns on the way up (HeaderAutohide); on other pages it stays in place.
+ */
 export function HomeHeader() {
   return (
     <div className={`ka hdr ${schibsted.variable} ${michroma.variable} ${montserrat.variable}`}>
@@ -84,6 +88,7 @@ export function HomeHeader() {
           </div>
         </div>
       </header>
+      <HeaderAutohide />
     </div>
   );
 }
