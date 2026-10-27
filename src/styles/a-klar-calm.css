@@ -123,7 +123,7 @@
 /* ---------- work section (work-section.tsx), as on the reference: cards left, text right ----------
    A stack of grey cards, each staging one client with the phone in front; the text column holds its place (sticky)
    while the cards scroll past. Below 900px the text comes first and the cards follow. */
-.ka.calm .wk{padding-block:112px}
+.ka.calm .wk{padding-block:var(--sec-pad)}
 .ka.calm .wk-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:72px;align-items:start}
 .ka.calm .wk-text{grid-column:2;grid-row:1;position:sticky;top:132px;display:flex;flex-direction:column;align-items:flex-start;gap:22px}
 .ka.calm .wk-text h2{font-size:clamp(32px,3.4vw,46px);font-weight:500;letter-spacing:-.03em;line-height:1.15;text-wrap:balance}
@@ -154,7 +154,6 @@
 /* Ringebu: the page in a frame */
 .ka.calm .wk-ringebu .wk-desk{left:9%;right:9%;top:13%;aspect-ratio:1200/750}
 @media (max-width:900px){
-  .ka.calm .wk{padding-block:80px}
   .ka.calm .wk-grid{grid-template-columns:minmax(0,1fr);gap:48px}
   .ka.calm .wk-text,.ka.calm .wk-stack{grid-column:1;grid-row:auto}
   .ka.calm .wk-text{position:static}
@@ -234,3 +233,11 @@
 
 /* markers draw when their heading scrolls into view (marker-reveal.tsx); without script they draw on load as before */
 :root[data-mk] .ka.calm .mk:not(.in) svg{animation-play-state:paused}
+
+/* ---------- section rhythm: the reference pads its sections about 6% of the width (86 px at 1440), we had 112 px ----------
+   One padding for every homepage section, so two sections meet with about 170 px between them instead of 224. */
+.ka.calm{--sec-pad:clamp(64px,6vw,88px)}
+.ka.calm .services,.ka.calm .band,.ka.calm .tm,.ka.calm .qt{padding-block:var(--sec-pad)}
+.ka.calm .tm-head{margin-bottom:40px}
+.ka.calm .tm-stage{padding-block:56px}
+@media (max-width:700px){.ka.calm .tm-head{margin-bottom:28px}.ka.calm .tm-stage{padding-block:40px}}
