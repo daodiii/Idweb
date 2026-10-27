@@ -10,20 +10,18 @@ import { DemoSection } from "@/components/home/demo-section";
 import { Testimonials } from "@/components/home/testimonials";
 import { QuoteSection } from "@/components/home/quote-section";
 import { MarkerReveal } from "@/components/home/marker-reveal";
-import { LookSwitch, LOOK_SCRIPT } from "@/components/home/look-switch";
 import { Moment } from "@/components/home/moment";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
 import "@/styles/a-klar-tjenester.css";
 import "@/styles/a-klar-calm.css";
-import "@/styles/a-klar-look-ny.css";
 
 export const metadata: Metadata = pageMetadata({ title: SEO.home.title, description: SEO.home.description, path: "/" });
 
 /**
  * Landing page — «A · Klar». Light, calm and concrete: a hero with a client landscape in device frames, the client logos
- * sliding past, selected work (client cards beside sticky text), the services with one example at a time, two live demos of how we work (process, systems), testimonials and the quote request («Få et pristilbud»).
+ * sliding past, selected work (client cards beside sticky text), the services with one example at a time, one full-width moment (Bjørvika under the northern lights), two live demos of how we work (process, systems), testimonials and the quote request («Få et pristilbud»).
  * All styles live in a-klar.css (services section: a-klar-tjenester.css) under the .ka scope. The .calm class opts the
  * homepage into the stricter calm system (a-klar-calm.css, docs/specs/calm-homepage.md) without touching other .ka pages.
  * Its face is Plus Jakarta Sans (--font-jakarta, set on <body>). The client faces (Bricolage, Figtree, Young Serif, Inter)
@@ -32,9 +30,6 @@ export const metadata: Metadata = pageMetadata({ title: SEO.home.title, descript
 export default function Home() {
   return (
     <div className={`ka calm ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
-      {/* PREVIEW ONLY: the «ny» look switch (look-switch.tsx); remove before merge */}
-      <script dangerouslySetInnerHTML={{ __html: LOOK_SCRIPT }} />
-      <LookSwitch />
       <MarkerReveal />
       <Hero />
       <LogoTicker />

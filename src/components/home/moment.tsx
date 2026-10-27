@@ -1,10 +1,10 @@
 import { Marker } from "@/components/home/marker";
 
 /**
- * PREVIEW («ny» look): the page's one full-width moment. Bjørvika seen from Ekeberg under the northern lights, drawn by
+ * The page's one full-width moment. Bjørvika seen from Ekeberg under the northern lights, drawn by
  * us as SVG (scripts/illustrations/bjorvika). Three image layers so only cheap CSS transforms move: the sky, the aurora
  * (drifting slowly), the city with the fjord and its reflections; the ferry is a small inline layer gliding across the
- * water. Hidden in the current look (a-klar-look-ny.css), so its images are never fetched. Reduced motion holds it still.
+ * water. Styles in a-klar-calm.css. Reduced motion holds it still.
  */
 export function Moment() {
   return (

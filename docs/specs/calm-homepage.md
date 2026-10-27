@@ -14,14 +14,14 @@ What we take from the reference: few design decisions, repeated everywhere. One 
 |---|---|---|
 | 1 | Scope | Homepage only (`src/app/page.tsx`, `.ka` scope). Other pages later, once the look is approved. |
 | 2 | Approach | Refine the existing sections. No rebuild. Keep the animations. |
-| 3 | Colour | Three roles. **Ink:** dark navy, based on `#1E2A6E`, replacing `#14161B`. **Action:** cobalt `#2447D6`, used for every button and actionable link. **Accent:** orange `#F2892B`, only for the signature detail and small highlights, never for buttons. Background is off-white (around `#FAFAF9`), plus one grey surface for cards. Peach, the blue tint and the extra orange shades go. |
+| 3 | Colour | Three roles. **Ink:** dark navy, based on `#1E2A6E`, replacing `#14161B`. **Action:** cobalt `#2447D6`, used for every button and actionable link. **Accent:** orange `#F2892B`, only for the signature detail and small highlights, never for buttons. Background is off-white (around `#FAFAF9`), plus one grey surface for cards. Peach, the blue tint and the extra orange shades go. **Revised after Part 5 («Ny»):** soft pastels taken from each client's own palette colour the work cards and the testimonial card, and «Slik jobber vi» sits on one soft periwinkle field. |
 | 4 | Font | One family. Plus Jakarta Sans and Schibsted Grotesk are compared side by side in Part 1, and the user picks. Headings at weight 500 with −0.03em letter spacing, line height 1.1 (h1) / 1.2 (h2). Body text at 17px with line height 1.7. The other families stop loading on the homepage, except a wordmark font if the logo needs one. |
 | 5 | Signature detail | A loose, hand-drawn orange marker stroke behind **one** key word per section heading. It draws in once when it scrolls into view. |
 | 6 | Motion | Keep the current animations. Every transition uses the existing `cubic-bezier(.23,1,.32,1)`: about 0.45s for UI and hovers, about 1–1.2s for reveals. The header hides when scrolling down and comes back when scrolling up, slightly see-through with a blur. Content is readable before any animation runs. |
-| 7 | Big scroll moment | Exactly one: the work section's lead image grows from inset to full width as you scroll. Nowhere else. |
-| 8 | Imagery | Client work is the imagery: crops of real client sites, staged in identical soft grey cards with one radius, with varied arrangements inside (desktop + phone, a group of phones, a close-up). A free-licence stock photo (Unsplash/Pexels) only if it's clearly better than any client crop, credited in code and approved by the user one by one. |
+| 7 | Big moment | Exactly one. First planned as the work section's lead image growing to full width (dropped in Part 3). **Revised after Part 5 («Ny»):** a full-width illustration after the services, Bjørvika from Ekeberg under the northern lights, with gentle motion (the aurora drifts, a ferry glides). |
+| 8 | Imagery | Client work is the imagery, plus the one illustration we drew ourselves (decision 7): crops of real client sites, staged in identical soft grey cards with one radius, with varied arrangements inside (desktop + phone, a group of phones, a close-up). A free-licence stock photo (Unsplash/Pexels) only if it's clearly better than any client crop, credited in code and approved by the user one by one. |
 | 9 | Radii | Three: pill (999px) for buttons and inputs, about 20px for images and large cards, about 14px for small cards. |
-| 10 | Backgrounds | One page background for every section. The peach section backgrounds go. The dark navy footer stays as the closing bookend. |
+| 10 | Backgrounds | One page background for every section. The peach section backgrounds go. The dark navy footer stays as the closing bookend. **Revised after Part 5 («Ny»):** two exceptions, the night-sky moment and the soft field behind «Slik jobber vi». |
 | 11 | Copy | Claude drafts new wording per section as it's reached, and the user edits it. Every text change is listed in the PR. |
 | 12 | Logo | Out of scope. Judged again after Part 2. |
 | 13 | Workflow | One worktree (`idweb-calm`, branch `feat/calm-homepage` and successors). One PR per part. The user reviews and merges before the next part starts. |
@@ -92,6 +92,17 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 ### Spacing pass (after Part 5)
 
 **Outcome (27 October 2026):** every homepage section was padded 112 px top and bottom, so two sections met with 224 px of space between them; the reference pads its sections about 6% of the width (86 px at 1440). One padding now serves every section: `--sec-pad: clamp(64px, 6vw, 88px)`, plus slightly tighter testimonial spacing. Section heights at 1440, before → after: services 1,008 → 957, «Slik jobber vi» 857 → 806, «Når kunden trykker» 1,170 → 1,119, testimonials 961 → 886, quote request 944 → 893 (the work stack, 2,415 → 2,364, is long on purpose, like the reference's own stack). Median 961 → 893 px against the reference's 855. The page is 332 px shorter at 1440. Screenshots: `calm-homepage-shots/spacing/`.
+
+### «Ny»: the bolder layer (after Part 5)
+
+**Why:** after Part 5 the user judged the page clean but not elite. A design critique found the same treatment repeated (one grey rounded box after another), no big moment, a polite hero and three mock-interface sections in a row. Three moves were built as a switchable preview (`?look=ny`), compared with the calm page, and chosen.
+
+**Outcome (27 October 2026):**
+- **Bigger hero:** the headline runs across the top (about 80 px at 1440, up from 52), the picture is larger and runs off the right edge, and the three promises are ink lines with a cobalt tick instead of small grey text.
+- **Colour from the clients:** each work card sits on a pastel from that client's palette (blush for MK Auto, sage for Iqra, sky for Kongsvinger, mint for Ringebu). The testimonial card takes the selected client's tint, and «Slik jobber vi» sits on a soft periwinkle field.
+- **One full-width moment** after the services: Bjørvika seen from Ekeberg under the northern lights, our own SVG illustration (`scripts/illustrations/bjorvika/`). The layout and relative heights follow real photos on Wikimedia Commons, used as reference only; the bench, boats and aurora are artistic. The heading «Du snakker med den som bygger.» sits in the sky; the caption reads «Bjørvika sett fra Ekeberg, tegnet av IDweb.». It is built as three image layers (sky, aurora, city; about 131 KB gzipped) so only transforms move. The aurora drifts over 26 s and the ferry glides over 80 s, and reduced motion holds both still.
+
+Two illustration rounds came before it: a Kongsvinger dusk crop, then whole-city drawings of Oslo that were not true to the real view. The user asked for Bjørvika, drawn from what is really there.
 
 ## Rules for every part
 

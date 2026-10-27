@@ -241,3 +241,69 @@
 .ka.calm .tm-head{margin-bottom:40px}
 .ka.calm .tm-stage{padding-block:56px}
 @media (max-width:700px){.ka.calm .tm-head{margin-bottom:28px}.ka.calm .tm-stage{padding-block:40px}}
+
+/* ==========================================================================================================================
+   The bolder layer, chosen after Part 5 (docs/specs/calm-homepage.md, «Ny»): a full-width moment, a bigger hero that runs
+   off the right edge, and colour taken from the clients. It sits last so it overrides the calm rules above where they meet.
+   ========================================================================================================================== */
+
+/* ---------- the full-width moment: Bjørvika under the northern lights (moment.tsx) ---------- */
+.ka.calm .moment{position:relative;display:block;height:clamp(440px,38vw,640px);overflow:hidden;background:#030817;color:#fff}
+.ka.calm .moment-art,.ka.calm .moment-art > *{position:absolute;inset:0;width:100%;height:100%}
+.ka.calm .moment-art img{object-fit:cover;object-position:50% 50%}
+/* the heading sits in the open sky top right, above Barcode, on a soft darkening so it reads over the aurora */
+.ka.calm .moment::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(3,8,23,.55),rgba(3,8,23,0) 34%)}
+.ka.calm .moment-in{position:relative;z-index:2;display:flex;justify-content:flex-end;padding-top:clamp(36px,4vw,64px)}
+.ka.calm .moment h2{max-width:13ch;margin:0;font-size:clamp(34px,4vw,60px);font-weight:500;letter-spacing:-.03em;line-height:1.06;color:#fff;text-align:right;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.6)}
+.ka.calm .moment .mk path{stroke-opacity:.9}
+.ka.calm .moment-c{position:absolute;z-index:2;left:max(7vw,calc((100% - 1320px) / 2));bottom:18px;font-size:13px;color:rgba(255,255,255,.72)}
+/* gentle motion: the aurora drifts and breathes, the ferry glides across Bjørvika; transforms only */
+.ka.calm .moment-aurora{transform-origin:50% 35%;animation:nordlys-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
+@keyframes nordlys-drift{0%{transform:translateX(-1.2%) scaleY(.94);opacity:.8}50%{opacity:1}100%{transform:translateX(1.2%) scaleY(1.05);opacity:.9}}
+.ka.calm .moment-ferry-g{animation:ferge 80s ease-in-out infinite alternate}
+@keyframes ferge{from{transform:translateX(0)}to{transform:translateX(170px)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .moment-aurora,.ka.calm .moment-ferry-g{animation:none}}
+/* on phones the picture starts below a band of night sky that holds the heading, so it never sits on the towers */
+@media (max-width:700px){
+  .ka.calm .moment{height:520px;background:linear-gradient(#030817,#0A1633 150px)}
+  .ka.calm .moment-art{top:120px;height:auto;-webkit-mask-image:linear-gradient(transparent,#000 70px);mask-image:linear-gradient(transparent,#000 70px)}
+  .ka.calm .moment-art > *{height:100%}
+  .ka.calm .moment-in{justify-content:flex-start}
+  .ka.calm .moment h2{text-align:left}
+  .ka.calm .moment-c{left:16px;bottom:14px;font-size:12px}
+}
+
+/* ---------- bigger hero: the headline across the top, the picture running off the right edge ---------- */
+@media (min-width:1080px){
+  .ka.calm .hero{padding-block:40px 104px}
+  .ka.calm .hero .wrap{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:48px 72px;align-items:start}
+  .ka.calm .hero-head{display:contents}
+  .ka.calm .hero-head h1{grid-column:1/-1;max-width:21ch;font-size:clamp(60px,5.6vw,92px);line-height:1.02}
+  .ka.calm .hero-side{grid-column:1;align-self:start;padding-top:12px;gap:32px}
+  .ka.calm .hero-side .lede{font-size:19px;max-width:36ch}
+  .ka.calm .hero-vis{grid-column:2;margin-right:calc(-1 * max(7vw,(100vw - 1320px) / 2))}
+}
+/* the three promises, given weight: ink text with a cobalt tick, one per line */
+.ka.calm .trust{display:flex;flex-direction:column;gap:12px;font-size:16px;font-weight:500;color:var(--ink)}
+.ka.calm .trust span{display:flex;align-items:center;gap:10px}
+.ka.calm .trust span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+@media (max-width:1079px){
+  .ka.calm .hero-head h1{font-size:clamp(40px,9.6vw,64px);line-height:1.04}
+}
+
+/* ---------- colour from the clients: each work card on a pastel field from that client's own palette ---------- */
+.ka.calm .wk-mk{background:#F4E1DF}
+.ka.calm .wk-trio{background:#DFECE3}
+.ka.calm .wk-kong{background:#DCE9F1}
+.ka.calm .wk-ringebu{background:#DCECE9}
+/* the testimonial card takes the chosen client's tint, as the logo below it takes the client's colours */
+.ka.calm .tm{--tint:#E2EEE3}
+.ka.calm .tm.tm-on-iqra{--tint:#F6F0CF}
+.ka.calm .tm.tm-on-brobekk{--tint:#E1E9F3}
+.ka.calm .tm.tm-on-ringebu{--tint:#DCEBEA}
+.ka.calm .tm-stage{background:var(--tint);transition:background-color .6s var(--out)}
+/* one section on a full-width soft field, so the page changes world once in the middle */
+.ka.calm #prosess{background:#ECEEF9}
+.ka.calm #prosess .stage{background:rgba(255,255,255,.62)}
+.ka.calm .band.warm + .band{border-top:0}
+@media (prefers-reduced-motion:reduce){.ka.calm .tm-stage{transition:none}}
