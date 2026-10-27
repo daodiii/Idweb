@@ -59,7 +59,7 @@ export function WorkSection() {
           <li>
             <figure>
               <div className="wk-card wk-kong">
-                <Image className="wk-bg" src="/images/arbeid/kongsvinger-behandlinger.webp" alt="Behandlingene til Kongsvinger Tannhelse, tegnet som en folder" fill sizes="(max-width: 900px) 92vw, 50vw" />
+                <Image className="wk-bg" src="/images/arbeid/kongsvinger-festning.webp" alt="Kongsvinger festning og byen under, tegnet for nettsiden til Kongsvinger Tannhelse" fill sizes="(max-width: 900px) 92vw, 50vw" />
                 <Phone src="/images/arbeid/kongsvinger-mobil.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
               </div>
               <figcaption>Kongsvinger Tannhelse · Tannlege i Kongsvinger</figcaption>
@@ -69,8 +69,9 @@ export function WorkSection() {
             <figure>
               <div className="wk-card wk-ringebu">
                 <div className="wk-desk">
-                  <Image src="/images/arbeid/ringebu-desktop.webp" alt="Forsiden til Ringebu Tannlegesenter: «Tannpleie med omtanke»" fill sizes="(max-width: 900px) 80vw, 44vw" />
+                  <Image src="/images/arbeid/ringebu-desktop.webp" alt="Forsiden til Ringebu Tannlegesenter på PC: «Hos oss er du i trygge hender», med bilder fra klinikken" fill quality={90} sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
+                <Phone src="/images/arbeid/ringebu-mobil.webp" alt="Samme forside på mobil" className="wk-ringebu-p" />
               </div>
               <figcaption>Ringebu Tannlegesenter · Tannlegesenter i Ringebu</figcaption>
             </figure>
