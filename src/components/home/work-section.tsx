@@ -2,112 +2,80 @@ import Image from "next/image";
 import Link from "next/link";
 import { Marker } from "@/components/home/marker";
 
-type Project = {
-  name: string;
-  what: string;
-  /** Where the card leads; none when the site we built is not live at the client's address yet. */
-  link?: { href: string; label: string; external?: boolean };
-  shot: "kongsvinger" | "ringebu" | "iqra";
-};
-
-const PROJECTS: Project[] = [
-  {
-    name: "Kongsvinger Tannhelse",
-    what: "Tannlegene Hafthun og Zia i Kongsvinger",
-    link: { href: "/referanser/kongsvinger-tannhelse", label: "Les kundecasen" },
-    shot: "kongsvinger",
-  },
-  { name: "Ringebu Tannlegesenter", what: "Tannlegesenter i Ringebu", shot: "ringebu" },
-  {
-    name: "Iqra Senter",
-    what: "Lærings- og aktivitetssenter for familier i Oslo",
-    link: { href: "https://www.iqrasenter.no", label: "Se nettsiden", external: true },
-    shot: "iqra",
-  },
-];
-
-/** The staged screenshots for each card; each project gets its own arrangement inside the same grey card. */
-function Shot({ shot }: { shot: Project["shot"] }) {
-  if (shot === "kongsvinger")
-    return (
-      <div className="wk-shot wk-close">
-        <Image src="/images/arbeid/kongsvinger-behandlinger.webp" alt="Behandlingene til Kongsvinger Tannhelse, tegnet som en folder" fill sizes="(max-width: 860px) 92vw, 30vw" />
-      </div>
-    );
-  if (shot === "ringebu")
-    return (
-      <div className="wk-shot wk-framed">
-        <div className="wk-frame">
-          <Image src="/images/arbeid/ringebu-desktop.webp" alt="Forsiden til Ringebu Tannlegesenter: «Tannpleie med omtanke»" fill sizes="(max-width: 860px) 80vw, 26vw" />
-        </div>
-      </div>
-    );
+/** A phone-shaped frame around a mobile screenshot. */
+function Phone({ src, alt, className }: { src: string; alt: string; className: string }) {
   return (
-    <div className="wk-shot wk-pair">
-      <div className="wk-frame wk-pair-d">
-        <Image src="/images/arbeid/iqra-desktop.webp" alt="Iqra Senters nettside: «Her vokser vi sammen» og tilbudet deres" fill sizes="(max-width: 860px) 70vw, 22vw" />
-      </div>
-      <div className="wk-frame wk-pair-p">
-        <Image src="/images/arbeid/iqra-mobil.webp" alt="" fill sizes="(max-width: 860px) 24vw, 8vw" />
-      </div>
+    <div className={`wk-phone ${className}`}>
+      <Image src={src} alt={alt} fill sizes="(max-width: 900px) 26vw, 12vw" />
     </div>
   );
 }
 
 /**
- * Selected work, right after the client logos: MK Auto as the lead, on a dark band that grows to the full width as it
- * scrolls into view (the page's one big scroll moment), then three smaller projects. Real client sites only.
+ * Selected work, right after the client logos, laid out like the reference: a stack of calm grey cards on the left,
+ * each staging one client's site with the phone in front, and the text on the right, holding its place while the cards
+ * scroll past. Only IDweb's own designs are shown, and no card links to a client domain that still serves an older site.
  */
 export function WorkSection() {
   return (
     <section className="wk" id="arbeid" aria-labelledby="wk-h">
-      <div className="wrap wk-head">
-        <h2 id="wk-h">
-          Hver bedrift får sin <Marker>egen</Marker> nettside.
-        </h2>
-        <p>Et utvalg av sidene vi har laget, fra bilforhandleren i Oslo til tannlegen ved Glomma.</p>
-      </div>
-
-      <figure className="wk-lead">
-        <div className="wk-lead-in">
-          <div className="wk-frame wk-lead-d">
-            <Image src="/images/arbeid/mk-auto-desktop.webp" alt="Forsiden til MK Auto: «Bruktbilforhandleren som prioriterer kunden»" fill sizes="(max-width: 860px) 92vw, 70vw" />
-          </div>
-          <div className="wk-frame wk-lead-p">
-            <Image src="/images/arbeid/mk-auto-mobil.webp" alt="" fill sizes="(max-width: 860px) 26vw, 16vw" />
-          </div>
+      <div className="wrap wk-grid">
+        <div className="wk-text">
+          <h2 id="wk-h">
+            Vi hjelper bedrifter, små og store, med å <Marker>lykkes</Marker> på nett.
+          </h2>
+          <p>
+            Nettsider og systemer laget for hver enkelt bedrift, som er like gode på mobilen som på PC. Her er noen av
+            dem.
+          </p>
+          <Link className="wk-link" href="/referanser">
+            Se kundecasene
+          </Link>
         </div>
-      </figure>
-      <div className="wrap wk-cap">
-        <div>
-          <h3>MK Auto</h3>
-          <p>Bruktbilforhandler i Oslo. Siden skulle kjennes som å gå inn i lokalet: mørkt, røde detaljer og bilene i front.</p>
-        </div>
-        <Link className="wk-link" href="/referanser/mk-auto">
-          Les kundecasen
-        </Link>
-      </div>
 
-      <ul className="wrap wk-row">
-        {PROJECTS.map((p) => (
-          <li key={p.name} className="wk-card">
-            <Shot shot={p.shot} />
-            <h3>{p.name}</h3>
-            <p>{p.what}</p>
-            {p.link &&
-              (p.link.external ? (
-                <a className="wk-link" href={p.link.href} target="_blank" rel="noopener">
-                  {p.link.label}
-                  <span className="sr"> (åpnes i ny fane)</span>
-                </a>
-              ) : (
-                <Link className="wk-link" href={p.link.href}>
-                  {p.link.label}
-                </Link>
-              ))}
+        <ul className="wk-stack">
+          <li>
+            <figure>
+              <div className="wk-card wk-mk">
+                <div className="wk-desk">
+                  <Image src="/images/arbeid/mk-auto-desktop.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill sizes="(max-width: 900px) 62vw, 34vw" />
+                </div>
+                <Phone src="/images/arbeid/mk-auto-mobil.webp" alt="Samme forside på mobil" className="wk-mk-p" />
+              </div>
+              <figcaption>MK Auto · Bruktbilforhandler i Oslo</figcaption>
+            </figure>
           </li>
-        ))}
-      </ul>
+          <li>
+            <figure>
+              <div className="wk-card wk-trio">
+                <Phone src="/images/arbeid/iqra-mobil-1.webp" alt="Iqra Senter på mobil: «Her vokser vi sammen»" className="wk-trio-1" />
+                <Phone src="/images/arbeid/iqra-mobil-2.webp" alt="Iqra Senter på mobil: tilbudet, helgeskolen" className="wk-trio-2" />
+                <Phone src="/images/arbeid/iqra-mobil-3.webp" alt="Iqra Senter på mobil: gi med Vipps" className="wk-trio-3" />
+              </div>
+              <figcaption>Iqra Senter · Lærings- og aktivitetssenter i Oslo</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div className="wk-card wk-kong">
+                <Image className="wk-bg" src="/images/arbeid/kongsvinger-behandlinger.webp" alt="Behandlingene til Kongsvinger Tannhelse, tegnet som en folder" fill sizes="(max-width: 900px) 92vw, 50vw" />
+                <Phone src="/images/arbeid/kongsvinger-mobil.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
+              </div>
+              <figcaption>Kongsvinger Tannhelse · Tannlege i Kongsvinger</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div className="wk-card wk-ringebu">
+                <div className="wk-desk">
+                  <Image src="/images/arbeid/ringebu-desktop.webp" alt="Forsiden til Ringebu Tannlegesenter: «Tannpleie med omtanke»" fill sizes="(max-width: 900px) 80vw, 44vw" />
+                </div>
+              </div>
+              <figcaption>Ringebu Tannlegesenter · Tannlegesenter i Ringebu</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }

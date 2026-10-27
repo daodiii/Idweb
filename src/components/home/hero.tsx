@@ -52,11 +52,8 @@ export function Hero() {
             </div>
           </div>
           <figcaption>
-            Kongsvinger sett fra festningen, fra forsiden vi laget for{" "}
-            <a href="https://kongsvingertannhelse.no" target="_blank" rel="noopener">
-              kongsvingertannhelse.no
-            </a>
-            .
+            {/* no link: kongsvingertannhelse.no still serves the clinic's older site, not the design shown here */}
+            Kongsvinger sett fra festningen, fra den nye nettsiden vi laget for Kongsvinger Tannhelse.
           </figcaption>
         </figure>
       </div>
