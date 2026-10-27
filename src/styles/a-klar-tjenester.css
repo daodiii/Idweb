@@ -52,7 +52,7 @@
 .ka .cv .typing::after{content:"";display:inline-block;width:1.5px;height:1em;margin-left:1px;vertical-align:-.14em;background:currentColor;animation:sv-blink 1s steps(1) infinite}
 @keyframes sv-blink{50%{opacity:0}}
 @keyframes sv-spin{to{transform:rotate(360deg)}}
-.ka .cv .cur{position:absolute;left:0;top:0;z-index:50;width:20px;height:24px;pointer-events:none;opacity:0;transform:translate(560px,470px);transition:transform 600ms var(--eio),opacity 200ms;filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}
+.ka .cv .cur{position:absolute;left:0;top:0;z-index:50;width:20px;height:24px;pointer-events:none;opacity:0;transform:translate(560px,470px);transition:transform 850ms var(--eio),opacity 300ms;filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}
 .ka .cv .cur svg{display:block;transition:transform 140ms var(--eo);transform-origin:3px 2px}
 .ka .cv .cur.press svg{transform:scale(.84)}
 .ka .cv .cur .rng{position:absolute;left:-9px;top:-10px;width:24px;height:24px;border-radius:50%;border:2px solid rgba(36,71,214,.7);opacity:0}
@@ -170,7 +170,7 @@
 .ka .sc-shop .sh .lg{margin-right:auto;font:400 17px/1 var(--font-young),"Young Serif",Georgia,serif}
 .ka .sc-shop .sh .lk{font-size:11px;color:var(--mu)}
 .ka .sc-shop .cart{position:relative;width:26px;height:26px;display:grid;place-items:center}
-.ka .sc-shop .badge{position:absolute;top:-3px;right:-6px;min-width:15px;height:15px;padding:0 4px;border-radius:8px;background:var(--oc);color:#1F1B18;font-size:9.5px;font-weight:700;line-height:15px;text-align:center;opacity:0;transform:scale(.6);transition:opacity .2s,transform .35s cubic-bezier(.34,1.56,.64,1)}
+.ka .sc-shop .badge{position:absolute;top:-3px;right:-6px;min-width:15px;height:15px;padding:0 4px;border-radius:8px;background:var(--oc);color:#1F1B18;font-size:9.5px;font-weight:700;line-height:15px;text-align:center;opacity:0;transform:scale(.6);transition:opacity .2s,transform .35s var(--eo)}
 .ka .sc-shop .badge.on{opacity:1;transform:none}
 .ka .sc-shop .intro{position:absolute;left:18px;top:56px}
 .ka .sc-shop .intro h4{margin:0;font:400 21px/1.1 var(--font-young),"Young Serif",Georgia,serif}

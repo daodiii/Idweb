@@ -1,8 +1,9 @@
 /**
  * The services section: one example at a time, alone in a calm frame. The first service's finished frame is shown at
- * once; choosing another service builds its example once (the scene's own short animation) and it stays finished after
- * that. Reduced motion shows every example finished. The panel beside the frame (server-rendered, one article per
- * service) follows the choice. Replaces the earlier «Lerretet» canvas, which showed all five frames on one board.
+ * once, so nothing waits on the animation; when the frame scrolls into view, that example builds once at a calm pace.
+ * Choosing another service builds its example once, and every example stays finished after that. Reduced motion shows
+ * every example finished. The panel beside the frame (server-rendered, one article per service) follows the choice.
+ * Replaces the earlier «Lerretet» canvas, which showed all five frames on one board.
  */
 import { SERVICES } from "@/lib/home/services/data";
 import { Player } from "@/lib/home/services/scene-kit";
@@ -14,23 +15,39 @@ export function startServicesStage(root: HTMLElement) {
   const tabs = [...root.querySelectorAll<HTMLButtonElement>(".sv-tb")];
   const cards = [...root.querySelectorAll<HTMLElement>(".sv-card")];
   const player = new Player(host, reduce);
-  const built = new Set<number>([0]);
+  const built = new Set<number>();
   let active = 0;
 
-  player.still(SCENES[SERVICES[0].k]);
-
-  const choose = (i: number) => {
-    if (i === active) return;
-    active = i;
-    tabs.forEach((t, k) => t.setAttribute("aria-pressed", String(k === i)));
-    cards.forEach((c, k) => (c.hidden = k !== i));
-    if (!reduce) cards[i].animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, easing: "cubic-bezier(.23,1,.32,1)" });
+  const show = (i: number) => {
     const sc = SCENES[SERVICES[i].k];
-    if (built.has(i)) player.still(sc);
+    if (reduce || built.has(i)) player.still(sc);
     else {
       built.add(i);
       player.play(sc, []);
     }
+  };
+
+  player.still(SCENES[SERVICES[0].k]);
+
+  // the first example builds when most of the frame is on screen, once
+  const io = new IntersectionObserver(
+    ([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      if (!built.has(active)) show(active);
+    },
+    { threshold: 0.6 },
+  );
+  if (!reduce) io.observe(host);
+
+  const choose = (i: number) => {
+    if (i === active) return;
+    active = i;
+    io.disconnect();
+    tabs.forEach((t, k) => t.setAttribute("aria-pressed", String(k === i)));
+    cards.forEach((c, k) => (c.hidden = k !== i));
+    if (!reduce) cards[i].animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, easing: "cubic-bezier(.23,1,.32,1)" });
+    show(i);
   };
 
   const handlers = tabs.map((t, i) => {
@@ -40,6 +57,7 @@ export function startServicesStage(root: HTMLElement) {
   });
 
   return () => {
+    io.disconnect();
     handlers.forEach((off) => off());
     player.destroy();
   };
