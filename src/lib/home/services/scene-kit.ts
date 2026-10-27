@@ -11,8 +11,8 @@ export const EO = "cubic-bezier(.23,1,.32,1)";
 export const EIO = "cubic-bezier(.77,0,.175,1)";
 /** Calm pace: the scenes' timelines were written fast; steps start PACE× later and each motion runs MOTION× longer,
  *  so one step settles before the next begins. */
-const PACE = 1.6;
-const MOTION = 1.35;
+const PACE = 1.28;
+const MOTION = 1.08;
 
 export type Rect = [number, number, number, number];
 export type Scene = { dur: number; html: string; run: (a: Api) => void };

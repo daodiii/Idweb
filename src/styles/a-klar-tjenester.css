@@ -52,7 +52,7 @@
 .ka .cv .typing::after{content:"";display:inline-block;width:1.5px;height:1em;margin-left:1px;vertical-align:-.14em;background:currentColor;animation:sv-blink 1s steps(1) infinite}
 @keyframes sv-blink{50%{opacity:0}}
 @keyframes sv-spin{to{transform:rotate(360deg)}}
-.ka .cv .cur{position:absolute;left:0;top:0;z-index:50;width:20px;height:24px;pointer-events:none;opacity:0;transform:translate(560px,470px);transition:transform 850ms var(--eio),opacity 300ms;filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}
+.ka .cv .cur{position:absolute;left:0;top:0;z-index:50;width:20px;height:24px;pointer-events:none;opacity:0;transform:translate(560px,470px);transition:transform 680ms var(--eio),opacity 240ms;filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}
 .ka .cv .cur svg{display:block;transition:transform 140ms var(--eo);transform-origin:3px 2px}
 .ka .cv .cur.press svg{transform:scale(.84)}
 .ka .cv .cur .rng{position:absolute;left:-9px;top:-10px;width:24px;height:24px;border-radius:50%;border:2px solid rgba(36,71,214,.7);opacity:0}
