@@ -1,10 +1,18 @@
-import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, Michroma, Mona_Sans, Montserrat, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, Michroma, Mona_Sans, Montserrat, Plus_Jakarta_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
   variable: "--font-schibsted",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+// The calm homepage face (a-klar-calm.css), chosen over Schibsted in Part 1 of docs/specs/calm-homepage.md.
+// One variable file covers every weight; latin includes æ, ø and å.
+export const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
   display: "swap",
 });
 
