@@ -67,6 +67,8 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 **Done when:** each service tab shows one image, the expanding effect works on scroll and is static under reduced motion.
 
+**Changes agreed while building (27 October 2026):** split into Part 3a (logo strip and work section) and Part 3b (services canvas). Because the hero already shows Kongsvinger's landscape, **MK Auto** became the lead and Kongsvinger moved into the row (its illustrated treatment cards). Ringebu's live domain still shows the old site, so its card shows the new design without a link. Iqra's site is built around photos of children, so its card uses crops with no faces (headline band and offer section). Kongsvinger and MK Auto link to their case pages, Iqra to its live site.
+
 ### Part 4: The two demos
 
 - "Slik jobber vi" and "Når kunden trykker, ordner systemet resten" keep exactly their current behaviour.

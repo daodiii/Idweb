@@ -100,6 +100,76 @@
   .ka.calm .hero-vis .hs-p{left:52%;width:16%}
 }
 
+/* ---------- logo strip: the clients' logos in one dark tone on the page background, no tiles, still sliding ----------
+   Colour lives in the client work further down. Each logo file needs its own treatment to come out as one tone:
+   light-on-transparent marks are darkened outright; marks drawn on white are greyed and multiplied into the page. */
+.ka.calm .tk{padding-block:28px 40px}
+.ka.calm .tk-set{gap:8px}
+.ka.calm .tk-t{height:88px;min-width:0;padding:0 36px;background:none;color:var(--ink);opacity:.72}
+.ka.calm .tk-rahma img,.ka.calm .tk-iqra img,.ka.calm .tk-brobekk img{filter:brightness(0)}
+.ka.calm .tk-mk img{filter:grayscale(1) contrast(2.2) brightness(.45);mix-blend-mode:multiply}
+.ka.calm .tk-rahma img,.ka.calm .tk-mk img{height:64px}
+.ka.calm .tk-iqra img{height:34px}
+.ka.calm .tk-brobekk img{height:44px}
+.ka.calm .tk-pulse{color:currentColor}
+.ka.calm .tk-vocura{font-size:22px}
+@media (max-width:600px){
+  .ka.calm .tk-t{height:64px;padding:0 22px}
+  .ka.calm .tk-rahma img,.ka.calm .tk-mk img{height:48px}
+  .ka.calm .tk-iqra img{height:26px}
+  .ka.calm .tk-brobekk img{height:34px}
+}
+
+/* ---------- work section (work-section.tsx): MK Auto on a dark band, then three projects ----------
+   The band starts inset to the content edges with rounded corners and grows to the full screen width as it scrolls
+   into view: the page's one scroll-driven moment. Browsers without scroll timelines, and reduced motion, keep it inset. */
+.ka.calm .wk{--wk-edge:16px;padding-block:96px 112px}
+@media (min-width:601px){.ka.calm .wk{--wk-edge:32px}}
+@media (min-width:1024px){.ka.calm .wk{--wk-edge:max(7vw,calc((100% - 1320px) / 2))}}
+.ka.calm .wk-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px 64px;align-items:end}
+.ka.calm .wk-head h2{font-size:clamp(32px,3.6vw,46px);font-weight:500;letter-spacing:-.03em;line-height:1.15}
+.ka.calm .wk-head p{max-width:44ch;font-size:17px;line-height:1.7;color:var(--muted)}
+.ka.calm .wk-frame{position:relative;overflow:hidden;border-radius:var(--r-sm);background:var(--surface);box-shadow:0 1px 2px rgba(19,26,58,.08),0 30px 60px -32px rgba(19,26,58,.45)}
+.ka.calm .wk-frame img,.ka.calm .wk-shot img{object-fit:cover;object-position:top}
+.ka.calm .wk-lead{margin:56px 0 0;background:#121214;clip-path:inset(0 var(--wk-edge) round var(--r-card))}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .ka.calm .wk-lead{animation:wk-grow linear both;animation-timeline:view();animation-range:entry 15% cover 45%}
+  }
+}
+@keyframes wk-grow{from{clip-path:inset(0 var(--wk-edge) round var(--r-card))}to{clip-path:inset(0 0 round 0)}}
+.ka.calm .wk-lead-in{position:relative;padding:clamp(40px,6vw,88px) calc(var(--wk-edge) + clamp(20px,4vw,64px))}
+.ka.calm .wk-lead-d{width:84%;aspect-ratio:1800/1125;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.ka.calm .wk-lead-p{position:absolute;right:calc(var(--wk-edge) + clamp(20px,4vw,64px));bottom:clamp(28px,4.5vw,64px);width:18%;aspect-ratio:600/1298;border-radius:var(--r-card);box-shadow:0 0 0 1px rgba(255,255,255,.1),0 30px 60px -24px rgba(0,0,0,.85)}
+.ka.calm .wk-cap{display:flex;align-items:end;justify-content:space-between;gap:16px 48px;margin-top:28px}
+.ka.calm .wk-cap h3,.ka.calm .wk-card h3{font-size:20px;font-weight:500;letter-spacing:-.02em;line-height:1.3}
+.ka.calm .wk-cap p{max-width:62ch;margin-top:6px;font-size:16px;line-height:1.6;color:var(--muted)}
+.ka.calm .wk-link{flex:none;color:var(--cobalt);font-weight:600;font-size:15.5px}
+.ka.calm .wk-link::after{content:"\2192";display:inline-block;margin-left:.35em;transition:transform var(--dur-ui) var(--out)}
+@media (hover:hover) and (pointer:fine){.ka.calm .wk-link:hover::after{transform:translateX(3px)}}
+.ka.calm .wk-link:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+.ka.calm .wk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 32px;margin:80px auto 0;list-style:none}
+.ka.calm .wk-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.ka.calm .wk-card h3{margin-top:18px}
+.ka.calm .wk-card p{font-size:15.5px;line-height:1.55;color:var(--muted)}
+.ka.calm .wk-card .wk-link{margin-top:6px}
+.ka.calm .wk-shot{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r-card);background:var(--surface)}
+/* three arrangements in one card style: a close crop, a framed page, a desktop and phone pair */
+.ka.calm .wk-framed .wk-frame{position:absolute;left:9%;right:9%;top:13%;aspect-ratio:1200/750}
+.ka.calm .wk-pair .wk-pair-d{position:absolute;left:7%;top:12%;width:76%;aspect-ratio:1400/875}
+.ka.calm .wk-pair .wk-pair-p{position:absolute;right:7%;bottom:9%;width:23%;aspect-ratio:500/1082;border-radius:12px}
+@media (max-width:900px){
+  .ka.calm .wk{padding-block:72px 88px}
+  .ka.calm .wk-head{grid-template-columns:minmax(0,1fr)}
+  .ka.calm .wk-cap{flex-direction:column;align-items:flex-start}
+  .ka.calm .wk-row{grid-template-columns:minmax(0,1fr);gap:48px;margin-top:64px}
+}
+@media (max-width:600px){
+  .ka.calm .wk-lead{margin-top:40px}
+  .ka.calm .wk-lead-d{width:88%;border-radius:10px}
+  .ka.calm .wk-lead-p{width:26%;border-radius:14px}
+}
+
 /* ---------- radii ---------- */
 :root:has(.ka.calm) .ka .dropdown::before{border-radius:var(--r-sm)}
 :root:has(.ka.calm) .ka .dropdown a{border-radius:var(--r-sm)}
