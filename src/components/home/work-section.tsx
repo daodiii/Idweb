@@ -6,7 +6,7 @@ import { Marker } from "@/components/home/marker";
 function Phone({ src, alt, className }: { src: string; alt: string; className: string }) {
   return (
     <div className={`wk-phone ${className}`}>
-      <Image src={src} alt={alt} fill sizes="(max-width: 900px) 26vw, 12vw" />
+      <Image src={src} alt={alt} fill quality={90} sizes="(max-width: 900px) 26vw, 12vw" />
     </div>
   );
 }
@@ -38,9 +38,10 @@ export function WorkSection() {
             <figure>
               <div className="wk-card wk-mk">
                 <div className="wk-desk">
-                  <Image src="/images/arbeid/mk-auto-desktop.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill sizes="(max-width: 900px) 62vw, 34vw" />
+                  {/* cropped close around the headline so the outlined «som prioriterer» stays legible at card size */}
+                  <Image src="/images/arbeid/mk-auto-desktop-zoom2.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
-                <Phone src="/images/arbeid/mk-auto-mobil.webp" alt="Samme forside på mobil" className="wk-mk-p" />
+                <Phone src="/images/arbeid/mk-auto-mobil-hd.webp" alt="Samme forside på mobil" className="wk-mk-p" />
               </div>
               <figcaption>MK Auto · Bruktbilforhandler i Oslo</figcaption>
             </figure>

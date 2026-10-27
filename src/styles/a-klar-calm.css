@@ -142,8 +142,8 @@
 .ka.calm .wk-phone{position:absolute;overflow:hidden;aspect-ratio:520/1125;border:5px solid #15171C;border-radius:26px;background:#15171C;box-shadow:0 30px 50px -24px rgba(19,26,58,.55)}
 .ka.calm .wk-phone img{border-radius:20px}
 /* MK Auto: desktop and phone side by side */
-.ka.calm .wk-mk .wk-desk{left:7%;top:21%;width:64%;aspect-ratio:1800/1125}
-.ka.calm .wk-mk-p{right:9%;top:17%;width:19%}
+.ka.calm .wk-mk .wk-desk{left:6%;top:17%;width:72%;aspect-ratio:2040/1275}
+.ka.calm .wk-mk-p{right:5%;top:22%;width:17%}
 /* Iqra: three phones in a row, the middle one raised */
 .ka.calm .wk-trio-1{left:14%;top:14%;width:21%}
 .ka.calm .wk-trio-2{left:39.5%;top:7%;width:21%}
