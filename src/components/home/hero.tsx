@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Marker } from "@/components/home/marker";
 
 /**
- * Hero: on wide screens the promise sits left and the visual right, so both are on the first screen; below 1080 px
- * they stack. The visual is a still: one landscape from a client site, cropped into desktop, tablet and phone frames.
- * The frames are decorative; the message is in the heading and lede.
+ * Hero: just the promise and one button. On wide screens the headline sits left and the visual right, so both are on
+ * the first screen; below 1080 px they stack. The visual is a still: one landscape from a client site, cropped into
+ * desktop, tablet and phone frames. The frames are decorative; the message is in the heading.
  */
 export function Hero() {
   return (
@@ -15,24 +15,13 @@ export function Hero() {
           <h1 id="hero-h">
             Vi lager nettsiden dere kan være <Marker>stolte</Marker> over.
           </h1>
-          <div className="hero-side">
-            <p className="lede">
-              Nettsiden, kundeportalen og systemene bak, skreddersydd for bedriften deres. La oss jobbe sammen i denne
-              nye digitale tiden.
-            </p>
-            <div className="actions">
-              <Link className="btn book" href="/#kontakt">
-                Book en gratis prat
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" />
-                </svg>
-              </Link>
-            </div>
-            <div className="trust">
-              <span>Fastpris før vi starter</span>
-              <span>Ingen bindingstid</span>
-              <span>Du snakker med den som bygger</span>
-            </div>
+          <div className="actions">
+            <Link className="btn book" href="/#kontakt">
+              Book en gratis prat
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </Link>
           </div>
         </div>
 
@@ -51,10 +40,6 @@ export function Hero() {
               <i className="hs-m" />
             </div>
           </div>
-          <figcaption>
-            {/* no link: kongsvingertannhelse.no still serves the clinic's older site, not the design shown here */}
-            Kongsvinger sett fra festningen, fra den nye nettsiden vi laget for Kongsvinger Tannhelse.
-          </figcaption>
         </figure>
       </div>
     </section>

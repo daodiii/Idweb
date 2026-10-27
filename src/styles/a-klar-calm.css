@@ -42,7 +42,7 @@
 .ka.calm .hero-head h1{font-weight:500;letter-spacing:-.03em;line-height:1.1}
 .ka.calm .sec-h h2,.ka.calm .tm-head h2,.ka.calm .qt-side h2,.ka.calm .dx h2{font-weight:500;letter-spacing:-.03em;line-height:1.15}
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
-.ka.calm .hero-head .lede,.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede,.ka.calm .dx .sys-head .lede{font-size:17px;line-height:1.7}
+.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede,.ka.calm .dx .sys-head .lede{font-size:17px;line-height:1.7}
 
 /* ---------- actions: every button is cobalt ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
@@ -73,8 +73,6 @@
 .ka.calm .hs-p{left:56%;bottom:0;width:13%;aspect-ratio:314/680}
 /* a small menu mark in the corner says «this is a website» without any interface clutter */
 .ka.calm .hs-m{position:absolute;top:14px;right:14px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.45);box-shadow:0 5px 0 rgba(19,26,58,.45),0 10px 0 rgba(19,26,58,.45)}
-.ka.calm .hs figcaption{margin-top:18px;font-size:13px;color:var(--faint)}
-.ka.calm .hs figcaption a{border-bottom:1px solid currentColor}
 @media (max-width:600px){
   .ka.calm .hs{margin-top:40px}
   .ka.calm .hs-frames{aspect-ratio:358/330}
@@ -88,10 +86,6 @@
 @media (min-width:1080px){
   .ka.calm .hero{padding-block:48px 72px}
   .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
-  .ka.calm .hero-head{gap:28px}
-  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
-  .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
-  .ka.calm .hero-side .lede{max-width:44ch}
   .ka.calm .hs{margin-top:0}
   /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
   .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
@@ -175,7 +169,6 @@
 .ka.calm .band.warm{background:var(--bg)}
 .ka.calm .band.warm .stage{background:var(--surface)}
 .ka.calm .band + .band,.ka.calm .band.warm + .band,.ka.calm .band + .band.warm{border-top:1px solid var(--line)}
-.ka.calm .qt{background:var(--bg);border-top:1px solid var(--line)}
 
 /* ---------- the two demos (Part 4): same behaviour, calmer frame ---------- */
 /* no bounce or blur: pops settle, rises and label swaps only fade and move */
@@ -256,7 +249,6 @@
 .ka.calm .moment-in{position:relative;z-index:2;display:flex;justify-content:flex-end;padding-top:clamp(36px,4vw,64px)}
 .ka.calm .moment h2{max-width:13ch;margin:0;font-size:clamp(34px,4vw,60px);font-weight:500;letter-spacing:-.03em;line-height:1.06;color:#fff;text-align:right;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.6)}
 .ka.calm .moment .mk path{stroke-opacity:.9}
-.ka.calm .moment-c{position:absolute;z-index:2;left:max(7vw,calc((100% - 1320px) / 2));bottom:18px;font-size:13px;color:rgba(255,255,255,.72)}
 /* gentle motion: the aurora drifts and breathes, the ferry glides across Bjørvika; transforms only */
 .ka.calm .moment-aurora{transform-origin:50% 35%;animation:nordlys-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
 @keyframes nordlys-drift{0%{transform:translateX(-1.2%) scaleY(.94);opacity:.8}50%{opacity:1}100%{transform:translateX(1.2%) scaleY(1.05);opacity:.9}}
@@ -270,25 +262,17 @@
   .ka.calm .moment-art > *{height:100%}
   .ka.calm .moment-in{justify-content:flex-start}
   .ka.calm .moment h2{text-align:left}
-  .ka.calm .moment-c{left:16px;bottom:14px;font-size:12px}
 }
 
-/* ---------- bigger hero: the headline across the top, the picture running off the right edge ---------- */
+/* ---------- a quiet hero: the headline and one button, the picture beside them; nothing else ---------- */
 @media (min-width:1080px){
-  .ka.calm .hero{padding-block:40px 104px}
-  .ka.calm .hero .wrap{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:48px 72px;align-items:start}
-  .ka.calm .hero-head{display:contents}
-  .ka.calm .hero-head h1{grid-column:1/-1;max-width:21ch;font-size:clamp(60px,5.6vw,92px);line-height:1.02}
-  .ka.calm .hero-side{grid-column:1;align-self:start;padding-top:12px;gap:32px}
-  .ka.calm .hero-side .lede{font-size:19px;max-width:36ch}
-  .ka.calm .hero-vis{grid-column:2;margin-right:calc(-1 * max(7vw,(100vw - 1320px) / 2))}
+  .ka.calm .hero{padding-block:56px 96px}
+  .ka.calm .hero .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px}
+  .ka.calm .hero-head{gap:40px}
+  .ka.calm .hero-head h1{max-width:12ch;font-size:clamp(50px,4.5vw,68px);line-height:1.04}
 }
-/* the three promises, given weight: ink text with a cobalt tick, one per line */
-.ka.calm .trust{display:flex;flex-direction:column;gap:12px;font-size:16px;font-weight:500;color:var(--ink)}
-.ka.calm .trust span{display:flex;align-items:center;gap:10px}
-.ka.calm .trust span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
 @media (max-width:1079px){
-  .ka.calm .hero-head h1{font-size:clamp(40px,9.6vw,64px);line-height:1.04}
+  .ka.calm .hero-head h1{font-size:clamp(36px,8.6vw,56px);line-height:1.06}
 }
 
 /* ---------- colour from the clients: each work card on a pastel field from that client's own palette ---------- */
@@ -307,3 +291,81 @@
 .ka.calm #prosess .stage{background:rgba(255,255,255,.62)}
 .ka.calm .band.warm + .band{border-top:0}
 @media (prefers-reduced-motion:reduce){.ka.calm .tm-stage{transition:none}}
+
+/* ---------- quote request: the page ends under the northern lights (quote-section.tsx) ----------
+   A night sky with the moment's aurora drifting at the top lightens into the footer's navy, so the page closes in one
+   sweep. The promise and the three terms sit on the left in white; the wizard floats on the right as a bright card. */
+.ka.calm .qt{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(96px,10vw,160px) clamp(88px,9vw,136px);border-top:0;color:#fff;background:linear-gradient(180deg,#030817 0%,#08122E 38%,#132055 72%,#1E2A6E 100%)}
+/* a few stars, painted once */
+.ka.calm .qt::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.8;background:
+  radial-gradient(1.4px 1.4px at 8% 12%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 22% 30%,#fff 50%,transparent 60%),
+  radial-gradient(1.2px 1.2px at 37% 8%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 48% 22%,#fff 50%,transparent 60%),
+  radial-gradient(1.6px 1.6px at 63% 6%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 71% 26%,#fff 50%,transparent 60%),
+  radial-gradient(1.2px 1.2px at 84% 14%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 93% 34%,#fff 50%,transparent 60%),
+  radial-gradient(1px 1px at 15% 44%,#fff 50%,transparent 60%),radial-gradient(1.2px 1.2px at 56% 40%,#fff 50%,transparent 60%),
+  radial-gradient(1px 1px at 78% 48%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 31% 56%,#fff 50%,transparent 60%)}
+.ka.calm .qt-sky{position:absolute;inset:0 0 auto;z-index:-1;height:min(78%,760px);pointer-events:none;-webkit-mask-image:linear-gradient(#000 25%,transparent);mask-image:linear-gradient(#000 25%,transparent)}
+.ka.calm .qt-sky img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;opacity:.75;transform-origin:50% 35%;animation:nordlys-drift 26s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.ka.calm .qt-sky img{animation:none}}
+.ka.calm .qt .wrap{position:relative}
+@media (min-width:901px){.ka.calm .qt-g{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(48px,6vw,96px)}}
+/* the promise */
+.ka.calm .qt-side{position:static;gap:26px;padding-top:clamp(0px,2vw,24px)}
+.ka.calm .qt-side h2{max-width:14ch;font-size:clamp(38px,4.4vw,64px);line-height:1.06;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.5)}
+.ka.calm .qt .mk path{stroke-opacity:.9}
+.ka.calm .qt-lede{max-width:40ch;color:rgba(255,255,255,.82)}
+.ka.calm .qt-terms{display:flex;flex-direction:column;gap:14px;margin:6px 0 4px;padding:0;list-style:none;font-size:18px;font-weight:500;color:#fff}
+.ka.calm .qt-terms li{display:flex;align-items:center;gap:12px}
+.ka.calm .qt-terms li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.ka.calm .qt-reach{color:rgba(255,255,255,.75)}
+.ka.calm .qt-reach a{color:#fff}
+@media (hover:hover) and (pointer:fine){.ka.calm .qt-reach a:hover{color:#C9D4FF}}
+/* the request so far is read out to screen readers; sighted visitors see it in the card («Så langt», «Dette sender dere») */
+.ka.calm .qt-sum{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ka.calm .qt-strip,.ka.calm .qt-final{display:block;background:var(--card)}
+/* the card */
+.ka.calm .qt-card{border:0;border-radius:var(--r-card);padding:clamp(28px,3vw,40px);color:var(--ink);background:var(--bg);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 60px 120px -40px rgba(0,0,0,.75)}
+.ka.calm .qt-q{font-weight:500;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.03em}
+.ka.calm .qt-blk h4,.ka.calm .qt-xh h4,.ka.calm .qt-final h4{font-weight:600}
+/* numbered steps joined by a hairline that turns cobalt as they are done */
+.ka.calm .qt-prog{counter-reset:qt;gap:12px;margin-bottom:32px}
+.ka.calm .qt-prog li{counter-increment:qt;flex-direction:row;align-items:center;gap:12px;font-size:14px}
+.ka.calm .qt-prog li:last-child{flex:none}
+.ka.calm .qt-prog li:last-child i{display:none}
+.ka.calm .qt-prog span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.ka.calm .qt-prog span::before{content:counter(qt);display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-strong);background:var(--card);font-size:12px;font-weight:600;color:var(--soft)}
+.ka.calm .qt-prog i{order:2;flex:1;height:1px;border-radius:0;background:var(--line-strong)}
+.ka.calm .qt-prog .cur span::before{background:var(--cobalt);box-shadow:none;color:#fff}
+.ka.calm .qt-prog .done span::before{content:"\2713";box-shadow:inset 0 0 0 1px var(--cobalt);color:var(--cobalt)}
+.ka.calm .qt-prog .cur i::after{transform:scaleX(0)}
+/* the two big choices: white tiles, a cobalt ring when chosen */
+.ka.calm .qt-mode{border:0;border-radius:var(--r-sm);background:var(--card);box-shadow:0 1px 2px rgba(19,26,58,.06);transition:box-shadow var(--dur-ui) var(--out),transform 160ms var(--out)}
+.ka.calm .qt-mode b{font-weight:600}
+.ka.calm .qt-mode[aria-pressed=true]{background:var(--card);box-shadow:inset 0 0 0 2px var(--cobalt)}
+/* the extras as a checklist on hairlines */
+.ka.calm .qt-xs{gap:0 32px}
+.ka.calm .qt-x{padding:14px 2px;border:0;border-top:1px solid var(--line-strong);border-radius:0;background:none}
+.ka.calm .qt-x[aria-pressed=true]{background:none}
+.ka.calm .qt-x:active{transform:none}
+.ka.calm .qt-x .box{border-radius:50%;background:var(--card)}
+.ka.calm .qt-x[aria-pressed=true] .box{background:var(--cobalt);border-color:var(--cobalt)}
+.ka.calm .qt-x b{font-weight:600}
+@media (hover:hover) and (pointer:fine){
+  .ka.calm .qt-mode:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+  .ka.calm .qt-mode[aria-pressed=true]:hover{box-shadow:inset 0 0 0 2px var(--cobalt)}
+  .ka.calm .qt-x:hover{border-color:var(--line-strong)}
+  .ka.calm .qt-x:hover .box{border-color:var(--ink)}
+}
+.ka.calm .qt-pill{background:var(--card)}
+.ka.calm .qt-pill[aria-pressed=true]{background:var(--ink)}
+.ka.calm .qt-fld input,.ka.calm .qt-fld textarea{background:var(--card)}
+.ka.calm .qt-foot{border-top-color:var(--line-strong)}
+.ka.calm .qt-seal{background:var(--cobalt)}
+@media (max-width:600px){
+  .ka.calm .qt-card{padding:24px 18px 20px}
+  .ka.calm .qt-prog{gap:8px}
+  .ka.calm .qt-prog li{gap:8px}
+  /* only the current step keeps its name on phones; the others show their number (the words stay for screen readers) */
+  .ka.calm .qt-prog li:not(.cur) span{font-size:0;gap:0}
+  .ka.calm .qt-prog li span::before{font-size:12px}
+}

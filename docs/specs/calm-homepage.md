@@ -104,6 +104,10 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 Two illustration rounds came before it: a Kongsvinger dusk crop, then whole-city drawings of Oslo that were not true to the real view. The user asked for Bjørvika, drawn from what is really there.
 
+**Review round (27 October 2026):**
+- **A quieter hero:** only the headline and the button. The lede and the three ticked promises are gone, the headline is a step smaller (about 65 px at 1440, 36 px on phones) and sits beside the picture, so everything is on the first screen. The user's rule: no captions that tell visitors what a picture shows, so the hero caption and the Bjørvika caption are gone too.
+- **The quote request ends under the northern lights («Nordlys»),** chosen from six designs over two rounds (an estimate sheet, one question at a time, a live sketch of their site, a letter). The section is a night sky with the moment's aurora drifting at the top, lightening into the footer's navy so the page closes in one sweep. Left: «La oss lage noe dere blir stolte av.», a lede saying it is uforpliktende, and three terms already stated elsewhere on the site (fast pris avtalt før vi starter, ingen bindingstid, svar innen 24 timer). Right: the same wizard on a bright card, with numbered steps, white choice tiles and the extras as a checklist. The side summary is read out to screen readers only; «Så langt» and «Dette sender dere» now show at every width. Steps, logic and e-mail are unchanged.
+
 ## Rules for every part
 
 - Animations switch off when the visitor's system asks for reduced motion.

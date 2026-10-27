@@ -50,7 +50,6 @@ export function Moment() {
           Du snakker med den som <Marker>bygger</Marker>.
         </h2>
       </div>
-      <span className="moment-c">Bjørvika sett fra Ekeberg, tegnet av IDweb.</span>
     </section>
   );
 }

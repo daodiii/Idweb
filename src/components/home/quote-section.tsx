@@ -13,6 +13,7 @@ import {
   QUOTE_PAGE_TYPES,
   QUOTE_WHEN,
   QUOTE_LIMITS,
+  QUOTE_TERMS,
   checkAbout,
   checkNeeds,
   checkQuote,
@@ -43,14 +44,20 @@ const FIELD_TARGET: Partial<Record<QuoteField, string>> = {
 };
 
 /**
- * «Få et pristilbud»: the homepage's closing call to action. A short wizard (what they need, how big the site is,
- * a little about them, who gets the offer) with the request summed up beside it; IDweb replies with a price offer.
- * Remounted with a new key for «Send en ny forespørsel», which also resets the action state.
+ * «Få et pristilbud»: the homepage's closing call to action, under the northern lights. A night sky with the moment's
+ * aurora lightens into the footer's navy; the promise and the three terms sit on the left, and a short wizard (what
+ * they need, how big the site is, a little about them, who gets the offer) floats on the right as a bright card.
+ * IDweb replies with a price offer. Remounted with a new key for «Send en ny forespørsel», which also resets the
+ * action state.
  */
 export function QuoteSection() {
   const [round, setRound] = useState(0);
   return (
     <section className="qt" id="kontakt" aria-labelledby="qt-h">
+      <div className="qt-sky" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element -- the moment's vector aurora layer, reused */}
+        <img src="/images/bjorvika/nordlys-lys.svg" alt="" loading="lazy" decoding="async" />
+      </div>
       <QuoteWizard key={round} onReset={() => setRound((r) => r + 1)} />
     </section>
   );
@@ -153,19 +160,23 @@ function QuoteWizard({ onReset }: { onReset: () => void }) {
       <div className="qt-g">
         <div className="qt-side">
           <h2 id="qt-h">
-            Få et <Marker>pristilbud</Marker>
+            La oss lage noe dere blir <Marker>stolte</Marker> av.
           </h2>
-          <p className="qt-lede">Svar på noen korte spørsmål, så regner vi på det og sender et tilbud. Det tar et minutt.</p>
+          <p className="qt-lede">Fortell oss litt om bedriften, så regner vi på det og sender et pristilbud. Det tar et minutt, og det er helt uforpliktende.</p>
+          <ul className="qt-terms">
+            {QUOTE_TERMS.map((t) => <li key={t}>{t}</li>)}
+          </ul>
           <p className="qt-reach">
             Heller snakke med oss? <a href="tel:+4798406164">+47 984 06 164</a> <a href="mailto:hei@idweb.no">hei@idweb.no</a>
           </p>
+          {/* the request so far, read out to screen readers as it changes; the card itself shows it to everyone else */}
           <div className="qt-sum" aria-live="polite">
             <h3>{sent ? "Det dere sendte" : "Forespørselen deres"}</h3>
             <dl className="qt-dl">
               {sideRows.map(([label, value]) => (
                 <div key={label}>
                   <dt>{label}</dt>
-                  <dd className={value ? undefined : "none"}>{value || "Ikke valgt ennå"}</dd>
+                  <dd>{value || "Ikke valgt ennå"}</dd>
                 </div>
               ))}
             </dl>
