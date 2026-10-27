@@ -79,6 +79,8 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 - Restyle to the new tokens, remove the peach background, thin out small details so less is on screen at once.
 - No new features.
 
+**Outcome (27 October 2026):** same scenes, tabs and timelines; a calmer frame. The dot grids and the stage border are gone, so the stages are the same grey cards as the work and services sections. «Slik jobber vi» now has the picture on the left and the steps on the right, the mirror of the services section above it. Markers on «jobber» and «resten». The bounce on pops and the blur on rises and label swaps are gone, and everything plays 1.25× slower than authored, the services' calm pace (Prosess panels about 3.7–5.5 s, Systemer about 7–9.6 s). Inactive steps and tabs use the readable grey instead of a faint one (that faint grey failed AA). «Valgt bort» is grey instead of peach. The systems summary follows the steps instead of sinking to the bottom. Fixed a live bug: `a-klar-pages.css` pads every `.ka .cta` as a page section, and the phone button in the systems demo has the same class name, so it rendered as a 224 px navy block with no label. Before/after screenshots: `calm-homepage-shots/part-4/`.
+
 ### Part 5: Testimonials, quote request and footer
 
 - Testimonials: keep the big quote. Add the person's name and role only where the client agrees. Logos below the quote become single-colour.

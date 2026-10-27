@@ -177,3 +177,29 @@
 .ka.calm .band.warm .stage{background:var(--surface)}
 .ka.calm .band + .band,.ka.calm .band.warm + .band,.ka.calm .band + .band.warm{border-top:1px solid var(--line)}
 .ka.calm .qt{background:var(--bg);border-top:1px solid var(--line)}
+
+/* ---------- the two demos (Part 4): same behaviour, calmer frame ---------- */
+/* no bounce or blur: pops settle, rises and label swaps only fade and move */
+.ka.calm .dx{--ease-pop:var(--out)}
+@keyframes dx-rise{from{opacity:0;transform:translateY(10px)}}
+@keyframes dx-labelOut{from{opacity:1}to{opacity:0}}
+@keyframes dx-wordIn{from{opacity:0}}
+/* a-klar-pages.css pads every .ka .cta as a page section; the demo's phone button shares the name */
+.ka.calm .dx .cta{padding-block:0}
+/* grey cards as in the work and services sections: no dot grid, no border, one radius */
+.ka.calm .dx .stage::before,.ka.calm .dx .front::before{content:none}
+.ka.calm .dx .stage{border:0;border-radius:var(--r-card)}
+.ka.calm .dx .sys{border-radius:var(--r-card);box-shadow:none}
+/* «Slik jobber vi»: picture left, steps right, the mirror of the services section above */
+@media (min-width:901px){.ka.calm .dx .demo-grid > :first-child{order:1}}
+/* inactive steps and tabs stay readable (AA); the bar and the ink title mark the chosen one */
+.ka.calm .dx .step-t,.ka.calm .dx .step-d,.ka.calm .dx .sys-tab b,.ka.calm .dx .sys-tab small{color:var(--soft)}
+.ka.calm .dx .step[aria-selected=true] .step-t,.ka.calm .dx .sys-tab[aria-selected=true] b{color:var(--ink)}
+.ka.calm .dx .step[aria-selected=true] .step-d,.ka.calm .dx .sys-tab[aria-selected=true] small{color:var(--muted)}
+.ka.calm .dx .step:focus-visible,.ka.calm .dx .sys-tab:focus-visible{outline-color:var(--cobalt)}
+@media (hover:hover) and (pointer:fine){.ka.calm .dx .step:hover .step-t,.ka.calm .dx .sys-tab:hover b{color:var(--ink)}}
+/* «Valgt bort» in grey, not peach: orange is kept for the marker */
+.ka.calm .dx .deal-list .x{background:var(--surface);color:var(--soft)}
+.ka.calm .dx .deal-list s{text-decoration-color:var(--soft)}
+/* the summary follows the steps instead of sinking to the bottom of the tall phone column */
+.ka.calm .dx .back-note{margin-top:8px}

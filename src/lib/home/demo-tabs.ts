@@ -1,11 +1,13 @@
 /**
  * Tab sets for the homepage demo sections («Slik jobber vi», «Når kunden trykker»). Each panel plays a CSS
  * choreography (the `.play` class) once and holds its last frame. The first panel plays when the section first comes
- * into view; the others play when their tab is chosen. Nothing advances on its own.
+ * into view; the others play when their tab is chosen (the one showing replays). Nothing advances on its own.
+ * Everything runs PACE× slower than authored, the calm pace the services examples use.
  * Ported from the approved animation demo; all markup is static and authored by us.
  */
 
 const nf = new Intl.NumberFormat("nb-NO");
+const PACE = 1.25;
 
 type Later = (ms: number, fn: () => void) => void;
 
@@ -61,7 +63,7 @@ function runScripts(panel: HTMLElement, later: Later, alive: () => boolean, redu
     el.textContent = fmt(from);
     later(Number(el.dataset.delay) || 0, () => {
       const t0 = performance.now();
-      const dur = Number(el.dataset.dur) || 1000;
+      const dur = (Number(el.dataset.dur) || 1000) * PACE;
       const step = (now: number) => {
         if (!alive()) return;
         const p = Math.min(1, (now - t0) / dur);
@@ -143,7 +145,8 @@ export function demoTabs({ root, tabs, panels }: DemoTabsOptions) {
     panel.classList.remove("play");
     void panel.offsetWidth;
     panel.classList.add("play");
-    runScripts(panel, (ms, fn) => timers.push(setTimeout(fn, ms)), () => token === mine, reduce);
+    if (!reduce) panel.getAnimations({ subtree: true }).forEach((a) => (a.playbackRate = 1 / PACE));
+    runScripts(panel, (ms, fn) => timers.push(setTimeout(fn, ms * PACE)), () => token === mine, reduce);
   };
   const show = (i: number, focus = false) => {
     cur = (i + n) % n;
