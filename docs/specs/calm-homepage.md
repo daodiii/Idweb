@@ -39,7 +39,9 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 - Stop loading unused font families on the homepage.
 - Commit `.claude/launch.json` (production `start` entry and `dev` entry).
 
-**Done when:** the homepage uses only the new tokens (no stray hex colours or radii in `.ka` styles), one font family loads, and every button is cobalt.
+**Done when:** page-level furniture (header, section backgrounds, headings, intro text, buttons, cards, form fields) uses the new tokens, every button is cobalt, and Mona Sans no longer loads on the homepage. The mock interfaces inside the hero, services canvas and demos keep their own colours, radii and client faces until Parts 2–4 restyle them.
+
+**Implementation note:** `a-klar.css` and its `.ka` scope are shared by about 14 pages, so the homepage opts in with `.ka.calm` and the overrides live in `src/styles/a-klar-calm.css`. The shared header and footer follow through `:root:has(.ka.calm)`.
 
 ### Part 2: Header and hero
 
