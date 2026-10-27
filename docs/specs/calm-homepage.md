@@ -54,7 +54,7 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 **Done when:** the user has picked a hero variant and the other is removed.
 
-**Outcome (27 October 2026):** variant B, the still, was chosen; the animation, its engine and styles are removed. Two changes came out of the review: the hero sits side by side from 1080 px (text left, picture right, both on the first screen), and the homepage side margins became 7% of the screen width (content capped at 1320 px), as on the reference. New headline from the user: «Vi lager nettsiden du kan være stolt over.», marker on «stolt».
+**Outcome (27 October 2026):** variant B, the still, was chosen; the animation, its engine and styles are removed. Two changes came out of the review: the hero sits side by side from 1080 px (text left, picture right, both on the first screen), and the homepage side margins became 7% of the screen width (content capped at 1320 px), as on the reference. New headline from the user: «Vi lager nettsiden dere kan være stolte over.», marker on «stolte» (the user chose «dere» to match the lede).
 
 ### Part 3: Logo strip, work section and services canvas
 
@@ -99,7 +99,7 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 - Font choice: Part 1.
 - Hero variant: decided in Part 2 (the still).
-- «du» or «dere» across the hero (headline says «du», lede says «deres»).
+- «du» or «dere»: decided in Part 2 («dere»).
 - Which clients agree to name and role on testimonials: before Part 5.
 - Google review count: checked in Part 5.
 - Any copy the user already wants to change: slotted into the matching part.

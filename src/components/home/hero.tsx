@@ -12,9 +12,9 @@ export function Hero() {
       <div className="wrap">
         <div className="hero-head">
           <h1 id="hero-h">
-            Vi lager nettsiden du kan være{" "}
+            Vi lager nettsiden dere kan være{" "}
             <span className="mk">
-              stolt
+              stolte
               <svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M4 25c22-5 49-8 82-8.5 37-.6 73 1.6 110-2.5" />
               </svg>
