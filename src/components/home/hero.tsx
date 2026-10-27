@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Marker } from "@/components/home/marker";
 
 /**
  * Hero: on wide screens the promise sits left and the visual right, so both are on the first screen; below 1080 px
@@ -12,14 +13,7 @@ export function Hero() {
       <div className="wrap">
         <div className="hero-head">
           <h1 id="hero-h">
-            Vi lager nettsiden dere kan være{" "}
-            <span className="mk">
-              stolte
-              <svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M4 25c22-5 49-8 82-8.5 37-.6 73 1.6 110-2.5" />
-              </svg>
-            </span>{" "}
-            over.
+            Vi lager nettsiden dere kan være <Marker>stolte</Marker> over.
           </h1>
           <div className="hero-side">
             <p className="lede">
@@ -58,11 +52,8 @@ export function Hero() {
             </div>
           </div>
           <figcaption>
-            Kongsvinger sett fra festningen, fra forsiden vi laget for{" "}
-            <a href="https://kongsvingertannhelse.no" target="_blank" rel="noopener">
-              kongsvingertannhelse.no
-            </a>
-            .
+            {/* no link: kongsvingertannhelse.no still serves the clinic's older site, not the design shown here */}
+            Kongsvinger sett fra festningen, fra den nye nettsiden vi laget for Kongsvinger Tannhelse.
           </figcaption>
         </figure>
       </div>

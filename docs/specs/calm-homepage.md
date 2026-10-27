@@ -67,6 +67,10 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 **Done when:** each service tab shows one image, the expanding effect works on scroll and is static under reduced motion.
 
+**Changes agreed while building (27 October 2026):** split into Part 3a (logo strip and work section) and Part 3b (services canvas). Because the hero already shows Kongsvinger's landscape, **MK Auto** became the lead and Kongsvinger moved into the row (its illustrated treatment cards). Ringebu's live domain still shows the old site, so its card shows the new design without a link. Iqra's site is built around photos of children, so its card uses crops with no faces (headline band and offer section). Kongsvinger and MK Auto link to their case pages, Iqra to its live site.
+
+**Revised after review (27 October 2026):** the user turned down the large MK Auto band and the heading about each business getting its own site. The section now follows the reference: a stack of grey cards on the left, each staging one client with the phone in front (MK Auto desktop and phone, three Iqra phones, Kongsvinger phone over its treatment cards, Ringebu desktop), and the text on the right, sticky while the cards scroll. Heading: «Vi hjelper bedrifter, små og store, med å lykkes på nett.» The scroll-driven expanding band (decision 7) is dropped. kongsvingertannhelse.no also still serves the clinic's older site, so no card or caption links to a client domain; one link leads to /referanser.
+
 ### Part 4: The two demos
 
 - "Slik jobber vi" and "Når kunden trykker, ordner systemet resten" keep exactly their current behaviour.

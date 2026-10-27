@@ -100,6 +100,72 @@
   .ka.calm .hero-vis .hs-p{left:52%;width:16%}
 }
 
+/* ---------- logo strip: the clients' logos in one dark tone on the page background, no tiles, still sliding ----------
+   Colour lives in the client work further down. Each logo file needs its own treatment to come out as one tone:
+   light-on-transparent marks are darkened outright; marks drawn on white are greyed and multiplied into the page. */
+.ka.calm .tk{padding-block:28px 40px}
+.ka.calm .tk-set{gap:8px}
+.ka.calm .tk-t{height:88px;min-width:0;padding:0 36px;background:none;color:var(--ink);opacity:.72}
+.ka.calm .tk-rahma img,.ka.calm .tk-iqra img,.ka.calm .tk-brobekk img{filter:brightness(0)}
+.ka.calm .tk-mk img{filter:grayscale(1) contrast(2.2) brightness(.45);mix-blend-mode:multiply}
+.ka.calm .tk-rahma img,.ka.calm .tk-mk img{height:64px}
+.ka.calm .tk-iqra img{height:34px}
+.ka.calm .tk-brobekk img{height:44px}
+.ka.calm .tk-pulse{color:currentColor}
+.ka.calm .tk-vocura{font-size:22px}
+@media (max-width:600px){
+  .ka.calm .tk-t{height:64px;padding:0 22px}
+  .ka.calm .tk-rahma img,.ka.calm .tk-mk img{height:48px}
+  .ka.calm .tk-iqra img{height:26px}
+  .ka.calm .tk-brobekk img{height:34px}
+}
+
+/* ---------- work section (work-section.tsx), as on the reference: cards left, text right ----------
+   A stack of grey cards, each staging one client with the phone in front; the text column holds its place (sticky)
+   while the cards scroll past. Below 900px the text comes first and the cards follow. */
+.ka.calm .wk{padding-block:112px}
+.ka.calm .wk-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:72px;align-items:start}
+.ka.calm .wk-text{grid-column:2;grid-row:1;position:sticky;top:132px;display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.ka.calm .wk-text h2{font-size:clamp(32px,3.4vw,46px);font-weight:500;letter-spacing:-.03em;line-height:1.15;text-wrap:balance}
+.ka.calm .wk-text p{max-width:42ch;text-wrap:pretty;font-size:17px;line-height:1.7;color:var(--muted)}
+.ka.calm .wk-link{color:var(--cobalt);font-weight:600;font-size:16px}
+.ka.calm .wk-link::after{content:"\2192";display:inline-block;margin-left:.35em;transition:transform var(--dur-ui) var(--out)}
+@media (hover:hover) and (pointer:fine){.ka.calm .wk-link:hover::after{transform:translateX(3px)}}
+.ka.calm .wk-link:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+.ka.calm .wk-stack{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:28px;margin:0;padding:0;list-style:none}
+.ka.calm .wk-stack figure{margin:0}
+.ka.calm .wk-stack figcaption{margin-top:12px;font-size:13.5px;color:var(--faint)}
+.ka.calm .wk-card{position:relative;aspect-ratio:620/420;overflow:hidden;border-radius:var(--r-card);background:var(--surface)}
+.ka.calm .wk-card img{object-fit:cover;object-position:top}
+/* a page in a soft frame, and a phone with a dark bezel */
+.ka.calm .wk-desk{position:absolute;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 1px 2px rgba(19,26,58,.08),0 30px 60px -30px rgba(19,26,58,.45)}
+.ka.calm .wk-phone{position:absolute;overflow:hidden;aspect-ratio:520/1125;border:5px solid #15171C;border-radius:26px;background:#15171C;box-shadow:0 30px 50px -24px rgba(19,26,58,.55)}
+.ka.calm .wk-phone img{border-radius:20px}
+/* MK Auto: desktop and phone side by side */
+.ka.calm .wk-mk .wk-desk{left:6%;top:17%;width:72%;aspect-ratio:2040/1275}
+.ka.calm .wk-mk-p{right:5%;top:22%;width:17%}
+/* Iqra: three phones in a row, the middle one raised */
+.ka.calm .wk-trio-1{left:14%;top:14%;width:21%}
+.ka.calm .wk-trio-2{left:39.5%;top:7%;width:21%}
+.ka.calm .wk-trio-3{left:65%;top:14%;width:21%}
+/* Kongsvinger: the illustrated treatment cards, with the phone in front */
+.ka.calm .wk-kong .wk-bg{object-position:left top}
+.ka.calm .wk-kong-p{right:8%;top:9%;width:21%}
+/* Ringebu: the page in a frame */
+.ka.calm .wk-ringebu .wk-desk{left:9%;right:9%;top:13%;aspect-ratio:1200/750}
+@media (max-width:900px){
+  .ka.calm .wk{padding-block:80px}
+  .ka.calm .wk-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .ka.calm .wk-text,.ka.calm .wk-stack{grid-column:1;grid-row:auto}
+  .ka.calm .wk-text{position:static}
+}
+@media (max-width:600px){
+  .ka.calm .wk-stack{gap:24px}
+  .ka.calm .wk-phone{border-width:3px;border-radius:16px}
+  .ka.calm .wk-phone img{border-radius:13px}
+  .ka.calm .wk-desk{border-radius:6px}
+}
+
 /* ---------- radii ---------- */
 :root:has(.ka.calm) .ka .dropdown::before{border-radius:var(--r-sm)}
 :root:has(.ka.calm) .ka .dropdown a{border-radius:var(--r-sm)}

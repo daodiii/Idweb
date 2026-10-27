@@ -54,6 +54,8 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
+    // 90 is for website screenshots with thin type (the homepage work section), which blur at the default 75.
+    qualities: [75, 90],
   },
   async redirects() {
     return [
