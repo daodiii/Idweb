@@ -9,6 +9,7 @@ import { ServicesSection } from "@/components/home/services-section";
 import { DemoSection } from "@/components/home/demo-section";
 import { Testimonials } from "@/components/home/testimonials";
 import { QuoteSection } from "@/components/home/quote-section";
+import { MarkerReveal } from "@/components/home/marker-reveal";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
@@ -28,6 +29,7 @@ export const metadata: Metadata = pageMetadata({ title: SEO.home.title, descript
 export default function Home() {
   return (
     <div className={`ka calm ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
+      <MarkerReveal />
       <Hero />
       <LogoTicker />
       <WorkSection />

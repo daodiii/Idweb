@@ -87,6 +87,8 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 - Quote request: restyle only (cobalt button, new corners and type, no peach). Steps and logic unchanged.
 - Footer: dark navy stays. Add the Google rating only with real numbers from IDweb's Google Business profile, and only if the review count is meaningful.
 
+**Outcome (27 October 2026):** testimonials stay credited to the organisation only (the user's choice for now; no person names or roles are on file). The quote sits alone on a plain grey card: the per-client tint, the inset shadow and the logo watermark are gone, and the quote is large again (20–28 px). It had shrunk to 16 px since Part 1, because the base `font:` shorthand names `--font-mona`, which no longer loads, so the browser dropped the whole declaration. The four logos below wait in one tone like the logo strip, with no coloured tiles; after review the user asked for the chosen logo to take its own colours (Rahma green, Iqra yellow and black, Brobekk blue and orange, Ringebu teal), and the guillemets and a short bar under the logo pick up the client's colour. Markers added on «kundene» and «pristilbud», and every marker on the page now draws when its heading scrolls into view (`marker-reveal.tsx`) instead of all at once on load. The quote form and footer already met the calm system after Part 1 (measured AA, no peach) and are unchanged. Google: IDweb's listing shows 5.0 from 4 reviews (27 October 2026), the same four clients quoted on the page, so no rating was added; worth adding once there are more reviews. Screenshots: `calm-homepage-shots/part-5/`.
+
 ## Rules for every part
 
 - Animations switch off when the visitor's system asks for reduced motion.

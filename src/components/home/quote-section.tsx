@@ -4,6 +4,7 @@ import Link from "next/link";
 import { startTransition, useActionState, useEffect, useRef, useState, type FormEvent } from "react";
 import { sendQuoteRequest, type QuoteFormState } from "@/app/actions/send-email";
 import { trackLead } from "@/lib/analytics";
+import { Marker } from "@/components/home/marker";
 import {
   EMPTY_QUOTE,
   QUOTE_EXTRAS,
@@ -151,7 +152,9 @@ function QuoteWizard({ onReset }: { onReset: () => void }) {
     <div className="wrap">
       <div className="qt-g">
         <div className="qt-side">
-          <h2 id="qt-h">Få et pristilbud</h2>
+          <h2 id="qt-h">
+            Få et <Marker>pristilbud</Marker>
+          </h2>
           <p className="qt-lede">Svar på noen korte spørsmål, så regner vi på det og sender et tilbud. Det tar et minutt.</p>
           <p className="qt-reach">
             Heller snakke med oss? <a href="tel:+4798406164">+47 984 06 164</a> <a href="mailto:hei@idweb.no">hei@idweb.no</a>
