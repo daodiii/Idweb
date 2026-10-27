@@ -8,14 +8,12 @@ export const schibsted = Schibsted_Grotesk({
   display: "swap",
 });
 
-// Candidate face for the calm homepage, compared against Schibsted on the preview (?font=jakarta). Not preloaded:
-// it only downloads when the comparison switches it on. The losing face is removed before merge.
+// The calm homepage face (a-klar-calm.css), chosen over Schibsted in Part 1 of docs/specs/calm-homepage.md.
+// One variable file covers every weight; latin includes æ, ø and å.
 export const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
   display: "swap",
-  preload: false,
 });
 
 // The hero face: headline, lede and buttons at the top of the homepage. Variable weight, exposed as --font-mona.
