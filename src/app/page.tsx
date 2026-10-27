@@ -10,11 +10,14 @@ import { DemoSection } from "@/components/home/demo-section";
 import { Testimonials } from "@/components/home/testimonials";
 import { QuoteSection } from "@/components/home/quote-section";
 import { MarkerReveal } from "@/components/home/marker-reveal";
+import { LookSwitch, LOOK_SCRIPT } from "@/components/home/look-switch";
+import { Moment } from "@/components/home/moment";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
 import "@/styles/a-klar-tjenester.css";
 import "@/styles/a-klar-calm.css";
+import "@/styles/a-klar-look-ny.css";
 
 export const metadata: Metadata = pageMetadata({ title: SEO.home.title, description: SEO.home.description, path: "/" });
 
@@ -29,11 +32,15 @@ export const metadata: Metadata = pageMetadata({ title: SEO.home.title, descript
 export default function Home() {
   return (
     <div className={`ka calm ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
+      {/* PREVIEW ONLY: the «ny» look switch (look-switch.tsx); remove before merge */}
+      <script dangerouslySetInnerHTML={{ __html: LOOK_SCRIPT }} />
+      <LookSwitch />
       <MarkerReveal />
       <Hero />
       <LogoTicker />
       <WorkSection />
       <ServicesSection />
+      <Moment />
       <DemoSection id="prosess" kind="flyt" html={FLYT_HTML} warm />
       <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} />
       <Testimonials />

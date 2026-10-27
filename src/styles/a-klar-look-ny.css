@@ -1,0 +1,62 @@
+/*
+ * PREVIEW ONLY: the proposed «ny» look for the calm homepage, switched on by <html data-look="ny"> (?look=ny,
+ * look-switch.tsx). Three moves on top of a-klar-calm.css: colour fields taken from each client, a bigger hero that
+ * runs off the right edge, and one full-width moment. Without the attribute nothing here applies, except hiding the
+ * moment and styling the preview switch.
+ */
+
+/* ---------- preview switch ---------- */
+.look-switch{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:#131A3A;box-shadow:0 10px 30px -10px rgba(19,26,58,.5);font:600 13px/1 var(--font-jakarta),system-ui,sans-serif}
+.look-switch button{all:unset;cursor:pointer;padding:9px 14px;border-radius:999px;color:rgba(255,255,255,.72)}
+.look-switch button[aria-pressed=true]{background:#fff;color:#131A3A}
+.look-switch button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* ---------- the moment exists only in the new look ---------- */
+.ka.calm .moment{display:none}
+:root[data-look=ny] .ka.calm .moment{position:relative;display:grid;align-items:end;min-height:clamp(380px,36vw,600px);overflow:hidden;background:#0E2130;color:#fff}
+:root[data-look=ny] .ka.calm .moment img{object-fit:cover;object-position:40% 55%}
+:root[data-look=ny] .ka.calm .moment::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,34,0) 35%,rgba(10,22,34,.62) 100%)}
+:root[data-look=ny] .ka.calm .moment-in{position:relative;z-index:1;width:100%;padding-block:0 clamp(40px,5vw,72px)}
+:root[data-look=ny] .ka.calm .moment h2{max-width:16ch;margin:0;font-size:clamp(36px,4.6vw,68px);font-weight:500;letter-spacing:-.03em;line-height:1.06;color:#fff;text-wrap:balance}
+:root[data-look=ny] .ka.calm .moment .mk path{stroke-opacity:.9}
+:root[data-look=ny] .ka.calm .moment-c{position:absolute;z-index:1;right:max(7vw,calc((100% - 1320px) / 2));bottom:clamp(40px,5vw,72px);font-size:13px;color:rgba(255,255,255,.72)}
+@media (max-width:700px){
+  :root[data-look=ny] .ka.calm .moment{min-height:420px}
+  :root[data-look=ny] .ka.calm .moment-c{left:16px;right:auto;bottom:16px}
+  :root[data-look=ny] .ka.calm .moment-in{padding-bottom:56px}
+}
+
+/* ---------- bigger hero: the headline across the top, the picture running off the right edge ---------- */
+@media (min-width:1080px){
+  :root[data-look=ny] .ka.calm .hero{padding-block:40px 104px}
+  :root[data-look=ny] .ka.calm .hero .wrap{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:48px 72px;align-items:start}
+  :root[data-look=ny] .ka.calm .hero-head{display:contents}
+  :root[data-look=ny] .ka.calm .hero-head h1{grid-column:1/-1;max-width:21ch;font-size:clamp(60px,5.6vw,92px);line-height:1.02}
+  :root[data-look=ny] .ka.calm .hero-side{grid-column:1;align-self:start;padding-top:12px;gap:32px}
+  :root[data-look=ny] .ka.calm .hero-side .lede{font-size:19px;max-width:36ch}
+  :root[data-look=ny] .ka.calm .hero-vis{grid-column:2;margin-right:calc(-1 * max(7vw,(100vw - 1320px) / 2))}
+}
+/* the three promises, given weight: ink text with a cobalt tick, one per line */
+:root[data-look=ny] .ka.calm .trust{display:flex;flex-direction:column;gap:12px;font-size:16px;font-weight:500;color:var(--ink)}
+:root[data-look=ny] .ka.calm .trust span{display:flex;align-items:center;gap:10px}
+:root[data-look=ny] .ka.calm .trust span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+@media (max-width:1079px){
+  :root[data-look=ny] .ka.calm .hero-head h1{font-size:clamp(40px,9.6vw,64px);line-height:1.04}
+}
+
+/* ---------- colour from the clients: each work card on a pastel field from that client's own palette ---------- */
+:root[data-look=ny] .ka.calm .wk-mk{background:#F4E1DF}
+:root[data-look=ny] .ka.calm .wk-trio{background:#DFECE3}
+:root[data-look=ny] .ka.calm .wk-kong{background:#DCE9F1}
+:root[data-look=ny] .ka.calm .wk-ringebu{background:#DCECE9}
+/* the testimonial card takes the chosen client's tint, as the logo below it takes the client's colours */
+:root[data-look=ny] .ka.calm .tm{--tint:#E2EEE3}
+:root[data-look=ny] .ka.calm .tm.tm-on-iqra{--tint:#F6F0CF}
+:root[data-look=ny] .ka.calm .tm.tm-on-brobekk{--tint:#E1E9F3}
+:root[data-look=ny] .ka.calm .tm.tm-on-ringebu{--tint:#DCEBEA}
+:root[data-look=ny] .ka.calm .tm-stage{background:var(--tint);transition:background-color .6s var(--out)}
+/* one section on a full-width soft field, so the page changes world once in the middle */
+:root[data-look=ny] .ka.calm #prosess{background:#ECEEF9}
+:root[data-look=ny] .ka.calm #prosess .stage{background:rgba(255,255,255,.62)}
+:root[data-look=ny] .ka.calm .band.warm + .band{border-top:0}
+@media (prefers-reduced-motion:reduce){:root[data-look=ny] .ka.calm .tm-stage{transition:none}}
