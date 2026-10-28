@@ -65,7 +65,10 @@ export const EMPTY_QUOTE: Quote = {
   phone: "",
 };
 
-export const QUOTE_LIMITS = { url: 200, industry: 100, message: 5000, name: 100, company: 100, phone: 20 } as const;
+/** The terms shown beside the ask. Each is already stated elsewhere on the site (om oss, kontakt, vilkår). */
+export const QUOTE_TERMS = ["Fast pris, avtalt før vi starter", "Ingen bindingstid", "Svar innen 24 timer"] as const;
+
+export const QUOTE_LIMITS ={ url: 200, industry: 100, message: 5000, name: 100, company: 100, phone: 20 } as const;
 
 /** What they need: a new site or an extra; an extra is required when they keep the site they have. */
 export function checkNeeds(q: Quote): QuoteErrors {

@@ -42,7 +42,7 @@
 .ka.calm .hero-head h1{font-weight:500;letter-spacing:-.03em;line-height:1.1}
 .ka.calm .sec-h h2,.ka.calm .tm-head h2,.ka.calm .qt-side h2,.ka.calm .dx h2{font-weight:500;letter-spacing:-.03em;line-height:1.15}
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
-.ka.calm .hero-head .lede,.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede,.ka.calm .dx .sys-head .lede{font-size:17px;line-height:1.7}
+.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede,.ka.calm .dx .sys-head .lede{font-size:17px;line-height:1.7}
 
 /* ---------- actions: every button is cobalt ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
@@ -73,8 +73,6 @@
 .ka.calm .hs-p{left:56%;bottom:0;width:13%;aspect-ratio:314/680}
 /* a small menu mark in the corner says «this is a website» without any interface clutter */
 .ka.calm .hs-m{position:absolute;top:14px;right:14px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.45);box-shadow:0 5px 0 rgba(19,26,58,.45),0 10px 0 rgba(19,26,58,.45)}
-.ka.calm .hs figcaption{margin-top:18px;font-size:13px;color:var(--faint)}
-.ka.calm .hs figcaption a{border-bottom:1px solid currentColor}
 @media (max-width:600px){
   .ka.calm .hs{margin-top:40px}
   .ka.calm .hs-frames{aspect-ratio:358/330}
@@ -88,10 +86,6 @@
 @media (min-width:1080px){
   .ka.calm .hero{padding-block:48px 72px}
   .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
-  .ka.calm .hero-head{gap:28px}
-  .ka.calm .hero-head h1{font-size:clamp(42px,4vw,58px)}
-  .ka.calm .hero-side{grid-template-columns:minmax(0,1fr);justify-content:start;gap:24px;padding-top:0;border-top:0}
-  .ka.calm .hero-side .lede{max-width:44ch}
   .ka.calm .hs{margin-top:0}
   /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
   .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
@@ -148,11 +142,12 @@
 .ka.calm .wk-trio-1{left:14%;top:14%;width:21%}
 .ka.calm .wk-trio-2{left:39.5%;top:7%;width:21%}
 .ka.calm .wk-trio-3{left:65%;top:14%;width:21%}
-/* Kongsvinger: the illustrated treatment cards, with the phone in front */
-.ka.calm .wk-kong .wk-bg{object-position:left top}
+/* Kongsvinger: the site's own drawing of the fortress and the town, with the phone in front */
+.ka.calm .wk-kong .wk-bg{object-position:center top}
 .ka.calm .wk-kong-p{right:8%;top:9%;width:21%}
-/* Ringebu: the page in a frame */
-.ka.calm .wk-ringebu .wk-desk{left:9%;right:9%;top:13%;aspect-ratio:1200/750}
+/* Ringebu: desktop and phone side by side, as MK Auto */
+.ka.calm .wk-ringebu .wk-desk{left:6%;top:17%;width:72%;aspect-ratio:1440/900}
+.ka.calm .wk-ringebu-p{right:5%;top:22%;width:17%}
 @media (max-width:900px){
   .ka.calm .wk-grid{grid-template-columns:minmax(0,1fr);gap:48px}
   .ka.calm .wk-text,.ka.calm .wk-stack{grid-column:1;grid-row:auto}
@@ -175,7 +170,6 @@
 .ka.calm .band.warm{background:var(--bg)}
 .ka.calm .band.warm .stage{background:var(--surface)}
 .ka.calm .band + .band,.ka.calm .band.warm + .band,.ka.calm .band + .band.warm{border-top:1px solid var(--line)}
-.ka.calm .qt{background:var(--bg);border-top:1px solid var(--line)}
 
 /* ---------- the two demos (Part 4): same behaviour, calmer frame ---------- */
 /* no bounce or blur: pops settle, rises and label swaps only fade and move */
@@ -241,3 +235,227 @@
 .ka.calm .tm-head{margin-bottom:40px}
 .ka.calm .tm-stage{padding-block:56px}
 @media (max-width:700px){.ka.calm .tm-head{margin-bottom:28px}.ka.calm .tm-stage{padding-block:40px}}
+
+/* ==========================================================================================================================
+   The bolder layer, chosen after Part 5 (docs/specs/calm-homepage.md, «Ny»): a full-width moment, a bigger hero that runs
+   off the right edge, and colour taken from the clients. It sits last so it overrides the calm rules above where they meet.
+   ========================================================================================================================== */
+
+/* ---------- the full-width moment: Bjørvika under the northern lights (moment.tsx) ---------- */
+.ka.calm .moment{position:relative;display:block;height:clamp(440px,38vw,640px);overflow:hidden;background:#030817;color:#fff}
+.ka.calm .moment-art,.ka.calm .moment-art > *{position:absolute;inset:0;width:100%;height:100%}
+.ka.calm .moment-art img{object-fit:cover;object-position:50% 50%}
+/* the heading sits in the open sky top right, above Barcode, on a soft darkening so it reads over the aurora */
+.ka.calm .moment::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(3,8,23,.55),rgba(3,8,23,0) 34%)}
+.ka.calm .moment-in{position:relative;z-index:2;display:flex;justify-content:flex-end;padding-top:clamp(36px,4vw,64px)}
+.ka.calm .moment h2{max-width:13ch;margin:0;font-size:clamp(34px,4vw,60px);font-weight:500;letter-spacing:-.03em;line-height:1.06;color:#fff;text-align:right;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.6)}
+.ka.calm .moment .mk path{stroke-opacity:.9}
+/* gentle motion: the aurora drifts and breathes, the ferry glides across Bjørvika; transforms only */
+.ka.calm .moment-aurora{transform-origin:50% 35%;animation:nordlys-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
+@keyframes nordlys-drift{0%{transform:translateX(-1.2%) scaleY(.94);opacity:.8}50%{opacity:1}100%{transform:translateX(1.2%) scaleY(1.05);opacity:.9}}
+.ka.calm .moment-ferry-g{animation:ferge 80s ease-in-out infinite alternate}
+@keyframes ferge{from{transform:translateX(0)}to{transform:translateX(170px)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .moment-aurora,.ka.calm .moment-ferry-g{animation:none}}
+/* on phones the picture starts below a band of night sky that holds the heading, so it never sits on the towers */
+@media (max-width:700px){
+  .ka.calm .moment{height:520px;background:linear-gradient(#030817,#0A1633 150px)}
+  .ka.calm .moment-art{top:120px;height:auto;-webkit-mask-image:linear-gradient(transparent,#000 70px);mask-image:linear-gradient(transparent,#000 70px)}
+  .ka.calm .moment-art > *{height:100%}
+  .ka.calm .moment-in{justify-content:flex-start}
+  .ka.calm .moment h2{text-align:left}
+}
+
+/* ---------- a quiet hero: the headline and one button, the picture beside them; nothing else ---------- */
+@media (min-width:1080px){
+  .ka.calm .hero{padding-block:56px 96px}
+  .ka.calm .hero .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px}
+  .ka.calm .hero-head{gap:40px}
+  .ka.calm .hero-head h1{max-width:12ch;font-size:clamp(50px,4.5vw,68px);line-height:1.04}
+}
+@media (max-width:1079px){
+  .ka.calm .hero-head h1{font-size:clamp(36px,8.6vw,56px);line-height:1.06}
+}
+
+/* ---------- colour from the clients: each work card on a pastel field from that client's own palette ---------- */
+.ka.calm .wk-mk{background:#F4E1DF}
+.ka.calm .wk-trio{background:#DFECE3}
+.ka.calm .wk-kong{background:#DCE9F1}
+.ka.calm .wk-ringebu{background:#DCECE9}
+/* the testimonial card takes the chosen client's tint, as the logo below it takes the client's colours */
+.ka.calm .tm{--tint:#E2EEE3}
+.ka.calm .tm.tm-on-iqra{--tint:#F6F0CF}
+.ka.calm .tm.tm-on-brobekk{--tint:#E1E9F3}
+.ka.calm .tm.tm-on-ringebu{--tint:#DCEBEA}
+.ka.calm .tm-stage{background:var(--tint);transition:background-color .6s var(--out)}
+/* one section on a full-width soft field, so the page changes world once in the middle */
+.ka.calm #prosess{background:#ECEEF9}
+.ka.calm #prosess .stage{background:rgba(255,255,255,.62)}
+.ka.calm .band.warm + .band{border-top:0}
+@media (prefers-reduced-motion:reduce){.ka.calm .tm-stage{transition:none}}
+
+/* ---------- quote request: the page ends under the northern lights (quote-section.tsx) ----------
+   A night sky with the moment's aurora drifting at the top lightens into the footer's navy, so the page closes in one
+   sweep. The promise and the three terms sit on the left in white; the wizard floats on the right as a bright card. */
+.ka.calm .qt{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(96px,10vw,160px) clamp(88px,9vw,136px);border-top:0;color:#fff;background:linear-gradient(180deg,#030817 0%,#08122E 38%,#132055 72%,#1E2A6E 100%)}
+/* a few stars, painted once */
+.ka.calm .qt::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.8;background:
+  radial-gradient(1.4px 1.4px at 8% 12%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 22% 30%,#fff 50%,transparent 60%),
+  radial-gradient(1.2px 1.2px at 37% 8%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 48% 22%,#fff 50%,transparent 60%),
+  radial-gradient(1.6px 1.6px at 63% 6%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 71% 26%,#fff 50%,transparent 60%),
+  radial-gradient(1.2px 1.2px at 84% 14%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 93% 34%,#fff 50%,transparent 60%),
+  radial-gradient(1px 1px at 15% 44%,#fff 50%,transparent 60%),radial-gradient(1.2px 1.2px at 56% 40%,#fff 50%,transparent 60%),
+  radial-gradient(1px 1px at 78% 48%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 31% 56%,#fff 50%,transparent 60%)}
+.ka.calm .qt-sky{position:absolute;inset:0 0 auto;z-index:-1;height:min(78%,760px);pointer-events:none;-webkit-mask-image:linear-gradient(#000 25%,transparent);mask-image:linear-gradient(#000 25%,transparent)}
+.ka.calm .qt-sky img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;opacity:.75;transform-origin:50% 35%;animation:nordlys-drift 26s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.ka.calm .qt-sky img{animation:none}}
+.ka.calm .qt .wrap{position:relative}
+@media (min-width:901px){.ka.calm .qt-g{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(48px,6vw,96px)}}
+/* the promise */
+.ka.calm .qt-side{position:static;gap:26px;padding-top:clamp(0px,2vw,24px)}
+.ka.calm .qt-side h2{max-width:14ch;font-size:clamp(38px,4.4vw,64px);line-height:1.06;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.5)}
+.ka.calm .qt .mk path{stroke-opacity:.9}
+.ka.calm .qt-lede{max-width:40ch;color:rgba(255,255,255,.82)}
+.ka.calm .qt-terms{display:flex;flex-direction:column;gap:14px;margin:6px 0 4px;padding:0;list-style:none;font-size:18px;font-weight:500;color:#fff}
+.ka.calm .qt-terms li{display:flex;align-items:center;gap:12px}
+.ka.calm .qt-terms li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.ka.calm .qt-reach{color:rgba(255,255,255,.75)}
+.ka.calm .qt-reach a{color:#fff}
+@media (hover:hover) and (pointer:fine){.ka.calm .qt-reach a:hover{color:#C9D4FF}}
+/* the request so far is read out to screen readers; sighted visitors see it in the card («Så langt», «Dette sender dere») */
+.ka.calm .qt-sum{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ka.calm .qt-strip,.ka.calm .qt-final{display:block;background:var(--card)}
+/* the card */
+.ka.calm .qt-card{border:0;border-radius:var(--r-card);padding:clamp(28px,3vw,40px);color:var(--ink);background:var(--bg);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 60px 120px -40px rgba(0,0,0,.75)}
+.ka.calm .qt-q{font-weight:500;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.03em}
+.ka.calm .qt-blk h4,.ka.calm .qt-xh h4,.ka.calm .qt-final h4{font-weight:600}
+/* numbered steps joined by a hairline that turns cobalt as they are done */
+.ka.calm .qt-prog{counter-reset:qt;gap:12px;margin-bottom:32px}
+.ka.calm .qt-prog li{counter-increment:qt;flex-direction:row;align-items:center;gap:12px;font-size:14px}
+.ka.calm .qt-prog li:last-child{flex:none}
+.ka.calm .qt-prog li:last-child i{display:none}
+.ka.calm .qt-prog span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.ka.calm .qt-prog span::before{content:counter(qt);display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-strong);background:var(--card);font-size:12px;font-weight:600;color:var(--soft)}
+.ka.calm .qt-prog i{order:2;flex:1;height:1px;border-radius:0;background:var(--line-strong)}
+.ka.calm .qt-prog .cur span::before{background:var(--cobalt);box-shadow:none;color:#fff}
+.ka.calm .qt-prog .done span::before{content:"\2713";box-shadow:inset 0 0 0 1px var(--cobalt);color:var(--cobalt)}
+.ka.calm .qt-prog .cur i::after{transform:scaleX(0)}
+/* the two big choices: white tiles, a cobalt ring when chosen */
+.ka.calm .qt-mode{border:0;border-radius:var(--r-sm);background:var(--card);box-shadow:0 1px 2px rgba(19,26,58,.06);transition:box-shadow var(--dur-ui) var(--out),transform 160ms var(--out)}
+.ka.calm .qt-mode b{font-weight:600}
+.ka.calm .qt-mode[aria-pressed=true]{background:var(--card);box-shadow:inset 0 0 0 2px var(--cobalt)}
+/* the extras as a checklist on hairlines */
+.ka.calm .qt-xs{gap:0 32px}
+.ka.calm .qt-x{padding:14px 2px;border:0;border-top:1px solid var(--line-strong);border-radius:0;background:none}
+.ka.calm .qt-x[aria-pressed=true]{background:none}
+.ka.calm .qt-x:active{transform:none}
+.ka.calm .qt-x .box{border-radius:50%;background:var(--card)}
+.ka.calm .qt-x[aria-pressed=true] .box{background:var(--cobalt);border-color:var(--cobalt)}
+.ka.calm .qt-x b{font-weight:600}
+@media (hover:hover) and (pointer:fine){
+  .ka.calm .qt-mode:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+  .ka.calm .qt-mode[aria-pressed=true]:hover{box-shadow:inset 0 0 0 2px var(--cobalt)}
+  .ka.calm .qt-x:hover{border-color:var(--line-strong)}
+  .ka.calm .qt-x:hover .box{border-color:var(--ink)}
+}
+.ka.calm .qt-pill{background:var(--card)}
+.ka.calm .qt-pill[aria-pressed=true]{background:var(--ink)}
+.ka.calm .qt-fld input,.ka.calm .qt-fld textarea{background:var(--card)}
+.ka.calm .qt-foot{border-top-color:var(--line-strong)}
+.ka.calm .qt-seal{background:var(--cobalt)}
+@media (max-width:600px){
+  .ka.calm .qt-card{padding:24px 18px 20px}
+  .ka.calm .qt-prog{gap:8px}
+  .ka.calm .qt-prog li{gap:8px}
+  /* only the current step keeps its name on phones; the others show their number (the words stay for screen readers) */
+  .ka.calm .qt-prog li:not(.cur) span{font-size:0;gap:0}
+  .ka.calm .qt-prog li span::before{font-size:12px}
+}
+
+
+/* ---------- the wide menu (as responsivmedia.no: «Tjenester» opens a panel as wide as the header) ----------
+   The header runs wider than the content (logo nearer the edge), and the dropdown leaves its link to hang under the whole
+   header. The picture, descriptions and contact card in the markup are hidden elsewhere (header-menu.css). */
+@media (min-width:821px){
+  :root:has(.ka.calm) .ka .hasmenu{position:static}
+  :root:has(.ka.calm) .ka .hasmenu > a::after{transition:transform var(--dur-ui) var(--out)}
+  :root:has(.ka.calm) .ka .hasmenu:is(:hover,:focus-within) > a::after{transform:translateY(3px) rotate(225deg)}
+  /* the dropdown starts inside the header so the pointer never leaves it on the way down; its box (::before) starts below */
+  :root:has(.ka.calm) .ka .dropdown{--edge:max(4vw,calc((100% - 1440px) / 2));left:var(--edge);right:var(--edge);top:calc(100% - 22px);min-width:0;transform:translateY(-6px);transition:opacity var(--dur-ui) var(--out),transform var(--dur-ui) var(--out),visibility 0s var(--dur-ui)}
+  :root:has(.ka.calm) .ka .dropdown::before{inset:30px 0 0;border:1px solid var(--line);border-radius:var(--r-card);background:#fff;box-shadow:0 40px 80px -40px rgba(19,26,58,.35)}
+  :root:has(.ka.calm) .ka .dropdown a{white-space:normal}
+  :root:has(.ka.calm) .ka .dropdown .dd-d{display:block}
+}
+@media (min-width:1024px){
+  :root:has(.ka.calm) .ka .top > .wrap{padding-inline:max(4vw,calc((100% - 1440px) / 2))}
+}
+
+/* «Kortene»: each service a soft card in a client pastel, and a navy card that offers a free chat */
+@media (min-width:821px){
+  :root:has(.ka.calm) .ka .dropdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:52px 20px 20px}
+  :root:has(.ka.calm) .ka .dropdown > a{display:flex;flex-direction:column;gap:6px;min-height:118px;padding:18px 20px;border-radius:var(--r-sm);background:var(--surface);transition:transform var(--dur-ui) var(--out),filter var(--dur-ui) var(--out)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(1){background:#DCE9F1}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(2){background:#DFECE3}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(3){background:#F4E1DF}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(4){background:#ECEEF9}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(5){background:#DCECE9}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(6){background:#F6F0CF}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(7){background:#F1E4D6}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8){justify-content:flex-end;background:none;box-shadow:inset 0 0 0 1px var(--line-strong)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8) .dd-t{color:var(--cobalt)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8) .dd-t::after{content:" \2192"}
+  :root:has(.ka.calm) .ka .dd-t{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  :root:has(.ka.calm) .ka .dd-d{font-size:14px;line-height:1.5;color:var(--muted)}
+  :root:has(.ka.calm) .ka .dropdown > .dd-cta{display:flex;flex-direction:column;justify-content:space-between;grid-column:4;grid-row:1 / span 3;padding:26px 24px;background:var(--ink);color:#fff}
+  :root:has(.ka.calm) .ka .dd-cta b{font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
+  :root:has(.ka.calm) .ka .dd-cta span{align-self:flex-start;white-space:nowrap;padding:12px 20px;border-radius:var(--r-pill);background:var(--cobalt);font-size:15px;font-weight:600}
+  @media (hover:hover) and (pointer:fine){
+    :root:has(.ka.calm) .ka .dropdown > a:hover{transform:translateY(-2px);filter:saturate(1.15) brightness(.98)}
+    :root:has(.ka.calm) .ka .dropdown > a:hover .dd-t{color:var(--ink)}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka .dropdown,:root:has(.ka.calm) .ka .dropdown *{transition:none!important}}
+@media (min-width:821px) and (max-width:1180px){:root:has(.ka.calm) .ka .dd-cta span{padding:10px 16px;font-size:14px}}
+
+/* ---------- the buttons: an aurora-green light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
+   slides forward on hover (as stripe.com). Aurora green is the action colour, so links, ticks and steps follow it.
+   The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's navy card. */
+:root:has(.ka.calm) .ka{--cobalt:#0B6B57;--orange-btn-hover:#08523F}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#1A7F68 0%,#0B6B57 34%,#08523F 100%);transition:transform 160ms var(--out)}
+@media (hover:hover) and (pointer:fine){
+  :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover,
+  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#1A7F68 0%,#0B6B57 34%,#08523F 100%)}
+}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
+.ka.calm .hero .btn svg{display:none}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{content:"";flex:none;width:14px;height:10px;margin-right:-2px;
+  background:linear-gradient(currentColor,currentColor) left 50%/0 1.6px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 0 50%/10px 10px no-repeat;
+  transition:background-size 150ms cubic-bezier(.215,.61,.355,1),background-position 150ms cubic-bezier(.215,.61,.355,1)}
+@media (hover:hover) and (pointer:fine){
+  :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover::after,
+  :root:has(.ka.calm) .ka .dd-cta:hover span::after{background-size:10px 1.6px,10px 10px;background-position:left 50%,4px 50%}
+}
+:root:has(.ka.calm) .ka .qt-next:disabled::after{background-size:0 1.6px,10px 10px;background-position:left 50%,0 50%}
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span),:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{transition:none}}
+
+/* ---------- phones: the hero's one button runs the full width, so it reads as the next step under the large headline ---------- */
+@media (max-width:600px){
+  .ka.calm .hero .actions{width:100%}
+  .ka.calm .hero .btn{width:100%;height:58px;justify-content:center;font-size:17px}
+}
+
+/* ---------- testimonials: one sentence from the client's quote, set large; «Les hele» opens the whole quote in place ---------- */
+.ka.calm .tm-stage{min-height:340px}
+.ka.calm .tm-q blockquote .tm-hl{font-size:clamp(24px,2.7vw,38px);line-height:1.3;letter-spacing:-.025em;text-wrap:balance}
+.ka.calm .tm-q blockquote.full{font-size:clamp(17px,1.5vw,20px);line-height:1.6;letter-spacing:-.01em;text-align:left}
+.ka.calm .tm-more{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-top:-6px;padding:8px 4px;font-size:15px;font-weight:600;color:var(--cobalt)}
+.ka.calm .tm-more::after{content:"";width:7px;height:7px;margin-top:-3px;border:solid currentColor;border-width:0 1.6px 1.6px 0;transform:rotate(45deg);transition:transform var(--dur-ui) var(--out)}
+.ka.calm .tm-more[aria-expanded=true]::after{margin-top:3px;transform:rotate(225deg)}
+.ka.calm .tm-more:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+@media (hover:hover) and (pointer:fine){.ka.calm .tm-more:hover{text-decoration:underline;text-underline-offset:4px}}
+@media (max-width:700px){.ka.calm .tm-stage{min-height:0}.ka.calm .tm-q blockquote .tm-hl{font-size:clamp(22px,6.2vw,28px)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .tm-more::after{transition:none}}
+/* on phones the header button keeps its label only, so it never presses against the logo */
+@media (max-width:600px){:root:has(.ka.calm) .ka .top .btn::after{display:none}}

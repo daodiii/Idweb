@@ -44,6 +44,17 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 /**
+ * The one sentence the homepage shows large for each client, word for word from their quote; the whole quote is one
+ * click away («Les hele»). Chosen 28 October 2026.
+ */
+export const HIGHLIGHT: Record<Testimonial["id"], string> = {
+  centerrahma: quoteSentence("centerrahma", "Resultatet overgikk våre forventninger, og vi kan derfor varmt anbefale IDweb."),
+  iqra: quoteSentence("iqra", "De stilte de riktige spørsmålene, kom med egne ideer og dro prosessen fremover uten at vi trengte å ha alle svarene selv."),
+  brobekk: quoteSentence("brobekk", "Nettsiden ble enda bedre enn jeg hadde sett for meg, og jeg kan uten tvil anbefale IDweb til andre som ønsker en profesjonell og pålitelig leverandør."),
+  ringebu: quoteSentence("ringebu", "IDweb ga oss en side langt over det vi kunne ha forventet."),
+};
+
+/**
  * One sentence lifted word for word from a client's quote, for use as a heading. Throws at build time if the
  * sentence is not in the quote, so an excerpt can never drift from what the client actually wrote.
  */

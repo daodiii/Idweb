@@ -4,10 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import { Marker } from "@/components/home/marker";
 import { RingebuMark } from "@/components/home/ringebu-mark";
-import { TESTIMONIALS, type Testimonial } from "@/lib/home/testimonials";
+import { HIGHLIGHT, TESTIMONIALS, type Testimonial } from "@/lib/home/testimonials";
 
 /**
- * «Det kundene sier»: one large quote at a time. The four client logos underneath are the switch: one tone while
+ * «Det kundene sier»: one client at a time, shown by one sentence from their quote set large (HIGHLIGHT, word for
+ * word); «Les hele» opens the whole quote in place. The four client logos underneath are the switch: one tone while
  * waiting, the client's own colours once chosen (a-klar-calm.css); the quote changes only when a logo is chosen. All quotes are in the HTML, stacked in one grid cell so the stage keeps the height of the longest;
  * the inactive ones are hidden from assistive tech.
  */
@@ -47,6 +48,8 @@ function Watermark({ id }: { id: Testimonial["id"] }) {
 
 export function Testimonials() {
   const [cur, setCur] = useState(0);
+  // the whole quote, opened with «Les hele»; choosing another client closes it again
+  const [open, setOpen] = useState(false);
   const active = TESTIMONIALS[cur];
 
   return (
@@ -70,18 +73,29 @@ export function Testimonials() {
           <div className="tm-quotes">
             {TESTIMONIALS.map((t, i) => (
               <figure key={t.id} id={`tm-q-${t.id}`} className={`tm-q${i === cur ? " on" : ""}`} aria-hidden={i !== cur} inert={i !== cur}>
-                <blockquote>
-                  {t.quote.map((para, j) => (
-                    <p key={j}>
-                      {j === 0 && <span className="tm-gu">«</span>}
-                      {para}
-                      {j === t.quote.length - 1 && <span className="tm-gu">»</span>}
+                <blockquote className={i === cur && open ? "full" : undefined}>
+                  {i === cur && open ? (
+                    t.quote.map((para, j) => (
+                      <p key={j}>
+                        {j === 0 && <span className="tm-gu">«</span>}
+                        {para}
+                        {j === t.quote.length - 1 && <span className="tm-gu">»</span>}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="tm-hl">
+                      <span className="tm-gu">«</span>
+                      {HIGHLIGHT[t.id]}
+                      <span className="tm-gu">»</span>
                     </p>
-                  ))}
+                  )}
                 </blockquote>
                 <figcaption>
                   <b>{t.client}</b>
                 </figcaption>
+                <button type="button" className="tm-more" aria-expanded={i === cur && open} onClick={() => setOpen((o) => !o)}>
+                  {i === cur && open ? "Vis mindre" : "Les hele"}
+                </button>
               </figure>
             ))}
           </div>
@@ -96,7 +110,10 @@ export function Testimonials() {
               aria-pressed={i === cur}
               aria-controls={`tm-q-${t.id}`}
               aria-label={t.client}
-              onClick={() => setCur(i)}
+              onClick={() => {
+                setCur(i);
+                setOpen(false);
+              }}
             >
               <span className="tm-lg">
                 <Logo id={t.id} />
