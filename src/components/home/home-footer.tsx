@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
+import { IdwebMark } from "@/components/home/idweb-mark";
 import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
 export function HomeFooter() {
@@ -10,9 +11,10 @@ export function HomeFooter() {
           <div className="g-foot">
             <div>
               <span className="brand">
-                {/* eslint-disable-next-line @next/next/no-img-element -- small brand mark, already optimised */}
-                <img src="/images/idweb-mark-160.webp" alt="" width={43} height={34} />
-                <b>IDweb</b>
+                <IdwebMark id="ft" tone="light" className="logo-mark" />
+                <span className="logo-word">
+                  <b>ID</b>web
+                </span>
               </span>
               <p>Nettsider, kundeportaler og systemer for norske bedrifter.</p>
             </div>

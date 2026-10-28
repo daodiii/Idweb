@@ -71,13 +71,11 @@
 /* header */
 .ka .top{position:relative;z-index:10;border-bottom:1px solid var(--line);background:var(--bg)}
 .ka .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
-.ka .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em}
-.ka .logo img{height:42px;width:auto}
-/* the wordmark and tagline mirror IDweb's own logo (idweb-logo-dark-1600), set dark for the white header */
-.ka .logo-word{display:flex;flex-direction:column;align-items:center;gap:4px}
-.ka .logo-wm{display:block;width:auto;height:22px}
-.ka .logo-wm text{font-family:var(--font-wordmark),"Michroma",var(--font);font-size:36px}
-.ka .logo-word small{font:600 8.5px/1.2 var(--font-tagline),var(--font);letter-spacing:.06em;text-transform:uppercase;text-align:center;color:var(--soft)}
+.ka .logo{display:flex;align-items:center;gap:10px}
+.ka .logo-mark{display:block;height:38px;width:auto}
+/* the wordmark is live text: «ID» heavier than «web», as in the approved logo */
+.ka .logo-word{font:400 27px/1 var(--font-schibsted),var(--font);letter-spacing:-.035em;color:var(--ink)}
+.ka .logo-word b{font-weight:700}
 .ka .navlinks{display:flex;gap:28px;font-size:15px;color:#3B404A}
 .ka .hasmenu{position:relative}
 .ka .hasmenu>a::after{content:"";display:inline-block;width:6px;height:6px;margin:0 0 3px 8px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
@@ -110,7 +108,7 @@
 .ka .menupanel[hidden]{display:none}
 @media (max-width:820px){.ka .menubtn{display:grid}}
 @media (min-width:821px){.ka .menupanel{display:none}}
-@media (max-width:600px){.ka .top .wrap{height:64px;gap:12px}.ka .logo{gap:7px}.ka .logo img{height:34px}.ka .logo-wm{height:17px}.ka .logo-word small{font-size:8px}.ka .top-end .btn{white-space:nowrap}.ka [id]{scroll-margin-top:80px}}
+@media (max-width:600px){.ka .top .wrap{height:64px;gap:12px}.ka .logo{gap:7px}.ka .logo-mark{height:32px}.ka .logo-word{font-size:23px}.ka .top-end .btn{white-space:nowrap}.ka [id]{scroll-margin-top:80px}}
 
 /* hero copy */
 .ka .hero{padding-block:44px 64px;overflow-x:clip}
@@ -359,8 +357,9 @@
 .ka .g-foot{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:32px}
 .ka .g-foot > div{display:flex;flex-direction:column;gap:10px;font-size:14px}
 .ka .g-foot .brand{display:flex;align-items:center;gap:10px}
-.ka .g-foot .brand img{height:34px;width:auto}
-.ka .g-foot .brand b{font-size:20px;letter-spacing:-.03em}
+.ka .g-foot .brand .logo-mark{height:36px}
+.ka .g-foot .brand .logo-word{font-size:25px;color:#fff}
+.ka .g-foot .brand .logo-word b{font-size:inherit;letter-spacing:inherit}
 .ka .g-foot p{color:var(--soft);max-width:32ch}
 @media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:#FCB677}}
 .ka .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--faint);border-top:1px solid var(--line);padding-top:24px}

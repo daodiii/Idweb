@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { michroma, montserrat, schibsted } from "@/lib/home/fonts";
+import { schibsted } from "@/lib/home/fonts";
+import { IdwebMark } from "@/components/home/idweb-mark";
 import { MobileMenu, type NavLink } from "@/components/home/mobile-menu";
 import { HeaderAutohide } from "@/components/home/header-autohide";
 import "@/styles/header-menu.css";
@@ -30,35 +31,16 @@ const LINKS: readonly NavLink[] = [
  */
 export function HomeHeader() {
   return (
-    <div className={`ka hdr ${schibsted.variable} ${michroma.variable} ${montserrat.variable}`}>
+    <div className={`ka hdr ${schibsted.variable}`}>
       <a href="#main-content" className="skip">
         Hopp til innholdet
       </a>
       <header className="top">
         <div className="wrap">
           <Link href="/" className="logo" aria-label="IDweb, til forsiden">
-            {/* eslint-disable-next-line @next/next/no-img-element -- small brand mark, already optimised */}
-            <img src="/images/idweb-mark-160.webp" alt="" width={53} height={42} />
-            {/* the full lockup from IDweb's logo (idweb-logo-dark-1600): chrome «IDWEB» with the tagline on two lines beneath */}
+            <IdwebMark id="hd" className="logo-mark" />
             <span className="logo-word" aria-hidden="true">
-              <svg className="logo-wm" viewBox="0 0 196 40" overflow="visible">
-                <defs>
-                  <linearGradient id="idweb-chrome" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stopColor="#9AA1A9" />
-                    <stop offset=".4" stopColor="#555C64" />
-                    <stop offset=".58" stopColor="#22262C" />
-                    <stop offset="1" stopColor="#5E656D" />
-                  </linearGradient>
-                </defs>
-                <text x="98" y="33" textAnchor="middle" fill="url(#idweb-chrome)" stroke="url(#idweb-chrome)" strokeWidth="2.4" strokeLinejoin="round">
-                  IDWEB
-                </text>
-              </svg>
-              <small>
-                Webbyrå og
-                <br />
-                systemutvikler
-              </small>
+              <b>ID</b>web
             </span>
           </Link>
           <nav className="navlinks" aria-label="Hovedmeny">
