@@ -13,7 +13,6 @@ import { MarkerReveal } from "@/components/home/marker-reveal";
 import { Moment } from "@/components/home/moment";
 import { ButtonGlow } from "@/components/home/button-glow";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
-import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
 import "@/styles/a-klar-tjenester.css";
 import "@/styles/a-klar-calm.css";
@@ -22,7 +21,7 @@ export const metadata: Metadata = pageMetadata({ title: SEO.home.title, descript
 
 /**
  * Landing page — «A · Klar». Light, calm and concrete: a hero with a client landscape in device frames, the client logos
- * sliding past, selected work (client cards beside sticky text), the services with one example at a time, one full-width moment (Bjørvika under the northern lights), two live demos of how we work (process, systems), testimonials and the quote request («Få et pristilbud»).
+ * sliding past, selected work (client cards beside sticky text), the services with one example at a time (the live demos for bookings and the web shop included), the clients' testimonials, one full-width moment (Bjørvika under the northern lights), a live demo of how we work (the process) and the quote request («Få et pristilbud»).
  * All styles live in a-klar.css (services section: a-klar-tjenester.css) under the .ka scope. The .calm class opts the
  * homepage into the stricter calm system (a-klar-calm.css, docs/specs/calm-homepage.md) without touching other .ka pages.
  * Its face is Plus Jakarta Sans (--font-jakarta, set on <body>). The client faces (Bricolage, Figtree, Young Serif, Inter)
@@ -37,11 +36,10 @@ export default function Home() {
       <LogoTicker />
       <WorkSection />
       <ServicesSection />
-      <Moment />
-      <DemoSection id="prosess" kind="flyt" html={FLYT_HTML} warm />
-      {/* the clients' words sit between the two demos, so two mock interfaces never follow each other */}
+      {/* the clients' words follow the services, so the examples are answered by real clients before the Bjørvika image */}
       <Testimonials />
-      <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} />
+      <Moment />
+      <DemoSection id="prosess" html={FLYT_HTML} warm />
       <QuoteSection />
     </div>
   );

@@ -1,5 +1,5 @@
 /**
- * The five service scenes for the homepage canvas, each for a fictional example client. Every scene is static
+ * The four service scenes for the homepage canvas, each for a fictional example client. Every scene is static
  * markup authored here plus a timeline of steps; nothing user-supplied is ever inserted.
  * Ported from the approved mockup (idweb-hero/tjenester/tjenester2.html, «Lerretet»).
  */
@@ -51,39 +51,6 @@ const FROGNER = (id: string) => `<svg viewBox="0 0 136 66" preserveAspectRatio="
   <path d="M22 29.5H114M22 45.5H114" stroke="#A88E69" stroke-width="1.2"/>${FROGNER_WIN}<rect x="58" y="58" width="20" height="2" fill="#2B3540"/>
   <circle cx="11" cy="46" r="13" fill="#6C7D4C"/><circle cx="127" cy="50" r="11" fill="#7B8B57"/><rect y="61" width="136" height="5" fill="#8D9096"/></svg>`;
 
-/* Krus & Kar: glazed stoneware with studio light, speckles and a bare clay foot. */
-const SPECK = (pts: number[][], c: string) => `<g fill="${c}" opacity=".35">${pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r=".7"/>`).join("")}</g>`;
-const MUG = (id: string) => `<svg viewBox="0 0 80 80" aria-hidden="true"><defs>
-  <linearGradient id="${id}b" x1="0" x2="1"><stop offset="0" stop-color="#55705F"/><stop offset=".34" stop-color="#B9D1C3"/><stop offset=".6" stop-color="#8EAD9C"/><stop offset="1" stop-color="#4A6455"/></linearGradient>
-  <linearGradient id="${id}c" x1="0" x2="1"><stop offset="0" stop-color="#B49C80"/><stop offset=".4" stop-color="#E4D3BE"/><stop offset="1" stop-color="#9C8566"/></linearGradient>
-  <radialGradient id="${id}s"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
-  <ellipse cx="39" cy="70" rx="29" ry="5" fill="url(#${id}s)"/>
-  <path d="M55 31 q16 0 16 13.5 q0 13.5 -16 13.5" fill="none" stroke="#6E8B7B" stroke-width="6" stroke-linecap="round"/>
-  <path d="M18 22 h40 v41 q0 5 -5 5 h-30 q-5 0 -5 -5z" fill="url(#${id}c)"/>
-  <path d="M18 22 h40 v31 q-5 4 -9 1 q-5 -4 -10 2 q-5 5 -10 -1 q-5 -5 -11 -1z" fill="url(#${id}b)"/>
-  <ellipse cx="38" cy="22" rx="20" ry="4" fill="#CFE1D6"/><ellipse cx="38" cy="22.6" rx="17" ry="2.8" fill="#3B5145"/>
-  ${SPECK([[26, 32], [44, 28], [50, 40], [31, 44], [40, 36], [53, 30], [23, 41]], "#24342B")}
-  <rect x="23.5" y="26" width="4" height="25" rx="2" fill="#fff" opacity=".24"/></svg>`;
-const BOWL = (id: string) => `<svg viewBox="0 0 80 80" aria-hidden="true"><defs>
-  <linearGradient id="${id}o" x1="0" x2="1"><stop offset="0" stop-color="#6E400F"/><stop offset=".38" stop-color="#E1A851"/><stop offset=".68" stop-color="#B9792A"/><stop offset="1" stop-color="#5E360D"/></linearGradient>
-  <linearGradient id="${id}i" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F2E0D"/><stop offset="1" stop-color="#A66B22"/></linearGradient>
-  <radialGradient id="${id}s"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
-  <ellipse cx="40" cy="64" rx="31" ry="5" fill="url(#${id}s)"/><path d="M31 57 h18 l-2 6 h-14z" fill="#C7A782"/>
-  <path d="M8 34 h64 q-3 26 -32 26 q-29 0 -32 -26z" fill="url(#${id}o)"/>
-  <ellipse cx="40" cy="34" rx="32" ry="7" fill="#EDBE6E"/><ellipse cx="40" cy="34.6" rx="29" ry="5.3" fill="url(#${id}i)"/>
-  <path d="M15 41 q5 13 20 16" fill="none" stroke="#fff" stroke-width="2.6" opacity=".26" stroke-linecap="round"/>
-  ${SPECK([[22, 44], [34, 50], [48, 46], [58, 42], [41, 54], [28, 39], [52, 52]], "#3D2306")}</svg>`;
-const VASE = (id: string) => `<svg viewBox="0 0 80 80" aria-hidden="true"><defs>
-  <linearGradient id="${id}o" x1="0" x2="1"><stop offset="0" stop-color="#3B100E"/><stop offset=".36" stop-color="#A9473C"/><stop offset=".66" stop-color="#7A2A24"/><stop offset="1" stop-color="#34100D"/></linearGradient>
-  <radialGradient id="${id}s"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
-  <ellipse cx="40" cy="72" rx="21" ry="4" fill="url(#${id}s)"/>
-  <path d="M31 11 h18 v6 q-2 5 5 13 q11 15 4 31 q-4 9 -18 9 q-14 0 -18 -9 q-7 -16 4 -31 q7 -8 5 -13z" fill="url(#${id}o)"/>
-  <path d="M27 64 q13 6 26 0 q-3 6 -13 6 q-10 0 -13 -6z" fill="#B99A7A"/>
-  <ellipse cx="40" cy="11" rx="9" ry="2.6" fill="#C25B4E"/><ellipse cx="40" cy="11.3" rx="6.6" ry="1.6" fill="#2A0B09"/>
-  <path d="M30 34 q-7 13 -1 25" fill="none" stroke="#fff" stroke-width="2.8" opacity=".22" stroke-linecap="round"/>
-  ${SPECK([[44, 30], [36, 42], [50, 48], [42, 56], [33, 52]], "#1E0605")}</svg>`;
-
-/* Vang Bakeri: a scored sourdough and a roll on a board in warm morning light. */
 const FLOUR = [[186, 76], [196, 72], [208, 70], [222, 73], [234, 78], [204, 80], [216, 84], [192, 86], [228, 88], [244, 86]];
 const BAKE = (id: string) => `<svg viewBox="0 0 286 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
   <linearGradient id="${id}a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8D78E"/><stop offset=".55" stop-color="#E6AC3A"/><stop offset="1" stop-color="#C98418"/></linearGradient>
@@ -231,67 +198,6 @@ export const SCENES: Record<SceneKey, Scene> = {
     },
   },
 
-  shop: {
-    dur: 7600,
-    html: `<div class="sc sc-shop">
-      <div class="bw blk" style="left:16px;top:16px;width:608px;height:408px">
-        <div class="bar"><i></i><i></i><i></i><span class="url"><span class="u">kruskar.no</span></span></div>
-        <div class="site">
-          <div class="sh hid"><b class="lg">Krus &amp; Kar</b><span class="lk">Krus</span><span class="lk">Skåler</span><span class="lk">Fat</span>
-            <span class="cart"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 6h11l-1 9.5h-9z"/><path d="M6.5 6V5a2.5 2.5 0 0 1 5 0v1"/></svg><span class="badge">0</span></span></div>
-          <div class="intro hid"><h4>Dreid for hånd i Lillehammer.</h4><p>Små serier, brent i egen ovn.</p></div>
-          <div class="grid">
-            <div class="pcd blk c1 hid"><div class="imgw" style="background:radial-gradient(110% 85% at 50% 28%,#55675E,#232A26)">${MUG("sv-km")}<span class="add">Legg i kurv</span></div><div class="meta"><b>Krus, seladon</b><small>Steintøy · 300 ml</small></div></div>
-            <div class="pcd blk c2 hid"><div class="imgw" style="background:radial-gradient(110% 85% at 50% 28%,#6A5236,#2A2018)">${BOWL("sv-kb")}<span class="add">Legg i kurv</span></div><div class="meta"><b>Skål, okergul</b><small>Steintøy · Ø 16 cm</small></div></div>
-            <div class="pcd blk c3 hid"><div class="imgw" style="background:radial-gradient(110% 85% at 50% 28%,#62403A,#2A1715)">${VASE("sv-kv")}<span class="add">Legg i kurv</span></div><div class="meta"><b>Vase, oksblod</b><small>Steintøy · 22 cm</small></div></div>
-          </div>
-          <div class="dim"></div>
-          <div class="bts"><span class="hid">${CHECK_W}Ordre mottatt</span><span class="hid">${CHECK_W}Beskjed til butikken</span><span class="hid">${CHECK_W}Bekreftelse sendt</span></div>
-          <div class="drw">
-            <div class="pane p1 on"><h5>Handlekurv</h5><div class="li"><span class="th">${BOWL("sv-kb2")}</span><span><b>Skål, okergul</b><small>1 stk</small></span></div><span class="go blk">Til kassen</span></div>
-            <div class="pane p2"><h5>Kassen</h5><span class="lbl">Levering</span><span class="rd r1 sel"><i></i>Hent i butikken</span><span class="rd r2"><i></i>Send med posten</span><span class="lbl" style="margin-top:8px">Betaling</span><span class="rd sel"><i></i>Kort eller mobil</span><span class="go blk">Fullfør kjøp</span></div>
-            <div class="pane p3"><svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true"><circle cx="29" cy="29" r="26" fill="none" stroke="#D9A441" stroke-width="3" stroke-dasharray="164" stroke-dashoffset="164" transform="rotate(-90 29 29)"/><path d="M18 30l7.5 7.5L41 22" fill="none" stroke="#1F1B18" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="36" stroke-dashoffset="36"/></svg><h5>Takk, Maria!</h5><p>Ordren er mottatt. Bekreftelsen ligger i innboksen din.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>`,
-    run(a: Api) {
-      a.enter(".bw", 0);
-      a.show(".sh", 250, { from: "translateY(-4px)" });
-      a.show(".intro", 400);
-      a.show(".pcd", 600, { stagger: 90, d: 560, from: "translateY(14px)" });
-      a.cursor(".c2 .imgw", 1250, { click: false });
-      a.at(1850, () => a.q(".c2").classList.add("hover"));
-      a.cursor(".c2 .add", 2150);
-      a.at(2790, () => {
-        const src = a.q(".c2 .imgw svg"), s = a.pos(src), c = a.pos(a.q(".cart"));
-        const g = src.cloneNode(true) as SVGElement;
-        g.style.cssText = `position:absolute;left:${s.x}px;top:${s.y}px;width:${s.w}px;height:${s.h}px;z-index:20;pointer-events:none`;
-        a.q(".sc").appendChild(g);
-        const dx = c.x + c.w / 2 - (s.x + s.w / 2), dy = c.y + c.h / 2 - (s.y + s.h / 2);
-        a.anim(g, [
-          { transform: "translate(0,0) scale(1)", opacity: 1 },
-          { transform: `translate(${dx * 0.55}px,${dy * 0.55 - 50}px) scale(.55)`, opacity: 1, offset: 0.55 },
-          { transform: `translate(${dx}px,${dy}px) scale(.16)`, opacity: 0 },
-        ], { duration: 720, fill: "forwards", easing: "cubic-bezier(.45,0,.55,1)" });
-      });
-      a.at(3480, () => { const b = a.q(".badge"); b.textContent = "1"; b.classList.add("on"); });
-      a.at(3650, () => { a.q(".c2").classList.remove("hover"); a.q(".dim").classList.add("on"); a.q(".drw").classList.add("on"); });
-      a.cursor(".p1 .go", 4100);
-      a.at(4740, () => { a.q(".p1").classList.remove("on"); a.q(".p2").classList.add("on"); });
-      a.cursor(".p2 .r2", 5050);
-      a.at(5690, () => { a.q(".p2 .r1").classList.remove("sel"); a.q(".p2 .r2").classList.add("sel"); });
-      a.cursor(".p2 .go", 5850);
-      a.at(6490, () => {
-        a.q(".p2").classList.remove("on"); a.q(".p3").classList.add("on");
-        a.anim(a.q(".p3 circle"), [{ strokeDashoffset: 164 }, { strokeDashoffset: 0 }], { duration: 600, delay: 150, fill: "both" });
-        a.anim(a.q(".p3 path"), [{ strokeDashoffset: 36 }, { strokeDashoffset: 0 }], { duration: 360, delay: 600, fill: "both" });
-      });
-      a.away(6600);
-      a.show(".bts span", 6950, { stagger: 140, from: "translateY(6px)" });
-    },
-  },
-
   seo: {
     dur: 8400,
     html: `<div class="sc sc-seo">
@@ -412,7 +318,6 @@ export const SCENES: Record<SceneKey, Scene> = {
 export const FOCUS: Record<SceneKey, number[][]> = {
   web: [[0, 16, 20, 448, 400], [4750, 300, 40, 330, 370], [5900, 0, 0, 640, 440]],
   portal: [[0, 165, 45, 310, 350], [3500, 0, 0, 640, 440], [4500, 166, 60, 458, 364], [5900, 330, 10, 300, 260], [6700, 0, 0, 640, 440]],
-  shop: [[0, 0, 0, 640, 440], [1100, 16, 96, 420, 300], [3600, 330, 40, 294, 384], [6800, 0, 0, 640, 440]],
   seo: [[0, 16, 16, 372, 408], [4250, 396, 10, 236, 424], [7900, 0, 0, 640, 440]],
   ops: [[0, 16, 16, 286, 190], [2300, 16, 210, 286, 214], [4100, 312, 10, 318, 420], [5300, 0, 0, 640, 440]],
 };
