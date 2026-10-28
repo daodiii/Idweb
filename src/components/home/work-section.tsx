@@ -6,7 +6,7 @@ import { Marker } from "@/components/home/marker";
 function Phone({ src, alt, className }: { src: string; alt: string; className: string }) {
   return (
     <div className={`wk-phone ${className}`}>
-      <Image src={src} alt={alt} fill quality={90} sizes="(max-width: 900px) 26vw, 12vw" />
+      <Image src={src} alt={alt} fill quality={90} loading="eager" sizes="(max-width: 900px) 26vw, 12vw" />
     </div>
   );
 }
@@ -39,9 +39,9 @@ export function WorkSection() {
               <div className="wk-card wk-mk">
                 <div className="wk-desk">
                   {/* cropped close around the headline so the outlined «som prioriterer» stays legible at card size */}
-                  <Image src="/images/arbeid/mk-auto-desktop-zoom2.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} sizes="(max-width: 900px) 70vw, 38vw" />
+                  <Image src="/images/arbeid/mk-auto-desktop-hd.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
-                <Phone src="/images/arbeid/mk-auto-mobil-hd.webp" alt="Samme forside på mobil" className="wk-mk-p" />
+                <Phone src="/images/arbeid/mk-auto-mobil-hd-v2.webp" alt="Samme forside på mobil" className="wk-mk-p" />
               </div>
               <figcaption>MK Auto · Bruktbilforhandler i Oslo</figcaption>
             </figure>
@@ -49,9 +49,9 @@ export function WorkSection() {
           <li>
             <figure>
               <div className="wk-card wk-trio">
-                <Phone src="/images/arbeid/iqra-mobil-1.webp" alt="Iqra Senter på mobil: «Her vokser vi sammen»" className="wk-trio-1" />
-                <Phone src="/images/arbeid/iqra-mobil-2.webp" alt="Iqra Senter på mobil: tilbudet, helgeskolen" className="wk-trio-2" />
-                <Phone src="/images/arbeid/iqra-mobil-3.webp" alt="Iqra Senter på mobil: gi med Vipps" className="wk-trio-3" />
+                <Phone src="/images/arbeid/iqra-mobil-1-v2.webp" alt="Iqra Senter på mobil: «Dette tilbyr vi», med helgeskolen åpnet" className="wk-trio-1" />
+                <Phone src="/images/arbeid/iqra-mobil-2-v2.webp" alt="Iqra Senter på mobil: «Hvilken dør er din?», med valgene for skoleplass, medlemskap og spørsmål" className="wk-trio-2" />
+                <Phone src="/images/arbeid/iqra-mobil-3-v2.webp" alt="Iqra Senter på mobil: «Vi feirer sammen», med sommerskolen 2026" className="wk-trio-3" />
               </div>
               <figcaption>Iqra Senter · Lærings- og aktivitetssenter i Oslo</figcaption>
             </figure>
@@ -59,8 +59,11 @@ export function WorkSection() {
           <li>
             <figure>
               <div className="wk-card wk-kong">
-                <Image className="wk-bg" src="/images/arbeid/kongsvinger-festning.webp" alt="Kongsvinger festning og byen under, tegnet for nettsiden til Kongsvinger Tannhelse" fill sizes="(max-width: 900px) 92vw, 50vw" />
-                <Phone src="/images/arbeid/kongsvinger-mobil.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
+                <Image className="wk-bg" loading="eager" src="/images/arbeid/kongsvinger-festning.webp" alt="Kongsvinger festning og byen under, tegnet for nettsiden til Kongsvinger Tannhelse" fill sizes="(max-width: 900px) 92vw, 50vw" />
+                <div className="wk-desk">
+                  <Image src="/images/arbeid/kongsvinger-bok-hd.webp" alt="Behandlingsboken til Kongsvinger Tannhelse på PC, med Tannsjekk åpnet" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
+                </div>
+                <Phone src="/images/arbeid/kongsvinger-mobil-v2.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
               </div>
               <figcaption>Kongsvinger Tannhelse · Tannlege i Kongsvinger</figcaption>
             </figure>
@@ -69,9 +72,9 @@ export function WorkSection() {
             <figure>
               <div className="wk-card wk-ringebu">
                 <div className="wk-desk">
-                  <Image src="/images/arbeid/ringebu-desktop.webp" alt="Forsiden til Ringebu Tannlegesenter på PC: «Hos oss er du i trygge hender», med bilder fra klinikken" fill quality={90} sizes="(max-width: 900px) 70vw, 38vw" />
+                  <Image src="/images/arbeid/ringebu-desktop-hd.webp" alt="Forsiden til Ringebu Tannlegesenter på PC: «Hos oss er du i trygge hender», med bilder fra klinikken" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
-                <Phone src="/images/arbeid/ringebu-mobil.webp" alt="Samme forside på mobil" className="wk-ringebu-p" />
+                <Phone src="/images/arbeid/ringebu-mobil-v2.webp" alt="Forsiden til Ringebu Tannlegesenter på mobil: «Har du noen av disse plagene?» med symptomene som mapper" className="wk-ringebu-p" />
               </div>
               <figcaption>Ringebu Tannlegesenter · Tannlegesenter i Ringebu</figcaption>
             </figure>

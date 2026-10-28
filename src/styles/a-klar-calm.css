@@ -144,7 +144,8 @@
 .ka.calm .wk-trio-3{left:65%;top:14%;width:21%}
 /* Kongsvinger: the site's own drawing of the fortress and the town, with the phone in front */
 .ka.calm .wk-kong .wk-bg{object-position:center top}
-.ka.calm .wk-kong-p{right:8%;top:9%;width:21%}
+.ka.calm .wk-kong .wk-desk{left:6%;top:17%;width:72%;aspect-ratio:16/10}
+.ka.calm .wk-kong-p{right:5%;top:22%;width:17%}
 /* Ringebu: desktop and phone side by side, as MK Auto */
 .ka.calm .wk-ringebu .wk-desk{left:6%;top:17%;width:72%;aspect-ratio:1440/900}
 .ka.calm .wk-ringebu-p{right:5%;top:22%;width:17%}
