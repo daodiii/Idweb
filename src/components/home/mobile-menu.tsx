@@ -13,7 +13,11 @@ export interface NavLink {
   children?: readonly NavLink[];
 }
 
-/** Below 820 px the header links fold into this panel. Closes on a link click, Escape, a hash jump or navigation. */
+/**
+ * Below 820 px the header links fold into this panel; the booking button sits at its foot, since it does not fit in the
+ * header row. The sub-pages of a link are a short scrollable list with a line each. Closes on a link click, Escape, a hash
+ * jump or navigation.
+ */
 export function MobileMenu({ links }: { links: readonly NavLink[] }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -56,18 +60,29 @@ export function MobileMenu({ links }: { links: readonly NavLink[] }) {
       </button>
       <nav id={panelId} className="menupanel" aria-label="Meny" hidden={!open}>
         <div className="wrap">
-          {links.map((l) => (
-            <div key={l.href} className="menuitem">
-              <Link href={l.href} onClick={() => setOpen(false)}>
-                {l.label}
-              </Link>
-              {l.children?.map((c) => (
-                <Link key={c.href} href={c.href} className="sub" onClick={() => setOpen(false)}>
-                  {c.label}
+          <div className="menuscroll">
+            {links.map((l) => (
+              <div key={l.href} className="menuitem">
+                <Link href={l.href} onClick={() => setOpen(false)}>
+                  {l.label}
                 </Link>
-              ))}
-            </div>
-          ))}
+                {l.children && (
+                  // a scrollable region must be reachable by keyboard, so it takes focus
+                  <div className="subscroll" role="group" aria-label={`${l.label}, sider`} tabIndex={0}>
+                    {l.children.map((c) => (
+                      <Link key={c.href} href={c.href} className="sub" onClick={() => setOpen(false)}>
+                        <span className="sub-t">{c.label}</span>
+                        {c.text && <small className="sub-d">{c.text}</small>}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <Link href="/#kontakt" className="btn dark book menu-book" onClick={() => setOpen(false)}>
+            Book en gratis prat
+          </Link>
         </div>
       </nav>
     </>
