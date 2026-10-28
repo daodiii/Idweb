@@ -18,7 +18,7 @@ export function HeaderAutohide() {
     const update = () => {
       frame = 0;
       const y = window.scrollY;
-      const menuOpen = !!hdr.querySelector(".menupanel:not([hidden])");
+      const menuOpen = document.documentElement.classList.contains("menu-lock");
       if (y < 120 || menuOpen || hdr.contains(document.activeElement)) hdr.removeAttribute("data-hide");
       else if (y > last + 6) hdr.setAttribute("data-hide", "");
       else if (y < last - 6) hdr.removeAttribute("data-hide");
