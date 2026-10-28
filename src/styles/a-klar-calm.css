@@ -466,3 +466,6 @@
 .ka.calm .tk-name{display:inline}
 /* form fields: the focus ring takes the action colour */
 .ka.calm .qt-fld input:focus,.ka.calm .qt-fld textarea:focus{box-shadow:0 0 0 3px rgba(11,107,87,.18)}
+
+/* phone and tablet: the booking button leaves the header row and sits at the foot of the menu (mobile-menu.tsx) */
+@media (max-width:820px){:root:has(.ka.calm) .ka .top-end > .btn.book{display:none}}

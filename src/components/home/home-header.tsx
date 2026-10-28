@@ -1,32 +1,13 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
 import { IdwebMark } from "@/components/home/idweb-mark";
-import { MobileMenu, type NavLink } from "@/components/home/mobile-menu";
+import { MenuButton } from "@/components/home/menu-button";
+import { LINKS } from "@/lib/home/nav-links";
 import { HeaderAutohide } from "@/components/home/header-autohide";
 import "@/styles/header-menu.css";
 
-const LINKS: readonly NavLink[] = [
-  {
-    href: "/#tjenester",
-    label: "Tjenester",
-    children: [
-      { href: "/tjenester/nettside", label: "Skreddersydd nettside", text: "Skreddersydd fra bunnen og rask på mobil." },
-      { href: "/tjenester/timebestilling", label: "Timebestilling", text: "Kundene bestiller time selv, når det passer dem." },
-      { href: "/tjenester/nettbutikk", label: "Nettbutikk", text: "Selg varene på nett, med betaling og frakt." },
-      { href: "/tjenester/ai-chatbot", label: "AI-chatbot", text: "Svarer på spørsmål på nettsiden, døgnet rundt." },
-      { href: "/tjenester/seo", label: "SEO og AI-synlighet", text: "Bli funnet på Google og i svar fra ChatGPT." },
-      { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold", text: "Vi holder siden oppe, oppdatert og trygg." },
-      { href: "/tjenester/kundeportal", label: "Kundeportal", text: "Henvendelser og kunder samlet bak én innlogging." },
-      { href: "/tjenester", label: "Alle tjenester" },
-    ],
-  },
-  { href: "/#prosess", label: "Slik jobber vi" },
-  { href: "/referanser", label: "Kundecaser" },
-  { href: "/om-oss", label: "Om oss" },
-];
-
 /**
- * Sticky header: links fold into a menu below 820 px. On the calm homepage it slides away while scrolling down and
+ * Sticky header: the links fold away below 820 px; the hamburger opens the site menu (site-menu.tsx) on every screen size. On the calm homepage it slides away while scrolling down and
  * returns on the way up (HeaderAutohide); on other pages it stays in place.
  */
 export function HomeHeader() {
@@ -73,7 +54,7 @@ export function HomeHeader() {
             <Link href="/#kontakt" className="btn dark book">
               Book en gratis prat
             </Link>
-            <MobileMenu links={LINKS} />
+            <MenuButton />
           </div>
         </div>
       </header>
