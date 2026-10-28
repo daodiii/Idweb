@@ -1,5 +1,5 @@
 /**
- * Tab sets for the homepage demo sections («Slik jobber vi», «Når kunden trykker»). Each panel plays a CSS
+ * Tab set for the «Slik jobber vi» demo, and the panel player the services section reuses for its live demos. Each panel plays a CSS
  * choreography (the `.play` class) once and holds its last frame. The first panel plays when the section first comes
  * into view; the others play when their tab is chosen (the one showing replays). Nothing advances on its own.
  * Everything runs PACE× slower than authored, the calm pace the services examples use.
@@ -106,6 +106,21 @@ function runScripts(panel: HTMLElement, later: Later, alive: () => boolean, redu
   });
 }
 
+/** Play one panel's choreography from the start (the `.play` class, then its counters and typing). Returns a function that stops the scripts. */
+export function playPanel(panel: HTMLElement, reduce: boolean) {
+  const timers: ReturnType<typeof setTimeout>[] = [];
+  let alive = true;
+  panel.classList.remove("play");
+  void panel.offsetWidth;
+  panel.classList.add("play");
+  if (!reduce) panel.getAnimations({ subtree: true }).forEach((a) => (a.playbackRate = 1 / PACE));
+  runScripts(panel, (ms, fn) => timers.push(setTimeout(fn, ms * PACE)), () => alive, reduce);
+  return () => {
+    alive = false;
+    timers.forEach(clearTimeout);
+  };
+}
+
 export type DemoTabsOptions = {
   root: HTMLElement;
   tabs: HTMLElement[];
@@ -117,8 +132,7 @@ export function demoTabs({ root, tabs, panels }: DemoTabsOptions) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const n = tabs.length;
   let cur = 0;
-  let token = 0;
-  let timers: ReturnType<typeof setTimeout>[] = [];
+  let stopPlaying = () => {};
   const off: (() => void)[] = [];
   const on = <K extends keyof HTMLElementEventMap>(el: HTMLElement, ev: K, fn: (e: HTMLElementEventMap[K]) => void) => {
     el.addEventListener(ev, fn as EventListener);
@@ -139,14 +153,8 @@ export function demoTabs({ root, tabs, panels }: DemoTabsOptions) {
     });
   };
   const play = (panel: HTMLElement) => {
-    timers.forEach(clearTimeout);
-    timers = [];
-    const mine = ++token;
-    panel.classList.remove("play");
-    void panel.offsetWidth;
-    panel.classList.add("play");
-    if (!reduce) panel.getAnimations({ subtree: true }).forEach((a) => (a.playbackRate = 1 / PACE));
-    runScripts(panel, (ms, fn) => timers.push(setTimeout(fn, ms * PACE)), () => token === mine, reduce);
+    stopPlaying();
+    stopPlaying = playPanel(panel, reduce);
   };
   const show = (i: number, focus = false) => {
     cur = (i + n) % n;
@@ -186,8 +194,7 @@ export function demoTabs({ root, tabs, panels }: DemoTabsOptions) {
 
   return () => {
     io.disconnect();
-    timers.forEach(clearTimeout);
-    token++;
+    stopPlaying();
     off.forEach((f) => f());
   };
 }

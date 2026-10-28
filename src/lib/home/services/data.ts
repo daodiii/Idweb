@@ -1,12 +1,15 @@
 /**
- * The five services in the homepage services section. Each one is illustrated by an animated scene
- * built for a fictional example client; the client names are labelled as examples wherever they appear.
+ * The six services in the homepage services section. Each one is illustrated by an animated example for a fictional
+ * client; the client names are labelled as examples wherever they appear. Four are canvas scenes (scenes.ts), and
+ * two are live demos of the customer's phone beside what happens by itself (demos.ts).
  */
 
-export type SceneKey = "web" | "portal" | "shop" | "seo" | "ops";
+export type SceneKey = "web" | "portal" | "seo" | "ops";
+export type DemoKey = "booking" | "shop";
+export type ServiceKey = SceneKey | DemoKey;
 
 export type CanvasService = {
-  k: SceneKey;
+  k: ServiceKey;
   title: string;
   tab: string;
   client: string;
@@ -41,11 +44,22 @@ export const SERVICES: CanvasService[] = [
     href: "/#kontakt",
   },
   {
+    k: "booking",
+    title: "Timebestilling",
+    tab: "Timebestilling",
+    client: "Kvist Sykkelverksted",
+    color: "#1E2A6E",
+    text: "Kundene velger tid selv, og kalenderen holder styr på resten. Bekreftelse og påminnelse går ut av seg selv.",
+    items: ["Kalenderen oppdateres uten dobbeltbooking", "Bekreftelse på e-post med kalenderinvitasjon", "Påminnelse dagen før timen"],
+    more: "Les om timebestilling",
+    href: "/tjenester/timebestilling",
+  },
+  {
     k: "shop",
     title: "Nettbutikk",
     tab: "Nettbutikk",
-    client: "Krus & Kar",
-    color: "#C98A2B",
+    client: "Kvist Sykkelverksted",
+    color: "#1E2A6E",
     text: "En butikk laget for varene deres, der betaling og frakt henger sammen.",
     items: ["Betaling og frakt i én flyt", "Ordrebekreftelse til kunden på e-post", "Beskjed til dere om hver ordre"],
     more: "Les om nettbutikk",

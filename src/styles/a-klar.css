@@ -410,10 +410,10 @@
 @keyframes dx-hlIn{from{transform:scaleX(0);opacity:0}}
 
 /* scene / panel crossfade: exit fast, enter slower with blur bridging the swap */
-.ka .dx .scenes,.ka .dx .panels,.ka .dx .sys-panels{display:grid;position:relative}
-.ka .dx .scene,.ka .dx .panel,.ka .dx .sys-panel{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(8px) scale(.985);filter:blur(6px);
+.ka .dx .scenes,.ka .dx .panels{display:grid;position:relative}
+.ka .dx .scene,.ka .dx .panel{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(8px) scale(.985);filter:blur(6px);
   transition:opacity 200ms ease,transform 200ms ease,filter 200ms ease,visibility 0s linear 200ms}
-.ka .dx .scene.is-active,.ka .dx .panel.is-active,.ka .dx .sys-panel.is-active{opacity:1;visibility:visible;transform:none;filter:none;
+.ka .dx .scene.is-active,.ka .dx .panel.is-active{opacity:1;visibility:visible;transform:none;filter:none;
   transition:opacity 460ms var(--ease-out) 90ms,transform 620ms var(--ease-out) 90ms,filter 460ms var(--ease-out) 90ms,visibility 0s}
 
 .ka .dx .fact{color:inherit;border-radius:3px;padding:0 2px;margin:0 -2px;background:linear-gradient(var(--accent-soft),var(--accent-soft)) no-repeat left bottom/100% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -621,22 +621,6 @@
 @keyframes dx-xferY{0%{opacity:0;transform:translate(-50%,-170%)}18%,78%{opacity:1}100%{opacity:0;transform:translate(-50%,70%)}}
 @keyframes dx-xferYr{0%{opacity:0;transform:translate(-50%,70%)}18%,78%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%)}}
 
-.ka .dx .sys-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.ka .dx .sys-head .head{margin-bottom:0}
-.ka .dx .sys{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
-.ka .dx .sys-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
-.ka .dx .sys-tab{all:unset;box-sizing:border-box;position:relative;display:grid;gap:3px;min-width:0;padding:16px 22px 18px;border-right:1px solid var(--line);cursor:pointer}
-.ka .dx .sys-tab:last-child{border-right:0}
-.ka .dx .sys-tab:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;border-radius:14px}
-.ka .dx .sys-tab b{font-size:16px;font-weight:600;color:var(--faint);transition:color 240ms ease}
-.ka .dx .sys-tab small{font-size:13px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color 240ms ease}
-.ka .dx .sys-tab[aria-selected="true"] b{color:var(--ink)}
-.ka .dx .sys-tab[aria-selected="true"] small{color:var(--muted)}
-@media (hover:hover) and (pointer:fine){.ka .dx .sys-tab:hover b{color:var(--ink)}}
-.ka .dx .sb{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
-.ka .dx .sb i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 600ms var(--out)}
-.ka .dx .sys-tab[aria-selected=true] .sb i{transform:none}
-@media (max-width:620px){.ka .dx .sys-tab small{display:none}.ka .dx .sys-tab{padding:14px 12px 16px}.ka .dx .sys-tab b{font-size:14px}}
 
 .ka .dx .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media (max-width:860px){.ka .dx .split{grid-template-columns:minmax(0,1fr)}}
@@ -687,7 +671,6 @@
 .ka .dx .cart{position:relative;width:26px;height:26px;display:grid;place-items:center}
 .ka .dx .cart svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ka .dx .badge{position:absolute;top:-5px;right:-7px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700}
-.ka .dx .sys-panel{display:grid}
 .ka .dx .prod > span:first-child{display:grid;gap:3px;justify-items:start}
 .ka .dx .prod-img{height:100px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#eef0f4,#dde1e8)}
 .ka .dx .prod-img svg{width:92px;height:92px}
@@ -740,10 +723,10 @@
 
 @media (prefers-reduced-motion:reduce){
   .ka .dx .play .a,.ka .dx .play [data-stream] .w,.ka .dx .play .fact,.ka .dx .play .cl.hl::before,.ka .dx .play .cta,.ka .dx .play .cta .l1,.ka .dx .play .cta .l2,.ka .dx .play .stock,.ka .dx .play .track li.next,.ka .dx .play .add,.ka .dx .play .node .ic::after,.ka .dx .play .day.pick > span,.ka .dx .play .day.pick > b,.ka .dx .play .tm.pick > span{animation-duration:1ms!important;animation-delay:0ms!important}
-  .ka .dx .scene,.ka .dx .panel,.ka .dx .sys-panel,.ka .dx .url > span{transform:none!important;filter:none!important}
+  .ka .dx .scene,.ka .dx .panel,.ka .dx .url > span{transform:none!important;filter:none!important}
   .ka .dx .typing,.ka .dx .cursor,.ka .dx .seek,.ka .dx .tap{display:none}
   .ka .dx .tp i.run{animation:none;transform:none}
-  .ka .dx .step-bar i,.ka .dx .sb i{transition:none}
+  .ka .dx .step-bar i{transition:none}
   .ka .dx .up i{animation:none}
   .ka .dx .tabs-on{transition:none}
   .ka .dx .live i,.ka .dx .shim,.ka .dx .caret{animation:none}

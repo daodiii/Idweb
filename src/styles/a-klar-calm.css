@@ -42,7 +42,7 @@
 .ka.calm .hero-head h1{font-weight:500;letter-spacing:-.03em;line-height:1.1}
 .ka.calm .sec-h h2,.ka.calm .tm-head h2,.ka.calm .qt-side h2,.ka.calm .dx h2{font-weight:500;letter-spacing:-.03em;line-height:1.15}
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
-.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede,.ka.calm .dx .sys-head .lede{font-size:17px;line-height:1.7}
+.ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede{font-size:17px;line-height:1.7}
 
 /* ---------- actions: every button is cobalt ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
@@ -183,15 +183,15 @@
 /* grey cards as in the work and services sections: no dot grid, no border, one radius */
 .ka.calm .dx .stage::before,.ka.calm .dx .front::before{content:none}
 .ka.calm .dx .stage{border:0;border-radius:var(--r-card)}
-.ka.calm .dx .sys{border-radius:var(--r-card);box-shadow:none}
+.ka.calm .dx .dmo{border-radius:var(--r-card);box-shadow:none}
 /* «Slik jobber vi»: picture left, steps right, the mirror of the services section above */
 @media (min-width:901px){.ka.calm .dx .demo-grid > :first-child{order:1}}
 /* inactive steps and tabs stay readable (AA); the bar and the ink title mark the chosen one */
-.ka.calm .dx .step-t,.ka.calm .dx .step-d,.ka.calm .dx .sys-tab b,.ka.calm .dx .sys-tab small{color:var(--soft)}
-.ka.calm .dx .step[aria-selected=true] .step-t,.ka.calm .dx .sys-tab[aria-selected=true] b{color:var(--ink)}
-.ka.calm .dx .step[aria-selected=true] .step-d,.ka.calm .dx .sys-tab[aria-selected=true] small{color:var(--muted)}
-.ka.calm .dx .step:focus-visible,.ka.calm .dx .sys-tab:focus-visible{outline-color:var(--cobalt)}
-@media (hover:hover) and (pointer:fine){.ka.calm .dx .step:hover .step-t,.ka.calm .dx .sys-tab:hover b{color:var(--ink)}}
+.ka.calm .dx .step-t,.ka.calm .dx .step-d{color:var(--soft)}
+.ka.calm .dx .step[aria-selected=true] .step-t{color:var(--ink)}
+.ka.calm .dx .step[aria-selected=true] .step-d{color:var(--muted)}
+.ka.calm .dx .step:focus-visible{outline-color:var(--cobalt)}
+@media (hover:hover) and (pointer:fine){.ka.calm .dx .step:hover .step-t{color:var(--ink)}}
 /* «Valgt bort» in grey, not peach: orange is kept for the marker */
 .ka.calm .dx .deal-list .x{background:var(--surface);color:var(--soft)}
 .ka.calm .dx .deal-list s{text-decoration-color:var(--soft)}
