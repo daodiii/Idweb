@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { RingebuMark } from "@/components/home/ringebu-mark";
+import "@/styles/client-tiles.css";
 
 /**
  * Under the hero: the logos of the clients IDweb has built sites for, on tiles in each client's own colours, sliding
@@ -10,11 +11,20 @@ export function ClientTiles({ copy = false }: { copy?: boolean }) {
   const alt = (name: string) => (copy ? "" : name);
   return (
     <ul className="tk-set" aria-hidden={copy || undefined}>
+      {/* tk-name shows only on the homepage (client-tiles.css), so every client there reads as mark and name */}
       <li className="tk-t tk-rahma">
         <Image src="/images/clients/rahma-logo-white.png" alt={alt("Center Rahma")} width={412} height={433} sizes="80px" />
+        <span className="tk-name" aria-hidden="true">
+          Center
+          <br />
+          Rahma
+        </span>
       </li>
       <li className="tk-t tk-mk">
         <Image src="/images/clients/mk-auto-logo.png" alt={alt("MK Auto")} width={299} height={300} sizes="80px" />
+        <span className="tk-name" aria-hidden="true">
+          MK Auto
+        </span>
       </li>
       <li className="tk-t tk-iqra">
         <Image src="/images/clients/iqra-logo.png" alt={alt("Iqra Senter")} width={1007} height={271} sizes="160px" />

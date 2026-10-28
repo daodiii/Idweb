@@ -1,0 +1,3 @@
+/* The client tiles carry a written name for the marks that have none (Center Rahma, MK Auto). Only the homepage's logo
+   strip shows it (a-klar-calm.css); the tiles on /om-oss keep their plain marks. */
+.ka .tk-name{display:none}
