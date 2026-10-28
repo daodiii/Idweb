@@ -59,9 +59,26 @@ export async function ogImage({ kicker, title }: OgCard) {
             display: "flex",
           }}
         />
-        <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>
-          <span style={{ fontSize: 40, fontWeight: 800, letterSpacing: 4 }}>IDWEB</span>
-          <span style={{ fontSize: 20, fontWeight: 600, letterSpacing: 2, color: "#5A606C" }}>WEBBYRÅ OG SYSTEMUTVIKLER</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <svg width="40" height="46" viewBox="12 6 76 88" fill="none">
+            <defs>
+              <linearGradient id="og-i" gradientUnits="userSpaceOnUse" x1="22" y1="14" x2="34" y2="86">
+                <stop offset="0" stopColor="#FFB36B" />
+                <stop offset="1" stopColor="#F2892B" />
+              </linearGradient>
+              <linearGradient id="og-d" gradientUnits="userSpaceOnUse" x1="40" y1="14" x2="76" y2="86">
+                <stop offset="0" stopColor="#4B6BEA" />
+                <stop offset="1" stopColor="#1E2A6E" />
+              </linearGradient>
+            </defs>
+            <rect x="22" y="14" width="12" height="72" rx="6" fill="url(#og-i)" />
+            <path d="M40 13A37 37 0 0 1 40 87A41 41 0 0 0 40 13Z" fill="url(#og-d)" />
+          </svg>
+          <span style={{ display: "flex", fontSize: 46, letterSpacing: -1.5 }}>
+            <span style={{ fontWeight: 800 }}>ID</span>
+            <span style={{ fontWeight: 600 }}>web</span>
+          </span>
+          <span style={{ marginLeft: 14, fontSize: 20, fontWeight: 600, letterSpacing: 2, color: "#5A606C" }}>WEBBYRÅ OG SYSTEMUTVIKLER</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 980 }}>
           <span style={{ fontSize: 28, fontWeight: 600, color: "#2447D6" }}>{kicker}</span>
