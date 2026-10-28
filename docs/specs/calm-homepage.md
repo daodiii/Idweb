@@ -112,11 +112,11 @@ Two illustration rounds came before it: a Kongsvinger dusk crop, then whole-city
 - **Shorter testimonials and a full-width phone button.** Each client is shown by one sentence from their own quote, set large and taken word for word (`HIGHLIGHT` in `src/lib/home/testimonials.ts`, checked by `quoteSentence` at build time); «Les hele» opens the whole quote in place, and choosing another client closes it. The section is 798 px tall at 1440 (was 886) and 828 px on a phone (was 1,000). On phones the hero button runs the full width, and the header button drops its chevron so it never presses against the logo.
 
 **Finishing round (28 October 2026),** the items held back when PR #27 merged:
-- **Work section:** the heading and lede sit above, and the four clients stand in a 2 × 2 grid from 601 px up, so nothing stays pinned and the section is about half as long (1,250 px at 1440, was 2,364; 925 px at 768, was 2,499). Phones keep the single column.
+- **Work section:** a 2 × 2 grid was tried and turned down; the user prefers the stack of cards beside the sticky text, so it stays.
 - **The two demos no longer follow each other:** the testimonials now sit between «Slik jobber vi» and «Når kunden trykker».
 - **Logo strip:** Center Rahma and MK Auto get their names beside the mark, so every client reads as mark and name (Iqra's wordmark already holds its name). The names show only on the homepage; /om-oss keeps its tiles.
 - **Leftover cobalt:** the form fields' focus ring takes the green. The example scenes keep their fictional clients' own colours.
-- The homepage is 7,818 px at 1440, 1,201 px shorter than when PR #27 merged.
+
 
 ## Rules for every part
 

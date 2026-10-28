@@ -463,14 +463,5 @@
 /* ---------- finishing round ---------- */
 /* the logo strip: every client as mark and name (Iqra's wordmark already holds its name) */
 .ka.calm .tk-name{display:inline}
-/* work: the heading above, the four clients in a 2 × 2 grid, so the section is half as long and nothing stays pinned */
-@media (min-width:901px){
-  .ka.calm .wk-grid{grid-template-columns:minmax(0,1fr);gap:clamp(40px,4vw,56px)}
-  .ka.calm .wk-text{grid-column:1;grid-row:1;position:static;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);column-gap:clamp(40px,6vw,96px);row-gap:14px;align-items:end}
-  .ka.calm .wk-text h2{grid-row:1 / span 2}
-  .ka.calm .wk-text p{margin:0}
-  .ka.calm .wk-stack{grid-column:1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.4vw,32px)}
-}
 /* form fields: the focus ring takes the action colour */
 .ka.calm .qt-fld input:focus,.ka.calm .qt-fld textarea:focus{box-shadow:0 0 0 3px rgba(11,107,87,.18)}
-@media (min-width:601px) and (max-width:900px){.ka.calm .wk-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
