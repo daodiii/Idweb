@@ -2,19 +2,20 @@ import Link from "next/link";
 import { michroma, montserrat, schibsted } from "@/lib/home/fonts";
 import { MobileMenu, type NavLink } from "@/components/home/mobile-menu";
 import { HeaderAutohide } from "@/components/home/header-autohide";
+import "@/styles/header-menu.css";
 
 const LINKS: readonly NavLink[] = [
   {
     href: "/#tjenester",
     label: "Tjenester",
     children: [
-      { href: "/tjenester/nettside", label: "Skreddersydd nettside" },
-      { href: "/tjenester/timebestilling", label: "Timebestilling" },
-      { href: "/tjenester/nettbutikk", label: "Nettbutikk" },
-      { href: "/tjenester/ai-chatbot", label: "AI-chatbot" },
-      { href: "/tjenester/seo", label: "SEO og AI-synlighet" },
-      { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold" },
-      { href: "/tjenester/kundeportal", label: "Kundeportal" },
+      { href: "/tjenester/nettside", label: "Skreddersydd nettside", text: "Skreddersydd fra bunnen og rask på mobil." },
+      { href: "/tjenester/timebestilling", label: "Timebestilling", text: "Kundene bestiller time selv, når det passer dem." },
+      { href: "/tjenester/nettbutikk", label: "Nettbutikk", text: "Selg varene på nett, med betaling og frakt." },
+      { href: "/tjenester/ai-chatbot", label: "AI-chatbot", text: "Svarer på spørsmål på nettsiden, døgnet rundt." },
+      { href: "/tjenester/seo", label: "SEO og AI-synlighet", text: "Bli funnet på Google og i svar fra ChatGPT." },
+      { href: "/tjenester/vedlikehold", label: "Drift og vedlikehold", text: "Vi holder siden oppe, oppdatert og trygg." },
+      { href: "/tjenester/kundeportal", label: "Kundeportal", text: "Henvendelser og kunder samlet bak én innlogging." },
       { href: "/tjenester", label: "Alle tjenester" },
     ],
   },
@@ -66,11 +67,17 @@ export function HomeHeader() {
                 <div key={l.href} className="hasmenu">
                   <Link href={l.href}>{l.label}</Link>
                   <div className="dropdown">
+                    {/* the descriptions and the contact card show only in the homepage's wide menu (header-menu.css) */}
                     {l.children.map((c) => (
                       <Link key={c.href} href={c.href}>
-                        {c.label}
+                        <span className="dd-t">{c.label}</span>
+                        {c.text && <small className="dd-d">{c.text}</small>}
                       </Link>
                     ))}
+                    <Link href="/#kontakt" className="dd-cta">
+                      <b>Usikker på hva dere trenger?</b>
+                      <span>Book en gratis prat</span>
+                    </Link>
                   </div>
                 </div>
               ) : (

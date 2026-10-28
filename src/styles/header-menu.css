@@ -1,0 +1,3 @@
+/* The shared header's dropdown carries a line per service and a contact card for the homepage's wide menu
+   (a-klar-calm.css). Everywhere else they stay hidden, so other pages keep the plain dropdown. */
+.ka .dropdown .dd-d,.ka .dropdown .dd-cta{display:none}

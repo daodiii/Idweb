@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 export interface NavLink {
   href: string;
   label: string;
+  /** One line about the page, shown in the wide desktop menu where a design uses it. */
+  text?: string;
   /** Sub-pages, shown in a dropdown on desktop and indented under the link in the phone menu. */
   children?: readonly NavLink[];
 }

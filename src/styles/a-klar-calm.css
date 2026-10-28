@@ -370,3 +370,72 @@
   .ka.calm .qt-prog li:not(.cur) span{font-size:0;gap:0}
   .ka.calm .qt-prog li span::before{font-size:12px}
 }
+
+
+/* ---------- the wide menu (as responsivmedia.no: «Tjenester» opens a panel as wide as the header) ----------
+   The header runs wider than the content (logo nearer the edge), and the dropdown leaves its link to hang under the whole
+   header. The picture, descriptions and contact card in the markup are hidden elsewhere (header-menu.css). */
+@media (min-width:821px){
+  :root:has(.ka.calm) .ka .hasmenu{position:static}
+  :root:has(.ka.calm) .ka .hasmenu > a::after{transition:transform var(--dur-ui) var(--out)}
+  :root:has(.ka.calm) .ka .hasmenu:is(:hover,:focus-within) > a::after{transform:translateY(3px) rotate(225deg)}
+  /* the dropdown starts inside the header so the pointer never leaves it on the way down; its box (::before) starts below */
+  :root:has(.ka.calm) .ka .dropdown{--edge:max(4vw,calc((100% - 1440px) / 2));left:var(--edge);right:var(--edge);top:calc(100% - 22px);min-width:0;transform:translateY(-6px);transition:opacity var(--dur-ui) var(--out),transform var(--dur-ui) var(--out),visibility 0s var(--dur-ui)}
+  :root:has(.ka.calm) .ka .dropdown::before{inset:30px 0 0;border:1px solid var(--line);border-radius:var(--r-card);background:#fff;box-shadow:0 40px 80px -40px rgba(19,26,58,.35)}
+  :root:has(.ka.calm) .ka .dropdown a{white-space:normal}
+  :root:has(.ka.calm) .ka .dropdown .dd-d{display:block}
+}
+@media (min-width:1024px){
+  :root:has(.ka.calm) .ka .top > .wrap{padding-inline:max(4vw,calc((100% - 1440px) / 2))}
+}
+
+/* «Kortene»: each service a soft card in a client pastel, and a navy card that offers a free chat */
+@media (min-width:821px){
+  :root:has(.ka.calm) .ka .dropdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:52px 20px 20px}
+  :root:has(.ka.calm) .ka .dropdown > a{display:flex;flex-direction:column;gap:6px;min-height:118px;padding:18px 20px;border-radius:var(--r-sm);background:var(--surface);transition:transform var(--dur-ui) var(--out),filter var(--dur-ui) var(--out)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(1){background:#DCE9F1}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(2){background:#DFECE3}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(3){background:#F4E1DF}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(4){background:#ECEEF9}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(5){background:#DCECE9}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(6){background:#F6F0CF}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(7){background:#F1E4D6}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8){justify-content:flex-end;background:none;box-shadow:inset 0 0 0 1px var(--line-strong)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8) .dd-t{color:var(--cobalt)}
+  :root:has(.ka.calm) .ka .dropdown > a:nth-child(8) .dd-t::after{content:" \2192"}
+  :root:has(.ka.calm) .ka .dd-t{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  :root:has(.ka.calm) .ka .dd-d{font-size:14px;line-height:1.5;color:var(--muted)}
+  :root:has(.ka.calm) .ka .dropdown > .dd-cta{display:flex;flex-direction:column;justify-content:space-between;grid-column:4;grid-row:1 / span 3;padding:26px 24px;background:var(--ink);color:#fff}
+  :root:has(.ka.calm) .ka .dd-cta b{font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
+  :root:has(.ka.calm) .ka .dd-cta span{align-self:flex-start;white-space:nowrap;padding:12px 20px;border-radius:var(--r-pill);background:var(--cobalt);font-size:15px;font-weight:600}
+  @media (hover:hover) and (pointer:fine){
+    :root:has(.ka.calm) .ka .dropdown > a:hover{transform:translateY(-2px);filter:saturate(1.15) brightness(.98)}
+    :root:has(.ka.calm) .ka .dropdown > a:hover .dd-t{color:var(--ink)}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka .dropdown,:root:has(.ka.calm) .ka .dropdown *{transition:none!important}}
+@media (min-width:821px) and (max-width:1180px){:root:has(.ka.calm) .ka .dd-cta span{padding:10px 16px;font-size:14px}}
+
+/* ---------- the buttons: a berry light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
+   slides forward on hover (as stripe.com). Berry is the action colour, so links, ticks and steps follow it.
+   The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's navy card. */
+:root:has(.ka.calm) .ka{--cobalt:#C2185B;--orange-btn-hover:#A0124C}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#D6336C 0%,#C2185B 30%,#A0124C 100%);transition:transform 160ms var(--out)}
+@media (hover:hover) and (pointer:fine){
+  :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover,
+  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#D6336C 0%,#C2185B 30%,#A0124C 100%)}
+}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
+.ka.calm .hero .btn svg{display:none}
+:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{content:"";flex:none;width:14px;height:10px;margin-right:-2px;
+  background:linear-gradient(currentColor,currentColor) left 50%/0 1.6px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 0 50%/10px 10px no-repeat;
+  transition:background-size 150ms cubic-bezier(.215,.61,.355,1),background-position 150ms cubic-bezier(.215,.61,.355,1)}
+@media (hover:hover) and (pointer:fine){
+  :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover::after,
+  :root:has(.ka.calm) .ka .dd-cta:hover span::after{background-size:10px 1.6px,10px 10px;background-position:left 50%,4px 50%}
+}
+:root:has(.ka.calm) .ka .qt-next:disabled::after{background-size:0 1.6px,10px 10px;background-position:left 50%,0 50%}
+@media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span),:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{transition:none}}

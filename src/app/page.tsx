@@ -11,6 +11,7 @@ import { Testimonials } from "@/components/home/testimonials";
 import { QuoteSection } from "@/components/home/quote-section";
 import { MarkerReveal } from "@/components/home/marker-reveal";
 import { Moment } from "@/components/home/moment";
+import { ButtonGlow } from "@/components/home/button-glow";
 import { FLYT_HTML } from "@/components/home/markup/flyt";
 import { SYSTEMER_HTML } from "@/components/home/markup/systemer";
 import "@/styles/a-klar.css";
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <div className={`ka calm ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
       <MarkerReveal />
+      <ButtonGlow />
       <Hero />
       <LogoTicker />
       <WorkSection />
