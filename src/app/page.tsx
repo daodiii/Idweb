@@ -39,8 +39,9 @@ export default function Home() {
       <ServicesSection />
       <Moment />
       <DemoSection id="prosess" kind="flyt" html={FLYT_HTML} warm />
-      <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} />
+      {/* the clients' words sit between the two demos, so two mock interfaces never follow each other */}
       <Testimonials />
+      <DemoSection id="systemer" kind="systemer" html={SYSTEMER_HTML} />
       <QuoteSection />
     </div>
   );

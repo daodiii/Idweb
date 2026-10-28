@@ -111,6 +111,13 @@ Two illustration rounds came before it: a Kongsvinger dusk crop, then whole-city
 - **A wide menu and new buttons.** After comparing six header designs, «Tjenester» opens a panel as wide as the header, as on responsivmedia.no (the user's favourite): each service a card in a client pastel with one line about it, and a navy card «Usikker på hva dere trenger?» with a booking button. The header runs wider than the content (4% side margins). Other pages keep the plain dropdown. The buttons combine two famous ideas the user picked: a light that follows the pointer (airbnb.com) and a chevron that grows into an arrow on hover (stripe.com). **Revises decision 3:** the action colour is now aurora green `#0B6B57` (white text 6.5:1; the glow's lightest point `#1A7F68` is 4.9:1), replacing cobalt on the homepage, so links, ticks and steps follow it. Berry was tried first; the user chose the green, which echoes the northern lights.
 - **Shorter testimonials and a full-width phone button.** Each client is shown by one sentence from their own quote, set large and taken word for word (`HIGHLIGHT` in `src/lib/home/testimonials.ts`, checked by `quoteSentence` at build time); «Les hele» opens the whole quote in place, and choosing another client closes it. The section is 798 px tall at 1440 (was 886) and 828 px on a phone (was 1,000). On phones the hero button runs the full width, and the header button drops its chevron so it never presses against the logo.
 
+**Finishing round (28 October 2026),** the items held back when PR #27 merged:
+- **Work section:** a 2 × 2 grid was tried and turned down; the user prefers the stack of cards beside the sticky text, so it stays.
+- **The two demos no longer follow each other:** the testimonials now sit between «Slik jobber vi» and «Når kunden trykker».
+- **Logo strip:** Center Rahma and MK Auto get their names beside the mark, so every client reads as mark and name (Iqra's wordmark already holds its name). The names show only on the homepage; /om-oss keeps its tiles.
+- **Leftover cobalt:** the form fields' focus ring takes the green. The example scenes keep their fictional clients' own colours.
+
+
 ## Rules for every part
 
 - Animations switch off when the visitor's system asks for reduced motion.

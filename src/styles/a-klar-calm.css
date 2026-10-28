@@ -459,3 +459,9 @@
 @media (prefers-reduced-motion:reduce){.ka.calm .tm-more::after{transition:none}}
 /* on phones the header button keeps its label only, so it never presses against the logo */
 @media (max-width:600px){:root:has(.ka.calm) .ka .top .btn::after{display:none}}
+
+/* ---------- finishing round ---------- */
+/* the logo strip: every client as mark and name (Iqra's wordmark already holds its name) */
+.ka.calm .tk-name{display:inline}
+/* form fields: the focus ring takes the action colour */
+.ka.calm .qt-fld input:focus,.ka.calm .qt-fld textarea:focus{box-shadow:0 0 0 3px rgba(11,107,87,.18)}
