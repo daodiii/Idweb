@@ -417,15 +417,15 @@
 @media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka .dropdown,:root:has(.ka.calm) .ka .dropdown *{transition:none!important}}
 @media (min-width:821px) and (max-width:1180px){:root:has(.ka.calm) .ka .dd-cta span{padding:10px 16px;font-size:14px}}
 
-/* ---------- the buttons: a berry light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
-   slides forward on hover (as stripe.com). Berry is the action colour, so links, ticks and steps follow it.
+/* ---------- the buttons: an aurora-green light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
+   slides forward on hover (as stripe.com). Aurora green is the action colour, so links, ticks and steps follow it.
    The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's navy card. */
-:root:has(.ka.calm) .ka{--cobalt:#C2185B;--orange-btn-hover:#A0124C}
+:root:has(.ka.calm) .ka{--cobalt:#0B6B57;--orange-btn-hover:#08523F}
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#D6336C 0%,#C2185B 30%,#A0124C 100%);transition:transform 160ms var(--out)}
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#1A7F68 0%,#0B6B57 34%,#08523F 100%);transition:transform 160ms var(--out)}
 @media (hover:hover) and (pointer:fine){
   :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover,
-  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#D6336C 0%,#C2185B 30%,#A0124C 100%)}
+  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#1A7F68 0%,#0B6B57 34%,#08523F 100%)}
 }
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
 .ka.calm .hero .btn svg{display:none}
@@ -439,3 +439,23 @@
 }
 :root:has(.ka.calm) .ka .qt-next:disabled::after{background-size:0 1.6px,10px 10px;background-position:left 50%,0 50%}
 @media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span),:root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{transition:none}}
+
+/* ---------- phones: the hero's one button runs the full width, so it reads as the next step under the large headline ---------- */
+@media (max-width:600px){
+  .ka.calm .hero .actions{width:100%}
+  .ka.calm .hero .btn{width:100%;height:58px;justify-content:center;font-size:17px}
+}
+
+/* ---------- testimonials: one sentence from the client's quote, set large; «Les hele» opens the whole quote in place ---------- */
+.ka.calm .tm-stage{min-height:340px}
+.ka.calm .tm-q blockquote .tm-hl{font-size:clamp(24px,2.7vw,38px);line-height:1.3;letter-spacing:-.025em;text-wrap:balance}
+.ka.calm .tm-q blockquote.full{font-size:clamp(17px,1.5vw,20px);line-height:1.6;letter-spacing:-.01em;text-align:left}
+.ka.calm .tm-more{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-top:-6px;padding:8px 4px;font-size:15px;font-weight:600;color:var(--cobalt)}
+.ka.calm .tm-more::after{content:"";width:7px;height:7px;margin-top:-3px;border:solid currentColor;border-width:0 1.6px 1.6px 0;transform:rotate(45deg);transition:transform var(--dur-ui) var(--out)}
+.ka.calm .tm-more[aria-expanded=true]::after{margin-top:3px;transform:rotate(225deg)}
+.ka.calm .tm-more:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+@media (hover:hover) and (pointer:fine){.ka.calm .tm-more:hover{text-decoration:underline;text-underline-offset:4px}}
+@media (max-width:700px){.ka.calm .tm-stage{min-height:0}.ka.calm .tm-q blockquote .tm-hl{font-size:clamp(22px,6.2vw,28px)}}
+@media (prefers-reduced-motion:reduce){.ka.calm .tm-more::after{transition:none}}
+/* on phones the header button keeps its label only, so it never presses against the logo */
+@media (max-width:600px){:root:has(.ka.calm) .ka .top .btn::after{display:none}}
