@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Marker } from "@/components/home/marker";
+import { HeroParallax } from "@/components/home/hero-parallax";
 
 /**
  * Hero: just the promise and one button. On wide screens the headline sits left and the visual right, so both are on
- * the first screen; below 1080 px they stack. The visual is a still: one landscape from a client site, cropped into
- * desktop, tablet and phone frames. The frames are decorative; the message is in the heading.
+ * the first screen; below 1080 px they stack. The visual is one landscape from a client site on three screens: a PC at
+ * the back, a tablet and a phone in front of it on one bottom line. They arrive one after another at their own tempo,
+ * then float and follow the pointer by depth (a-klar-calm.css, «hero picture»; HeroParallax). The screens are
+ * decorative; the message is in the heading.
  */
 export function Hero() {
   return (
@@ -25,21 +28,28 @@ export function Hero() {
           </div>
         </div>
 
-        <figure className="hero-vis hs">
-          <div className="hs-frames" aria-hidden="true">
-            <div className="hs-f hs-d">
-              <Image src="/images/hero/kongsvinger-landskap-desktop.webp" alt="" fill sizes="(max-width: 600px) 88vw, (max-width: 1079px) 90vw, 760px" priority />
-              <i className="hs-m" />
+        <figure className="hero-vis ht">
+          <div className="ht-stage" aria-hidden="true">
+            <div className="ht-in ht-pc">
+              <div className="ht-f">
+                <Image src="/images/hero/kongsvinger-landskap-desktop.webp" alt="" fill sizes="(max-width: 1079px) 74vw, 480px" priority />
+                <i className="ht-m" />
+              </div>
             </div>
-            <div className="hs-f hs-t">
-              <Image src="/images/hero/kongsvinger-landskap-tablet.webp" alt="" fill sizes="(max-width: 600px) 36vw, 310px" />
-              <i className="hs-m" />
+            <div className="ht-in ht-tab">
+              <div className="ht-f">
+                <Image src="/images/hero/kongsvinger-landskap-tablet.webp" alt="" fill sizes="(max-width: 1079px) 30vw, 200px" />
+                <i className="ht-m" />
+              </div>
             </div>
-            <div className="hs-f hs-p">
-              <Image src="/images/hero/kongsvinger-landskap-phone.webp" alt="" fill sizes="(max-width: 600px) 20vw, 150px" />
-              <i className="hs-m" />
+            <div className="ht-in ht-mob">
+              <div className="ht-f">
+                <Image src="/images/hero/kongsvinger-landskap-phone.webp" alt="" fill sizes="(max-width: 1079px) 22vw, 140px" />
+                <i className="ht-m" />
+              </div>
             </div>
           </div>
+          <HeroParallax />
         </figure>
       </div>
     </section>
