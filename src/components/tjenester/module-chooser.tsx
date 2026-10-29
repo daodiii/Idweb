@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { EntryRow, ModuleScreen, PortalFrame } from "@/components/tjenester-lab/portal-parts";
-import { ENTRIES, MODULES, type ModuleId } from "@/components/tjenester-lab/kundeportal-content";
+import { EntryRow, ModuleScreen, PortalFrame } from "@/components/tjenester/portal-parts";
+import { ENTRIES, MODULES, type ModuleId } from "@/components/tjenester/kundeportal-content";
 
 /**
  * «Bare modulene dere trenger»: tick the modules the business has, and the portal's menu shows only those. Choose a menu item

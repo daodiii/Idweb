@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import "@/styles/tjenester-lab.css";
-import { MODULES, type Entry, type ModuleId } from "@/components/tjenester-lab/kundeportal-content";
+import { MODULES, type Entry, type ModuleId } from "@/components/tjenester/kundeportal-content";
 
 /** One entry in the inbox. Pass onDone to make the button work (client use); without it the row is only drawn. */
 export function EntryRow({ e, done = false, onDone, isNew = false }: { e: Entry; done?: boolean; onDone?: () => void; isNew?: boolean }) {

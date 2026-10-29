@@ -1,5 +1,5 @@
 /**
- * Copy for the «Kundeportal» mockups, from the live page and tightened. No made-up business or people: the example is «bedriften din»,
+ * Copy for the «Kundeportal» page, from the earlier page and tightened. No made-up business or people: the example is «bedriften din»,
  * the customers are «Kunde A» and «Kunde B», and the numbers are examples, as on the live page. The live «Ingen faktura i portalen» is said
  * as what the portal is for.
  */
