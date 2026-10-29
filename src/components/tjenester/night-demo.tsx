@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChatWindow, GREET, InboxCard, NotifyMail, type Msg } from "@/components/tjenester-lab/chat-parts";
+import { ChatWindow, GREET, InboxCard, NotifyMail, type Msg } from "@/components/tjenester/chat-parts";
 
 const ASK: Msg = { from: "me", text: "Tar dere imot akutte timer i morgen tidlig?" };
 const NOT_SURE: Msg = { from: "bot", text: "Det kan jeg ikke svare sikkert på. Vil du legge igjen nummeret, så ringer vi deg i morgen?" };

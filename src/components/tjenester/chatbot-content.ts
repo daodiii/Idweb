@@ -1,5 +1,5 @@
 /**
- * Copy for the «AI-chatbot» mockups, from the live page and tightened. The «what it does not do» half of the live list is
+ * Copy for the «AI-chatbot» page, from the earlier page and tightened. The «what it does not do» half of the live list is
  * said the other way round, as what we make sure it does. The business in the examples is not named and not made up: it is
  * «bedriften deres», and the sample answers are written in advance, as on the live page.
  */
@@ -26,8 +26,6 @@ export const QAS: readonly QA[] = [
   { id: "sted", q: "Hvor holder dere til?", a: "Vi holder til i Gateveien 1. Det er gratis parkering bak huset.", facts: ["adresse", "parkering"] },
   { id: "ukjent", q: "Kan jeg få en time i morgen kl. 10?", a: "Det kan jeg ikke svare sikkert på. Vil du legge igjen nummeret, så ringer vi deg tilbake?", facts: [] },
 ];
-
-export const UNKNOWN_ANSWER = "Det vet jeg ikke sikkert. Vil du legge igjen nummeret, så ringer vi deg tilbake i stedet for at jeg gjetter?";
 
 export const TRAIN = [
   { t: "Vi lager et utkast fra nettsiden deres", p: "Priser, åpningstider og tjenester fra sidene dere allerede har." },

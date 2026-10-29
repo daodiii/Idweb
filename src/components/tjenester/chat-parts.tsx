@@ -1,6 +1,5 @@
-import "@/styles/tjenester-lab.css";
 import type { ReactNode } from "react";
-import { FACTS, GREETING, INBOX, type Fact } from "@/components/tjenester-lab/chatbot-content";
+import { FACTS, GREETING, INBOX } from "@/components/tjenester/chatbot-content";
 
 export type Msg = { from: "bot" | "me"; text: string };
 
@@ -35,28 +34,6 @@ export function ChatWindow({ messages, typing = false, input = true, footer, cla
           <i />
         </div>
       ))}
-    </div>
-  );
-}
-
-/** «Det assistenten vet»: the facts, with the ones the last answer used lit. `unknown` lights the «not in what it knows» row. */
-export function Knowledge({ active = [], unknown = false, draft = false }: { active?: readonly Fact["id"][]; unknown?: boolean; draft?: boolean }) {
-  return (
-    <div className="ch-know" aria-label="Det assistenten vet">
-      <div className="ch-know-top">
-        <b>Det assistenten vet</b>
-        <span className={draft ? "ch-pill warn" : "ch-pill"}>{draft ? "Utkast" : "Godkjent"}</span>
-      </div>
-      {FACTS.map((f) => (
-        <div key={f.id} className={`ch-fact${active.includes(f.id) ? " on" : ""}`}>
-          <span>{f.k}</span>
-          <b>{f.v}</b>
-        </div>
-      ))}
-      <div className={`ch-fact ch-fact-miss${unknown ? " on" : ""}`}>
-        <span>Ikke lagt inn</span>
-        <b>Da sier den fra</b>
-      </div>
     </div>
   );
 }
