@@ -1,5 +1,5 @@
 /**
- * Copy for the «SEO og AI-synlighet» mockups, from the live page and tightened. No made-up business: the example is «bedriften din»
+ * Copy for the «SEO og AI-synlighet» page, from the earlier page and tightened. No made-up business: the example is «bedriften din»
  * with sample values, and the «Det vi ikke lover» list is said as one plain statement instead of a list.
  */
 import type { FAQ } from "@/types";
@@ -30,15 +30,6 @@ export const REVIEW_RULES = [
   ["Avmelding i hver e-post", "Ett klikk, og kunden får ikke flere."],
   ["Et tak på e-poster per dag", "50 per bedrift som standard, så de ikke havner i søppelposten."],
 ] as const;
-
-export const REVIEW_STEPS = [
-  { t: "Jobben merkes ferdig", p: "Dere merker jobben ferdig i kundeportalen." },
-  { t: "E-posten går", p: "Etter så mange dager dere velger, vanligvis 2, kl. 09.00." },
-  { t: "Kunden trykker", p: "Lenken går rett til Googles side for å skrive en omtale." },
-  { t: "Kunden skriver selv", p: "Omtalen er kundens egen, på Google. Vi skriver ingenting for dem." },
-] as const;
-
-export const STATEMENT = "Mange byråer lover plass én på Google. Det kan ingen love, så det gjør ikke vi heller. Vi gjør det lett for Google og AI-søk å forstå bedriften deres, og lett for fornøyde kunder å si det høyt. Google bruker tid på å lese en side og stole på den, så regn med uker, ikke dager.";
 
 export const FAQS: readonly FAQ[] = [
   { question: "Hvor lang tid tar det før vi ser resultater?", answer: "Det varierer. Google må lese siden på nytt og bygge tillit over tid, så regn med uker, ikke dager. Ingen kan love en bestemt plassering." },

@@ -1,5 +1,4 @@
-import "@/styles/tjenester-lab.css";
-import { KINDS, type Kind, type Region } from "@/components/tjenester-lab/seo-content";
+import { KINDS, type Kind, type Region } from "@/components/tjenester/seo-content";
 
 /** A search result for the business, drawn. Google decides how the real one looks; this shows what it can know. */
 export function GoogleCard({ kind = "tannlege", open = true, lit }: { kind?: Kind; open?: boolean; lit?: Region }) {
@@ -88,9 +87,9 @@ export function ReviewMail() {
 }
 
 /** Google's own page for writing a review, which the customer lands on. */
-export function ReviewPage({ filled = false }: { filled?: boolean }) {
+export function ReviewPage() {
   return (
-    <div className={`rv-page${filled ? " filled" : ""}`} aria-hidden="true">
+    <div className="rv-page" aria-hidden="true">
       <b>Del opplevelsen din</b>
       <span className="rv-stars">
         {[0, 1, 2, 3, 4].map((i) => (
@@ -99,32 +98,7 @@ export function ReviewPage({ filled = false }: { filled?: boolean }) {
           </svg>
         ))}
       </span>
-      {filled && (
-        <>
-          <i className="rv-line" style={{ width: "88%" }} />
-          <i className="rv-line" style={{ width: "64%" }} />
-        </>
-      )}
-      <span className="rv-text">{filled ? "Omtalen kunden skrev ligger nå på Google." : "Kunden skriver omtalen selv."}</span>
-    </div>
-  );
-}
-
-/** A job in the portal, marked done. */
-export function JobRow({ done = true }: { done?: boolean }) {
-  return (
-    <div className="rv-job" aria-hidden="true">
-      <div className="tb-portal-top">
-        <b>Jobber</b>
-        <span>Kundeportalen</span>
-      </div>
-      <div className="rv-job-row">
-        <span>
-          <b>Jobb for kunde</b>
-          <small>{done ? "Merket ferdig" : "Pågår"}</small>
-        </span>
-        <span className={`rv-status${done ? " done" : ""}`}>{done ? "Ferdig" : "Pågår"}</span>
-      </div>
+      <span className="rv-text">Kunden skriver omtalen selv.</span>
     </div>
   );
 }

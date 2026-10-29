@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { CodeCard, GoogleCard } from "@/components/tjenester-lab/seo-parts";
-import { REGIONS, type Region } from "@/components/tjenester-lab/seo-content";
+import { CodeCard, GoogleCard } from "@/components/tjenester/seo-parts";
+import { REGIONS, type Region } from "@/components/tjenester/seo-content";
 
 /**
  * The code and the search result side by side. Choose one of three things (type, address, opening hours) and the line in the

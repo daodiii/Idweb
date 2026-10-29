@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CodeCard } from "@/components/tjenester-lab/seo-parts";
+import { CodeCard } from "@/components/tjenester/seo-parts";
 
 const TABS = [
   { id: "ser", t: "Det kundene ser", p: "Siden slik den ser ut på mobil og PC." },

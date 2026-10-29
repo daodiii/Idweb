@@ -1,27 +1,40 @@
-import type { Metadata } from "next";
 import { Marker } from "@/components/home/marker";
 import { QuoteSection } from "@/components/home/quote-section";
 import { FaqList } from "@/components/klar/faq-list";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
+import { AnnotatedHit } from "@/components/tjenester/annotated-hit";
+import { LayerTabs } from "@/components/tjenester/layer-tabs";
+import { SERVICE_PAGES } from "@/components/tjenester/pages";
+import { FAQS, PROMISES, REVIEW_RULES } from "@/components/tjenester/seo-content";
+import { ReviewMail, ReviewPage } from "@/components/tjenester/seo-parts";
 import { BookButton, Crumbs, SecHead, ServiceShell } from "@/components/tjenester/service-parts";
-import { AnnotatedHit } from "@/components/tjenester-lab/annotated-hit";
-import { GoogleCard, ReviewMail, ReviewPage } from "@/components/tjenester-lab/seo-parts";
-import { FAQS, PROMISES, REVIEW_RULES } from "@/components/tjenester-lab/seo-content";
 
-export const metadata: Metadata = { title: "SEO, mockup 1: Treffet", robots: { index: false, follow: false } };
-
-/** Mockup 1 «Treffet»: the search result is the hero picture; then the code and the result side by side, with one line lit at a time. */
-export default function Page() {
+/**
+ * «SEO og AI-synlighet» in the calm system. The hero shows the same business three ways (as the customer sees it, as Google gets
+ * it, as the code we write); below it the code and the search result side by side with one line lit at a time, the review e-mail,
+ * the review rules, and one plain statement instead of a «what we do not promise» list. No made-up business and no pictures.
+ */
+export function SeoPage() {
+  const meta = SERVICE_PAGES.seo;
   return (
     <ServiceShell>
+      <ServiceJsonLd name={meta.name} description={meta.description} slug="seo" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Tjenester", href: "/tjenester" },
+          { name: meta.name, href: "/tjenester/seo" },
+        ]}
+      />
       <section className="sp-hero" aria-labelledby="sp-h1">
-        <div className="wrap sbm1-hero">
+        <div className="wrap sop-hero">
           <div>
             <Crumbs current="SEO og AI-synlighet" />
             <h1 id="sp-h1">
               Bli <Marker>funnet</Marker> når kundene søker.
             </h1>
             <p className="sp-lede">Vi skriver nettsiden slik at Google og AI-søk forstår hva dere gjør, hvor dere er og når dere har åpent. Og vi hjelper dere å få omtaler fra ekte kunder.</p>
-            <ul className="sbm-promises">
+            <ul className="sop-promises">
               {PROMISES.map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -30,8 +43,8 @@ export default function Page() {
               <BookButton />
             </div>
           </div>
-          <div className="sbm1-field">
-            <GoogleCard />
+          <div className="sop-field">
+            <LayerTabs />
           </div>
         </div>
       </section>
@@ -46,17 +59,17 @@ export default function Page() {
       <section className="sp-sec sp-line" aria-labelledby="sg-omtale">
         <div className="wrap sp-split">
           <SecHead id="sg-omtale" title={<>Flere omtaler fra <Marker>ekte</Marker> kunder.</>} lede="Med kundeportalen fra oss får kunden en e-post når jobben er merket ferdig, med en lenke rett til Googles side for å skrive en omtale." />
-          <div className="sbm1-pair">
+          <div className="sop-pair">
             <ReviewMail />
             <ReviewPage />
           </div>
         </div>
       </section>
 
-      <section className="sbm1-rules" aria-labelledby="sg-regler">
+      <section className="sop-rules" aria-labelledby="sg-regler">
         <div className="wrap">
           <SecHead id="sg-regler" title={<>Slik <Marker>passer</Marker> vi på kundene deres.</>} lede="Dere velger hvor mange dager det går. Vi passer på resten." />
-          <ul className="sbm1-list">
+          <ul className="sop-list">
             {REVIEW_RULES.map(([h, p]) => (
               <li key={h}>
                 <b>{h}</b>
