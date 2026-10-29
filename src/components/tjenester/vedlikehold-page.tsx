@@ -1,14 +1,13 @@
 import type { CSSProperties } from "react";
-import type { Metadata } from "next";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
+import { SERVICE_PAGES } from "@/components/tjenester/pages";
 import { Marker } from "@/components/home/marker";
 import { QuoteSection } from "@/components/home/quote-section";
 import { FaqList } from "@/components/klar/faq-list";
 import { RevealOnView } from "@/components/tjenester/reveal-on-view";
 import { BookButton, Crumbs, SecHead, ServiceShell } from "@/components/tjenester/service-parts";
-import { NightLog, Thread } from "@/components/tjenester-lab/mnt-parts";
-import { FAQS, HONEST, INCLUDED, KIND_LABEL, PROMISES, REPORT, type NightKind } from "@/components/tjenester-lab/vedlikehold-content";
-
-export const metadata: Metadata = { title: "Drift, mockup 3: Natten", robots: { index: false, follow: false } };
+import { NightLog, Thread } from "@/components/tjenester/mnt-parts";
+import { FAQS, HONEST, INCLUDED, KIND_LABEL, PROMISES, type NightKind } from "@/components/tjenester/vedlikehold-content";
 
 const NIGHTS: { kind: NightKind; text: string }[] = [
   { kind: "backup", text: "Hver natt tas en sikkerhetskopi av siden." },
@@ -17,32 +16,45 @@ const NIGHTS: { kind: NightKind; text: string }[] = [
   { kind: "cert", text: "Sertifikatet fornyes av seg selv, uten at dere trenger å huske det." },
 ];
 
-/** Mockup 3 «Natten»: kl. 03 as the hero picture, the four things that happen at night along the orange stroke, the month in four big numbers. */
-export default function Page() {
+/**
+ * «Drift og vedlikehold» in the calm system. kl. 03 as the hero picture, the four things that happen at night along the orange
+ * stroke, what the price covers with a message thread, and one statement about errors. No made-up business, no report section,
+ * and no «what is not included» list: what gets a price first is said in one sentence.
+ */
+export function VedlikeholdPage() {
+  const meta = SERVICE_PAGES.vedlikehold;
   return (
     <ServiceShell>
+      <ServiceJsonLd name={meta.name} description={meta.description} slug="vedlikehold" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Tjenester", href: "/tjenester" },
+          { name: meta.name, href: "/tjenester/vedlikehold" },
+        ]}
+      />
       <section className="sp-hero" aria-labelledby="sp-h1">
-        <div className="wrap vbm3-hero">
+        <div className="wrap vbp-hero">
           <div>
             <Crumbs current="Drift og vedlikehold" />
             <h1 id="sp-h1">
               Vi <Marker>passer</Marker> på nettsiden etter lansering.
             </h1>
             <p className="sp-lede">Sikkerhetskopier, oppdateringer og sjekker går av seg selv hver natt. Trenger dere en endring, sender dere bare en melding.</p>
-            <ul className="vbm-promises">
+            <ul className="vbp-promises">
               {PROMISES.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
-            <p className="vbm-price">
+            <p className="vbp-price">
               <b>Fra 790 kr i måneden</b> eks. mva · ingen bindingstid
             </p>
             <div className="sp-acts">
               <BookButton />
             </div>
           </div>
-          <div className="vbm3-field">
-            <span className="vbm3-clock">03.00</span>
+          <div className="vbp-field">
+            <span className="vbp-clock">03.00</span>
             <NightLog kind="update" />
           </div>
         </div>
@@ -51,7 +63,7 @@ export default function Page() {
       <section className="sp-sec" aria-labelledby="vh-natt">
         <div className="wrap">
           <SecHead id="vh-natt" title={<>Mens dere <Marker>sover</Marker>.</>} lede="Dette er det som skjer på siden om natten, uten at dere trenger å gjøre noe." />
-          <RevealOnView className="sps-track vbm3-path">
+          <RevealOnView className="sps-track vbp-path">
             <svg className="sps-line" viewBox="0 0 1200 24" preserveAspectRatio="none" aria-hidden="true">
               <path pathLength="1" d="M2 13C90 6 170 18 300 11S470 4 600 12s250 8 380 2 190 4 218-2" />
             </svg>
@@ -59,7 +71,7 @@ export default function Page() {
               {NIGHTS.map((n, i) => (
                 <li key={n.kind} style={{ "--i": i } as CSSProperties}>
                   <span className="sps-node">{i + 1}</span>
-                  <div className="vbm3-card sps-art">
+                  <div className="vbp-card sps-art">
                     <NightLog kind={n.kind} title={KIND_LABEL[n.kind]} />
                   </div>
                   <h3>{KIND_LABEL[n.kind]}</h3>
@@ -68,21 +80,6 @@ export default function Page() {
               ))}
             </ol>
           </RevealOnView>
-        </div>
-      </section>
-
-      <section className="vbm3-month" aria-labelledby="vh-maned">
-        <div className="wrap">
-          <SecHead id="vh-maned" title={<>Og så får dere en <Marker>rapport</Marker>.</>} lede="Ved månedsslutt får dere en rapport om hva som skjedde. Tallene er fra en tenkt måned." />
-          <div className="vbm3-stats">
-            {REPORT.map(([n, l]) => (
-              <div key={l}>
-                <b>{n}</b>
-                <span>{l}</span>
-              </div>
-            ))}
-          </div>
-          <p className="vbm3-ok">Alt i orden ved månedsslutt</p>
         </div>
       </section>
 
@@ -99,7 +96,7 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="vbm3-thread">
+          <div className="vbp-thread">
             <Thread
               messages={[
                 { from: "me", text: "Kan dere legge til en ny ansatt på Om oss?" },
