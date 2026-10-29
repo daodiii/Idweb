@@ -1,6 +1,3 @@
-import "@/styles/tjenester-lab.css";
-import "@/styles/tjenester-lab-shop.css";
-
 /** A neutral picture slot: a soft tint and a small mountain-and-sun mark. No photos, no made-up shop. */
 export function Ph({ tint = "#DFECE3", className = "" }: { tint?: string; className?: string }) {
   return (
@@ -143,27 +140,6 @@ export function UiOrders({ compact = false }: { compact?: boolean }) {
           <span className="ui-act">{act}</span>
         </div>
       ))}
-    </div>
-  );
-}
-
-/** One order open: what was bought, which shipping, and the button that tells the customer. */
-export function UiOrderDetail() {
-  return (
-    <div className="ui-card" aria-hidden="true">
-      <div className="ui-top">
-        <b>Ordre #1042</b>
-        <span className="ui-status pay">Betalt</span>
-      </div>
-      <div className="ui-line">
-        <Ph tint={TINTS[0]} className="ui-ph-sm" />
-        <span>
-          <b>Eksempelvare</b>
-          <small>1 stk · sending i posten</small>
-        </span>
-        <b>299 kr</b>
-      </div>
-      <span className="tb-confirm">Merk som sendt</span>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { REGIONS } from "@/components/tjenester-lab/shop-info";
-import { UiNewProduct, UiOrders, UiShipping, UiStock } from "@/components/tjenester-lab/shop-ui";
+import { REGIONS } from "@/components/tjenester/shop-info";
+import { UiNewProduct, UiOrders, UiShipping, UiStock } from "@/components/tjenester/shop-ui";
 
 const NAV = ["Varer", "Lager", "Ordrer", "Frakt"] as const;
 
