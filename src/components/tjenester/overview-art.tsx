@@ -1,4 +1,3 @@
-import "@/styles/tjenester-lab.css";
 import { BookingWidget } from "@/components/tjenester/booking-parts";
 import { ChatWindow } from "@/components/tjenester/chat-parts";
 import { GoogleCard } from "@/components/tjenester/seo-parts";

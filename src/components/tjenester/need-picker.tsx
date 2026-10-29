@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { BookButton } from "@/components/tjenester/service-parts";
-import { ServiceCard } from "@/components/tjenester-lab/service-card";
-import { NEEDS, SERVICES } from "@/components/tjenester-lab/oversikt-content";
+import { ServiceCard } from "@/components/tjenester/service-card";
+import { NEEDS, SERVICES } from "@/components/tjenester/oversikt-content";
 import type { ServicePageSlug } from "@/components/tjenester/pages";
 
 /**

@@ -1,5 +1,5 @@
 /**
- * Copy for the «Tjenester» overview mockups. Headline, lede and section text are the live overview's; the one line per service is the
+ * Copy for the «Tjenester» overview. Headline, lede and section text are the earlier overview's; the one line per service is the
  * one the menu already uses (lib/home/nav-links.ts). The three phases are the order in the lede: the site, the systems behind it,
  * and the running of it afterwards.
  */
@@ -16,11 +16,6 @@ export const SECTION = {
   lede: "Du snakker direkte med den som bygger. Ingen mellomledd, og prisen er avtalt før vi starter.",
 };
 
-export const CTA = {
-  title: "Usikker på hva du trenger? Vi finner ut av det sammen.",
-  text: "Fortell oss kort hva du driver med, så foreslår vi en plan som passer budsjettet og målene dine.",
-};
-
 const LINES: Record<string, string> = Object.fromEntries((LINKS[0].children ?? []).filter((c) => c.text).map((c) => [c.href.replace("/tjenester/", ""), c.text as string]));
 
 export type Service = { slug: ServicePageSlug; name: string; line: string; href: string };
@@ -31,12 +26,6 @@ export const SERVICES: readonly Service[] = (Object.keys(SERVICE_PAGES) as Servi
   line: LINES[slug] ?? SERVICE_PAGES[slug].description,
   href: `/tjenester/${slug}`,
 }));
-
-export const PHASES = [
-  { n: "1", title: "Nettsiden", lede: "Alt starter med en side som er laget for akkurat dere.", slugs: ["nettside"] },
-  { n: "2", title: "Systemene bak", lede: "Det som tar imot kundene, selger og samler henvendelsene.", slugs: ["timebestilling", "nettbutikk", "ai-chatbot", "kundeportal"] },
-  { n: "3", title: "Etter lansering", lede: "At siden blir funnet, og at den holdes oppe, oppdatert og trygg.", slugs: ["seo", "vedlikehold"] },
-] as const satisfies readonly { n: string; title: string; lede: string; slugs: readonly ServicePageSlug[] }[];
 
 export const NEEDS: readonly { slug: ServicePageSlug; q: string }[] = [
   { slug: "nettside", q: "En nettside som er laget for oss" },

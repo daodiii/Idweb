@@ -605,3 +605,52 @@
 .ka.calm.sp .kpp-trust h3{margin:0}
 .ka.calm.sp .kpp-trust p{margin:10px 0 0;font-size:16px;line-height:1.65;color:var(--muted)}
 @media (max-width:900px){.ka.calm.sp .kpp-two,.ka.calm.sp .kpp-trust{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Tjenester (the overview): the service cards, the picker and the page ---------- */
+
+.ka.calm.sp .ov-stage{position:relative;height:230px;overflow:hidden;padding:18px 18px 0;display:grid;justify-items:center;align-items:start;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.ka.calm.sp .ov-stage>*{width:100%;max-width:400px}
+.ka.calm.sp .ov-offer{padding:16px 18px;border-radius:var(--r-sm);background:#fff;box-shadow:0 1px 2px rgba(19,26,58,.08),0 30px 60px -34px rgba(19,26,58,.45);text-align:left;color:var(--ink)}
+.ka.calm.sp .ov-offer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--ink);font-size:15px}
+.ka.calm.sp .ov-offer-row{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.ka.calm.sp .ov-offer-row svg{color:var(--cobalt)}
+.ka.calm.sp .ov-offer .tb-confirm{margin-top:12px;padding:9px;font-size:13.5px}
+.ka.calm.sp .sp-tag{display:inline-block;padding:3px 10px;border-radius:var(--r-pill);background:var(--surface);font-size:12px;font-weight:600;color:var(--soft)}
+
+.ka.calm.sp .ov-card{position:relative;display:grid;align-content:space-between;overflow:hidden;border-radius:var(--r-card);color:var(--ink);text-decoration:none;transition:transform var(--dur-ui) var(--out),box-shadow var(--dur-ui) var(--out),opacity var(--dur-ui) var(--out)}
+@media (hover:hover) and (pointer:fine){.ka.calm.sp .ov-card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -28px rgba(19,26,58,.45)}}
+.ka.calm.sp .ov-card-text{display:grid;gap:4px;padding:6px 76px 26px 26px}
+.ka.calm.sp .ov-go{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;transition:transform var(--dur-ui) var(--out)}
+.ka.calm.sp .ov-card .ov-go{position:absolute;right:22px;bottom:22px}
+.ka.calm.sp .ov-card.on{box-shadow:0 0 0 2px var(--cobalt)}
+.ka.calm.sp .ov-card.dim{opacity:.4}
+
+.ka.calm.sp .ov-bento{margin-top:48px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.ka.calm.sp .ov-bento>:nth-child(1){grid-column:span 4}
+.ka.calm.sp .ov-bento>:nth-child(2),.ka.calm.sp .ov-bento>:nth-child(3),.ka.calm.sp .ov-bento>:nth-child(4),.ka.calm.sp .ov-bento>:nth-child(5){grid-column:span 2}
+.ka.calm.sp .ov-bento>:nth-child(6),.ka.calm.sp .ov-bento>:nth-child(7){grid-column:span 3}
+.ka.calm.sp .ov-bento>:nth-child(1) .ov-stage{height:260px}
+@media (max-width:1000px){
+  .ka.calm.sp .ov-bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ka.calm.sp .ov-bento>*,.ka.calm.sp .ov-bento>:nth-child(n){grid-column:auto}
+  .ka.calm.sp .ov-bento>:nth-child(1){grid-column:1/-1}
+}
+@media (max-width:640px){.ka.calm.sp .ov-bento{grid-template-columns:minmax(0,1fr)}.ka.calm.sp .ov-bento>:nth-child(1){grid-column:auto}}
+.ka.calm.sp .ovp-head{display:grid;gap:28px;align-items:end}
+.ka.calm.sp .ovp-head h1{font-size:clamp(42px,6.2vw,92px);line-height:1.04}
+.ka.calm.sp .ovp-head .sp-lede{margin-top:0;font-size:17px}
+@media (min-width:1080px){.ka.calm.sp .ovp-head{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:64px}}
+.ka.calm.sp .ovp-pick{padding-block:var(--sec-pad)}
+.ka.calm.sp .np{margin-top:40px}
+.ka.calm.sp .np-pick{margin:0;padding:0;border:0}
+.ka.calm.sp .np-pick legend{padding:0;margin-bottom:12px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.ka.calm.sp .np-pick>div{display:flex;flex-wrap:wrap;gap:10px}
+.ka.calm.sp .np-pick label{position:relative;display:inline-flex;align-items:center;gap:10px;padding:11px 18px 11px 14px;border:1px solid rgba(19,26,58,.16);border-radius:var(--r-pill);background:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:border-color var(--dur-ui) var(--out),background-color var(--dur-ui) var(--out)}
+.ka.calm.sp .np-pick label.on{border-color:var(--cobalt);background:#F3F8F6}
+.ka.calm.sp .np-pick input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.ka.calm.sp .np-pick i{flex:none;width:18px;height:18px;border:1.5px solid rgba(19,26,58,.3);border-radius:5px;background:#fff}
+.ka.calm.sp .np-pick .on i{border-color:var(--cobalt);background:var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.ka.calm.sp .np-pick label:focus-within{outline:2px solid var(--cobalt);outline-offset:2px}
+.ka.calm.sp .np-sum{margin:24px 0 0;min-height:1.6em;font-size:17px;line-height:1.6;color:var(--muted)}
+.ka.calm.sp .np-act{margin-top:16px}
+.ka.calm.sp .np-grid{margin-top:32px}
