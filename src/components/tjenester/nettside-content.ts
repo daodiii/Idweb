@@ -1,6 +1,5 @@
 /**
- * Copy for the «Skreddersydd nettside» mockups. Taken from the live page (components/tjenester/markup/nettside.ts) and
- * tightened; the facts about how IDweb builds are unchanged. Fjellbakst is a made-up bakery, labelled as an example.
+ * Copy for the «Skreddersydd nettside» page. Taken from the earlier page and tightened; the facts about how IDweb builds are unchanged. Fjellbakst is a made-up bakery, labelled as an example.
  */
 import type { FAQ } from "@/types";
 
@@ -19,11 +18,6 @@ export const OFFER_PAGES = [
   ["Kontakt", "Kart, adresse og åpningstider"],
 ] as const;
 
-export const OFFER_LEFT_OUT = [
-  ["Domene og e-post", "Vi kobler domenet til siden"],
-  ["Betaling på nett", "Kakebestillingen sendes på e-post"],
-] as const;
-
 export const GOOGLE = [
   ["Egen tittel og beskrivelse på hver side", "Det er teksten som vises i søkeresultatet."],
   ["Kart over alle sidene til Google", "Det lages av koden, så nye sider kommer med av seg selv."],
@@ -35,13 +29,6 @@ export const DRAW = [
   ["Bare der det passer", "Tegninger er et valg. Mange sider trenger bare gode bilder og god skrift."],
   ["Tegnet for deres sted og fag", "Ikke hentet fra en bildebank, og skarpe på alle skjermer."],
   ["Bevegelse som tåler å bli sett mange ganger", "Har noen bedt telefonen om mindre bevegelse, står tegningene stille."],
-] as const;
-
-export const LEFT_OUT = [
-  ["Et redigeringsverktøy for dere", "Endringer gjør vi. Dere kan også endre i koden, men det krever at dere kan GitHub."],
-  ["Domene og e-postkontoer", "Vi kobler domenet til siden. Selve domenet betales der det er registrert."],
-  ["Drift etter lansering", "Oppdateringer, sikkerhetskopi og små endringer er en egen avtale."],
-  ["Timebestilling, chat og nettbutikk", "Egne tjenester med egen pris. De kan legges på siden når dere vil."],
 ] as const;
 
 export const FAQS: readonly FAQ[] = [

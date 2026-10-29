@@ -1,21 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { bricolage, figtree, inter, youngSerif } from "@/lib/home/fonts";
 import { MarkerReveal } from "@/components/home/marker-reveal";
 import { ButtonGlow } from "@/components/home/button-glow";
 import { Arrow } from "@/components/home/arrow";
-import { CLIENTS, type ClientId } from "@/components/tjenester-lab/nettside-content";
+import { CLIENTS, type ClientId } from "@/components/tjenester/nettside-content";
 import "@/styles/a-klar.css";
 import "@/styles/a-klar-pages.css";
 import "@/styles/a-klar-tjenester.css";
 import "@/styles/a-klar-calm.css";
-import "@/styles/tjenester-lab.css";
+import "@/styles/tjenester-calm.css";
 
-/** The calm system's page root, as the homepage wears it (.ka.calm), plus a variant class for the lab styles. */
-export function LabPage({ variant, children }: { variant: string; children: ReactNode }) {
+/** The calm system's page root, as the homepage wears it (.ka.calm), plus .sp for the service pages' own styles. */
+export function ServiceShell({ children }: { children: ReactNode }) {
   return (
-    <div className={`ka calm nl ${variant} ${bricolage.variable} ${figtree.variable} ${youngSerif.variable} ${inter.variable}`}>
+    <div className="ka calm sp">
       <MarkerReveal />
       <ButtonGlow />
       {children}
@@ -74,7 +73,7 @@ export function ClientStage({ id }: { id: ClientId }) {
 export function ClientFigure({ id }: { id: ClientId }) {
   const client = CLIENTS.find((c) => c.id === id)!;
   return (
-    <figure className="nl-fig">
+    <figure className="sp-fig">
       <ClientStage id={id} />
       <figcaption>
         {client.name} · {client.line}
@@ -85,7 +84,7 @@ export function ClientFigure({ id }: { id: ClientId }) {
 
 export function Crumbs() {
   return (
-    <nav className="crumbs nl-crumbs" aria-label="Brødsmuler">
+    <nav className="crumbs sp-crumbs" aria-label="Brødsmuler">
       <ol>
         <li>
           <Link href="/tjenester">Tjenester</Link>
@@ -107,7 +106,7 @@ export function BookButton({ children = "Book en gratis prat" }: { children?: Re
 /** A heading in the calm setting with its lede, used above every section of the mockups. */
 export function SecHead({ id, title, lede }: { id: string; title: ReactNode; lede?: ReactNode }) {
   return (
-    <div className="nl-sh">
+    <div className="sp-sh">
       <h2 id={id}>{title}</h2>
       {lede && <p>{lede}</p>}
     </div>
