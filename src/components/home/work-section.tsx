@@ -36,18 +36,6 @@ export function WorkSection() {
         <ul className="wk-stack">
           <li>
             <figure>
-              <div className="wk-card wk-mk">
-                <div className="wk-desk">
-                  {/* cropped close around the headline so the outlined «som prioriterer» stays legible at card size */}
-                  <Image src="/images/arbeid/mk-auto-desktop-hd.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
-                </div>
-                <Phone src="/images/arbeid/mk-auto-mobil-hd-v2.webp" alt="Samme forside på mobil" className="wk-mk-p" />
-              </div>
-              <figcaption>MK Auto · Bruktbilforhandler i Oslo</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
               <div className="wk-card wk-trio">
                 <Phone src="/images/arbeid/iqra-mobil-1-v2.webp" alt="Iqra Senter på mobil: «Dette tilbyr vi», med helgeskolen åpnet" className="wk-trio-1" />
                 <Phone src="/images/arbeid/iqra-mobil-2-v2.webp" alt="Iqra Senter på mobil: «Hvilken dør er din?», med valgene for skoleplass, medlemskap og spørsmål" className="wk-trio-2" />
@@ -66,6 +54,18 @@ export function WorkSection() {
                 <Phone src="/images/arbeid/kongsvinger-mobil-v2.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
               </div>
               <figcaption>Kongsvinger Tannhelse · Tannlege i Kongsvinger</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div className="wk-card wk-mk">
+                <div className="wk-desk">
+                  {/* cropped close around the headline so the outlined «som prioriterer» stays legible at card size */}
+                  <Image src="/images/arbeid/mk-auto-desktop-hd.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
+                </div>
+                <Phone src="/images/arbeid/mk-auto-mobil-hd-v2.webp" alt="Samme forside på mobil" className="wk-mk-p" />
+              </div>
+              <figcaption>MK Auto · Bruktbilforhandler i Oslo</figcaption>
             </figure>
           </li>
           <li>

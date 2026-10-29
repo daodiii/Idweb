@@ -23,7 +23,6 @@ export const LINKS: readonly NavLink[] = [
       { href: "/tjenester", label: "Alle tjenester" },
     ],
   },
-  { href: "/#prosess", label: "Slik jobber vi" },
   { href: "/referanser", label: "Kundecaser" },
   { href: "/om-oss", label: "Om oss" },
 ];

@@ -59,7 +59,6 @@ export function Testimonials() {
           <h2 id="tm-h">
             Det <Marker>kundene</Marker> sier
           </h2>
-          <p>Fire av kundene vi har bygd for, med egne ord.</p>
         </div>
 
         <div className="tm-stage">
