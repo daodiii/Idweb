@@ -7,12 +7,61 @@ export interface BlogPost {
   readingTime: string;
   category: string;
   sections: BlogSection[];
+  /** Shown at the end of the article and added to the page as FAQPage structured data. */
+  faq?: FAQ[];
 }
 
+/**
+ * Text fields accept `code` in backticks and [text](url) links.
+ * Optional blocks render after the paragraphs and list, in this order:
+ * widget, table, tip, code, tabs, checklist. Use a heading-less section to put text after a block.
+ */
 export interface BlogSection {
   heading?: string;
+  /** Render the heading as h3 under the previous h2. */
+  level?: 3;
   paragraphs: string[];
   listItems?: string[];
+  tip?: BlogTip;
+  code?: BlogCode;
+  tabs?: BlogTab[];
+  checklist?: BlogChecklist;
+  table?: BlogTable;
+  /** Interactive figure, rendered by src/components/blog/post-widgets.tsx. */
+  widget?: BlogWidget;
+}
+
+export type BlogWidget = "webp-sizes" | "php-versions" | "php-quiz" | "answer-first";
+
+export interface BlogTip {
+  title: string;
+  text: string;
+  tone?: "warn";
+}
+
+export interface BlogCode {
+  caption: string;
+  code: string;
+}
+
+export type BlogTabBlock =
+  | { type: "p"; text: string }
+  | { type: "list"; items: string[] }
+  | ({ type: "code" } & BlogCode);
+
+export interface BlogTab {
+  label: string;
+  body: BlogTabBlock[];
+}
+
+export interface BlogChecklist {
+  title: string;
+  items: string[];
+}
+
+export interface BlogTable {
+  head: string[];
+  rows: string[][];
 }
 
 export interface PainPoint {
