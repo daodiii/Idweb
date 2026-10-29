@@ -56,6 +56,8 @@ Each part is one PR with before/after screenshots at 1440, 768 and 390px, a list
 
 **Outcome (27 October 2026):** variant B, the still, was chosen; the animation, its engine and styles are removed. Two changes came out of the review: the hero sits side by side from 1080 px (text left, picture right, both on the first screen), and the homepage side margins became 7% of the screen width (content capped at 1320 px), as on the reference. New headline from the user: «Vi lager nettsiden dere kan være stolte over.», marker on «stolte» (the user chose «dere» to match the lede).
 
+**Revised (29 October 2026):** the still's three frames move and sit in a new arrangement, chosen from thirteen mockups. The PC is large at the back; the tablet and the phone stand in front of it on one bottom line, the tablet out past its right edge, the phone out past its left and reaching up over it. They arrive back to front, each at its own tempo, then float on their own slow cycles and follow the pointer by depth (fine pointers only; reduced motion holds them still). Still no caption.
+
 ### Part 3: Logo strip, work section and services canvas
 
 - Logo strip: single-colour logos on the page background, no coloured tiles, still sliding.

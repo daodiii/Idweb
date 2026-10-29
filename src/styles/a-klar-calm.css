@@ -63,35 +63,46 @@
 @keyframes calm-mk{to{clip-path:inset(-50% -5% -50% -5%)}}
 @media (prefers-reduced-motion:reduce){.ka.calm .mk svg{animation:none;clip-path:none}}
 
-/* ---------- hero still: one landscape cropped into desktop, tablet and phone frames ---------- */
-.ka.calm .hs{margin:56px 0 0}
-.ka.calm .hs-frames{position:relative;aspect-ratio:1136/620}
-.ka.calm .hs-f{position:absolute;overflow:hidden;border-radius:var(--r-card);background:var(--surface);box-shadow:0 1px 2px rgba(19,26,58,.06),0 34px 64px -34px rgba(19,26,58,.42)}
-.ka.calm .hs-f img{object-fit:cover}
-.ka.calm .hs-d{left:0;top:0;width:66%;aspect-ratio:1088/680}
-.ka.calm .hs-t{right:3%;top:13%;width:27%;aspect-ratio:510/680}
-.ka.calm .hs-p{left:56%;bottom:0;width:13%;aspect-ratio:314/680}
+/* ---------- hero picture: a PC screen at the back, a tablet and a phone in front of it on one bottom line ----------
+   The stage is 10:7 and everything is sized in stage widths (cqw). The PC is 74 % wide; tablet and phone stand on one
+   line 16 points below its bottom, the tablet out past its right edge, the phone out past its left, the taller phone
+   reaching up over it. They arrive back to front, each at its own tempo: the PC settles (1.8 s), the tablet glides in
+   from the right (1.2 s), the phone rises (1 s), both on a soft spring with a 3–4 % overshoot. Then each floats on its
+   own slow cycle, the nearest the furthest, and follows the pointer by its depth (--dp, fed by HeroParallax through
+   --px/--py). Entrance is on the outer layer, float and depth on the screen itself. */
+.ka.calm .ht{--spring:linear(0,.06 4%,.22 9%,.48 16%,.74 24%,.9 32%,.99 41%,1.03 50%,1.035 58%,1.02 68%,1.006 80%,1);margin:40px 0 0}
+.ka.calm .ht-stage{position:relative;aspect-ratio:10/7;container-type:inline-size}
+.ka.calm .ht-in{position:absolute}
+.ka.calm .ht-f{position:relative;width:100%;height:100%;overflow:hidden;border-radius:var(--r-card);background:var(--surface);
+  translate:calc(var(--px,0) * var(--dp)) calc(var(--py,0) * var(--dp));animation:ht-float var(--fd) ease-in-out var(--fdl) infinite alternate}
+.ka.calm .ht-f img{object-fit:cover}
+.ka.calm .ht-pc{left:12cqw;top:4cqw;width:74cqw;aspect-ratio:16/10;z-index:1;--dp:4px;--fd:12s;--fa:3px;--fdl:2s;animation:ht-settle 1.8s var(--out) .1s both}
+.ka.calm .ht-tab{right:0;bottom:4cqw;width:28cqw;aspect-ratio:3/4;z-index:2;--dp:10px;--fd:8.5s;--fa:-6px;--fdl:1.7s;animation:ht-glide 1.2s var(--spring) .5s both}
+.ka.calm .ht-mob{left:0;bottom:4cqw;height:44cqw;aspect-ratio:9/19.5;z-index:3;--dp:18px;--fd:6.5s;--fa:8px;--fdl:1.9s;animation:ht-rise 1s var(--spring) .85s both}
+/* nearer screens cast longer, darker shadows */
+.ka.calm .ht-pc .ht-f{box-shadow:0 1px 2px rgba(19,26,58,.06),0 28px 48px -30px rgba(19,26,58,.36)}
+.ka.calm .ht-tab .ht-f{box-shadow:0 1px 2px rgba(19,26,58,.08),0 38px 58px -30px rgba(19,26,58,.46)}
+.ka.calm .ht-mob .ht-f{border-radius:calc(var(--r-card) + 6px);box-shadow:0 1px 2px rgba(19,26,58,.1),0 48px 68px -30px rgba(19,26,58,.52)}
+@keyframes ht-settle{from{opacity:0;transform:scale(.94)}}
+@keyframes ht-glide{from{opacity:0;transform:translateX(10cqw)}}
+@keyframes ht-rise{from{opacity:0;transform:translateY(8cqw)}}
+@keyframes ht-float{to{transform:translateY(var(--fa))}}
 /* a small menu mark in the corner says «this is a website» without any interface clutter */
-.ka.calm .hs-m{position:absolute;top:14px;right:14px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.45);box-shadow:0 5px 0 rgba(19,26,58,.45),0 10px 0 rgba(19,26,58,.45)}
+.ka.calm .ht-m{position:absolute;top:16px;right:16px;width:16px;height:1.6px;border-radius:2px;background:rgba(19,26,58,.5);box-shadow:0 5px 0 rgba(19,26,58,.5),0 10px 0 rgba(19,26,58,.5)}
+@media (prefers-reduced-motion:reduce){.ka.calm :is(.ht-in,.ht-f){animation:none}}
 @media (max-width:600px){
-  .ka.calm .hs{margin-top:40px}
-  .ka.calm .hs-frames{aspect-ratio:358/330}
-  .ka.calm .hs-d{width:90%}
-  .ka.calm .hs-t{right:0;top:30%;width:36%}
-  .ka.calm .hs-p{left:46%;width:20%}
-  .ka.calm .hs-m{top:10px;right:10px;width:12px;box-shadow:0 4px 0 rgba(19,26,58,.45),0 8px 0 rgba(19,26,58,.45)}
+  .ka.calm .hero{padding-bottom:36px}
+  .ka.calm .ht{margin-top:36px}
+  .ka.calm .ht-f{border-radius:14px}
+  .ka.calm .ht-mob .ht-f{border-radius:18px}
+  .ka.calm .ht-m{top:11px;right:11px;width:12px;box-shadow:0 4px 0 rgba(19,26,58,.5),0 8px 0 rgba(19,26,58,.5)}
 }
 
 /* ---------- hero: text left, visual right on wide screens, so the headline and the picture share the first screen ---------- */
 @media (min-width:1080px){
   .ka.calm .hero{padding-block:48px 72px}
   .ka.calm .hero .wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:64px;align-items:center}
-  .ka.calm .hs{margin-top:0}
-  /* the still gets a taller arrangement here: a large desktop frame, the tablet and phone overlapping it */
-  .ka.calm .hero-vis .hs-frames{aspect-ratio:680/540}
-  .ka.calm .hero-vis .hs-d{width:82%}
-  .ka.calm .hero-vis .hs-t{right:0;top:27%;width:33%}
-  .ka.calm .hero-vis .hs-p{left:52%;width:16%}
+  .ka.calm .ht{margin-top:0}
 }
 
 /* ---------- logo strip: the clients' logos in one dark tone on the page background, no tiles, still sliding ----------
