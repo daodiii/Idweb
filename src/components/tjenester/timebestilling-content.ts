@@ -1,5 +1,5 @@
 /**
- * Copy for the «Timebestilling» mockups. Taken from the live page (the e-mail texts are the ones the example sends) and
+ * Copy for the «Timebestilling» page. Taken from the live page (the e-mail texts are the ones the example sends) and
  * tightened. Bjølsen Fysioterapi and Ida Larsen are made-up and always labelled as an example.
  */
 import type { FAQ } from "@/types";

@@ -1,19 +1,31 @@
-import type { Metadata } from "next";
 import { Marker } from "@/components/home/marker";
 import { QuoteSection } from "@/components/home/quote-section";
 import { FaqList } from "@/components/klar/faq-list";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
+import { SERVICE_PAGES } from "@/components/tjenester/pages";
 import { BookButton, Crumbs, SecHead, ServiceShell } from "@/components/tjenester/service-parts";
-import { BookingWidget, ClosePanel, MailCard, PortalCard } from "@/components/tjenester-lab/booking-parts";
-import { FAQS, MAILS } from "@/components/tjenester-lab/timebestilling-content";
+import { BookingWidget, ClosePanel, MailCard, PortalCard } from "@/components/tjenester/booking-parts";
+import { InboxDemo } from "@/components/tjenester/inbox-demo";
+import { FAQS, MAILS } from "@/components/tjenester/timebestilling-content";
 
-export const metadata: Metadata = { title: "Timebestilling, mockup 1: Skjemaet", robots: { index: false, follow: false } };
-
-/** Mockup 1 «Skjemaet»: the booking itself is the hero picture, on a pastel field, as the offer sheet is on nettside. */
-export default function Page() {
+/**
+ * «Timebestilling» in the calm system. The booking is the hero picture, the confirmations sit on pastel fields, the e-mails
+ * are an inbox you click through, and there is no «what it does not do» section on the service pages.
+ */
+export function TimebestillingPage() {
+  const meta = SERVICE_PAGES.timebestilling;
   return (
     <ServiceShell>
+      <ServiceJsonLd name={meta.name} description={meta.description} slug="timebestilling" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Tjenester", href: "/tjenester" },
+          { name: meta.name, href: "/tjenester/timebestilling" },
+        ]}
+      />
       <section className="sp-hero" aria-labelledby="sp-h1">
-        <div className="wrap tbm1-hero">
+        <div className="wrap tbp-hero">
           <div>
             <Crumbs current="Timebestilling" />
             <h1 id="sp-h1">
@@ -26,7 +38,7 @@ export default function Page() {
               <BookButton />
             </div>
           </div>
-          <div className="tbm1-field">
+          <div className="tbp-field">
             <BookingWidget />
           </div>
         </div>
@@ -43,7 +55,7 @@ export default function Page() {
             }
             lede="Kunden og dere får beskjed med en gang, og timen ligger klar i portalen. Eksemplet er et tenkt fysioterapi-senter."
           />
-          <div className="tbm1-three">
+          <div className="tbp-three">
             <figure>
               <MailCard mail={MAILS[0]} />
               <figcaption>Til kunden</figcaption>
@@ -71,38 +83,33 @@ export default function Page() {
             }
             lede="Bekreftelse, påminnelse og avbestilling går til kunden, med bedriftens navn som avsender. Dere får beskjed om hver nye time."
           />
-          <ol className="tbm1-mails">
-            {MAILS.map((m, i) => (
-              <li key={m.id}>
-                <span className="tbm1-num">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{m.label}</h3>
-                <span className="tb-when">{m.when}</span>
-                <p>{m.why}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="sp-sec sp-line" aria-labelledby="tb-kalender">
-        <div className="wrap sp-split">
-          <SecHead
-            id="tb-kalender"
-            title={
-              <>
-                Dere styrer <Marker>kalenderen</Marker>.
-              </>
-            }
-            lede="I portalen ser dere kommende timer og kan avbestille. Skal dere på kurs eller ha ferie, stenger dere tiden, og den forsvinner fra bestillingen."
-          />
-          <div className="tbm1-portal-field">
-            <PortalCard />
-            <ClosePanel />
+          <div className="tbx-body">
+            <InboxDemo />
           </div>
         </div>
       </section>
 
-      <section className="tbm1-fact" aria-label="Dobbeltbooking">
+      <section className="sp-sec" aria-labelledby="tb-kalender">
+        <div className="wrap">
+          <div className="tbp-band">
+            <SecHead
+              id="tb-kalender"
+              title={
+                <>
+                  Dere styrer <Marker>kalenderen</Marker>.
+                </>
+              }
+              lede="I portalen ser dere kommende timer og kan avbestille. Skal dere på kurs eller ha ferie, stenger dere tiden, og den forsvinner fra bestillingen."
+            />
+            <div className="tbp-band-pic">
+              <PortalCard />
+              <ClosePanel />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="tbp-fact" aria-label="Dobbeltbooking">
         <div className="wrap">
           <p>
             Tider som er tatt eller stengt, <Marker>vises</Marker> aldri.

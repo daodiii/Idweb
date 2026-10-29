@@ -1,5 +1,4 @@
-import "@/styles/tjenester-lab.css";
-import { DAYS, SLOTS, BOOKINGS, type Mail } from "@/components/tjenester-lab/timebestilling-content";
+import { DAYS, SLOTS, BOOKINGS, type Mail } from "@/components/tjenester/timebestilling-content";
 
 /** The booking as the customer sees it on the site. Drawn in markup, nothing is sent. */
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
@@ -33,7 +32,7 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
 }
 
 /** An e-mail as the example sends it. */
-export function MailCard({ mail, showWhy = false }: { mail: Mail; showWhy?: boolean }) {
+export function MailCard({ mail }: { mail: Mail }) {
   return (
     <div className="tb-mail">
       <div className="tb-mail-top">
@@ -45,7 +44,6 @@ export function MailCard({ mail, showWhy = false }: { mail: Mail; showWhy?: bool
         <p key={l}>{l}</p>
       ))}
       {mail.attach && <span className="tb-attach">{mail.attach}</span>}
-      {showWhy && <p className="tb-why">{mail.why}</p>}
     </div>
   );
 }

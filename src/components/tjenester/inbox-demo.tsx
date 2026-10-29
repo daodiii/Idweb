@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MAILS } from "@/components/tjenester-lab/timebestilling-content";
+import { MAILS } from "@/components/tjenester/timebestilling-content";
 
 const SENDER = { kunden: "Bjølsen Fysioterapi", dere: "IDweb" } as const;
 const RECIPIENT = { kunden: "Ida Larsen", dere: "post@bjolsenfysio.no" } as const;
