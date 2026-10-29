@@ -82,14 +82,14 @@ export function ClientFigure({ id }: { id: ClientId }) {
   );
 }
 
-export function Crumbs() {
+export function Crumbs({ current }: { current: string }) {
   return (
     <nav className="crumbs sp-crumbs" aria-label="Brødsmuler">
       <ol>
         <li>
           <Link href="/tjenester">Tjenester</Link>
         </li>
-        <li aria-current="page">Skreddersydd nettside</li>
+        <li aria-current="page">{current}</li>
       </ol>
     </nav>
   );

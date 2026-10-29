@@ -34,7 +34,7 @@ export function NettsidePage() {
       <section className="sp-hero" aria-labelledby="sp-h1">
         <div className="wrap spn-hero">
           <div className="spn-hero-text">
-            <Crumbs />
+            <Crumbs current="Skreddersydd nettside" />
             <h1 id="sp-h1">
               Nettsider laget for <Marker>akkurat</Marker> dere.
             </h1>
