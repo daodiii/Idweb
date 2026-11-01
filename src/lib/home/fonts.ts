@@ -1,4 +1,4 @@
-import { Big_Shoulders, Bricolage_Grotesque, Figtree, Fraunces, Gloock, Inter, Mona_Sans, Plus_Jakarta_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Figtree, Inter, Mona_Sans, Plus_Jakarta_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
 
 // The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
 export const schibsted = Schibsted_Grotesk({
@@ -51,27 +51,6 @@ export const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: "700",
-  display: "swap",
-  preload: false,
-});
-
-// Faces used inside the service pages (styles/tjenester): the example clients' own type.
-export const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  preload: false,
-});
-export const bigShoulders = Big_Shoulders({
-  variable: "--font-bigshoulders",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  preload: false,
-});
-export const gloock = Gloock({
-  variable: "--font-gloock",
-  subsets: ["latin", "latin-ext"],
-  weight: "400",
   display: "swap",
   preload: false,
 });
