@@ -1,35 +1,30 @@
 // Run after changing the logo: node tools/create-favicons.mjs
-// Renders the approved «Halvmåne» logo (tools/assets/*.svg) into the favicons, the app icons and the logo that
-// structured data points to. Small sizes use the heavier favicon cut; app icons are full-bleed squares (iOS and Android
-// round them themselves).
+// Renders the approved Night Signal still into favicons, app icons and the structured-data logo.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const read = (file) => fs.readFile(path.join(root, 'tools/assets', file), 'utf8');
-const [icon, favicon] = await Promise.all([read('idweb-icon.svg'), read('idweb-favicon.svg')]);
-const square = (svg) => svg.replace(/(<rect width="100" height="100") rx="\d+"/, '$1');
+const icon = await fs.readFile(path.join(root, 'tools/assets/idweb-night-signal.png'));
 
-// density is high enough that every size is rendered from vectors, not scaled up from a small bitmap
-const render = (svg, size) => sharp(Buffer.from(svg), { density: 600 }).resize(size, size).png().toBuffer();
-const palette = (svg, size) => sharp(Buffer.from(svg), { density: 600 }).resize(size, size)
+const render = (size) => sharp(icon).resize(size, size).ensureAlpha().png().toBuffer();
+const palette = (size) => sharp(icon).resize(size, size)
   .png({ palette: true, colours: 256, effort: 10 }).toBuffer();
 
 const outputs = [
-  ['public/favicon-16x16.png', await palette(favicon, 16)],
-  ['public/favicon-32x32.png', await palette(favicon, 32)],
-  ['public/apple-touch-icon.png', await palette(square(icon), 180)],
-  ['public/icons/icon-192x192.png', await palette(square(icon), 192)],
-  ['public/icons/icon-512x512.png', await palette(square(icon), 512)],
-  ['public/images/idweb-logo.png', await palette(square(icon), 512)],
+  ['public/favicon-16x16.png', await palette(16)],
+  ['public/favicon-32x32.png', await palette(32)],
+  ['public/apple-touch-icon.png', await palette(180)],
+  ['public/icons/icon-192x192.png', await palette(192)],
+  ['public/icons/icon-512x512.png', await palette(512)],
+  ['public/images/idweb-logo.png', await palette(512)],
 ];
 
 // ICO directory entries reference PNG images, supported by modern browsers.
 const sizes = [16, 32, 48];
 // Next.js's ICO decoder requires RGBA PNG payloads.
-const images = await Promise.all(sizes.map((size) => render(favicon, size)));
+const images = await Promise.all(sizes.map(render));
 const header = Buffer.alloc(6 + 16 * images.length);
 header.writeUInt16LE(1, 2);
 header.writeUInt16LE(images.length, 4);

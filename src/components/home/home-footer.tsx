@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
 import { IdwebMark } from "@/components/home/idweb-mark";
+import { IdwebWordmark } from "@/components/home/idweb-wordmark";
 import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
 export function HomeFooter() {
@@ -10,12 +11,10 @@ export function HomeFooter() {
         <div className="wrap">
           <div className="g-foot">
             <div>
-              <span className="brand">
-                <IdwebMark id="ft" tone="light" className="logo-mark" />
-                <span className="logo-word">
-                  <b>ID</b>web
-                </span>
-              </span>
+              <Link href="/" className="brand" aria-label="IDweb, til forsiden">
+                <IdwebMark className="logo-mark" />
+                <IdwebWordmark tone="light" />
+              </Link>
               <p>Nettsider, kundeportaler og systemer for norske bedrifter.</p>
             </div>
             <div>
