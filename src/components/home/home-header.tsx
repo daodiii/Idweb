@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { schibsted } from "@/lib/home/fonts";
 import { IdwebMark } from "@/components/home/idweb-mark";
+import { IdwebWordmark } from "@/components/home/idweb-wordmark";
 import { MenuButton } from "@/components/home/menu-button";
 import { LINKS } from "@/lib/home/nav-links";
 import { HeaderAutohide } from "@/components/home/header-autohide";
@@ -19,10 +20,8 @@ export function HomeHeader() {
       <header className="top">
         <div className="wrap">
           <Link href="/" className="logo" aria-label="IDweb, til forsiden">
-            <IdwebMark id="hd" className="logo-mark" />
-            <span className="logo-word" aria-hidden="true">
-              <b>ID</b>web
-            </span>
+            <IdwebMark className="logo-mark" />
+            <IdwebWordmark />
           </Link>
           <nav className="navlinks" aria-label="Hovedmeny">
             {LINKS.map((l) =>

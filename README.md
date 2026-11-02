@@ -31,6 +31,23 @@ public/
   icons/              # Favicons, app icons
 ```
 
+## Brand assets
+
+The header and footer pair the approved IDweb wordmark with the animated Night Signal symbol.
+Visitors who prefer reduced motion receive its static WebP frame. The footer uses a light wordmark
+for contrast. Favicons, app icons, and the structured-data logo use the same static symbol.
+
+Source artwork is in `tools/assets/idweb-night-signal.png` and `tools/assets/idweb-wordmark.png`.
+After replacing approved source artwork, regenerate derived assets with:
+
+```bash
+node tools/create-brand-assets.mjs
+node tools/create-favicons.mjs
+```
+
+The approved six-second animation is served directly from `public/images/brand/idweb-night-signal.gif`.
+Replace that file separately when updating motion; regeneration preserves it.
+
 ## Tech stack
 
 | Tool | Version |
