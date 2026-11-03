@@ -12,6 +12,9 @@ const COVER_PHOTOS: Record<string, string> = {
   "sosiale-medier-for-bedrifter": "photo-1611162617474-5b21e879e113",
   "hva-koster-en-nettside": "photo-1554224155-6726b3ff858f",
   "nettbutikk-guide": "photo-1472851294608-062f824d29cc",
+  "webp-eller-ikke-webp": "photo-1516035069371-29a1b244cc32",
+  "php-nettside-2026": "photo-1498050108023-c5249f4df085",
+  "ai-sok-synlighet": "photo-1677442136019-21780ecad995",
 };
 
 const FALLBACK_PHOTO = "photo-1499750310107-5fef28a66643";
