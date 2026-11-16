@@ -35,18 +35,21 @@ export const FAQS: readonly FAQ[] = [
   { question: "Hvorfor ikke bare bruke en mal?", answer: "En mal er laget for å passe alle, og derfor ligner sidene som bygges på den hverandre. Når mange nettsider nå lages med de samme verktøyene, blir en side som er laget for dere lettere å huske." },
   { question: "Hva er Next.js, og hvorfor er det bedre for Google?", answer: "Next.js er rammeverket vi bygger sidene i. Hver side lages ferdig på serveren, så Google kan lese all teksten uten å kjøre kode først. Det gir et godt utgangspunkt, men ingen garanti for plassering." },
   { question: "Hva koster en nettside?", answer: "Det kommer an på hvor mange sider dere trenger og hva som skal være på dem. Dere får et uforpliktende tilbud med fast pris før vi starter." },
-  { question: "Kan vi endre siden selv?", answer: "Det går an, men det krever at dere kan jobbe i koden, med GitHub. Vi har ikke et enklere redigeringsverktøy i dag. Med driftsavtale sender dere en melding, så gjør vi endringen." },
+  { question: "Kan vi endre siden selv?", answer: "Med driftsavtale sender dere en melding, så gjør vi endringen. Det går også an å endre selv, men det krever at dere kan jobbe i koden, med GitHub. Vi har ikke et enklere redigeringsverktøy i dag." },
   { question: "Vi har ikke gode bilder. Går det likevel?", answer: "Ja. Vi bruker bildene dere har, og der dere mangler bilder, kan vi tegne." },
   { question: "Må siden ha tegninger og animasjon?", answer: "Nei. En side kan like gjerne bygge på bilder og skrift. Tegninger og animasjon legger vi til der det gjør siden bedre." },
   { question: "Blir siden treg av animasjonene?", answer: "Vi lager dem med tegninger i koden, ikke tunge videoer. Har noen bedt telefonen om mindre bevegelse, står de stille." },
 ];
 
-/** The four clients shown as work; ids match the card classes in a-klar-calm.css (wk-mk, wk-trio, wk-kong, wk-ringebu). */
-export const CLIENTS = [
+/**
+ * The four clients shown as work; ids match the card classes in a-klar-calm.css (wk-mk, wk-trio, wk-kong, wk-ringebu).
+ * `href` is the client's case page under /referanser, where one exists; the caption links to it.
+ */
+export const CLIENTS: readonly { id: string; name: string; line: string; href?: string }[] = [
   { id: "iqra", name: "Iqra Senter", line: "Lærings- og aktivitetssenter i Oslo" },
-  { id: "kong", name: "Kongsvinger Tannhelse", line: "Tannlege i Kongsvinger" },
-  { id: "mk", name: "MK Auto", line: "Bruktbilforhandler i Oslo" },
+  { id: "kong", name: "Kongsvinger Tannhelse", line: "Tannlege i Kongsvinger", href: "/referanser/kongsvinger-tannhelse" },
+  { id: "mk", name: "MK Auto", line: "Bruktbilforhandler i Oslo", href: "/referanser/mk-auto" },
   { id: "ringebu", name: "Ringebu Tannlegesenter", line: "Tannlegesenter i Ringebu" },
 ] as const;
 
-export type ClientId = (typeof CLIENTS)[number]["id"];
+export type ClientId = "iqra" | "kong" | "mk" | "ringebu";

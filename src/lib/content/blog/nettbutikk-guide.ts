@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const nettbutikkGuide: BlogPost = {
   slug: "nettbutikk-guide",
   title: "Nettbutikk i 2026: Alt du trenger å vite før du starter",
+  seoTitle: "Nettbutikk i 2026: dette må du vite",
   excerpt:
     "Planlegger du å starte nettbutikk? Her er en komplett guide til alt fra plattformvalg og betalingsløsninger til frakt, juridiske krav og markedsføring.",
   metaDescription:

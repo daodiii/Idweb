@@ -25,7 +25,7 @@ export default function FaqPage() {
       <section className="sec" aria-labelledby="svar-h">
         <div className="wrap g-2">
           <div className="sec-h">
-            <h2 id="svar-h">{FAQS.length} svar</h2>
+            <h2 id="svar-h">{FAQS.length} svar om nettsider, priser og drift</h2>
             <p>Trykk for å åpne. Mangler noe, send oss en melding.</p>
           </div>
           <FaqList faq={FAQS} />

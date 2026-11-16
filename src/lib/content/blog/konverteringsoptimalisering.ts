@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const konverteringsoptimalisering: BlogPost = {
   slug: "konverteringsoptimalisering",
   title: "Konverteringsoptimalisering: Slik gjør du besøkende til kunder",
+  seoTitle: "Konverteringsoptimalisering for bedrifter",
   excerpt:
     "Nettsiden din har trafikk, men ikke nok henvendelser? Lær hvordan du optimaliserer nettsiden for å konvertere flere besøkende til betalende kunder.",
   metaDescription:

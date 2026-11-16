@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const webdesigntrender2026: BlogPost = {
   slug: "webdesigntrender-2026",
   title: "Webdesigntrender i 2026 — hva fungerer og hva bør du unngå?",
+  seoTitle: "Webdesigntrender i 2026: hva fungerer?",
   excerpt:
     "Nye trender dukker opp hvert år, men ikke alle er verdt å følge. Her er trendene som faktisk gir bedre resultater — og de du bør styre unna.",
   metaDescription:

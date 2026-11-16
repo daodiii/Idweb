@@ -1,6 +1,9 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  /** Shorter title for <title> and link previews when `title` would be cut off in search results (over ~52 chars,
+   * since the layout adds « | IDweb»). The page's H1 keeps `title`. */
+  seoTitle?: string;
   excerpt: string;
   metaDescription: string;
   publishedDate: string;

@@ -13,9 +13,9 @@ import type { LocalInfo, Service } from "@/types";
  */
 
 export const WEBBYRA_OSLO_SEO = {
-  title: "Webbyrå i Oslo — skreddersydde nettsider for bedrifter",
+  title: "Webbyrå i Oslo: skreddersydde nettsider",
   description:
-    "IDweb er et Oslo-basert webbyrå som bygger raske, skreddersydde nettsider og nettbutikker for bedrifter. Fastpris før vi starter, ingen bindingstid, og du eier siden.",
+    "IDweb er et webbyrå i Oslo som bygger raske, skreddersydde nettsider og nettbutikker. Fastpris før vi starter, ingen bindingstid, og du eier siden.",
 } as const;
 
 export const WEBBYRA_OSLO: Service = {

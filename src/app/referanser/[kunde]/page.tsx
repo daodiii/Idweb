@@ -52,7 +52,7 @@ export default async function KundecasePage({ params }: Props) {
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },
-          { name: "Referanser", href: "/referanser" },
+          { name: "Kundecaser", href: "/referanser" },
           { name: c.name, href: `/referanser/${c.slug}` },
         ]}
       />

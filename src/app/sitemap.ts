@@ -4,42 +4,38 @@ import { CASES } from "@/lib/content/kundecase";
 
 const BASE_URL = "https://www.idweb.no";
 
-// Build time — refreshes on every deploy so Google sees fresh `lastmod`.
-const BUILD_DATE = new Date().toISOString().split("T")[0];
+// Only dated entries get `lastmod`. The pages below used to carry the build date, which changed on every deploy
+// whether the page did or not; Google stops trusting lastmod that doesn't track real edits, the blog dates included.
+// `changefreq` and `priority` are left out: Google ignores both.
+const STATIC_PATHS = [
+  "",
+  "/tjenester",
+  "/tjenester/nettside",
+  "/tjenester/timebestilling",
+  "/tjenester/nettbutikk",
+  "/tjenester/ai-chatbot",
+  "/tjenester/seo",
+  "/tjenester/vedlikehold",
+  "/tjenester/kundeportal",
+  "/webbyra-oslo",
+  "/referanser",
+  ...CASES.map((c) => `/referanser/${c.slug}`),
+  "/om-oss",
+  "/kontakt",
+  "/faq",
+  "/personvern",
+  "/vilkar",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const blogSlugs = getAllSlugs();
+  const posts = getAllSlugs()
+    .map((slug) => getBlogPost(slug))
+    .filter((p) => p !== undefined);
+  const newest = posts.map((p) => p.publishedDate).sort().at(-1);
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${BASE_URL}/tjenester`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/tjenester/nettside`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/tjenester/seo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/tjenester/vedlikehold`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/webbyra-oslo`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${BASE_URL}/tjenester/nettbutikk`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${BASE_URL}/tjenester/timebestilling`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/tjenester/ai-chatbot`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/tjenester/kundeportal`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/referanser`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.8 },
-    ...CASES.map((c) => ({ url: `${BASE_URL}/referanser/${c.slug}`, lastModified: BUILD_DATE, changeFrequency: "monthly" as const, priority: 0.7 })),
-    { url: `${BASE_URL}/om-oss`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/kontakt`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/faq`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/blogg`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/personvern`, lastModified: BUILD_DATE, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE_URL}/vilkar`, lastModified: BUILD_DATE, changeFrequency: "yearly", priority: 0.3 },
+  return [
+    ...STATIC_PATHS.map((path) => ({ url: `${BASE_URL}${path}` })),
+    { url: `${BASE_URL}/blogg`, ...(newest && { lastModified: newest }) },
+    ...posts.map((p) => ({ url: `${BASE_URL}/blogg/${p.slug}`, lastModified: p.publishedDate })),
   ];
-
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => {
-    const post = getBlogPost(slug);
-    return {
-      url: `${BASE_URL}/blogg/${slug}`,
-      lastModified: post?.publishedDate ?? BUILD_DATE,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    };
-  });
-
-  return [...staticPages, ...blogPages];
 }

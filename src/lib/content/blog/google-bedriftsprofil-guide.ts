@@ -4,6 +4,7 @@ export const googleBedriftsprofilGuide: BlogPost = {
   slug: "google-bedriftsprofil-guide",
   title:
     "Google Bedriftsprofil: Slik setter du opp og optimaliserer profilen din (2026)",
+  seoTitle: "Google Bedriftsprofil: oppsett og tips (2026)",
   excerpt:
     "Google Bedriftsprofil er det viktigste gratisverktøyet for lokal synlighet. Lær hvordan du setter opp, optimaliserer og vedlikeholder profilen din for å tiltrekke flere lokale kunder.",
   metaDescription:

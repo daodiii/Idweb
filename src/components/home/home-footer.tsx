@@ -34,6 +34,7 @@ export function HomeFooter() {
               <Link href="/referanser">Kundecaser</Link>
               <Link href="/blogg">Artikler</Link>
               <Link href="/faq">Spørsmål og svar</Link>
+              <Link href="/kontakt">Kontakt</Link>
             </div>
             <div>
               <b>Kontakt</b>

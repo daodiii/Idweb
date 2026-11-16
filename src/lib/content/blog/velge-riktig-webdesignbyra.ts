@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const velgeRiktigWebdesignbyra: BlogPost = {
   slug: "velge-riktig-webdesignbyra",
   title: "Slik velger du riktig webdesignbyrå for bedriften din",
+  seoTitle: "Slik velger du riktig webdesignbyrå",
   excerpt:
     "Det finnes hundrevis av webbyråer i Norge. Her er en praktisk sjekkliste som hjelper deg med å skille de gode fra de dårlige — og finne det byrået som passer for deg.",
   metaDescription:

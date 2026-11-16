@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   return pageMetadata({
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.metaDescription,
     path: `/blogg/${slug}`,
     type: "article",

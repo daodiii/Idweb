@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const seoForNybegynnere: BlogPost = {
   slug: "seo-for-nybegynnere",
   title: "SEO for nybegynnere: Slik blir bedriften din synlig på Google",
+  seoTitle: "SEO for nybegynnere: bli synlig på Google",
   excerpt:
     "Søkemotoroptimalisering trenger ikke være komplisert. Her er en praktisk guide til SEO som gir deg flere kunder gjennom Google — uten teknisk forkunnskaper.",
   metaDescription:

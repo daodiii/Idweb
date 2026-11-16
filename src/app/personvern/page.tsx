@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { PageHead } from "@/components/klar/page-head";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { SEO } from "@/lib/content/seo";
 import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
@@ -191,6 +192,12 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
 export default function PersonvernPage() {
   return (
     <div className="ka">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Personvern", href: "/personvern" },
+        ]}
+      />
       <PageHead
         solo
         crumbs={[

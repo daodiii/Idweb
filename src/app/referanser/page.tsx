@@ -11,7 +11,7 @@ import { mona, schibsted } from "@/lib/home/fonts";
 import "@/styles/kundecase.css";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kundecaser",
+  title: "Kundecaser: nettsider vi har laget",
   description: "Slik laget vi nettsidene til MK Auto og Kongsvinger Tannhelse: hva kunden trengte, hva vi bygde og hva som skjer bak kulissene.",
   path: "/referanser",
 });
