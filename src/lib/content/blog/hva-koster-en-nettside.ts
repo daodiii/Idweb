@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const hvaKosterEnNettside: BlogPost = {
   slug: "hva-koster-en-nettside",
   title: "Hva koster en nettside i 2026? Komplett prisguide for norske bedrifter",
+  seoTitle: "Hva koster en nettside i 2026? Prisguide",
   excerpt:
     "Prisene for nettsider varierer enormt. Vi bryter ned hva du faktisk betaler for — fra enkel bedriftsside til avansert nettbutikk — slik at du kan ta en informert beslutning.",
   metaDescription:

@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const googleAnalyticsGuide: BlogPost = {
   slug: "google-analytics-for-nybegynnere",
   title: "Google Analytics for nybegynnere: Slik forstår du besøksdataene dine",
+  seoTitle: "Google Analytics for nybegynnere",
   excerpt:
     "Google Analytics kan virke overveldende, men du trenger bare noen få rapporter for å ta smartere beslutninger om nettsiden din. Her er det du faktisk trenger å vite.",
   metaDescription:

@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const nettsideSomGenerererLeads: BlogPost = {
   slug: "nettside-som-genererer-leads",
   title: "Nettside som genererer leads: 10 elementer bedriften din trenger",
+  seoTitle: "Nettside som genererer leads: 10 elementer",
   excerpt:
     "De fleste bedriftsnettsider ser pene ut, men genererer null henvendelser. Her er de 10 elementene som gjør nettsiden din til en leadmaskin.",
   metaDescription:

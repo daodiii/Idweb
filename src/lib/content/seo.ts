@@ -13,7 +13,7 @@ export const SEO = {
       "IDweb lager skreddersydde nettsider, timebestilling, nettbutikker og kundeportaler for norske bedrifter. Fastpris før vi starter, ingen bindingstid.",
   },
   services: {
-    title: "Tjenester — nettsider, systemer og drift for bedrifter",
+    title: "Tjenester: nettsider, systemer og drift",
     description:
       "Nettside, timebestilling, nettbutikk, AI-chatbot, SEO og AI-synlighet, drift og kundeportal. Alt bedriften trenger på nett, fra én leverandør.",
   },
@@ -33,7 +33,7 @@ export const SEO = {
       "Ta kontakt for en uforpliktende samtale om din nye nettside. Vi svarer innen 24 timer. Ring, send e-post eller bruk kontaktskjemaet.",
   },
   blog: {
-    title: "Blogg — Tips om nettsider, SEO og digital markedsføring",
+    title: "Blogg: tips om nettsider, SEO og markedsføring",
     description:
       "Les våre artikler om nettsider, SEO, digital markedsføring og webdesign. Praktiske tips for norske bedrifter som vil lykkes på nett.",
   },

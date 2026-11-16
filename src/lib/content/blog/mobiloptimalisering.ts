@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const mobiloptimalisering: BlogPost = {
   slug: "mobiloptimalisering",
   title: "Hvorfor mobiloptimalisering er viktigere enn noen gang i 2026",
+  seoTitle: "Mobiloptimalisering av nettsiden i 2026",
   excerpt:
     "Over 70 % av all nettrafikk i Norge er fra mobil. Slik sikrer du at nettsiden din gir en perfekt opplevelse på alle enheter.",
   metaDescription:

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { PageHead } from "@/components/klar/page-head";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = pageMetadata({
   title: "Vilkår og betingelser",
@@ -207,6 +208,12 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
 export default function VilkarPage() {
   return (
     <div className="ka">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Hjem", href: "/" },
+          { name: "Vilkår", href: "/vilkar" },
+        ]}
+      />
       <PageHead
         solo
         crumbs={[

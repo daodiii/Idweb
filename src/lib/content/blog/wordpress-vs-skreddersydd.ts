@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const wordpressVsSkreddersydd: BlogPost = {
   slug: "wordpress-vs-skreddersydd",
   title: "WordPress vs. skreddersydd nettside — hva passer for din bedrift?",
+  seoTitle: "WordPress eller skreddersydd nettside?",
   excerpt:
     "Bør du velge WordPress eller en skreddersydd løsning for nettsiden din? Vi sammenligner fordeler, ulemper og kostnader slik at du kan ta riktig valg.",
   metaDescription:

@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const sosialeMedierForBedrifter: BlogPost = {
   slug: "sosiale-medier-for-bedrifter",
   title: "Sosiale medier for bedrifter: En praktisk guide for 2026",
+  seoTitle: "Sosiale medier for bedrifter: praktisk guide",
   excerpt:
     "Hvilke plattformer bør bedriften din være på? Hva bør du publisere? Og hvordan gjør du sosiale medier til en kilde for nye kunder — ikke bare tidsbruk?",
   metaDescription:

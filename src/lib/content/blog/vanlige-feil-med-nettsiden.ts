@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const vanligeFeilMedNettsiden: BlogPost = {
   slug: "vanlige-feil-med-nettsiden",
   title: "5 vanlige feil bedrifter gjør med nettsiden sin — og hvordan du unngår dem",
+  seoTitle: "5 vanlige feil med bedriftens nettside",
   excerpt:
     "De fleste bedriftsnettsider har de samme problemene. Her er de fem vanligste feilene vi ser, og konkrete tips for å fikse dem.",
   metaDescription:

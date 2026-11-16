@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types";
 export const hvordanVelgeDomenenavn: BlogPost = {
   slug: "hvordan-velge-domenenavn",
   title: "Hvordan velge riktig domenenavn: En komplett guide for norske bedrifter",
+  seoTitle: "Slik velger du riktig domenenavn for bedriften",
   excerpt:
     "Domenenavnet ditt er bedriftens digitale adresse. Velg feil, og du mister kunder allerede før de har besøkt nettsiden din. Her er alt du trenger å vite for å velge riktig.",
   metaDescription:
