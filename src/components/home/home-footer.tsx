@@ -43,7 +43,7 @@ export function HomeFooter() {
             </div>
           </div>
           <div className="legal">
-            <span>© {new Date().getFullYear()} IDweb</span>
+            <span>© {new Date().getFullYear()} IDweb · Org.nr 837 228 972</span>
             <span>
               <Link href="/personvern">Personvern</Link>
               <Link href="/vilkar">Vilkår</Link>

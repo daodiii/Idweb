@@ -119,5 +119,5 @@ export const AGENCY_SERVICES = [
   { href: "/tjenester/seo", tag: "SEO", title: "Synlighet i Google", description: "Teknisk SEO, innhold og Google-bedriftsprofil, så kundene i Oslo finner deg." },
   { href: "/tjenester/vedlikehold", tag: "Drift", title: "Drift og vedlikehold", description: "Oppdateringer, sikkerhetskopier og endringer. Kan sies opp med én måneds varsel." },
   { href: "/referanser", tag: "Referanser", title: "Nettsider vi har levert", description: "Se nettsidene vi har laget for tannleger, legekontor, trossamfunn og kultursentre." },
-  { href: "/tjenester/webutvikler-oslo", tag: "Utvikling", title: "Webutvikler i Oslo", description: "Trenger du bare utvikling? Du snakker direkte med den som skriver koden." },
+  { href: "/tjenester/timebestilling", tag: "Timebestilling", title: "Timebestilling på nettsiden", description: "Kundene velger tid selv, og kalenderen holder styr på resten." },
 ] as const;
