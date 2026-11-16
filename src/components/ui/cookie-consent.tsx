@@ -88,7 +88,7 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => handleChoice("all")}
-            className="h-11 rounded-full bg-[#2447D6] text-sm font-semibold text-white transition-[background-color,transform] duration-150 hover:bg-[#1D3BBA] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2447D6] active:scale-[0.97]"
+            className="h-11 rounded-full border border-[#D9DCE2] text-sm font-semibold text-[#14161B] transition-[background-color,transform] duration-150 hover:bg-[#F6F7F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2447D6] active:scale-[0.97]"
             style={{ transitionTimingFunction: ease }}
           >
             Godta

@@ -2,11 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Marker } from "@/components/home/marker";
 
+// The work section's pictures load eagerly (lazy loading left the last card blank), but with fetchPriority="low":
+// React preloads every non-lazy <img> in <head> unless it is marked low, and those ten preloads competed with the
+// hero picture, the page's LCP element.
+
 /** A phone-shaped frame around a mobile screenshot. */
 function Phone({ src, alt, className }: { src: string; alt: string; className: string }) {
   return (
     <div className={`wk-phone ${className}`}>
-      <Image src={src} alt={alt} fill quality={90} loading="eager" sizes="(max-width: 900px) 26vw, 12vw" />
+      <Image src={src} alt={alt} fill quality={90} loading="eager" fetchPriority="low" sizes="(max-width: 900px) 26vw, 12vw" />
     </div>
   );
 }
@@ -47,9 +51,9 @@ export function WorkSection() {
           <li>
             <figure>
               <div className="wk-card wk-kong">
-                <Image className="wk-bg" loading="eager" src="/images/arbeid/kongsvinger-festning.webp" alt="Kongsvinger festning og byen under, tegnet for nettsiden til Kongsvinger Tannhelse" fill sizes="(max-width: 900px) 92vw, 50vw" />
+                <Image className="wk-bg" loading="eager" fetchPriority="low" src="/images/arbeid/kongsvinger-festning.webp" alt="Kongsvinger festning og byen under, tegnet for nettsiden til Kongsvinger Tannhelse" fill sizes="(max-width: 900px) 92vw, 50vw" />
                 <div className="wk-desk">
-                  <Image src="/images/arbeid/kongsvinger-bok-hd.webp" alt="Behandlingsboken til Kongsvinger Tannhelse på PC, med Tannsjekk åpnet" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
+                  <Image src="/images/arbeid/kongsvinger-bok-hd.webp" alt="Behandlingsboken til Kongsvinger Tannhelse på PC, med Tannsjekk åpnet" fill quality={90} loading="eager" fetchPriority="low" sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
                 <Phone src="/images/arbeid/kongsvinger-mobil-v2.webp" alt="Forsiden til Kongsvinger Tannhelse på mobil" className="wk-kong-p" />
               </div>
@@ -61,7 +65,7 @@ export function WorkSection() {
               <div className="wk-card wk-mk">
                 <div className="wk-desk">
                   {/* cropped close around the headline so the outlined «som prioriterer» stays legible at card size */}
-                  <Image src="/images/arbeid/mk-auto-desktop-hd.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
+                  <Image src="/images/arbeid/mk-auto-desktop-hd.webp" alt="MK Auto sin forside på PC: «Bruktbilforhandleren som prioriterer kunden»" fill quality={90} loading="eager" fetchPriority="low" sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
                 <Phone src="/images/arbeid/mk-auto-mobil-hd-v2.webp" alt="Samme forside på mobil" className="wk-mk-p" />
               </div>
@@ -72,7 +76,7 @@ export function WorkSection() {
             <figure>
               <div className="wk-card wk-ringebu">
                 <div className="wk-desk">
-                  <Image src="/images/arbeid/ringebu-desktop-hd.webp" alt="Forsiden til Ringebu Tannlegesenter på PC: «Hos oss er du i trygge hender», med bilder fra klinikken" fill quality={90} loading="eager" sizes="(max-width: 900px) 70vw, 38vw" />
+                  <Image src="/images/arbeid/ringebu-desktop-hd.webp" alt="Forsiden til Ringebu Tannlegesenter på PC: «Hos oss er du i trygge hender», med bilder fra klinikken" fill quality={90} loading="eager" fetchPriority="low" sizes="(max-width: 900px) 70vw, 38vw" />
                 </div>
                 <Phone src="/images/arbeid/ringebu-mobil-v2.webp" alt="Forsiden til Ringebu Tannlegesenter på mobil: «Har du noen av disse plagene?» med symptomene som mapper" className="wk-ringebu-p" />
               </div>

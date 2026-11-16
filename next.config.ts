@@ -97,6 +97,12 @@ const nextConfig: NextConfig = {
         source: "/og/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
+      // Files in public/images were served with max-age=0, so every visit re-checked every logo and picture. A day
+      // fresh plus a week of stale-while-revalidate; replaced pictures already get new file names (see git history).
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+      },
       {
         source: "/favicon.ico",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],

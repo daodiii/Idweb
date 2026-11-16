@@ -4,6 +4,29 @@
  * All data is hardcoded (no user input) — safe to render server-side.
  */
 
+const SITE = "https://www.idweb.no";
+
+const LOGO = {
+  "@type": "ImageObject",
+  "@id": `${SITE}/#logo`,
+  url: `${SITE}/images/idweb-logo.png`,
+  width: 512,
+  height: 512,
+};
+
+// One entry per service page. Each page's ServiceJsonLd emits a Service with the same @id, so the catalog below and
+// the pages describe one set of entities instead of two unlinked lists.
+const SERVICES = [
+  { name: "Skreddersydd nettside", path: "/tjenester/nettside" },
+  { name: "Timebestilling på nettsiden", path: "/tjenester/timebestilling" },
+  { name: "Nettbutikk", path: "/tjenester/nettbutikk" },
+  { name: "AI-chatbot", path: "/tjenester/ai-chatbot" },
+  { name: "SEO og AI-synlighet", path: "/tjenester/seo" },
+  { name: "Drift og vedlikehold", path: "/tjenester/vedlikehold" },
+  { name: "Kundeportal", path: "/tjenester/kundeportal" },
+  { name: "Webbyrå i Oslo", path: "/webbyra-oslo" },
+] as const;
+
 const BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -15,8 +38,22 @@ const BUSINESS_SCHEMA = {
   url: "https://www.idweb.no",
   telephone: "+4798406164",
   email: "hei@idweb.no",
-  logo: "https://www.idweb.no/images/idweb-logo.png",
-  image: "https://www.idweb.no/images/idweb-logo.png",
+  taxID: "837228972",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "Organisasjonsnummer",
+    value: "837228972",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: "+4798406164",
+    email: "hei@idweb.no",
+    areaServed: "NO",
+    availableLanguage: ["nb", "en"],
+  },
+  logo: LOGO,
+  image: { "@id": `${SITE}/#logo` },
   // Service-area business — no physical office. We assert the locality we
   // operate from (Oslo) and the areas we serve, but no street address, postal
   // code or map coordinates that would imply a visitable location.
@@ -46,59 +83,23 @@ const BUSINESS_SCHEMA = {
     closes: "17:00",
   },
   sameAs: [
-    "https://share.google/gxNUvzOTp7nHqoSr8", // Google Business Profile
+    // Google Business Profile, by its Knowledge Graph id. The share.google short link it replaces was a redirect, not
+    // a stable profile URL.
+    "https://www.google.com/search?kgmid=/g/11n9y9c5rc",
   ],
   knowsLanguage: ["nb", "en"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Webtjenester",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Webutvikler i Oslo",
-          description:
-            "Lokal webutvikler i Oslo som lager raske, skreddersydde nettsider for bedrifter.",
-        },
+    itemListElement: SERVICES.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        "@id": `${SITE}${s.path}#service`,
+        name: s.name,
+        url: `${SITE}${s.path}`,
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Skreddersydd nettside",
-          description:
-            "Profesjonell, mobiloptimalisert nettside designet for å tiltrekke kunder.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Nettbutikk-utvikling",
-          description:
-            "Skreddersydde nettbutikker med trygg betaling, lynraske og mobilvennlige.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "SEO-optimalisering",
-          description:
-            "Søkemotoroptimalisering som gir bedriften din synlighet i Google.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Drift og vedlikehold",
-          description:
-            "Løpende vedlikehold, sikkerhetskopier og oppdateringer for nettsiden din.",
-        },
-      },
-    ],
+    })),
   },
 };
 
@@ -177,13 +178,17 @@ export function BlogPostJsonLd({
     headline: title,
     description,
     url: `https://www.idweb.no/blogg/${slug}`,
+    // The same 1200x630 card the page's og:image uses (src/app/og/[image]/route.tsx).
+    image: {
+      "@type": "ImageObject",
+      url: `https://www.idweb.no/og/blogg-${slug}.png`,
+      width: 1200,
+      height: 630,
+    },
     datePublished: publishedDate,
     dateModified: publishedDate,
     author: {
-      "@type": "Organization",
-      name: "IDweb",
-      url: "https://www.idweb.no",
-      logo: "https://www.idweb.no/images/idweb-logo.png",
+      "@id": "https://www.idweb.no/#business",
     },
     publisher: {
       "@id": "https://www.idweb.no/#business",
@@ -242,12 +247,14 @@ export function ServiceJsonLd({
   basePath?: string;
   areaServed?: { "@type": "Country" | "City"; name: string };
 }) {
+  const url = `https://www.idweb.no/${[basePath, slug].filter(Boolean).join("/")}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
     name,
     description,
-    url: `https://www.idweb.no/${[basePath, slug].filter(Boolean).join("/")}`,
+    url,
     provider: {
       "@id": "https://www.idweb.no/#business",
     },

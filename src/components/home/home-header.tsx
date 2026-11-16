@@ -20,7 +20,7 @@ export function HomeHeader() {
       <header className="top">
         <div className="wrap">
           <Link href="/" className="logo" aria-label="IDweb, til forsiden">
-            <IdwebMark className="logo-mark" />
+            <IdwebMark className="logo-mark" eager />
             <IdwebWordmark />
           </Link>
           <nav className="navlinks" aria-label="Hovedmeny">
