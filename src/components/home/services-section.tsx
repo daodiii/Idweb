@@ -42,7 +42,7 @@ export function ServicesSection() {
           ))}
         </div>
         <div className="sv-body">
-          <div className="sv-stage" aria-hidden="true">
+          <div className="sv-stage" aria-hidden="true" data-nosnippet>
             <div className="sv-frame">
               <div className="sv-host" />
             </div>

@@ -76,7 +76,14 @@ export function ClientFigure({ id }: { id: ClientId }) {
     <figure className="sp-fig">
       <ClientStage id={id} />
       <figcaption>
-        {client.name} · {client.line}
+        {client.href ? (
+          <Link className="link" href={client.href}>
+            {client.name}
+          </Link>
+        ) : (
+          client.name
+        )}{" "}
+        · {client.line}
       </figcaption>
     </figure>
   );

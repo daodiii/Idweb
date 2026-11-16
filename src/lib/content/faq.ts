@@ -25,12 +25,12 @@ export const FAQS: FAQ[] = [
   {
     question: "Kan jeg oppdatere innholdet selv etter lansering?",
     answer:
-      "Du kan gjøre endringer selv, men det krever teknisk kompetanse — blant annet kjennskap til GitHub og kodebasert publisering. Foreløpig har vi ingen enklere løsning for selvbetjent redigering. Hvis du heller vil at vi gjør det, er innholdsendringer inkludert i driftsavtalen.",
+      "Med driftsavtale sender du en melding, så gjør vi endringen. Innholdsendringer er inkludert. Du kan også gjøre endringer selv, men det krever at du kan jobbe i koden, med GitHub. Vi har ikke et enklere redigeringsverktøy i dag.",
   },
   {
     question: "Er nettsidene mobiloptimaliserte?",
     answer:
-      "Alltid. Alle nettsider vi lager er responsive, som betyr at de tilpasser seg automatisk til skjermstørrelsen — enten besøkeren bruker mobil, nettbrett eller desktop. Med over 70 % av all nettrafikk fra mobile enheter i Norge, er mobiloptimalisering ikke et tilvalg — det er en nødvendighet. Vi tester på flere enheter og nettlesere før lansering.",
+      "Alltid. Alle nettsider vi lager er responsive, som betyr at de tilpasser seg automatisk til skjermstørrelsen — enten besøkeren bruker mobil, nettbrett eller desktop. De fleste besøker nettsider fra mobilen, så mobiloptimalisering er ikke et tilvalg. Vi tester på flere enheter og nettlesere før lansering.",
   },
   {
     question: "Hva er SEO, og trenger jeg det?",
@@ -38,9 +38,9 @@ export const FAQS: FAQ[] = [
       "SEO står for søkemotoroptimalisering og handler om å gjøre nettsiden din synlig i Google når folk søker etter det du tilbyr. Kort sagt: uten SEO finner ikke kundene deg. Alle nettsidene vi lager har grunnleggende SEO innebygd (rask lastetid, riktig struktur, metatagger). For de som ønsker å rangere enda høyere, tilbyr vi også løpende SEO-tjenester med søkeordanalyse og innholdsoptimalisering.",
   },
   {
-    question: "Hvilken teknologi bruker du?",
+    question: "Hvilken teknologi bruker dere?",
     answer:
-      "Vi velger teknologi basert på hva som passer best for prosjektet ditt. For de fleste bedriftssider bruker vi moderne rammeverk som gir rask lastetid, god sikkerhet og enkel administrasjon. For nettbutikker bruker vi velprøvde plattformer med integrasjon mot betalingsløsninger som passer butikken. Du får alltid en anbefaling basert på dine behov og budsjett.",
+      "Vi bygger i Next.js. Hver side lages ferdig på serveren, så den er rask og Google kan lese all teksten. Nettbutikker bygger vi på samme måte, med betaling og frakt koblet inn. Vil du redigere alt innhold selv i et tradisjonelt publiseringsverktøy, passer WordPress ofte bedre, og det sier vi fra om i første samtale.",
   },
   {
     question: "Hva inkluderes i prisen?",
@@ -48,7 +48,7 @@ export const FAQS: FAQ[] = [
       "Alle våre priser inkluderer design, utvikling, mobiloptimalisering, grunnleggende SEO, kontaktskjema og SSL-sertifikat. Hosting og domenenavn kan inkluderes i driftsavtalen eller håndteres separat. Vi er alltid tydelige på hva som er inkludert og hva som eventuelt kommer i tillegg — ingen overraskelser.",
   },
   {
-    question: "Tilbyr du hosting?",
+    question: "Tilbyr dere hosting?",
     answer:
       "Ja. Vi tilbyr rask og sikker hosting med daglige sikkerhetskopier. Hosting kan bestilles som en del av driftsavtalen eller som en separat tjeneste. Vi håndterer alt det tekniske slik at du slipper å forholde deg til serveradministrasjon.",
   },
@@ -58,22 +58,22 @@ export const FAQS: FAQ[] = [
       "Nei, vi har ingen bindingstid på noen av tjenestene våre. Vi tror på å beholde kunder gjennom kvalitet, ikke kontrakter. Du kan når som helst si opp driftsavtalen med én måneds varsel. Nettsiden er din — du eier alt innhold, design og kode.",
   },
   {
-    question: "Kan du hjelpe med innhold og tekst til nettsiden?",
+    question: "Kan dere hjelpe med innhold og tekst til nettsiden?",
     answer:
       "Ja, vi tilbyr innholdsproduksjon som en del av prosjektet eller som en tilleggstjeneste. Vi hjelper med å skrive tekster som er både engasjerende for leserne og optimaliserte for søkemotorer. Godt innhold er avgjørende for at nettsiden skal rangere i Google og overbevise besøkende om å ta kontakt.",
   },
   {
-    question: "Hva om jeg allerede har en nettside — kan du forbedre den?",
+    question: "Hva om jeg allerede har en nettside — kan dere forbedre den?",
     answer:
       "Absolutt. Vi tilbyr både redesign av eksisterende nettsider og optimalisering av ytelse, SEO og brukeropplevelse. Noen ganger er det mest effektivt å bygge nytt fra bunnen, mens andre ganger kan vi oppgradere det du allerede har. Vi gir deg en ærlig vurdering av hva som gir best resultat for pengene.",
   },
   {
-    question: "Jobber du med bedrifter i hele Norge?",
+    question: "Jobber dere med bedrifter i hele Norge?",
     answer:
       "Ja, vi jobber med bedrifter over hele landet. Alt samarbeid kan skje digitalt — via videomøter, e-post og telefon. Vi har erfaring med kunder fra Kristiansand til Tromsø, og avstanden har aldri vært et hinder for godt samarbeid.",
   },
   {
-    question: "Hva trenger du fra meg for å komme i gang?",
+    question: "Hva trenger dere fra meg for å komme i gang?",
     answer:
       "For å gi deg et godt tilbud trenger vi en kort beskrivelse av bedriften din, hva du ønsker å oppnå med nettsiden, og eventuelt eksempler på nettsider du liker. Når prosjektet starter, trenger vi logo, bilder, tekster og annet innhold — men vi hjelper gjerne med å produsere det som mangler.",
   },
