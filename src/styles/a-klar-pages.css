@@ -119,8 +119,38 @@
 .ka .sec-h + .kv{margin-top:28px}
 .ka .label.first{margin-top:0}
 .ka .chapters + .more{margin-top:24px}
-.ka .g-contact .intro p.note{font-size:13px;color:var(--faint)}
+/* The contact form card. Its rules left with the homepage's old contact section (be4e419) and never came back for
+   /kontakt; restored here in the green brand: a Forest card like the CTA cards, the form on white beside it. */
+.ka .contact{padding-bottom:112px}
+.ka .g-contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;padding:56px;border-radius:28px;background:var(--forest);color:#fff;--heading:currentColor}
+.ka .g-contact h2{font-size:clamp(32px,4vw,46px);font-weight:700}
+.ka .g-contact .intro{display:flex;flex-direction:column;gap:22px}
+.ka .g-contact .intro p{color:#C3C8D2;font-size:17px}
+.ka .g-contact .reach{display:flex;flex-direction:column;gap:8px;font-size:16px;padding-top:8px}
+.ka .g-contact .reach span{color:#C3C8D2}
+@media (hover:hover) and (pointer:fine){.ka .g-contact .intro a:hover{color:#C9E8AE}}
+.ka .g-contact .intro p.note{font-size:13px;color:#C3C8D2}
 .ka .g-contact .note a{text-decoration:underline;text-underline-offset:3px}
+.ka .cform{display:flex;flex-direction:column;gap:18px;padding:28px;border-radius:20px;background:#fff;color:var(--ink)}
+.ka .cform .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ka .cform .field{display:flex;flex-direction:column;gap:8px}
+.ka .cform .field label,.ka .cform legend{font-weight:600;font-size:14px}
+.ka .cform .field input,.ka .cform .field textarea{font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line-strong);border-radius:10px;background:#fff;color:var(--ink);transition:border-color 160ms,box-shadow 160ms}
+.ka .cform .field input:focus,.ka .cform .field textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px rgba(4,117,78,.15)}
+.ka .cform fieldset{border:0;margin:0;padding:0}
+.ka .cform legend{margin-bottom:10px}
+.ka .cform .chips{display:flex;flex-wrap:wrap;gap:8px;font-size:14px}
+.ka .cform .chip{position:relative;display:inline-flex;align-items:center;padding:9px 14px;border-radius:999px;border:1px solid var(--line-strong);cursor:pointer;transition:background-color 160ms,color 160ms,border-color 160ms}
+.ka .cform .chip input{position:absolute;opacity:0;pointer-events:none}
+.ka .cform .chip:has(input:checked){background:var(--forest);border-color:var(--forest);color:#fff}
+.ka .cform .chip:has(input:focus-visible){outline:2px solid var(--pine);outline-offset:2px}
+.ka .cform .send{justify-content:center;border:0;cursor:pointer;font:inherit;font-weight:600}
+.ka .cform .send:disabled{opacity:.6;cursor:not-allowed}
+.ka .cform .err{color:#B3261E;font-size:14px}
+.ka .cform .ok{display:flex;flex-direction:column;align-items:center;gap:10px;padding:40px 12px;text-align:center}
+.ka .cform .ok b{font-size:20px;color:var(--forest)}
+.ka .cform .ok span{color:var(--muted)}
+@media (max-width:900px){.ka .g-contact{grid-template-columns:minmax(0,1fr);gap:40px;padding:32px 20px}.ka .contact{padding-bottom:80px}.ka .cform{padding:20px}.ka .cform .two{grid-template-columns:minmax(0,1fr)}}
 
 /* ---------- articles: cards ---------- */
 .ka .g-posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 28px}
