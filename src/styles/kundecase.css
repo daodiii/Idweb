@@ -63,7 +63,7 @@
 .ka.kc .kc-story.is-scene .kc-step{grid-column:1;display:flex;min-height:clamp(380px,48vh,560px);align-items:center}
 .ka.kc .kc-story.is-scene .kc-step > *{opacity:1;transform:none}
 .ka.kc .kc-story.is-scene .kc-step figure{display:none}
-.ka.kc .kc-story.is-scene .kc-step h3,.ka.kc .kc-story.is-scene .kc-step p{color:#B3B8C1;transition:color 300ms var(--out)}
+.ka.kc .kc-story.is-scene .kc-step h3,.ka.kc .kc-story.is-scene .kc-step p{color:#676C80;transition:color 300ms var(--out)}
 .ka.kc .kc-story.is-scene .kc-step.on h3{color:var(--heading)}
 .ka.kc .kc-story.is-scene .kc-step.on p{color:var(--ink)}
 .ka.kc .kc-story.is-scene .kc-pin{display:block;grid-column:2;grid-row:1/span 99;position:sticky;top:var(--pin-top,120px);align-self:start}
@@ -83,10 +83,12 @@
 
 /* call to action and the next client */
 .ka.kc .kc-end{padding-block:0 clamp(64px,7vw,104px);display:flex;flex-direction:column;gap:24px}
-.ka.kc .kc-cta{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end}
+.ka.kc .kc-cta{background:var(--forest);color:#fff;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end}
 .ka.kc .kc-cta h2{font-size:clamp(32px,3.6vw,46px);font-weight:700}
 .ka.kc .kc-cta p{color:#C3C8D2;font-size:17px;margin-top:14px;max-width:44ch}
-.ka.kc .kc-cta .btn{justify-self:start}
+/* on the Forest card the Pine button would vanish, so it turns white with Forest text, like the menu card's */
+.ka.kc .kc-cta .btn{justify-self:start;background:#fff;color:var(--forest)}
+@media (hover:hover) and (pointer:fine){.ka.kc .kc-cta .btn:hover{background:#C9E8AE}}
 .ka.kc .kc-next{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:center;padding:28px;border-radius:24px;background:var(--surface);transition:background-color 200ms}
 .ka.kc .kc-next b{display:block;font:700 clamp(28px,3vw,40px)/1.08 var(--font);letter-spacing:-.025em}
 .ka.kc .kc-next .link{display:inline-block;margin-top:16px}
