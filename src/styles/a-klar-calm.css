@@ -426,6 +426,10 @@
   :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--signal-green) 0%,var(--pine) 34%,var(--forest) 100%)}
 }
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
+/* on the Forest menu card the green button would vanish, so it turns white with Forest text, like the side menu's */
+:root:has(.ka.calm) .ka .dropdown > .dd-cta span{background:#fff;color:var(--forest)}
+@media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .dropdown > .dd-cta:hover span{background:#C9E8AE}}
+:root:has(.ka.calm) .ka .dropdown > .dd-cta span::after{background-image:linear-gradient(currentColor,currentColor),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='%2304442C' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .ka.calm .hero .btn svg{display:none}
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{content:"";flex:none;width:14px;height:10px;margin-right:-2px;
   background:linear-gradient(currentColor,currentColor) left 50%/0 1.6px no-repeat,
