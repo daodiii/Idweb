@@ -95,6 +95,13 @@ Suggested PRs: A alone, B, C, D, E+F. Each starts after the previous is merged, 
 2. **Warning colour:** amber-brown `#8A5A00` text (5.7:1 on Paper) on pale sand `#F6ECD9`, only for the "warning", "missing", "low" and "not paid" states in the tjenester mock UIs.
 3. **Night sections:** the night moment (Bjørvika under the northern lights, `#030817`) stays navy, since it's an illustration. The dark quote/contact band (`.qt`) moves to Forest.
 
+Later decisions, made while the parts were built:
+
+4. **«Slik jobber vi» band** (`#prosess`, homepage): pale green `#EAF3EE` instead of periwinkle (part C, 18 November).
+5. **Demo fields on the service pages** (`#E9ECF7`): stay periwinkle (part D, 18 November).
+6. **Dark CTA cards** (`.kc-cta` on case pages, `.cta-card` on inner pages): Forest instead of Ink, with a white button and Forest text, `#C9E8AE` on hover (part E, 19 November; `.cta-card` follows in part F).
+7. **Faded scene steps** on the case pages: `#676C80` instead of `#B3B8C1`, so they pass AA on the grey ground at 4.6:1 (part E, 19 November).
+
 ## Still open
 
 - The stray folder `selgenettside/idweb-inner-green` (leftover files only): delete or keep.
