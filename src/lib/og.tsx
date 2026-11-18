@@ -11,22 +11,27 @@ export interface OgCard {
   title: string;
 }
 
-/** Schibsted Grotesk, the site's own face (SIL OFL, see og-fonts/OFL.txt), as woff: Satori cannot read woff2. */
+/** Plus Jakarta Sans, the site's own face (SIL OFL, see og-fonts/OFL.txt), as woff: Satori cannot read woff2. */
 const fonts = (async () => {
   const dir = path.join(process.cwd(), "src/lib/og-fonts");
   const [semibold, extrabold] = await Promise.all([
-    readFile(path.join(dir, "schibsted-grotesk-latin-600-normal.woff")),
-    readFile(path.join(dir, "schibsted-grotesk-latin-800-normal.woff")),
+    readFile(path.join(dir, "plus-jakarta-sans-latin-600-normal.woff")),
+    readFile(path.join(dir, "plus-jakarta-sans-latin-800-normal.woff")),
   ]);
   return [
-    { name: "Schibsted Grotesk", data: semibold, weight: 600 as const, style: "normal" as const },
-    { name: "Schibsted Grotesk", data: extrabold, weight: 800 as const, style: "normal" as const },
+    { name: "Plus Jakarta Sans", data: semibold, weight: 600 as const, style: "normal" as const },
+    { name: "Plus Jakarta Sans", data: extrabold, weight: 800 as const, style: "normal" as const },
   ];
 })();
 
+/** The Night Signal logo (symbol and wordmark) from the brand kit, as a data URI Satori can draw. */
+const logo = readFile(path.join(process.cwd(), "src/lib/og-logo.svg")).then(
+  (svg) => `data:image/svg+xml;base64,${svg.toString("base64")}`,
+);
+
 /**
- * The link preview for every page (1200×630), in the A · Klar look: white card, ink headline, cobalt kicker,
- * peach corner and the orange booking pill. Satori only lays out flex boxes, so every element with more than one
+ * The link preview for every page (1200×630), in the green brand: white card, Forest headline, Pine kicker,
+ * a pale green corner and the Pine booking pill. Satori only lays out flex boxes, so every element with more than one
  * child sets display: flex.
  */
 export async function ogImage({ kicker, title }: OgCard) {
@@ -42,9 +47,9 @@ export async function ogImage({ kicker, title }: OgCard) {
           justifyContent: "space-between",
           padding: "64px 80px",
           background: "#FFFFFF",
-          color: "#14161B",
+          color: "#04442C",
           position: "relative",
-          fontFamily: "Schibsted Grotesk",
+          fontFamily: "Plus Jakarta Sans",
         }}
       >
         <div
@@ -55,33 +60,17 @@ export async function ogImage({ kicker, title }: OgCard) {
             width: 520,
             height: 520,
             borderRadius: 9999,
-            background: "#FCEBDB",
+            background: "#EAF3EE",
             display: "flex",
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <svg width="40" height="46" viewBox="12 6 76 88" fill="none">
-            <defs>
-              <linearGradient id="og-i" gradientUnits="userSpaceOnUse" x1="22" y1="14" x2="34" y2="86">
-                <stop offset="0" stopColor="#FFB36B" />
-                <stop offset="1" stopColor="#F2892B" />
-              </linearGradient>
-              <linearGradient id="og-d" gradientUnits="userSpaceOnUse" x1="40" y1="14" x2="76" y2="86">
-                <stop offset="0" stopColor="#4B6BEA" />
-                <stop offset="1" stopColor="#1E2A6E" />
-              </linearGradient>
-            </defs>
-            <rect x="22" y="14" width="12" height="72" rx="6" fill="url(#og-i)" />
-            <path d="M40 13A37 37 0 0 1 40 87A41 41 0 0 0 40 13Z" fill="url(#og-d)" />
-          </svg>
-          <span style={{ display: "flex", fontSize: 46, letterSpacing: -1.5 }}>
-            <span style={{ fontWeight: 800 }}>ID</span>
-            <span style={{ fontWeight: 600 }}>web</span>
-          </span>
-          <span style={{ marginLeft: 14, fontSize: 20, fontWeight: 600, letterSpacing: 2, color: "#5A606C" }}>WEBBYRÅ OG SYSTEMUTVIKLER</span>
+          {/* eslint-disable-next-line @next/next/no-img-element -- Satori draws plain img elements only */}
+          <img src={await logo} alt="" width={228} height={50} />
+          <span style={{ marginLeft: 14, fontSize: 20, fontWeight: 600, letterSpacing: 2, color: "#4B5170" }}>WEBBYRÅ OG SYSTEMUTVIKLER</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 980 }}>
-          <span style={{ fontSize: 28, fontWeight: 600, color: "#2447D6" }}>{kicker}</span>
+          <span style={{ fontSize: 28, fontWeight: 600, color: "#04754E" }}>{kicker}</span>
           <span style={{ fontSize: size, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2 }}>{title}</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
@@ -90,14 +79,15 @@ export async function ogImage({ kicker, title }: OgCard) {
               display: "flex",
               padding: "14px 30px",
               borderRadius: 9999,
-              background: "#F9A04F",
+              background: "#04754E",
+              color: "#FFFFFF",
               fontSize: 24,
               fontWeight: 800,
             }}
           >
             Book en gratis prat
           </span>
-          <span style={{ fontSize: 24, fontWeight: 600, color: "#4A505B" }}>idweb.no · Oslo</span>
+          <span style={{ fontSize: 24, fontWeight: 600, color: "#4B5170" }}>idweb.no · Oslo</span>
         </div>
       </div>
     ),
