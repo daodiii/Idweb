@@ -55,18 +55,18 @@
 .ka .cv .cur{position:absolute;left:0;top:0;z-index:50;width:20px;height:24px;pointer-events:none;opacity:0;transform:translate(560px,470px);transition:transform 680ms var(--eio),opacity 240ms;filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}
 .ka .cv .cur svg{display:block;transition:transform 140ms var(--eo);transform-origin:3px 2px}
 .ka .cv .cur.press svg{transform:scale(.84)}
-.ka .cv .cur .rng{position:absolute;left:-9px;top:-10px;width:24px;height:24px;border-radius:50%;border:2px solid rgba(36,71,214,.7);opacity:0}
+.ka .cv .cur .rng{position:absolute;left:-9px;top:-10px;width:24px;height:24px;border-radius:50%;border:2px solid rgba(4,117,78,.7);opacity:0}
 .ka .cv.rm .cur{display:none}
 .ka .cv.rm *{transition:none!important;animation:none!important}
 .ka .cv .pressed{transform:scale(.97)!important}
 /* browser frame used by several scenes */
-.ka .cv .bw{position:absolute;display:flex;flex-direction:column;background:#fff;border:1px solid #E3E6EC;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(20,22,27,.05),0 28px 56px -28px rgba(30,42,110,.38)}
+.ka .cv .bw{position:absolute;display:flex;flex-direction:column;background:#fff;border:1px solid #E3E6EC;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(20,22,27,.05),0 28px 56px -28px rgba(19,26,58,.38)}
 .ka .cv .bw>.bar{position:relative;flex:none;height:30px;display:flex;align-items:center;gap:5px;padding:0 10px;background:#F7F8FA;border-bottom:1px solid #ECEEF2}
 .ka .cv .bw>.bar>i{width:8px;height:8px;border-radius:50%;background:#DCDFE5}
 .ka .cv .url{position:absolute;left:50%;top:6px;margin-left:-80px;width:160px;height:18px;border-radius:6px;background:#fff;border:1px solid #E6E8EC;font-size:10.5px;line-height:16px;color:#5A606C;text-align:center;white-space:nowrap;overflow:hidden}
 .ka .cv .pub{margin-left:auto;display:inline-flex;align-items:center;gap:5px;height:18px;padding:0 8px;border-radius:999px;background:#14161B;color:#fff;font-size:10px;font-weight:600}
-.ka .cv .pub::before{content:"";width:6px;height:6px;border-radius:50%;background:#F2892B}
-.ka .cv .card{position:absolute;background:#fff;border:1px solid #E3E6EC;border-radius:14px;box-shadow:0 1px 2px rgba(20,22,27,.05),0 28px 56px -28px rgba(30,42,110,.32)}
+.ka .cv .pub::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime)}
+.ka .cv .card{position:absolute;background:#fff;border:1px solid #E3E6EC;border-radius:14px;box-shadow:0 1px 2px rgba(20,22,27,.05),0 28px 56px -28px rgba(19,26,58,.32)}
 /* --- scene: nettside (Nordvik Arkitekter) --- */
 .ka .sc-web{--fj:#183B4A;--cu:#D08A4E}
 .ka .sc-web .site{position:relative;flex:1;display:flex;flex-direction:column;gap:10px;padding:0 12px 12px}
@@ -91,7 +91,7 @@
 .ka .sc-web .pal{position:absolute;top:84px;right:24px;z-index:5;display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:10px;background:#fff;font-size:10px;color:#5A606C;box-shadow:0 10px 24px -10px rgba(20,22,27,.35),0 0 0 1px rgba(20,22,27,.06)}
 .ka .sc-web .sw{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.1)}
 .ka .sc-web .s1{background:#183B4A}.sc-web .s2{background:#8C3B2E}.sc-web .s3{background:#3B3F58}
-.ka .sc-web .ph{position:absolute;display:flex;flex-direction:column;background:#fff;border:5px solid #16181D;border-radius:24px;overflow:hidden;box-shadow:0 28px 50px -24px rgba(30,42,110,.45)}
+.ka .sc-web .ph{position:absolute;display:flex;flex-direction:column;background:#fff;border:5px solid #16181D;border-radius:24px;overflow:hidden;box-shadow:0 28px 50px -24px rgba(19,26,58,.45)}
 .ka .sc-web .ph .st{flex:none;height:20px;display:flex;justify-content:space-between;align-items:center;padding:0 12px;font-size:8.5px;font-weight:600}
 .ka .sc-web .ph .pn{flex:none;height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 10px}
 .ka .sc-web .ph .pn b{font:800 11px/1 var(--font-bricolage),"Bricolage Grotesque",var(--font);color:var(--fj);letter-spacing:-.02em}
@@ -167,7 +167,7 @@
 .ka .sc-seo .rw{position:absolute;left:0;right:0;height:64px;padding:9px 12px;border-radius:10px;overflow:hidden;transition:top .75s var(--eio),height .5s var(--eo),background-color .4s,box-shadow .4s}
 .ka .sc-seo .dm{display:flex;align-items:center;gap:6px;font-size:10px;color:#5A606C}
 .ka .sc-seo .fv{width:14px;height:14px;border-radius:50%;flex:none}
-.ka .sc-seo .tt{margin-top:3px;font-size:13px;font-weight:600;color:#1A3FBF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ka .sc-seo .tt{margin-top:3px;font-size:13px;font-weight:600;color:var(--pine);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ka .sc-seo .sn{margin-top:2px;font-size:10.5px;color:#5A606C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ka .sc-seo .rw.rich{height:104px;background:#F0F7F8;box-shadow:inset 0 0 0 1.5px rgba(11,114,133,.35)}
 .ka .sc-seo .rx{opacity:0;transition:opacity .4s .2s}
@@ -195,8 +195,8 @@
 .ka .sc-ops .log{padding:14px 16px}
 .ka .sc-ops .lh{position:relative;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700}
 .ka .sc-ops .lh .stx{position:absolute;right:0;top:0;font-size:10.5px;font-weight:500;color:#5A606C;transition:opacity .3s}
-.ka .sc-ops .lh .ok{display:inline-flex;align-items:center;gap:5px;color:#1A3FBF;font-weight:650}
-.ka .sc-ops .lh .ok::before{content:"";width:6px;height:6px;border-radius:50%;background:#2447D6}
+.ka .sc-ops .lh .ok{display:inline-flex;align-items:center;gap:5px;color:var(--pine);font-weight:650}
+.ka .sc-ops .lh .ok::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pine)}
 .ka .sc-ops .lr{display:flex;align-items:center;gap:10px;height:30px;border-top:1px solid #F0F1F4;font-size:11.5px}
 .ka .sc-ops .lr:first-of-type{margin-top:10px}
 .ka .sc-ops .lr time{width:32px;font-size:10.5px;color:#5A606C;font-variant-numeric:tabular-nums}
@@ -210,7 +210,7 @@
 .ka .sc-ops .tm{font-size:9.5px;color:#5A606C;margin-bottom:4px}
 .ka .sc-ops .slot{display:grid;justify-items:end}
 .ka .sc-ops .slot>*{grid-area:1/1}
-.ka .sc-ops .br{background:#2447D6;color:#fff;border-radius:14px 14px 4px 14px}
+.ka .sc-ops .br{background:var(--pine);color:#fff;border-radius:14px 14px 4px 14px}
 .ka .sc-ops .dots{display:flex;gap:4px;align-items:center;height:30px;padding:0 12px}
 .ka .sc-ops .dots i{width:5px;height:5px;border-radius:50%;background:#fff;animation:sv-bob 1s ease-in-out infinite}
 .ka .sc-ops .dots i:nth-child(2){animation-delay:.15s}.sc-ops .dots i:nth-child(3){animation-delay:.3s}

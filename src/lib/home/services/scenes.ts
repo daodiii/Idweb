@@ -70,7 +70,7 @@ const BAKE = (id: string) => `<svg viewBox="0 0 286 140" preserveAspectRatio="xM
   <ellipse cx="134" cy="114" rx="21" ry="13" fill="url(#${id}r)"/><path d="M122 110 q12 -8 24 0" stroke="#F9DEAA" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".85"/>
   <path d="M262 30 Q254 64 250 100" stroke="#C99A3C" stroke-width="1.6" fill="none"/>
   <g fill="#E9C77A">${[36, 46, 56, 66].map((y, i) => `<ellipse cx="${260 - i * 2.2}" cy="${y}" rx="3" ry="5.5" transform="rotate(-24 ${260 - i * 2.2} ${y})"/><ellipse cx="${265 - i * 2.2}" cy="${y + 4}" rx="3" ry="5.5" transform="rotate(24 ${265 - i * 2.2} ${y + 4})"/>`).join("")}</g></svg>`;
-const TICK = '<svg class="ck" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="#2447D6" stroke-width="1.6" stroke-dasharray="51" stroke-dashoffset="51" transform="rotate(-90 9 9)"/><path d="M5.5 9.2l2.3 2.3 4.6-4.8" fill="none" stroke="#2447D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14" stroke-dashoffset="14"/></svg>';
+const TICK = '<svg class="ck" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="#04754E" stroke-width="1.6" stroke-dasharray="51" stroke-dashoffset="51" transform="rotate(-90 9 9)"/><path d="M5.5 9.2l2.3 2.3 4.6-4.8" fill="none" stroke="#04754E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14" stroke-dashoffset="14"/></svg>';
 const NI = {
   home: '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6.5 7 2.5l5 4V12H2z"/></svg>',
   cal: '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="10" height="9" rx="2"/><path d="M2 6h10M5 1.5v3M9 1.5v3"/></svg>',
@@ -220,7 +220,7 @@ export const SCENES: Record<SceneKey, Scene> = {
         <div class="ml hid"><b>Lia Tannklinikk</b><small>Åpent til 20:00</small></div>
       </div>
       <div class="card ai hid" style="left:404px;top:182px;width:220px;height:242px">
-        <div class="aih"><svg width="14" height="14" viewBox="0 0 14 14" fill="#2447D6" aria-hidden="true"><path d="M7 0l1.6 4.4L13 6l-4.4 1.6L7 12 5.4 7.6 1 6l4.4-1.6z"/></svg>AI-svar</div>
+        <div class="aih"><svg width="14" height="14" viewBox="0 0 14 14" fill="#04754E" aria-hidden="true"><path d="M7 0l1.6 4.4L13 6l-4.4 1.6L7 12 5.4 7.6 1 6l4.4-1.6z"/></svg>AI-svar</div>
         <div class="ub hid">Akutt tannlege i Drammen i kveld?</div>
         <div class="an"></div>
         <span class="src hid">liatannklinikk.no ↗</span>
@@ -258,7 +258,7 @@ export const SCENES: Record<SceneKey, Scene> = {
     dur: 6000,
     html: `<div class="sc sc-ops">
       <div class="card log hid" style="left:16px;top:16px;width:286px;height:190px">
-        <div class="lh"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.8 1.6A6.6 6.6 0 1 0 14.4 11 5.4 5.4 0 0 1 10.8 1.6z" fill="#1E2A6E"/></svg>I natt<span class="stx a">Automatisk</span><span class="stx ok hid">Alt i orden</span></div>
+        <div class="lh"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.8 1.6A6.6 6.6 0 1 0 14.4 11 5.4 5.4 0 0 1 10.8 1.6z" fill="#04442C"/></svg>I natt<span class="stx a">Automatisk</span><span class="stx ok hid">Alt i orden</span></div>
         <div class="lr hid"><time>03:00</time>Sikkerhetskopi tatt${TICK}</div>
         <div class="lr hid"><time>03:02</time>Oppdateringer installert${TICK}</div>
         <div class="lr hid"><time>03:04</time>Skjemaer og sider sjekket${TICK}</div>
