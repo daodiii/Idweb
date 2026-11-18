@@ -119,7 +119,7 @@
 .ka .sec-h + .kv{margin-top:28px}
 .ka .label.first{margin-top:0}
 .ka .chapters + .more{margin-top:24px}
-.ka .g-contact .intro p.note{font-size:13px;color:#A3A9B5}
+.ka .g-contact .intro p.note{font-size:13px;color:var(--faint)}
 .ka .g-contact .note a{text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- articles: cards ---------- */
@@ -196,9 +196,12 @@
 .ka .cta{padding-block:112px}
 .ka .sec:not(.alt) + .cta{padding-top:0}
 .ka .cta + .sec:not(.alt){padding-top:0}
-.ka .cta-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px 64px;align-items:end;padding:56px;border-radius:28px;background:var(--ink);color:#fff}
+.ka .cta-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px 64px;align-items:end;padding:56px;border-radius:28px;background:var(--forest);color:#fff}
 .ka .cta-card h2{max-width:18ch;font-size:clamp(32px,4vw,46px);font-weight:700}
 .ka .cta-card p{margin-top:18px;max-width:50ch;color:#C3C8D2;font-size:17px;text-wrap:pretty}
+/* on the Forest card the Pine button would vanish, so it turns white with Forest text, like the menu card's */
+.ka .cta-card .btn{background:#fff;color:var(--forest)}
+@media (hover:hover) and (pointer:fine){.ka .cta-card .btn:hover{background:#C9E8AE}}
 .ka .cta-card .side{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
 .ka .cta-card .reach{display:flex;flex-direction:column;gap:6px;font-size:15px;color:#C3C8D2}
 @media (hover:hover) and (pointer:fine){.ka .cta-card .reach a:hover{color:#fff}}

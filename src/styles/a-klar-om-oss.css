@@ -66,7 +66,7 @@
 .ka .om-b2s figcaption{font-size:14px;color:var(--soft)}
 .ka .om-b2s-stage{position:relative;aspect-ratio:10/9;border-radius:28px;border:1px solid var(--line);overflow:hidden;background-color:var(--surface);background-image:radial-gradient(#D9DCE2 1.2px,transparent 1.2px);background-size:22px 22px}
 @media (hover:hover) and (pointer:fine){.ka .om-b2s-stage:hover *{animation-play-state:paused}}
-.ka .om-b2s-msg{position:absolute;display:flex;flex-direction:column;gap:4px;max-width:62%;margin:0;padding:12px 16px;border-radius:18px;font-size:15px;line-height:1.4;box-shadow:0 12px 28px -18px rgba(30,42,110,.45);animation:14s var(--out) infinite both}
+.ka .om-b2s-msg{position:absolute;display:flex;flex-direction:column;gap:4px;max-width:62%;margin:0;padding:12px 16px;border-radius:18px;font-size:15px;line-height:1.4;box-shadow:0 12px 28px -18px rgba(19,26,58,.45);animation:14s var(--out) infinite both}
 .ka .om-b2s-msg .who{font-size:12px;font-weight:600;opacity:.75}
 .ka .om-b2s-msg.in{top:6%;left:5%;border-bottom-left-radius:6px;background:#fff;color:var(--ink);animation-name:om-b2s-in}
 .ka .om-b2s-msg.out{top:27%;right:5%;border-bottom-right-radius:6px;background:var(--cobalt);color:#fff;animation-name:om-b2s-out}
@@ -83,7 +83,7 @@
 .ka .om-b2s-page .sk-b{left:36.5%;animation-delay:.15s}
 .ka .om-b2s-page .sk-c{left:67%;animation-delay:.3s}
 .ka .om-b2s-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;animation:om-b2s-shot 14s var(--out) infinite both}
-.ka .om-b2s-live{position:absolute;top:-14px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--orange-btn);color:var(--ink);font-size:13px;font-weight:700;box-shadow:0 10px 24px -12px rgba(180,86,10,.6);animation:om-b2s-live 14s var(--ease-pop) infinite both}
+.ka .om-b2s-live{position:absolute;top:-14px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--pine);color:#fff;font-size:13px;font-weight:700;box-shadow:0 10px 24px -12px rgba(4,117,78,.6);animation:om-b2s-live 14s var(--ease-pop) infinite both}
 
 @keyframes om-b2s-in{0%{opacity:0;transform:translateY(12px)}4%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
 @keyframes om-b2s-out{0%,14%{opacity:0;transform:translateY(12px)}19%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
