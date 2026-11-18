@@ -84,7 +84,7 @@
 .ka .logo-mark{display:block;flex:none;height:40px;width:40px;overflow:hidden;border-radius:50%}
 .ka .logo-mark img{display:block;width:100%;height:100%}
 .ka .logo-word{display:block;flex:none;height:27px;width:auto}
-.ka .navlinks{display:flex;gap:28px;font-size:15px;color:#3B404A}
+.ka .navlinks{display:flex;gap:28px;font-size:15px;color:var(--ink)}
 .ka .hasmenu{position:relative}
 .ka .hasmenu>a::after{content:"";display:inline-block;width:6px;height:6px;margin:0 0 3px 8px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
 .ka .dropdown{position:absolute;left:-16px;top:100%;min-width:250px;padding:18px 8px 8px;visibility:hidden;opacity:0;transform:translateY(-4px);transition:opacity 160ms var(--out),transform 160ms var(--out),visibility 0s 160ms}
@@ -345,7 +345,7 @@
 .ka .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
 /* footer */
-/* the homepage footer is a navy field that closes the page (.ka > .foot: .dx has its own .foot) */
+/* the footer is a Forest field that closes the page (.ka > .foot: .dx has its own .foot) */
 .ka > .foot{padding:56px 0 40px;background:var(--navy);color:#fff}
 .ka > .foot .g-foot p,.ka > .foot .legal{color:rgba(255,255,255,.66)}
 .ka > .foot .legal{border-top-color:rgba(255,255,255,.16)}
@@ -356,7 +356,7 @@
 .ka .g-foot .brand .logo-mark{height:40px;width:40px}
 .ka .g-foot .brand .logo-word{height:25px}
 .ka .g-foot p{color:var(--soft);max-width:32ch}
-@media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:#FCB677}}
+@media (hover:hover) and (pointer:fine){.ka .g-foot a:hover{color:#C9E8AE}}
 .ka .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--faint);border-top:1px solid var(--line);padding-top:24px}
 .ka .legal span{display:flex;gap:20px}
 /* «Informasjonskapsler» reopens the cookie choice; a button set like the links beside it */

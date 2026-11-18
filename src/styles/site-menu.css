@@ -3,8 +3,9 @@
    easing are taken from how responsivmedia.no does it: 0.8 s along cubic-bezier(.15,.2,.1,1).
    <html> carries the state: menu-lock (page frozen), menu-open (page aside), menu-instant (no transitions). */
 
+/* the menu sits on Forest; its light accent is a pale lime (#C9E8AE, 8:1 on Forest) */
 /* keep the width the scrollbar takes, so freezing the page does not make it jump wider */
-html{scrollbar-gutter:stable;--menu-bg:#0B6B57;--menu-ease:cubic-bezier(.15,.2,.1,1);--menu-seam:64.4%;--menu-green:#0B6B57;--menu-mint:#C4F1DF}
+html{scrollbar-gutter:stable;--menu-bg:#04442C;--menu-ease:cubic-bezier(.15,.2,.1,1);--menu-seam:64.4%;--menu-green:#04442C;--menu-mint:#C9E8AE}
 html.menu-lock{background:var(--menu-bg)}
 
 /* the page: frozen where it is, then shrunk and moved aside */

@@ -404,7 +404,7 @@
   :root:has(.ka.calm) .ka .dropdown > a:nth-child(8) .dd-t::after{content:" \2192"}
   :root:has(.ka.calm) .ka .dd-t{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
   :root:has(.ka.calm) .ka .dd-d{font-size:14px;line-height:1.5;color:var(--muted)}
-  :root:has(.ka.calm) .ka .dropdown > .dd-cta{display:flex;flex-direction:column;justify-content:space-between;grid-column:4;grid-row:1 / span 3;padding:26px 24px;background:var(--ink);color:#fff}
+  :root:has(.ka.calm) .ka .dropdown > .dd-cta{display:flex;flex-direction:column;justify-content:space-between;grid-column:4;grid-row:1 / span 3;padding:26px 24px;background:var(--forest);color:#fff}
   :root:has(.ka.calm) .ka .dd-cta b{font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
   :root:has(.ka.calm) .ka .dd-cta span{align-self:flex-start;white-space:nowrap;padding:12px 20px;border-radius:var(--r-pill);background:var(--cobalt);font-size:15px;font-weight:600}
   @media (hover:hover) and (pointer:fine){
@@ -418,7 +418,7 @@
 
 /* ---------- the buttons: an green light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
    slides forward on hover (as stripe.com). Pine is the action colour, so links, ticks and steps follow it.
-   The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's navy card. */
+   The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's Forest card. */
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
   background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--signal-green) 0%,var(--pine) 34%,var(--forest) 100%);transition:transform 160ms var(--out)}
 @media (hover:hover) and (pointer:fine){

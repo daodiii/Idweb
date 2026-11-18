@@ -64,13 +64,13 @@ export function CookieConsent() {
         exiting ? "animate-cookie-exit" : "animate-cookie-enter"
       }`}
     >
-      <div className="rounded-2xl border border-[#E6E8EC] bg-white p-5 text-[#14161B] shadow-[0_1px_2px_rgba(20,22,27,0.06),0_24px_48px_-20px_rgba(30,42,110,0.35)]">
+      <div className="rounded-2xl border border-[#E6E7EC] bg-white p-5 text-[#131A3A] shadow-[0_1px_2px_rgba(19,26,58,0.06),0_24px_48px_-20px_rgba(19,26,58,0.35)]">
         <p className="text-[15px] font-semibold">Informasjonskapsler</p>
-        <p id="cookie-desc" className="mt-1.5 text-sm leading-relaxed text-[#4A505B]">
+        <p id="cookie-desc" className="mt-1.5 text-sm leading-relaxed text-[#4B5170]">
           Vi bruker informasjonskapsler for å se hvordan siden blir brukt. Du velger selv.{" "}
           <a
             href="/personvern"
-            className="font-medium text-[#2447D6] underline decoration-[#2447D6]/30 underline-offset-2 transition-colors hover:decoration-[#2447D6]"
+            className="font-medium text-[#04754E] underline decoration-[#04754E]/30 underline-offset-2 transition-colors hover:decoration-[#04754E]"
           >
             Les mer
           </a>
@@ -79,7 +79,7 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => handleChoice("necessary")}
-            className="h-11 rounded-full border border-[#D9DCE2] text-sm font-semibold text-[#14161B] transition-[background-color,transform] duration-150 hover:bg-[#F6F7F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2447D6] active:scale-[0.97]"
+            className="h-11 rounded-full border border-[#D8DAE2] text-sm font-semibold text-[#131A3A] transition-[background-color,transform] duration-150 hover:bg-[#F1F1EF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04754E] active:scale-[0.97]"
             style={{ transitionTimingFunction: ease }}
           >
             Avvis
@@ -87,7 +87,7 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => handleChoice("all")}
-            className="h-11 rounded-full border border-[#D9DCE2] text-sm font-semibold text-[#14161B] transition-[background-color,transform] duration-150 hover:bg-[#F6F7F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2447D6] active:scale-[0.97]"
+            className="h-11 rounded-full border border-[#D8DAE2] text-sm font-semibold text-[#131A3A] transition-[background-color,transform] duration-150 hover:bg-[#F1F1EF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04754E] active:scale-[0.97]"
             style={{ transitionTimingFunction: ease }}
           >
             Godta
