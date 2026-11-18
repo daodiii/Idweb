@@ -31,10 +31,8 @@
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
 .ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede{font-size:17px;line-height:1.7}
 
-/* ---------- actions: every button is Pine ---------- */
+/* ---------- actions: booking and next-step buttons are Sun (a-klar.css), the rest Pine ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
-:root:has(.ka.calm) .ka .btn.book{background:var(--cobalt);color:#fff}
-@media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .btn.book:hover{background:var(--orange-btn-hover)}}
 
 /* ---------- header: see-through with blur; slides away on scroll down, back on scroll up (header-autohide.tsx) ---------- */
 :root:has(.ka.calm) .ka.hdr{transition:transform var(--dur-ui) var(--out)}
@@ -416,24 +414,21 @@
 @media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka .dropdown,:root:has(.ka.calm) .ka .dropdown *{transition:none!important}}
 @media (min-width:821px) and (max-width:1180px){:root:has(.ka.calm) .ka .dd-cta span{padding:10px 16px;font-size:14px}}
 
-/* ---------- the buttons: an green light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
-   slides forward on hover (as stripe.com). Pine is the action colour, so links, ticks and steps follow it.
+/* ---------- the buttons: a Sun light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
+   slides forward on hover (as stripe.com). Sun is kept to these booking and next-step buttons (spec decision 8);
+   Pine stays the colour of links, ticks and steps.
    The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's Forest card. */
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--signal-green) 0%,var(--pine) 34%,var(--forest) 100%);transition:transform 160ms var(--out)}
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%);color:var(--ink);transition:transform 160ms var(--out)}
 @media (hover:hover) and (pointer:fine){
   :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover,
-  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--signal-green) 0%,var(--pine) 34%,var(--forest) 100%)}
+  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%)}
 }
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
-/* on the Forest menu card the green button would vanish, so it turns white with Forest text, like the side menu's */
-:root:has(.ka.calm) .ka .dropdown > .dd-cta span{background:#fff;color:var(--forest)}
-@media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .dropdown > .dd-cta:hover span{background:#C9E8AE}}
-:root:has(.ka.calm) .ka .dropdown > .dd-cta span::after{background-image:linear-gradient(currentColor,currentColor),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='%2304442C' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .ka.calm .hero .btn svg{display:none}
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span)::after{content:"";flex:none;width:14px;height:10px;margin-right:-2px;
   background:linear-gradient(currentColor,currentColor) left 50%/0 1.6px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 0 50%/10px 10px no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 1l4 4-4 4' fill='none' stroke='%23131A3A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 0 50%/10px 10px no-repeat;
   transition:background-size 150ms cubic-bezier(.215,.61,.355,1),background-position 150ms cubic-bezier(.215,.61,.355,1)}
 @media (hover:hover) and (pointer:fine){
   :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover::after,
