@@ -1,11 +1,11 @@
 /**
- * One small drawing per step, in one line style (ink outline, white and pastel fills, a cobalt action, one orange dot).
+ * One small drawing per step, in one line style (ink outline, white and pastel fills, a Pine action, one Lime dot).
  * 0 Samtale, 1 Tilbud, 2 Design, 3 Bygging og lansering. No words in them, so they need no translation and say nothing false.
  */
 const INK = "#131A3A";
 const GREY = "#D8DAE2";
-const ACTION = "var(--cobalt)";
-const ORANGE = "#F2892B";
+const ACTION = "var(--pine)";
+const DOT = "var(--spark)";
 
 export function StepArt({ n }: { n: number }) {
   const common = { viewBox: "0 0 320 220", fill: "none", stroke: INK, strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true, className: "step-art" };
@@ -20,7 +20,7 @@ export function StepArt({ n }: { n: number }) {
         <rect x="160" y="122" width="108" height="8" rx="4" fill="#fff" stroke="none" opacity=".9" />
         <rect x="160" y="140" width="84" height="8" rx="4" fill="#fff" stroke="none" opacity=".9" />
         <rect x="160" y="158" width="52" height="8" rx="4" fill="#fff" stroke="none" opacity=".9" />
-        <circle cx="286" cy="40" r="9" fill={ORANGE} stroke="none" />
+        <circle cx="286" cy="40" r="9" fill={DOT} stroke="none" />
       </svg>
     );
   if (n === 1)
@@ -38,7 +38,7 @@ export function StepArt({ n }: { n: number }) {
         <path d="M94 150h132" stroke={GREY} />
         <rect x="94" y="164" width="132" height="26" rx="13" fill={ACTION} stroke="none" />
         <rect x="114" y="174" width="56" height="6" rx="3" fill="#fff" stroke="none" />
-        <circle cx="270" cy="44" r="9" fill={ORANGE} stroke="none" />
+        <circle cx="270" cy="44" r="9" fill={DOT} stroke="none" />
       </svg>
     );
   if (n === 2)
@@ -57,7 +57,7 @@ export function StepArt({ n }: { n: number }) {
         <rect x="228" y="92" width="48" height="10" rx="3" fill={INK} stroke="none" />
         <rect x="228" y="110" width="36" height="6" rx="3" fill={GREY} stroke="none" />
         <rect x="228" y="124" width="48" height="40" rx="5" fill="#DFECE3" />
-        <circle cx="46" cy="196" r="9" fill={ORANGE} stroke="none" />
+        <circle cx="46" cy="196" r="9" fill={DOT} stroke="none" />
         <circle cx="70" cy="196" r="9" fill={INK} stroke="none" />
         <circle cx="94" cy="196" r="9" fill={ACTION} stroke="none" />
       </svg>
