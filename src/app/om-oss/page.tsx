@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { SEO } from "@/lib/content/seo";
 import { CONTACT_INFO } from "@/lib/constants";
 import { TESTIMONIALS } from "@/lib/home/testimonials";
-import { inter, mona } from "@/lib/home/fonts";
+import { inter } from "@/lib/home/fonts";
 import {
   ABOUT_HERO,
   ABOUT_CHAPTERS,
@@ -92,7 +92,7 @@ function ChapterProof({ client }: { client: string }) {
  */
 export default function OmOssPage() {
   return (
-    <div className={`ka om ${mona.variable} ${inter.variable}`}>
+    <div className={`ka om ${inter.variable}`}>
       <BreadcrumbJsonLd items={CRUMBS} />
 
       <section className="om-hero">

@@ -21,7 +21,7 @@ html.menu-open .smenu{visibility:visible;transition-delay:0s}
 .smenu-nav::-webkit-scrollbar{display:none}
 .smenu ul{list-style:none;margin:0;padding:0;width:100%}
 
-.smenu-link{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:.3em 0;font:400 clamp(30px,3.1vw,48px)/1.12 var(--font-schibsted),system-ui,sans-serif;letter-spacing:-.035em;color:#fff;cursor:pointer;transition:color .25s}
+.smenu-link{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:.3em 0;font:400 clamp(30px,3.1vw,48px)/1.12 var(--font-jakarta),system-ui,sans-serif;letter-spacing:-.035em;color:#fff;cursor:pointer;transition:color .25s}
 .smenu-link:focus-visible{outline:2px solid var(--menu-mint);outline-offset:6px;border-radius:8px}
 .smenu-link svg{flex:none;width:.5em;height:.5em;transition:transform .45s cubic-bezier(.23,1,.32,1)}
 .smenu-link[aria-expanded=true] svg{transform:rotate(180deg)}
@@ -33,12 +33,12 @@ html.menu-open .smenu{visibility:visible;transition-delay:0s}
 .smenu-sub-in{min-height:0;overflow:hidden}
 .smenu-sublist{display:flex;flex-direction:column;max-height:min(40dvh,320px);margin:6px 0 12px;padding:6px;overflow-y:auto;overscroll-behavior:contain;border-radius:18px;background:rgba(255,255,255,.1);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.3) transparent}
 .smenu-sublist:focus-visible{outline:2px solid var(--menu-mint);outline-offset:2px}
-.smenu-sublist a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;font:600 17px/1.3 var(--font-schibsted),system-ui,sans-serif;letter-spacing:-.01em;color:#fff;transition:background-color .2s}
+.smenu-sublist a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;font:600 17px/1.3 var(--font-jakarta),system-ui,sans-serif;letter-spacing:-.01em;color:#fff;transition:background-color .2s}
 .smenu-sublist a small{font-size:13.5px;font-weight:400;line-height:1.4;letter-spacing:0;color:rgba(255,255,255,.75)}
 .smenu-sublist a:focus-visible{outline:2px solid var(--menu-mint);outline-offset:-2px}
 @media (hover:hover) and (pointer:fine){.smenu-sublist a:hover{background:rgba(255,255,255,.14)}}
 
-.ka .smenu-book{display:inline-flex;align-items:center;height:52px;margin-top:clamp(18px,4dvh,40px);padding:0 28px;border-radius:999px;background:#fff;color:var(--menu-green);font:600 17px/1 var(--font-schibsted),system-ui,sans-serif;letter-spacing:-.01em;transition:background-color .2s,transform .2s,opacity .35s}
+.ka .smenu-book{display:inline-flex;align-items:center;height:52px;margin-top:clamp(18px,4dvh,40px);padding:0 28px;border-radius:999px;background:#fff;color:var(--menu-green);font:600 17px/1 var(--font-jakarta),system-ui,sans-serif;letter-spacing:-.01em;transition:background-color .2s,transform .2s,opacity .35s}
 .smenu-book:focus-visible{outline:2px solid var(--menu-mint);outline-offset:3px}
 .smenu-book:active{transform:scale(.97)}
 @media (hover:hover) and (pointer:fine){.smenu-book:hover{background:var(--menu-mint)}}

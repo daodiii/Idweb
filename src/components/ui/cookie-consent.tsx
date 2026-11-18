@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { schibsted } from "@/lib/home/fonts";
 
 const CONSENT_KEY = "idweb-cookie-consent";
 
@@ -61,7 +60,7 @@ export function CookieConsent() {
       role="dialog"
       aria-label="Informasjonskapsler"
       aria-describedby="cookie-desc"
-      className={`${schibsted.variable} fixed inset-x-4 bottom-4 z-[90] font-[family-name:var(--font-schibsted)] sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[380px] ${
+      className={`fixed inset-x-4 bottom-4 z-[90] font-[family-name:var(--font-jakarta)] sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[380px] ${
         exiting ? "animate-cookie-exit" : "animate-cookie-enter"
       }`}
     >

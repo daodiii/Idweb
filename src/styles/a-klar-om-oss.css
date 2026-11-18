@@ -5,7 +5,7 @@
 .ka .om-hero{padding-block:48px 72px}
 .ka .om-kicker{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--muted)}
 .ka .om-swatch{width:30px;height:30px;border-radius:9px;background:#FBF1B4;border:1px solid #E6D98A}
-.ka .om-hero h1{margin-top:20px;max-width:13ch;font-family:var(--font-mona),var(--font);font-size:clamp(44px,7.2vw,104px);font-weight:700;letter-spacing:-.045em;line-height:.98}
+.ka .om-hero h1{margin-top:20px;max-width:13ch;font-family:var(--font);font-size:clamp(44px,7.2vw,104px);font-weight:700;letter-spacing:-.045em;line-height:.98}
 .ka .om-hero h1 span{color:var(--cobalt)}
 .ka .om-hero-side{display:grid;grid-template-columns:minmax(0,54ch) auto;justify-content:space-between;align-items:center;gap:22px 48px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
 .ka .om-hero .lede{font-size:clamp(17px,1.6vw,18.5px);color:var(--muted);text-wrap:pretty}
@@ -25,7 +25,7 @@
 .ka .om-ch.flip .om-q{order:2}
 .ka .om-q{display:flex;flex-direction:column;justify-content:space-between;gap:32px;min-height:340px;margin:0;padding:44px;border-radius:28px}
 .ka .om-q-n{font:400 13px/1 var(--font-mono);opacity:.85}
-.ka .om-q blockquote{margin:0;font-family:var(--font-mona),var(--font);font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.08;text-wrap:balance}
+.ka .om-q blockquote{margin:0;font-family:var(--font);font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.08;text-wrap:balance}
 .ka .om-q.long blockquote{font-size:clamp(24px,2.6vw,34px);line-height:1.15}
 .ka .om-q figcaption{font-size:15px;font-weight:600}
 .ka .om-q-centerrahma{background:#2F5C37;color:#fff}
@@ -109,7 +109,7 @@
 
 /* ---------- closing call to action on peach, like the quote request on the homepage ---------- */
 .ka .om-cta{padding-block:112px;background:var(--orange-tint);text-align:center}
-.ka .om-cta h2{max-width:16ch;margin-inline:auto;font-family:var(--font-mona),var(--font);font-size:clamp(38px,5.4vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.ka .om-cta h2{max-width:16ch;margin-inline:auto;font-family:var(--font);font-size:clamp(38px,5.4vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1}
 .ka .om-cta p{max-width:46ch;margin:22px auto 0;font-size:18px;color:var(--muted);text-wrap:pretty}
 .ka .om-cta .actions{justify-content:center;margin-top:36px}
 

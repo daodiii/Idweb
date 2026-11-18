@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { schibsted } from "@/lib/home/fonts";
 import { IdwebMark } from "@/components/home/idweb-mark";
 import { IdwebWordmark } from "@/components/home/idweb-wordmark";
 import { MenuButton } from "@/components/home/menu-button";
@@ -13,7 +12,7 @@ import "@/styles/header-menu.css";
  */
 export function HomeHeader() {
   return (
-    <div className={`ka hdr ${schibsted.variable}`}>
+    <div className="ka hdr">
       <a href="#main-content" className="skip">
         Hopp til innholdet
       </a>
