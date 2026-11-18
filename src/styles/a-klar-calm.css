@@ -287,7 +287,7 @@
 .ka.calm .tm.tm-on-ringebu{--tint:#DCEBEA}
 .ka.calm .tm-stage{background:var(--tint);transition:background-color .6s var(--out)}
 /* one section on a full-width soft field, so the page changes world once in the middle */
-.ka.calm #prosess{background:#ECEEF9}
+.ka.calm #prosess{background:#EAF3EE}
 .ka.calm #prosess .stage{background:rgba(255,255,255,.62)}
 .ka.calm .band.warm + .band{border-top:0}
 @media (prefers-reduced-motion:reduce){.ka.calm .tm-stage{transition:none}}
