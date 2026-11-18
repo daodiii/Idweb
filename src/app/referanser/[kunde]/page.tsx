@@ -30,7 +30,7 @@ const ARROW = (
 );
 const TICK = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-    <circle cx="11" cy="11" r="10" fill="#1E2A6E" />
+    <circle cx="11" cy="11" r="10" fill="var(--forest)" />
     <path d="M6.8 11.3l2.8 2.8 5.6-5.8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );

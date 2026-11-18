@@ -64,7 +64,8 @@
 .ka.kc .kc-story.is-scene .kc-step > *{opacity:1;transform:none}
 .ka.kc .kc-story.is-scene .kc-step figure{display:none}
 .ka.kc .kc-story.is-scene .kc-step h3,.ka.kc .kc-story.is-scene .kc-step p{color:#B3B8C1;transition:color 300ms var(--out)}
-.ka.kc .kc-story.is-scene .kc-step.on h3,.ka.kc .kc-story.is-scene .kc-step.on p{color:var(--ink)}
+.ka.kc .kc-story.is-scene .kc-step.on h3{color:var(--heading)}
+.ka.kc .kc-story.is-scene .kc-step.on p{color:var(--ink)}
 .ka.kc .kc-story.is-scene .kc-pin{display:block;grid-column:2;grid-row:1/span 99;position:sticky;top:var(--pin-top,120px);align-self:start}
 .ka.kc .kc-shot{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#fff}
 .ka.kc .kc-shot img{object-fit:cover;object-position:top;opacity:0;transition:opacity 380ms var(--out)}
