@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { schibsted } from "@/lib/home/fonts";
 import { IdwebMark } from "@/components/home/idweb-mark";
 import { IdwebWordmark } from "@/components/home/idweb-wordmark";
 import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
 export function HomeFooter() {
   return (
-    <div className={`ka ${schibsted.variable}`}>
+    <div className="ka">
       <footer className="foot">
         <div className="wrap">
           <div className="g-foot">

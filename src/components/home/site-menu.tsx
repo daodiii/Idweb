@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { schibsted } from "@/lib/home/fonts";
 import { LINKS } from "@/lib/home/nav-links";
 import { closeMenu, useMenuOpen } from "@/lib/home/site-menu";
 import "@/styles/site-menu.css";
@@ -62,7 +61,7 @@ export function SiteMenu() {
   const go = () => closeMenu({ instant: true });
 
   return (
-    <div className={`ka smenu-root ${schibsted.variable}`}>
+    <div className="ka smenu-root">
       <div className="smenu-scrim" onClick={() => closeMenu()} aria-hidden="true" />
       <button ref={closeRef} type="button" className="smenu-close" onClick={() => closeMenu()} tabIndex={open ? 0 : -1} aria-hidden={!open}>
         <span className="sr">Lukk meny</span>

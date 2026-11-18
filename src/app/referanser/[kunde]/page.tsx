@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { CASES, getCase, nextCase } from "@/lib/content/kundecase";
-import { mona, schibsted } from "@/lib/home/fonts";
 import { Scene } from "@/components/kundecase/scene";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import "@/styles/a-klar.css";
@@ -48,7 +47,7 @@ export default async function KundecasePage({ params }: Props) {
   const img = (slug: string, name: string) => `/images/kunder/${slug}/${name}.webp`;
 
   return (
-    <div className={`ka kc ${schibsted.variable} ${mona.variable}`}>
+    <div className="ka kc">
       <BreadcrumbJsonLd
         items={[
           { name: "Hjem", href: "/" },

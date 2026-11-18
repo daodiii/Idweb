@@ -1,24 +1,9 @@
-import { Bricolage_Grotesque, Figtree, Inter, Mona_Sans, Plus_Jakarta_Sans, Schibsted_Grotesk, Young_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Figtree, Inter, Plus_Jakarta_Sans, Young_Serif } from "next/font/google";
 
-// The A · Klar homepage face. Exposed as a CSS variable that a-klar.css reads inside the .ka scope.
-export const schibsted = Schibsted_Grotesk({
-  variable: "--font-schibsted",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-// The calm homepage face (a-klar-calm.css), chosen over Schibsted in Part 1 of docs/specs/calm-homepage.md.
+// The site's one face (a-klar.css --font), the brand face of the green IDweb identity (docs/specs/green-brand.md).
 // One variable file covers every weight; latin includes æ, ø and å.
 export const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-// The hero face: headline, lede and buttons at the top of the homepage. Variable weight, exposed as --font-mona.
-export const mona = Mona_Sans({
-  variable: "--font-mona",
   subsets: ["latin"],
   display: "swap",
 });

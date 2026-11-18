@@ -7,7 +7,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { PageHead } from "@/components/klar/page-head";
 import { CtaCard } from "@/components/klar/cta-card";
 import { Arrow } from "@/components/home/arrow";
-import { mona, schibsted } from "@/lib/home/fonts";
 import "@/styles/kundecase.css";
 
 export const metadata: Metadata = pageMetadata({
@@ -24,7 +23,7 @@ const CRUMBS = [
 /** The client cases, and nothing else: one card per case, each the way in to its page under /referanser/<slug>. */
 export default function KundecaserPage() {
   return (
-    <div className={`ka kc ${schibsted.variable} ${mona.variable}`}>
+    <div className="ka kc">
       <BreadcrumbJsonLd items={CRUMBS} />
 
       <PageHead crumbs={CRUMBS} title="Kundecaser" lede="Slik laget vi nettsidene til to av kundene våre." />
