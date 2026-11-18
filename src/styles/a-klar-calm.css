@@ -31,7 +31,7 @@
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
 .ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede{font-size:17px;line-height:1.7}
 
-/* ---------- actions: every button is cobalt ---------- */
+/* ---------- actions: every button is Pine ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
 :root:has(.ka.calm) .ka .btn.book{background:var(--cobalt);color:#fff}
 @media (hover:hover) and (pointer:fine){:root:has(.ka.calm) .ka .btn.book:hover{background:var(--orange-btn-hover)}}
@@ -293,9 +293,9 @@
 @media (prefers-reduced-motion:reduce){.ka.calm .tm-stage{transition:none}}
 
 /* ---------- quote request: the page ends under the northern lights (quote-section.tsx) ----------
-   A night sky with the moment's aurora drifting at the top lightens into the footer's navy, so the page closes in one
+   A night sky with the moment's aurora drifting at the top lightens into the footer's Forest, so the page closes in one
    sweep. The promise and the three terms sit on the left in white; the wizard floats on the right as a bright card. */
-.ka.calm .qt{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(96px,10vw,160px) clamp(88px,9vw,136px);border-top:0;color:#fff;background:linear-gradient(180deg,#030817 0%,#08122E 38%,#132055 72%,#1E2A6E 100%)}
+.ka.calm .qt{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(96px,10vw,160px) clamp(88px,9vw,136px);border-top:0;color:#fff;background:linear-gradient(180deg,#02150E 0%,#031F15 38%,#03311F 72%,#04442C 100%)}
 /* a few stars, painted once */
 .ka.calm .qt::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.8;background:
   radial-gradient(1.4px 1.4px at 8% 12%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 22% 30%,#fff 50%,transparent 60%),
@@ -311,7 +311,7 @@
 @media (min-width:901px){.ka.calm .qt-g{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(48px,6vw,96px)}}
 /* the promise */
 .ka.calm .qt-side{position:static;gap:26px;padding-top:clamp(0px,2vw,24px)}
-.ka.calm .qt-side h2{max-width:14ch;font-size:clamp(38px,4.4vw,64px);line-height:1.06;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(3,8,23,.5)}
+.ka.calm .qt-side h2{max-width:14ch;font-size:clamp(38px,4.4vw,64px);line-height:1.06;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(2,21,14,.5)}
 .ka.calm .qt .mk path{stroke-opacity:.9}
 .ka.calm .qt-lede{max-width:40ch;color:rgba(255,255,255,.82)}
 .ka.calm .qt-terms{display:flex;flex-direction:column;gap:14px;margin:6px 0 4px;padding:0;list-style:none;font-size:18px;font-weight:500;color:#fff}
@@ -319,7 +319,7 @@
 .ka.calm .qt-terms li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
 .ka.calm .qt-reach{color:rgba(255,255,255,.75)}
 .ka.calm .qt-reach a{color:#fff}
-@media (hover:hover) and (pointer:fine){.ka.calm .qt-reach a:hover{color:#C9D4FF}}
+@media (hover:hover) and (pointer:fine){.ka.calm .qt-reach a:hover{color:#C9E8AE}}
 /* the request so far is read out to screen readers; sighted visitors see it in the card («Så langt», «Dette sender dere») */
 .ka.calm .qt-sum{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .ka.calm .qt-strip,.ka.calm .qt-final{display:block;background:var(--card)}
@@ -327,7 +327,7 @@
 .ka.calm .qt-card{border:0;border-radius:var(--r-card);padding:clamp(28px,3vw,40px);color:var(--ink);background:var(--bg);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 60px 120px -40px rgba(0,0,0,.75)}
 .ka.calm .qt-q{font-weight:500;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.03em}
 .ka.calm .qt-blk h4,.ka.calm .qt-xh h4,.ka.calm .qt-final h4{font-weight:600}
-/* numbered steps joined by a hairline that turns cobalt as they are done */
+/* numbered steps joined by a hairline that turns Pine as they are done */
 .ka.calm .qt-prog{counter-reset:qt;gap:12px;margin-bottom:32px}
 .ka.calm .qt-prog li{counter-increment:qt;flex-direction:row;align-items:center;gap:12px;font-size:14px}
 .ka.calm .qt-prog li:last-child{flex:none}
@@ -338,7 +338,7 @@
 .ka.calm .qt-prog .cur span::before{background:var(--cobalt);box-shadow:none;color:#fff}
 .ka.calm .qt-prog .done span::before{content:"\2713";box-shadow:inset 0 0 0 1px var(--cobalt);color:var(--cobalt)}
 .ka.calm .qt-prog .cur i::after{transform:scaleX(0)}
-/* the two big choices: white tiles, a cobalt ring when chosen */
+/* the two big choices: white tiles, a Pine ring when chosen */
 .ka.calm .qt-mode{border:0;border-radius:var(--r-sm);background:var(--card);box-shadow:0 1px 2px rgba(19,26,58,.06);transition:box-shadow var(--dur-ui) var(--out),transform 160ms var(--out)}
 .ka.calm .qt-mode b{font-weight:600}
 .ka.calm .qt-mode[aria-pressed=true]{background:var(--card);box-shadow:inset 0 0 0 2px var(--cobalt)}
@@ -466,7 +466,7 @@
 /* the logo strip: every client as mark and name (Iqra's wordmark already holds its name) */
 .ka.calm .tk-name{display:inline}
 /* form fields: the focus ring takes the action colour */
-.ka.calm .qt-fld input:focus,.ka.calm .qt-fld textarea:focus{box-shadow:0 0 0 3px rgba(11,107,87,.18)}
+.ka.calm .qt-fld input:focus,.ka.calm .qt-fld textarea:focus{box-shadow:0 0 0 3px rgba(4,117,78,.18)}
 
 /* phone and tablet: the booking button leaves the header row and sits at the foot of the menu (mobile-menu.tsx) */
 @media (max-width:820px){:root:has(.ka.calm) .ka .top-end > .btn.book{display:none}}
