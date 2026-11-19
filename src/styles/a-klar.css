@@ -9,6 +9,10 @@
   --pine:#04754E;
   --signal-green:#028F5E;
   --lime:#62B622;
+  /* Sun, the one showstopper colour, for booking and next-step buttons only (spec decision 8) */
+  --sun:#FFC53D;
+  --sun-light:#FFE08A;
+  --sun-deep:#E8960C;
   --bg:#FAFAF9;
   --ink:#131A3A;
   --heading:var(--forest);
@@ -70,8 +74,9 @@
 @media (hover:hover) and (pointer:fine){.ka .btn:hover{background:var(--forest)}}
 .ka .btn.dark{height:42px;padding:0 20px;background:var(--ink);font-size:15px}
 @media (hover:hover) and (pointer:fine){.ka .btn.dark:hover{background:#2A2D35}}
-.ka .btn.book{background:var(--orange-btn);color:#fff}
-@media (hover:hover) and (pointer:fine){.ka .btn.book:hover{background:var(--orange-btn-hover)}}
+/* the booking and next-step buttons are Sun, lit where the pointer is (button-glow.tsx); every other button stays Pine */
+.ka :is(.btn.book,.cta-card .btn,.kc-cta .btn){background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ka :is(.btn.book,.cta-card .btn,.kc-cta .btn):hover{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%)}}
 .ka .link{font-weight:600;border-bottom:1.5px solid var(--ink);padding-bottom:1px}
 .ka .sec-h{display:flex;flex-direction:column;gap:16px}
 .ka .sec-h h2{font-size:clamp(32px,4vw,46px);font-weight:700}

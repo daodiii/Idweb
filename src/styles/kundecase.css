@@ -86,9 +86,8 @@
 .ka.kc .kc-cta{background:var(--forest);color:#fff;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end}
 .ka.kc .kc-cta h2{font-size:clamp(32px,3.6vw,46px);font-weight:700}
 .ka.kc .kc-cta p{color:#C3C8D2;font-size:17px;margin-top:14px;max-width:44ch}
-/* on the Forest card the Pine button would vanish, so it turns white with Forest text, like the menu card's */
-.ka.kc .kc-cta .btn{justify-self:start;background:#fff;color:var(--forest)}
-@media (hover:hover) and (pointer:fine){.ka.kc .kc-cta .btn:hover{background:#C9E8AE}}
+/* the card's button is Sun (a-klar.css, spec decision 8) */
+.ka.kc .kc-cta .btn{justify-self:start}
 .ka.kc .kc-next{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:center;padding:28px;border-radius:24px;background:var(--surface);transition:background-color 200ms}
 .ka.kc .kc-next b{display:block;font:700 clamp(28px,3vw,40px)/1.08 var(--font);letter-spacing:-.025em}
 .ka.kc .kc-next .link{display:inline-block;margin-top:16px}

@@ -21,6 +21,7 @@ Done means:
 | Pine | `#04754E` | Buttons, links, focus rings, small accent text | 5.5:1 on Paper, white on Pine 5.7:1 |
 | Signal | `#028F5E` | Icons and large text only | 3.95:1 on Paper, so never body text |
 | Lime | `#62B622` | Dots, marks and fills, sparingly | 2.4:1 on Paper, so never text on light; 4.4:1 on Forest (large text only) |
+| Sun | `#FFC53D` (gradient `#FFE08A` → `#FFC53D` → `#E8960C`) | The showstopper: booking and next-step buttons only (decision 8) | Ink on it 7.1–13.2:1 across the gradient; 1.5:1 on Paper, so never text or thin lines on light |
 | Paper | `#FAFAF9` | Page background | |
 | Ink | `#131A3A` | Body text | 16.3:1 on Paper |
 
@@ -101,6 +102,10 @@ Later decisions, made while the parts were built:
 5. **Demo fields on the service pages** (`#E9ECF7`): stay periwinkle (part D, 18 November).
 6. **Dark CTA cards** (`.kc-cta` on case pages, `.cta-card` on inner pages): Forest instead of Ink, with a white button and Forest text, `#C9E8AE` on hover (part E, 19 November; `.cta-card` follows in part F).
 7. **Faded scene steps** on the case pages: `#676C80` instead of `#B3B8C1`, so they pass AA on the grey ground at 4.6:1 (part E, 19 November).
+8. **Sun, the showstopper colour** (19 November): one warm accent away from the green, kept to the buttons that move a visitor toward booking. It is built like the green button (a radial gradient whose light follows the pointer): `#FFE08A` at the light, Sun `#FFC53D` at 34%, `#E8960C` at the edge, with Ink text and an Ink chevron.
+   - **Sun:** every `.btn.book` (the header on every page, the homepage hero, the service pages' «Book en gratis prat», om-oss), «Neste» in the price form, the menu dropdown's card, the side menu's button, and the buttons on the Forest CTA cards (`.cta-card`, `.kc-cta`). On Forest the Sun button replaces decision 6's white one.
+   - **Stays Pine:** every other button (404, error, personvern, the /kontakt send button, the mid-page `/kontakt` links on om-oss and webbyra-oslo), links, ticks, focus rings.
+   - **Never:** Sun text, Sun on large areas, or more than one Sun button in a view where it can be avoided.
 
 ## Still open
 
