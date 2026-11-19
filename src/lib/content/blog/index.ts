@@ -14,9 +14,15 @@ import { webdesigntrender2026 } from "./webdesigntrender-2026";
 import { googleBedriftsprofilGuide } from "./google-bedriftsprofil-guide";
 import { hvordanVelgeDomenenavn } from "./hvordan-velge-domenenavn";
 import { nettsideSomGenerererLeads } from "./nettside-som-genererer-leads";
+import { webpEllerIkkeWebp } from "./webp-eller-ikke-webp";
+import { phpNettside2026 } from "./php-nettside-2026";
+import { aiSokSynlighet } from "./ai-sok-synlighet";
 
 /** Sorted by publishedDate descending (newest first). */
 export const BLOG_POSTS: BlogPost[] = [
+  aiSokSynlighet,
+  phpNettside2026,
+  webpEllerIkkeWebp,
   nettsideSomGenerererLeads,
   hvordanVelgeDomenenavn,
   googleBedriftsprofilGuide,
