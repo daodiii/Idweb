@@ -31,7 +31,7 @@
 .ka.calm .qt-q{font-weight:500;letter-spacing:-.03em}
 .ka.calm .sec-h p,.ka.calm .tm-head p,.ka.calm .qt-lede{font-size:17px;line-height:1.7}
 
-/* ---------- actions: booking and next-step buttons are Sun (a-klar.css), the rest Pine ---------- */
+/* ---------- actions: booking and next-step buttons are Pine cone (a-klar.css), the rest Pine ---------- */
 :root:has(.ka.calm) .ka .btn{transition:transform 160ms var(--out),background-color var(--dur-ui) var(--out)}
 
 /* ---------- header: see-through with blur; slides away on scroll down, back on scroll up (header-autohide.tsx) ---------- */
@@ -414,15 +414,15 @@
 @media (prefers-reduced-motion:reduce){:root:has(.ka.calm) .ka .dropdown,:root:has(.ka.calm) .ka .dropdown *{transition:none!important}}
 @media (min-width:821px) and (max-width:1180px){:root:has(.ka.calm) .ka .dd-cta span{padding:10px 16px;font-size:14px}}
 
-/* ---------- the buttons: a Sun light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
-   slides forward on hover (as stripe.com). Sun is kept to these booking and next-step buttons (spec decision 8);
+/* ---------- the buttons: a Pine cone light that follows the pointer (as airbnb.com), and a chevron that grows a stem and
+   slides forward on hover (as stripe.com). Pine cone is kept to these booking and next-step buttons (spec decision 8);
    Pine stays the colour of links, ticks and steps.
    The buttons: the hero's, the header's, «Neste» in the price form and the one in the menu's Forest card. */
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span){display:inline-flex;align-items:center;gap:8px;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%);color:var(--ink);transition:transform 160ms var(--out)}
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--cone-light) 0%,var(--cone) 34%,var(--cone-deep) 100%);color:var(--ink);transition:transform 160ms var(--out)}
 @media (hover:hover) and (pointer:fine){
   :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next):hover,
-  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%)}
+  :root:has(.ka.calm) .ka .dd-cta:hover span{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--cone-light) 0%,var(--cone) 34%,var(--cone-deep) 100%)}
 }
 :root:has(.ka.calm) .ka :is(.hero .btn,.top .btn,.qt-next,.dd-cta span):active{transform:scale(.96)}
 .ka.calm .hero .btn svg{display:none}

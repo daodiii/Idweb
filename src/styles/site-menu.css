@@ -39,10 +39,10 @@ html.menu-open .smenu{visibility:visible;transition-delay:0s}
 .smenu-sublist a:focus-visible{outline:2px solid var(--menu-mint);outline-offset:-2px}
 @media (hover:hover) and (pointer:fine){.smenu-sublist a:hover{background:rgba(255,255,255,.14)}}
 
-.ka .smenu-book{display:inline-flex;align-items:center;height:52px;margin-top:clamp(18px,4dvh,40px);padding:0 28px;border-radius:999px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--sun-light) 0%,var(--sun) 34%,var(--sun-deep) 100%);color:var(--ink);font:600 17px/1 var(--font-jakarta),system-ui,sans-serif;letter-spacing:-.01em;transition:background-color .2s,transform .2s,opacity .35s}
+.ka .smenu-book{display:inline-flex;align-items:center;height:52px;margin-top:clamp(18px,4dvh,40px);padding:0 28px;border-radius:999px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--cone-light) 0%,var(--cone) 34%,var(--cone-deep) 100%);color:var(--ink);font:600 17px/1 var(--font-jakarta),system-ui,sans-serif;letter-spacing:-.01em;transition:background-color .2s,transform .2s,opacity .35s}
 .smenu-book:focus-visible{outline:2px solid var(--menu-mint);outline-offset:3px}
 .smenu-book:active{transform:scale(.97)}
-/* the side menu's booking button is Sun, like every booking button (spec decision 8) */
+/* the side menu's booking button is Pine cone, like every booking button (spec decision 8) */
 
 /* the links come in one after another when the page has moved */
 .smenu-item,.smenu-book{opacity:0;transform:translateX(32px);transition:opacity .25s ease,transform .25s ease}
