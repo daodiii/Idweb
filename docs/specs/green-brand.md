@@ -21,7 +21,7 @@ Done means:
 | Pine | `#04754E` | Buttons, links, focus rings, small accent text | 5.5:1 on Paper, white on Pine 5.7:1 |
 | Signal | `#028F5E` | Icons and large text only | 3.95:1 on Paper, so never body text |
 | Lime | `#62B622` | Dots, marks and fills, sparingly | 2.4:1 on Paper, so never text on light; 4.4:1 on Forest (large text only) |
-| Sun | `#FFC53D` (gradient `#FFE08A` → `#FFC53D` → `#E8960C`) | The showstopper: booking and next-step buttons only (decision 8) | Ink on it 7.1–13.2:1 across the gradient; 1.5:1 on Paper, so never text or thin lines on light |
+| Pine cone | `#D19A62` (gradient `#ECC79A` → `#D19A62` → `#A8723F`) | Booking and next-step buttons only (decisions 8 and 9) | Ink on it 4.2–10.7:1 across the gradient (6.9:1 at the middle); 4.6:1 against Forest, 2.4:1 against Paper, so never text or thin lines on light |
 | Paper | `#FAFAF9` | Page background | |
 | Ink | `#131A3A` | Body text | 16.3:1 on Paper |
 
@@ -106,6 +106,7 @@ Later decisions, made while the parts were built:
    - **Sun:** every `.btn.book` (the header on every page, the homepage hero, the service pages' «Book en gratis prat», om-oss), «Neste» in the price form, the menu dropdown's card, the side menu's button, and the buttons on the Forest CTA cards (`.cta-card`, `.kc-cta`). On Forest the Sun button replaces decision 6's white one.
    - **Stays Pine:** every other button (404, error, personvern, the /kontakt send button, the mid-page `/kontakt` links on om-oss and webbyra-oslo), links, ticks, focus rings.
    - **Never:** Sun text, Sun on large areas, or more than one Sun button in a view where it can be avoided.
+9. **Pine cone replaces Sun** (23 November): Ilyas wanted a brown that sits with the pine greens like a trunk with its needles. Of three browns tried (Bark, Cedar, Pine cone), Pine cone is the only one that stays clear on both grounds: Bark nearly vanished on Forest (1.3:1). Same gradient shape and stops as Sun (light at the pointer, middle at 34%), same Ink text and chevron, same buttons and the same rules as decision 8. Tokens renamed `--sun*` to `--cone*`.
 
 ## Still open
 
