@@ -13,7 +13,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     heading: "Hvem er behandlingsansvarlig?",
     body: (
       <p>
-        IDweb v/ Daod Ilyas (org.nr: 837 228 972) er behandlingsansvarlig for personopplysninger som samles inn via
+        IDweb, drevet av Ilyas Solutions v/ Daod Ilyas (org.nr: 837 228 972), er behandlingsansvarlig for personopplysninger som samles inn via
         denne nettsiden. Kontakt oss på <a href="mailto:hei@idweb.no">hei@idweb.no</a> dersom du har spørsmål om
         hvordan vi behandler personopplysninger.
       </p>
@@ -176,7 +176,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
       <>
         <p>For spørsmål om personvern, ta kontakt med oss:</p>
         <p>
-          IDweb v/ Daod Ilyas
+          IDweb (Ilyas Solutions v/ Daod Ilyas)
           <br />
           Org.nr: 837 228 972
           <br />

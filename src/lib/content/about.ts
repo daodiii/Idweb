@@ -79,6 +79,7 @@ export const ABOUT_WHO = {
   paragraphs: [
     "Vi startet IDweb fordi for mange bedrifter betalte for nettsider som aldri ga noe tilbake: pene sider ingen fant, og dyre løsninger ingen forsto.",
     "I dag lager vi nettsider, timebestilling, nettbutikker, kundeportaler og AI-chatboter for norske bedrifter. Og du snakker med den som bygger.",
+    "IDweb drives av Daod Ilyas gjennom enkeltpersonforetaket Ilyas Solutions, org.nr 837 228 972.",
   ],
 } as const;
 

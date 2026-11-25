@@ -32,7 +32,16 @@ const BUSINESS_SCHEMA = {
   "@type": "ProfessionalService",
   "@id": "https://www.idweb.no/#business",
   name: "IDweb",
-  legalName: "IDweb v/ Daod Ilyas",
+  // The Brønnøysund-registered name of org.nr 837228972. "IDweb" is the trading name; alternateName adds the
+  // qualifier that separates it from other "IDweb"s (Den norske kirke's login system, foreign agencies).
+  legalName: "Ilyas Solutions",
+  alternateName: "IDweb webbyrå",
+  founder: {
+    "@type": "Person",
+    "@id": `${SITE}/#founder`,
+    name: "Daod Ilyas",
+    worksFor: { "@id": `${SITE}/#business` },
+  },
   description:
     "Vi lager skreddersydde, mobiloptimaliserte nettsider for norske bedrifter. SEO, design og vedlikehold.",
   url: "https://www.idweb.no",
