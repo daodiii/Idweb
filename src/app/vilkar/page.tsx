@@ -15,8 +15,8 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
     heading: "Generelt",
     body: (
       <p>
-        Disse vilkårene gjelder for alle tjenester levert av IDweb v/ Daod
-        Ilyas, org.nr: 837 228 972 (heretter «vi», «oss» eller «selskapet»).
+        Disse vilkårene gjelder for alle tjenester levert av IDweb, drevet av Ilyas Solutions
+        v/ Daod Ilyas, org.nr: 837 228 972 (heretter «vi», «oss» eller «selskapet»).
         Ved å bestille tjenester fra oss aksepterer du disse vilkårene. Vi
         forbeholder oss retten til å oppdatere vilkårene. Gjeldende versjon er
         alltid tilgjengelig på denne siden.
@@ -180,7 +180,7 @@ const SECTIONS: { num: string; heading: string; body: React.ReactNode }[] = [
       <>
         <p>For spørsmål om vilkårene, ta kontakt med oss:</p>
         <p>
-          IDweb v/ Daod Ilyas
+          IDweb (Ilyas Solutions v/ Daod Ilyas)
           <br />
           Org.nr: 837 228 972
           <br />
